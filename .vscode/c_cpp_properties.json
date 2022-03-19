@@ -1,0 +1,42 @@
+{
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": [
+        "${workspaceFolder}/**"
+      ],
+      "defines": [
+        "\"_DEBUG\",",
+        "\"UNICODE\",",
+        "\"_UNICODE\""
+      ],
+      "compilerPath": "/usr/bin/arm-none-eabi-gcc",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "gcc-x64"
+    },
+    {
+      "name": "STM32",
+      "includePath": [
+        "Core/Inc",
+        "Drivers/CMSIS/Device/ST/STM32F1xx/Include",
+        "Drivers/CMSIS/Include",
+        "Drivers/STM32F1xx_HAL_Driver/Inc"
+      ],
+      "defines": [
+        "HSE_STARTUP_TIMEOUT=100",
+        "HSE_VALUE=8000000",
+        "HSI_VALUE=8000000",
+        "LSE_STARTUP_TIMEOUT=5000",
+        "LSE_VALUE=32768",
+        "LSI_VALUE=40000",
+        "PREFETCH_ENABLE=1",
+        "STM32F103xB",
+        "USE_FULL_LL_DRIVER",
+        "VDD_VALUE=3300"
+      ],
+      "compilerPath": "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/arm-none-eabi-gcc"
+    }
+  ],
+  "version": 4
+}

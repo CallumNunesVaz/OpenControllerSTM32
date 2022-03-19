@@ -1,0 +1,378 @@
+ARM GAS  /tmp/ccU34Q7i.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f1xx_ll_crc.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.LL_CRC_DeInit,"ax",%progbits
+  18              		.align	1
+  19              		.global	LL_CRC_DeInit
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	LL_CRC_DeInit:
+  25              	.LVL0:
+  26              	.LFB83:
+  27              		.file 1 "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c"
+   1:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** /**
+   2:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   ******************************************************************************
+   3:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * @file    stm32f1xx_ll_crc.c
+   4:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * @author  MCD Application Team
+   5:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * @brief   CRC LL module driver.
+   6:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   ******************************************************************************
+   7:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * @attention
+   8:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   *
+   9:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * <h2><center>&copy; Copyright (c) 2016 STMicroelectronics.
+  10:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * All rights reserved.</center></h2>
+  11:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   *
+  12:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * This software component is licensed by ST under BSD 3-Clause license,
+  13:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * the "License"; You may not use this file except in compliance with the
+  14:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * License. You may obtain a copy of the License at:
+  15:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   *                        opensource.org/licenses/BSD-3-Clause
+  16:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   *
+  17:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   ******************************************************************************
+  18:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   */
+  19:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** #if defined(USE_FULL_LL_DRIVER)
+  20:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  21:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** /* Includes ------------------------------------------------------------------*/
+  22:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** #include "stm32f1xx_ll_crc.h"
+  23:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** #include "stm32f1xx_ll_bus.h"
+  24:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  25:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** #ifdef  USE_FULL_ASSERT
+  26:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** #include "stm32_assert.h"
+  27:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** #else
+  28:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** #define assert_param(expr) ((void)0U)
+  29:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** #endif/* USE_FULL_ASSERT */
+  30:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  31:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** /** @addtogroup STM32F1xx_LL_Driver
+ARM GAS  /tmp/ccU34Q7i.s 			page 2
+
+
+  32:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * @{
+  33:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   */
+  34:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  35:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** #if defined (CRC)
+  36:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  37:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** /** @addtogroup CRC_LL
+  38:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * @{
+  39:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   */
+  40:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  41:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** /* Private types -------------------------------------------------------------*/
+  42:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** /* Private variables ---------------------------------------------------------*/
+  43:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** /* Private constants ---------------------------------------------------------*/
+  44:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** /* Private macros ------------------------------------------------------------*/
+  45:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** /* Private function prototypes -----------------------------------------------*/
+  46:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  47:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** /* Exported functions --------------------------------------------------------*/
+  48:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** /** @addtogroup CRC_LL_Exported_Functions
+  49:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * @{
+  50:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   */
+  51:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  52:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** /** @addtogroup CRC_LL_EF_Init
+  53:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * @{
+  54:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   */
+  55:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  56:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** /**
+  57:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * @brief  De-initialize CRC registers (Registers restored to their default values).
+  58:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * @param  CRCx CRC Instance
+  59:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   * @retval An ErrorStatus enumeration value:
+  60:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   *          - SUCCESS: CRC registers are de-initialized
+  61:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   *          - ERROR: CRC registers are not de-initialized
+  62:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   */
+  63:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** ErrorStatus LL_CRC_DeInit(CRC_TypeDef *CRCx)
+  64:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** {
+  28              		.loc 1 64 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  65:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   ErrorStatus status = SUCCESS;
+  33              		.loc 1 65 3 view .LVU1
+  66:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  67:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   /* Check the parameters */
+  68:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   assert_param(IS_CRC_ALL_INSTANCE(CRCx));
+  34              		.loc 1 68 3 view .LVU2
+  69:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  70:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   if (CRCx == CRC)
+  35              		.loc 1 70 3 view .LVU3
+  36              		.loc 1 70 6 is_stmt 0 view .LVU4
+  37 0000 064B     		ldr	r3, .L5
+  38 0002 9842     		cmp	r0, r3
+  39 0004 01D0     		beq	.L4
+  71:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   {
+  72:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  73:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****     /* Reset the CRC calculation unit */
+  74:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****     LL_CRC_ResetCRCCalculationUnit(CRCx);
+  75:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  76:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****     /* Reset IDR register */
+ARM GAS  /tmp/ccU34Q7i.s 			page 3
+
+
+  77:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****     LL_CRC_Write_IDR(CRCx, 0x00U);
+  78:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   }
+  79:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   else
+  80:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   {
+  81:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****     status = ERROR;
+  40              		.loc 1 81 12 view .LVU5
+  41 0006 0120     		movs	r0, #1
+  42              	.LVL1:
+  82:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   }
+  83:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  84:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   return (status);
+  43              		.loc 1 84 3 is_stmt 1 view .LVU6
+  85:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** }
+  44              		.loc 1 85 1 is_stmt 0 view .LVU7
+  45 0008 7047     		bx	lr
+  46              	.LVL2:
+  47              	.L4:
+  74:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  48              		.loc 1 74 5 is_stmt 1 view .LVU8
+  49              	.LBB6:
+  50              	.LBI6:
+  51              		.file 2 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h"
+   1:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /**
+   2:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   ******************************************************************************
+   3:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @file    stm32f1xx_ll_crc.h
+   4:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @author  MCD Application Team
+   5:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @brief   Header file of CRC LL module.
+   6:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   ******************************************************************************
+   7:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @attention
+   8:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   *
+   9:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * <h2><center>&copy; Copyright (c) 2016 STMicroelectronics.
+  10:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * All rights reserved.</center></h2>
+  11:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   *
+  12:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * This software component is licensed by ST under BSD 3-Clause license,
+  13:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * the "License"; You may not use this file except in compliance with the
+  14:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * License. You may obtain a copy of the License at:
+  15:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   *                        opensource.org/licenses/BSD-3-Clause
+  16:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   *
+  17:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   ******************************************************************************
+  18:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+  19:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  20:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /* Define to prevent recursive inclusion -------------------------------------*/
+  21:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** #ifndef STM32F1xx_LL_CRC_H
+  22:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** #define STM32F1xx_LL_CRC_H
+  23:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  24:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** #ifdef __cplusplus
+  25:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** extern "C" {
+  26:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** #endif
+  27:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  28:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /* Includes ------------------------------------------------------------------*/
+  29:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** #include "stm32f1xx.h"
+  30:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  31:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /** @addtogroup STM32F1xx_LL_Driver
+  32:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @{
+  33:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+  34:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  35:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** #if defined(CRC)
+ARM GAS  /tmp/ccU34Q7i.s 			page 4
+
+
+  36:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  37:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /** @defgroup CRC_LL CRC
+  38:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @{
+  39:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+  40:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  41:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /* Private types -------------------------------------------------------------*/
+  42:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /* Private variables ---------------------------------------------------------*/
+  43:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /* Private constants ---------------------------------------------------------*/
+  44:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /* Private macros ------------------------------------------------------------*/
+  45:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  46:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /* Exported types ------------------------------------------------------------*/
+  47:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /* Exported constants --------------------------------------------------------*/
+  48:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /** @defgroup CRC_LL_Exported_Constants CRC Exported Constants
+  49:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @{
+  50:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+  51:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  52:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /**
+  53:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @}
+  54:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+  55:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  56:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /* Exported macro ------------------------------------------------------------*/
+  57:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /** @defgroup CRC_LL_Exported_Macros CRC Exported Macros
+  58:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @{
+  59:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+  60:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  61:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /** @defgroup CRC_LL_EM_WRITE_READ Common Write and read registers Macros
+  62:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @{
+  63:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+  64:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  65:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /**
+  66:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @brief  Write a value in CRC register
+  67:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @param  __INSTANCE__ CRC Instance
+  68:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @param  __REG__ Register to be written
+  69:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @param  __VALUE__ Value to be written in the register
+  70:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @retval None
+  71:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+  72:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** #define LL_CRC_WriteReg(__INSTANCE__, __REG__, __VALUE__) WRITE_REG(__INSTANCE__->__REG__, __VALUE_
+  73:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  74:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /**
+  75:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @brief  Read a value in CRC register
+  76:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @param  __INSTANCE__ CRC Instance
+  77:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @param  __REG__ Register to be read
+  78:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @retval Register value
+  79:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+  80:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** #define LL_CRC_ReadReg(__INSTANCE__, __REG__) READ_REG(__INSTANCE__->__REG__)
+  81:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /**
+  82:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @}
+  83:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+  84:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  85:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /**
+  86:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @}
+  87:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+  88:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  89:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  90:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /* Exported functions --------------------------------------------------------*/
+  91:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /** @defgroup CRC_LL_Exported_Functions CRC Exported Functions
+  92:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @{
+ARM GAS  /tmp/ccU34Q7i.s 			page 5
+
+
+  93:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+  94:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  95:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /** @defgroup CRC_LL_EF_Configuration CRC Configuration functions
+  96:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @{
+  97:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+  98:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+  99:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /**
+ 100:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @brief  Reset the CRC calculation unit.
+ 101:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @note   If Programmable Initial CRC value feature
+ 102:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   *         is available, also set the Data Register to the value stored in the
+ 103:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   *         CRC_INIT register, otherwise, reset Data Register to its default value.
+ 104:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @rmtoll CR           RESET         LL_CRC_ResetCRCCalculationUnit
+ 105:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @param  CRCx CRC Instance
+ 106:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @retval None
+ 107:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+ 108:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** __STATIC_INLINE void LL_CRC_ResetCRCCalculationUnit(CRC_TypeDef *CRCx)
+  52              		.loc 2 108 22 view .LVU9
+  53              	.LBB7:
+ 109:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** {
+ 110:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   SET_BIT(CRCx->CR, CRC_CR_RESET);
+  54              		.loc 2 110 3 view .LVU10
+  55 000a 8368     		ldr	r3, [r0, #8]
+  56 000c 43F00103 		orr	r3, r3, #1
+  57 0010 8360     		str	r3, [r0, #8]
+  58              	.LVL3:
+  59              		.loc 2 110 3 is_stmt 0 view .LVU11
+  60              	.LBE7:
+  61              	.LBE6:
+  77:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c ****   }
+  62              		.loc 1 77 5 is_stmt 1 view .LVU12
+  63              	.LBB8:
+  64              	.LBI8:
+ 111:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** }
+ 112:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+ 113:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /**
+ 114:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @}
+ 115:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+ 116:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+ 117:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /** @defgroup CRC_LL_EF_Data_Management Data_Management
+ 118:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @{
+ 119:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+ 120:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+ 121:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /**
+ 122:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @brief  Write given 32-bit data to the CRC calculator
+ 123:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @rmtoll DR           DR            LL_CRC_FeedData32
+ 124:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @param  CRCx CRC Instance
+ 125:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @param  InData value to be provided to CRC calculator between between Min_Data=0 and Max_Data=0
+ 126:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @retval None
+ 127:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+ 128:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** __STATIC_INLINE void LL_CRC_FeedData32(CRC_TypeDef *CRCx, uint32_t InData)
+ 129:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** {
+ 130:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   WRITE_REG(CRCx->DR, InData);
+ 131:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** }
+ 132:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+ 133:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /**
+ 134:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @brief  Return current CRC calculation result. 32 bits value is returned.
+ 135:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @rmtoll DR           DR            LL_CRC_ReadData32
+ARM GAS  /tmp/ccU34Q7i.s 			page 6
+
+
+ 136:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @param  CRCx CRC Instance
+ 137:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @retval Current CRC calculation result as stored in CRC_DR register (32 bits).
+ 138:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+ 139:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** __STATIC_INLINE uint32_t LL_CRC_ReadData32(CRC_TypeDef *CRCx)
+ 140:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** {
+ 141:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   return (uint32_t)(READ_REG(CRCx->DR));
+ 142:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** }
+ 143:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+ 144:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /**
+ 145:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @brief  Return data stored in the Independent Data(IDR) register.
+ 146:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @note   This register can be used as a temporary storage location for one byte.
+ 147:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @rmtoll IDR          IDR           LL_CRC_Read_IDR
+ 148:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @param  CRCx CRC Instance
+ 149:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @retval Value stored in CRC_IDR register (General-purpose 8-bit data register).
+ 150:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+ 151:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** __STATIC_INLINE uint32_t LL_CRC_Read_IDR(CRC_TypeDef *CRCx)
+ 152:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** {
+ 153:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   return (uint32_t)(READ_REG(CRCx->IDR));
+ 154:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** }
+ 155:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** 
+ 156:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** /**
+ 157:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @brief  Store data in the Independent Data(IDR) register.
+ 158:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @note   This register can be used as a temporary storage location for one byte.
+ 159:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @rmtoll IDR          IDR           LL_CRC_Write_IDR
+ 160:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @param  CRCx CRC Instance
+ 161:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @param  InData value to be stored in CRC_IDR register (8-bit) between Min_Data=0 and Max_Data=0
+ 162:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   * @retval None
+ 163:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   */
+ 164:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** __STATIC_INLINE void LL_CRC_Write_IDR(CRC_TypeDef *CRCx, uint32_t InData)
+  65              		.loc 2 164 22 view .LVU13
+  66              	.LBB9:
+ 165:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** {
+ 166:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h ****   *((uint8_t __IO *)(&CRCx->IDR)) = (uint8_t) InData;
+  67              		.loc 2 166 3 view .LVU14
+  68              		.loc 2 166 35 is_stmt 0 view .LVU15
+  69 0012 0023     		movs	r3, #0
+  70 0014 0371     		strb	r3, [r0, #4]
+  71              	.LBE9:
+  72              	.LBE8:
+  65:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c **** 
+  73              		.loc 1 65 15 view .LVU16
+  74 0016 1846     		mov	r0, r3
+  75              	.LVL4:
+  76              	.LBB11:
+  77              	.LBB10:
+ 167:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_crc.h **** }
+  78              		.loc 2 167 1 view .LVU17
+  79 0018 7047     		bx	lr
+  80              	.L6:
+  81 001a 00BF     		.align	2
+  82              	.L5:
+  83 001c 00300240 		.word	1073885184
+  84              	.LBE10:
+  85              	.LBE11:
+  86              		.cfi_endproc
+  87              	.LFE83:
+  89              		.text
+ARM GAS  /tmp/ccU34Q7i.s 			page 7
+
+
+  90              	.Letext0:
+  91              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+  92              		.file 4 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+  93              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+  94              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
+ARM GAS  /tmp/ccU34Q7i.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f1xx_ll_crc.c
+     /tmp/ccU34Q7i.s:18     .text.LL_CRC_DeInit:0000000000000000 $t
+     /tmp/ccU34Q7i.s:24     .text.LL_CRC_DeInit:0000000000000000 LL_CRC_DeInit
+     /tmp/ccU34Q7i.s:83     .text.LL_CRC_DeInit:000000000000001c $d
+
+NO UNDEFINED SYMBOLS
