@@ -1,4 +1,16 @@
 {
     "cortex-debug.armToolchainPath": "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin",
-    "cortex-debug.openocdPath": "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/openocd/0.11.0-2.1/.content/bin/openocd"
+    "cortex-debug.openocdPath": "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/openocd/0.11.0-4.1/.content/bin/openocd",
+    "files.associations": {
+        "stm32f103x6.h": "c",
+        "gpio.h": "c",
+        "main.h": "c",
+        "hw_adc1.h": "c",
+        "hw_crc.h": "c",
+        "hw_gpio.h": "c",
+        "hw_i2c1.h": "c",
+        "hw_spi2.h": "c",
+        "hw_usart2.h": "c",
+        "hw_usart3.h": "c"
+    }
 }
