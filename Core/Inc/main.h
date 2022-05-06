@@ -28,6 +28,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
+#include "stm32f103x6.h"
 #include "stm32f1xx_hal.h"
 #include "hw_adc1.h"
 #include "hw_crc.h"

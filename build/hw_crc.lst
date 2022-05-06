@@ -1,0 +1,150 @@
+ARM GAS  /tmp/ccSI7lYr.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"hw_crc.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.MX_CRC_Init,"ax",%progbits
+  18              		.align	1
+  19              		.global	MX_CRC_Init
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	MX_CRC_Init:
+  25              	.LFB65:
+  26              		.file 1 "Core/Src/hw_crc.c"
+   1:Core/Src/hw_crc.c **** /* USER CODE BEGIN Header */
+   2:Core/Src/hw_crc.c **** /**
+   3:Core/Src/hw_crc.c ****   ******************************************************************************
+   4:Core/Src/hw_crc.c ****   * @file           : main.c
+   5:Core/Src/hw_crc.c ****   * @brief          : Main program body
+   6:Core/Src/hw_crc.c ****   ******************************************************************************
+   7:Core/Src/hw_crc.c ****   * @attention
+   8:Core/Src/hw_crc.c ****   *
+   9:Core/Src/hw_crc.c ****   * <h2><center>&copy; Copyright (c) 2022 STMicroelectronics.
+  10:Core/Src/hw_crc.c ****   * All rights reserved.</center></h2>
+  11:Core/Src/hw_crc.c ****   *
+  12:Core/Src/hw_crc.c ****   * This software component is licensed by ST under BSD 3-Clause license,
+  13:Core/Src/hw_crc.c ****   * the "License"; You may not use this file except in compliance with the
+  14:Core/Src/hw_crc.c ****   * License. You may obtain a copy of the License at:
+  15:Core/Src/hw_crc.c ****   *                        opensource.org/licenses/BSD-3-Clause
+  16:Core/Src/hw_crc.c ****   *
+  17:Core/Src/hw_crc.c ****   ******************************************************************************
+  18:Core/Src/hw_crc.c ****   */
+  19:Core/Src/hw_crc.c **** /* USER CODE END Header */
+  20:Core/Src/hw_crc.c **** /* Includes ------------------------------------------------------------------*/
+  21:Core/Src/hw_crc.c **** #include "hw_crc.h"
+  22:Core/Src/hw_crc.c **** 
+  23:Core/Src/hw_crc.c **** CRC_HandleTypeDef hcrc;
+  24:Core/Src/hw_crc.c **** 
+  25:Core/Src/hw_crc.c **** /**
+  26:Core/Src/hw_crc.c ****   * @brief CRC Initialization Function
+  27:Core/Src/hw_crc.c ****   * @param None
+  28:Core/Src/hw_crc.c ****   * @retval None
+  29:Core/Src/hw_crc.c ****   */
+  30:Core/Src/hw_crc.c **** void MX_CRC_Init(void)
+  31:Core/Src/hw_crc.c **** {
+  27              		.loc 1 31 1 view -0
+ARM GAS  /tmp/ccSI7lYr.s 			page 2
+
+
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  32:Core/Src/hw_crc.c **** 
+  33:Core/Src/hw_crc.c ****   /* USER CODE BEGIN CRC_Init 0 */
+  34:Core/Src/hw_crc.c **** 
+  35:Core/Src/hw_crc.c ****   /* USER CODE END CRC_Init 0 */
+  36:Core/Src/hw_crc.c **** 
+  37:Core/Src/hw_crc.c ****   /* USER CODE BEGIN CRC_Init 1 */
+  38:Core/Src/hw_crc.c **** 
+  39:Core/Src/hw_crc.c ****   /* USER CODE END CRC_Init 1 */
+  40:Core/Src/hw_crc.c ****   hcrc.Instance = CRC;
+  36              		.loc 1 40 3 view .LVU1
+  37              		.loc 1 40 17 is_stmt 0 view .LVU2
+  38 0002 0548     		ldr	r0, .L5
+  39 0004 054B     		ldr	r3, .L5+4
+  40 0006 0360     		str	r3, [r0]
+  41:Core/Src/hw_crc.c ****   if (HAL_CRC_Init(&hcrc) != HAL_OK)
+  41              		.loc 1 41 3 is_stmt 1 view .LVU3
+  42              		.loc 1 41 7 is_stmt 0 view .LVU4
+  43 0008 FFF7FEFF 		bl	HAL_CRC_Init
+  44              	.LVL0:
+  45              		.loc 1 41 6 view .LVU5
+  46 000c 00B9     		cbnz	r0, .L4
+  47              	.L1:
+  42:Core/Src/hw_crc.c ****   {
+  43:Core/Src/hw_crc.c ****     Error_Handler();
+  44:Core/Src/hw_crc.c ****   }
+  45:Core/Src/hw_crc.c ****   /* USER CODE BEGIN CRC_Init 2 */
+  46:Core/Src/hw_crc.c **** 
+  47:Core/Src/hw_crc.c ****   /* USER CODE END CRC_Init 2 */
+  48:Core/Src/hw_crc.c **** 
+  49:Core/Src/hw_crc.c **** }...
+  48              		.loc 1 49 1 view .LVU6
+  49 000e 08BD     		pop	{r3, pc}
+  50              	.L4:
+  51              	.LBB2:
+  43:Core/Src/hw_crc.c ****     Error_Handler();
+  52              		.loc 1 43 5 is_stmt 1 view .LVU7
+  53 0010 FFF7FEFF 		bl	Error_Handler
+  54              	.LVL1:
+  55              	.LBE2:
+  56              		.loc 1 49 1 is_stmt 0 view .LVU8
+  57 0014 FBE7     		b	.L1
+  58              	.L6:
+  59 0016 00BF     		.align	2
+  60              	.L5:
+  61 0018 00000000 		.word	.LANCHOR0
+  62 001c 00300240 		.word	1073885184
+  63              		.cfi_endproc
+  64              	.LFE65:
+  66              		.global	hcrc
+ARM GAS  /tmp/ccSI7lYr.s 			page 3
+
+
+  67              		.section	.bss.hcrc,"aw",%nobits
+  68              		.align	2
+  69              		.set	.LANCHOR0,. + 0
+  72              	hcrc:
+  73 0000 00000000 		.space	8
+  73      00000000 
+  74              		.text
+  75              	.Letext0:
+  76              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+  77              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+  78              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+  79              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+  80              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_crc.h"
+ARM GAS  /tmp/ccSI7lYr.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 hw_crc.c
+     /tmp/ccSI7lYr.s:18     .text.MX_CRC_Init:0000000000000000 $t
+     /tmp/ccSI7lYr.s:24     .text.MX_CRC_Init:0000000000000000 MX_CRC_Init
+     /tmp/ccSI7lYr.s:61     .text.MX_CRC_Init:0000000000000018 $d
+     /tmp/ccSI7lYr.s:72     .bss.hcrc:0000000000000000 hcrc
+     /tmp/ccSI7lYr.s:68     .bss.hcrc:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+HAL_CRC_Init
+Error_Handler

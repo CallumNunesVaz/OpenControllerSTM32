@@ -52,45 +52,66 @@ int main(void)
   */
 void SystemClock_Config(void)
 {
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
-
-  /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
+  /* Internal 8MHz HSI Configuration:
+   * ON
+   * Trim set to default = 16
+   * Cal at startup default
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-  RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
-    Error_Handler();
-  }
+  RCC->CR |= RCC_CR_HSION_Pos;
+  while (!(RCC->CR & RCC_CR_HSIRDY));
 
-  /** Initializes the CPU, AHB and APB buses clocks
+  /* External 8MHz HSE Configuration:
+   * ON
+   * Bypass to false
+   * 
   */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  RCC->CR |= RCC_CR_HSEON;
+  RCC->CR &= ~RCC_CR_HSEBYP;
+  while (!(RCC->CR & RCC_CR_HSERDY));
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC|RCC_PERIPHCLK_USB;
-  PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV8;
-  PeriphClkInit.UsbClockSelection = RCC_USBCLKSOURCE_PLL_DIV1_5;
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
-  {
-    Error_Handler();
-  }
+  /* Flash latency configuration:
+   * Enable pre-fetch buffer
+   * Disable Flash half cycle access 
+   * Set wait states (latency) to two, as main clock will be 72MHz
+  */
+  FLASH->ACR |= FLASH_ACR_PRFTBE;
+  FLASH->ACR &= ~FLASH_ACR_HLFCYA;
+  FLASH->ACR &= ~FLASH_ACR_LATENCY; // reset
+  FLASH->ACR |= FLASH_ACR_LATENCY_1;
+
+  /* Clock configuration
+   * Disable PLL 
+   * Microcontroller clock out disabled!
+   * USB Prescalar set for 72MHz PLL output
+   * PLL source is 8MHz HSE clock through PREDIV1=1
+   * ADC Prescalar set to divide by 8
+   * APB high speed set to divide by 1 = 72MHz
+   * APB low speed set to divide by 2 = 36 MHz
+   * PLL set to 9x from 8MHz HSE to make 72MHz
+   * Enable PLL
+   * AHB set to divide by 1 = 72MHz
+   * PLL as system clock
+  */
+  RCC->CR &= ~RCC_CR_PLLON; // clear to allow changes
+  RCC->CFGR &= ~RCC_CFGR_MCO;
+  RCC->CFGR &= ~RCC_CFGR_USBPRE;
+  RCC->CFGR |= RCC_CFGR_PLLSRC;
+  RCC->CFGR |= RCC_CFGR_ADCPRE;
+  RCC->CFGR &= ~RCC_CFGR_PPRE2;
+  RCC->CFGR &= ~RCC_CFGR_PPRE1; // reset
+  RCC->CFGR |= RCC_CFGR_PPRE1_2;
+  RCC->CFGR &= ~RCC_CFGR_PLLMULL; // reset
+  RCC->CFGR |= RCC_CFGR_PLLMULL9;
+  RCC->CR |= RCC_CR_PLLON;
+  while (!(RCC->CR & RCC_CR_PLLRDY));
+  RCC->CFGR &= ~RCC_CFGR_HPRE;
+  RCC->CFGR &= ~RCC_CFGR_SW;
+  RCC->CFGR |= RCC_CFGR_SW_PLL;
+  while (!(RCC->CFGR & RCC_CFGR_SWS_PLL));
+  
+  /* Inform core libraries of change to clocks
+  */
+  SystemCoreClockUpdate();
 }
 
 

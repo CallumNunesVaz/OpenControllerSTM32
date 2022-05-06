@@ -11,6 +11,7 @@
         "hw_i2c1.h": "c",
         "hw_spi2.h": "c",
         "hw_usart2.h": "c",
-        "hw_usart3.h": "c"
+        "hw_usart3.h": "c",
+        "system_stm32f1xx.h": "c"
     }
 }

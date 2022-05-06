@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccry4trC.s 			page 1
+ARM GAS  /tmp/ccpeMysx.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccry4trC.s 			page 1
   30:Core/Src/main.c ****   HAL_Init();
   31:Core/Src/main.c **** 
   32:Core/Src/main.c ****   /* Configure the system clock */
-ARM GAS  /tmp/ccry4trC.s 			page 2
+ARM GAS  /tmp/ccpeMysx.s 			page 2
 
 
   33:Core/Src/main.c ****   SystemClock_Config();
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccry4trC.s 			page 1
   87:Core/Src/main.c ****   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC|RCC_PERIPHCLK_USB;
   88:Core/Src/main.c ****   PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV8;
   89:Core/Src/main.c ****   PeriphClkInit.UsbClockSelection = RCC_USBCLKSOURCE_PLL_DIV1_5;
-ARM GAS  /tmp/ccry4trC.s 			page 3
+ARM GAS  /tmp/ccpeMysx.s 			page 3
 
 
   90:Core/Src/main.c ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccry4trC.s 			page 1
   29:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic push
   30:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
   31:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
-ARM GAS  /tmp/ccry4trC.s 			page 4
+ARM GAS  /tmp/ccpeMysx.s 			page 4
 
 
   32:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccry4trC.s 			page 1
   86:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
   87:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   88:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
-ARM GAS  /tmp/ccry4trC.s 			page 5
+ARM GAS  /tmp/ccpeMysx.s 			page 5
 
 
   89:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccry4trC.s 			page 1
  141:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  142:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
   39              		.loc 2 142 3 view .LVU3
-ARM GAS  /tmp/ccry4trC.s 			page 6
+ARM GAS  /tmp/ccpeMysx.s 			page 6
 
 
   40              		.syntax unified
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccry4trC.s 			page 1
   87 0014 0693     		str	r3, [sp, #24]
   88 0016 0793     		str	r3, [sp, #28]
   89 0018 0893     		str	r3, [sp, #32]
-ARM GAS  /tmp/ccry4trC.s 			page 7
+ARM GAS  /tmp/ccpeMysx.s 			page 7
 
 
   90 001a 0993     		str	r3, [sp, #36]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccry4trC.s 			page 1
  126 0042 D8B9     		cbnz	r0, .L8
   76:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
  127              		.loc 1 76 3 is_stmt 1 view .LVU30
-ARM GAS  /tmp/ccry4trC.s 			page 8
+ARM GAS  /tmp/ccpeMysx.s 			page 8
 
 
   76:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccry4trC.s 			page 1
  164 006c 0493     		str	r3, [sp, #16]
   90:Core/Src/main.c ****   {
  165              		.loc 1 90 3 is_stmt 1 view .LVU49
-ARM GAS  /tmp/ccry4trC.s 			page 9
+ARM GAS  /tmp/ccpeMysx.s 			page 9
 
 
   90:Core/Src/main.c ****   {
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccry4trC.s 			page 1
   30:Core/Src/main.c **** 
  215              		.loc 1 30 3 view .LVU57
  216 0002 FFF7FEFF 		bl	HAL_Init
-ARM GAS  /tmp/ccry4trC.s 			page 10
+ARM GAS  /tmp/ccpeMysx.s 			page 10
 
 
  217              	.LVL7:
@@ -597,23 +597,22 @@ ARM GAS  /tmp/ccry4trC.s 			page 1
  263              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
  264              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
  265              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
- 266              		.file 11 "Core/Inc/hw_gpio.h"
-ARM GAS  /tmp/ccry4trC.s 			page 11
+ 266              		.file 11 "<built-in>"
+ARM GAS  /tmp/ccpeMysx.s 			page 11
 
 
- 267              		.file 12 "<built-in>"
-ARM GAS  /tmp/ccry4trC.s 			page 12
+ARM GAS  /tmp/ccpeMysx.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccry4trC.s:18     .text.Error_Handler:0000000000000000 $t
-     /tmp/ccry4trC.s:24     .text.Error_Handler:0000000000000000 Error_Handler
-     /tmp/ccry4trC.s:57     .text.SystemClock_Config:0000000000000000 $t
-     /tmp/ccry4trC.s:63     .text.SystemClock_Config:0000000000000000 SystemClock_Config
-     /tmp/ccry4trC.s:197    .text.main:0000000000000000 $t
-     /tmp/ccry4trC.s:203    .text.main:0000000000000000 main
-     /tmp/ccry4trC.s:252    .text.main:000000000000003c $d
+     /tmp/ccpeMysx.s:18     .text.Error_Handler:0000000000000000 $t
+     /tmp/ccpeMysx.s:24     .text.Error_Handler:0000000000000000 Error_Handler
+     /tmp/ccpeMysx.s:57     .text.SystemClock_Config:0000000000000000 $t
+     /tmp/ccpeMysx.s:63     .text.SystemClock_Config:0000000000000000 SystemClock_Config
+     /tmp/ccpeMysx.s:197    .text.main:0000000000000000 $t
+     /tmp/ccpeMysx.s:203    .text.main:0000000000000000 main
+     /tmp/ccpeMysx.s:252    .text.main:000000000000003c $d
 
 UNDEFINED SYMBOLS
 memset
