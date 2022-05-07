@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccI6p8XJ.s 			page 1
+ARM GAS  /tmp/ccpqk4hr.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -38,27 +38,27 @@ ARM GAS  /tmp/ccI6p8XJ.s 			page 1
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31              		@ link register save eliminated.
    7:Core/Src/hw_gpio.c ****   /* GPIO Ports Clock Enable */
-   8:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= (0x1UL << RCC_APB2ENR_IOPAEN_Pos);
+   8:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
   32              		.loc 1 8 3 view .LVU1
   33              		.loc 1 8 16 is_stmt 0 view .LVU2
   34 0000 084B     		ldr	r3, .L2
   35 0002 9A69     		ldr	r2, [r3, #24]
   36 0004 42F00402 		orr	r2, r2, #4
   37 0008 9A61     		str	r2, [r3, #24]
-   9:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= (0x1UL << RCC_APB2ENR_IOPBEN_Pos);
+   9:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
   38              		.loc 1 9 3 is_stmt 1 view .LVU3
   39              		.loc 1 9 16 is_stmt 0 view .LVU4
   40 000a 9A69     		ldr	r2, [r3, #24]
   41 000c 42F00802 		orr	r2, r2, #8
   42 0010 9A61     		str	r2, [r3, #24]
-  10:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= (0x1UL << RCC_APB2ENR_IOPCEN_Pos);
+  10:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
   43              		.loc 1 10 3 is_stmt 1 view .LVU5
   44              		.loc 1 10 16 is_stmt 0 view .LVU6
   45 0012 9A69     		ldr	r2, [r3, #24]
   46 0014 42F01002 		orr	r2, r2, #16
   47 0018 9A61     		str	r2, [r3, #24]
-  11:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= (0x1UL << RCC_APB2ENR_IOPDEN_Pos);
-ARM GAS  /tmp/ccI6p8XJ.s 			page 2
+  11:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPDEN;
+ARM GAS  /tmp/ccpqk4hr.s 			page 2
 
 
   48              		.loc 1 11 3 is_stmt 1 view .LVU7
@@ -80,13 +80,13 @@ ARM GAS  /tmp/ccI6p8XJ.s 			page 1
   64              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
   65              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
   66              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
-ARM GAS  /tmp/ccI6p8XJ.s 			page 3
+ARM GAS  /tmp/ccpqk4hr.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hw_gpio.c
-     /tmp/ccI6p8XJ.s:18     .text.hw_gpio_init:0000000000000000 $t
-     /tmp/ccI6p8XJ.s:24     .text.hw_gpio_init:0000000000000000 hw_gpio_init
-     /tmp/ccI6p8XJ.s:58     .text.hw_gpio_init:0000000000000024 $d
+     /tmp/ccpqk4hr.s:18     .text.hw_gpio_init:0000000000000000 $t
+     /tmp/ccpqk4hr.s:24     .text.hw_gpio_init:0000000000000000 hw_gpio_init
+     /tmp/ccpqk4hr.s:58     .text.hw_gpio_init:0000000000000024 $d
 
 NO UNDEFINED SYMBOLS

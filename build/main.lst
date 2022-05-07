@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccLz75SY.s 			page 1
+ARM GAS  /tmp/cc7ehBrM.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -17,373 +17,470 @@ ARM GAS  /tmp/ccLz75SY.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.section	.text.main,"ax",%progbits
+  17              		.section	.text.hw_system_clocks_init,"ax",%progbits
   18              		.align	1
-  19              		.global	main
+  19              		.global	hw_system_clocks_init
   20              		.syntax unified
   21              		.thumb
   22              		.thumb_func
-  24              	main:
-  25              	.LFB65:
+  24              	hw_system_clocks_init:
+  25              	.LFB66:
   26              		.file 1 "Core/Src/main.c"
    1:Core/Src/main.c **** /* USER CODE BEGIN Header */
    2:Core/Src/main.c **** /**
-   3:Core/Src/main.c ****   ******************************************************************************
-   4:Core/Src/main.c ****   * @file           : main.c
-   5:Core/Src/main.c ****   * @brief          : Main program body
-   6:Core/Src/main.c ****   ******************************************************************************
-   7:Core/Src/main.c ****   * @attention
-   8:Core/Src/main.c ****   *
-   9:Core/Src/main.c ****   * <h2><center>&copy; Copyright (c) 2022 STMicroelectronics.
-  10:Core/Src/main.c ****   * All rights reserved.</center></h2>
-  11:Core/Src/main.c ****   *
-  12:Core/Src/main.c ****   * This software component is licensed by ST under BSD 3-Clause license,
-  13:Core/Src/main.c ****   * the "License"; You may not use this file except in compliance with the
-  14:Core/Src/main.c ****   * License. You may obtain a copy of the License at:
-  15:Core/Src/main.c ****   *                        opensource.org/licenses/BSD-3-Clause
-  16:Core/Src/main.c ****   *
-  17:Core/Src/main.c ****   ******************************************************************************
-  18:Core/Src/main.c ****   */
+   3:Core/Src/main.c ****  ******************************************************************************
+   4:Core/Src/main.c ****  * @file           : main.c
+   5:Core/Src/main.c ****  * @brief          : Main program body
+   6:Core/Src/main.c ****  ******************************************************************************
+   7:Core/Src/main.c ****  * @attention
+   8:Core/Src/main.c ****  *
+   9:Core/Src/main.c ****  * <h2><center>&copy; Copyright (c) 2022 STMicroelectronics.
+  10:Core/Src/main.c ****  * All rights reserved.</center></h2>
+  11:Core/Src/main.c ****  *
+  12:Core/Src/main.c ****  * This software component is licensed by ST under BSD 3-Clause license,
+  13:Core/Src/main.c ****  * the "License"; You may not use this file except in compliance with the
+  14:Core/Src/main.c ****  * License. You may obtain a copy of the License at:
+  15:Core/Src/main.c ****  *                        opensource.org/licenses/BSD-3-Clause
+  16:Core/Src/main.c ****  *
+  17:Core/Src/main.c ****  ******************************************************************************
+  18:Core/Src/main.c ****  */
   19:Core/Src/main.c **** /* USER CODE END Header */
   20:Core/Src/main.c **** /* Includes ------------------------------------------------------------------*/
   21:Core/Src/main.c **** #include "main.h"
   22:Core/Src/main.c **** 
   23:Core/Src/main.c **** /**
-  24:Core/Src/main.c ****   * @brief  The application entry point.
-  25:Core/Src/main.c ****   * @retval int
-  26:Core/Src/main.c ****   */
+  24:Core/Src/main.c ****  * @brief  The application entry point.
+  25:Core/Src/main.c ****  * @retval int
+  26:Core/Src/main.c ****  */
   27:Core/Src/main.c **** int main(void)
   28:Core/Src/main.c **** {
-  27              		.loc 1 28 1 view -0
-  28              		.cfi_startproc
-  29              		@ Volatile: function does not return.
-  30              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccLz75SY.s 			page 2
-
-
-  31              		@ frame_needed = 0, uses_anonymous_args = 0
-  32              		@ link register save eliminated.
-  33              	.L2:
-  29:Core/Src/main.c ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  30:Core/Src/main.c ****   //HAL_Init();
+  29:Core/Src/main.c ****   /* Configure the system clocks */
+  30:Core/Src/main.c ****   hw_system_clocks_init();
   31:Core/Src/main.c **** 
-  32:Core/Src/main.c ****   /* Configure the system clock */
-  33:Core/Src/main.c ****   //SystemClock_Config();
+  32:Core/Src/main.c ****   /* Configure the system gpio */
+ARM GAS  /tmp/cc7ehBrM.s 			page 2
+
+
+  33:Core/Src/main.c ****   hw_gpio_init();
   34:Core/Src/main.c **** 
-  35:Core/Src/main.c ****   //MX_GPIO_Init();
+  35:Core/Src/main.c ****   GPIOC->CRH &= ~GPIO_CRH_CNF13; // Output push-pull
+  36:Core/Src/main.c ****   GPIOC->CRH |= GPIO_CRH_MODE13; // 50MHz
+  37:Core/Src/main.c **** 
+  38:Core/Src/main.c ****   while (1)
+  39:Core/Src/main.c ****   {
+  40:Core/Src/main.c ****     //GPIOC->BSRR |= GPIO_BSRR_BS13;   // turn on
+  41:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+  42:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+  43:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+  44:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+  45:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+  46:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+  47:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+  48:Core/Src/main.c ****   }
+  49:Core/Src/main.c **** }
+  50:Core/Src/main.c **** 
+  51:Core/Src/main.c **** /**
+  52:Core/Src/main.c ****  * @brief System Clock Configuration
+  53:Core/Src/main.c ****  * @retval None
+  54:Core/Src/main.c ****  */
+  55:Core/Src/main.c **** void hw_system_clocks_init(void)
+  56:Core/Src/main.c **** {
+  27              		.loc 1 56 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  57:Core/Src/main.c ****   /* Internal 8MHz HSI Configuration:
+  58:Core/Src/main.c ****    * ON
+  59:Core/Src/main.c ****    * Trim set to default = 16
+  60:Core/Src/main.c ****    * Cal at startup default
+  61:Core/Src/main.c ****    */
+  62:Core/Src/main.c ****   RCC->CR |= RCC_CR_HSION_Pos;
+  36              		.loc 1 62 3 view .LVU1
+  37              		.loc 1 62 11 is_stmt 0 view .LVU2
+  38 0002 374B     		ldr	r3, .L7
+  39 0004 1A68     		ldr	r2, [r3]
+  40 0006 1A60     		str	r2, [r3]
+  63:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSIRDY))
+  41              		.loc 1 63 3 is_stmt 1 view .LVU3
+  42              	.L2:
+  64:Core/Src/main.c ****     ;
+  43              		.loc 1 64 5 discriminator 1 view .LVU4
+  63:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSIRDY))
+  44              		.loc 1 63 9 discriminator 1 view .LVU5
+  63:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSIRDY))
+  45              		.loc 1 63 15 is_stmt 0 discriminator 1 view .LVU6
+  46 0008 354B     		ldr	r3, .L7
+  47 000a 1B68     		ldr	r3, [r3]
+  63:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSIRDY))
+  48              		.loc 1 63 9 discriminator 1 view .LVU7
+ARM GAS  /tmp/cc7ehBrM.s 			page 3
+
+
+  49 000c 13F0020F 		tst	r3, #2
+  50 0010 FAD0     		beq	.L2
+  65:Core/Src/main.c **** 
+  66:Core/Src/main.c ****   /* External 8MHz HSE Configuration:
+  67:Core/Src/main.c ****    * ON
+  68:Core/Src/main.c ****    * Bypass to false
+  69:Core/Src/main.c ****    *
+  70:Core/Src/main.c ****    */
+  71:Core/Src/main.c ****   RCC->CR |= RCC_CR_HSEON;
+  51              		.loc 1 71 3 is_stmt 1 view .LVU8
+  52              		.loc 1 71 11 is_stmt 0 view .LVU9
+  53 0012 334B     		ldr	r3, .L7
+  54 0014 1A68     		ldr	r2, [r3]
+  55 0016 42F48032 		orr	r2, r2, #65536
+  56 001a 1A60     		str	r2, [r3]
+  72:Core/Src/main.c ****   RCC->CR &= ~RCC_CR_HSEBYP;
+  57              		.loc 1 72 3 is_stmt 1 view .LVU10
+  58              		.loc 1 72 11 is_stmt 0 view .LVU11
+  59 001c 1A68     		ldr	r2, [r3]
+  60 001e 22F48022 		bic	r2, r2, #262144
+  61 0022 1A60     		str	r2, [r3]
+  73:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSERDY))
+  62              		.loc 1 73 3 is_stmt 1 view .LVU12
+  63              	.L3:
+  74:Core/Src/main.c ****     ;
+  64              		.loc 1 74 5 discriminator 1 view .LVU13
+  73:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSERDY))
+  65              		.loc 1 73 9 discriminator 1 view .LVU14
+  73:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSERDY))
+  66              		.loc 1 73 15 is_stmt 0 discriminator 1 view .LVU15
+  67 0024 2E4B     		ldr	r3, .L7
+  68 0026 1B68     		ldr	r3, [r3]
+  73:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSERDY))
+  69              		.loc 1 73 9 discriminator 1 view .LVU16
+  70 0028 13F4003F 		tst	r3, #131072
+  71 002c FAD0     		beq	.L3
+  75:Core/Src/main.c **** 
+  76:Core/Src/main.c ****   /* Flash latency configuration:
+  77:Core/Src/main.c ****    * Enable pre-fetch buffer
+  78:Core/Src/main.c ****    * Disable Flash half cycle access
+  79:Core/Src/main.c ****    * Set wait states (latency) to two, as main clock will be 72MHz
+  80:Core/Src/main.c ****    */
+  81:Core/Src/main.c ****   FLASH->ACR |= FLASH_ACR_PRFTBE;
+  72              		.loc 1 81 3 is_stmt 1 view .LVU17
+  73              		.loc 1 81 14 is_stmt 0 view .LVU18
+  74 002e 2D4B     		ldr	r3, .L7+4
+  75 0030 1A68     		ldr	r2, [r3]
+  76 0032 42F01002 		orr	r2, r2, #16
+  77 0036 1A60     		str	r2, [r3]
+  82:Core/Src/main.c ****   FLASH->ACR &= ~FLASH_ACR_HLFCYA;
+  78              		.loc 1 82 3 is_stmt 1 view .LVU19
+  79              		.loc 1 82 14 is_stmt 0 view .LVU20
+  80 0038 1A68     		ldr	r2, [r3]
+  81 003a 22F00802 		bic	r2, r2, #8
+  82 003e 1A60     		str	r2, [r3]
+  83:Core/Src/main.c ****   FLASH->ACR &= ~FLASH_ACR_LATENCY; // reset
+  83              		.loc 1 83 3 is_stmt 1 view .LVU21
+ARM GAS  /tmp/cc7ehBrM.s 			page 4
+
+
+  84              		.loc 1 83 14 is_stmt 0 view .LVU22
+  85 0040 1A68     		ldr	r2, [r3]
+  86 0042 22F00702 		bic	r2, r2, #7
+  87 0046 1A60     		str	r2, [r3]
+  84:Core/Src/main.c ****   FLASH->ACR |= FLASH_ACR_LATENCY_1;
+  88              		.loc 1 84 3 is_stmt 1 view .LVU23
+  89              		.loc 1 84 14 is_stmt 0 view .LVU24
+  90 0048 1A68     		ldr	r2, [r3]
+  91 004a 42F00202 		orr	r2, r2, #2
+  92 004e 1A60     		str	r2, [r3]
+  85:Core/Src/main.c **** 
+  86:Core/Src/main.c ****   /* Clock configuration
+  87:Core/Src/main.c ****    * Disable PLL
+  88:Core/Src/main.c ****    * Microcontroller clock out disabled!
+  89:Core/Src/main.c ****    * USB Prescalar set for 72MHz PLL output
+  90:Core/Src/main.c ****    * PLL source is 8MHz HSE clock through PREDIV1=1
+  91:Core/Src/main.c ****    * ADC Prescalar set to divide by 8
+  92:Core/Src/main.c ****    * APB high speed set to divide by 1 = 72MHz
+  93:Core/Src/main.c ****    * APB low speed set to divide by 2 = 36 MHz
+  94:Core/Src/main.c ****    * PLL set to 9x from 8MHz HSE to make 72MHz
+  95:Core/Src/main.c ****    * Enable PLL
+  96:Core/Src/main.c ****    * AHB set to divide by 1 = 72MHz
+  97:Core/Src/main.c ****    * PLL as system clock
+  98:Core/Src/main.c ****    */
+  99:Core/Src/main.c ****   RCC->CR &= ~RCC_CR_PLLON; // clear to allow changes
+  93              		.loc 1 99 3 is_stmt 1 view .LVU25
+  94              		.loc 1 99 11 is_stmt 0 view .LVU26
+  95 0050 A3F58053 		sub	r3, r3, #4096
+  96 0054 1A68     		ldr	r2, [r3]
+  97 0056 22F08072 		bic	r2, r2, #16777216
+  98 005a 1A60     		str	r2, [r3]
+ 100:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_MCO;
+  99              		.loc 1 100 3 is_stmt 1 view .LVU27
+ 100              		.loc 1 100 13 is_stmt 0 view .LVU28
+ 101 005c 5A68     		ldr	r2, [r3, #4]
+ 102 005e 22F0E062 		bic	r2, r2, #117440512
+ 103 0062 5A60     		str	r2, [r3, #4]
+ 101:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_USBPRE;
+ 104              		.loc 1 101 3 is_stmt 1 view .LVU29
+ 105              		.loc 1 101 13 is_stmt 0 view .LVU30
+ 106 0064 5A68     		ldr	r2, [r3, #4]
+ 107 0066 22F48002 		bic	r2, r2, #4194304
+ 108 006a 5A60     		str	r2, [r3, #4]
+ 102:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_PLLSRC;
+ 109              		.loc 1 102 3 is_stmt 1 view .LVU31
+ 110              		.loc 1 102 13 is_stmt 0 view .LVU32
+ 111 006c 5A68     		ldr	r2, [r3, #4]
+ 112 006e 42F48032 		orr	r2, r2, #65536
+ 113 0072 5A60     		str	r2, [r3, #4]
+ 103:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_ADCPRE;
+ 114              		.loc 1 103 3 is_stmt 1 view .LVU33
+ 115              		.loc 1 103 13 is_stmt 0 view .LVU34
+ 116 0074 5A68     		ldr	r2, [r3, #4]
+ 117 0076 42F44042 		orr	r2, r2, #49152
+ 118 007a 5A60     		str	r2, [r3, #4]
+ 104:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_PPRE2;
+ 119              		.loc 1 104 3 is_stmt 1 view .LVU35
+ARM GAS  /tmp/cc7ehBrM.s 			page 5
+
+
+ 120              		.loc 1 104 13 is_stmt 0 view .LVU36
+ 121 007c 5A68     		ldr	r2, [r3, #4]
+ 122 007e 22F46052 		bic	r2, r2, #14336
+ 123 0082 5A60     		str	r2, [r3, #4]
+ 105:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_PPRE1; // reset
+ 124              		.loc 1 105 3 is_stmt 1 view .LVU37
+ 125              		.loc 1 105 13 is_stmt 0 view .LVU38
+ 126 0084 5A68     		ldr	r2, [r3, #4]
+ 127 0086 22F4E062 		bic	r2, r2, #1792
+ 128 008a 5A60     		str	r2, [r3, #4]
+ 106:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_PPRE1_2;
+ 129              		.loc 1 106 3 is_stmt 1 view .LVU39
+ 130              		.loc 1 106 13 is_stmt 0 view .LVU40
+ 131 008c 5A68     		ldr	r2, [r3, #4]
+ 132 008e 42F48062 		orr	r2, r2, #1024
+ 133 0092 5A60     		str	r2, [r3, #4]
+ 107:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_PLLMULL; // reset
+ 134              		.loc 1 107 3 is_stmt 1 view .LVU41
+ 135              		.loc 1 107 13 is_stmt 0 view .LVU42
+ 136 0094 5A68     		ldr	r2, [r3, #4]
+ 137 0096 22F47012 		bic	r2, r2, #3932160
+ 138 009a 5A60     		str	r2, [r3, #4]
+ 108:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_PLLMULL9;
+ 139              		.loc 1 108 3 is_stmt 1 view .LVU43
+ 140              		.loc 1 108 13 is_stmt 0 view .LVU44
+ 141 009c 5A68     		ldr	r2, [r3, #4]
+ 142 009e 42F4E012 		orr	r2, r2, #1835008
+ 143 00a2 5A60     		str	r2, [r3, #4]
+ 109:Core/Src/main.c ****   RCC->CR |= RCC_CR_PLLON;
+ 144              		.loc 1 109 3 is_stmt 1 view .LVU45
+ 145              		.loc 1 109 11 is_stmt 0 view .LVU46
+ 146 00a4 1A68     		ldr	r2, [r3]
+ 147 00a6 42F08072 		orr	r2, r2, #16777216
+ 148 00aa 1A60     		str	r2, [r3]
+ 110:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_PLLRDY));
+ 149              		.loc 1 110 3 is_stmt 1 view .LVU47
+ 150              	.L4:
+ 151              		.loc 1 110 37 discriminator 1 view .LVU48
+ 152              		.loc 1 110 9 discriminator 1 view .LVU49
+ 153              		.loc 1 110 15 is_stmt 0 discriminator 1 view .LVU50
+ 154 00ac 0C4B     		ldr	r3, .L7
+ 155 00ae 1B68     		ldr	r3, [r3]
+ 156              		.loc 1 110 9 discriminator 1 view .LVU51
+ 157 00b0 13F0007F 		tst	r3, #33554432
+ 158 00b4 FAD0     		beq	.L4
+ 111:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_HPRE;
+ 159              		.loc 1 111 3 is_stmt 1 view .LVU52
+ 160              		.loc 1 111 13 is_stmt 0 view .LVU53
+ 161 00b6 0A4B     		ldr	r3, .L7
+ 162 00b8 5A68     		ldr	r2, [r3, #4]
+ 163 00ba 22F0F002 		bic	r2, r2, #240
+ 164 00be 5A60     		str	r2, [r3, #4]
+ 112:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_SW;
+ 165              		.loc 1 112 3 is_stmt 1 view .LVU54
+ 166              		.loc 1 112 13 is_stmt 0 view .LVU55
+ 167 00c0 5A68     		ldr	r2, [r3, #4]
+ 168 00c2 22F00302 		bic	r2, r2, #3
+ARM GAS  /tmp/cc7ehBrM.s 			page 6
+
+
+ 169 00c6 5A60     		str	r2, [r3, #4]
+ 113:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_SW_PLL;
+ 170              		.loc 1 113 3 is_stmt 1 view .LVU56
+ 171              		.loc 1 113 13 is_stmt 0 view .LVU57
+ 172 00c8 5A68     		ldr	r2, [r3, #4]
+ 173 00ca 42F00202 		orr	r2, r2, #2
+ 174 00ce 5A60     		str	r2, [r3, #4]
+ 114:Core/Src/main.c ****   while (!(RCC->CFGR & RCC_CFGR_SWS_PLL));
+ 175              		.loc 1 114 3 is_stmt 1 view .LVU58
+ 176              	.L5:
+ 177              		.loc 1 114 42 discriminator 1 view .LVU59
+ 178              		.loc 1 114 9 discriminator 1 view .LVU60
+ 179              		.loc 1 114 15 is_stmt 0 discriminator 1 view .LVU61
+ 180 00d0 034B     		ldr	r3, .L7
+ 181 00d2 5B68     		ldr	r3, [r3, #4]
+ 182              		.loc 1 114 9 discriminator 1 view .LVU62
+ 183 00d4 13F0080F 		tst	r3, #8
+ 184 00d8 FAD0     		beq	.L5
+ 115:Core/Src/main.c **** 
+ 116:Core/Src/main.c ****   /* Inform core libraries of change to clocks
+ 117:Core/Src/main.c ****    */
+ 118:Core/Src/main.c ****   SystemCoreClockUpdate();
+ 185              		.loc 1 118 3 is_stmt 1 view .LVU63
+ 186 00da FFF7FEFF 		bl	SystemCoreClockUpdate
+ 187              	.LVL0:
+ 119:Core/Src/main.c **** }
+ 188              		.loc 1 119 1 is_stmt 0 view .LVU64
+ 189 00de 08BD     		pop	{r3, pc}
+ 190              	.L8:
+ 191              		.align	2
+ 192              	.L7:
+ 193 00e0 00100240 		.word	1073876992
+ 194 00e4 00200240 		.word	1073881088
+ 195              		.cfi_endproc
+ 196              	.LFE66:
+ 198              		.section	.text.main,"ax",%progbits
+ 199              		.align	1
+ 200              		.global	main
+ 201              		.syntax unified
+ 202              		.thumb
+ 203              		.thumb_func
+ 205              	main:
+ 206              	.LFB65:
+  28:Core/Src/main.c ****   /* Configure the system clocks */
+ 207              		.loc 1 28 1 is_stmt 1 view -0
+ 208              		.cfi_startproc
+ 209              		@ Volatile: function does not return.
+ 210              		@ args = 0, pretend = 0, frame = 0
+ 211              		@ frame_needed = 0, uses_anonymous_args = 0
+ 212 0000 08B5     		push	{r3, lr}
+ 213              	.LCFI1:
+ 214              		.cfi_def_cfa_offset 8
+ 215              		.cfi_offset 3, -8
+ 216              		.cfi_offset 14, -4
+  30:Core/Src/main.c **** 
+ 217              		.loc 1 30 3 view .LVU66
+ 218 0002 FFF7FEFF 		bl	hw_system_clocks_init
+ARM GAS  /tmp/cc7ehBrM.s 			page 7
+
+
+ 219              	.LVL1:
+  33:Core/Src/main.c **** 
+ 220              		.loc 1 33 3 view .LVU67
+ 221 0006 FFF7FEFF 		bl	hw_gpio_init
+ 222              	.LVL2:
+  35:Core/Src/main.c ****   GPIOC->CRH |= GPIO_CRH_MODE13; // 50MHz
+ 223              		.loc 1 35 3 view .LVU68
+  35:Core/Src/main.c ****   GPIOC->CRH |= GPIO_CRH_MODE13; // 50MHz
+ 224              		.loc 1 35 14 is_stmt 0 view .LVU69
+ 225 000a 134B     		ldr	r3, .L12
+ 226 000c 5A68     		ldr	r2, [r3, #4]
+ 227 000e 22F44002 		bic	r2, r2, #12582912
+ 228 0012 5A60     		str	r2, [r3, #4]
   36:Core/Src/main.c **** 
-  37:Core/Src/main.c ****   while (1)
-  34              		.loc 1 37 3 discriminator 1 view .LVU1
+ 229              		.loc 1 36 3 is_stmt 1 view .LVU70
+  36:Core/Src/main.c **** 
+ 230              		.loc 1 36 14 is_stmt 0 view .LVU71
+ 231 0014 5A68     		ldr	r2, [r3, #4]
+ 232 0016 42F44012 		orr	r2, r2, #3145728
+ 233 001a 5A60     		str	r2, [r3, #4]
+ 234              	.L10:
   38:Core/Src/main.c ****   {
-  39:Core/Src/main.c ****     /* USER CODE END WHILE */
-  40:Core/Src/main.c ****     //HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
-  41:Core/Src/main.c ****     ///HAL_Delay(500);
-  42:Core/Src/main.c ****     ///HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-  43:Core/Src/main.c ****     ///HAL_Delay(500);
-  44:Core/Src/main.c ****     /* USER CODE BEGIN 3 */
-  45:Core/Src/main.c ****   }
-  35              		.loc 1 45 3 discriminator 1 view .LVU2
-  37:Core/Src/main.c ****   {
-  36              		.loc 1 37 9 discriminator 1 view .LVU3
-  37 0000 FEE7     		b	.L2
-  38              		.cfi_endproc
-  39              	.LFE65:
-  41              		.section	.text.SystemClock_Config,"ax",%progbits
-  42              		.align	1
-  43              		.global	SystemClock_Config
-  44              		.syntax unified
-  45              		.thumb
-  46              		.thumb_func
-  48              	SystemClock_Config:
-  49              	.LFB66:
-  46:Core/Src/main.c ****   /* USER CODE END 3 */
-  47:Core/Src/main.c **** }
-  48:Core/Src/main.c **** 
-  49:Core/Src/main.c **** /**
-  50:Core/Src/main.c ****   * @brief System Clock Configuration
-  51:Core/Src/main.c ****   * @retval None
-  52:Core/Src/main.c ****   */
-  53:Core/Src/main.c **** void SystemClock_Config(void)
-  54:Core/Src/main.c **** {
-  50              		.loc 1 54 1 view -0
-  51              		.cfi_startproc
-  52              		@ args = 0, pretend = 0, frame = 0
-  53              		@ frame_needed = 0, uses_anonymous_args = 0
-  54 0000 08B5     		push	{r3, lr}
-  55              	.LCFI0:
-  56              		.cfi_def_cfa_offset 8
-  57              		.cfi_offset 3, -8
-  58              		.cfi_offset 14, -4
-  55:Core/Src/main.c ****   /* Internal 8MHz HSI Configuration:
-  56:Core/Src/main.c ****    * ON
-  57:Core/Src/main.c ****    * Trim set to default = 16
-  58:Core/Src/main.c ****    * Cal at startup default
-ARM GAS  /tmp/ccLz75SY.s 			page 3
+ 235              		.loc 1 38 3 is_stmt 1 discriminator 1 view .LVU72
+  41:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+ 236              		.loc 1 41 5 discriminator 1 view .LVU73
+  41:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+ 237              		.loc 1 41 17 is_stmt 0 discriminator 1 view .LVU74
+ 238 001c 0E4B     		ldr	r3, .L12
+ 239 001e 1A69     		ldr	r2, [r3, #16]
+ 240 0020 22F40052 		bic	r2, r2, #8192
+ 241 0024 1A61     		str	r2, [r3, #16]
+  42:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+ 242              		.loc 1 42 5 is_stmt 1 discriminator 1 view .LVU75
+  42:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+ 243              		.loc 1 42 17 is_stmt 0 discriminator 1 view .LVU76
+ 244 0026 1A69     		ldr	r2, [r3, #16]
+ 245 0028 22F40052 		bic	r2, r2, #8192
+ 246 002c 1A61     		str	r2, [r3, #16]
+  43:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+ 247              		.loc 1 43 5 is_stmt 1 discriminator 1 view .LVU77
+  43:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+ 248              		.loc 1 43 17 is_stmt 0 discriminator 1 view .LVU78
+ 249 002e 1A69     		ldr	r2, [r3, #16]
+ 250 0030 22F40052 		bic	r2, r2, #8192
+ 251 0034 1A61     		str	r2, [r3, #16]
+  44:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+ 252              		.loc 1 44 5 is_stmt 1 discriminator 1 view .LVU79
+  44:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+ 253              		.loc 1 44 17 is_stmt 0 discriminator 1 view .LVU80
+ 254 0036 1A69     		ldr	r2, [r3, #16]
+ 255 0038 22F40052 		bic	r2, r2, #8192
+ 256 003c 1A61     		str	r2, [r3, #16]
+  45:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+ 257              		.loc 1 45 5 is_stmt 1 discriminator 1 view .LVU81
+  45:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+ 258              		.loc 1 45 17 is_stmt 0 discriminator 1 view .LVU82
+ 259 003e 1A69     		ldr	r2, [r3, #16]
+ARM GAS  /tmp/cc7ehBrM.s 			page 8
 
 
-  59:Core/Src/main.c ****   */
-  60:Core/Src/main.c ****   RCC->CR |= RCC_CR_HSION_Pos;
-  59              		.loc 1 60 3 view .LVU5
-  60              		.loc 1 60 11 is_stmt 0 view .LVU6
-  61 0002 374B     		ldr	r3, .L9
-  62 0004 1A68     		ldr	r2, [r3]
-  63 0006 1A60     		str	r2, [r3]
-  61:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSIRDY));
-  64              		.loc 1 61 3 is_stmt 1 view .LVU7
-  65              	.L4:
-  66              		.loc 1 61 37 discriminator 1 view .LVU8
-  67              		.loc 1 61 9 discriminator 1 view .LVU9
-  68              		.loc 1 61 15 is_stmt 0 discriminator 1 view .LVU10
-  69 0008 354B     		ldr	r3, .L9
-  70 000a 1B68     		ldr	r3, [r3]
-  71              		.loc 1 61 9 discriminator 1 view .LVU11
-  72 000c 13F0020F 		tst	r3, #2
-  73 0010 FAD0     		beq	.L4
-  62:Core/Src/main.c **** 
-  63:Core/Src/main.c ****   /* External 8MHz HSE Configuration:
-  64:Core/Src/main.c ****    * ON
-  65:Core/Src/main.c ****    * Bypass to false
-  66:Core/Src/main.c ****    * 
-  67:Core/Src/main.c ****   */
-  68:Core/Src/main.c ****   RCC->CR |= RCC_CR_HSEON;
-  74              		.loc 1 68 3 is_stmt 1 view .LVU12
-  75              		.loc 1 68 11 is_stmt 0 view .LVU13
-  76 0012 334B     		ldr	r3, .L9
-  77 0014 1A68     		ldr	r2, [r3]
-  78 0016 42F48032 		orr	r2, r2, #65536
-  79 001a 1A60     		str	r2, [r3]
-  69:Core/Src/main.c ****   RCC->CR &= ~RCC_CR_HSEBYP;
-  80              		.loc 1 69 3 is_stmt 1 view .LVU14
-  81              		.loc 1 69 11 is_stmt 0 view .LVU15
-  82 001c 1A68     		ldr	r2, [r3]
-  83 001e 22F48022 		bic	r2, r2, #262144
-  84 0022 1A60     		str	r2, [r3]
-  70:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSERDY));
-  85              		.loc 1 70 3 is_stmt 1 view .LVU16
-  86              	.L5:
-  87              		.loc 1 70 37 discriminator 1 view .LVU17
-  88              		.loc 1 70 9 discriminator 1 view .LVU18
-  89              		.loc 1 70 15 is_stmt 0 discriminator 1 view .LVU19
-  90 0024 2E4B     		ldr	r3, .L9
-  91 0026 1B68     		ldr	r3, [r3]
-  92              		.loc 1 70 9 discriminator 1 view .LVU20
-  93 0028 13F4003F 		tst	r3, #131072
-  94 002c FAD0     		beq	.L5
-  71:Core/Src/main.c **** 
-  72:Core/Src/main.c ****   /* Flash latency configuration:
-  73:Core/Src/main.c ****    * Enable pre-fetch buffer
-  74:Core/Src/main.c ****    * Disable Flash half cycle access 
-  75:Core/Src/main.c ****    * Set wait states (latency) to two, as main clock will be 72MHz
-  76:Core/Src/main.c ****   */
-  77:Core/Src/main.c ****   FLASH->ACR |= FLASH_ACR_PRFTBE;
-  95              		.loc 1 77 3 is_stmt 1 view .LVU21
-  96              		.loc 1 77 14 is_stmt 0 view .LVU22
-ARM GAS  /tmp/ccLz75SY.s 			page 4
-
-
-  97 002e 2D4B     		ldr	r3, .L9+4
-  98 0030 1A68     		ldr	r2, [r3]
-  99 0032 42F01002 		orr	r2, r2, #16
- 100 0036 1A60     		str	r2, [r3]
-  78:Core/Src/main.c ****   FLASH->ACR &= ~FLASH_ACR_HLFCYA;
- 101              		.loc 1 78 3 is_stmt 1 view .LVU23
- 102              		.loc 1 78 14 is_stmt 0 view .LVU24
- 103 0038 1A68     		ldr	r2, [r3]
- 104 003a 22F00802 		bic	r2, r2, #8
- 105 003e 1A60     		str	r2, [r3]
-  79:Core/Src/main.c ****   FLASH->ACR &= ~FLASH_ACR_LATENCY; // reset
- 106              		.loc 1 79 3 is_stmt 1 view .LVU25
- 107              		.loc 1 79 14 is_stmt 0 view .LVU26
- 108 0040 1A68     		ldr	r2, [r3]
- 109 0042 22F00702 		bic	r2, r2, #7
- 110 0046 1A60     		str	r2, [r3]
-  80:Core/Src/main.c ****   FLASH->ACR |= FLASH_ACR_LATENCY_1;
- 111              		.loc 1 80 3 is_stmt 1 view .LVU27
- 112              		.loc 1 80 14 is_stmt 0 view .LVU28
- 113 0048 1A68     		ldr	r2, [r3]
- 114 004a 42F00202 		orr	r2, r2, #2
- 115 004e 1A60     		str	r2, [r3]
-  81:Core/Src/main.c **** 
-  82:Core/Src/main.c ****   /* Clock configuration
-  83:Core/Src/main.c ****    * Disable PLL 
-  84:Core/Src/main.c ****    * Microcontroller clock out disabled!
-  85:Core/Src/main.c ****    * USB Prescalar set for 72MHz PLL output
-  86:Core/Src/main.c ****    * PLL source is 8MHz HSE clock through PREDIV1=1
-  87:Core/Src/main.c ****    * ADC Prescalar set to divide by 8
-  88:Core/Src/main.c ****    * APB high speed set to divide by 1 = 72MHz
-  89:Core/Src/main.c ****    * APB low speed set to divide by 2 = 36 MHz
-  90:Core/Src/main.c ****    * PLL set to 9x from 8MHz HSE to make 72MHz
-  91:Core/Src/main.c ****    * Enable PLL
-  92:Core/Src/main.c ****    * AHB set to divide by 1 = 72MHz
-  93:Core/Src/main.c ****    * PLL as system clock
-  94:Core/Src/main.c ****   */
-  95:Core/Src/main.c ****   RCC->CR &= ~RCC_CR_PLLON; // clear to allow changes
- 116              		.loc 1 95 3 is_stmt 1 view .LVU29
- 117              		.loc 1 95 11 is_stmt 0 view .LVU30
- 118 0050 A3F58053 		sub	r3, r3, #4096
- 119 0054 1A68     		ldr	r2, [r3]
- 120 0056 22F08072 		bic	r2, r2, #16777216
- 121 005a 1A60     		str	r2, [r3]
-  96:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_MCO;
- 122              		.loc 1 96 3 is_stmt 1 view .LVU31
- 123              		.loc 1 96 13 is_stmt 0 view .LVU32
- 124 005c 5A68     		ldr	r2, [r3, #4]
- 125 005e 22F0E062 		bic	r2, r2, #117440512
- 126 0062 5A60     		str	r2, [r3, #4]
-  97:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_USBPRE;
- 127              		.loc 1 97 3 is_stmt 1 view .LVU33
- 128              		.loc 1 97 13 is_stmt 0 view .LVU34
- 129 0064 5A68     		ldr	r2, [r3, #4]
- 130 0066 22F48002 		bic	r2, r2, #4194304
- 131 006a 5A60     		str	r2, [r3, #4]
-  98:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_PLLSRC;
- 132              		.loc 1 98 3 is_stmt 1 view .LVU35
-ARM GAS  /tmp/ccLz75SY.s 			page 5
-
-
- 133              		.loc 1 98 13 is_stmt 0 view .LVU36
- 134 006c 5A68     		ldr	r2, [r3, #4]
- 135 006e 42F48032 		orr	r2, r2, #65536
- 136 0072 5A60     		str	r2, [r3, #4]
-  99:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_ADCPRE;
- 137              		.loc 1 99 3 is_stmt 1 view .LVU37
- 138              		.loc 1 99 13 is_stmt 0 view .LVU38
- 139 0074 5A68     		ldr	r2, [r3, #4]
- 140 0076 42F44042 		orr	r2, r2, #49152
- 141 007a 5A60     		str	r2, [r3, #4]
- 100:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_PPRE2;
- 142              		.loc 1 100 3 is_stmt 1 view .LVU39
- 143              		.loc 1 100 13 is_stmt 0 view .LVU40
- 144 007c 5A68     		ldr	r2, [r3, #4]
- 145 007e 22F46052 		bic	r2, r2, #14336
- 146 0082 5A60     		str	r2, [r3, #4]
- 101:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_PPRE1; // reset
- 147              		.loc 1 101 3 is_stmt 1 view .LVU41
- 148              		.loc 1 101 13 is_stmt 0 view .LVU42
- 149 0084 5A68     		ldr	r2, [r3, #4]
- 150 0086 22F4E062 		bic	r2, r2, #1792
- 151 008a 5A60     		str	r2, [r3, #4]
- 102:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_PPRE1_2;
- 152              		.loc 1 102 3 is_stmt 1 view .LVU43
- 153              		.loc 1 102 13 is_stmt 0 view .LVU44
- 154 008c 5A68     		ldr	r2, [r3, #4]
- 155 008e 42F48062 		orr	r2, r2, #1024
- 156 0092 5A60     		str	r2, [r3, #4]
- 103:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_PLLMULL; // reset
- 157              		.loc 1 103 3 is_stmt 1 view .LVU45
- 158              		.loc 1 103 13 is_stmt 0 view .LVU46
- 159 0094 5A68     		ldr	r2, [r3, #4]
- 160 0096 22F47012 		bic	r2, r2, #3932160
- 161 009a 5A60     		str	r2, [r3, #4]
- 104:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_PLLMULL9;
- 162              		.loc 1 104 3 is_stmt 1 view .LVU47
- 163              		.loc 1 104 13 is_stmt 0 view .LVU48
- 164 009c 5A68     		ldr	r2, [r3, #4]
- 165 009e 42F4E012 		orr	r2, r2, #1835008
- 166 00a2 5A60     		str	r2, [r3, #4]
- 105:Core/Src/main.c ****   RCC->CR |= RCC_CR_PLLON;
- 167              		.loc 1 105 3 is_stmt 1 view .LVU49
- 168              		.loc 1 105 11 is_stmt 0 view .LVU50
- 169 00a4 1A68     		ldr	r2, [r3]
- 170 00a6 42F08072 		orr	r2, r2, #16777216
- 171 00aa 1A60     		str	r2, [r3]
- 106:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_PLLRDY));
- 172              		.loc 1 106 3 is_stmt 1 view .LVU51
- 173              	.L6:
- 174              		.loc 1 106 37 discriminator 1 view .LVU52
- 175              		.loc 1 106 9 discriminator 1 view .LVU53
- 176              		.loc 1 106 15 is_stmt 0 discriminator 1 view .LVU54
- 177 00ac 0C4B     		ldr	r3, .L9
- 178 00ae 1B68     		ldr	r3, [r3]
- 179              		.loc 1 106 9 discriminator 1 view .LVU55
- 180 00b0 13F0007F 		tst	r3, #33554432
- 181 00b4 FAD0     		beq	.L6
-ARM GAS  /tmp/ccLz75SY.s 			page 6
-
-
- 107:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_HPRE;
- 182              		.loc 1 107 3 is_stmt 1 view .LVU56
- 183              		.loc 1 107 13 is_stmt 0 view .LVU57
- 184 00b6 0A4B     		ldr	r3, .L9
- 185 00b8 5A68     		ldr	r2, [r3, #4]
- 186 00ba 22F0F002 		bic	r2, r2, #240
- 187 00be 5A60     		str	r2, [r3, #4]
- 108:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_SW;
- 188              		.loc 1 108 3 is_stmt 1 view .LVU58
- 189              		.loc 1 108 13 is_stmt 0 view .LVU59
- 190 00c0 5A68     		ldr	r2, [r3, #4]
- 191 00c2 22F00302 		bic	r2, r2, #3
- 192 00c6 5A60     		str	r2, [r3, #4]
- 109:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_SW_PLL;
- 193              		.loc 1 109 3 is_stmt 1 view .LVU60
- 194              		.loc 1 109 13 is_stmt 0 view .LVU61
- 195 00c8 5A68     		ldr	r2, [r3, #4]
- 196 00ca 42F00202 		orr	r2, r2, #2
- 197 00ce 5A60     		str	r2, [r3, #4]
- 110:Core/Src/main.c ****   while (!(RCC->CFGR & RCC_CFGR_SWS_PLL));
- 198              		.loc 1 110 3 is_stmt 1 view .LVU62
- 199              	.L7:
- 200              		.loc 1 110 42 discriminator 1 view .LVU63
- 201              		.loc 1 110 9 discriminator 1 view .LVU64
- 202              		.loc 1 110 15 is_stmt 0 discriminator 1 view .LVU65
- 203 00d0 034B     		ldr	r3, .L9
- 204 00d2 5B68     		ldr	r3, [r3, #4]
- 205              		.loc 1 110 9 discriminator 1 view .LVU66
- 206 00d4 13F0080F 		tst	r3, #8
- 207 00d8 FAD0     		beq	.L7
- 111:Core/Src/main.c ****   
- 112:Core/Src/main.c ****   /* Inform core libraries of change to clocks
- 113:Core/Src/main.c ****   */
- 114:Core/Src/main.c ****   SystemCoreClockUpdate();
- 208              		.loc 1 114 3 is_stmt 1 view .LVU67
- 209 00da FFF7FEFF 		bl	SystemCoreClockUpdate
- 210              	.LVL0:
- 115:Core/Src/main.c **** }
- 211              		.loc 1 115 1 is_stmt 0 view .LVU68
- 212 00de 08BD     		pop	{r3, pc}
- 213              	.L10:
- 214              		.align	2
- 215              	.L9:
- 216 00e0 00100240 		.word	1073876992
- 217 00e4 00200240 		.word	1073881088
- 218              		.cfi_endproc
- 219              	.LFE66:
- 221              		.section	.text.Error_Handler,"ax",%progbits
- 222              		.align	1
- 223              		.global	Error_Handler
- 224              		.syntax unified
- 225              		.thumb
- 226              		.thumb_func
- 228              	Error_Handler:
- 229              	.LFB67:
- 116:Core/Src/main.c **** 
- 117:Core/Src/main.c **** 
-ARM GAS  /tmp/ccLz75SY.s 			page 7
-
-
- 118:Core/Src/main.c **** /**
- 119:Core/Src/main.c ****   * @brief  This function is executed in case of error occurrence.
- 120:Core/Src/main.c ****   * @retval None
- 121:Core/Src/main.c ****   */
- 122:Core/Src/main.c **** void Error_Handler(void)
- 123:Core/Src/main.c **** {
- 230              		.loc 1 123 1 is_stmt 1 view -0
- 231              		.cfi_startproc
- 232              		@ Volatile: function does not return.
- 233              		@ args = 0, pretend = 0, frame = 0
- 234              		@ frame_needed = 0, uses_anonymous_args = 0
- 235              		@ link register save eliminated.
- 124:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
- 125:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
- 126:Core/Src/main.c ****   __disable_irq();
- 236              		.loc 1 126 3 view .LVU70
- 237              	.LBB4:
- 238              	.LBI4:
- 239              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+ 260 0040 22F40052 		bic	r2, r2, #8192
+ 261 0044 1A61     		str	r2, [r3, #16]
+  46:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+ 262              		.loc 1 46 5 is_stmt 1 discriminator 1 view .LVU83
+  46:Core/Src/main.c ****     GPIOC->BSRR &= ~GPIO_BSRR_BS13;   // turn off
+ 263              		.loc 1 46 17 is_stmt 0 discriminator 1 view .LVU84
+ 264 0046 1A69     		ldr	r2, [r3, #16]
+ 265 0048 22F40052 		bic	r2, r2, #8192
+ 266 004c 1A61     		str	r2, [r3, #16]
+  47:Core/Src/main.c ****   }
+ 267              		.loc 1 47 5 is_stmt 1 discriminator 1 view .LVU85
+  47:Core/Src/main.c ****   }
+ 268              		.loc 1 47 17 is_stmt 0 discriminator 1 view .LVU86
+ 269 004e 1A69     		ldr	r2, [r3, #16]
+ 270 0050 22F40052 		bic	r2, r2, #8192
+ 271 0054 1A61     		str	r2, [r3, #16]
+  38:Core/Src/main.c ****   {
+ 272              		.loc 1 38 9 is_stmt 1 discriminator 1 view .LVU87
+ 273 0056 E1E7     		b	.L10
+ 274              	.L13:
+ 275              		.align	2
+ 276              	.L12:
+ 277 0058 00100140 		.word	1073811456
+ 278              		.cfi_endproc
+ 279              	.LFE65:
+ 281              		.section	.text.Error_Handler,"ax",%progbits
+ 282              		.align	1
+ 283              		.global	Error_Handler
+ 284              		.syntax unified
+ 285              		.thumb
+ 286              		.thumb_func
+ 288              	Error_Handler:
+ 289              	.LFB67:
+ 120:Core/Src/main.c **** 
+ 121:Core/Src/main.c **** /**
+ 122:Core/Src/main.c ****  * @brief  This function is executed in case of error occurrence.
+ 123:Core/Src/main.c ****  * @retval None
+ 124:Core/Src/main.c ****  */
+ 125:Core/Src/main.c **** void Error_Handler(void)
+ 126:Core/Src/main.c **** {
+ 290              		.loc 1 126 1 view -0
+ 291              		.cfi_startproc
+ 292              		@ Volatile: function does not return.
+ 293              		@ args = 0, pretend = 0, frame = 0
+ 294              		@ frame_needed = 0, uses_anonymous_args = 0
+ 295              		@ link register save eliminated.
+ 127:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 128:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
+ 129:Core/Src/main.c ****   __disable_irq();
+ 296              		.loc 1 129 3 view .LVU89
+ 297              	.LBB4:
+ 298              	.LBI4:
+ 299              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
    4:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @version  V5.0.4
+ARM GAS  /tmp/cc7ehBrM.s 			page 9
+
+
    5:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @date     09. April 2018
    6:Drivers/CMSIS/Include/cmsis_gcc.h ****  ******************************************************************************/
    7:Drivers/CMSIS/Include/cmsis_gcc.h **** /*
@@ -418,9 +515,6 @@ ARM GAS  /tmp/ccLz75SY.s 			page 1
   36:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
   37:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   38:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  /tmp/ccLz75SY.s 			page 8
-
-
   39:Drivers/CMSIS/Include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
   40:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ASM
   41:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ASM                                  __asm
@@ -444,6 +538,9 @@ ARM GAS  /tmp/ccLz75SY.s 			page 1
   59:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
   60:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   61:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED
+ARM GAS  /tmp/cc7ehBrM.s 			page 10
+
+
   62:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED                               __attribute__((packed, aligned(1)))
   63:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   64:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
@@ -478,9 +575,6 @@ ARM GAS  /tmp/ccLz75SY.s 			page 1
   93:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   94:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
   95:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
-ARM GAS  /tmp/ccLz75SY.s 			page 9
-
-
   96:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
   97:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   98:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
@@ -504,6 +598,9 @@ ARM GAS  /tmp/ccLz75SY.s 			page 1
  116:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  117:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  118:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
+ARM GAS  /tmp/cc7ehBrM.s 			page 11
+
+
  119:Drivers/CMSIS/Include/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
  120:Drivers/CMSIS/Include/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
  121:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
@@ -526,51 +623,51 @@ ARM GAS  /tmp/ccLz75SY.s 			page 1
  138:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  139:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  140:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
- 240              		.loc 2 140 27 view .LVU71
- 241              	.LBB5:
+ 300              		.loc 2 140 27 view .LVU90
+ 301              	.LBB5:
  141:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  142:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
- 242              		.loc 2 142 3 view .LVU72
- 243              		.syntax unified
- 244              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 245 0000 72B6     		cpsid i
- 246              	@ 0 "" 2
- 247              		.thumb
- 248              		.syntax unified
- 249              	.L12:
-ARM GAS  /tmp/ccLz75SY.s 			page 10
-
-
- 250              	.LBE5:
- 251              	.LBE4:
- 127:Core/Src/main.c ****   while (1)
- 252              		.loc 1 127 3 discriminator 1 view .LVU73
- 128:Core/Src/main.c ****   {
- 129:Core/Src/main.c ****   }
- 253              		.loc 1 129 3 discriminator 1 view .LVU74
- 127:Core/Src/main.c ****   while (1)
- 254              		.loc 1 127 9 discriminator 1 view .LVU75
- 255 0002 FEE7     		b	.L12
- 256              		.cfi_endproc
- 257              	.LFE67:
- 259              		.text
- 260              	.Letext0:
- 261              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 262              		.file 4 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 263              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 264              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
-ARM GAS  /tmp/ccLz75SY.s 			page 11
+ 302              		.loc 2 142 3 view .LVU91
+ 303              		.syntax unified
+ 304              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 305 0000 72B6     		cpsid i
+ 306              	@ 0 "" 2
+ 307              		.thumb
+ 308              		.syntax unified
+ 309              	.L15:
+ 310              	.LBE5:
+ 311              	.LBE4:
+ 130:Core/Src/main.c ****   while (1)
+ 312              		.loc 1 130 3 discriminator 1 view .LVU92
+ 131:Core/Src/main.c ****   {
+ 132:Core/Src/main.c ****   }
+ 313              		.loc 1 132 3 discriminator 1 view .LVU93
+ 130:Core/Src/main.c ****   while (1)
+ 314              		.loc 1 130 9 discriminator 1 view .LVU94
+ 315 0002 FEE7     		b	.L15
+ 316              		.cfi_endproc
+ 317              	.LFE67:
+ 319              		.text
+ 320              	.Letext0:
+ 321              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 322              		.file 4 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 323              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 324              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 325              		.file 7 "Core/Inc/hw_gpio.h"
+ARM GAS  /tmp/cc7ehBrM.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccLz75SY.s:18     .text.main:0000000000000000 $t
-     /tmp/ccLz75SY.s:24     .text.main:0000000000000000 main
-     /tmp/ccLz75SY.s:42     .text.SystemClock_Config:0000000000000000 $t
-     /tmp/ccLz75SY.s:48     .text.SystemClock_Config:0000000000000000 SystemClock_Config
-     /tmp/ccLz75SY.s:216    .text.SystemClock_Config:00000000000000e0 $d
-     /tmp/ccLz75SY.s:222    .text.Error_Handler:0000000000000000 $t
-     /tmp/ccLz75SY.s:228    .text.Error_Handler:0000000000000000 Error_Handler
+     /tmp/cc7ehBrM.s:18     .text.hw_system_clocks_init:0000000000000000 $t
+     /tmp/cc7ehBrM.s:24     .text.hw_system_clocks_init:0000000000000000 hw_system_clocks_init
+     /tmp/cc7ehBrM.s:193    .text.hw_system_clocks_init:00000000000000e0 $d
+     /tmp/cc7ehBrM.s:199    .text.main:0000000000000000 $t
+     /tmp/cc7ehBrM.s:205    .text.main:0000000000000000 main
+     /tmp/cc7ehBrM.s:277    .text.main:0000000000000058 $d
+     /tmp/cc7ehBrM.s:282    .text.Error_Handler:0000000000000000 $t
+     /tmp/cc7ehBrM.s:288    .text.Error_Handler:0000000000000000 Error_Handler
 
 UNDEFINED SYMBOLS
 SystemCoreClockUpdate
+hw_gpio_init

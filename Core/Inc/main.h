@@ -38,7 +38,7 @@ extern "C" {
 
 int main(void);
 
-void SystemClock_Config(void);
+void hw_system_clocks_init(void);
 
 void Error_Handler(void);
 

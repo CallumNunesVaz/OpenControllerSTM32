@@ -1,86 +1,83 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2022 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * <h2><center>&copy; Copyright (c) 2022 STMicroelectronics.
+ * All rights reserved.</center></h2>
+ *
+ * This software component is licensed by ST under BSD 3-Clause license,
+ * the "License"; You may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at:
+ *                        opensource.org/licenses/BSD-3-Clause
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
 /**
-  * @brief  The application entry point.
-  * @retval int
-  */
+ * @brief  The application entry point.
+ * @retval int
+ */
 int main(void)
 {
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  //HAL_Init();
+  /* Configure the system clocks */
+  hw_system_clocks_init();
 
-  /* Configure the system clock */
-  //SystemClock_Config();
+  /* Configure the system gpio */
+  hw_gpio_init();
 
-  //MX_GPIO_Init();
+  GPIOC->CRH &= ~GPIO_CRH_CNF13; // Output push-pull
+  GPIOC->CRH |= GPIO_CRH_MODE13; // 50MHz
 
   while (1)
   {
-    /* USER CODE END WHILE */
-    //HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
-    ///HAL_Delay(500);
-    ///HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-    ///HAL_Delay(500);
-    /* USER CODE BEGIN 3 */
+    GPIOC->BSRR |= GPIO_BSRR_BS13;   // turn on
   }
-  /* USER CODE END 3 */
 }
 
 /**
-  * @brief System Clock Configuration
-  * @retval None
-  */
-void SystemClock_Config(void)
+ * @brief System Clock Configuration
+ * @retval None
+ */
+void hw_system_clocks_init(void)
 {
   /* Internal 8MHz HSI Configuration:
    * ON
    * Trim set to default = 16
    * Cal at startup default
-  */
+   */
   RCC->CR |= RCC_CR_HSION_Pos;
-  while (!(RCC->CR & RCC_CR_HSIRDY));
+  while (!(RCC->CR & RCC_CR_HSIRDY))
+    ;
 
   /* External 8MHz HSE Configuration:
    * ON
    * Bypass to false
-   * 
-  */
+   *
+   */
   RCC->CR |= RCC_CR_HSEON;
   RCC->CR &= ~RCC_CR_HSEBYP;
-  while (!(RCC->CR & RCC_CR_HSERDY));
+  while (!(RCC->CR & RCC_CR_HSERDY))
+    ;
 
   /* Flash latency configuration:
    * Enable pre-fetch buffer
-   * Disable Flash half cycle access 
+   * Disable Flash half cycle access
    * Set wait states (latency) to two, as main clock will be 72MHz
-  */
+   */
   FLASH->ACR |= FLASH_ACR_PRFTBE;
   FLASH->ACR &= ~FLASH_ACR_HLFCYA;
   FLASH->ACR &= ~FLASH_ACR_LATENCY; // reset
   FLASH->ACR |= FLASH_ACR_LATENCY_1;
 
   /* Clock configuration
-   * Disable PLL 
+   * Disable PLL
    * Microcontroller clock out disabled!
    * USB Prescalar set for 72MHz PLL output
    * PLL source is 8MHz HSE clock through PREDIV1=1
@@ -91,7 +88,7 @@ void SystemClock_Config(void)
    * Enable PLL
    * AHB set to divide by 1 = 72MHz
    * PLL as system clock
-  */
+   */
   RCC->CR &= ~RCC_CR_PLLON; // clear to allow changes
   RCC->CFGR &= ~RCC_CFGR_MCO;
   RCC->CFGR &= ~RCC_CFGR_USBPRE;
@@ -108,17 +105,16 @@ void SystemClock_Config(void)
   RCC->CFGR &= ~RCC_CFGR_SW;
   RCC->CFGR |= RCC_CFGR_SW_PLL;
   while (!(RCC->CFGR & RCC_CFGR_SWS_PLL));
-  
+
   /* Inform core libraries of change to clocks
-  */
+   */
   SystemCoreClockUpdate();
 }
 
-
 /**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
+ * @brief  This function is executed in case of error occurrence.
+ * @retval None
+ */
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
@@ -130,14 +126,14 @@ void Error_Handler(void)
   /* USER CODE END Error_Handler_Debug */
 }
 
-#ifdef  USE_FULL_ASSERT
+#ifdef USE_FULL_ASSERT
 /**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
+ * @brief  Reports the name of the source file and the source line number
+ *         where the assert_param error has occurred.
+ * @param  file: pointer to the source file name
+ * @param  line: assert_param error line source number
+ * @retval None
+ */
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
