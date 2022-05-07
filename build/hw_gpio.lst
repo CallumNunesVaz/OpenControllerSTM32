@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccvPnJAv.s 			page 1
+ARM GAS  /tmp/ccI6p8XJ.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -26,65 +26,48 @@ ARM GAS  /tmp/ccvPnJAv.s 			page 1
   24              	hw_gpio_init:
   25              	.LFB65:
   26              		.file 1 "Core/Src/hw_gpio.c"
-   1:Core/Src/hw_gpio.c **** /* USER CODE BEGIN Header */
-   2:Core/Src/hw_gpio.c **** /**
-   3:Core/Src/hw_gpio.c ****   ******************************************************************************
-   4:Core/Src/hw_gpio.c ****   * @file           : main.c
-   5:Core/Src/hw_gpio.c ****   * @brief          : Main program body
-   6:Core/Src/hw_gpio.c ****   ******************************************************************************
-   7:Core/Src/hw_gpio.c ****   * @attention
-   8:Core/Src/hw_gpio.c ****   *
-   9:Core/Src/hw_gpio.c ****   * <h2><center>&copy; Copyright (c) 2022 STMicroelectronics.
-  10:Core/Src/hw_gpio.c ****   * All rights reserved.</center></h2>
-  11:Core/Src/hw_gpio.c ****   *
-  12:Core/Src/hw_gpio.c ****   * This software component is licensed by ST under BSD 3-Clause license,
-  13:Core/Src/hw_gpio.c ****   * the "License"; You may not use this file except in compliance with the
-  14:Core/Src/hw_gpio.c ****   * License. You may obtain a copy of the License at:
-  15:Core/Src/hw_gpio.c ****   *                        opensource.org/licenses/BSD-3-Clause
-  16:Core/Src/hw_gpio.c ****   *
-  17:Core/Src/hw_gpio.c ****   ******************************************************************************
-  18:Core/Src/hw_gpio.c ****   */
-  19:Core/Src/hw_gpio.c **** /* USER CODE END Header */
-  20:Core/Src/hw_gpio.c **** /* Includes ------------------------------------------------------------------*/
-  21:Core/Src/hw_gpio.c **** #include "hw_gpio.h"
-  22:Core/Src/hw_gpio.c **** 
-  23:Core/Src/hw_gpio.c **** void hw_gpio_init(void) {
-  27              		.loc 1 23 25 view -0
+   1:Core/Src/hw_gpio.c **** /*
+   2:Core/Src/hw_gpio.c **** fdgfdh
+   3:Core/Src/hw_gpio.c **** */
+   4:Core/Src/hw_gpio.c **** #include "hw_gpio.h"
+   5:Core/Src/hw_gpio.c **** 
+   6:Core/Src/hw_gpio.c **** void hw_gpio_init(void) {
+  27              		.loc 1 6 25 view -0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31              		@ link register save eliminated.
-  24:Core/Src/hw_gpio.c ****   /* GPIO Ports Clock Enable */
-  25:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= (0x1UL << RCC_APB2ENR_IOPAEN_Pos);
-  32              		.loc 1 25 3 view .LVU1
-  33              		.loc 1 25 16 is_stmt 0 view .LVU2
-ARM GAS  /tmp/ccvPnJAv.s 			page 2
-
-
+   7:Core/Src/hw_gpio.c ****   /* GPIO Ports Clock Enable */
+   8:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= (0x1UL << RCC_APB2ENR_IOPAEN_Pos);
+  32              		.loc 1 8 3 view .LVU1
+  33              		.loc 1 8 16 is_stmt 0 view .LVU2
   34 0000 084B     		ldr	r3, .L2
   35 0002 9A69     		ldr	r2, [r3, #24]
   36 0004 42F00402 		orr	r2, r2, #4
   37 0008 9A61     		str	r2, [r3, #24]
-  26:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= (0x1UL << RCC_APB2ENR_IOPBEN_Pos);
-  38              		.loc 1 26 3 is_stmt 1 view .LVU3
-  39              		.loc 1 26 16 is_stmt 0 view .LVU4
+   9:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= (0x1UL << RCC_APB2ENR_IOPBEN_Pos);
+  38              		.loc 1 9 3 is_stmt 1 view .LVU3
+  39              		.loc 1 9 16 is_stmt 0 view .LVU4
   40 000a 9A69     		ldr	r2, [r3, #24]
   41 000c 42F00802 		orr	r2, r2, #8
   42 0010 9A61     		str	r2, [r3, #24]
-  27:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= (0x1UL << RCC_APB2ENR_IOPCEN_Pos);
-  43              		.loc 1 27 3 is_stmt 1 view .LVU5
-  44              		.loc 1 27 16 is_stmt 0 view .LVU6
+  10:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= (0x1UL << RCC_APB2ENR_IOPCEN_Pos);
+  43              		.loc 1 10 3 is_stmt 1 view .LVU5
+  44              		.loc 1 10 16 is_stmt 0 view .LVU6
   45 0012 9A69     		ldr	r2, [r3, #24]
   46 0014 42F01002 		orr	r2, r2, #16
   47 0018 9A61     		str	r2, [r3, #24]
-  28:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= (0x1UL << RCC_APB2ENR_IOPDEN_Pos);
-  48              		.loc 1 28 3 is_stmt 1 view .LVU7
-  49              		.loc 1 28 16 is_stmt 0 view .LVU8
+  11:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= (0x1UL << RCC_APB2ENR_IOPDEN_Pos);
+ARM GAS  /tmp/ccI6p8XJ.s 			page 2
+
+
+  48              		.loc 1 11 3 is_stmt 1 view .LVU7
+  49              		.loc 1 11 16 is_stmt 0 view .LVU8
   50 001a 9A69     		ldr	r2, [r3, #24]
   51 001c 42F02002 		orr	r2, r2, #32
   52 0020 9A61     		str	r2, [r3, #24]
-  29:Core/Src/hw_gpio.c **** }
-  53              		.loc 1 29 1 view .LVU9
+  12:Core/Src/hw_gpio.c **** }
+  53              		.loc 1 12 1 view .LVU9
   54 0022 7047     		bx	lr
   55              	.L3:
   56              		.align	2
@@ -96,14 +79,14 @@ ARM GAS  /tmp/ccvPnJAv.s 			page 1
   63              	.Letext0:
   64              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
   65              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
-  66              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103x6.h"
-ARM GAS  /tmp/ccvPnJAv.s 			page 3
+  66              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ARM GAS  /tmp/ccI6p8XJ.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hw_gpio.c
-     /tmp/ccvPnJAv.s:18     .text.hw_gpio_init:0000000000000000 $t
-     /tmp/ccvPnJAv.s:24     .text.hw_gpio_init:0000000000000000 hw_gpio_init
-     /tmp/ccvPnJAv.s:58     .text.hw_gpio_init:0000000000000024 $d
+     /tmp/ccI6p8XJ.s:18     .text.hw_gpio_init:0000000000000000 $t
+     /tmp/ccI6p8XJ.s:24     .text.hw_gpio_init:0000000000000000 hw_gpio_init
+     /tmp/ccI6p8XJ.s:58     .text.hw_gpio_init:0000000000000024 $d
 
 NO UNDEFINED SYMBOLS

@@ -17,7 +17,7 @@ extern "C" {
 #endif
 
 #include <stdint.h>
-#include "stm32f103x6.h"
+#include "stm32f103xb.h"
 
 #define FUNC_PTR_MAX_SIZE 32
 

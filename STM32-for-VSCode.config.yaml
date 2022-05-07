@@ -87,7 +87,6 @@ excludes:
 # If a CubeMX makefile is present it will automatically include the include directories from that makefile.
 includeDirectories: 
   - Core/Inc
-  - Drivers/STM32F1xx_HAL_Driver/Inc
   - Drivers/CMSIS/Device/ST/STM32F1xx/Include
   - Drivers/CMSIS/Include
   - Inc/**
@@ -107,18 +106,6 @@ sourceFiles:
   - startup_stm32f103xb.s
   - Core/Src/main.c
   - Core/Src/stm32f1xx_it.c
-  - Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c
-  - Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_adc.c
-  - Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_dma.c
-  - Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c
-  - Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c
-  - Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c
-  - Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_crc.c
-  - Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_i2c.c
-  - Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_spi.c
-  - Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_pwr.c
-  - Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_tim.c
-  - Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c
   - Core/Src/system_stm32f1xx.c
   - Src/**
   - Core/Src/**

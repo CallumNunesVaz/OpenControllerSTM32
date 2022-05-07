@@ -20,13 +20,7 @@
       "includePath": [
         "Core/Inc",
         "Drivers/CMSIS/Device/ST/STM32F1xx/Include",
-        "Drivers/CMSIS/Include",
-        "Drivers/STM32F1xx_HAL_Driver/Inc",
-        "Drivers/STM32F1xx_HAL_Driver/Inc/Legacy",
-        "Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc",
-        "Middlewares/ST/STM32_USB_Device_Library/Core/Inc",
-        "USB_DEVICE/App",
-        "USB_DEVICE/Target"
+        "Drivers/CMSIS/Include"
       ],
       "defines": [
         "HSE_STARTUP_TIMEOUT=100",
@@ -38,7 +32,6 @@
         "PREFETCH_ENABLE=1",
         "STM32F103xB",
         "USE_FULL_LL_DRIVER",
-        "USE_HAL_DRIVER",
         "VDD_VALUE=3300"
       ],
       "compilerPath": "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/arm-none-eabi-gcc"

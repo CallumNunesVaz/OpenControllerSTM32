@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccEP0LOG.s 			page 1
+ARM GAS  /tmp/ccpe9GH3.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccEP0LOG.s 			page 1
   30:Core/Src/stm32f1xx_it.c **** 
   31:Core/Src/stm32f1xx_it.c **** /* USER CODE END TD */
   32:Core/Src/stm32f1xx_it.c **** 
-ARM GAS  /tmp/ccEP0LOG.s 			page 2
+ARM GAS  /tmp/ccpe9GH3.s 			page 2
 
 
   33:Core/Src/stm32f1xx_it.c **** /* Private define ------------------------------------------------------------*/
@@ -87,7 +87,7 @@ ARM GAS  /tmp/ccEP0LOG.s 			page 1
   56:Core/Src/stm32f1xx_it.c **** /* USER CODE END 0 */
   57:Core/Src/stm32f1xx_it.c **** 
   58:Core/Src/stm32f1xx_it.c **** /* External variables --------------------------------------------------------*/
-  59:Core/Src/stm32f1xx_it.c **** extern PCD_HandleTypeDef hpcd_USB_FS;
+  59:Core/Src/stm32f1xx_it.c **** 
   60:Core/Src/stm32f1xx_it.c **** /* USER CODE BEGIN EV */
   61:Core/Src/stm32f1xx_it.c **** 
   62:Core/Src/stm32f1xx_it.c **** /* USER CODE END EV */
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccEP0LOG.s 			page 1
   35              		.loc 1 78 3 discriminator 1 view .LVU2
   76:Core/Src/stm32f1xx_it.c ****   {
   36              		.loc 1 76 9 discriminator 1 view .LVU3
-ARM GAS  /tmp/ccEP0LOG.s 			page 3
+ARM GAS  /tmp/ccpe9GH3.s 			page 3
 
 
   37 0000 FEE7     		b	.L2
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccEP0LOG.s 			page 1
  100:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Prefetch fault, memory access fault.
  101:Core/Src/stm32f1xx_it.c ****   */
  102:Core/Src/stm32f1xx_it.c **** void BusFault_Handler(void)
-ARM GAS  /tmp/ccEP0LOG.s 			page 4
+ARM GAS  /tmp/ccpe9GH3.s 			page 4
 
 
  103:Core/Src/stm32f1xx_it.c **** {
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccEP0LOG.s 			page 1
  104              		.loc 1 126 3 discriminator 1 view .LVU14
  122:Core/Src/stm32f1xx_it.c ****   {
  105              		.loc 1 122 9 discriminator 1 view .LVU15
-ARM GAS  /tmp/ccEP0LOG.s 			page 5
+ARM GAS  /tmp/ccpe9GH3.s 			page 5
 
 
  106 0000 FEE7     		b	.L8
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccEP0LOG.s 			page 1
  148:Core/Src/stm32f1xx_it.c **** 
  149:Core/Src/stm32f1xx_it.c ****   /* USER CODE END DebugMonitor_IRQn 0 */
  150:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN DebugMonitor_IRQn 1 */
-ARM GAS  /tmp/ccEP0LOG.s 			page 6
+ARM GAS  /tmp/ccpe9GH3.s 			page 6
 
 
  151:Core/Src/stm32f1xx_it.c **** 
@@ -338,71 +338,26 @@ ARM GAS  /tmp/ccEP0LOG.s 			page 1
  163 0000 7047     		bx	lr
  164              		.cfi_endproc
  165              	.LFE71:
- 167              		.section	.text.SysTick_Handler,"ax",%progbits
- 168              		.align	1
- 169              		.global	SysTick_Handler
- 170              		.syntax unified
- 171              		.thumb
- 172              		.thumb_func
- 174              	SysTick_Handler:
- 175              	.LFB72:
- 167:Core/Src/stm32f1xx_it.c **** 
- 168:Core/Src/stm32f1xx_it.c **** /**
- 169:Core/Src/stm32f1xx_it.c ****   * @brief This function handles System tick timer.
- 170:Core/Src/stm32f1xx_it.c ****   */
- 171:Core/Src/stm32f1xx_it.c **** void SysTick_Handler(void)
- 172:Core/Src/stm32f1xx_it.c **** {
- 176              		.loc 1 172 1 view -0
- 177              		.cfi_startproc
- 178              		@ args = 0, pretend = 0, frame = 0
- 179              		@ frame_needed = 0, uses_anonymous_args = 0
- 180 0000 08B5     		push	{r3, lr}
- 181              	.LCFI0:
-ARM GAS  /tmp/ccEP0LOG.s 			page 7
-
-
- 182              		.cfi_def_cfa_offset 8
- 183              		.cfi_offset 3, -8
- 184              		.cfi_offset 14, -4
- 173:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 0 */
- 174:Core/Src/stm32f1xx_it.c **** 
- 175:Core/Src/stm32f1xx_it.c ****   /* USER CODE END SysTick_IRQn 0 */
- 176:Core/Src/stm32f1xx_it.c ****   HAL_IncTick();
- 185              		.loc 1 176 3 view .LVU23
- 186 0002 FFF7FEFF 		bl	HAL_IncTick
- 187              	.LVL0:
- 177:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 1 */
- 178:Core/Src/stm32f1xx_it.c **** 
- 179:Core/Src/stm32f1xx_it.c ****   /* USER CODE END SysTick_IRQn 1 */
- 180:Core/Src/stm32f1xx_it.c **** }...
- 188              		.loc 1 180 1 is_stmt 0 view .LVU24
- 189 0006 08BD     		pop	{r3, pc}
- 190              		.cfi_endproc
- 191              	.LFE72:
- 193              		.text
- 194              	.Letext0:
- 195              		.file 2 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
-ARM GAS  /tmp/ccEP0LOG.s 			page 8
+ 167              		.text
+ 168              	.Letext0:
+ARM GAS  /tmp/ccpe9GH3.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_it.c
-     /tmp/ccEP0LOG.s:18     .text.NMI_Handler:0000000000000000 $t
-     /tmp/ccEP0LOG.s:24     .text.NMI_Handler:0000000000000000 NMI_Handler
-     /tmp/ccEP0LOG.s:42     .text.HardFault_Handler:0000000000000000 $t
-     /tmp/ccEP0LOG.s:48     .text.HardFault_Handler:0000000000000000 HardFault_Handler
-     /tmp/ccEP0LOG.s:65     .text.BusFault_Handler:0000000000000000 $t
-     /tmp/ccEP0LOG.s:71     .text.BusFault_Handler:0000000000000000 BusFault_Handler
-     /tmp/ccEP0LOG.s:88     .text.UsageFault_Handler:0000000000000000 $t
-     /tmp/ccEP0LOG.s:94     .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
-     /tmp/ccEP0LOG.s:111    .text.SVC_Handler:0000000000000000 $t
-     /tmp/ccEP0LOG.s:117    .text.SVC_Handler:0000000000000000 SVC_Handler
-     /tmp/ccEP0LOG.s:130    .text.DebugMon_Handler:0000000000000000 $t
-     /tmp/ccEP0LOG.s:136    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
-     /tmp/ccEP0LOG.s:149    .text.PendSV_Handler:0000000000000000 $t
-     /tmp/ccEP0LOG.s:155    .text.PendSV_Handler:0000000000000000 PendSV_Handler
-     /tmp/ccEP0LOG.s:168    .text.SysTick_Handler:0000000000000000 $t
-     /tmp/ccEP0LOG.s:174    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+     /tmp/ccpe9GH3.s:18     .text.NMI_Handler:0000000000000000 $t
+     /tmp/ccpe9GH3.s:24     .text.NMI_Handler:0000000000000000 NMI_Handler
+     /tmp/ccpe9GH3.s:42     .text.HardFault_Handler:0000000000000000 $t
+     /tmp/ccpe9GH3.s:48     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+     /tmp/ccpe9GH3.s:65     .text.BusFault_Handler:0000000000000000 $t
+     /tmp/ccpe9GH3.s:71     .text.BusFault_Handler:0000000000000000 BusFault_Handler
+     /tmp/ccpe9GH3.s:88     .text.UsageFault_Handler:0000000000000000 $t
+     /tmp/ccpe9GH3.s:94     .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+     /tmp/ccpe9GH3.s:111    .text.SVC_Handler:0000000000000000 $t
+     /tmp/ccpe9GH3.s:117    .text.SVC_Handler:0000000000000000 SVC_Handler
+     /tmp/ccpe9GH3.s:130    .text.DebugMon_Handler:0000000000000000 $t
+     /tmp/ccpe9GH3.s:136    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+     /tmp/ccpe9GH3.s:149    .text.PendSV_Handler:0000000000000000 $t
+     /tmp/ccpe9GH3.s:155    .text.PendSV_Handler:0000000000000000 PendSV_Handler
 
-UNDEFINED SYMBOLS
-HAL_IncTick
+NO UNDEFINED SYMBOLS

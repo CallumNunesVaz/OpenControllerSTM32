@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccqKSEEr.s 			page 1
+ARM GAS  /tmp/ccb8HGkx.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -48,197 +48,35 @@ ARM GAS  /tmp/ccqKSEEr.s 			page 1
   20:Core/Src/hw_adc1.c **** /* Includes ------------------------------------------------------------------*/
   21:Core/Src/hw_adc1.c **** #include "hw_adc1.h"
   22:Core/Src/hw_adc1.c **** 
-  23:Core/Src/hw_adc1.c **** ADC_HandleTypeDef hadc1;
-  24:Core/Src/hw_adc1.c **** 
-  25:Core/Src/hw_adc1.c **** /**
-  26:Core/Src/hw_adc1.c ****   * @brief ADC1 Initialization Function
-  27:Core/Src/hw_adc1.c ****   * @param None
-  28:Core/Src/hw_adc1.c ****   * @retval None
-  29:Core/Src/hw_adc1.c ****   */
-  30:Core/Src/hw_adc1.c **** void MX_ADC1_Init(void)
-  31:Core/Src/hw_adc1.c **** {
-  27              		.loc 1 31 1 view -0
-ARM GAS  /tmp/ccqKSEEr.s 			page 2
-
-
+  23:Core/Src/hw_adc1.c **** /**
+  24:Core/Src/hw_adc1.c ****   * @brief ADC1 Initialization Function
+  25:Core/Src/hw_adc1.c ****   * @param None
+  26:Core/Src/hw_adc1.c ****   * @retval None
+  27:Core/Src/hw_adc1.c ****   */
+  28:Core/Src/hw_adc1.c **** void MX_ADC1_Init(void)
+  29:Core/Src/hw_adc1.c **** {
+  27              		.loc 1 29 1 view -0
   28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 16
+  29              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccb8HGkx.s 			page 2
+
+
   30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31 0000 00B5     		push	{lr}
-  32              	.LCFI0:
-  33              		.cfi_def_cfa_offset 4
-  34              		.cfi_offset 14, -4
-  35 0002 85B0     		sub	sp, sp, #20
-  36              	.LCFI1:
-  37              		.cfi_def_cfa_offset 24
-  32:Core/Src/hw_adc1.c **** 
-  33:Core/Src/hw_adc1.c ****   /* USER CODE BEGIN ADC1_Init 0 */
-  34:Core/Src/hw_adc1.c **** 
-  35:Core/Src/hw_adc1.c ****   /* USER CODE END ADC1_Init 0 */
-  36:Core/Src/hw_adc1.c **** 
-  37:Core/Src/hw_adc1.c ****   ADC_ChannelConfTypeDef sConfig = {0};
-  38              		.loc 1 37 3 view .LVU1
-  39              		.loc 1 37 26 is_stmt 0 view .LVU2
-  40 0004 0023     		movs	r3, #0
-  41 0006 0193     		str	r3, [sp, #4]
-  42 0008 0293     		str	r3, [sp, #8]
-  43 000a 0393     		str	r3, [sp, #12]
-  38:Core/Src/hw_adc1.c **** 
-  39:Core/Src/hw_adc1.c ****   /* USER CODE BEGIN ADC1_Init 1 */
-  40:Core/Src/hw_adc1.c **** 
-  41:Core/Src/hw_adc1.c ****   /* USER CODE END ADC1_Init 1 */
-  42:Core/Src/hw_adc1.c **** 
-  43:Core/Src/hw_adc1.c ****   /** Common config
-  44:Core/Src/hw_adc1.c ****   */
-  45:Core/Src/hw_adc1.c ****   hadc1.Instance = ADC1;
-  44              		.loc 1 45 3 is_stmt 1 view .LVU3
-  45              		.loc 1 45 18 is_stmt 0 view .LVU4
-  46 000c 1148     		ldr	r0, .L7
-  47 000e 124A     		ldr	r2, .L7+4
-  48 0010 0260     		str	r2, [r0]
-  46:Core/Src/hw_adc1.c ****   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
-  49              		.loc 1 46 3 is_stmt 1 view .LVU5
-  50              		.loc 1 46 27 is_stmt 0 view .LVU6
-  51 0012 8360     		str	r3, [r0, #8]
-  47:Core/Src/hw_adc1.c ****   hadc1.Init.ContinuousConvMode = DISABLE;
-  52              		.loc 1 47 3 is_stmt 1 view .LVU7
-  53              		.loc 1 47 33 is_stmt 0 view .LVU8
-  54 0014 0373     		strb	r3, [r0, #12]
-  48:Core/Src/hw_adc1.c ****   hadc1.Init.DiscontinuousConvMode = DISABLE;
-  55              		.loc 1 48 3 is_stmt 1 view .LVU9
-  56              		.loc 1 48 36 is_stmt 0 view .LVU10
-  57 0016 0375     		strb	r3, [r0, #20]
-  49:Core/Src/hw_adc1.c ****   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  58              		.loc 1 49 3 is_stmt 1 view .LVU11
-  59              		.loc 1 49 31 is_stmt 0 view .LVU12
-  60 0018 4FF46022 		mov	r2, #917504
-  61 001c C261     		str	r2, [r0, #28]
-  50:Core/Src/hw_adc1.c ****   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  62              		.loc 1 50 3 is_stmt 1 view .LVU13
-  63              		.loc 1 50 24 is_stmt 0 view .LVU14
-  64 001e 4360     		str	r3, [r0, #4]
-  51:Core/Src/hw_adc1.c ****   hadc1.Init.NbrOfConversion = 1;
-ARM GAS  /tmp/ccqKSEEr.s 			page 3
-
-
-  65              		.loc 1 51 3 is_stmt 1 view .LVU15
-  66              		.loc 1 51 30 is_stmt 0 view .LVU16
-  67 0020 0123     		movs	r3, #1
-  68 0022 0361     		str	r3, [r0, #16]
-  52:Core/Src/hw_adc1.c ****   if (HAL_ADC_Init(&hadc1) != HAL_OK)
-  69              		.loc 1 52 3 is_stmt 1 view .LVU17
-  70              		.loc 1 52 7 is_stmt 0 view .LVU18
-  71 0024 FFF7FEFF 		bl	HAL_ADC_Init
-  72              	.LVL0:
-  73              		.loc 1 52 6 view .LVU19
-  74 0028 68B9     		cbnz	r0, .L5
-  75              	.L2:
-  53:Core/Src/hw_adc1.c ****   {
-  54:Core/Src/hw_adc1.c ****     Error_Handler();
-  55:Core/Src/hw_adc1.c ****   }
-  56:Core/Src/hw_adc1.c **** 
-  57:Core/Src/hw_adc1.c ****   /** Configure Regular Channel
-  58:Core/Src/hw_adc1.c ****   */
-  59:Core/Src/hw_adc1.c ****   sConfig.Channel = ADC_CHANNEL_4;
-  76              		.loc 1 59 3 is_stmt 1 view .LVU20
-  77              		.loc 1 59 19 is_stmt 0 view .LVU21
-  78 002a 0423     		movs	r3, #4
-  79 002c 0193     		str	r3, [sp, #4]
-  60:Core/Src/hw_adc1.c ****   sConfig.Rank = ADC_REGULAR_RANK_1;
-  80              		.loc 1 60 3 is_stmt 1 view .LVU22
-  81              		.loc 1 60 16 is_stmt 0 view .LVU23
-  82 002e 0123     		movs	r3, #1
-  83 0030 0293     		str	r3, [sp, #8]
-  61:Core/Src/hw_adc1.c ****   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
-  84              		.loc 1 61 3 is_stmt 1 view .LVU24
-  85              		.loc 1 61 24 is_stmt 0 view .LVU25
-  86 0032 0023     		movs	r3, #0
-  87 0034 0393     		str	r3, [sp, #12]
-  62:Core/Src/hw_adc1.c ****   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  88              		.loc 1 62 3 is_stmt 1 view .LVU26
-  89              		.loc 1 62 7 is_stmt 0 view .LVU27
-  90 0036 01A9     		add	r1, sp, #4
-  91 0038 0648     		ldr	r0, .L7
-  92 003a FFF7FEFF 		bl	HAL_ADC_ConfigChannel
-  93              	.LVL1:
-  94              		.loc 1 62 6 view .LVU28
-  95 003e 28B9     		cbnz	r0, .L6
-  96              	.L1:
-  63:Core/Src/hw_adc1.c ****   {
-  64:Core/Src/hw_adc1.c ****     Error_Handler();
-  65:Core/Src/hw_adc1.c ****   }
-  66:Core/Src/hw_adc1.c ****   /* USER CODE BEGIN ADC1_Init 2 */
-  67:Core/Src/hw_adc1.c **** 
-  68:Core/Src/hw_adc1.c ****   /* USER CODE END ADC1_Init 2 */
-  69:Core/Src/hw_adc1.c **** 
-  70:Core/Src/hw_adc1.c **** }
-  97              		.loc 1 70 1 view .LVU29
-  98 0040 05B0     		add	sp, sp, #20
-  99              	.LCFI2:
- 100              		.cfi_remember_state
- 101              		.cfi_def_cfa_offset 4
- 102              		@ sp needed
-ARM GAS  /tmp/ccqKSEEr.s 			page 4
-
-
- 103 0042 5DF804FB 		ldr	pc, [sp], #4
- 104              	.L5:
- 105              	.LCFI3:
- 106              		.cfi_restore_state
- 107              	.LBB2:
-  54:Core/Src/hw_adc1.c ****   }
- 108              		.loc 1 54 5 is_stmt 1 view .LVU30
- 109 0046 FFF7FEFF 		bl	Error_Handler
- 110              	.LVL2:
- 111 004a EEE7     		b	.L2
- 112              	.L6:
- 113              	.LBE2:
- 114              	.LBB3:
-  64:Core/Src/hw_adc1.c ****   }
- 115              		.loc 1 64 5 view .LVU31
- 116 004c FFF7FEFF 		bl	Error_Handler
- 117              	.LVL3:
- 118              	.LBE3:
- 119              		.loc 1 70 1 is_stmt 0 view .LVU32
- 120 0050 F6E7     		b	.L1
- 121              	.L8:
- 122 0052 00BF     		.align	2
- 123              	.L7:
- 124 0054 00000000 		.word	.LANCHOR0
- 125 0058 00240140 		.word	1073816576
- 126              		.cfi_endproc
- 127              	.LFE65:
- 129              		.global	hadc1
- 130              		.section	.bss.hadc1,"aw",%nobits
- 131              		.align	2
- 132              		.set	.LANCHOR0,. + 0
- 135              	hadc1:
- 136 0000 00000000 		.space	48
- 136      00000000 
- 136      00000000 
- 136      00000000 
- 136      00000000 
- 137              		.text
- 138              	.Letext0:
- 139              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 140              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 141              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 142              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
- 143              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 144              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
- 145              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h"
-ARM GAS  /tmp/ccqKSEEr.s 			page 5
+  31              		@ link register save eliminated.
+  30:Core/Src/hw_adc1.c **** 
+  31:Core/Src/hw_adc1.c **** }
+  32              		.loc 1 31 1 view .LVU1
+  33 0000 7047     		bx	lr
+  34              		.cfi_endproc
+  35              	.LFE65:
+  37              		.text
+  38              	.Letext0:
+ARM GAS  /tmp/ccb8HGkx.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hw_adc1.c
-     /tmp/ccqKSEEr.s:18     .text.MX_ADC1_Init:0000000000000000 $t
-     /tmp/ccqKSEEr.s:24     .text.MX_ADC1_Init:0000000000000000 MX_ADC1_Init
-     /tmp/ccqKSEEr.s:124    .text.MX_ADC1_Init:0000000000000054 $d
-     /tmp/ccqKSEEr.s:135    .bss.hadc1:0000000000000000 hadc1
-     /tmp/ccqKSEEr.s:131    .bss.hadc1:0000000000000000 $d
+     /tmp/ccb8HGkx.s:18     .text.MX_ADC1_Init:0000000000000000 $t
+     /tmp/ccb8HGkx.s:24     .text.MX_ADC1_Init:0000000000000000 MX_ADC1_Init
 
-UNDEFINED SYMBOLS
-HAL_ADC_Init
-HAL_ADC_ConfigChannel
-Error_Handler
+NO UNDEFINED SYMBOLS
