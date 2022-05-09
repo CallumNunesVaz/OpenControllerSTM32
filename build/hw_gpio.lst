@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccpqk4hr.s 			page 1
+ARM GAS  /tmp/ccR9xQtr.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -17,14 +17,14 @@ ARM GAS  /tmp/ccpqk4hr.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.section	.text.hw_gpio_init,"ax",%progbits
+  17              		.section	.text.hw_gpio_update,"ax",%progbits
   18              		.align	1
-  19              		.global	hw_gpio_init
+  19              		.global	hw_gpio_update
   20              		.syntax unified
   21              		.thumb
   22              		.thumb_func
-  24              	hw_gpio_init:
-  25              	.LFB65:
+  24              	hw_gpio_update:
+  25              	.LFB66:
   26              		.file 1 "Core/Src/hw_gpio.c"
    1:Core/Src/hw_gpio.c **** /*
    2:Core/Src/hw_gpio.c **** fdgfdh
@@ -32,61 +32,123 @@ ARM GAS  /tmp/ccpqk4hr.s 			page 1
    4:Core/Src/hw_gpio.c **** #include "hw_gpio.h"
    5:Core/Src/hw_gpio.c **** 
    6:Core/Src/hw_gpio.c **** void hw_gpio_init(void) {
-  27              		.loc 1 6 25 view -0
+   7:Core/Src/hw_gpio.c ****   /* GPIO Ports Clock Enable */
+   8:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+   9:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+  10:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
+  11:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPDEN;
+  12:Core/Src/hw_gpio.c **** 
+  13:Core/Src/hw_gpio.c ****   /* Add callback */
+  14:Core/Src/hw_gpio.c ****   hw_systick_add_callback(hw_gpio_update);
+  15:Core/Src/hw_gpio.c **** }
+  16:Core/Src/hw_gpio.c **** 
+  17:Core/Src/hw_gpio.c **** void hw_gpio_update(void) {
+  27              		.loc 1 17 27 view -0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31              		@ link register save eliminated.
-   7:Core/Src/hw_gpio.c ****   /* GPIO Ports Clock Enable */
-   8:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
-  32              		.loc 1 8 3 view .LVU1
-  33              		.loc 1 8 16 is_stmt 0 view .LVU2
-  34 0000 084B     		ldr	r3, .L2
-  35 0002 9A69     		ldr	r2, [r3, #24]
-  36 0004 42F00402 		orr	r2, r2, #4
-  37 0008 9A61     		str	r2, [r3, #24]
-   9:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
-  38              		.loc 1 9 3 is_stmt 1 view .LVU3
-  39              		.loc 1 9 16 is_stmt 0 view .LVU4
-  40 000a 9A69     		ldr	r2, [r3, #24]
-  41 000c 42F00802 		orr	r2, r2, #8
-  42 0010 9A61     		str	r2, [r3, #24]
-  10:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
-  43              		.loc 1 10 3 is_stmt 1 view .LVU5
-  44              		.loc 1 10 16 is_stmt 0 view .LVU6
-  45 0012 9A69     		ldr	r2, [r3, #24]
-  46 0014 42F01002 		orr	r2, r2, #16
-  47 0018 9A61     		str	r2, [r3, #24]
-  11:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPDEN;
-ARM GAS  /tmp/ccpqk4hr.s 			page 2
+  18:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+  32              		.loc 1 18 3 view .LVU1
+  33              		.loc 1 18 16 is_stmt 0 view .LVU2
+  34 0000 024A     		ldr	r2, .L2
+  35 0002 9369     		ldr	r3, [r2, #24]
+  36 0004 43F00403 		orr	r3, r3, #4
+  37 0008 9361     		str	r3, [r2, #24]
+  19:Core/Src/hw_gpio.c **** }
+  38              		.loc 1 19 1 view .LVU3
+  39 000a 7047     		bx	lr
+ARM GAS  /tmp/ccR9xQtr.s 			page 2
 
 
-  48              		.loc 1 11 3 is_stmt 1 view .LVU7
-  49              		.loc 1 11 16 is_stmt 0 view .LVU8
-  50 001a 9A69     		ldr	r2, [r3, #24]
-  51 001c 42F02002 		orr	r2, r2, #32
-  52 0020 9A61     		str	r2, [r3, #24]
-  12:Core/Src/hw_gpio.c **** }
-  53              		.loc 1 12 1 view .LVU9
-  54 0022 7047     		bx	lr
-  55              	.L3:
-  56              		.align	2
-  57              	.L2:
-  58 0024 00100240 		.word	1073876992
-  59              		.cfi_endproc
-  60              	.LFE65:
-  62              		.text
-  63              	.Letext0:
-  64              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
-  65              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
-  66              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
-ARM GAS  /tmp/ccpqk4hr.s 			page 3
+  40              	.L3:
+  41              		.align	2
+  42              	.L2:
+  43 000c 00100240 		.word	1073876992
+  44              		.cfi_endproc
+  45              	.LFE66:
+  47              		.section	.text.hw_gpio_init,"ax",%progbits
+  48              		.align	1
+  49              		.global	hw_gpio_init
+  50              		.syntax unified
+  51              		.thumb
+  52              		.thumb_func
+  54              	hw_gpio_init:
+  55              	.LFB65:
+   6:Core/Src/hw_gpio.c ****   /* GPIO Ports Clock Enable */
+  56              		.loc 1 6 25 is_stmt 1 view -0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 0
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60 0000 08B5     		push	{r3, lr}
+  61              	.LCFI0:
+  62              		.cfi_def_cfa_offset 8
+  63              		.cfi_offset 3, -8
+  64              		.cfi_offset 14, -4
+   8:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+  65              		.loc 1 8 3 view .LVU5
+   8:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+  66              		.loc 1 8 16 is_stmt 0 view .LVU6
+  67 0002 0A4B     		ldr	r3, .L6
+  68 0004 9A69     		ldr	r2, [r3, #24]
+  69 0006 42F00402 		orr	r2, r2, #4
+  70 000a 9A61     		str	r2, [r3, #24]
+   9:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
+  71              		.loc 1 9 3 is_stmt 1 view .LVU7
+   9:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
+  72              		.loc 1 9 16 is_stmt 0 view .LVU8
+  73 000c 9A69     		ldr	r2, [r3, #24]
+  74 000e 42F00802 		orr	r2, r2, #8
+  75 0012 9A61     		str	r2, [r3, #24]
+  10:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPDEN;
+  76              		.loc 1 10 3 is_stmt 1 view .LVU9
+  10:Core/Src/hw_gpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPDEN;
+  77              		.loc 1 10 16 is_stmt 0 view .LVU10
+  78 0014 9A69     		ldr	r2, [r3, #24]
+  79 0016 42F01002 		orr	r2, r2, #16
+  80 001a 9A61     		str	r2, [r3, #24]
+  11:Core/Src/hw_gpio.c **** 
+  81              		.loc 1 11 3 is_stmt 1 view .LVU11
+  11:Core/Src/hw_gpio.c **** 
+  82              		.loc 1 11 16 is_stmt 0 view .LVU12
+  83 001c 9A69     		ldr	r2, [r3, #24]
+  84 001e 42F02002 		orr	r2, r2, #32
+  85 0022 9A61     		str	r2, [r3, #24]
+  14:Core/Src/hw_gpio.c **** }
+  86              		.loc 1 14 3 is_stmt 1 view .LVU13
+  87 0024 0248     		ldr	r0, .L6+4
+  88 0026 FFF7FEFF 		bl	hw_systick_add_callback
+ARM GAS  /tmp/ccR9xQtr.s 			page 3
+
+
+  89              	.LVL0:
+  15:Core/Src/hw_gpio.c **** 
+  90              		.loc 1 15 1 is_stmt 0 view .LVU14
+  91 002a 08BD     		pop	{r3, pc}
+  92              	.L7:
+  93              		.align	2
+  94              	.L6:
+  95 002c 00100240 		.word	1073876992
+  96 0030 00000000 		.word	hw_gpio_update
+  97              		.cfi_endproc
+  98              	.LFE65:
+ 100              		.text
+ 101              	.Letext0:
+ 102              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 103              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 104              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 105              		.file 5 "Core/Inc/hw_systick.h"
+ARM GAS  /tmp/ccR9xQtr.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hw_gpio.c
-     /tmp/ccpqk4hr.s:18     .text.hw_gpio_init:0000000000000000 $t
-     /tmp/ccpqk4hr.s:24     .text.hw_gpio_init:0000000000000000 hw_gpio_init
-     /tmp/ccpqk4hr.s:58     .text.hw_gpio_init:0000000000000024 $d
+     /tmp/ccR9xQtr.s:18     .text.hw_gpio_update:0000000000000000 $t
+     /tmp/ccR9xQtr.s:24     .text.hw_gpio_update:0000000000000000 hw_gpio_update
+     /tmp/ccR9xQtr.s:43     .text.hw_gpio_update:000000000000000c $d
+     /tmp/ccR9xQtr.s:48     .text.hw_gpio_init:0000000000000000 $t
+     /tmp/ccR9xQtr.s:54     .text.hw_gpio_init:0000000000000000 hw_gpio_init
+     /tmp/ccR9xQtr.s:95     .text.hw_gpio_init:000000000000002c $d
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+hw_systick_add_callback

@@ -35,6 +35,7 @@ extern "C" {
 #include "hw_i2c1.h"
 #include "hw_spi2.h"
 #include "hw_usart1.h"
+#include "hw_systick.h"
 
 int main(void);
 

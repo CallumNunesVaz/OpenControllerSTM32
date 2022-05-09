@@ -25,17 +25,17 @@ static void *(*func_ptrs[FUNC_PTR_MAX_SIZE])(void);
 
 static uint8_t func_ptr_count;
 
-void systick_init(uint16_t tick_freq_hz);
+void hw_systick_init(uint16_t tick_freq_hz);
 
-void systick_stop(void);
+void hw_systick_stop(void);
 
-void systick_start(void);
+void hw_systick_start(void);
 
-void systick_reset(void);
+void hw_systick_reset(void);
 
-void systick_add_callback(void (*passed_func_ptr)(void));
+void hw_systick_add_callback(void (*passed_func_ptr)(void));
 
-void systick_clear_callbacks(void);
+void hw_systick_clear_callbacks(void);
 
 #ifdef __cplusplus
 }

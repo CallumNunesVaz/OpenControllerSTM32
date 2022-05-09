@@ -11,33 +11,33 @@
 
 #include "hw_systick.h"
 
-void systick_init(uint16_t tick_freq_hz){
+void hw_systick_init(uint16_t tick_freq_hz){
     // update clocks first to properly use library
     SystemCoreClockUpdate();
     // Set up with system core clock from system_stm32f1xx.h
     SysTick_Config(SystemCoreClock / tick_freq_hz);
     // above function starts tick
-    systick_stop();
+    hw_systick_stop();
 }
 
-void systick_stop(void){
+void hw_systick_stop(void){
     SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
 }
 
-void systick_start(void){
+void hw_systick_start(void){
     SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
 }
 
-void systick_reset(void){
+void hw_systick_reset(void){
     SysTick->VAL = 0UL;  
 }
 
-void systick_add_callback(void (*passed_func_ptr)(void)){
+void hw_systick_add_callback(void (*passed_func_ptr)(void)){
     // add function pointer to list and increment count
     func_ptrs[func_ptr_count++] = passed_func_ptr;
 }
 
-void systick_clear_callbacks(void){
+void hw_systick_clear_callbacks(void){
     // reset function pointer count to 0 avoid using callbacks
     func_ptr_count = 0;
 }

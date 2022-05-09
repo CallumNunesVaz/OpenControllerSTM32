@@ -30,10 +30,45 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f103xb.h"
+#include "hw_systick.h"
+#include "stdbool.h"
+
+typedef enum {
+  LOW,
+  HIGH
+} gpio_state;
+
+typedef enum {
+  INPUT,
+  OUTPUT
+} gpio_dir;
+
+typedef enum {
+  PUSHPULL,
+  OPENDRAIN
+} gpio_type;
+
+typedef struct GPIOS {
+   gpio_state state;
+   gpio_dir dir;
+   gpio_type type;
+   char port;
+   uint8_t pin;
+   bool initialised;
+   uint32_t base_reg_address;
+} GPIO;
 
 //void MX_GPIO_Init(void);
 
 void hw_gpio_init(void);
+
+GPIO* hw_gpio_setup_gpio(GPIO gpio);
+
+void hw_gpio_write(GPIO* gpio, gpio_state state);
+
+gpio_state hw_gpio_read(GPIO gpio);
+
+void hw_gpio_callback(void);
 
 #ifdef __cplusplus
 }

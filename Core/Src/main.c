@@ -29,6 +29,10 @@ int main(void)
   /* Configure the system clocks */
   hw_system_clocks_init();
 
+  /* Configure and initialise the system tick */
+  hw_systick_init(1000);
+  hw_systick_start();
+
   /* Configure the system gpio */
   hw_gpio_init();
 
