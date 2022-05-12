@@ -16,26 +16,64 @@ void hw_gpio_init(void)
   hw_systick_add_callback(hw_gpio_callback);
 }
 
-GPIO *hw_gpio_setup_gpio(GPIO gpio)
+GPIO *hw_gpio_setup_gpio(GPIO_SETUP gs)
 {
-  /* Allocate memory to the new GPIO */
-  GPIO *new_gpio = malloc(sizeof(GPIO));
+  /* Allocate variable */
+  GPIO *g;
 
-  /* Assign GPIO parameters */
-  memcpy(new_gpio, gpio, sizeof(GPIO));
-
-  /* Find base address of register based on character. They're sequentially addressed (A, B, C...) */
-  if ((new_gpio->port >= 'A') && (new_gpio->port <= 'E'))
+  /* Sanity checks */
+  if (('A' <= gs.port) && (gs.port <= 'E') && (gs.dir < DIR_CNT) && (gs.cfg < TYPE_CNT) && (gs.pin <= GPIO_PORT_PIN_MAX))
   {
-    new_gpio->base_reg_address = GPIOA_BASE + ((uint32_t)(new_gpio->port - 'A') * 0x400);
-  }
-  else
-  {
-    // ERROR!
-  }
+    /* Allocate memory */
+    GPIO *g = malloc(sizeof(GPIO));
 
-  GPIOC->CRH &= ~GPIO_CRH_CNF13; // Output push-pull
-  GPIOC->CRH |= GPIO_CRH_MODE13; // 50MHz
+    /* Find base address of register based on character. They're sequentially addressed (A, B, C...) */
+    // g->base_reg_addr = (GPIO_TypeDef *)(GPIOA_BASE + ((uint32_t)(g->port - 'A') * 0x400));
+
+    /* Find base address of register based on character. Abstract from CMSIS layer */
+    switch (gs.port)
+    {
+    case 'A':
+      g->base_reg_addr = GPIOA;
+      break;
+    case 'B':
+      g->base_reg_addr = GPIOB;
+      break;
+    case 'C':
+      g->base_reg_addr = GPIOC;
+      break;
+    case 'D':
+      g->base_reg_addr = GPIOD;
+      break;
+    case 'E':
+      g->base_reg_addr = GPIOE;
+      break;
+    default:
+      break;
+    }
+
+    /* copy across GPIO parameters */
+    g->dir = gs.dir;
+    g->cfg = gs.cfg;
+    g->pin = gs.pin;
+    g->port = gs.port;
+
+    /* Assign low as default state */
+    g->state = LOW;
+
+    /* Set registers based on GPIO settings */
+    if (g->pin < 8) {
+      g->base_reg_addr->CRL &= ~(0xF << (0x04 * g->pin));                            // reset
+      g->base_reg_addr->CRL |= ((uint32_t)(g->dir)) << (0x04 * g->pin);              // pin direction / mode
+      g->base_reg_addr->CRL |= (((uint32_t)(g->cfg)) >> 0x01) << ((0x04 * g->pin) + 0x02); // pin configuration
+    } else {
+      g->base_reg_addr->CRH &= ~(0xF << (0x04 * (g->pin - 0x08)));                                  // reset
+      g->base_reg_addr->CRH |= ((uint32_t)(g->dir)) << (0x04 * (g->pin - 0x08));              // pin direction / mode
+      g->base_reg_addr->CRH |= (((uint32_t)(g->cfg)) >> 0x01) << ((0x04 * (g->pin - 0x08)) + 0x02); // pin configuration
+    }
+
+    /* return pointer to our newly created gpio configuration */
+    return g;
 }
 
 void hw_gpio_kill(GPIO *gpio)

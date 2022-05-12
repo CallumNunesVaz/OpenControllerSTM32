@@ -33,36 +33,56 @@ extern "C" {
 #include "hw_systick.h"
 #include "stdbool.h"
 
+#define GPIO_PORT_PIN_MAX 15
+
 typedef enum {
   LOW,
-  HIGH
+  HIGH,
+  STATE_CNT
 } gpio_state;
 
 typedef enum {
   INPUT,
-  OUTPUT
+  OUTPUT_10MHZ,
+  OUTPUT_2MHZ,
+  OUTPUT_50MHz,
+  DIR_CNT
 } gpio_dir;
 
 typedef enum {
-  PUSHPULL,
-  OPENDRAIN
-} gpio_type;
+  IN_ANALOGUE,
+  IN_FLOATING,
+  IN_PULL,
+  RSVD,
+  OUT_PUSHPULL,
+  OUT_OPENDRAIN,
+  OUT_ALT_PUSHPULL,
+  OUT_ALT_OPENDRAIN,
+  TYPE_CNT
+} gpio_cfg;
 
 typedef struct GPIOS {
    gpio_state state;
    gpio_dir dir;
-   gpio_type type;
+   gpio_cfg cfg;
    char port;
    uint8_t pin;
-   bool initialised;
-   uint32_t base_reg_address;
+   GPIO_TypeDef *base_reg_addr;
 } GPIO;
+
+typedef struct GPIO_SETUPS {
+   gpio_dir dir;
+   gpio_conf cfg;
+   char port;
+   uint8_t pin;
+} GPIO_SETUP;
+
 
 //void MX_GPIO_Init(void);
 
 void hw_gpio_init(void);
 
-GPIO* hw_gpio_setup_gpio(GPIO gpio);
+GPIO* hw_gpio_setup_gpio(GPIO_SETUP gs);
 
 void hw_gpio_write(GPIO* gpio, gpio_state state);
 
