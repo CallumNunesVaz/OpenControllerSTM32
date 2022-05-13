@@ -72,7 +72,7 @@ typedef struct GPIOS {
 
 typedef struct GPIO_SETUPS {
    gpio_dir dir;
-   gpio_conf cfg;
+   gpio_cfg cfg;
    char port;
    uint8_t pin;
 } GPIO_SETUP;

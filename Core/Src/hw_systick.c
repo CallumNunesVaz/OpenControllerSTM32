@@ -33,8 +33,18 @@ void hw_systick_reset(void){
 }
 
 void hw_systick_add_callback(void (*passed_func_ptr)(void)){
-    // add function pointer to list and increment count
+    uint8_t idx;
+    
+    /* check for duplicates */
+    for (idx = 0; idx <= func_ptr_count; idx++) {
+        if (passed_func_ptr == func_ptrs[idx]) {
+            return;
+        }
+    }
+
+    /* add function pointer to list and increment count */
     func_ptrs[func_ptr_count++] = passed_func_ptr;
+
 }
 
 void hw_systick_clear_callbacks(void){

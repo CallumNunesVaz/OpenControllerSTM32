@@ -59,7 +59,7 @@ GPIO *hw_gpio_setup_gpio(GPIO_SETUP gs)
     g->port = gs.port;
 
     /* Assign low as default state */
-    g->state = LOW;
+    g->state = PIN_LOW;
 
     /* Set registers based on GPIO settings */
     if (g->pin < 8) {

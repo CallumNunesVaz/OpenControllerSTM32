@@ -4,43 +4,57 @@
  * @brief manager for the hearbeat LED. Assumed active high LED
  * @version 0.1
  * @date 2022-05-05
- * 
+ *
  * @copyright Copyright (c) 2022
- * 
+ *
  */
 
 #ifndef __MGR_HEARTBEAT_H
 #define __MGR_HEARTBEAT_H
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #include "hw_gpio.h"
+#include "hw_systick.h"
 #include <stdint.h>
+#include <stdbool.h>
 
 #define HB_LED_PORT 'c'
 #define HB_LED_PIN 23
 
-enum heartbeatmode {
-    STATIC_OFF,
-    STATIC_ON,
-    FLASH_SINGLE,
-    FLASH_DOUBLE,
-    FLASH_TRIPLE
-};
+uint8_t lbs_count;
 
-void heartbeat_init(void);
+uint32_t state_snapshot;
 
-void heartbeat_stop(void);
+    typedef enum
+    {
+        STATIC_OFF = 0b00000000000000000000000000000000,
+        STATIC_ON = 0b11111111111111111111111111111111,
+        FLASH_SINGLE = 0b00000000000000001111111111111111,
+        FLASH_DOUBLE = 0b00000000000000001111110000111111,
+        FLASH_TRIPLE = 0b00000000000111110001111100011111
+    } HB_MODE;
 
-void heartbeat_start(void);
+    static GPIO *led;
 
-void heartbeat_set_mode(heartbeatmode mode);
+    static HB_MODE hb_mode;
 
-void heartbeat_set_freq(uint8_t freq_hz);
+    static bool is_active;
 
-void heartbeat_tick_callback(void);
+    void heartbeat_init(HB_MODE mode);
+
+    void heartbeat_stop(void);
+
+    void heartbeat_start(void);
+
+    void heartbeat_set_mode(HB_MODE mode);
+
+    void heartbeat_set_period(uint16_t period_ms);
+
+    void heartbeat_tick_callback(void);
 
 #ifdef __cplusplus
 }
