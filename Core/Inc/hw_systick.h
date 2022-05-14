@@ -35,6 +35,8 @@ void hw_systick_reset(void);
 
 void hw_systick_add_callback(void (*passed_func_ptr)(void));
 
+void hw_systick_remove_callback(void (*passed_func_ptr)(void));
+
 void hw_systick_clear_callbacks(void);
 
 #ifdef __cplusplus

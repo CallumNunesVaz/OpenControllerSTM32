@@ -33,15 +33,14 @@ int main(void)
   hw_systick_init(1000);
   hw_systick_start();
 
-  /* Configure the system gpio */
-  hw_gpio_init();
-
-  GPIOC->CRH &= ~GPIO_CRH_CNF13; // Output push-pull
-  GPIOC->CRH |= GPIO_CRH_MODE13; // 50MHz
+  /* Configure the system heartbeat */
+  heartbeat_init(LED_FLASH_DOUBLE);
+  heartbeat_set_period_ms(1000);
+  heartbeat_start();
 
   while (1)
   {
-    GPIOC->BSRR |= GPIO_BSRR_BS13;   // turn on
+    
   }
 }
 

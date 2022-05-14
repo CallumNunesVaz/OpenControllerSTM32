@@ -37,6 +37,8 @@ extern "C" {
 #include "hw_usart1.h"
 #include "hw_systick.h"
 
+#include "mgr_heartbeat.h"
+
 int main(void);
 
 void hw_system_clocks_init(void);

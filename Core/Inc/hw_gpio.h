@@ -1,25 +1,5 @@
-/* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2022 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
-  *
-  ******************************************************************************
-  */
-/* USER CODE END Header */
+/* Recursion prevention */
 
-/* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __HW_GPIO_H
 #define __HW_GPIO_H
 
@@ -28,16 +8,27 @@ extern "C" {
 #endif
 
 
-/* Includes ------------------------------------------------------------------*/
+/* Includes */
+
 #include "stm32f103xb.h"
 #include "hw_systick.h"
 #include "stdbool.h"
 
+/* Handy defnitions */
+
+//#define GPIO_INIT_MAX 80
+
 #define GPIO_PORT_PIN_MAX 15
 
+#define REG_PIN_CONF_BITLENGTH 0x04
+#define REG_MODE_OFFSET 0x00
+#define REG_CONF_OFFSET 0x02
+
+/* Enumerated types and typedefs */
+
 typedef enum {
-  LOW,
-  HIGH,
+  PIN_LOW,
+  PIN_HIGH,
   STATE_CNT
 } gpio_state;
 
@@ -67,7 +58,7 @@ typedef struct GPIOS {
    gpio_cfg cfg;
    char port;
    uint8_t pin;
-   GPIO_TypeDef *base_reg_addr;
+   GPIO_TypeDef *port_reg_addr;
 } GPIO;
 
 typedef struct GPIO_SETUPS {
@@ -78,17 +69,31 @@ typedef struct GPIO_SETUPS {
 } GPIO_SETUP;
 
 
-//void MX_GPIO_Init(void);
+/* Variables */
 
-void hw_gpio_init(void);
+//static uint8_t gpio_init_count = 0;
+
+//static bool hw_gpio_initialised = false;
+
+//static GPIO *gpio_list[GPIO_INIT_MAX];
+
+/* Function prototypes */
+
+//void hw_gpio_init(void);
+
+void hw_gpio_free_memory(GPIO *gpio);
 
 GPIO* hw_gpio_setup_gpio(GPIO_SETUP gs);
 
-void hw_gpio_write(GPIO* gpio, gpio_state state);
+void hw_gpio_write(GPIO* gpio, gpio_state set_state);
 
-gpio_state hw_gpio_read(GPIO gpio);
+void hw_gpio_set(GPIO *gpio);
 
-void hw_gpio_callback(void);
+void hw_gpio_reset(GPIO *gpio);
+
+gpio_state hw_gpio_read(GPIO* gpio);
+
+//void hw_gpio_callback(void);
 
 #ifdef __cplusplus
 }
