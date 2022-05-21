@@ -21,7 +21,7 @@ void hw_gpio_init(void)
 GPIO *hw_gpio_setup_gpio(GPIO_SETUP gs)
 {
   /* Allocate variable */
-  GPIO *g;
+  GPIO *g = NULL;
 
   /* initialise library if not done already */
   /*
@@ -64,10 +64,6 @@ GPIO *hw_gpio_setup_gpio(GPIO_SETUP gs)
       RCC->APB2ENR |= RCC_APB2ENR_IOPEEN;
       g->port_reg_addr = GPIOE;
       break;
-    default:
-      free(g, sizeof(GPIO)); // impossible
-      return;
-      break;
     }
 
     /* copy across GPIO parameters */
@@ -97,6 +93,8 @@ GPIO *hw_gpio_setup_gpio(GPIO_SETUP gs)
     //gpio_init_count++;
   }
 
+  
+
   /* return pointer to our newly created gpio configuration */
   return g;
 }
@@ -104,13 +102,16 @@ GPIO *hw_gpio_setup_gpio(GPIO_SETUP gs)
 void hw_gpio_free_memory(GPIO *gpio)
 {
   /* Free memory */
-  free(gpio, sizeof(GPIO));
+  free(gpio);
 }
 
 void hw_gpio_write(GPIO *gpio, gpio_state set_state)
 {
-  if (set_state < STATE_CNT) {
-    gpio->state = set_state;
+  if (set_state == PIN_LOW) {
+    hw_gpio_reset(gpio);
+  }
+  if (set_state == PIN_HIGH) {
+    hw_gpio_set(gpio);
   }
 }
 

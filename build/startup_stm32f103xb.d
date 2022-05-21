@@ -1,1 +1,1 @@
-build/startup_stm32f103xb.o: startup_stm32f103xb.s
+build/startup_stm32f103xb.o: Device/startup_stm32f103xb.s

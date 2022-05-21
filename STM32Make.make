@@ -44,6 +44,7 @@ Core/Src/hw_spi2.c \
 Core/Src/hw_systick.c \
 Core/Src/hw_usart1.c \
 Core/Src/main.c \
+Core/Src/mgr_hearbeat.c \
 Core/Src/stm32f1xx_it.c \
 Core/Src/system_stm32f1xx.c
 
@@ -53,7 +54,7 @@ CPP_SOURCES = \
 
 # ASM sources
 ASM_SOURCES =  \
-startup_stm32f103xb.s
+Device/startup_stm32f103xb.s
 
 
 
@@ -163,7 +164,7 @@ CXXFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 # LDFLAGS
 #######################################
 # link script
-LDSCRIPT = STM32F103C8Tx_FLASH.ld
+LDSCRIPT = Device/STM32F103C8Tx_FLASH.ld
 
 # libraries
 LIBS = -lc -lm -lnosys 

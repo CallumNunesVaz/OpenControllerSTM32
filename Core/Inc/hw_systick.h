@@ -18,14 +18,13 @@ extern "C" {
 
 #include <stdint.h>
 #include "stm32f103xb.h"
+#include "mgr_heartbeat.h"
 
 #define FUNC_PTR_MAX_SIZE 32
 
-static void *(*func_ptrs[FUNC_PTR_MAX_SIZE])(void);
-
-static uint8_t func_ptr_count;
-
 void hw_systick_init(uint16_t tick_freq_hz);
+
+uint16_t hw_systick_get_freq(void);
 
 void hw_systick_stop(void);
 

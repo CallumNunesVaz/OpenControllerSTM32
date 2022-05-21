@@ -34,13 +34,16 @@ int main(void)
   hw_systick_start();
 
   /* Configure the system heartbeat */
-  heartbeat_init(LED_FLASH_DOUBLE);
-  heartbeat_set_period_ms(1000);
-  heartbeat_start();
+  if (heartbeat_init())
+  {
+    heartbeat_set_mode(LED_FLASH_DOUBLE);
+    heartbeat_set_period_ms(1000);
+    heartbeat_start();
+  }
 
   while (1)
   {
-    
+    heartbeat_poll();
   }
 }
 
@@ -103,11 +106,13 @@ void hw_system_clocks_init(void)
   RCC->CFGR &= ~RCC_CFGR_PLLMULL; // reset
   RCC->CFGR |= RCC_CFGR_PLLMULL9;
   RCC->CR |= RCC_CR_PLLON;
-  while (!(RCC->CR & RCC_CR_PLLRDY));
+  while (!(RCC->CR & RCC_CR_PLLRDY))
+    ;
   RCC->CFGR &= ~RCC_CFGR_HPRE;
   RCC->CFGR &= ~RCC_CFGR_SW;
   RCC->CFGR |= RCC_CFGR_SW_PLL;
-  while (!(RCC->CFGR & RCC_CFGR_SWS_PLL));
+  while (!(RCC->CFGR & RCC_CFGR_SWS_PLL))
+    ;
 
   /* Inform core libraries of change to clocks
    */

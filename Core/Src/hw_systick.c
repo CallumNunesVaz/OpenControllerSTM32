@@ -11,13 +11,25 @@
 
 #include "hw_systick.h"
 
+static void *(*func_ptrs[FUNC_PTR_MAX_SIZE])(void);
+
+static uint16_t sys_tick_freq_hz;
+
+static uint8_t func_ptr_count;
+
 void hw_systick_init(uint16_t tick_freq_hz){
+    /**/
+    sys_tick_freq_hz = tick_freq_hz;
     // update clocks first to properly use library
     SystemCoreClockUpdate();
     // Set up with system core clock from system_stm32f1xx.h
-    SysTick_Config(SystemCoreClock / tick_freq_hz);
+    SysTick_Config(SystemCoreClock / sys_tick_freq_hz);
     // above function starts tick
     hw_systick_stop();
+}
+
+uint16_t hw_systick_get_freq(void) {
+    return sys_tick_freq_hz;
 }
 
 void hw_systick_stop(void){
@@ -70,7 +82,11 @@ void hw_systick_clear_callbacks(void){
 void SysTick_Handler (void) {
     static uint8_t idx;
     // iterate through list of functions to execute them all
+    heartbeat_tick_callback();
+
+    /* Doesn't work!! 
     for (idx = 0; idx <= func_ptr_count; idx++) {
         (*func_ptrs[idx])();
     }
+    */
 }

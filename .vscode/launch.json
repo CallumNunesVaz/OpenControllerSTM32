@@ -10,6 +10,7 @@
             "servertype": "openocd",
             "preLaunchTask": "Build STM",
             "device": "stm32f103c8t6",
+            "svdFile": "device/STM32F103.svd",
             "configFiles": [
                 "openocd.cfg"
             ]

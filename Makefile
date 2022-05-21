@@ -42,7 +42,7 @@ Core/Src/stm32f1xx_hal_msp.c \
 
 # ASM sources
 ASM_SOURCES =  \
-startup_stm32f103xb.s
+Device/startup_stm32f103xb.s
 
 
 #######################################

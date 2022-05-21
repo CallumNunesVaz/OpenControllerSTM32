@@ -29,12 +29,12 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f103xb.h"
-#include "hw_adc1.h"
-#include "hw_crc.h"
-#include "hw_gpio.h"
-#include "hw_i2c1.h"
-#include "hw_spi2.h"
-#include "hw_usart1.h"
+//#include "hw_adc1.h"
+//#include "hw_crc.h"
+//#include "hw_gpio.h"
+//#include "hw_i2c1.h"
+//#include "hw_spi2.h"
+//#include "hw_usart1.h"
 #include "hw_systick.h"
 
 #include "mgr_heartbeat.h"

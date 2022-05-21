@@ -12,7 +12,8 @@ extern "C" {
 
 #include "stm32f103xb.h"
 #include "hw_systick.h"
-#include "stdbool.h"
+#include <stdbool.h>
+#include <stdlib.h>
 
 /* Handy defnitions */
 
