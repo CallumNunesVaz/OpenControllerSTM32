@@ -25,7 +25,7 @@ static uint16_t heartbeat_period_ms;
 
 static uint32_t state_snapshot;
 
-static GPIO *led;
+static gpio_t *led;
 
 static HB_MODE hb_mode;
 
@@ -34,14 +34,14 @@ volatile static bool heartbeat_is_active;
 int heartbeat_init(void)
 {
     /* Use special gpio setup */
-    GPIO_SETUP hbled_setup;
+    gpio_setup_t hbled_setup;
 
     hbled_setup.port = HB_LED_PORT;
     hbled_setup.pin = HB_LED_PIN;
     hbled_setup.cfg = OUT_PUSHPULL;
     hbled_setup.dir = OUTPUT_50MHz;
 
-    led = hw_gpio_setup_gpio(hbled_setup);
+    led = hw_gpio_setup_gpio(&hbled_setup);
 
     if (led == NULL) {
         return 1;

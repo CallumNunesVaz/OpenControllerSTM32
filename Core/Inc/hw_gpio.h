@@ -1,7 +1,7 @@
 /* Recursion prevention */
 
-#ifndef __HW_GPIO_H
-#define __HW_GPIO_H
+#ifndef __HW_gpio_t_H
+#define __HW_gpio_t_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -17,7 +17,7 @@ extern "C" {
 
 /* Handy defnitions */
 
-//#define GPIO_INIT_MAX 80
+//#define gpio_t_INIT_MAX 80
 
 #define GPIO_PORT_PIN_MAX 15
 
@@ -27,21 +27,21 @@ extern "C" {
 
 /* Enumerated types and typedefs */
 
-typedef enum {
+typedef enum gpio_state {
   PIN_LOW,
   PIN_HIGH,
   STATE_CNT
-} gpio_state;
+} gpio_state_t;
 
-typedef enum {
+typedef enum gpio_dir {
   INPUT,
   OUTPUT_10MHZ,
   OUTPUT_2MHZ,
   OUTPUT_50MHz,
   DIR_CNT
-} gpio_dir;
+} gpio_dir_t;
 
-typedef enum {
+typedef enum gpio_cfg {
   IN_ANALOGUE,
   IN_FLOATING,
   IN_PULL,
@@ -51,50 +51,50 @@ typedef enum {
   OUT_ALT_PUSHPULL,
   OUT_ALT_OPENDRAIN,
   TYPE_CNT
-} gpio_cfg;
+} gpio_cfg_t;
 
-typedef struct GPIOS {
-   gpio_state state;
-   gpio_dir dir;
-   gpio_cfg cfg;
+typedef struct gpio {
+   gpio_state_t state;
+   gpio_dir_t dir;
+   gpio_cfg_t cfg;
    char port;
    uint8_t pin;
    GPIO_TypeDef *port_reg_addr;
-} GPIO;
+} gpio_t;
 
-typedef struct GPIO_SETUPS {
-   gpio_dir dir;
-   gpio_cfg cfg;
+typedef struct gpio_setup {
+   gpio_dir_t dir;
+   gpio_cfg_t cfg;
    char port;
    uint8_t pin;
-} GPIO_SETUP;
+} gpio_setup_t;
 
 
 /* Variables */
 
-//static uint8_t gpio_init_count = 0;
+//static uint8_t gpio_t_init_count = 0;
 
-//static bool hw_gpio_initialised = false;
+//static bool hw_gpio_t_initialised = false;
 
-//static GPIO *gpio_list[GPIO_INIT_MAX];
+//static gpio_t *gpio_t_list[gpio_t_INIT_MAX];
 
 /* Function prototypes */
 
-//void hw_gpio_init(void);
+//void hw_gpio_t_init(void);
 
-void hw_gpio_free_memory(GPIO *gpio);
+void hw_gpio_free_memory(gpio_t *gpio_t);
 
-GPIO* hw_gpio_setup_gpio(GPIO_SETUP gs);
+gpio_t* hw_gpio_setup_gpio(gpio_setup_t *gs);
 
-void hw_gpio_write(GPIO* gpio, gpio_state set_state);
+void hw_gpio_write(gpio_t* gpio_t, gpio_state_t set_state);
 
-void hw_gpio_set(GPIO *gpio);
+void hw_gpio_set(gpio_t *gpio_t);
 
-void hw_gpio_reset(GPIO *gpio);
+void hw_gpio_reset(gpio_t *gpio_t);
 
-gpio_state hw_gpio_read(GPIO* gpio);
+gpio_state_t hw_gpio_read(gpio_t* gpio_t);
 
-//void hw_gpio_callback(void);
+//void hw_gpio_t_callback(void);
 
 #ifdef __cplusplus
 }

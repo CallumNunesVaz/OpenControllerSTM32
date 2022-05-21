@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccpaynjx.s 			page 1
+ARM GAS  /tmp/ccjnFj5F.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -24,8 +24,9 @@ ARM GAS  /tmp/ccpaynjx.s 			page 1
   21              		.thumb
   22              		.thumb_func
   24              	hw_gpio_setup_gpio:
-  25              	.LFB65:
-  26              		.file 1 "Core/Src/hw_gpio.c"
+  25              	.LVL0:
+  26              	.LFB65:
+  27              		.file 1 "Core/Src/hw_gpio.c"
    1:Core/Src/hw_gpio.c **** /*
    2:Core/Src/hw_gpio.c **** GPIO library designed to be relatively lightwieght but human readable.
    3:Core/Src/hw_gpio.c **** Very much not memory-safe! libraries using this library must manage assigned GPIO.
@@ -46,31 +47,27 @@ ARM GAS  /tmp/ccpaynjx.s 			page 1
   18:Core/Src/hw_gpio.c **** }
   19:Core/Src/hw_gpio.c **** */
   20:Core/Src/hw_gpio.c **** 
-  21:Core/Src/hw_gpio.c **** GPIO *hw_gpio_setup_gpio(GPIO_SETUP gs)
+  21:Core/Src/hw_gpio.c **** gpio_t *hw_gpio_setup_gpio(gpio_setup_t* gs)
   22:Core/Src/hw_gpio.c **** {
-  27              		.loc 1 22 1 view -0
-  28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 8
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31 0000 F0B5     		push	{r4, r5, r6, r7, lr}
-  32              	.LCFI0:
-  33              		.cfi_def_cfa_offset 20
-  34              		.cfi_offset 4, -20
-  35              		.cfi_offset 5, -16
-  36              		.cfi_offset 6, -12
-ARM GAS  /tmp/ccpaynjx.s 			page 2
+  28              		.loc 1 22 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		.loc 1 22 1 is_stmt 0 view .LVU1
+  33 0000 38B5     		push	{r3, r4, r5, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 16
+  36              		.cfi_offset 3, -16
+ARM GAS  /tmp/ccjnFj5F.s 			page 2
 
 
-  37              		.cfi_offset 7, -8
-  38              		.cfi_offset 14, -4
-  39 0002 83B0     		sub	sp, sp, #12
-  40              	.LCFI1:
-  41              		.cfi_def_cfa_offset 32
-  42 0004 0190     		str	r0, [sp, #4]
+  37              		.cfi_offset 4, -12
+  38              		.cfi_offset 5, -8
+  39              		.cfi_offset 14, -4
   23:Core/Src/hw_gpio.c ****   /* Allocate variable */
-  24:Core/Src/hw_gpio.c ****   GPIO *g = NULL;
-  43              		.loc 1 24 3 view .LVU1
-  44              	.LVL0:
+  24:Core/Src/hw_gpio.c ****   gpio_t *g = NULL;
+  40              		.loc 1 24 3 is_stmt 1 view .LVU2
+  41              	.LVL1:
   25:Core/Src/hw_gpio.c **** 
   26:Core/Src/hw_gpio.c ****   /* initialise library if not done already */
   27:Core/Src/hw_gpio.c ****   /*
@@ -79,674 +76,695 @@ ARM GAS  /tmp/ccpaynjx.s 			page 1
   30:Core/Src/hw_gpio.c ****     hw_gpio_init();
   31:Core/Src/hw_gpio.c ****   }
   32:Core/Src/hw_gpio.c ****   */
-  33:Core/Src/hw_gpio.c **** 
-  34:Core/Src/hw_gpio.c ****   /* Sanity checks */
-  35:Core/Src/hw_gpio.c ****   //if (('A' <= gs.port) && (gs.port <= 'E') && (gs.dir < DIR_CNT) && (gs.cfg < TYPE_CNT) && (gs.pi
-  36:Core/Src/hw_gpio.c ****   if (('A' <= gs.port) && (gs.port <= 'E') && (gs.dir < DIR_CNT) && (gs.cfg < TYPE_CNT) && (gs.pin 
-  45              		.loc 1 36 3 view .LVU2
-  46              		.loc 1 36 17 is_stmt 0 view .LVU3
-  47 0006 9DF80640 		ldrb	r4, [sp, #6]	@ zero_extendqisi2
-  48              		.loc 1 36 24 view .LVU4
-  49 000a A4F14103 		sub	r3, r4, #65
-  50 000e DBB2     		uxtb	r3, r3
-  51              		.loc 1 36 6 view .LVU5
-  52 0010 042B     		cmp	r3, #4
-  53 0012 00F28480 		bhi	.L11
-  54              		.loc 1 36 50 discriminator 1 view .LVU6
-  55 0016 9DF80460 		ldrb	r6, [sp, #4]	@ zero_extendqisi2
-  56              		.loc 1 36 44 discriminator 1 view .LVU7
-  57 001a 032E     		cmp	r6, #3
-  58 001c 00F28280 		bhi	.L12
-  59              		.loc 1 36 72 discriminator 2 view .LVU8
-  60 0020 9DF80570 		ldrb	r7, [sp, #5]	@ zero_extendqisi2
-  61              		.loc 1 36 66 discriminator 2 view .LVU9
-  62 0024 072F     		cmp	r7, #7
-  63 0026 7FD8     		bhi	.L13
-  64              		.loc 1 36 95 discriminator 3 view .LVU10
-  65 0028 9DF80750 		ldrb	r5, [sp, #7]	@ zero_extendqisi2
-  66              		.loc 1 36 89 discriminator 3 view .LVU11
-  67 002c 0F2D     		cmp	r5, #15
-  68 002e 7DD8     		bhi	.L14
-  37:Core/Src/hw_gpio.c ****   {
-  38:Core/Src/hw_gpio.c ****     /* Allocate memory */
-  39:Core/Src/hw_gpio.c ****     g = malloc(sizeof(GPIO));
-  69              		.loc 1 39 5 is_stmt 1 view .LVU12
-  70              		.loc 1 39 9 is_stmt 0 view .LVU13
-  71 0030 0C20     		movs	r0, #12
-  72 0032 FFF7FEFF 		bl	malloc
-  73              	.LVL1:
-  40:Core/Src/hw_gpio.c **** 
-  41:Core/Src/hw_gpio.c ****     /* Find base address of register based on character. They're sequentially addressed (A, B, C...
-  42:Core/Src/hw_gpio.c ****     // g->port_reg_addr = (GPIO_TypeDef *)(GPIOA_BASE + ((uint32_t)(g->port - 'A') * 0x400));
-ARM GAS  /tmp/ccpaynjx.s 			page 3
+  33:Core/Src/hw_gpio.c ****    
+  34:Core/Src/hw_gpio.c **** 
+  35:Core/Src/hw_gpio.c ****   /* Sanity checks */
+  36:Core/Src/hw_gpio.c ****   //if (('A' <= gs.port) && (gs.port <= 'E') && (gs.dir < DIR_CNT) && (gs.cfg < TYPE_CNT) && (gs.pi
+  37:Core/Src/hw_gpio.c ****   if (('A' <= gs->port) && (gs->port <= 'E') && (gs->dir < DIR_CNT) && (gs->cfg < TYPE_CNT) && (gs-
+  42              		.loc 1 37 3 view .LVU3
+  43              		.loc 1 37 17 is_stmt 0 view .LVU4
+  44 0002 8578     		ldrb	r5, [r0, #2]	@ zero_extendqisi2
+  45              		.loc 1 37 25 view .LVU5
+  46 0004 A5F14103 		sub	r3, r5, #65
+  47 0008 DBB2     		uxtb	r3, r3
+  48              		.loc 1 37 6 view .LVU6
+  49 000a 042B     		cmp	r3, #4
+  50 000c 00F28880 		bhi	.L11
+  51 0010 0446     		mov	r4, r0
+  52              		.loc 1 37 52 discriminator 1 view .LVU7
+  53 0012 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+  54              		.loc 1 37 46 discriminator 1 view .LVU8
+  55 0014 032B     		cmp	r3, #3
+  56 0016 00F28580 		bhi	.L12
+  57              		.loc 1 37 75 discriminator 2 view .LVU9
+  58 001a 4378     		ldrb	r3, [r0, #1]	@ zero_extendqisi2
+  59              		.loc 1 37 69 discriminator 2 view .LVU10
+  60 001c 072B     		cmp	r3, #7
+  61 001e 00F28380 		bhi	.L13
+  62              		.loc 1 37 99 discriminator 3 view .LVU11
+  63 0022 C378     		ldrb	r3, [r0, #3]	@ zero_extendqisi2
+  64              		.loc 1 37 93 discriminator 3 view .LVU12
+  65 0024 0F2B     		cmp	r3, #15
+  66 0026 00F28180 		bhi	.L14
+  38:Core/Src/hw_gpio.c ****   {
+  39:Core/Src/hw_gpio.c ****     /* Allocate memory */
+  40:Core/Src/hw_gpio.c ****     g = malloc(sizeof(gpio_t));
+  67              		.loc 1 40 5 is_stmt 1 view .LVU13
+  68              		.loc 1 40 9 is_stmt 0 view .LVU14
+  69 002a 0C20     		movs	r0, #12
+  70              	.LVL2:
+  71              		.loc 1 40 9 view .LVU15
+  72 002c FFF7FEFF 		bl	malloc
+  73              	.LVL3:
+  41:Core/Src/hw_gpio.c **** 
+  42:Core/Src/hw_gpio.c ****     /* Find base address of register based on character. They're sequentially addressed (A, B, C...
+ARM GAS  /tmp/ccjnFj5F.s 			page 3
 
 
-  43:Core/Src/hw_gpio.c **** 
-  44:Core/Src/hw_gpio.c ****     /* Turn on ports clock if not already on. Find addr of reg based on char */
-  45:Core/Src/hw_gpio.c ****     switch (gs.port)
-  74              		.loc 1 45 5 is_stmt 1 view .LVU14
-  75 0036 A4F14103 		sub	r3, r4, #65
-  76 003a 042B     		cmp	r3, #4
-  77 003c 0BD8     		bhi	.L3
-  78 003e DFE803F0 		tbb	[pc, r3]
+  43:Core/Src/hw_gpio.c ****     // g->port_reg_addr = (GPIO_TypeDef *)(GPIOA_BASE + ((uint32_t)(g->port - 'A') * 0x400));
+  44:Core/Src/hw_gpio.c **** 
+  45:Core/Src/hw_gpio.c ****     /* Turn on ports clock if not already on. Find addr of reg based on char */
+  46:Core/Src/hw_gpio.c ****     switch (gs->port)
+  74              		.loc 1 46 5 is_stmt 1 view .LVU16
+  75 0030 413D     		subs	r5, r5, #65
+  76 0032 042D     		cmp	r5, #4
+  77 0034 0BD8     		bhi	.L3
+  78 0036 DFE805F0 		tbb	[pc, r5]
   79              	.L5:
-  80 0042 03       		.byte	(.L9-.L5)/2
-  81 0043 2D       		.byte	(.L8-.L5)/2
-  82 0044 35       		.byte	(.L7-.L5)/2
-  83 0045 3D       		.byte	(.L6-.L5)/2
-  84 0046 45       		.byte	(.L4-.L5)/2
-  85 0047 00       		.p2align 1
+  80 003a 03       		.byte	(.L9-.L5)/2
+  81 003b 32       		.byte	(.L8-.L5)/2
+  82 003c 3A       		.byte	(.L7-.L5)/2
+  83 003d 42       		.byte	(.L6-.L5)/2
+  84 003e 4A       		.byte	(.L4-.L5)/2
+  85 003f 00       		.p2align 1
   86              	.L9:
-  46:Core/Src/hw_gpio.c ****     {
-  47:Core/Src/hw_gpio.c ****     case 'A':
-  48:Core/Src/hw_gpio.c ****       RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
-  87              		.loc 1 48 7 view .LVU15
-  88              		.loc 1 48 20 is_stmt 0 view .LVU16
-  89 0048 394A     		ldr	r2, .L16
-  90 004a 9369     		ldr	r3, [r2, #24]
-  91 004c 43F00403 		orr	r3, r3, #4
-  92 0050 9361     		str	r3, [r2, #24]
-  49:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOA;
-  93              		.loc 1 49 7 is_stmt 1 view .LVU17
-  94              		.loc 1 49 24 is_stmt 0 view .LVU18
-  95 0052 384B     		ldr	r3, .L16+4
-  96 0054 8360     		str	r3, [r0, #8]
-  50:Core/Src/hw_gpio.c ****       break;
-  97              		.loc 1 50 7 is_stmt 1 view .LVU19
+  47:Core/Src/hw_gpio.c ****     {
+  48:Core/Src/hw_gpio.c ****     case 'A':
+  49:Core/Src/hw_gpio.c ****       RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+  87              		.loc 1 49 7 view .LVU17
+  88              		.loc 1 49 20 is_stmt 0 view .LVU18
+  89 0040 3B4A     		ldr	r2, .L16
+  90 0042 9369     		ldr	r3, [r2, #24]
+  91 0044 43F00403 		orr	r3, r3, #4
+  92 0048 9361     		str	r3, [r2, #24]
+  50:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOA;
+  93              		.loc 1 50 7 is_stmt 1 view .LVU19
+  94              		.loc 1 50 24 is_stmt 0 view .LVU20
+  95 004a 3A4B     		ldr	r3, .L16+4
+  96 004c 8360     		str	r3, [r0, #8]
+  51:Core/Src/hw_gpio.c ****       break;
+  97              		.loc 1 51 7 is_stmt 1 view .LVU21
   98              	.L3:
-  51:Core/Src/hw_gpio.c ****     case 'B':
-  52:Core/Src/hw_gpio.c ****       RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+  52:Core/Src/hw_gpio.c ****     case 'B':
+  53:Core/Src/hw_gpio.c ****       RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+  54:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOB;
+  55:Core/Src/hw_gpio.c ****       break;
+  56:Core/Src/hw_gpio.c ****     case 'C':
+  57:Core/Src/hw_gpio.c ****       RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
+  58:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOC;
+  59:Core/Src/hw_gpio.c ****       break;
+  60:Core/Src/hw_gpio.c ****     case 'D':
+  61:Core/Src/hw_gpio.c ****       RCC->APB2ENR |= RCC_APB2ENR_IOPDEN;
+  62:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOD;
+  63:Core/Src/hw_gpio.c ****       break;
+  64:Core/Src/hw_gpio.c ****     case 'E':
+  65:Core/Src/hw_gpio.c ****       RCC->APB2ENR |= RCC_APB2ENR_IOPEEN;
+  66:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOE;
+  67:Core/Src/hw_gpio.c ****       break;
+  68:Core/Src/hw_gpio.c ****     }
+  69:Core/Src/hw_gpio.c **** 
+  70:Core/Src/hw_gpio.c ****     /* copy across GPIO parameters */
+  71:Core/Src/hw_gpio.c ****     g->dir = gs->dir;
+  99              		.loc 1 71 5 view .LVU22
+ 100              		.loc 1 71 16 is_stmt 0 view .LVU23
+ 101 004e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ARM GAS  /tmp/ccjnFj5F.s 			page 4
+
+
+ 102              		.loc 1 71 12 view .LVU24
+ 103 0050 4370     		strb	r3, [r0, #1]
+  72:Core/Src/hw_gpio.c ****     g->cfg = gs->cfg;
+ 104              		.loc 1 72 5 is_stmt 1 view .LVU25
+ 105              		.loc 1 72 16 is_stmt 0 view .LVU26
+ 106 0052 6378     		ldrb	r3, [r4, #1]	@ zero_extendqisi2
+ 107              		.loc 1 72 12 view .LVU27
+ 108 0054 8370     		strb	r3, [r0, #2]
+  73:Core/Src/hw_gpio.c ****     g->pin = gs->pin;
+ 109              		.loc 1 73 5 is_stmt 1 view .LVU28
+ 110              		.loc 1 73 16 is_stmt 0 view .LVU29
+ 111 0056 E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
+ 112              		.loc 1 73 12 view .LVU30
+ 113 0058 0371     		strb	r3, [r0, #4]
+  74:Core/Src/hw_gpio.c ****     g->port = gs->port;
+ 114              		.loc 1 74 5 is_stmt 1 view .LVU31
+ 115              		.loc 1 74 17 is_stmt 0 view .LVU32
+ 116 005a A278     		ldrb	r2, [r4, #2]	@ zero_extendqisi2
+ 117              		.loc 1 74 13 view .LVU33
+ 118 005c C270     		strb	r2, [r0, #3]
+  75:Core/Src/hw_gpio.c **** 
+  76:Core/Src/hw_gpio.c ****     /* Assign low as default state */
+  77:Core/Src/hw_gpio.c ****     g->state = PIN_LOW;
+ 119              		.loc 1 77 5 is_stmt 1 view .LVU34
+ 120              		.loc 1 77 14 is_stmt 0 view .LVU35
+ 121 005e 0022     		movs	r2, #0
+ 122 0060 0270     		strb	r2, [r0]
+  78:Core/Src/hw_gpio.c **** 
+  79:Core/Src/hw_gpio.c ****     /* Set registers based on GPIO settings */
+  80:Core/Src/hw_gpio.c ****     if (g->pin < 8)
+ 123              		.loc 1 80 5 is_stmt 1 view .LVU36
+ 124              		.loc 1 80 8 is_stmt 0 view .LVU37
+ 125 0062 072B     		cmp	r3, #7
+ 126 0064 3BD8     		bhi	.L10
+  81:Core/Src/hw_gpio.c ****     {
+  82:Core/Src/hw_gpio.c ****       g->port_reg_addr->CRL &= ~(0x0F << (REG_PIN_CONF_BITLENGTH * g->pin));                       
+ 127              		.loc 1 82 7 is_stmt 1 view .LVU38
+ 128              		.loc 1 82 8 is_stmt 0 view .LVU39
+ 129 0066 8468     		ldr	r4, [r0, #8]
+ 130              	.LVL4:
+ 131              		.loc 1 82 29 view .LVU40
+ 132 0068 2268     		ldr	r2, [r4]
+ 133              		.loc 1 82 66 view .LVU41
+ 134 006a 9B00     		lsls	r3, r3, #2
+ 135              		.loc 1 82 39 view .LVU42
+ 136 006c 0F21     		movs	r1, #15
+ 137 006e 01FA03F3 		lsl	r3, r1, r3
+ 138              		.loc 1 82 29 view .LVU43
+ 139 0072 22EA0303 		bic	r3, r2, r3
+ 140 0076 2360     		str	r3, [r4]
+  83:Core/Src/hw_gpio.c ****       g->port_reg_addr->CRL |= ((uint32_t)(g->dir)) << ((REG_PIN_CONF_BITLENGTH * g->pin) + REG_MOD
+ 141              		.loc 1 83 7 is_stmt 1 view .LVU44
+ 142              		.loc 1 83 8 is_stmt 0 view .LVU45
+ 143 0078 8468     		ldr	r4, [r0, #8]
+ 144              		.loc 1 83 29 view .LVU46
+ 145 007a 2368     		ldr	r3, [r4]
+ 146              		.loc 1 83 45 view .LVU47
+ARM GAS  /tmp/ccjnFj5F.s 			page 5
+
+
+ 147 007c 4278     		ldrb	r2, [r0, #1]	@ zero_extendqisi2
+ 148              		.loc 1 83 84 view .LVU48
+ 149 007e 0179     		ldrb	r1, [r0, #4]	@ zero_extendqisi2
+ 150              		.loc 1 83 91 view .LVU49
+ 151 0080 8900     		lsls	r1, r1, #2
+ 152              		.loc 1 83 53 view .LVU50
+ 153 0082 8A40     		lsls	r2, r2, r1
+ 154              		.loc 1 83 29 view .LVU51
+ 155 0084 1343     		orrs	r3, r3, r2
+ 156 0086 2360     		str	r3, [r4]
+  84:Core/Src/hw_gpio.c ****       g->port_reg_addr->CRL |= (((uint32_t)(g->cfg)) >> 0x01) << ((REG_PIN_CONF_BITLENGTH * g->pin)
+ 157              		.loc 1 84 7 is_stmt 1 view .LVU52
+ 158              		.loc 1 84 8 is_stmt 0 view .LVU53
+ 159 0088 8468     		ldr	r4, [r0, #8]
+ 160              		.loc 1 84 29 view .LVU54
+ 161 008a 2168     		ldr	r1, [r4]
+ 162              		.loc 1 84 46 view .LVU55
+ 163 008c 8378     		ldrb	r3, [r0, #2]	@ zero_extendqisi2
+ 164              		.loc 1 84 54 view .LVU56
+ 165 008e 5B08     		lsrs	r3, r3, #1
+ 166              		.loc 1 84 94 view .LVU57
+ 167 0090 0279     		ldrb	r2, [r0, #4]	@ zero_extendqisi2
+ 168              		.loc 1 84 91 view .LVU58
+ 169 0092 9200     		lsls	r2, r2, #2
+ 170              		.loc 1 84 101 view .LVU59
+ 171 0094 0232     		adds	r2, r2, #2
+ 172              		.loc 1 84 63 view .LVU60
+ 173 0096 9340     		lsls	r3, r3, r2
+ 174              		.loc 1 84 29 view .LVU61
+ 175 0098 0B43     		orrs	r3, r3, r1
+ 176 009a 2360     		str	r3, [r4]
+ 177 009c 41E0     		b	.L1
+ 178              	.LVL5:
+ 179              	.L8:
   53:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOB;
+ 180              		.loc 1 53 7 is_stmt 1 view .LVU62
+  53:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOB;
+ 181              		.loc 1 53 20 is_stmt 0 view .LVU63
+ 182 009e 244A     		ldr	r2, .L16
+ 183 00a0 9369     		ldr	r3, [r2, #24]
+ 184 00a2 43F00803 		orr	r3, r3, #8
+ 185 00a6 9361     		str	r3, [r2, #24]
   54:Core/Src/hw_gpio.c ****       break;
+ 186              		.loc 1 54 7 is_stmt 1 view .LVU64
+  54:Core/Src/hw_gpio.c ****       break;
+ 187              		.loc 1 54 24 is_stmt 0 view .LVU65
+ 188 00a8 234B     		ldr	r3, .L16+8
+ 189 00aa 8360     		str	r3, [r0, #8]
   55:Core/Src/hw_gpio.c ****     case 'C':
-  56:Core/Src/hw_gpio.c ****       RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
+ 190              		.loc 1 55 7 is_stmt 1 view .LVU66
+ 191 00ac CFE7     		b	.L3
+ 192              	.L7:
   57:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOC;
+ 193              		.loc 1 57 7 view .LVU67
+  57:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOC;
+ 194              		.loc 1 57 20 is_stmt 0 view .LVU68
+ 195 00ae 204A     		ldr	r2, .L16
+ARM GAS  /tmp/ccjnFj5F.s 			page 6
+
+
+ 196 00b0 9369     		ldr	r3, [r2, #24]
+ 197 00b2 43F01003 		orr	r3, r3, #16
+ 198 00b6 9361     		str	r3, [r2, #24]
   58:Core/Src/hw_gpio.c ****       break;
+ 199              		.loc 1 58 7 is_stmt 1 view .LVU69
+  58:Core/Src/hw_gpio.c ****       break;
+ 200              		.loc 1 58 24 is_stmt 0 view .LVU70
+ 201 00b8 204B     		ldr	r3, .L16+12
+ 202 00ba 8360     		str	r3, [r0, #8]
   59:Core/Src/hw_gpio.c ****     case 'D':
-  60:Core/Src/hw_gpio.c ****       RCC->APB2ENR |= RCC_APB2ENR_IOPDEN;
+ 203              		.loc 1 59 7 is_stmt 1 view .LVU71
+ 204 00bc C7E7     		b	.L3
+ 205              	.L6:
   61:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOD;
+ 206              		.loc 1 61 7 view .LVU72
+  61:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOD;
+ 207              		.loc 1 61 20 is_stmt 0 view .LVU73
+ 208 00be 1C4A     		ldr	r2, .L16
+ 209 00c0 9369     		ldr	r3, [r2, #24]
+ 210 00c2 43F02003 		orr	r3, r3, #32
+ 211 00c6 9361     		str	r3, [r2, #24]
   62:Core/Src/hw_gpio.c ****       break;
+ 212              		.loc 1 62 7 is_stmt 1 view .LVU74
+  62:Core/Src/hw_gpio.c ****       break;
+ 213              		.loc 1 62 24 is_stmt 0 view .LVU75
+ 214 00c8 1D4B     		ldr	r3, .L16+16
+ 215 00ca 8360     		str	r3, [r0, #8]
   63:Core/Src/hw_gpio.c ****     case 'E':
-  64:Core/Src/hw_gpio.c ****       RCC->APB2ENR |= RCC_APB2ENR_IOPEEN;
+ 216              		.loc 1 63 7 is_stmt 1 view .LVU76
+ 217 00cc BFE7     		b	.L3
+ 218              	.L4:
   65:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOE;
+ 219              		.loc 1 65 7 view .LVU77
+  65:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOE;
+ 220              		.loc 1 65 20 is_stmt 0 view .LVU78
+ 221 00ce 184A     		ldr	r2, .L16
+ 222 00d0 9369     		ldr	r3, [r2, #24]
+ 223 00d2 43F04003 		orr	r3, r3, #64
+ 224 00d6 9361     		str	r3, [r2, #24]
   66:Core/Src/hw_gpio.c ****       break;
+ 225              		.loc 1 66 7 is_stmt 1 view .LVU79
+  66:Core/Src/hw_gpio.c ****       break;
+ 226              		.loc 1 66 24 is_stmt 0 view .LVU80
+ 227 00d8 1A4B     		ldr	r3, .L16+20
+ 228 00da 8360     		str	r3, [r0, #8]
   67:Core/Src/hw_gpio.c ****     }
-  68:Core/Src/hw_gpio.c **** 
-  69:Core/Src/hw_gpio.c ****     /* copy across GPIO parameters */
-  70:Core/Src/hw_gpio.c ****     g->dir = gs.dir;
-  99              		.loc 1 70 5 view .LVU20
- 100              		.loc 1 70 12 is_stmt 0 view .LVU21
- 101 0056 4670     		strb	r6, [r0, #1]
-  71:Core/Src/hw_gpio.c ****     g->cfg = gs.cfg;
-ARM GAS  /tmp/ccpaynjx.s 			page 4
+ 229              		.loc 1 67 7 is_stmt 1 view .LVU81
+ 230 00dc B7E7     		b	.L3
+ 231              	.L10:
+  85:Core/Src/hw_gpio.c ****     }
+  86:Core/Src/hw_gpio.c ****     else
+  87:Core/Src/hw_gpio.c ****     {
+  88:Core/Src/hw_gpio.c ****       g->port_reg_addr->CRH &= ~(0x0F << (REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)));              
+ 232              		.loc 1 88 7 view .LVU82
+ 233              		.loc 1 88 8 is_stmt 0 view .LVU83
+ 234 00de 8468     		ldr	r4, [r0, #8]
+ 235              	.LVL6:
+ARM GAS  /tmp/ccjnFj5F.s 			page 7
 
 
- 102              		.loc 1 71 5 is_stmt 1 view .LVU22
- 103              		.loc 1 71 12 is_stmt 0 view .LVU23
- 104 0058 8770     		strb	r7, [r0, #2]
-  72:Core/Src/hw_gpio.c ****     g->pin = gs.pin;
- 105              		.loc 1 72 5 is_stmt 1 view .LVU24
- 106              		.loc 1 72 12 is_stmt 0 view .LVU25
- 107 005a 0571     		strb	r5, [r0, #4]
-  73:Core/Src/hw_gpio.c ****     g->port = gs.port;
- 108              		.loc 1 73 5 is_stmt 1 view .LVU26
- 109              		.loc 1 73 13 is_stmt 0 view .LVU27
- 110 005c C470     		strb	r4, [r0, #3]
-  74:Core/Src/hw_gpio.c **** 
-  75:Core/Src/hw_gpio.c ****     /* Assign low as default state */
-  76:Core/Src/hw_gpio.c ****     g->state = PIN_LOW;
- 111              		.loc 1 76 5 is_stmt 1 view .LVU28
- 112              		.loc 1 76 14 is_stmt 0 view .LVU29
- 113 005e 0023     		movs	r3, #0
- 114 0060 0370     		strb	r3, [r0]
-  77:Core/Src/hw_gpio.c **** 
-  78:Core/Src/hw_gpio.c ****     /* Set registers based on GPIO settings */
-  79:Core/Src/hw_gpio.c ****     if (g->pin < 8)
- 115              		.loc 1 79 5 is_stmt 1 view .LVU30
- 116              		.loc 1 79 8 is_stmt 0 view .LVU31
- 117 0062 072D     		cmp	r5, #7
- 118 0064 3AD8     		bhi	.L10
-  80:Core/Src/hw_gpio.c ****     {
-  81:Core/Src/hw_gpio.c ****       g->port_reg_addr->CRL &= ~(0x0F << (REG_PIN_CONF_BITLENGTH * g->pin));                       
- 119              		.loc 1 81 7 is_stmt 1 view .LVU32
- 120              		.loc 1 81 8 is_stmt 0 view .LVU33
- 121 0066 8268     		ldr	r2, [r0, #8]
- 122              		.loc 1 81 29 view .LVU34
- 123 0068 1368     		ldr	r3, [r2]
- 124              		.loc 1 81 66 view .LVU35
- 125 006a A900     		lsls	r1, r5, #2
- 126              		.loc 1 81 39 view .LVU36
- 127 006c 0F25     		movs	r5, #15
- 128 006e 8D40     		lsls	r5, r5, r1
- 129              		.loc 1 81 29 view .LVU37
- 130 0070 23EA0505 		bic	r5, r3, r5
- 131 0074 1560     		str	r5, [r2]
-  82:Core/Src/hw_gpio.c ****       g->port_reg_addr->CRL |= ((uint32_t)(g->dir)) << ((REG_PIN_CONF_BITLENGTH * g->pin) + REG_MOD
- 132              		.loc 1 82 7 is_stmt 1 view .LVU38
- 133              		.loc 1 82 8 is_stmt 0 view .LVU39
- 134 0076 8468     		ldr	r4, [r0, #8]
- 135              		.loc 1 82 29 view .LVU40
- 136 0078 2368     		ldr	r3, [r4]
- 137              		.loc 1 82 45 view .LVU41
- 138 007a 4278     		ldrb	r2, [r0, #1]	@ zero_extendqisi2
- 139              		.loc 1 82 84 view .LVU42
- 140 007c 0179     		ldrb	r1, [r0, #4]	@ zero_extendqisi2
- 141              		.loc 1 82 91 view .LVU43
- 142 007e 8900     		lsls	r1, r1, #2
- 143              		.loc 1 82 53 view .LVU44
- 144 0080 8A40     		lsls	r2, r2, r1
- 145              		.loc 1 82 29 view .LVU45
- 146 0082 1343     		orrs	r3, r3, r2
- 147 0084 2360     		str	r3, [r4]
-ARM GAS  /tmp/ccpaynjx.s 			page 5
+ 236              		.loc 1 88 29 view .LVU84
+ 237 00e0 6268     		ldr	r2, [r4, #4]
+ 238              		.loc 1 88 76 view .LVU85
+ 239 00e2 083B     		subs	r3, r3, #8
+ 240              		.loc 1 88 66 view .LVU86
+ 241 00e4 9B00     		lsls	r3, r3, #2
+ 242              		.loc 1 88 39 view .LVU87
+ 243 00e6 0F21     		movs	r1, #15
+ 244 00e8 01FA03F3 		lsl	r3, r1, r3
+ 245              		.loc 1 88 29 view .LVU88
+ 246 00ec 22EA0303 		bic	r3, r2, r3
+ 247 00f0 6360     		str	r3, [r4, #4]
+  89:Core/Src/hw_gpio.c ****       g->port_reg_addr->CRH |= ((uint32_t)(g->dir)) << ((REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)) 
+ 248              		.loc 1 89 7 is_stmt 1 view .LVU89
+ 249              		.loc 1 89 8 is_stmt 0 view .LVU90
+ 250 00f2 8468     		ldr	r4, [r0, #8]
+ 251              		.loc 1 89 29 view .LVU91
+ 252 00f4 6268     		ldr	r2, [r4, #4]
+ 253              		.loc 1 89 45 view .LVU92
+ 254 00f6 4178     		ldrb	r1, [r0, #1]	@ zero_extendqisi2
+ 255              		.loc 1 89 85 view .LVU93
+ 256 00f8 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
+ 257              		.loc 1 89 91 view .LVU94
+ 258 00fa 083B     		subs	r3, r3, #8
+ 259              		.loc 1 89 100 view .LVU95
+ 260 00fc 9B00     		lsls	r3, r3, #2
+ 261              		.loc 1 89 53 view .LVU96
+ 262 00fe 01FA03F3 		lsl	r3, r1, r3
+ 263              		.loc 1 89 29 view .LVU97
+ 264 0102 1343     		orrs	r3, r3, r2
+ 265 0104 6360     		str	r3, [r4, #4]
+  90:Core/Src/hw_gpio.c ****       g->port_reg_addr->CRH |= (((uint32_t)(g->cfg)) >> 0x01) << ((REG_PIN_CONF_BITLENGTH * (g->pin
+ 266              		.loc 1 90 7 is_stmt 1 view .LVU98
+ 267              		.loc 1 90 8 is_stmt 0 view .LVU99
+ 268 0106 8468     		ldr	r4, [r0, #8]
+ 269              		.loc 1 90 29 view .LVU100
+ 270 0108 6168     		ldr	r1, [r4, #4]
+ 271              		.loc 1 90 46 view .LVU101
+ 272 010a 8378     		ldrb	r3, [r0, #2]	@ zero_extendqisi2
+ 273              		.loc 1 90 54 view .LVU102
+ 274 010c 5A08     		lsrs	r2, r3, #1
+ 275              		.loc 1 90 95 view .LVU103
+ 276 010e 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
+ 277              		.loc 1 90 101 view .LVU104
+ 278 0110 083B     		subs	r3, r3, #8
+ 279              		.loc 1 90 91 view .LVU105
+ 280 0112 9B00     		lsls	r3, r3, #2
+ 281              		.loc 1 90 110 view .LVU106
+ 282 0114 0233     		adds	r3, r3, #2
+ 283              		.loc 1 90 63 view .LVU107
+ 284 0116 02FA03F3 		lsl	r3, r2, r3
+ 285              		.loc 1 90 29 view .LVU108
+ 286 011a 0B43     		orrs	r3, r3, r1
+ 287 011c 6360     		str	r3, [r4, #4]
+ 288 011e 00E0     		b	.L1
+ 289              	.LVL7:
+ 290              	.L11:
+ARM GAS  /tmp/ccjnFj5F.s 			page 8
 
 
-  83:Core/Src/hw_gpio.c ****       g->port_reg_addr->CRL |= (((uint32_t)(g->cfg)) >> 0x01) << ((REG_PIN_CONF_BITLENGTH * g->pin)
- 148              		.loc 1 83 7 is_stmt 1 view .LVU46
- 149              		.loc 1 83 8 is_stmt 0 view .LVU47
- 150 0086 8468     		ldr	r4, [r0, #8]
- 151              		.loc 1 83 29 view .LVU48
- 152 0088 2168     		ldr	r1, [r4]
- 153              		.loc 1 83 46 view .LVU49
- 154 008a 8378     		ldrb	r3, [r0, #2]	@ zero_extendqisi2
- 155              		.loc 1 83 54 view .LVU50
- 156 008c 5B08     		lsrs	r3, r3, #1
- 157              		.loc 1 83 94 view .LVU51
- 158 008e 0279     		ldrb	r2, [r0, #4]	@ zero_extendqisi2
- 159              		.loc 1 83 91 view .LVU52
- 160 0090 9200     		lsls	r2, r2, #2
- 161              		.loc 1 83 101 view .LVU53
- 162 0092 0232     		adds	r2, r2, #2
- 163              		.loc 1 83 63 view .LVU54
- 164 0094 9340     		lsls	r3, r3, r2
- 165              		.loc 1 83 29 view .LVU55
- 166 0096 0B43     		orrs	r3, r3, r1
- 167 0098 2360     		str	r3, [r4]
- 168 009a 41E0     		b	.L1
- 169              	.L8:
-  52:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOB;
- 170              		.loc 1 52 7 is_stmt 1 view .LVU56
-  52:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOB;
- 171              		.loc 1 52 20 is_stmt 0 view .LVU57
- 172 009c 244A     		ldr	r2, .L16
- 173 009e 9369     		ldr	r3, [r2, #24]
- 174 00a0 43F00803 		orr	r3, r3, #8
- 175 00a4 9361     		str	r3, [r2, #24]
-  53:Core/Src/hw_gpio.c ****       break;
- 176              		.loc 1 53 7 is_stmt 1 view .LVU58
-  53:Core/Src/hw_gpio.c ****       break;
- 177              		.loc 1 53 24 is_stmt 0 view .LVU59
- 178 00a6 244B     		ldr	r3, .L16+8
- 179 00a8 8360     		str	r3, [r0, #8]
-  54:Core/Src/hw_gpio.c ****     case 'C':
- 180              		.loc 1 54 7 is_stmt 1 view .LVU60
- 181 00aa D4E7     		b	.L3
- 182              	.L7:
-  56:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOC;
- 183              		.loc 1 56 7 view .LVU61
-  56:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOC;
- 184              		.loc 1 56 20 is_stmt 0 view .LVU62
- 185 00ac 204A     		ldr	r2, .L16
- 186 00ae 9369     		ldr	r3, [r2, #24]
- 187 00b0 43F01003 		orr	r3, r3, #16
- 188 00b4 9361     		str	r3, [r2, #24]
-  57:Core/Src/hw_gpio.c ****       break;
- 189              		.loc 1 57 7 is_stmt 1 view .LVU63
-  57:Core/Src/hw_gpio.c ****       break;
- 190              		.loc 1 57 24 is_stmt 0 view .LVU64
- 191 00b6 214B     		ldr	r3, .L16+12
- 192 00b8 8360     		str	r3, [r0, #8]
-  58:Core/Src/hw_gpio.c ****     case 'D':
- 193              		.loc 1 58 7 is_stmt 1 view .LVU65
-ARM GAS  /tmp/ccpaynjx.s 			page 6
-
-
- 194 00ba CCE7     		b	.L3
- 195              	.L6:
-  60:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOD;
- 196              		.loc 1 60 7 view .LVU66
-  60:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOD;
- 197              		.loc 1 60 20 is_stmt 0 view .LVU67
- 198 00bc 1C4A     		ldr	r2, .L16
- 199 00be 9369     		ldr	r3, [r2, #24]
- 200 00c0 43F02003 		orr	r3, r3, #32
- 201 00c4 9361     		str	r3, [r2, #24]
-  61:Core/Src/hw_gpio.c ****       break;
- 202              		.loc 1 61 7 is_stmt 1 view .LVU68
-  61:Core/Src/hw_gpio.c ****       break;
- 203              		.loc 1 61 24 is_stmt 0 view .LVU69
- 204 00c6 1E4B     		ldr	r3, .L16+16
- 205 00c8 8360     		str	r3, [r0, #8]
-  62:Core/Src/hw_gpio.c ****     case 'E':
- 206              		.loc 1 62 7 is_stmt 1 view .LVU70
- 207 00ca C4E7     		b	.L3
- 208              	.L4:
-  64:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOE;
- 209              		.loc 1 64 7 view .LVU71
-  64:Core/Src/hw_gpio.c ****       g->port_reg_addr = GPIOE;
- 210              		.loc 1 64 20 is_stmt 0 view .LVU72
- 211 00cc 184A     		ldr	r2, .L16
- 212 00ce 9369     		ldr	r3, [r2, #24]
- 213 00d0 43F04003 		orr	r3, r3, #64
- 214 00d4 9361     		str	r3, [r2, #24]
-  65:Core/Src/hw_gpio.c ****       break;
- 215              		.loc 1 65 7 is_stmt 1 view .LVU73
-  65:Core/Src/hw_gpio.c ****       break;
- 216              		.loc 1 65 24 is_stmt 0 view .LVU74
- 217 00d6 1B4B     		ldr	r3, .L16+20
- 218 00d8 8360     		str	r3, [r0, #8]
-  66:Core/Src/hw_gpio.c ****     }
- 219              		.loc 1 66 7 is_stmt 1 view .LVU75
- 220 00da BCE7     		b	.L3
- 221              	.L10:
-  84:Core/Src/hw_gpio.c ****     }
-  85:Core/Src/hw_gpio.c ****     else
-  86:Core/Src/hw_gpio.c ****     {
-  87:Core/Src/hw_gpio.c ****       g->port_reg_addr->CRH &= ~(0x0F << (REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)));              
- 222              		.loc 1 87 7 view .LVU76
- 223              		.loc 1 87 8 is_stmt 0 view .LVU77
- 224 00dc 8168     		ldr	r1, [r0, #8]
- 225              		.loc 1 87 29 view .LVU78
- 226 00de 4B68     		ldr	r3, [r1, #4]
- 227              		.loc 1 87 76 view .LVU79
- 228 00e0 083D     		subs	r5, r5, #8
- 229              		.loc 1 87 66 view .LVU80
- 230 00e2 AD00     		lsls	r5, r5, #2
- 231              		.loc 1 87 39 view .LVU81
- 232 00e4 0F22     		movs	r2, #15
- 233 00e6 02FA05F5 		lsl	r5, r2, r5
- 234              		.loc 1 87 29 view .LVU82
- 235 00ea 23EA0505 		bic	r5, r3, r5
- 236 00ee 4D60     		str	r5, [r1, #4]
-ARM GAS  /tmp/ccpaynjx.s 			page 7
-
-
-  88:Core/Src/hw_gpio.c ****       g->port_reg_addr->CRH |= ((uint32_t)(g->dir)) << ((REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)) 
- 237              		.loc 1 88 7 is_stmt 1 view .LVU83
- 238              		.loc 1 88 8 is_stmt 0 view .LVU84
- 239 00f0 8468     		ldr	r4, [r0, #8]
- 240              		.loc 1 88 29 view .LVU85
- 241 00f2 6268     		ldr	r2, [r4, #4]
- 242              		.loc 1 88 45 view .LVU86
- 243 00f4 4178     		ldrb	r1, [r0, #1]	@ zero_extendqisi2
- 244              		.loc 1 88 85 view .LVU87
- 245 00f6 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
- 246              		.loc 1 88 91 view .LVU88
- 247 00f8 083B     		subs	r3, r3, #8
- 248              		.loc 1 88 100 view .LVU89
- 249 00fa 9B00     		lsls	r3, r3, #2
- 250              		.loc 1 88 53 view .LVU90
- 251 00fc 01FA03F3 		lsl	r3, r1, r3
- 252              		.loc 1 88 29 view .LVU91
- 253 0100 1343     		orrs	r3, r3, r2
- 254 0102 6360     		str	r3, [r4, #4]
-  89:Core/Src/hw_gpio.c ****       g->port_reg_addr->CRH |= (((uint32_t)(g->cfg)) >> 0x01) << ((REG_PIN_CONF_BITLENGTH * (g->pin
- 255              		.loc 1 89 7 is_stmt 1 view .LVU92
- 256              		.loc 1 89 8 is_stmt 0 view .LVU93
- 257 0104 8468     		ldr	r4, [r0, #8]
- 258              		.loc 1 89 29 view .LVU94
- 259 0106 6168     		ldr	r1, [r4, #4]
- 260              		.loc 1 89 46 view .LVU95
- 261 0108 8378     		ldrb	r3, [r0, #2]	@ zero_extendqisi2
- 262              		.loc 1 89 54 view .LVU96
- 263 010a 5A08     		lsrs	r2, r3, #1
- 264              		.loc 1 89 95 view .LVU97
- 265 010c 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
- 266              		.loc 1 89 101 view .LVU98
- 267 010e 083B     		subs	r3, r3, #8
- 268              		.loc 1 89 91 view .LVU99
- 269 0110 9B00     		lsls	r3, r3, #2
- 270              		.loc 1 89 110 view .LVU100
- 271 0112 0233     		adds	r3, r3, #2
- 272              		.loc 1 89 63 view .LVU101
- 273 0114 02FA03F3 		lsl	r3, r2, r3
- 274              		.loc 1 89 29 view .LVU102
- 275 0118 0B43     		orrs	r3, r3, r1
- 276 011a 6360     		str	r3, [r4, #4]
- 277 011c 00E0     		b	.L1
- 278              	.LVL2:
- 279              	.L11:
   24:Core/Src/hw_gpio.c **** 
- 280              		.loc 1 24 9 view .LVU103
- 281 011e 0020     		movs	r0, #0
- 282              	.LVL3:
- 283              	.L1:
-  90:Core/Src/hw_gpio.c ****     }
-  91:Core/Src/hw_gpio.c **** 
-  92:Core/Src/hw_gpio.c ****     /* increment global counter */
-  93:Core/Src/hw_gpio.c ****     //gpio_init_count++;
-  94:Core/Src/hw_gpio.c ****   }
-  95:Core/Src/hw_gpio.c **** 
-  96:Core/Src/hw_gpio.c ****   
-ARM GAS  /tmp/ccpaynjx.s 			page 8
-
-
-  97:Core/Src/hw_gpio.c **** 
-  98:Core/Src/hw_gpio.c ****   /* return pointer to our newly created gpio configuration */
-  99:Core/Src/hw_gpio.c ****   return g;
+ 291              		.loc 1 24 11 view .LVU109
+ 292 0120 0020     		movs	r0, #0
+ 293              	.LVL8:
+ 294              	.L1:
+  91:Core/Src/hw_gpio.c ****     }
+  92:Core/Src/hw_gpio.c **** 
+  93:Core/Src/hw_gpio.c ****     /* increment global counter */
+  94:Core/Src/hw_gpio.c ****     //gpio_init_count++;
+  95:Core/Src/hw_gpio.c ****   }
+  96:Core/Src/hw_gpio.c **** 
+  97:Core/Src/hw_gpio.c ****   
+  98:Core/Src/hw_gpio.c **** 
+  99:Core/Src/hw_gpio.c ****   /* return pointer to our newly created gpio configuration */
+ 100:Core/Src/hw_gpio.c ****   return g;
+ 101:Core/Src/hw_gpio.c **** }
+ 295              		.loc 1 101 1 view .LVU110
+ 296 0122 38BD     		pop	{r3, r4, r5, pc}
+ 297              	.LVL9:
+ 298              	.L12:
+  24:Core/Src/hw_gpio.c **** 
+ 299              		.loc 1 24 11 view .LVU111
+ 300 0124 0020     		movs	r0, #0
+ 301              	.LVL10:
+  24:Core/Src/hw_gpio.c **** 
+ 302              		.loc 1 24 11 view .LVU112
+ 303 0126 FCE7     		b	.L1
+ 304              	.LVL11:
+ 305              	.L13:
+  24:Core/Src/hw_gpio.c **** 
+ 306              		.loc 1 24 11 view .LVU113
+ 307 0128 0020     		movs	r0, #0
+ 308              	.LVL12:
+  24:Core/Src/hw_gpio.c **** 
+ 309              		.loc 1 24 11 view .LVU114
+ 310 012a FAE7     		b	.L1
+ 311              	.LVL13:
+ 312              	.L14:
+  24:Core/Src/hw_gpio.c **** 
+ 313              		.loc 1 24 11 view .LVU115
+ 314 012c 0020     		movs	r0, #0
+ 315              	.LVL14:
  100:Core/Src/hw_gpio.c **** }
- 284              		.loc 1 100 1 view .LVU104
- 285 0120 03B0     		add	sp, sp, #12
- 286              	.LCFI2:
- 287              		.cfi_remember_state
- 288              		.cfi_def_cfa_offset 20
- 289              		@ sp needed
- 290 0122 F0BD     		pop	{r4, r5, r6, r7, pc}
- 291              	.LVL4:
- 292              	.L12:
- 293              	.LCFI3:
- 294              		.cfi_restore_state
-  24:Core/Src/hw_gpio.c **** 
- 295              		.loc 1 24 9 view .LVU105
- 296 0124 0020     		movs	r0, #0
- 297 0126 FBE7     		b	.L1
- 298              	.L13:
- 299 0128 0020     		movs	r0, #0
- 300 012a F9E7     		b	.L1
- 301              	.L14:
- 302 012c 0020     		movs	r0, #0
-  99:Core/Src/hw_gpio.c **** }
- 303              		.loc 1 99 3 is_stmt 1 view .LVU106
-  99:Core/Src/hw_gpio.c **** }
- 304              		.loc 1 99 10 is_stmt 0 view .LVU107
- 305 012e F7E7     		b	.L1
- 306              	.L17:
- 307              		.align	2
- 308              	.L16:
- 309 0130 00100240 		.word	1073876992
- 310 0134 00080140 		.word	1073809408
- 311 0138 000C0140 		.word	1073810432
- 312 013c 00100140 		.word	1073811456
- 313 0140 00140140 		.word	1073812480
- 314 0144 00180140 		.word	1073813504
- 315              		.cfi_endproc
- 316              	.LFE65:
- 318              		.section	.text.hw_gpio_free_memory,"ax",%progbits
- 319              		.align	1
- 320              		.global	hw_gpio_free_memory
- 321              		.syntax unified
- 322              		.thumb
- 323              		.thumb_func
- 325              	hw_gpio_free_memory:
- 326              	.LVL5:
- 327              	.LFB66:
- 101:Core/Src/hw_gpio.c **** 
- 102:Core/Src/hw_gpio.c **** void hw_gpio_free_memory(GPIO *gpio)
- 103:Core/Src/hw_gpio.c **** {
- 328              		.loc 1 103 1 is_stmt 1 view -0
- 329              		.cfi_startproc
- 330              		@ args = 0, pretend = 0, frame = 0
- 331              		@ frame_needed = 0, uses_anonymous_args = 0
- 332              		.loc 1 103 1 is_stmt 0 view .LVU109
-ARM GAS  /tmp/ccpaynjx.s 			page 9
+ 316              		.loc 1 100 3 is_stmt 1 view .LVU116
+ 100:Core/Src/hw_gpio.c **** }
+ 317              		.loc 1 100 10 is_stmt 0 view .LVU117
+ 318 012e F8E7     		b	.L1
+ 319              	.L17:
+ 320              		.align	2
+ 321              	.L16:
+ 322 0130 00100240 		.word	1073876992
+ 323 0134 00080140 		.word	1073809408
+ 324 0138 000C0140 		.word	1073810432
+ 325 013c 00100140 		.word	1073811456
+ 326 0140 00140140 		.word	1073812480
+ 327 0144 00180140 		.word	1073813504
+ 328              		.cfi_endproc
+ARM GAS  /tmp/ccjnFj5F.s 			page 9
 
 
- 333 0000 08B5     		push	{r3, lr}
- 334              	.LCFI4:
- 335              		.cfi_def_cfa_offset 8
- 336              		.cfi_offset 3, -8
- 337              		.cfi_offset 14, -4
- 104:Core/Src/hw_gpio.c ****   /* Free memory */
- 105:Core/Src/hw_gpio.c ****   free(gpio);
- 338              		.loc 1 105 3 is_stmt 1 view .LVU110
- 339 0002 FFF7FEFF 		bl	free
- 340              	.LVL6:
- 106:Core/Src/hw_gpio.c **** }
- 341              		.loc 1 106 1 is_stmt 0 view .LVU111
- 342 0006 08BD     		pop	{r3, pc}
- 343              		.cfi_endproc
- 344              	.LFE66:
- 346              		.section	.text.hw_gpio_set,"ax",%progbits
- 347              		.align	1
- 348              		.global	hw_gpio_set
- 349              		.syntax unified
- 350              		.thumb
- 351              		.thumb_func
- 353              	hw_gpio_set:
- 354              	.LVL7:
- 355              	.LFB68:
- 107:Core/Src/hw_gpio.c **** 
- 108:Core/Src/hw_gpio.c **** void hw_gpio_write(GPIO *gpio, gpio_state set_state)
- 109:Core/Src/hw_gpio.c **** {
+ 329              	.LFE65:
+ 331              		.section	.text.hw_gpio_free_memory,"ax",%progbits
+ 332              		.align	1
+ 333              		.global	hw_gpio_free_memory
+ 334              		.syntax unified
+ 335              		.thumb
+ 336              		.thumb_func
+ 338              	hw_gpio_free_memory:
+ 339              	.LVL15:
+ 340              	.LFB66:
+ 102:Core/Src/hw_gpio.c **** 
+ 103:Core/Src/hw_gpio.c **** void hw_gpio_free_memory(gpio_t *gpio)
+ 104:Core/Src/hw_gpio.c **** {
+ 341              		.loc 1 104 1 is_stmt 1 view -0
+ 342              		.cfi_startproc
+ 343              		@ args = 0, pretend = 0, frame = 0
+ 344              		@ frame_needed = 0, uses_anonymous_args = 0
+ 345              		.loc 1 104 1 is_stmt 0 view .LVU119
+ 346 0000 08B5     		push	{r3, lr}
+ 347              	.LCFI1:
+ 348              		.cfi_def_cfa_offset 8
+ 349              		.cfi_offset 3, -8
+ 350              		.cfi_offset 14, -4
+ 105:Core/Src/hw_gpio.c ****   /* Free memory */
+ 106:Core/Src/hw_gpio.c ****   free(gpio);
+ 351              		.loc 1 106 3 is_stmt 1 view .LVU120
+ 352 0002 FFF7FEFF 		bl	free
+ 353              	.LVL16:
+ 107:Core/Src/hw_gpio.c **** }
+ 354              		.loc 1 107 1 is_stmt 0 view .LVU121
+ 355 0006 08BD     		pop	{r3, pc}
+ 356              		.cfi_endproc
+ 357              	.LFE66:
+ 359              		.section	.text.hw_gpio_set,"ax",%progbits
+ 360              		.align	1
+ 361              		.global	hw_gpio_set
+ 362              		.syntax unified
+ 363              		.thumb
+ 364              		.thumb_func
+ 366              	hw_gpio_set:
+ 367              	.LVL17:
+ 368              	.LFB68:
+ 108:Core/Src/hw_gpio.c **** 
+ 109:Core/Src/hw_gpio.c **** void hw_gpio_write(gpio_t *gpio, gpio_state_t set_state)
+ 110:Core/Src/hw_gpio.c **** {
+ 111:Core/Src/hw_gpio.c ****   if (set_state == PIN_LOW) {
+ 112:Core/Src/hw_gpio.c ****     hw_gpio_reset(gpio);
+ 113:Core/Src/hw_gpio.c ****   }
+ 114:Core/Src/hw_gpio.c ****   if (set_state == PIN_HIGH) {
+ 115:Core/Src/hw_gpio.c ****     hw_gpio_set(gpio);
+ 116:Core/Src/hw_gpio.c ****   }
+ 117:Core/Src/hw_gpio.c **** }
+ 118:Core/Src/hw_gpio.c **** 
+ 119:Core/Src/hw_gpio.c **** void hw_gpio_set(gpio_t *gpio)
+ 120:Core/Src/hw_gpio.c **** {
+ 369              		.loc 1 120 1 is_stmt 1 view -0
+ 370              		.cfi_startproc
+ARM GAS  /tmp/ccjnFj5F.s 			page 10
+
+
+ 371              		@ args = 0, pretend = 0, frame = 0
+ 372              		@ frame_needed = 0, uses_anonymous_args = 0
+ 373              		@ link register save eliminated.
+ 121:Core/Src/hw_gpio.c ****     gpio->state = PIN_HIGH;
+ 374              		.loc 1 121 5 view .LVU123
+ 375              		.loc 1 121 17 is_stmt 0 view .LVU124
+ 376 0000 0123     		movs	r3, #1
+ 377 0002 0370     		strb	r3, [r0]
+ 122:Core/Src/hw_gpio.c ****     gpio->port_reg_addr->BSRR |= 0x01 << gpio->pin;
+ 378              		.loc 1 122 5 is_stmt 1 view .LVU125
+ 379              		.loc 1 122 9 is_stmt 0 view .LVU126
+ 380 0004 8168     		ldr	r1, [r0, #8]
+ 381              		.loc 1 122 31 view .LVU127
+ 382 0006 0A69     		ldr	r2, [r1, #16]
+ 383              		.loc 1 122 46 view .LVU128
+ 384 0008 0079     		ldrb	r0, [r0, #4]	@ zero_extendqisi2
+ 385              	.LVL18:
+ 386              		.loc 1 122 39 view .LVU129
+ 387 000a 8340     		lsls	r3, r3, r0
+ 388              		.loc 1 122 31 view .LVU130
+ 389 000c 1343     		orrs	r3, r3, r2
+ 390 000e 0B61     		str	r3, [r1, #16]
+ 123:Core/Src/hw_gpio.c **** }
+ 391              		.loc 1 123 1 view .LVU131
+ 392 0010 7047     		bx	lr
+ 393              		.cfi_endproc
+ 394              	.LFE68:
+ 396              		.section	.text.hw_gpio_reset,"ax",%progbits
+ 397              		.align	1
+ 398              		.global	hw_gpio_reset
+ 399              		.syntax unified
+ 400              		.thumb
+ 401              		.thumb_func
+ 403              	hw_gpio_reset:
+ 404              	.LVL19:
+ 405              	.LFB69:
+ 124:Core/Src/hw_gpio.c **** 
+ 125:Core/Src/hw_gpio.c **** void hw_gpio_reset(gpio_t *gpio)
+ 126:Core/Src/hw_gpio.c **** {
+ 406              		.loc 1 126 1 is_stmt 1 view -0
+ 407              		.cfi_startproc
+ 408              		@ args = 0, pretend = 0, frame = 0
+ 409              		@ frame_needed = 0, uses_anonymous_args = 0
+ 410              		@ link register save eliminated.
+ 411              		.loc 1 126 1 is_stmt 0 view .LVU133
+ 412 0000 10B4     		push	{r4}
+ 413              	.LCFI2:
+ 414              		.cfi_def_cfa_offset 4
+ 415              		.cfi_offset 4, -4
+ 127:Core/Src/hw_gpio.c ****     gpio->state = PIN_LOW;
+ 416              		.loc 1 127 5 is_stmt 1 view .LVU134
+ 417              		.loc 1 127 17 is_stmt 0 view .LVU135
+ 418 0002 0023     		movs	r3, #0
+ 419 0004 0370     		strb	r3, [r0]
+ 128:Core/Src/hw_gpio.c ****     gpio->port_reg_addr->BSRR |= 0x01 << (gpio->pin + 0x0F);
+ 420              		.loc 1 128 5 is_stmt 1 view .LVU136
+ 421              		.loc 1 128 9 is_stmt 0 view .LVU137
+ARM GAS  /tmp/ccjnFj5F.s 			page 11
+
+
+ 422 0006 8468     		ldr	r4, [r0, #8]
+ 423              		.loc 1 128 31 view .LVU138
+ 424 0008 2369     		ldr	r3, [r4, #16]
+ 425              		.loc 1 128 47 view .LVU139
+ 426 000a 0279     		ldrb	r2, [r0, #4]	@ zero_extendqisi2
+ 427              		.loc 1 128 53 view .LVU140
+ 428 000c 02F10F01 		add	r1, r2, #15
+ 429              		.loc 1 128 39 view .LVU141
+ 430 0010 0122     		movs	r2, #1
+ 431 0012 8A40     		lsls	r2, r2, r1
+ 432              		.loc 1 128 31 view .LVU142
+ 433 0014 1343     		orrs	r3, r3, r2
+ 434 0016 2361     		str	r3, [r4, #16]
+ 129:Core/Src/hw_gpio.c **** }
+ 435              		.loc 1 129 1 view .LVU143
+ 436 0018 10BC     		pop	{r4}
+ 437              	.LCFI3:
+ 438              		.cfi_restore 4
+ 439              		.cfi_def_cfa_offset 0
+ 440 001a 7047     		bx	lr
+ 441              		.cfi_endproc
+ 442              	.LFE69:
+ 444              		.section	.text.hw_gpio_write,"ax",%progbits
+ 445              		.align	1
+ 446              		.global	hw_gpio_write
+ 447              		.syntax unified
+ 448              		.thumb
+ 449              		.thumb_func
+ 451              	hw_gpio_write:
+ 452              	.LVL20:
+ 453              	.LFB67:
  110:Core/Src/hw_gpio.c ****   if (set_state == PIN_LOW) {
+ 454              		.loc 1 110 1 is_stmt 1 view -0
+ 455              		.cfi_startproc
+ 456              		@ args = 0, pretend = 0, frame = 0
+ 457              		@ frame_needed = 0, uses_anonymous_args = 0
+ 110:Core/Src/hw_gpio.c ****   if (set_state == PIN_LOW) {
+ 458              		.loc 1 110 1 is_stmt 0 view .LVU145
+ 459 0000 38B5     		push	{r3, r4, r5, lr}
+ 460              	.LCFI4:
+ 461              		.cfi_def_cfa_offset 16
+ 462              		.cfi_offset 3, -16
+ 463              		.cfi_offset 4, -12
+ 464              		.cfi_offset 5, -8
+ 465              		.cfi_offset 14, -4
+ 466 0002 0446     		mov	r4, r0
  111:Core/Src/hw_gpio.c ****     hw_gpio_reset(gpio);
- 112:Core/Src/hw_gpio.c ****   }
- 113:Core/Src/hw_gpio.c ****   if (set_state == PIN_HIGH) {
+ 467              		.loc 1 111 3 is_stmt 1 view .LVU146
+ 111:Core/Src/hw_gpio.c ****     hw_gpio_reset(gpio);
+ 468              		.loc 1 111 6 is_stmt 0 view .LVU147
+ 469 0004 0D46     		mov	r5, r1
+ 470 0006 11B1     		cbz	r1, .L27
+ 471              	.LVL21:
+ 472              	.L24:
  114:Core/Src/hw_gpio.c ****     hw_gpio_set(gpio);
- 115:Core/Src/hw_gpio.c ****   }
- 116:Core/Src/hw_gpio.c **** }
+ 473              		.loc 1 114 3 is_stmt 1 view .LVU148
+ 114:Core/Src/hw_gpio.c ****     hw_gpio_set(gpio);
+ARM GAS  /tmp/ccjnFj5F.s 			page 12
+
+
+ 474              		.loc 1 114 6 is_stmt 0 view .LVU149
+ 475 0008 012D     		cmp	r5, #1
+ 476 000a 03D0     		beq	.L28
+ 477              	.L23:
  117:Core/Src/hw_gpio.c **** 
- 118:Core/Src/hw_gpio.c **** void hw_gpio_set(GPIO *gpio)
- 119:Core/Src/hw_gpio.c **** {
- 356              		.loc 1 119 1 is_stmt 1 view -0
- 357              		.cfi_startproc
- 358              		@ args = 0, pretend = 0, frame = 0
- 359              		@ frame_needed = 0, uses_anonymous_args = 0
- 360              		@ link register save eliminated.
- 120:Core/Src/hw_gpio.c ****     gpio->state = PIN_HIGH;
- 361              		.loc 1 120 5 view .LVU113
- 362              		.loc 1 120 17 is_stmt 0 view .LVU114
- 363 0000 0123     		movs	r3, #1
- 364 0002 0370     		strb	r3, [r0]
- 121:Core/Src/hw_gpio.c ****     gpio->port_reg_addr->BSRR |= 0x01 << gpio->pin;
- 365              		.loc 1 121 5 is_stmt 1 view .LVU115
- 366              		.loc 1 121 9 is_stmt 0 view .LVU116
- 367 0004 8168     		ldr	r1, [r0, #8]
- 368              		.loc 1 121 31 view .LVU117
- 369 0006 0A69     		ldr	r2, [r1, #16]
- 370              		.loc 1 121 46 view .LVU118
- 371 0008 0079     		ldrb	r0, [r0, #4]	@ zero_extendqisi2
- 372              	.LVL8:
- 373              		.loc 1 121 39 view .LVU119
-ARM GAS  /tmp/ccpaynjx.s 			page 10
+ 478              		.loc 1 117 1 view .LVU150
+ 479 000c 38BD     		pop	{r3, r4, r5, pc}
+ 480              	.LVL22:
+ 481              	.L27:
+ 112:Core/Src/hw_gpio.c ****   }
+ 482              		.loc 1 112 5 is_stmt 1 view .LVU151
+ 483 000e FFF7FEFF 		bl	hw_gpio_reset
+ 484              	.LVL23:
+ 112:Core/Src/hw_gpio.c ****   }
+ 485              		.loc 1 112 5 is_stmt 0 view .LVU152
+ 486 0012 F9E7     		b	.L24
+ 487              	.L28:
+ 115:Core/Src/hw_gpio.c ****   }
+ 488              		.loc 1 115 5 is_stmt 1 view .LVU153
+ 489 0014 2046     		mov	r0, r4
+ 490 0016 FFF7FEFF 		bl	hw_gpio_set
+ 491              	.LVL24:
+ 117:Core/Src/hw_gpio.c **** 
+ 492              		.loc 1 117 1 is_stmt 0 view .LVU154
+ 493 001a F7E7     		b	.L23
+ 494              		.cfi_endproc
+ 495              	.LFE67:
+ 497              		.section	.text.hw_gpio_read,"ax",%progbits
+ 498              		.align	1
+ 499              		.global	hw_gpio_read
+ 500              		.syntax unified
+ 501              		.thumb
+ 502              		.thumb_func
+ 504              	hw_gpio_read:
+ 505              	.LVL25:
+ 506              	.LFB70:
+ 130:Core/Src/hw_gpio.c **** 
+ 131:Core/Src/hw_gpio.c **** gpio_state_t hw_gpio_read(gpio_t *gpio)
+ 132:Core/Src/hw_gpio.c **** {
+ 507              		.loc 1 132 1 is_stmt 1 view -0
+ 508              		.cfi_startproc
+ 509              		@ args = 0, pretend = 0, frame = 0
+ 510              		@ frame_needed = 0, uses_anonymous_args = 0
+ 511              		@ link register save eliminated.
+ 512              		.loc 1 132 1 is_stmt 0 view .LVU156
+ 513 0000 0346     		mov	r3, r0
+ 133:Core/Src/hw_gpio.c ****   /* retrieve the GPIO state on function call */
+ 134:Core/Src/hw_gpio.c ****   gpio->state = (gpio_state_t)((gpio->port_reg_addr->IDR) & (0x01 << gpio->pin));
+ 514              		.loc 1 134 3 is_stmt 1 view .LVU157
+ 515              		.loc 1 134 37 is_stmt 0 view .LVU158
+ 516 0002 8268     		ldr	r2, [r0, #8]
+ 517              		.loc 1 134 52 view .LVU159
+ 518 0004 9268     		ldr	r2, [r2, #8]
+ 519              		.loc 1 134 74 view .LVU160
+ 520 0006 0179     		ldrb	r1, [r0, #4]	@ zero_extendqisi2
+ 521              		.loc 1 134 67 view .LVU161
+ 522 0008 0120     		movs	r0, #1
+ARM GAS  /tmp/ccjnFj5F.s 			page 13
 
 
- 374 000a 8340     		lsls	r3, r3, r0
- 375              		.loc 1 121 31 view .LVU120
- 376 000c 1343     		orrs	r3, r3, r2
- 377 000e 0B61     		str	r3, [r1, #16]
- 122:Core/Src/hw_gpio.c **** }
- 378              		.loc 1 122 1 view .LVU121
- 379 0010 7047     		bx	lr
- 380              		.cfi_endproc
- 381              	.LFE68:
- 383              		.section	.text.hw_gpio_reset,"ax",%progbits
- 384              		.align	1
- 385              		.global	hw_gpio_reset
- 386              		.syntax unified
- 387              		.thumb
- 388              		.thumb_func
- 390              	hw_gpio_reset:
- 391              	.LVL9:
- 392              	.LFB69:
- 123:Core/Src/hw_gpio.c **** 
- 124:Core/Src/hw_gpio.c **** void hw_gpio_reset(GPIO *gpio)
- 125:Core/Src/hw_gpio.c **** {
- 393              		.loc 1 125 1 is_stmt 1 view -0
- 394              		.cfi_startproc
- 395              		@ args = 0, pretend = 0, frame = 0
- 396              		@ frame_needed = 0, uses_anonymous_args = 0
- 397              		@ link register save eliminated.
- 398              		.loc 1 125 1 is_stmt 0 view .LVU123
- 399 0000 10B4     		push	{r4}
- 400              	.LCFI5:
- 401              		.cfi_def_cfa_offset 4
- 402              		.cfi_offset 4, -4
- 126:Core/Src/hw_gpio.c ****     gpio->state = PIN_LOW;
- 403              		.loc 1 126 5 is_stmt 1 view .LVU124
- 404              		.loc 1 126 17 is_stmt 0 view .LVU125
- 405 0002 0023     		movs	r3, #0
- 406 0004 0370     		strb	r3, [r0]
- 127:Core/Src/hw_gpio.c ****     gpio->port_reg_addr->BSRR |= 0x01 << (gpio->pin + 0x0F);
- 407              		.loc 1 127 5 is_stmt 1 view .LVU126
- 408              		.loc 1 127 9 is_stmt 0 view .LVU127
- 409 0006 8468     		ldr	r4, [r0, #8]
- 410              		.loc 1 127 31 view .LVU128
- 411 0008 2369     		ldr	r3, [r4, #16]
- 412              		.loc 1 127 47 view .LVU129
- 413 000a 0279     		ldrb	r2, [r0, #4]	@ zero_extendqisi2
- 414              		.loc 1 127 53 view .LVU130
- 415 000c 02F10F01 		add	r1, r2, #15
- 416              		.loc 1 127 39 view .LVU131
- 417 0010 0122     		movs	r2, #1
- 418 0012 8A40     		lsls	r2, r2, r1
- 419              		.loc 1 127 31 view .LVU132
- 420 0014 1343     		orrs	r3, r3, r2
- 421 0016 2361     		str	r3, [r4, #16]
- 128:Core/Src/hw_gpio.c **** }
- 422              		.loc 1 128 1 view .LVU133
- 423 0018 10BC     		pop	{r4}
- 424              	.LCFI6:
- 425              		.cfi_restore 4
-ARM GAS  /tmp/ccpaynjx.s 			page 11
-
-
- 426              		.cfi_def_cfa_offset 0
- 427 001a 7047     		bx	lr
- 428              		.cfi_endproc
- 429              	.LFE69:
- 431              		.section	.text.hw_gpio_write,"ax",%progbits
- 432              		.align	1
- 433              		.global	hw_gpio_write
- 434              		.syntax unified
- 435              		.thumb
- 436              		.thumb_func
- 438              	hw_gpio_write:
- 439              	.LVL10:
- 440              	.LFB67:
- 109:Core/Src/hw_gpio.c ****   if (set_state == PIN_LOW) {
- 441              		.loc 1 109 1 is_stmt 1 view -0
- 442              		.cfi_startproc
- 443              		@ args = 0, pretend = 0, frame = 0
- 444              		@ frame_needed = 0, uses_anonymous_args = 0
- 109:Core/Src/hw_gpio.c ****   if (set_state == PIN_LOW) {
- 445              		.loc 1 109 1 is_stmt 0 view .LVU135
- 446 0000 38B5     		push	{r3, r4, r5, lr}
- 447              	.LCFI7:
- 448              		.cfi_def_cfa_offset 16
- 449              		.cfi_offset 3, -16
- 450              		.cfi_offset 4, -12
- 451              		.cfi_offset 5, -8
- 452              		.cfi_offset 14, -4
- 453 0002 0446     		mov	r4, r0
- 110:Core/Src/hw_gpio.c ****     hw_gpio_reset(gpio);
- 454              		.loc 1 110 3 is_stmt 1 view .LVU136
- 110:Core/Src/hw_gpio.c ****     hw_gpio_reset(gpio);
- 455              		.loc 1 110 6 is_stmt 0 view .LVU137
- 456 0004 0D46     		mov	r5, r1
- 457 0006 11B1     		cbz	r1, .L27
- 458              	.LVL11:
- 459              	.L24:
- 113:Core/Src/hw_gpio.c ****     hw_gpio_set(gpio);
- 460              		.loc 1 113 3 is_stmt 1 view .LVU138
- 113:Core/Src/hw_gpio.c ****     hw_gpio_set(gpio);
- 461              		.loc 1 113 6 is_stmt 0 view .LVU139
- 462 0008 012D     		cmp	r5, #1
- 463 000a 03D0     		beq	.L28
- 464              	.L23:
- 116:Core/Src/hw_gpio.c **** 
- 465              		.loc 1 116 1 view .LVU140
- 466 000c 38BD     		pop	{r3, r4, r5, pc}
- 467              	.LVL12:
- 468              	.L27:
- 111:Core/Src/hw_gpio.c ****   }
- 469              		.loc 1 111 5 is_stmt 1 view .LVU141
- 470 000e FFF7FEFF 		bl	hw_gpio_reset
- 471              	.LVL13:
- 111:Core/Src/hw_gpio.c ****   }
- 472              		.loc 1 111 5 is_stmt 0 view .LVU142
- 473 0012 F9E7     		b	.L24
- 474              	.L28:
- 114:Core/Src/hw_gpio.c ****   }
-ARM GAS  /tmp/ccpaynjx.s 			page 12
-
-
- 475              		.loc 1 114 5 is_stmt 1 view .LVU143
- 476 0014 2046     		mov	r0, r4
- 477 0016 FFF7FEFF 		bl	hw_gpio_set
- 478              	.LVL14:
- 116:Core/Src/hw_gpio.c **** 
- 479              		.loc 1 116 1 is_stmt 0 view .LVU144
- 480 001a F7E7     		b	.L23
- 481              		.cfi_endproc
- 482              	.LFE67:
- 484              		.section	.text.hw_gpio_read,"ax",%progbits
- 485              		.align	1
- 486              		.global	hw_gpio_read
- 487              		.syntax unified
- 488              		.thumb
- 489              		.thumb_func
- 491              	hw_gpio_read:
- 492              	.LVL15:
- 493              	.LFB70:
- 129:Core/Src/hw_gpio.c **** 
- 130:Core/Src/hw_gpio.c **** gpio_state hw_gpio_read(GPIO *gpio)
- 131:Core/Src/hw_gpio.c **** {
- 494              		.loc 1 131 1 is_stmt 1 view -0
- 495              		.cfi_startproc
- 496              		@ args = 0, pretend = 0, frame = 0
- 497              		@ frame_needed = 0, uses_anonymous_args = 0
- 498              		@ link register save eliminated.
- 499              		.loc 1 131 1 is_stmt 0 view .LVU146
- 500 0000 0346     		mov	r3, r0
- 132:Core/Src/hw_gpio.c ****   /* retrieve the GPIO state on function call */
- 133:Core/Src/hw_gpio.c ****   gpio->state = (gpio_state)((gpio->port_reg_addr->IDR) & (0x01 << gpio->pin));
- 501              		.loc 1 133 3 is_stmt 1 view .LVU147
- 502              		.loc 1 133 35 is_stmt 0 view .LVU148
- 503 0002 8268     		ldr	r2, [r0, #8]
- 504              		.loc 1 133 50 view .LVU149
- 505 0004 9268     		ldr	r2, [r2, #8]
- 506              		.loc 1 133 72 view .LVU150
- 507 0006 0179     		ldrb	r1, [r0, #4]	@ zero_extendqisi2
- 508              		.loc 1 133 65 view .LVU151
- 509 0008 0120     		movs	r0, #1
- 510              	.LVL16:
- 511              		.loc 1 133 65 view .LVU152
- 512 000a 8840     		lsls	r0, r0, r1
- 513              		.loc 1 133 17 view .LVU153
- 514 000c C0B2     		uxtb	r0, r0
- 515              		.loc 1 133 57 view .LVU154
- 516 000e 1040     		ands	r0, r0, r2
- 517              		.loc 1 133 15 view .LVU155
- 518 0010 1870     		strb	r0, [r3]
- 134:Core/Src/hw_gpio.c ****   return gpio->state; 
- 519              		.loc 1 134 3 is_stmt 1 view .LVU156
- 135:Core/Src/hw_gpio.c **** }
- 520              		.loc 1 135 1 is_stmt 0 view .LVU157
- 521 0012 7047     		bx	lr
- 522              		.cfi_endproc
- 523              	.LFE70:
- 525              		.text
- 526              	.Letext0:
-ARM GAS  /tmp/ccpaynjx.s 			page 13
-
-
- 527              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 528              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 529              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 530              		.file 5 "Core/Inc/hw_gpio.h"
- 531              		.file 6 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
-ARM GAS  /tmp/ccpaynjx.s 			page 14
+ 523              	.LVL26:
+ 524              		.loc 1 134 67 view .LVU162
+ 525 000a 8840     		lsls	r0, r0, r1
+ 526              		.loc 1 134 17 view .LVU163
+ 527 000c C0B2     		uxtb	r0, r0
+ 528              		.loc 1 134 59 view .LVU164
+ 529 000e 1040     		ands	r0, r0, r2
+ 530              		.loc 1 134 15 view .LVU165
+ 531 0010 1870     		strb	r0, [r3]
+ 135:Core/Src/hw_gpio.c ****   return gpio->state; 
+ 532              		.loc 1 135 3 is_stmt 1 view .LVU166
+ 136:Core/Src/hw_gpio.c **** }
+ 533              		.loc 1 136 1 is_stmt 0 view .LVU167
+ 534 0012 7047     		bx	lr
+ 535              		.cfi_endproc
+ 536              	.LFE70:
+ 538              		.text
+ 539              	.Letext0:
+ 540              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 541              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 542              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 543              		.file 5 "Core/Inc/hw_gpio.h"
+ 544              		.file 6 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ARM GAS  /tmp/ccjnFj5F.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hw_gpio.c
-     /tmp/ccpaynjx.s:18     .text.hw_gpio_setup_gpio:0000000000000000 $t
-     /tmp/ccpaynjx.s:24     .text.hw_gpio_setup_gpio:0000000000000000 hw_gpio_setup_gpio
-     /tmp/ccpaynjx.s:80     .text.hw_gpio_setup_gpio:0000000000000042 $d
-     /tmp/ccpaynjx.s:309    .text.hw_gpio_setup_gpio:0000000000000130 $d
-     /tmp/ccpaynjx.s:319    .text.hw_gpio_free_memory:0000000000000000 $t
-     /tmp/ccpaynjx.s:325    .text.hw_gpio_free_memory:0000000000000000 hw_gpio_free_memory
-     /tmp/ccpaynjx.s:347    .text.hw_gpio_set:0000000000000000 $t
-     /tmp/ccpaynjx.s:353    .text.hw_gpio_set:0000000000000000 hw_gpio_set
-     /tmp/ccpaynjx.s:384    .text.hw_gpio_reset:0000000000000000 $t
-     /tmp/ccpaynjx.s:390    .text.hw_gpio_reset:0000000000000000 hw_gpio_reset
-     /tmp/ccpaynjx.s:432    .text.hw_gpio_write:0000000000000000 $t
-     /tmp/ccpaynjx.s:438    .text.hw_gpio_write:0000000000000000 hw_gpio_write
-     /tmp/ccpaynjx.s:485    .text.hw_gpio_read:0000000000000000 $t
-     /tmp/ccpaynjx.s:491    .text.hw_gpio_read:0000000000000000 hw_gpio_read
-     /tmp/ccpaynjx.s:85     .text.hw_gpio_setup_gpio:0000000000000047 $d
-     /tmp/ccpaynjx.s:85     .text.hw_gpio_setup_gpio:0000000000000048 $t
+     /tmp/ccjnFj5F.s:18     .text.hw_gpio_setup_gpio:0000000000000000 $t
+     /tmp/ccjnFj5F.s:24     .text.hw_gpio_setup_gpio:0000000000000000 hw_gpio_setup_gpio
+     /tmp/ccjnFj5F.s:80     .text.hw_gpio_setup_gpio:000000000000003a $d
+     /tmp/ccjnFj5F.s:322    .text.hw_gpio_setup_gpio:0000000000000130 $d
+     /tmp/ccjnFj5F.s:332    .text.hw_gpio_free_memory:0000000000000000 $t
+     /tmp/ccjnFj5F.s:338    .text.hw_gpio_free_memory:0000000000000000 hw_gpio_free_memory
+     /tmp/ccjnFj5F.s:360    .text.hw_gpio_set:0000000000000000 $t
+     /tmp/ccjnFj5F.s:366    .text.hw_gpio_set:0000000000000000 hw_gpio_set
+     /tmp/ccjnFj5F.s:397    .text.hw_gpio_reset:0000000000000000 $t
+     /tmp/ccjnFj5F.s:403    .text.hw_gpio_reset:0000000000000000 hw_gpio_reset
+     /tmp/ccjnFj5F.s:445    .text.hw_gpio_write:0000000000000000 $t
+     /tmp/ccjnFj5F.s:451    .text.hw_gpio_write:0000000000000000 hw_gpio_write
+     /tmp/ccjnFj5F.s:498    .text.hw_gpio_read:0000000000000000 $t
+     /tmp/ccjnFj5F.s:504    .text.hw_gpio_read:0000000000000000 hw_gpio_read
+     /tmp/ccjnFj5F.s:85     .text.hw_gpio_setup_gpio:000000000000003f $d
+     /tmp/ccjnFj5F.s:85     .text.hw_gpio_setup_gpio:0000000000000040 $t
 
 UNDEFINED SYMBOLS
 malloc

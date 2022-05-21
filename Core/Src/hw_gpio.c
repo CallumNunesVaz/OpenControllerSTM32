@@ -18,10 +18,10 @@ void hw_gpio_init(void)
 }
 */
 
-GPIO *hw_gpio_setup_gpio(GPIO_SETUP gs)
+gpio_t *hw_gpio_setup_gpio(gpio_setup_t* gs)
 {
   /* Allocate variable */
-  GPIO *g = NULL;
+  gpio_t *g = NULL;
 
   /* initialise library if not done already */
   /*
@@ -33,16 +33,16 @@ GPIO *hw_gpio_setup_gpio(GPIO_SETUP gs)
 
   /* Sanity checks */
   //if (('A' <= gs.port) && (gs.port <= 'E') && (gs.dir < DIR_CNT) && (gs.cfg < TYPE_CNT) && (gs.pin <= GPIO_PORT_PIN_MAX) && (gpio_init_count <= GPIO_INIT_MAX))
-  if (('A' <= gs.port) && (gs.port <= 'E') && (gs.dir < DIR_CNT) && (gs.cfg < TYPE_CNT) && (gs.pin <= GPIO_PORT_PIN_MAX))
+  if (('A' <= gs->port) && (gs->port <= 'E') && (gs->dir < DIR_CNT) && (gs->cfg < TYPE_CNT) && (gs->pin <= GPIO_PORT_PIN_MAX))
   {
     /* Allocate memory */
-    g = malloc(sizeof(GPIO));
+    g = malloc(sizeof(gpio_t));
 
     /* Find base address of register based on character. They're sequentially addressed (A, B, C...) */
     // g->port_reg_addr = (GPIO_TypeDef *)(GPIOA_BASE + ((uint32_t)(g->port - 'A') * 0x400));
 
     /* Turn on ports clock if not already on. Find addr of reg based on char */
-    switch (gs.port)
+    switch (gs->port)
     {
     case 'A':
       RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
@@ -67,10 +67,10 @@ GPIO *hw_gpio_setup_gpio(GPIO_SETUP gs)
     }
 
     /* copy across GPIO parameters */
-    g->dir = gs.dir;
-    g->cfg = gs.cfg;
-    g->pin = gs.pin;
-    g->port = gs.port;
+    g->dir = gs->dir;
+    g->cfg = gs->cfg;
+    g->pin = gs->pin;
+    g->port = gs->port;
 
     /* Assign low as default state */
     g->state = PIN_LOW;
@@ -99,13 +99,13 @@ GPIO *hw_gpio_setup_gpio(GPIO_SETUP gs)
   return g;
 }
 
-void hw_gpio_free_memory(GPIO *gpio)
+void hw_gpio_free_memory(gpio_t *gpio)
 {
   /* Free memory */
   free(gpio);
 }
 
-void hw_gpio_write(GPIO *gpio, gpio_state set_state)
+void hw_gpio_write(gpio_t *gpio, gpio_state_t set_state)
 {
   if (set_state == PIN_LOW) {
     hw_gpio_reset(gpio);
@@ -115,22 +115,22 @@ void hw_gpio_write(GPIO *gpio, gpio_state set_state)
   }
 }
 
-void hw_gpio_set(GPIO *gpio)
+void hw_gpio_set(gpio_t *gpio)
 {
     gpio->state = PIN_HIGH;
     gpio->port_reg_addr->BSRR |= 0x01 << gpio->pin;
 }
 
-void hw_gpio_reset(GPIO *gpio)
+void hw_gpio_reset(gpio_t *gpio)
 {
     gpio->state = PIN_LOW;
     gpio->port_reg_addr->BSRR |= 0x01 << (gpio->pin + 0x0F);
 }
 
-gpio_state hw_gpio_read(GPIO *gpio)
+gpio_state_t hw_gpio_read(gpio_t *gpio)
 {
   /* retrieve the GPIO state on function call */
-  gpio->state = (gpio_state)((gpio->port_reg_addr->IDR) & (0x01 << gpio->pin));
+  gpio->state = (gpio_state_t)((gpio->port_reg_addr->IDR) & (0x01 << gpio->pin));
   return gpio->state; 
 }
 
