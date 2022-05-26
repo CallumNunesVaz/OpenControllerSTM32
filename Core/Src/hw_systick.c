@@ -11,7 +11,7 @@
 
 #include "hw_systick.h"
 
-static void *(*func_ptrs[FUNC_PTR_MAX_SIZE])(void);
+static void *(*func_ptrs[FUNC_PTR_ARRAY_MAX_LEN])(void);
 
 static uint16_t sys_tick_freq_hz;
 
@@ -82,11 +82,9 @@ void hw_systick_clear_callbacks(void){
 void SysTick_Handler (void) {
     static uint8_t idx;
     // iterate through list of functions to execute them all
-    heartbeat_tick_callback();
+    //heartbeat_tick_callback();
 
-    /* Doesn't work!! 
-    for (idx = 0; idx <= func_ptr_count; idx++) {
+    for (idx = 0; idx < func_ptr_count; idx++) {
         (*func_ptrs[idx])();
     }
-    */
 }

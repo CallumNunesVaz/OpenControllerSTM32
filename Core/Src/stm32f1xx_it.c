@@ -16,8 +16,10 @@ void NMI_Handler(void)
   */
 void HardFault_Handler(void)
 {
+  uint32_t r = 0;
   while (1)
   {
+    r++;
   }
 }
 

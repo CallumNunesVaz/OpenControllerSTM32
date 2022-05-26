@@ -34,10 +34,11 @@ int main(void)
   hw_systick_start();
 
   /* Configure the system heartbeat */
-  if (heartbeat_init())
+  heartbeat_init();
+  if (EXIT_SUCCESS == heartbeat_init())
   {
     heartbeat_set_mode(LED_FLASH_DOUBLE);
-    heartbeat_set_period_ms(1000);
+    heartbeat_set_period_ms(1300);
     heartbeat_start();
   }
 
@@ -46,6 +47,7 @@ int main(void)
     heartbeat_poll();
   }
 }
+
 
 /**
  * @brief System Clock Configuration

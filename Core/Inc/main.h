@@ -36,6 +36,8 @@ extern "C" {
 //#include "hw_spi2.h"
 //#include "hw_usart1.h"
 #include "hw_systick.h"
+#include <stdint.h>
+#include <stdlib.h>
 
 #include "mgr_heartbeat.h"
 

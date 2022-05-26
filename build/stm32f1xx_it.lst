@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccP49xVA.s 			page 1
+ARM GAS  /tmp/ccndFSJL.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccP49xVA.s 			page 1
   45              		.thumb
   46              		.thumb_func
   48              	HardFault_Handler:
-ARM GAS  /tmp/ccP49xVA.s 			page 2
+ARM GAS  /tmp/ccndFSJL.s 			page 2
 
 
   49              	.LFB66:
@@ -71,184 +71,187 @@ ARM GAS  /tmp/ccP49xVA.s 			page 1
   18:Core/Src/stm32f1xx_it.c **** {
   50              		.loc 1 18 1 view -0
   51              		.cfi_startproc
-  52              		@ Volatile: function does not return.
-  53              		@ args = 0, pretend = 0, frame = 0
-  54              		@ frame_needed = 0, uses_anonymous_args = 0
-  55              		@ link register save eliminated.
-  56              	.L4:
-  19:Core/Src/stm32f1xx_it.c ****   while (1)
-  57              		.loc 1 19 3 discriminator 1 view .LVU5
+  52              		@ args = 0, pretend = 0, frame = 0
+  53              		@ frame_needed = 0, uses_anonymous_args = 0
+  54              		@ link register save eliminated.
+  55              	.L4:
+  19:Core/Src/stm32f1xx_it.c ****   uint32_t r = 0;
+  20:Core/Src/stm32f1xx_it.c ****   while (1)
+  56              		.loc 1 20 3 discriminator 1 view .LVU5
+  21:Core/Src/stm32f1xx_it.c ****   {
+  22:Core/Src/stm32f1xx_it.c ****     r++;
+  57              		.loc 1 22 5 discriminator 1 view .LVU6
   20:Core/Src/stm32f1xx_it.c ****   {
-  21:Core/Src/stm32f1xx_it.c ****   }
-  58              		.loc 1 21 3 discriminator 1 view .LVU6
-  19:Core/Src/stm32f1xx_it.c ****   while (1)
-  59              		.loc 1 19 9 discriminator 1 view .LVU7
-  60 0000 FEE7     		b	.L4
-  61              		.cfi_endproc
-  62              	.LFE66:
-  64              		.section	.text.BusFault_Handler,"ax",%progbits
-  65              		.align	1
-  66              		.global	BusFault_Handler
-  67              		.syntax unified
-  68              		.thumb
-  69              		.thumb_func
-  71              	BusFault_Handler:
-  72              	.LFB67:
-  22:Core/Src/stm32f1xx_it.c **** }
-  23:Core/Src/stm32f1xx_it.c **** 
-  24:Core/Src/stm32f1xx_it.c **** /**
-  25:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Prefetch fault, memory access fault.
-  26:Core/Src/stm32f1xx_it.c ****   */
-  27:Core/Src/stm32f1xx_it.c **** void BusFault_Handler(void)
-  28:Core/Src/stm32f1xx_it.c **** {
-  73              		.loc 1 28 1 view -0
-  74              		.cfi_startproc
-  75              		@ Volatile: function does not return.
-  76              		@ args = 0, pretend = 0, frame = 0
-  77              		@ frame_needed = 0, uses_anonymous_args = 0
-  78              		@ link register save eliminated.
-  79              	.L6:
-  29:Core/Src/stm32f1xx_it.c ****   while (1)
-  80              		.loc 1 29 3 discriminator 1 view .LVU9
-  30:Core/Src/stm32f1xx_it.c ****   {
-  31:Core/Src/stm32f1xx_it.c ****   }
-  81              		.loc 1 31 3 discriminator 1 view .LVU10
-  29:Core/Src/stm32f1xx_it.c ****   while (1)
-  82              		.loc 1 29 9 discriminator 1 view .LVU11
-  83 0000 FEE7     		b	.L6
-  84              		.cfi_endproc
-  85              	.LFE67:
-ARM GAS  /tmp/ccP49xVA.s 			page 3
+  58              		.loc 1 20 9 discriminator 1 view .LVU7
+  59 0000 FEE7     		b	.L4
+  60              		.cfi_endproc
+  61              	.LFE66:
+  63              		.section	.text.BusFault_Handler,"ax",%progbits
+  64              		.align	1
+  65              		.global	BusFault_Handler
+  66              		.syntax unified
+  67              		.thumb
+  68              		.thumb_func
+  70              	BusFault_Handler:
+  71              	.LFB67:
+  23:Core/Src/stm32f1xx_it.c ****   }
+  24:Core/Src/stm32f1xx_it.c **** }
+  25:Core/Src/stm32f1xx_it.c **** 
+  26:Core/Src/stm32f1xx_it.c **** /**
+  27:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Prefetch fault, memory access fault.
+  28:Core/Src/stm32f1xx_it.c ****   */
+  29:Core/Src/stm32f1xx_it.c **** void BusFault_Handler(void)
+  30:Core/Src/stm32f1xx_it.c **** {
+  72              		.loc 1 30 1 view -0
+  73              		.cfi_startproc
+  74              		@ Volatile: function does not return.
+  75              		@ args = 0, pretend = 0, frame = 0
+  76              		@ frame_needed = 0, uses_anonymous_args = 0
+  77              		@ link register save eliminated.
+  78              	.L6:
+  31:Core/Src/stm32f1xx_it.c ****   while (1)
+  79              		.loc 1 31 3 discriminator 1 view .LVU9
+  32:Core/Src/stm32f1xx_it.c ****   {
+  33:Core/Src/stm32f1xx_it.c ****   }
+  80              		.loc 1 33 3 discriminator 1 view .LVU10
+  31:Core/Src/stm32f1xx_it.c ****   while (1)
+  81              		.loc 1 31 9 discriminator 1 view .LVU11
+  82 0000 FEE7     		b	.L6
+  83              		.cfi_endproc
+ARM GAS  /tmp/ccndFSJL.s 			page 3
 
 
-  87              		.section	.text.UsageFault_Handler,"ax",%progbits
-  88              		.align	1
-  89              		.global	UsageFault_Handler
-  90              		.syntax unified
-  91              		.thumb
-  92              		.thumb_func
-  94              	UsageFault_Handler:
-  95              	.LFB68:
-  32:Core/Src/stm32f1xx_it.c **** }
-  33:Core/Src/stm32f1xx_it.c **** 
-  34:Core/Src/stm32f1xx_it.c **** /**
-  35:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Undefined instruction or illegal state.
-  36:Core/Src/stm32f1xx_it.c ****   */
-  37:Core/Src/stm32f1xx_it.c **** void UsageFault_Handler(void)
-  38:Core/Src/stm32f1xx_it.c **** {
-  96              		.loc 1 38 1 view -0
-  97              		.cfi_startproc
-  98              		@ Volatile: function does not return.
-  99              		@ args = 0, pretend = 0, frame = 0
- 100              		@ frame_needed = 0, uses_anonymous_args = 0
- 101              		@ link register save eliminated.
- 102              	.L8:
-  39:Core/Src/stm32f1xx_it.c ****   while (1)
- 103              		.loc 1 39 3 discriminator 1 view .LVU13
-  40:Core/Src/stm32f1xx_it.c ****   {
-  41:Core/Src/stm32f1xx_it.c ****   }
- 104              		.loc 1 41 3 discriminator 1 view .LVU14
-  39:Core/Src/stm32f1xx_it.c ****   while (1)
- 105              		.loc 1 39 9 discriminator 1 view .LVU15
- 106 0000 FEE7     		b	.L8
- 107              		.cfi_endproc
- 108              	.LFE68:
- 110              		.section	.text.SVC_Handler,"ax",%progbits
- 111              		.align	1
- 112              		.global	SVC_Handler
- 113              		.syntax unified
- 114              		.thumb
- 115              		.thumb_func
- 117              	SVC_Handler:
- 118              	.LFB69:
-  42:Core/Src/stm32f1xx_it.c **** }
-  43:Core/Src/stm32f1xx_it.c **** 
-  44:Core/Src/stm32f1xx_it.c **** /**
-  45:Core/Src/stm32f1xx_it.c ****   * @brief This function handles System service call via SWI instruction.
-  46:Core/Src/stm32f1xx_it.c ****   */
-  47:Core/Src/stm32f1xx_it.c **** void SVC_Handler(void)
-  48:Core/Src/stm32f1xx_it.c **** {
- 119              		.loc 1 48 1 view -0
- 120              		.cfi_startproc
- 121              		@ args = 0, pretend = 0, frame = 0
- 122              		@ frame_needed = 0, uses_anonymous_args = 0
- 123              		@ link register save eliminated.
-  49:Core/Src/stm32f1xx_it.c **** }
- 124              		.loc 1 49 1 view .LVU17
- 125 0000 7047     		bx	lr
- 126              		.cfi_endproc
- 127              	.LFE69:
-ARM GAS  /tmp/ccP49xVA.s 			page 4
+  84              	.LFE67:
+  86              		.section	.text.UsageFault_Handler,"ax",%progbits
+  87              		.align	1
+  88              		.global	UsageFault_Handler
+  89              		.syntax unified
+  90              		.thumb
+  91              		.thumb_func
+  93              	UsageFault_Handler:
+  94              	.LFB68:
+  34:Core/Src/stm32f1xx_it.c **** }
+  35:Core/Src/stm32f1xx_it.c **** 
+  36:Core/Src/stm32f1xx_it.c **** /**
+  37:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Undefined instruction or illegal state.
+  38:Core/Src/stm32f1xx_it.c ****   */
+  39:Core/Src/stm32f1xx_it.c **** void UsageFault_Handler(void)
+  40:Core/Src/stm32f1xx_it.c **** {
+  95              		.loc 1 40 1 view -0
+  96              		.cfi_startproc
+  97              		@ Volatile: function does not return.
+  98              		@ args = 0, pretend = 0, frame = 0
+  99              		@ frame_needed = 0, uses_anonymous_args = 0
+ 100              		@ link register save eliminated.
+ 101              	.L8:
+  41:Core/Src/stm32f1xx_it.c ****   while (1)
+ 102              		.loc 1 41 3 discriminator 1 view .LVU13
+  42:Core/Src/stm32f1xx_it.c ****   {
+  43:Core/Src/stm32f1xx_it.c ****   }
+ 103              		.loc 1 43 3 discriminator 1 view .LVU14
+  41:Core/Src/stm32f1xx_it.c ****   while (1)
+ 104              		.loc 1 41 9 discriminator 1 view .LVU15
+ 105 0000 FEE7     		b	.L8
+ 106              		.cfi_endproc
+ 107              	.LFE68:
+ 109              		.section	.text.SVC_Handler,"ax",%progbits
+ 110              		.align	1
+ 111              		.global	SVC_Handler
+ 112              		.syntax unified
+ 113              		.thumb
+ 114              		.thumb_func
+ 116              	SVC_Handler:
+ 117              	.LFB69:
+  44:Core/Src/stm32f1xx_it.c **** }
+  45:Core/Src/stm32f1xx_it.c **** 
+  46:Core/Src/stm32f1xx_it.c **** /**
+  47:Core/Src/stm32f1xx_it.c ****   * @brief This function handles System service call via SWI instruction.
+  48:Core/Src/stm32f1xx_it.c ****   */
+  49:Core/Src/stm32f1xx_it.c **** void SVC_Handler(void)
+  50:Core/Src/stm32f1xx_it.c **** {
+ 118              		.loc 1 50 1 view -0
+ 119              		.cfi_startproc
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122              		@ link register save eliminated.
+  51:Core/Src/stm32f1xx_it.c **** }
+ 123              		.loc 1 51 1 view .LVU17
+ 124 0000 7047     		bx	lr
+ 125              		.cfi_endproc
+ARM GAS  /tmp/ccndFSJL.s 			page 4
 
 
- 129              		.section	.text.DebugMon_Handler,"ax",%progbits
- 130              		.align	1
- 131              		.global	DebugMon_Handler
- 132              		.syntax unified
- 133              		.thumb
- 134              		.thumb_func
- 136              	DebugMon_Handler:
- 137              	.LFB70:
-  50:Core/Src/stm32f1xx_it.c **** 
-  51:Core/Src/stm32f1xx_it.c **** /**
-  52:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Debug monitor.
-  53:Core/Src/stm32f1xx_it.c ****   */
-  54:Core/Src/stm32f1xx_it.c **** void DebugMon_Handler(void)
-  55:Core/Src/stm32f1xx_it.c **** {
- 138              		.loc 1 55 1 view -0
- 139              		.cfi_startproc
- 140              		@ args = 0, pretend = 0, frame = 0
- 141              		@ frame_needed = 0, uses_anonymous_args = 0
- 142              		@ link register save eliminated.
-  56:Core/Src/stm32f1xx_it.c **** }
- 143              		.loc 1 56 1 view .LVU19
- 144 0000 7047     		bx	lr
- 145              		.cfi_endproc
- 146              	.LFE70:
- 148              		.section	.text.PendSV_Handler,"ax",%progbits
- 149              		.align	1
- 150              		.global	PendSV_Handler
- 151              		.syntax unified
- 152              		.thumb
- 153              		.thumb_func
- 155              	PendSV_Handler:
- 156              	.LFB71:
-  57:Core/Src/stm32f1xx_it.c **** 
-  58:Core/Src/stm32f1xx_it.c **** /**
-  59:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Pendable request for system service.
-  60:Core/Src/stm32f1xx_it.c ****   */
-  61:Core/Src/stm32f1xx_it.c **** void PendSV_Handler(void)
-  62:Core/Src/stm32f1xx_it.c **** {
- 157              		.loc 1 62 1 view -0
- 158              		.cfi_startproc
- 159              		@ args = 0, pretend = 0, frame = 0
- 160              		@ frame_needed = 0, uses_anonymous_args = 0
- 161              		@ link register save eliminated.
-  63:Core/Src/stm32f1xx_it.c **** }
- 162              		.loc 1 63 1 view .LVU21
- 163 0000 7047     		bx	lr
- 164              		.cfi_endproc
- 165              	.LFE71:
- 167              		.text
- 168              	.Letext0:
-ARM GAS  /tmp/ccP49xVA.s 			page 5
+ 126              	.LFE69:
+ 128              		.section	.text.DebugMon_Handler,"ax",%progbits
+ 129              		.align	1
+ 130              		.global	DebugMon_Handler
+ 131              		.syntax unified
+ 132              		.thumb
+ 133              		.thumb_func
+ 135              	DebugMon_Handler:
+ 136              	.LFB70:
+  52:Core/Src/stm32f1xx_it.c **** 
+  53:Core/Src/stm32f1xx_it.c **** /**
+  54:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Debug monitor.
+  55:Core/Src/stm32f1xx_it.c ****   */
+  56:Core/Src/stm32f1xx_it.c **** void DebugMon_Handler(void)
+  57:Core/Src/stm32f1xx_it.c **** {
+ 137              		.loc 1 57 1 view -0
+ 138              		.cfi_startproc
+ 139              		@ args = 0, pretend = 0, frame = 0
+ 140              		@ frame_needed = 0, uses_anonymous_args = 0
+ 141              		@ link register save eliminated.
+  58:Core/Src/stm32f1xx_it.c **** }
+ 142              		.loc 1 58 1 view .LVU19
+ 143 0000 7047     		bx	lr
+ 144              		.cfi_endproc
+ 145              	.LFE70:
+ 147              		.section	.text.PendSV_Handler,"ax",%progbits
+ 148              		.align	1
+ 149              		.global	PendSV_Handler
+ 150              		.syntax unified
+ 151              		.thumb
+ 152              		.thumb_func
+ 154              	PendSV_Handler:
+ 155              	.LFB71:
+  59:Core/Src/stm32f1xx_it.c **** 
+  60:Core/Src/stm32f1xx_it.c **** /**
+  61:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Pendable request for system service.
+  62:Core/Src/stm32f1xx_it.c ****   */
+  63:Core/Src/stm32f1xx_it.c **** void PendSV_Handler(void)
+  64:Core/Src/stm32f1xx_it.c **** {
+ 156              		.loc 1 64 1 view -0
+ 157              		.cfi_startproc
+ 158              		@ args = 0, pretend = 0, frame = 0
+ 159              		@ frame_needed = 0, uses_anonymous_args = 0
+ 160              		@ link register save eliminated.
+  65:Core/Src/stm32f1xx_it.c **** }
+ 161              		.loc 1 65 1 view .LVU21
+ 162 0000 7047     		bx	lr
+ 163              		.cfi_endproc
+ 164              	.LFE71:
+ 166              		.text
+ 167              	.Letext0:
+ 168              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 169              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ARM GAS  /tmp/ccndFSJL.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_it.c
-     /tmp/ccP49xVA.s:18     .text.NMI_Handler:0000000000000000 $t
-     /tmp/ccP49xVA.s:24     .text.NMI_Handler:0000000000000000 NMI_Handler
-     /tmp/ccP49xVA.s:42     .text.HardFault_Handler:0000000000000000 $t
-     /tmp/ccP49xVA.s:48     .text.HardFault_Handler:0000000000000000 HardFault_Handler
-     /tmp/ccP49xVA.s:65     .text.BusFault_Handler:0000000000000000 $t
-     /tmp/ccP49xVA.s:71     .text.BusFault_Handler:0000000000000000 BusFault_Handler
-     /tmp/ccP49xVA.s:88     .text.UsageFault_Handler:0000000000000000 $t
-     /tmp/ccP49xVA.s:94     .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
-     /tmp/ccP49xVA.s:111    .text.SVC_Handler:0000000000000000 $t
-     /tmp/ccP49xVA.s:117    .text.SVC_Handler:0000000000000000 SVC_Handler
-     /tmp/ccP49xVA.s:130    .text.DebugMon_Handler:0000000000000000 $t
-     /tmp/ccP49xVA.s:136    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
-     /tmp/ccP49xVA.s:149    .text.PendSV_Handler:0000000000000000 $t
-     /tmp/ccP49xVA.s:155    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+     /tmp/ccndFSJL.s:18     .text.NMI_Handler:0000000000000000 $t
+     /tmp/ccndFSJL.s:24     .text.NMI_Handler:0000000000000000 NMI_Handler
+     /tmp/ccndFSJL.s:42     .text.HardFault_Handler:0000000000000000 $t
+     /tmp/ccndFSJL.s:48     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+     /tmp/ccndFSJL.s:64     .text.BusFault_Handler:0000000000000000 $t
+     /tmp/ccndFSJL.s:70     .text.BusFault_Handler:0000000000000000 BusFault_Handler
+     /tmp/ccndFSJL.s:87     .text.UsageFault_Handler:0000000000000000 $t
+     /tmp/ccndFSJL.s:93     .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+     /tmp/ccndFSJL.s:110    .text.SVC_Handler:0000000000000000 $t
+     /tmp/ccndFSJL.s:116    .text.SVC_Handler:0000000000000000 SVC_Handler
+     /tmp/ccndFSJL.s:129    .text.DebugMon_Handler:0000000000000000 $t
+     /tmp/ccndFSJL.s:135    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+     /tmp/ccndFSJL.s:148    .text.PendSV_Handler:0000000000000000 $t
+     /tmp/ccndFSJL.s:154    .text.PendSV_Handler:0000000000000000 PendSV_Handler
 
 NO UNDEFINED SYMBOLS

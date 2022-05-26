@@ -15,11 +15,11 @@
 
 volatile static uint8_t callback_cnt;
 
-static uint8_t snapshot_lbs_mult_cnt;
+static uint8_t snapshot_rbs_mult_cnt;
 
-static uint8_t snapshot_lbs_cnt;
+static uint8_t snapshot_rbs_cnt;
 
-static uint8_t snapshot_lbs_mult;
+static uint32_t snapshot_lbs_mult;
 
 static uint16_t heartbeat_period_ms;
 
@@ -27,7 +27,7 @@ static uint32_t state_snapshot;
 
 static gpio_t *led;
 
-static HB_MODE hb_mode;
+static hb_mode_t hb_mode;
 
 volatile static bool heartbeat_is_active;
 
@@ -39,32 +39,31 @@ int heartbeat_init(void)
     hbled_setup.port = HB_LED_PORT;
     hbled_setup.pin = HB_LED_PIN;
     hbled_setup.cfg = OUT_PUSHPULL;
-    hbled_setup.dir = OUTPUT_50MHz;
+    hbled_setup.dir = OUTPUT_2MHZ;
 
     led = hw_gpio_setup_gpio(&hbled_setup);
 
-    if (led == NULL) {
-        return 1;
+    if (led == NULL)
+    {
+        return EXIT_FAILURE;
     }
 
-    /* Set heartbeat flashing pattern */
-    hb_mode = LED_STATIC_ON;
+    /* Set DEFAULTS */
+    heartbeat_set_period_ms(1000);
+    hb_mode = LED_STATIC_OFF;
     state_snapshot = (uint32_t)hb_mode;
 
-    /* Default period */
-    heartbeat_set_period_ms(1000);
-
     /* Setup callback for system tick */
-    //hw_systick_add_callback(heartbeat_tick_callback);
+    hw_systick_add_callback(heartbeat_tick_callback);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 void heartbeat_reset(void)
 {
     /* Reset counters */
-    snapshot_lbs_cnt = 0;
-    snapshot_lbs_mult_cnt = 0;
+    snapshot_rbs_cnt = 0;
+    snapshot_rbs_mult_cnt = 0;
     callback_cnt = 0;
 }
 
@@ -78,7 +77,7 @@ void heartbeat_start(void)
     heartbeat_is_active = true;
 }
 
-void heartbeat_set_mode(HB_MODE mode)
+void heartbeat_set_mode(hb_mode_t mode)
 {
     hb_mode = mode;
 }
@@ -90,23 +89,25 @@ void heartbeat_poll(void)
     {
         callback_cnt--;
 
+        snapshot_rbs_mult_cnt++;
+
         /* If counter ticked up enough to move to next bit of snapshot */
-        if ((snapshot_lbs_mult_cnt++) >= snapshot_lbs_mult)
+        if (snapshot_rbs_mult_cnt >= snapshot_lbs_mult)
         {
             /* reset multiplier counter */
-            snapshot_lbs_mult_cnt = 0;
+            snapshot_rbs_mult_cnt = 0;
 
-            /* write LED with value of counter */
-            //hw_gpio_write(led, (gpio_state)(state_snapshot & 0x01));
-            hw_gpio_set(led);
+            /* write LED with value of LSB of snapshot */
+            hw_gpio_write(led, (gpio_state_t)(state_snapshot & 0x01));
 
             /* go to next bit of snapshot */
             state_snapshot >>= 1;
+            snapshot_rbs_cnt++;
 
             /* If we've run out of bits in the snapshot, reset snapshot and snapshot counter */
-            if (snapshot_lbs_cnt++ >= LED_STATE_MAX_RES)
+            if (LED_STATE_MAX_RES <= snapshot_rbs_cnt)
             {
-                snapshot_lbs_cnt = 0;
+                snapshot_rbs_cnt = 0;
                 state_snapshot = (uint32_t)hb_mode;
             }
         }
@@ -119,7 +120,7 @@ void heartbeat_set_period_ms(uint16_t period_ms)
 
     heartbeat_period_ms = period_ms;
 
-    snapshot_lbs_mult = (uint16_t)(((float)heartbeat_period_ms) / 1000.0 * ((float)systick_freq) / ((float)LED_STATE_MAX_RES));
+    snapshot_lbs_mult = (uint32_t)(((float)systick_freq) / ((float)LED_STATE_MAX_RES) * ((float)heartbeat_period_ms) / 1000.0);
 
     heartbeat_reset();
 }

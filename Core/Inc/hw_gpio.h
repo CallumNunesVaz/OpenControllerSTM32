@@ -69,18 +69,7 @@ typedef struct gpio_setup {
    uint8_t pin;
 } gpio_setup_t;
 
-
-/* Variables */
-
-//static uint8_t gpio_t_init_count = 0;
-
-//static bool hw_gpio_t_initialised = false;
-
-//static gpio_t *gpio_t_list[gpio_t_INIT_MAX];
-
 /* Function prototypes */
-
-//void hw_gpio_t_init(void);
 
 void hw_gpio_free_memory(gpio_t *gpio_t);
 
@@ -88,13 +77,11 @@ gpio_t* hw_gpio_setup_gpio(gpio_setup_t *gs);
 
 void hw_gpio_write(gpio_t* gpio_t, gpio_state_t set_state);
 
-void hw_gpio_set(gpio_t *gpio_t);
+inline void hw_gpio_set(gpio_t *gpio_t);
 
-void hw_gpio_reset(gpio_t *gpio_t);
+inline void hw_gpio_reset(gpio_t *gpio_t);
 
 gpio_state_t hw_gpio_read(gpio_t* gpio_t);
-
-//void hw_gpio_t_callback(void);
 
 #ifdef __cplusplus
 }

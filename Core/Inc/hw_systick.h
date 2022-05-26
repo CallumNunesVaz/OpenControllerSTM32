@@ -20,7 +20,7 @@ extern "C" {
 #include "stm32f103xb.h"
 #include "mgr_heartbeat.h"
 
-#define FUNC_PTR_MAX_SIZE 32
+#define FUNC_PTR_ARRAY_MAX_LEN 32
 
 void hw_systick_init(uint16_t tick_freq_hz);
 

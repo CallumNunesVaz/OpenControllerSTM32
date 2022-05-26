@@ -4,42 +4,16 @@ Very much not memory-safe! libraries using this library must manage assigned GPI
 */
 #include "hw_gpio.h"
 
-/*
-void hw_gpio_init(void)
-{
-  /* Add callback 
-  hw_systick_add_callback(hw_gpio_callback);
-
-  /* Set global counter 
-  gpio_init_count = 0;
-
-  /* Set flag 
-  hw_gpio_initialised = true;
-}
-*/
-
 gpio_t *hw_gpio_setup_gpio(gpio_setup_t* gs)
 {
   /* Allocate variable */
   gpio_t *g = NULL;
 
-  /* initialise library if not done already */
-  /*
-  if (!hw_gpio_initialised)
-  {
-    hw_gpio_init();
-  }
-  */
-
   /* Sanity checks */
-  //if (('A' <= gs.port) && (gs.port <= 'E') && (gs.dir < DIR_CNT) && (gs.cfg < TYPE_CNT) && (gs.pin <= GPIO_PORT_PIN_MAX) && (gpio_init_count <= GPIO_INIT_MAX))
   if (('A' <= gs->port) && (gs->port <= 'E') && (gs->dir < DIR_CNT) && (gs->cfg < TYPE_CNT) && (gs->pin <= GPIO_PORT_PIN_MAX))
   {
     /* Allocate memory */
     g = malloc(sizeof(gpio_t));
-
-    /* Find base address of register based on character. They're sequentially addressed (A, B, C...) */
-    // g->port_reg_addr = (GPIO_TypeDef *)(GPIOA_BASE + ((uint32_t)(g->port - 'A') * 0x400));
 
     /* Turn on ports clock if not already on. Find addr of reg based on char */
     switch (gs->port)
@@ -80,20 +54,15 @@ gpio_t *hw_gpio_setup_gpio(gpio_setup_t* gs)
     {
       g->port_reg_addr->CRL &= ~(0x0F << (REG_PIN_CONF_BITLENGTH * g->pin));                                            // reset
       g->port_reg_addr->CRL |= ((uint32_t)(g->dir)) << ((REG_PIN_CONF_BITLENGTH * g->pin) + REG_MODE_OFFSET);           // pin direction / mode
-      g->port_reg_addr->CRL |= (((uint32_t)(g->cfg)) >> 0x01) << ((REG_PIN_CONF_BITLENGTH * g->pin) + REG_CONF_OFFSET); // pin configuration
+      g->port_reg_addr->CRL |= (((uint32_t)(g->cfg)) & ~(0x04)) << ((REG_PIN_CONF_BITLENGTH * g->pin) + REG_CONF_OFFSET); // pin configuration
     }
     else
     {
       g->port_reg_addr->CRH &= ~(0x0F << (REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)));                                            // reset
       g->port_reg_addr->CRH |= ((uint32_t)(g->dir)) << ((REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)) + REG_MODE_OFFSET);           // pin direction / mode
-      g->port_reg_addr->CRH |= (((uint32_t)(g->cfg)) >> 0x01) << ((REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)) + REG_CONF_OFFSET); // pin configuration
+      g->port_reg_addr->CRH |= (((uint32_t)(g->cfg)) & ~(0x04)) << ((REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)) + REG_CONF_OFFSET); // pin configuration
     }
-
-    /* increment global counter */
-    //gpio_init_count++;
   }
-
-  
 
   /* return pointer to our newly created gpio configuration */
   return g;
@@ -107,24 +76,24 @@ void hw_gpio_free_memory(gpio_t *gpio)
 
 void hw_gpio_write(gpio_t *gpio, gpio_state_t set_state)
 {
-  if (set_state == PIN_LOW) {
+  if (PIN_LOW == set_state) {
     hw_gpio_reset(gpio);
   }
-  if (set_state == PIN_HIGH) {
+  if (PIN_HIGH == set_state) {
     hw_gpio_set(gpio);
   }
 }
 
-void hw_gpio_set(gpio_t *gpio)
+inline void hw_gpio_set(gpio_t *gpio)
 {
     gpio->state = PIN_HIGH;
-    gpio->port_reg_addr->BSRR |= 0x01 << gpio->pin;
+    gpio->port_reg_addr->BSRR = (0x01 << (uint8_t)(gpio->pin));
 }
 
-void hw_gpio_reset(gpio_t *gpio)
+inline void hw_gpio_reset(gpio_t *gpio)
 {
     gpio->state = PIN_LOW;
-    gpio->port_reg_addr->BSRR |= 0x01 << (gpio->pin + 0x0F);
+    gpio->port_reg_addr->BSRR = (0x01 << (uint8_t)(gpio->pin) << 0x10);
 }
 
 gpio_state_t hw_gpio_read(gpio_t *gpio)
@@ -133,15 +102,3 @@ gpio_state_t hw_gpio_read(gpio_t *gpio)
   gpio->state = (gpio_state_t)((gpio->port_reg_addr->IDR) & (0x01 << gpio->pin));
   return gpio->state; 
 }
-
-/*
-void hw_gpio_callback(void)
-{
-  static uint8_t idx;
-
-  /* For all logged GPIO retrieve the GPIO state 
-  for (idx = 0; idx < gpio_init_count; idx++) {
-    gpio_list[idx]->state = (gpio_state)((gpio_list[idx]->port_reg_addr->IDR) & (0x01 << gpio_list[idx]->pin));
-  }
-}
-*/
