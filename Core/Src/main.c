@@ -36,8 +36,8 @@ int main(void)
   /* Configure the system heartbeat */
   if (EXIT_SUCCESS == heartbeat_init())
   {
-    heartbeat_set_mode(LED_FLASH_DOUBLE);
-    heartbeat_set_period_ms(1200);
+    heartbeat_set_mode(LED_PULSE);
+    heartbeat_set_period_ms(1000);
     heartbeat_start();
   }
 

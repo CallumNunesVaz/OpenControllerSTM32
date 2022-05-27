@@ -11,8 +11,12 @@
 
 #define LED_STATE_MAX_RES 32
 
+#define WINDOW_COUNT_FLASH 32
+#define WINDOW_COUNT_FADE 100
+
 typedef enum hb_modes
 {
+    LED_PULSE = 0x0,
     LED_STATIC_OFF = 0b00000000000000000000000000000000,
     LED_STATIC_ON = 0b11111111111111111111111111111111,
     LED_FLASH_SINGLE = 0b00000000000000001111111111111111,
@@ -37,6 +41,8 @@ void heartbeat_start(void);
 void heartbeat_poll(void);
 
 void heartbeat_set_mode(hb_mode_t mode);
+
+uint32_t heartbeat_lower_multiple(uint32_t number, uint32_t multiple);
 
 void heartbeat_set_period_ms(uint16_t period_ms);
 

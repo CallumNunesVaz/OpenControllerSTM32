@@ -13,13 +13,15 @@
 
 /* Files required variables */
 
-volatile static uint8_t callback_cnt;
+static uint8_t window_cnt_total;
 
-static uint8_t snapshot_rbs_mult_cnt;
+static uint8_t tick_per_window_cnt;
 
-static uint8_t snapshot_rbs_cnt;
+static uint8_t window_cnt;
 
-static uint32_t snapshot_lbs_mult;
+static uint8_t fade_vals[WINDOW_COUNT_FADE];
+
+static uint32_t ticks_per_window;
 
 static uint16_t heartbeat_period_ms;
 
@@ -28,6 +30,8 @@ static uint32_t state_snapshot;
 static gpio_t *led;
 
 static hb_mode_t hb_mode;
+
+volatile static uint8_t callback_cnt;
 
 volatile static bool heartbeat_is_active;
 
@@ -62,8 +66,8 @@ int heartbeat_init(void)
 void heartbeat_reset(void)
 {
     /* Reset counters */
-    snapshot_rbs_cnt = 0;
-    snapshot_rbs_mult_cnt = 0;
+    window_cnt = 0;
+    tick_per_window_cnt = 0;
     callback_cnt = 0;
 }
 
@@ -80,35 +84,81 @@ void heartbeat_start(void)
 void heartbeat_set_mode(hb_mode_t mode)
 {
     hb_mode = mode;
+    heartbeat_set_period_ms(heartbeat_period_ms);
+    heartbeat_reset();
+}
+
+uint32_t heartbeat_lower_multiple(uint32_t number, uint32_t multiple)
+{
+    uint32_t remainder;
+
+    remainder = number % multiple;
+
+    number -= remainder;
+
+    return number;
 }
 
 void heartbeat_poll(void)
 {
-    /* Iterate for every time callback was called */
+    /* Iterate for every time callback was called. Gotta catch up. */
     while (callback_cnt > 0)
     {
         callback_cnt--;
 
-        snapshot_rbs_mult_cnt++;
-
-        /* If counter ticked up enough to move to next bit of snapshot */
-        if (snapshot_rbs_mult_cnt >= snapshot_lbs_mult)
+        if (LED_PULSE == hb_mode)
         {
-            /* reset multiplier counter */
-            snapshot_rbs_mult_cnt = 0;
-
-            /* write LED with value of LSB of snapshot */
-            hw_gpio_write(led, (gpio_state_t)(state_snapshot & 0x01));
-
-            /* go to next bit of snapshot */
-            state_snapshot >>= 1;
-            snapshot_rbs_cnt++;
-
-            /* If we've run out of bits in the snapshot, reset snapshot and snapshot counter */
-            if (LED_STATE_MAX_RES <= snapshot_rbs_cnt)
+            /* Set high for particular number of ticks per window */
+            if (tick_per_window_cnt < fade_vals[window_cnt])
             {
-                snapshot_rbs_cnt = 0;
-                state_snapshot = (uint32_t)hb_mode;
+                hw_gpio_write(led, PIN_HIGH);
+            }
+            else
+            {
+                hw_gpio_write(led, PIN_LOW);
+            }
+
+            /* Increment tick counter */
+            tick_per_window_cnt++;
+
+            /* If counter ticked up enough to move to next window */
+            if (tick_per_window_cnt >= ticks_per_window)
+            {
+                /* Increment window counter, reset tick count */
+                window_cnt++;
+                tick_per_window_cnt = 0;
+
+                /* If we've run out of windows, reset completely */
+                if (window_cnt_total <= window_cnt)
+                {
+                    window_cnt = 0;
+                }
+            }
+        }
+        else /* All other modes */
+        {
+            /* Increment tick counter */
+            tick_per_window_cnt++;
+
+            /* If counter ticked up enough to move to next window (bit of snapshot) */
+            if (tick_per_window_cnt >= ticks_per_window)
+            {
+                /* reset window tick counter */
+                tick_per_window_cnt = 0;
+
+                /* write LED with value of LSB of snapshot */
+                hw_gpio_write(led, (gpio_state_t)(state_snapshot & 0x01));
+
+                /* go to next bit of snapshot */
+                state_snapshot >>= 1;
+                window_cnt++;
+
+                /* If we've run out of bits in the snapshot, reset snapshot and snapshot counter */
+                if (window_cnt_total <= window_cnt)
+                {
+                    window_cnt = 0;
+                    state_snapshot = (uint32_t)hb_mode;
+                }
             }
         }
     }
@@ -116,12 +166,43 @@ void heartbeat_poll(void)
 
 void heartbeat_set_period_ms(uint16_t period_ms)
 {
-    uint16_t systick_freq = hw_systick_get_freq();
+    uint16_t idx;
+    uint16_t systick_freq_hz = hw_systick_get_freq();
 
-    heartbeat_period_ms = period_ms;
+    /* Set boundaries */
+    if (3000 <= period_ms)
+    {
+        period_ms = 3000;
+    }
+    if (500 >= period_ms)
+    {
+        period_ms = 500;
+    }
 
-    snapshot_lbs_mult = (uint32_t)(((float)systick_freq) / ((float)LED_STATE_MAX_RES) * ((float)heartbeat_period_ms) / 1000.0);
+    /* Different window counts requierd for different modes */
+    if (LED_PULSE == hb_mode)
+    {
+        window_cnt_total = WINDOW_COUNT_FADE;
+    }
+    else
+    {
+        window_cnt_total = WINDOW_COUNT_FLASH;
+    }
 
+    /* find heartbeat as lower multiple to keep division easy */
+    heartbeat_period_ms = heartbeat_lower_multiple(period_ms, window_cnt_total);
+
+    /* calculate ticks per window based on chosen heartbeat period and the set systick frequency */
+    ticks_per_window = (uint32_t)(((float)systick_freq_hz) / ((float)window_cnt_total) * ((float)heartbeat_period_ms) / 1000.0);
+
+    /* calculate fade triangle */
+    for (idx = 0; idx < (window_cnt_total / 2); idx++)
+    {
+        fade_vals[idx] = (uint8_t)(2.0 * (((float)idx) / ((float)window_cnt_total)) * ((float)ticks_per_window));
+        fade_vals[window_cnt_total - idx - 1] = fade_vals[idx];
+    }
+
+    /* Reset to avoid surprises */
     heartbeat_reset();
 }
 
