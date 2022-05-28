@@ -1,7 +1,7 @@
 #ifndef __MGR_HEARTBEAT_H
 #define __MGR_HEARTBEAT_H
 
-#include "hw_gpio.h"
+#include "hw_stmgpio.h"
 #include "hw_systick.h"
 #include <stdint.h>
 #include <stdbool.h>
@@ -13,6 +13,8 @@
 
 #define WINDOW_COUNT_FLASH 32
 #define WINDOW_COUNT_FADE 100
+
+#define SYS_TICK_MIN 1000
 
 typedef enum hb_modes
 {
@@ -40,7 +42,11 @@ void heartbeat_start(void);
 
 void heartbeat_poll(void);
 
-void heartbeat_set_mode(hb_mode_t mode);
+void heartbeat_set_pattern_mode(hb_mode_t mode);
+
+void heartbeat_set_poll_mode(bool mode);
+
+bool heartbeat_get_poll_mode(void);
 
 uint32_t heartbeat_lower_multiple(uint32_t number, uint32_t multiple);
 

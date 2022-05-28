@@ -17,15 +17,23 @@ static uint16_t sys_tick_freq_hz;
 
 static uint8_t func_ptr_count;
 
+static uint32_t counter;
+
 void hw_systick_init(uint16_t tick_freq_hz){
-    /**/
+    /* Set accessible system tick */
     sys_tick_freq_hz = tick_freq_hz;
-    // update clocks first to properly use library
+    /* Must be at least SYS_TICK_MIN */
+    if (SYS_TICK_MIN >= sys_tick_freq_hz) {
+        sys_tick_freq_hz = SYS_TICK_MIN;
+    }
+    /* update clocks first to properly use library */
     SystemCoreClockUpdate();
-    // Set up with system core clock from system_stm32f1xx.h
+    /* Set up with system core clock from system_stm32f1xx.h */
     SysTick_Config(SystemCoreClock / sys_tick_freq_hz);
-    // above function starts tick
+    /* above function starts tick */
     hw_systick_stop();
+    /* reset counter */
+    counter = 0;
 }
 
 uint16_t hw_systick_get_freq(void) {
@@ -75,16 +83,27 @@ void hw_systick_remove_callback(void (*passed_func_ptr)(void)){
 }
 
 void hw_systick_clear_callbacks(void){
-    // reset function pointer count to 0 avoid using callbacks
+    
     func_ptr_count = 0;
+}
+
+void blocking_delay_ms(uint32_t delay_ms){
+    /* get inital counter number */
+    const uint32_t counter_snapshot = counter;
+    /* Calculate number of ticks needed. Should be less than 1ms to do... */
+    const uint32_t counter_goal = counter_snapshot + ((uint32_t)(1000.0 / ((float)(hw_systick_get_freq())) * ((float)delay_ms)));
+    /* wait for goal acheived */
+    while (counter_goal >= counter);
 }
 
 void SysTick_Handler (void) {
     static uint8_t idx;
-    // iterate through list of functions to execute them all
-    //heartbeat_tick_callback();
-
+    
+    /* Iterate through callback ledger */
     for (idx = 0; idx < func_ptr_count; idx++) {
         (*func_ptrs[idx])();
     }
+
+    /* update global counter */
+    counter++;
 }

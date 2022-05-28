@@ -18,9 +18,10 @@ extern "C" {
 
 #include <stdint.h>
 #include "stm32f103xb.h"
-#include "mgr_heartbeat.h"
 
 #define FUNC_PTR_ARRAY_MAX_LEN 32
+
+#define SYS_TICK_MIN 1000
 
 void hw_systick_init(uint16_t tick_freq_hz);
 
@@ -31,6 +32,8 @@ void hw_systick_stop(void);
 void hw_systick_start(void);
 
 void hw_systick_reset(void);
+
+void blocking_delay_ms(uint32_t delay_ms);
 
 void hw_systick_add_callback(void (*passed_func_ptr)(void));
 

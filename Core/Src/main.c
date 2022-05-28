@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "mgr_bout.h"
 
 /**
  * @brief  The application entry point.
@@ -26,6 +27,8 @@
  */
 int main(void)
 {
+  uint8_t idx;
+
   /* Configure the system clocks */
   hw_system_clocks_init();
 
@@ -36,15 +39,23 @@ int main(void)
   /* Configure the system heartbeat */
   if (EXIT_SUCCESS == heartbeat_init())
   {
-    heartbeat_set_mode(LED_PULSE);
+    heartbeat_set_pattern_mode(LED_PULSE);
+    heartbeat_set_poll_mode(false);
     heartbeat_set_period_ms(1000);
     heartbeat_start();
   }
 
+  bout_init();
+
   /* Main loop */
   while (1)
   {
-    heartbeat_poll();
+    //heartbeat_poll();
+    for (idx = 0; idx < BOUT_CNT; idx++) {
+      bout_reset_lib();
+      bout_set(idx);
+      blocking_delay_ms(500);
+    }
   }
 }
 

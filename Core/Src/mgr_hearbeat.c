@@ -27,7 +27,7 @@ static uint16_t heartbeat_period_ms;
 
 static uint32_t state_snapshot;
 
-static gpio_t *led;
+static stmgpio_t *led;
 
 static hb_mode_t hb_mode;
 
@@ -35,19 +35,21 @@ volatile static uint8_t callback_cnt;
 
 volatile static bool heartbeat_is_active;
 
+volatile static bool poll_mode;
+
 int heartbeat_init(void)
 {
     /* Use special gpio setup */
-    gpio_setup_t hbled_setup;
+    stmgpio_setup_t hbled_setup;
 
     hbled_setup.port = HB_LED_PORT;
     hbled_setup.pin = HB_LED_PIN;
     hbled_setup.cfg = OUT_PUSHPULL;
     hbled_setup.dir = OUTPUT_2MHZ;
 
-    led = hw_gpio_setup_gpio(&hbled_setup);
+    led = stmgpio_setup_gpio(&hbled_setup);
 
-    if (led == NULL)
+    if (NULL == led)
     {
         return EXIT_FAILURE;
     }
@@ -81,11 +83,21 @@ void heartbeat_start(void)
     heartbeat_is_active = true;
 }
 
-void heartbeat_set_mode(hb_mode_t mode)
+void heartbeat_set_pattern_mode(hb_mode_t mode)
 {
     hb_mode = mode;
     heartbeat_set_period_ms(heartbeat_period_ms);
     heartbeat_reset();
+}
+
+void heartbeat_set_poll_mode(bool mode)
+{
+    poll_mode = mode;
+}
+
+bool heartbeat_get_poll_mode(void)
+{
+    return poll_mode;
 }
 
 uint32_t heartbeat_lower_multiple(uint32_t number, uint32_t multiple)
@@ -111,11 +123,11 @@ void heartbeat_poll(void)
             /* Set high for particular number of ticks per window */
             if (tick_per_window_cnt < fade_vals[window_cnt])
             {
-                hw_gpio_write(led, PIN_HIGH);
+                stmgpio_write(led, PIN_HIGH);
             }
             else
             {
-                hw_gpio_write(led, PIN_LOW);
+                stmgpio_write(led, PIN_LOW);
             }
 
             /* Increment tick counter */
@@ -147,7 +159,7 @@ void heartbeat_poll(void)
                 tick_per_window_cnt = 0;
 
                 /* write LED with value of LSB of snapshot */
-                hw_gpio_write(led, (gpio_state_t)(state_snapshot & 0x01));
+                stmgpio_write(led, (stmgpio_state_t)(state_snapshot & 0x01));
 
                 /* go to next bit of snapshot */
                 state_snapshot >>= 1;
@@ -208,8 +220,13 @@ void heartbeat_set_period_ms(uint16_t period_ms)
 
 void heartbeat_tick_callback(void)
 {
+    /* only take action if told to */
     if (heartbeat_is_active)
     {
         callback_cnt++;
+    }
+    /* if not manualy polled, do all the stuff in the callback (intensive) */
+    if (!poll_mode) {
+        heartbeat_poll();
     }
 }

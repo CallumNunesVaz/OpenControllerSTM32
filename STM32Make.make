@@ -38,13 +38,15 @@ BUILD_DIR = build
 C_SOURCES =  \
 Core/Src/hw_adc1.c \
 Core/Src/hw_crc.c \
-Core/Src/hw_gpio.c \
 Core/Src/hw_i2c1.c \
 Core/Src/hw_spi2.c \
+Core/Src/hw_stmgpio.c \
 Core/Src/hw_systick.c \
 Core/Src/hw_usart1.c \
 Core/Src/main.c \
+Core/Src/mgr_bout.c \
 Core/Src/mgr_hearbeat.c \
+Core/Src/mgr_hv.c \
 Core/Src/stm32f1xx_it.c \
 Core/Src/system_stm32f1xx.c
 
