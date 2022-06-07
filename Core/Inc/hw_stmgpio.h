@@ -38,6 +38,12 @@ typedef enum stmgpio_dir {
   DIR_CNT
 } stmgpio_dir_t;
 
+typedef enum stmgpio_pull {
+  PULLDOWN,
+  PULLUP,
+  PULL_CNT
+} stmgpio_pull_t;
+
 typedef enum stmgpio_cfg {
   IN_ANALOGUE,
   IN_FLOATING,
@@ -53,6 +59,7 @@ typedef enum stmgpio_cfg {
 typedef struct stmgpio {
    stmgpio_state_t state;
    stmgpio_dir_t dir;
+   stmgpio_pull_t pull;
    stmgpio_cfg_t cfg;
    char port;
    uint8_t pin;
@@ -62,6 +69,7 @@ typedef struct stmgpio {
 typedef struct stmgpio_setup {
    stmgpio_dir_t dir;
    stmgpio_cfg_t cfg;
+   stmgpio_pull_t pull;
    char port;
    uint8_t pin;
 } stmgpio_setup_t;

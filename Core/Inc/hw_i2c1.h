@@ -23,17 +23,27 @@
 #ifndef __HW_I2C1_H
 #define __HW_I2C1_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f103xb.h"
+#include "hw_systick.h"
+#include "hw_stmgpio.h"
+#include <stdbool.h>
+#include <stdlib.h>
 
-void MX_I2C1_Init(void);
+#define I2C_SCL_PORT 'B'
+#define I2C_SCL_PIN 8
 
-#ifdef __cplusplus
-}
-#endif
+#define I2C_SDA_PORT 'B'
+#define I2C_SDA_PIN 9
 
-#endif /* __MAIN_H */
+#define APB_BUS_FREQ_MHZ 50
+
+#define BUF_RX_LEN 0x1F
+#define BUF_TX_LEN 0x1F
+
+typdef enum I2C_MASTER_STATES {
+  IDLE,
+  ERROR
+} I2C_MASTER_STATE;
+
+#endif 

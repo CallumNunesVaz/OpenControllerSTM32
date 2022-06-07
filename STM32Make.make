@@ -48,7 +48,8 @@ Core/Src/mgr_bout.c \
 Core/Src/mgr_hearbeat.c \
 Core/Src/mgr_hv.c \
 Core/Src/stm32f1xx_it.c \
-Core/Src/system_stm32f1xx.c
+Core/Src/system_stm32f1xx.c \
+Core/Src/util_buffer.c
 
 
 CPP_SOURCES = \

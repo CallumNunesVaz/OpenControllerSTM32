@@ -86,8 +86,19 @@ stmgpio_t *stmgpio_setup_gpio(stmgpio_setup_t* gs)
   /* Allocate variable */
   stmgpio_t *g = NULL;
 
+  /* capitalise port char if not */
+  if (('a' <= gs->port) && ('d' >= gs->port))
+  {
+    gs->port -= 32;
+  }
+
   /* Sanity checks */
-  if ((('A' <= gs->port) && (gs->port <= 'E')) && (gs->dir < DIR_CNT) && (gs->cfg < TYPE_CNT) && (gs->pin <= GPIO_PORT_PIN_MAX))
+  if (
+    (('A' <= gs->port) && (gs->port <= 'E')) 
+    && (DIR_CNT > gs->dir) 
+    && (TYPE_CNT > gs->cfg) 
+    && (PULL_CNT > g->pull) 
+    && (GPIO_PORT_PIN_MAX >= gs->pin))
   {
     /* Allocate memory */
     g = malloc(sizeof(stmgpio_t));
@@ -120,28 +131,42 @@ stmgpio_t *stmgpio_setup_gpio(stmgpio_setup_t* gs)
     /* copy across GPIO parameters */
     g->dir = gs->dir;
     g->cfg = gs->cfg;
+    g->pull = gs->pull;
     g->pin = gs->pin;
     g->port = gs->port;
-
-    /* Assign low as default state */
-    g->state = PIN_LOW;
-
+    
     /* Set registers based on GPIO settings */
     if (g->pin < 8)
     {
-      g->port_reg_addr->CRL &= ~(0x0F << (REG_PIN_CONF_BITLENGTH * g->pin));                                            // reset
-      g->port_reg_addr->CRL |= ((uint32_t)(g->dir)) << ((REG_PIN_CONF_BITLENGTH * g->pin) + REG_MODE_OFFSET);           // pin direction / mode
-      g->port_reg_addr->CRL |= (((uint32_t)(g->cfg)) & ~(0x04)) << ((REG_PIN_CONF_BITLENGTH * g->pin) + REG_CONF_OFFSET); // pin configuration
+      /* Reset register */
+      g->port_reg_addr->CRL &= ~(0x0F << (REG_PIN_CONF_BITLENGTH * g->pin));    
+      /* Set pin direction and mode */
+      g->port_reg_addr->CRL |= ((uint32_t)(g->dir)) << ((REG_PIN_CONF_BITLENGTH * g->pin) + REG_MODE_OFFSET);
+      /* Set pin configuration */
+      g->port_reg_addr->CRL |= (((uint32_t)(g->cfg)) & ~(0x04)) << ((REG_PIN_CONF_BITLENGTH * g->pin) + REG_CONF_OFFSET);
     }
     else
     {
+      /* Reset register */
       g->port_reg_addr->CRH &= ~(0x0F << (REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)));                                            // reset
+      /* Set pin direction and mode */
       g->port_reg_addr->CRH |= ((uint32_t)(g->dir)) << ((REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)) + REG_MODE_OFFSET);           // pin direction / mode
+      /* Set pin configuration */
       g->port_reg_addr->CRH |= (((uint32_t)(g->cfg)) & ~(0x04)) << ((REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)) + REG_CONF_OFFSET); // pin configuration
+    }
+
+    /* Set pullup or down depending on configuration */
+    if (IN_PULL == g->cfg) {
+      g->port_reg_addr->ODR = ((uint32_t)(g->pull)) << g->pin;
+    }
+
+    /* Set default low if output */
+    if ((OUT_PUSHPULL == g->cfg) || (OUT_OPENDRAIN == g->cfg)) {
+      stmgpio_write(g, PIN_LOW);
     }
   }
 
-  /* return pointer to our newly created gpio configuration */
+  /* return pointer to our newly created gpio configuration, even if NULL */
   return g;
 }
 
