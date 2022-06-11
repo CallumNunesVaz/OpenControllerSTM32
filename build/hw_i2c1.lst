@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccAhQZir.s 			page 1
+ARM GAS  /tmp/ccWvN8JF.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -17,67 +17,708 @@ ARM GAS  /tmp/ccAhQZir.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.section	.text.MX_I2C1_Init,"ax",%progbits
+  17              		.section	.text.i2c1_reset,"ax",%progbits
   18              		.align	1
-  19              		.global	MX_I2C1_Init
+  19              		.global	i2c1_reset
   20              		.syntax unified
   21              		.thumb
   22              		.thumb_func
-  24              	MX_I2C1_Init:
-  25              	.LFB65:
+  24              	i2c1_reset:
+  25              	.LFB66:
   26              		.file 1 "Core/Src/hw_i2c1.c"
    1:Core/Src/hw_i2c1.c **** /* USER CODE BEGIN Header */
    2:Core/Src/hw_i2c1.c **** /**
-   3:Core/Src/hw_i2c1.c ****   ******************************************************************************
-   4:Core/Src/hw_i2c1.c ****   * @file           : main.c
-   5:Core/Src/hw_i2c1.c ****   * @brief          : Main program body
-   6:Core/Src/hw_i2c1.c ****   ******************************************************************************
-   7:Core/Src/hw_i2c1.c ****   * @attention
-   8:Core/Src/hw_i2c1.c ****   *
-   9:Core/Src/hw_i2c1.c ****   * <h2><center>&copy; Copyright (c) 2022 STMicroelectronics.
-  10:Core/Src/hw_i2c1.c ****   * All rights reserved.</center></h2>
-  11:Core/Src/hw_i2c1.c ****   *
-  12:Core/Src/hw_i2c1.c ****   * This software component is licensed by ST under BSD 3-Clause license,
-  13:Core/Src/hw_i2c1.c ****   * the "License"; You may not use this file except in compliance with the
-  14:Core/Src/hw_i2c1.c ****   * License. You may obtain a copy of the License at:
-  15:Core/Src/hw_i2c1.c ****   *                        opensource.org/licenses/BSD-3-Clause
-  16:Core/Src/hw_i2c1.c ****   *
-  17:Core/Src/hw_i2c1.c ****   ******************************************************************************
-  18:Core/Src/hw_i2c1.c ****   */
+   3:Core/Src/hw_i2c1.c ****  ******************************************************************************
+   4:Core/Src/hw_i2c1.c ****  * @file           : main.c
+   5:Core/Src/hw_i2c1.c ****  * @brief          : Main program body
+   6:Core/Src/hw_i2c1.c ****  ******************************************************************************
+   7:Core/Src/hw_i2c1.c ****  * @attention
+   8:Core/Src/hw_i2c1.c ****  *
+   9:Core/Src/hw_i2c1.c ****  * <h2><center>&copy; Copyright (c) 2022 STMicroelectronics.
+  10:Core/Src/hw_i2c1.c ****  * All rights reserved.</center></h2>
+  11:Core/Src/hw_i2c1.c ****  *
+  12:Core/Src/hw_i2c1.c ****  * This software component is licensed by ST under BSD 3-Clause license,
+  13:Core/Src/hw_i2c1.c ****  * the "License"; You may not use this file except in compliance with the
+  14:Core/Src/hw_i2c1.c ****  * License. You may obtain a copy of the License at:
+  15:Core/Src/hw_i2c1.c ****  *                        opensource.org/licenses/BSD-3-Clause
+  16:Core/Src/hw_i2c1.c ****  *
+  17:Core/Src/hw_i2c1.c ****  ******************************************************************************
+  18:Core/Src/hw_i2c1.c ****  */
   19:Core/Src/hw_i2c1.c **** /* USER CODE END Header */
   20:Core/Src/hw_i2c1.c **** /* Includes ------------------------------------------------------------------*/
   21:Core/Src/hw_i2c1.c **** #include "hw_i2c1.h"
   22:Core/Src/hw_i2c1.c **** 
-  23:Core/Src/hw_i2c1.c **** /**
-  24:Core/Src/hw_i2c1.c ****   * @brief I2C1 Initialization Function
-  25:Core/Src/hw_i2c1.c ****   * @param None
-  26:Core/Src/hw_i2c1.c ****   * @retval None
-  27:Core/Src/hw_i2c1.c ****   */
-  28:Core/Src/hw_i2c1.c **** void MX_I2C1_Init(void)
+  23:Core/Src/hw_i2c1.c **** // https://controllerstech.com/stm32-i2c-configuration-using-registers/
+  24:Core/Src/hw_i2c1.c **** 
+  25:Core/Src/hw_i2c1.c **** static stmgpio_t *i2c1_scl;
+  26:Core/Src/hw_i2c1.c **** static stmgpio_t *i2c1_sda;
+  27:Core/Src/hw_i2c1.c **** 
+  28:Core/Src/hw_i2c1.c **** bool i2c1_init(void)
   29:Core/Src/hw_i2c1.c **** {
-  27              		.loc 1 29 1 view -0
+  30:Core/Src/hw_i2c1.c ****   stmgpio_setup_t i2c1_scl_setup;
+  31:Core/Src/hw_i2c1.c ****   stmgpio_setup_t i2c1_sda_setup;
+  32:Core/Src/hw_i2c1.c **** 
+ARM GAS  /tmp/ccWvN8JF.s 			page 2
+
+
+  33:Core/Src/hw_i2c1.c ****   /* Enable the I2C1 clock */
+  34:Core/Src/hw_i2c1.c ****   RCC->APB1ENR |= RCC_APB1ENR_I2C1EN;
+  35:Core/Src/hw_i2c1.c **** 
+  36:Core/Src/hw_i2c1.c ****   /* USING PB8 and PB9, so enable port B clock if not already */
+  37:Core/Src/hw_i2c1.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+  38:Core/Src/hw_i2c1.c **** 
+  39:Core/Src/hw_i2c1.c ****   /* Setup the GPIO pins */
+  40:Core/Src/hw_i2c1.c ****   i2c1_scl_setup.port = I2C_SCL_PORT;
+  41:Core/Src/hw_i2c1.c ****   i2c1_scl_setup.pin = I2C_SCL_PIN;
+  42:Core/Src/hw_i2c1.c ****   i2c1_scl_setup.cfg = OUT_ALT_OPENDRAIN;
+  43:Core/Src/hw_i2c1.c ****   i2c1_scl_setup.dir = OUTPUT_10MHZ;
+  44:Core/Src/hw_i2c1.c ****   i2c1_scl_setup.pull = PULLUP;
+  45:Core/Src/hw_i2c1.c ****   i2c1_scl = stmgpio_setup_gpio(&i2c1_scl_setup);
+  46:Core/Src/hw_i2c1.c **** 
+  47:Core/Src/hw_i2c1.c ****   i2c1_sda_setup.port = I2C_SDA_PORT;
+  48:Core/Src/hw_i2c1.c ****   i2c1_sda_setup.pin = I2C_SDA_PIN;
+  49:Core/Src/hw_i2c1.c ****   i2c1_sda_setup.cfg = OUT_ALT_OPENDRAIN;
+  50:Core/Src/hw_i2c1.c ****   i2c1_sda_setup.dir = OUTPUT_10MHZ;
+  51:Core/Src/hw_i2c1.c ****   i2c1_sda_setup.pull = PULLUP;
+  52:Core/Src/hw_i2c1.c ****   i2c1_sda = stmgpio_setup_gpio(&i2c1_sda_setup);
+  53:Core/Src/hw_i2c1.c **** 
+  54:Core/Src/hw_i2c1.c ****   /* Set the remap for i2c1 */
+  55:Core/Src/hw_i2c1.c ****   AFIO->MAPR |= AFIO_MAPR_I2C1_REMAP;
+  56:Core/Src/hw_i2c1.c **** 
+  57:Core/Src/hw_i2c1.c ****   /* Disable i2c1 peripheral to apply settings */
+  58:Core/Src/hw_i2c1.c ****   I2C1->CR1 &= ~I2C_CR1_PE;
+  59:Core/Src/hw_i2c1.c **** 
+  60:Core/Src/hw_i2c1.c ****   /* Disable clock stretching */
+  61:Core/Src/hw_i2c1.c ****   I2C1->CR1 |= I2C_CR1_NOSTRETCH;
+  62:Core/Src/hw_i2c1.c **** 
+  63:Core/Src/hw_i2c1.c ****   /* Disable general call */
+  64:Core/Src/hw_i2c1.c ****   I2C1->CR1 &= ~I2C_CR1_ENGC;
+  65:Core/Src/hw_i2c1.c **** 
+  66:Core/Src/hw_i2c1.c ****   /* Disable SMBUS. Using I2C */
+  67:Core/Src/hw_i2c1.c ****   I2C1->CR1 &= ~I2C_CR1_SMBUS;
+  68:Core/Src/hw_i2c1.c **** 
+  69:Core/Src/hw_i2c1.c ****   /* Disable DMA */
+  70:Core/Src/hw_i2c1.c ****   I2C1->CR2 &= ~I2C_CR2_DMAEN;
+  71:Core/Src/hw_i2c1.c **** 
+  72:Core/Src/hw_i2c1.c ****   /* Enable DMA TX buffer interrupt */
+  73:Core/Src/hw_i2c1.c ****   I2C1->CR2 |= I2C_CR2_ITBUFEN;
+  74:Core/Src/hw_i2c1.c **** 
+  75:Core/Src/hw_i2c1.c ****   /* Enable event interrupt */
+  76:Core/Src/hw_i2c1.c ****   I2C1->CR2 |= I2C_CR2_ITEVTEN;
+  77:Core/Src/hw_i2c1.c **** 
+  78:Core/Src/hw_i2c1.c ****   /* Enable error interrupt */
+  79:Core/Src/hw_i2c1.c ****   I2C1->CR2 |= I2C_CR2_ITERREN;
+  80:Core/Src/hw_i2c1.c **** 
+  81:Core/Src/hw_i2c1.c ****   /* Inform of APB bus frequency */
+  82:Core/Src/hw_i2c1.c ****   I2C1->CR2 &= ~I2C_CR2_FREQ;
+  83:Core/Src/hw_i2c1.c ****   I2C1->CR2 |= APB_BUS_FREQ_MHZ;
+  84:Core/Src/hw_i2c1.c **** 
+  85:Core/Src/hw_i2c1.c ****   /* Set to standard mode */
+  86:Core/Src/hw_i2c1.c ****   I2C1->CCR &= ~I2C_CCR_FS;
+  87:Core/Src/hw_i2c1.c **** 
+  88:Core/Src/hw_i2c1.c ****   /* Set clock for 100kHz */
+  89:Core/Src/hw_i2c1.c ****   I2C1->CCR &= ~I2C_CCR_CCR;
+ARM GAS  /tmp/ccWvN8JF.s 			page 3
+
+
+  90:Core/Src/hw_i2c1.c ****   I2C1->CCR |= 250;
+  91:Core/Src/hw_i2c1.c **** 
+  92:Core/Src/hw_i2c1.c ****   /* Set rise time for 1000ns */
+  93:Core/Src/hw_i2c1.c ****   I2C1->TRISE &= ~I2C_TRISE_TRISE;
+  94:Core/Src/hw_i2c1.c ****   I2C1->TRISE |= 50;
+  95:Core/Src/hw_i2c1.c **** 
+  96:Core/Src/hw_i2c1.c ****   /* Enable i2c1 peripheral */
+  97:Core/Src/hw_i2c1.c ****   I2C1->CR1 |= I2C_CR1_PE;
+  98:Core/Src/hw_i2c1.c **** 
+  99:Core/Src/hw_i2c1.c ****   /* Trigger reset before first usage */
+ 100:Core/Src/hw_i2c1.c ****   i2c1_reset();
+ 101:Core/Src/hw_i2c1.c **** 
+ 102:Core/Src/hw_i2c1.c ****   return EXIT_SUCCESS;
+ 103:Core/Src/hw_i2c1.c **** }
+ 104:Core/Src/hw_i2c1.c **** 
+ 105:Core/Src/hw_i2c1.c **** void i2c1_reset(void)
+ 106:Core/Src/hw_i2c1.c **** {
+  27              		.loc 1 106 1 view -0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccAhQZir.s 			page 2
-
-
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31              		@ link register save eliminated.
-  30:Core/Src/hw_i2c1.c **** 
+ 107:Core/Src/hw_i2c1.c ****   I2C1->CR1 |= I2C_CR1_SWRST;
+  32              		.loc 1 107 3 view .LVU1
+  33              		.loc 1 107 13 is_stmt 0 view .LVU2
+  34 0000 044B     		ldr	r3, .L2
+  35 0002 1A68     		ldr	r2, [r3]
+  36 0004 42F40042 		orr	r2, r2, #32768
+  37 0008 1A60     		str	r2, [r3]
+ 108:Core/Src/hw_i2c1.c ****   // make sure the I2C lines are released and the bus is free
+ 109:Core/Src/hw_i2c1.c ****   I2C1->CR1 &= ~I2C_CR1_SWRST;
+  38              		.loc 1 109 3 is_stmt 1 view .LVU3
+  39              		.loc 1 109 13 is_stmt 0 view .LVU4
+  40 000a 1A68     		ldr	r2, [r3]
+  41 000c 22F40042 		bic	r2, r2, #32768
+  42 0010 1A60     		str	r2, [r3]
+ 110:Core/Src/hw_i2c1.c **** }
+  43              		.loc 1 110 1 view .LVU5
+  44 0012 7047     		bx	lr
+  45              	.L3:
+  46              		.align	2
+  47              	.L2:
+  48 0014 00540040 		.word	1073763328
+  49              		.cfi_endproc
+  50              	.LFE66:
+  52              		.section	.text.i2c1_init,"ax",%progbits
+  53              		.align	1
+  54              		.global	i2c1_init
+  55              		.syntax unified
+  56              		.thumb
+  57              		.thumb_func
+  59              	i2c1_init:
+  60              	.LFB65:
+  29:Core/Src/hw_i2c1.c ****   stmgpio_setup_t i2c1_scl_setup;
+  61              		.loc 1 29 1 is_stmt 1 view -0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 16
+ARM GAS  /tmp/ccWvN8JF.s 			page 4
+
+
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65 0000 70B5     		push	{r4, r5, r6, lr}
+  66              	.LCFI0:
+  67              		.cfi_def_cfa_offset 16
+  68              		.cfi_offset 4, -16
+  69              		.cfi_offset 5, -12
+  70              		.cfi_offset 6, -8
+  71              		.cfi_offset 14, -4
+  72 0002 84B0     		sub	sp, sp, #16
+  73              	.LCFI1:
+  74              		.cfi_def_cfa_offset 32
+  30:Core/Src/hw_i2c1.c ****   stmgpio_setup_t i2c1_sda_setup;
+  75              		.loc 1 30 3 view .LVU7
   31:Core/Src/hw_i2c1.c **** 
-  32:Core/Src/hw_i2c1.c **** }...
-  32              		.loc 1 32 1 view .LVU1
-  33 0000 7047     		bx	lr
-  34              		.cfi_endproc
-  35              	.LFE65:
-  37              		.text
-  38              	.Letext0:
-ARM GAS  /tmp/ccAhQZir.s 			page 3
+  76              		.loc 1 31 3 view .LVU8
+  34:Core/Src/hw_i2c1.c **** 
+  77              		.loc 1 34 3 view .LVU9
+  34:Core/Src/hw_i2c1.c **** 
+  78              		.loc 1 34 16 is_stmt 0 view .LVU10
+  79 0004 3C4B     		ldr	r3, .L6
+  80 0006 DA69     		ldr	r2, [r3, #28]
+  81 0008 42F40012 		orr	r2, r2, #2097152
+  82 000c DA61     		str	r2, [r3, #28]
+  37:Core/Src/hw_i2c1.c **** 
+  83              		.loc 1 37 3 is_stmt 1 view .LVU11
+  37:Core/Src/hw_i2c1.c **** 
+  84              		.loc 1 37 16 is_stmt 0 view .LVU12
+  85 000e 9A69     		ldr	r2, [r3, #24]
+  86 0010 42F00802 		orr	r2, r2, #8
+  87 0014 9A61     		str	r2, [r3, #24]
+  40:Core/Src/hw_i2c1.c ****   i2c1_scl_setup.pin = I2C_SCL_PIN;
+  88              		.loc 1 40 3 is_stmt 1 view .LVU13
+  40:Core/Src/hw_i2c1.c ****   i2c1_scl_setup.pin = I2C_SCL_PIN;
+  89              		.loc 1 40 23 is_stmt 0 view .LVU14
+  90 0016 4226     		movs	r6, #66
+  91 0018 8DF80B60 		strb	r6, [sp, #11]
+  41:Core/Src/hw_i2c1.c ****   i2c1_scl_setup.cfg = OUT_ALT_OPENDRAIN;
+  92              		.loc 1 41 3 is_stmt 1 view .LVU15
+  41:Core/Src/hw_i2c1.c ****   i2c1_scl_setup.cfg = OUT_ALT_OPENDRAIN;
+  93              		.loc 1 41 22 is_stmt 0 view .LVU16
+  94 001c 0823     		movs	r3, #8
+  95 001e 8DF80C30 		strb	r3, [sp, #12]
+  42:Core/Src/hw_i2c1.c ****   i2c1_scl_setup.dir = OUTPUT_10MHZ;
+  96              		.loc 1 42 3 is_stmt 1 view .LVU17
+  42:Core/Src/hw_i2c1.c ****   i2c1_scl_setup.dir = OUTPUT_10MHZ;
+  97              		.loc 1 42 22 is_stmt 0 view .LVU18
+  98 0022 0725     		movs	r5, #7
+  99 0024 8DF80950 		strb	r5, [sp, #9]
+  43:Core/Src/hw_i2c1.c ****   i2c1_scl_setup.pull = PULLUP;
+ 100              		.loc 1 43 3 is_stmt 1 view .LVU19
+  43:Core/Src/hw_i2c1.c ****   i2c1_scl_setup.pull = PULLUP;
+ 101              		.loc 1 43 22 is_stmt 0 view .LVU20
+ 102 0028 0124     		movs	r4, #1
+ 103 002a 8DF80840 		strb	r4, [sp, #8]
+  44:Core/Src/hw_i2c1.c ****   i2c1_scl = stmgpio_setup_gpio(&i2c1_scl_setup);
+ 104              		.loc 1 44 3 is_stmt 1 view .LVU21
+  44:Core/Src/hw_i2c1.c ****   i2c1_scl = stmgpio_setup_gpio(&i2c1_scl_setup);
+ARM GAS  /tmp/ccWvN8JF.s 			page 5
+
+
+ 105              		.loc 1 44 23 is_stmt 0 view .LVU22
+ 106 002e 8DF80A40 		strb	r4, [sp, #10]
+  45:Core/Src/hw_i2c1.c **** 
+ 107              		.loc 1 45 3 is_stmt 1 view .LVU23
+  45:Core/Src/hw_i2c1.c **** 
+ 108              		.loc 1 45 14 is_stmt 0 view .LVU24
+ 109 0032 0DEB0300 		add	r0, sp, r3
+ 110 0036 FFF7FEFF 		bl	stmgpio_setup_gpio
+ 111              	.LVL0:
+  45:Core/Src/hw_i2c1.c **** 
+ 112              		.loc 1 45 12 view .LVU25
+ 113 003a 304B     		ldr	r3, .L6+4
+ 114 003c 1860     		str	r0, [r3]
+  47:Core/Src/hw_i2c1.c ****   i2c1_sda_setup.pin = I2C_SDA_PIN;
+ 115              		.loc 1 47 3 is_stmt 1 view .LVU26
+  47:Core/Src/hw_i2c1.c ****   i2c1_sda_setup.pin = I2C_SDA_PIN;
+ 116              		.loc 1 47 23 is_stmt 0 view .LVU27
+ 117 003e 8DF80360 		strb	r6, [sp, #3]
+  48:Core/Src/hw_i2c1.c ****   i2c1_sda_setup.cfg = OUT_ALT_OPENDRAIN;
+ 118              		.loc 1 48 3 is_stmt 1 view .LVU28
+  48:Core/Src/hw_i2c1.c ****   i2c1_sda_setup.cfg = OUT_ALT_OPENDRAIN;
+ 119              		.loc 1 48 22 is_stmt 0 view .LVU29
+ 120 0042 0923     		movs	r3, #9
+ 121 0044 8DF80430 		strb	r3, [sp, #4]
+  49:Core/Src/hw_i2c1.c ****   i2c1_sda_setup.dir = OUTPUT_10MHZ;
+ 122              		.loc 1 49 3 is_stmt 1 view .LVU30
+  49:Core/Src/hw_i2c1.c ****   i2c1_sda_setup.dir = OUTPUT_10MHZ;
+ 123              		.loc 1 49 22 is_stmt 0 view .LVU31
+ 124 0048 8DF80150 		strb	r5, [sp, #1]
+  50:Core/Src/hw_i2c1.c ****   i2c1_sda_setup.pull = PULLUP;
+ 125              		.loc 1 50 3 is_stmt 1 view .LVU32
+  50:Core/Src/hw_i2c1.c ****   i2c1_sda_setup.pull = PULLUP;
+ 126              		.loc 1 50 22 is_stmt 0 view .LVU33
+ 127 004c 8DF80040 		strb	r4, [sp]
+  51:Core/Src/hw_i2c1.c ****   i2c1_sda = stmgpio_setup_gpio(&i2c1_sda_setup);
+ 128              		.loc 1 51 3 is_stmt 1 view .LVU34
+  51:Core/Src/hw_i2c1.c ****   i2c1_sda = stmgpio_setup_gpio(&i2c1_sda_setup);
+ 129              		.loc 1 51 23 is_stmt 0 view .LVU35
+ 130 0050 8DF80240 		strb	r4, [sp, #2]
+  52:Core/Src/hw_i2c1.c **** 
+ 131              		.loc 1 52 3 is_stmt 1 view .LVU36
+  52:Core/Src/hw_i2c1.c **** 
+ 132              		.loc 1 52 14 is_stmt 0 view .LVU37
+ 133 0054 6846     		mov	r0, sp
+ 134 0056 FFF7FEFF 		bl	stmgpio_setup_gpio
+ 135              	.LVL1:
+  52:Core/Src/hw_i2c1.c **** 
+ 136              		.loc 1 52 12 view .LVU38
+ 137 005a 294B     		ldr	r3, .L6+8
+ 138 005c 1860     		str	r0, [r3]
+  55:Core/Src/hw_i2c1.c **** 
+ 139              		.loc 1 55 3 is_stmt 1 view .LVU39
+  55:Core/Src/hw_i2c1.c **** 
+ 140              		.loc 1 55 14 is_stmt 0 view .LVU40
+ 141 005e 294A     		ldr	r2, .L6+12
+ 142 0060 5368     		ldr	r3, [r2, #4]
+ 143 0062 43F00203 		orr	r3, r3, #2
+ARM GAS  /tmp/ccWvN8JF.s 			page 6
+
+
+ 144 0066 5360     		str	r3, [r2, #4]
+  58:Core/Src/hw_i2c1.c **** 
+ 145              		.loc 1 58 3 is_stmt 1 view .LVU41
+  58:Core/Src/hw_i2c1.c **** 
+ 146              		.loc 1 58 13 is_stmt 0 view .LVU42
+ 147 0068 274B     		ldr	r3, .L6+16
+ 148 006a 1A68     		ldr	r2, [r3]
+ 149 006c 22F00102 		bic	r2, r2, #1
+ 150 0070 1A60     		str	r2, [r3]
+  61:Core/Src/hw_i2c1.c **** 
+ 151              		.loc 1 61 3 is_stmt 1 view .LVU43
+  61:Core/Src/hw_i2c1.c **** 
+ 152              		.loc 1 61 13 is_stmt 0 view .LVU44
+ 153 0072 1A68     		ldr	r2, [r3]
+ 154 0074 42F08002 		orr	r2, r2, #128
+ 155 0078 1A60     		str	r2, [r3]
+  64:Core/Src/hw_i2c1.c **** 
+ 156              		.loc 1 64 3 is_stmt 1 view .LVU45
+  64:Core/Src/hw_i2c1.c **** 
+ 157              		.loc 1 64 13 is_stmt 0 view .LVU46
+ 158 007a 1A68     		ldr	r2, [r3]
+ 159 007c 22F04002 		bic	r2, r2, #64
+ 160 0080 1A60     		str	r2, [r3]
+  67:Core/Src/hw_i2c1.c **** 
+ 161              		.loc 1 67 3 is_stmt 1 view .LVU47
+  67:Core/Src/hw_i2c1.c **** 
+ 162              		.loc 1 67 13 is_stmt 0 view .LVU48
+ 163 0082 1A68     		ldr	r2, [r3]
+ 164 0084 22F00202 		bic	r2, r2, #2
+ 165 0088 1A60     		str	r2, [r3]
+  70:Core/Src/hw_i2c1.c **** 
+ 166              		.loc 1 70 3 is_stmt 1 view .LVU49
+  70:Core/Src/hw_i2c1.c **** 
+ 167              		.loc 1 70 13 is_stmt 0 view .LVU50
+ 168 008a 5A68     		ldr	r2, [r3, #4]
+ 169 008c 22F40062 		bic	r2, r2, #2048
+ 170 0090 5A60     		str	r2, [r3, #4]
+  73:Core/Src/hw_i2c1.c **** 
+ 171              		.loc 1 73 3 is_stmt 1 view .LVU51
+  73:Core/Src/hw_i2c1.c **** 
+ 172              		.loc 1 73 13 is_stmt 0 view .LVU52
+ 173 0092 5A68     		ldr	r2, [r3, #4]
+ 174 0094 42F48062 		orr	r2, r2, #1024
+ 175 0098 5A60     		str	r2, [r3, #4]
+  76:Core/Src/hw_i2c1.c **** 
+ 176              		.loc 1 76 3 is_stmt 1 view .LVU53
+  76:Core/Src/hw_i2c1.c **** 
+ 177              		.loc 1 76 13 is_stmt 0 view .LVU54
+ 178 009a 5A68     		ldr	r2, [r3, #4]
+ 179 009c 42F40072 		orr	r2, r2, #512
+ 180 00a0 5A60     		str	r2, [r3, #4]
+  79:Core/Src/hw_i2c1.c **** 
+ 181              		.loc 1 79 3 is_stmt 1 view .LVU55
+  79:Core/Src/hw_i2c1.c **** 
+ 182              		.loc 1 79 13 is_stmt 0 view .LVU56
+ 183 00a2 5A68     		ldr	r2, [r3, #4]
+ 184 00a4 42F48072 		orr	r2, r2, #256
+ARM GAS  /tmp/ccWvN8JF.s 			page 7
+
+
+ 185 00a8 5A60     		str	r2, [r3, #4]
+  82:Core/Src/hw_i2c1.c ****   I2C1->CR2 |= APB_BUS_FREQ_MHZ;
+ 186              		.loc 1 82 3 is_stmt 1 view .LVU57
+  82:Core/Src/hw_i2c1.c ****   I2C1->CR2 |= APB_BUS_FREQ_MHZ;
+ 187              		.loc 1 82 13 is_stmt 0 view .LVU58
+ 188 00aa 5A68     		ldr	r2, [r3, #4]
+ 189 00ac 22F03F02 		bic	r2, r2, #63
+ 190 00b0 5A60     		str	r2, [r3, #4]
+  83:Core/Src/hw_i2c1.c **** 
+ 191              		.loc 1 83 3 is_stmt 1 view .LVU59
+  83:Core/Src/hw_i2c1.c **** 
+ 192              		.loc 1 83 13 is_stmt 0 view .LVU60
+ 193 00b2 5A68     		ldr	r2, [r3, #4]
+ 194 00b4 42F03202 		orr	r2, r2, #50
+ 195 00b8 5A60     		str	r2, [r3, #4]
+  86:Core/Src/hw_i2c1.c **** 
+ 196              		.loc 1 86 3 is_stmt 1 view .LVU61
+  86:Core/Src/hw_i2c1.c **** 
+ 197              		.loc 1 86 13 is_stmt 0 view .LVU62
+ 198 00ba DA69     		ldr	r2, [r3, #28]
+ 199 00bc 22F40042 		bic	r2, r2, #32768
+ 200 00c0 DA61     		str	r2, [r3, #28]
+  89:Core/Src/hw_i2c1.c ****   I2C1->CCR |= 250;
+ 201              		.loc 1 89 3 is_stmt 1 view .LVU63
+  89:Core/Src/hw_i2c1.c ****   I2C1->CCR |= 250;
+ 202              		.loc 1 89 13 is_stmt 0 view .LVU64
+ 203 00c2 DA69     		ldr	r2, [r3, #28]
+ 204 00c4 22F47F62 		bic	r2, r2, #4080
+ 205 00c8 22F00F02 		bic	r2, r2, #15
+ 206 00cc DA61     		str	r2, [r3, #28]
+  90:Core/Src/hw_i2c1.c **** 
+ 207              		.loc 1 90 3 is_stmt 1 view .LVU65
+  90:Core/Src/hw_i2c1.c **** 
+ 208              		.loc 1 90 13 is_stmt 0 view .LVU66
+ 209 00ce DA69     		ldr	r2, [r3, #28]
+ 210 00d0 42F0FA02 		orr	r2, r2, #250
+ 211 00d4 DA61     		str	r2, [r3, #28]
+  93:Core/Src/hw_i2c1.c ****   I2C1->TRISE |= 50;
+ 212              		.loc 1 93 3 is_stmt 1 view .LVU67
+  93:Core/Src/hw_i2c1.c ****   I2C1->TRISE |= 50;
+ 213              		.loc 1 93 15 is_stmt 0 view .LVU68
+ 214 00d6 1A6A     		ldr	r2, [r3, #32]
+ 215 00d8 22F03F02 		bic	r2, r2, #63
+ 216 00dc 1A62     		str	r2, [r3, #32]
+  94:Core/Src/hw_i2c1.c **** 
+ 217              		.loc 1 94 3 is_stmt 1 view .LVU69
+  94:Core/Src/hw_i2c1.c **** 
+ 218              		.loc 1 94 15 is_stmt 0 view .LVU70
+ 219 00de 1A6A     		ldr	r2, [r3, #32]
+ 220 00e0 42F03202 		orr	r2, r2, #50
+ 221 00e4 1A62     		str	r2, [r3, #32]
+  97:Core/Src/hw_i2c1.c **** 
+ 222              		.loc 1 97 3 is_stmt 1 view .LVU71
+  97:Core/Src/hw_i2c1.c **** 
+ 223              		.loc 1 97 13 is_stmt 0 view .LVU72
+ 224 00e6 1A68     		ldr	r2, [r3]
+ 225 00e8 2243     		orrs	r2, r2, r4
+ARM GAS  /tmp/ccWvN8JF.s 			page 8
+
+
+ 226 00ea 1A60     		str	r2, [r3]
+ 100:Core/Src/hw_i2c1.c **** 
+ 227              		.loc 1 100 3 is_stmt 1 view .LVU73
+ 228 00ec FFF7FEFF 		bl	i2c1_reset
+ 229              	.LVL2:
+ 102:Core/Src/hw_i2c1.c **** }
+ 230              		.loc 1 102 3 view .LVU74
+ 103:Core/Src/hw_i2c1.c **** 
+ 231              		.loc 1 103 1 is_stmt 0 view .LVU75
+ 232 00f0 0020     		movs	r0, #0
+ 233 00f2 04B0     		add	sp, sp, #16
+ 234              	.LCFI2:
+ 235              		.cfi_def_cfa_offset 16
+ 236              		@ sp needed
+ 237 00f4 70BD     		pop	{r4, r5, r6, pc}
+ 238              	.L7:
+ 239 00f6 00BF     		.align	2
+ 240              	.L6:
+ 241 00f8 00100240 		.word	1073876992
+ 242 00fc 00000000 		.word	.LANCHOR0
+ 243 0100 00000000 		.word	.LANCHOR1
+ 244 0104 00000140 		.word	1073807360
+ 245 0108 00540040 		.word	1073763328
+ 246              		.cfi_endproc
+ 247              	.LFE65:
+ 249              		.section	.text.i2c1_enable,"ax",%progbits
+ 250              		.align	1
+ 251              		.global	i2c1_enable
+ 252              		.syntax unified
+ 253              		.thumb
+ 254              		.thumb_func
+ 256              	i2c1_enable:
+ 257              	.LFB67:
+ 111:Core/Src/hw_i2c1.c **** 
+ 112:Core/Src/hw_i2c1.c **** void i2c1_enable(void)
+ 113:Core/Src/hw_i2c1.c **** {
+ 258              		.loc 1 113 1 is_stmt 1 view -0
+ 259              		.cfi_startproc
+ 260              		@ args = 0, pretend = 0, frame = 0
+ 261              		@ frame_needed = 0, uses_anonymous_args = 0
+ 262              		@ link register save eliminated.
+ 114:Core/Src/hw_i2c1.c ****   I2C1->CR1 |= I2C_CR1_PE;
+ 263              		.loc 1 114 3 view .LVU77
+ 264              		.loc 1 114 13 is_stmt 0 view .LVU78
+ 265 0000 024A     		ldr	r2, .L9
+ 266 0002 1368     		ldr	r3, [r2]
+ 267 0004 43F00103 		orr	r3, r3, #1
+ 268 0008 1360     		str	r3, [r2]
+ 115:Core/Src/hw_i2c1.c **** }
+ 269              		.loc 1 115 1 view .LVU79
+ 270 000a 7047     		bx	lr
+ 271              	.L10:
+ 272              		.align	2
+ 273              	.L9:
+ 274 000c 00540040 		.word	1073763328
+ 275              		.cfi_endproc
+ 276              	.LFE67:
+ARM GAS  /tmp/ccWvN8JF.s 			page 9
+
+
+ 278              		.section	.text.i2c1_disable,"ax",%progbits
+ 279              		.align	1
+ 280              		.global	i2c1_disable
+ 281              		.syntax unified
+ 282              		.thumb
+ 283              		.thumb_func
+ 285              	i2c1_disable:
+ 286              	.LFB68:
+ 116:Core/Src/hw_i2c1.c **** 
+ 117:Core/Src/hw_i2c1.c **** void i2c1_disable(void)
+ 118:Core/Src/hw_i2c1.c **** {
+ 287              		.loc 1 118 1 is_stmt 1 view -0
+ 288              		.cfi_startproc
+ 289              		@ args = 0, pretend = 0, frame = 0
+ 290              		@ frame_needed = 0, uses_anonymous_args = 0
+ 291              		@ link register save eliminated.
+ 119:Core/Src/hw_i2c1.c ****   I2C1->CR1 &= ~I2C_CR1_PE;
+ 292              		.loc 1 119 3 view .LVU81
+ 293              		.loc 1 119 13 is_stmt 0 view .LVU82
+ 294 0000 024A     		ldr	r2, .L12
+ 295 0002 1368     		ldr	r3, [r2]
+ 296 0004 23F00103 		bic	r3, r3, #1
+ 297 0008 1360     		str	r3, [r2]
+ 120:Core/Src/hw_i2c1.c **** }
+ 298              		.loc 1 120 1 view .LVU83
+ 299 000a 7047     		bx	lr
+ 300              	.L13:
+ 301              		.align	2
+ 302              	.L12:
+ 303 000c 00540040 		.word	1073763328
+ 304              		.cfi_endproc
+ 305              	.LFE68:
+ 307              		.section	.text.i2c1_read_byte,"ax",%progbits
+ 308              		.align	1
+ 309              		.global	i2c1_read_byte
+ 310              		.syntax unified
+ 311              		.thumb
+ 312              		.thumb_func
+ 314              	i2c1_read_byte:
+ 315              	.LFB69:
+ 121:Core/Src/hw_i2c1.c **** 
+ 122:Core/Src/hw_i2c1.c **** uint8_t i2c1_read_byte(void)
+ 123:Core/Src/hw_i2c1.c **** {
+ 316              		.loc 1 123 1 is_stmt 1 view -0
+ 317              		.cfi_startproc
+ 318              		@ args = 0, pretend = 0, frame = 0
+ 319              		@ frame_needed = 0, uses_anonymous_args = 0
+ 320              		@ link register save eliminated.
+ 124:Core/Src/hw_i2c1.c **** }
+ 321              		.loc 1 124 1 view .LVU85
+ 322 0000 7047     		bx	lr
+ 323              		.cfi_endproc
+ 324              	.LFE69:
+ 326              		.section	.text.i2c1_read_byte_array,"ax",%progbits
+ 327              		.align	1
+ 328              		.global	i2c1_read_byte_array
+ 329              		.syntax unified
+ARM GAS  /tmp/ccWvN8JF.s 			page 10
+
+
+ 330              		.thumb
+ 331              		.thumb_func
+ 333              	i2c1_read_byte_array:
+ 334              	.LVL3:
+ 335              	.LFB70:
+ 125:Core/Src/hw_i2c1.c **** 
+ 126:Core/Src/hw_i2c1.c **** void i2c1_read_byte_array(uint8_t *data[])
+ 127:Core/Src/hw_i2c1.c **** {
+ 336              		.loc 1 127 1 view -0
+ 337              		.cfi_startproc
+ 338              		@ args = 0, pretend = 0, frame = 0
+ 339              		@ frame_needed = 0, uses_anonymous_args = 0
+ 340              		@ link register save eliminated.
+ 128:Core/Src/hw_i2c1.c **** }
+ 341              		.loc 1 128 1 view .LVU87
+ 342 0000 7047     		bx	lr
+ 343              		.cfi_endproc
+ 344              	.LFE70:
+ 346              		.section	.text.i2c1_write_byte,"ax",%progbits
+ 347              		.align	1
+ 348              		.global	i2c1_write_byte
+ 349              		.syntax unified
+ 350              		.thumb
+ 351              		.thumb_func
+ 353              	i2c1_write_byte:
+ 354              	.LFB71:
+ 129:Core/Src/hw_i2c1.c **** 
+ 130:Core/Src/hw_i2c1.c **** void i2c1_write_byte(uint8_t data)
+ 131:Core/Src/hw_i2c1.c **** {
+ 355              		.loc 1 131 1 view -0
+ 356              		.cfi_startproc
+ 357              		@ args = 0, pretend = 0, frame = 0
+ 358              		@ frame_needed = 0, uses_anonymous_args = 0
+ 359              		@ link register save eliminated.
+ 360              	.LVL4:
+ 361              	.L17:
+ 132:Core/Src/hw_i2c1.c ****   while (!(I2C1->SR1 & (1 << 7)))
+ 133:Core/Src/hw_i2c1.c ****     ; // wait for TXE bit to set
+ 362              		.loc 1 133 5 discriminator 1 view .LVU89
+ 132:Core/Src/hw_i2c1.c ****   while (!(I2C1->SR1 & (1 << 7)))
+ 363              		.loc 1 132 9 discriminator 1 view .LVU90
+ 132:Core/Src/hw_i2c1.c ****   while (!(I2C1->SR1 & (1 << 7)))
+ 364              		.loc 1 132 16 is_stmt 0 discriminator 1 view .LVU91
+ 365 0000 064B     		ldr	r3, .L19
+ 366 0002 5B69     		ldr	r3, [r3, #20]
+ 132:Core/Src/hw_i2c1.c ****   while (!(I2C1->SR1 & (1 << 7)))
+ 367              		.loc 1 132 9 discriminator 1 view .LVU92
+ 368 0004 13F0800F 		tst	r3, #128
+ 369 0008 FAD0     		beq	.L17
+ 134:Core/Src/hw_i2c1.c **** 
+ 135:Core/Src/hw_i2c1.c ****   /* Set register bit */
+ 136:Core/Src/hw_i2c1.c ****   I2C1->DR = data;
+ 370              		.loc 1 136 3 is_stmt 1 view .LVU93
+ 371              		.loc 1 136 12 is_stmt 0 view .LVU94
+ 372 000a 044B     		ldr	r3, .L19
+ 373 000c 1861     		str	r0, [r3, #16]
+ 137:Core/Src/hw_i2c1.c ****   while (!(I2C1->SR1 & (1 << 2)))
+ARM GAS  /tmp/ccWvN8JF.s 			page 11
+
+
+ 374              		.loc 1 137 3 is_stmt 1 view .LVU95
+ 375              	.L18:
+ 138:Core/Src/hw_i2c1.c ****     ; // wait for BTF bit to set
+ 376              		.loc 1 138 5 discriminator 1 view .LVU96
+ 137:Core/Src/hw_i2c1.c ****   while (!(I2C1->SR1 & (1 << 2)))
+ 377              		.loc 1 137 9 discriminator 1 view .LVU97
+ 137:Core/Src/hw_i2c1.c ****   while (!(I2C1->SR1 & (1 << 2)))
+ 378              		.loc 1 137 16 is_stmt 0 discriminator 1 view .LVU98
+ 379 000e 034B     		ldr	r3, .L19
+ 380 0010 5B69     		ldr	r3, [r3, #20]
+ 137:Core/Src/hw_i2c1.c ****   while (!(I2C1->SR1 & (1 << 2)))
+ 381              		.loc 1 137 9 discriminator 1 view .LVU99
+ 382 0012 13F0040F 		tst	r3, #4
+ 383 0016 FAD0     		beq	.L18
+ 139:Core/Src/hw_i2c1.c **** }
+ 384              		.loc 1 139 1 view .LVU100
+ 385 0018 7047     		bx	lr
+ 386              	.L20:
+ 387 001a 00BF     		.align	2
+ 388              	.L19:
+ 389 001c 00540040 		.word	1073763328
+ 390              		.cfi_endproc
+ 391              	.LFE71:
+ 393              		.section	.text.i2c1_write_byte_array,"ax",%progbits
+ 394              		.align	1
+ 395              		.global	i2c1_write_byte_array
+ 396              		.syntax unified
+ 397              		.thumb
+ 398              		.thumb_func
+ 400              	i2c1_write_byte_array:
+ 401              	.LVL5:
+ 402              	.LFB72:
+ 140:Core/Src/hw_i2c1.c **** 
+ 141:Core/Src/hw_i2c1.c **** void i2c1_write_byte_array(uint8_t *data[])
+ 142:Core/Src/hw_i2c1.c **** {
+ 403              		.loc 1 142 1 is_stmt 1 view -0
+ 404              		.cfi_startproc
+ 405              		@ args = 0, pretend = 0, frame = 0
+ 406              		@ frame_needed = 0, uses_anonymous_args = 0
+ 407              		@ link register save eliminated.
+ 143:Core/Src/hw_i2c1.c **** }
+ 408              		.loc 1 143 1 view .LVU102
+ 409 0000 7047     		bx	lr
+ 410              		.cfi_endproc
+ 411              	.LFE72:
+ 413              		.section	.text.i2c_poll,"ax",%progbits
+ 414              		.align	1
+ 415              		.global	i2c_poll
+ 416              		.syntax unified
+ 417              		.thumb
+ 418              		.thumb_func
+ 420              	i2c_poll:
+ 421              	.LFB73:
+ 144:Core/Src/hw_i2c1.c **** 
+ 145:Core/Src/hw_i2c1.c **** /* Come back around to execute pending tasks */
+ 146:Core/Src/hw_i2c1.c **** void i2c_poll(void)
+ 147:Core/Src/hw_i2c1.c **** {
+ARM GAS  /tmp/ccWvN8JF.s 			page 12
+
+
+ 422              		.loc 1 147 1 view -0
+ 423              		.cfi_startproc
+ 424              		@ args = 0, pretend = 0, frame = 0
+ 425              		@ frame_needed = 0, uses_anonymous_args = 0
+ 426              		@ link register save eliminated.
+ 148:Core/Src/hw_i2c1.c **** }...
+ 427              		.loc 1 148 1 view .LVU104
+ 428 0000 7047     		bx	lr
+ 429              		.cfi_endproc
+ 430              	.LFE73:
+ 432              		.section	.bss.i2c1_scl,"aw",%nobits
+ 433              		.align	2
+ 434              		.set	.LANCHOR0,. + 0
+ 437              	i2c1_scl:
+ 438 0000 00000000 		.space	4
+ 439              		.section	.bss.i2c1_sda,"aw",%nobits
+ 440              		.align	2
+ 441              		.set	.LANCHOR1,. + 0
+ 444              	i2c1_sda:
+ 445 0000 00000000 		.space	4
+ 446              		.text
+ 447              	.Letext0:
+ 448              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 449              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 450              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 451              		.file 5 "Core/Inc/hw_stmgpio.h"
+ARM GAS  /tmp/ccWvN8JF.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hw_i2c1.c
-     /tmp/ccAhQZir.s:18     .text.MX_I2C1_Init:0000000000000000 $t
-     /tmp/ccAhQZir.s:24     .text.MX_I2C1_Init:0000000000000000 MX_I2C1_Init
+     /tmp/ccWvN8JF.s:18     .text.i2c1_reset:0000000000000000 $t
+     /tmp/ccWvN8JF.s:24     .text.i2c1_reset:0000000000000000 i2c1_reset
+     /tmp/ccWvN8JF.s:48     .text.i2c1_reset:0000000000000014 $d
+     /tmp/ccWvN8JF.s:53     .text.i2c1_init:0000000000000000 $t
+     /tmp/ccWvN8JF.s:59     .text.i2c1_init:0000000000000000 i2c1_init
+     /tmp/ccWvN8JF.s:241    .text.i2c1_init:00000000000000f8 $d
+     /tmp/ccWvN8JF.s:250    .text.i2c1_enable:0000000000000000 $t
+     /tmp/ccWvN8JF.s:256    .text.i2c1_enable:0000000000000000 i2c1_enable
+     /tmp/ccWvN8JF.s:274    .text.i2c1_enable:000000000000000c $d
+     /tmp/ccWvN8JF.s:279    .text.i2c1_disable:0000000000000000 $t
+     /tmp/ccWvN8JF.s:285    .text.i2c1_disable:0000000000000000 i2c1_disable
+     /tmp/ccWvN8JF.s:303    .text.i2c1_disable:000000000000000c $d
+     /tmp/ccWvN8JF.s:308    .text.i2c1_read_byte:0000000000000000 $t
+     /tmp/ccWvN8JF.s:314    .text.i2c1_read_byte:0000000000000000 i2c1_read_byte
+     /tmp/ccWvN8JF.s:327    .text.i2c1_read_byte_array:0000000000000000 $t
+     /tmp/ccWvN8JF.s:333    .text.i2c1_read_byte_array:0000000000000000 i2c1_read_byte_array
+     /tmp/ccWvN8JF.s:347    .text.i2c1_write_byte:0000000000000000 $t
+     /tmp/ccWvN8JF.s:353    .text.i2c1_write_byte:0000000000000000 i2c1_write_byte
+     /tmp/ccWvN8JF.s:389    .text.i2c1_write_byte:000000000000001c $d
+     /tmp/ccWvN8JF.s:394    .text.i2c1_write_byte_array:0000000000000000 $t
+     /tmp/ccWvN8JF.s:400    .text.i2c1_write_byte_array:0000000000000000 i2c1_write_byte_array
+     /tmp/ccWvN8JF.s:414    .text.i2c_poll:0000000000000000 $t
+     /tmp/ccWvN8JF.s:420    .text.i2c_poll:0000000000000000 i2c_poll
+     /tmp/ccWvN8JF.s:433    .bss.i2c1_scl:0000000000000000 $d
+     /tmp/ccWvN8JF.s:437    .bss.i2c1_scl:0000000000000000 i2c1_scl
+     /tmp/ccWvN8JF.s:440    .bss.i2c1_sda:0000000000000000 $d
+     /tmp/ccWvN8JF.s:444    .bss.i2c1_sda:0000000000000000 i2c1_sda
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+stmgpio_setup_gpio

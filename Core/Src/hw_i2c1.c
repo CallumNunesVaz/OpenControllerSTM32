@@ -25,15 +25,6 @@
 static stmgpio_t *i2c1_scl;
 static stmgpio_t *i2c1_sda;
 
-static uint8_t rx_buf_head;
-static uint8_t tx_buf_head;
-
-static uint8_t rx_buf_tail;
-static uint8_t tx_buf_tail;
-
-static uint8_t rx_buf[BUF_RX_LEN];
-static uint8_t tx_buf[BUF_TX_LEN];
-
 bool i2c1_init(void)
 {
   stmgpio_setup_t i2c1_scl_setup;

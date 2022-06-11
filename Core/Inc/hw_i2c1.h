@@ -41,9 +41,22 @@
 #define BUF_RX_LEN 0x1F
 #define BUF_TX_LEN 0x1F
 
-typdef enum I2C_MASTER_STATES {
-  IDLE,
-  ERROR
-} I2C_MASTER_STATE;
+bool i2c1_init(void);
+
+void i2c1_reset(void);
+
+void i2c1_enable(void);
+
+void i2c1_disable(void);
+
+uint8_t i2c1_read_byte(void);
+
+void i2c1_read_byte_array(uint8_t *data[]);
+
+void i2c1_write_byte(uint8_t data);
+
+void i2c1_write_byte_array(uint8_t *data[]);
+
+void i2c_poll(void);
 
 #endif 
