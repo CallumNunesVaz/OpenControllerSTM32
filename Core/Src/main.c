@@ -20,7 +20,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "mgr_bout.h"
-#include "util_buffer.h"
 
 /**
  * @brief  The application entry point.
@@ -29,13 +28,6 @@
 int main(void)
 {
   uint8_t idx;
-  double data[4];
-  double din[] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0};
-  double dout[16];
-  double d1 = 111.111;
-  double d2 = 222.222;
-  double d3 = 333.333;
-  buffer_t buf;
 
   /* Configure the system clocks */
   hw_system_clocks_init();
@@ -55,31 +47,16 @@ int main(void)
 
   bout_init();
 
-
-  buf_init(&buf, data, sizeof(data));
-
-  buf_wr(&buf, din, sizeof(din));
-  buf_wr(&buf, &d1, sizeof(d1));
-  buf_wr(&buf, &d2, sizeof(d1));
-  buf_wr(&buf, &d3, sizeof(d1));
-
-  buf_rd(&buf, dout, sizeof(dout));
-
-
   /* Main loop */
   while (1)
-  {
-    buf_rd(&buf, dout, sizeof(data));
-
-    
+  {   
     //heartbeat_poll();
     for (idx = 1; idx < 9475; idx++) {
-      //bout_reset_lib();
-      //bout_set(idx);
+      bout_reset_lib();
+      bout_set(idx);
       idx--;
-      //blocking_delay_ms(500);
+      blocking_delay_ms(500);
     }
-    
   }
 }
 

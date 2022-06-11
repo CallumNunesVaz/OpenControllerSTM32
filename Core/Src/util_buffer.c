@@ -38,13 +38,13 @@ int buf_reset(buffer_t *p_buf)
     return EXIT_SUCCESS;
 }
 
-int buf_write(buffer_t *buf, void *data, size_t elem_cnt) {
+int buf_write(buffer_t *buf, void *src_data, size_t elem_cnt) {
 
     void *wr_start_ptr;
     size_t cnt_from_end;
 
     /* Sanity check */
-    if ((NULL == buf) || (NULL == data) || (0 == elem_cnt)) {
+    if ((NULL == buf) || (NULL == src_data) || (0 == elem_cnt)) {
         return EXIT_FAILURE;
     }
 
@@ -56,17 +56,17 @@ int buf_write(buffer_t *buf, void *data, size_t elem_cnt) {
     /* if total write is more than buffer length, only write last section */
     if (elem_cnt > buf->len) {
         /* increment pointer to last section */
-        data += elem_cnt - buf->len;
+        src_data += elem_cnt - buf->len;
         /* we will write entirety of last section */
         elem_cnt = buf->len;
     }
 
     /* Copy data */
     if (elem_cnt > cnt_from_end) {
-        memcpy(wr_start_ptr, data, cnt_from_end);
-        memcpy(buf->data, data, elem_cnt - cnt_from_end);
+        memcpy(wr_start_ptr, src_data, cnt_from_end);
+        memcpy(buf->data, src_data, elem_cnt - cnt_from_end);
     } else {
-        memcpy(wr_start_ptr, data, elem_cnt);
+        memcpy(wr_start_ptr, src_data, elem_cnt);
     }
 
     /* increment head pointer */
@@ -77,10 +77,10 @@ int buf_write(buffer_t *buf, void *data, size_t elem_cnt) {
     return EXIT_SUCCESS;
 }
 
-int buf_read(buffer_t *buf, void *data, size_t elem_cnt) {
+int buf_read(buffer_t *buf, void *dest_data, size_t elem_cnt) {
 
     /* Sanity check */
-    if (EXIT_FAILURE == buf_peek(buf, data, elem_cnt)) {
+    if (EXIT_FAILURE == buf_peek(buf, dest_data, elem_cnt)) {
         return EXIT_FAILURE;
     }
 
@@ -92,13 +92,13 @@ int buf_read(buffer_t *buf, void *data, size_t elem_cnt) {
     return EXIT_SUCCESS;
 }
 
-int buf_peek(buffer_t *buf, void *data, size_t elem_cnt) {
+int buf_peek(buffer_t *buf, void *dest_data, size_t elem_cnt) {
 
     void *rd_start_ptr;
     size_t cnt_from_end;
 
     /* Sanity check */
-    if ((NULL == buf) || (NULL == data) || (0 == elem_cnt)) {
+    if ((NULL == buf) || (NULL == dest_data) || (0 == elem_cnt)) {
         return EXIT_FAILURE;
     }
 
@@ -114,10 +114,10 @@ int buf_peek(buffer_t *buf, void *data, size_t elem_cnt) {
 
     /* Copy data */
     if (elem_cnt > cnt_from_end) {
-        memcpy(data, rd_start_ptr, cnt_from_end);
-        memcpy(data, buf->data, elem_cnt - cnt_from_end);
+        memcpy(dest_data, rd_start_ptr, cnt_from_end);
+        memcpy(dest_data, buf->data, elem_cnt - cnt_from_end);
     } else {
-        memcpy(data, rd_start_ptr, elem_cnt);
+        memcpy(dest_data, rd_start_ptr, elem_cnt);
     }
 
     /* yay */

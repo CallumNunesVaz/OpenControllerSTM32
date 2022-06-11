@@ -27,6 +27,7 @@
 #include "stm32f103xb.h"
 #include "hw_systick.h"
 #include "hw_stmgpio.h"
+#include "util_buffer.h"
 #include <stdbool.h>
 #include <stdlib.h>
 
@@ -38,10 +39,10 @@
 
 #define APB_BUS_FREQ_MHZ 50
 
-#define BUF_RX_LEN 0x1F
-#define BUF_TX_LEN 0x1F
+#define BUF_RX_LEN 0xFF
+#define BUF_TX_LEN 0xFF
 
-bool i2c1_init(void);
+int i2c1_init(void);
 
 void i2c1_reset(void);
 
@@ -51,11 +52,11 @@ void i2c1_disable(void);
 
 uint8_t i2c1_read_byte(void);
 
-void i2c1_read_byte_array(uint8_t *data[]);
+void i2c1_read_byte_array(uint8_t *data[], size_t len);
 
 void i2c1_write_byte(uint8_t data);
 
-void i2c1_write_byte_array(uint8_t *data[]);
+void i2c1_write_byte_array(uint8_t *data[], size_t len);
 
 void i2c_poll(void);
 

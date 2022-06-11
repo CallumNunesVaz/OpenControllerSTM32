@@ -22,13 +22,29 @@
 
 // https://controllerstech.com/stm32-i2c-configuration-using-registers/
 
+/* buffer data storage and buffer handlers */
+static buffer_t buf_tx;
+static buffer_t buf_rx;
+static uint8_t buf_tx_data[BUF_TX_LEN];
+static uint8_t buf_rx_data[BUF_RX_LEN];
+
+/* GPIO handlers */
 static stmgpio_t *i2c1_scl;
 static stmgpio_t *i2c1_sda;
 
-bool i2c1_init(void)
+int i2c1_init(void)
 {
+  /* We only need these during init */
   stmgpio_setup_t i2c1_scl_setup;
   stmgpio_setup_t i2c1_sda_setup;
+
+  /* Initialise buffers */
+  if (EXIT_FAILURE == buf_init(&buf_tx, buf_tx_data, sizeof(buf_tx_data))) {
+    return EXIT_FAILURE;
+  }
+  if (EXIT_FAILURE == buf_init(&buf_rx, buf_rx_data, sizeof(buf_rx_data))) {
+    return EXIT_FAILURE;
+  }
 
   /* Enable the I2C1 clock */
   RCC->APB1ENR |= RCC_APB1ENR_I2C1EN;
@@ -51,7 +67,7 @@ bool i2c1_init(void)
   i2c1_sda_setup.pull = PULLUP;
   i2c1_sda = stmgpio_setup_gpio(&i2c1_sda_setup);
 
-  /* Set the remap for i2c1 */
+  /* Set the pin remap for i2c1 */
   AFIO->MAPR |= AFIO_MAPR_I2C1_REMAP;
 
   /* Disable i2c1 peripheral to apply settings */
@@ -123,7 +139,7 @@ uint8_t i2c1_read_byte(void)
 {
 }
 
-void i2c1_read_byte_array(uint8_t *data[])
+void i2c1_read_byte_array(uint8_t *data[], size_t len)
 {
 }
 
@@ -138,11 +154,13 @@ void i2c1_write_byte(uint8_t data)
     ; // wait for BTF bit to set
 }
 
-void i2c1_write_byte_array(uint8_t *data[])
+void i2c1_write_byte_array(uint8_t *data[], size_t len)
 {
+  buf_write(&buf_tx, data, len);
 }
 
 /* Come back around to execute pending tasks */
 void i2c_poll(void)
 {
+  /* if sending, send. etc */
 }
