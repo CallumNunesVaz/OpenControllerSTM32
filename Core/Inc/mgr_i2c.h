@@ -32,24 +32,15 @@
 
 #define I2C_MSG_BUF_LEN 0x0F
 
-typedef enum i2c_states {
-  I2C_IDLE,
-  I2C_START,
-  I2C_TX,
-  I2C_RX,
-  I2C_STOP,
-  I2C_ERROR,
-  I2C_STATE_CNT
-} i2c_state;
-
-typedef enum i2c_events {
+/*  */
+typedef enum i2c_event {
   I2C_NEW_DATA,
   I2C_START_FIN,
   I2C_TX_FIN,
   I2C_RX_FIN,
   I2C_STOP_FIN,
   I2C_EVENT_CNT
-} i2c_event;
+} i2c_event_t;
 
 /* message structure for master-sent packets */
 typedef struct i2c_msg {
@@ -83,18 +74,18 @@ void i2c_write_byte(uint8_t data);
 
 void i2c_write_byte_array(uint8_t *data[], size_t len);
 
-void i2c_poll(void);
+void i2c_poll_fsm(void);
 
-void i2c_state_idle(state_exec_class_t class);
+void i2c_state_idle(void);
 
-void i2c_state_start(state_exec_class_t class);
+void i2c_state_start_bit(void);
 
-void i2c_state_tx(state_exec_class_t class);
+void i2c_state_tx_byte(void);
 
-void i2c_state_rx(state_exec_class_t class);
+void i2c_state_rx_byte(void);
 
-void i2c_state_stop(state_exec_class_t class);
+void i2c_state_stop_bit(void);
 
-void i2c_state_error(state_exec_class_t class);
+void i2c_state_error(void);
 
 #endif 

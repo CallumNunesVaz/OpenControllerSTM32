@@ -4,36 +4,37 @@
 
 #include "util_buffer.h"
 
-int buf_init(buffer_t *p_buf, void *p_data, size_t p_len)
+int buf_init(buffer_t *buf, void *data, size_t len)
 {
     /* Sanity check */
-    if ((NULL == p_buf) || (NULL == p_data) || (0 == p_len)) {
+    if ((NULL == buf) || (NULL == data) || (0 == len)) {
         return EXIT_FAILURE;
     }
 
     /* link pointers */
-    p_buf->data = p_data;
-    p_buf->len = p_len;
+    buf->data = data;
+    buf->len = len;
 
     /* Reset buffer */
-    buf_reset(p_buf);
+    buf_reset(buf);
 
     return EXIT_SUCCESS;
 }
 
-int buf_reset(buffer_t *p_buf)
+int buf_reset(buffer_t *buf)
 {
     /* Sanity check */
-    if (NULL == p_buf) {
+    if (NULL == buf) {
         return EXIT_FAILURE;
     }
 
     /* Clear data in buffer */
-    memset(p_buf->data, 0x00, p_buf->len);
+    memset(buf->data, 0x00, buf->len);
 
     /* link pointers */
-    p_buf->head = 0;
-    p_buf->tail = 0;
+    buf->head = 0;
+    buf->tail = 0;
+    buf->cnt = 0;
 
     return EXIT_SUCCESS;
 }

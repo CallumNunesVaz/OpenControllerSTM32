@@ -2,55 +2,64 @@
 #include "mgr_i2c.h"
 
 /* buffer data storage and buffer handlers */
-static buffer_t i2c_cmd_buf;
-static i2c_msg_t i2c_cmd_buf_data[I2C_MSG_BUF_LEN];
+static buffer_t msg_buf;
+static i2c_msg_t i2c_msg_buf_data[I2C_MSG_BUF_LEN];
 
+/* storage for working message */
 static i2c_msg_t msg_cur;
-
-static bool send_immediatly;
+static i2c_event_t last_evt;
 
 /* state transitions */
-static void (*current_state)(void);
-static state_exec_class_t state_exec;
-static trans_t i2c_transitions[] = {
-  {i2c_state_idle,  I2C_NEW_DATA,   i2c_state_start},
-  {i2c_state_start, I2C_START_FIN,  i2c_state_tx},
-  {i2c_state_tx,    I2C_TX_FIN,     i2c_state_tx},
-  {i2c_state_start, I2C_RX_FIN,     i2c_state_tx},
-  {i2c_state_start, I2C_STOP_FIN,   i2c_state_tx}
-};
+static void (*cur_state)(void);
+static trans_t trans_tab[] = {
+    {i2c_state_idle, I2C_NEW_DATA, i2c_state_start_bit},
+    {i2c_state_start_bit, I2C_START_FIN, i2c_state_tx_byte},
+    {i2c_state_tx_byte, I2C_TX_FIN, i2c_state_tx_byte},
+    {i2c_state_start_bit, I2C_RX_FIN, i2c_state_tx_byte},
+    {i2c_state_start_bit, I2C_STOP_FIN, i2c_state_tx_byte}};
 
-
-void i2c_queue_msg(i2c_msg_t *msg){
+/* message queue */
+void i2c_queue_msg(i2c_msg_t *msg)
+{
   /* write message to the buffer */
-  buf_write(&i2c_cmd_buf, msg, sizeof(i2c_msg_t));
+  buf_write(&msg_buf, msg, sizeof(i2c_msg_t));
   /* poll in case we can start this instantly */
-  i2c_poll();
+  i2c_poll_fsm();
 }
 
-void i2c_state_transition(void){
-  /* perform clean up */
-  state_exec = STATE_EXEC_EXIT;
+void i2c_state_transition(void)
+{
+  static uint8_t idx;
+
+  /* Find state transition action */
+  for (idx = 0; idx < sizeof(trans_tab); idx++)
+  {
+    if ((cur_state == trans_tab[idx].func_ptr_cur) && (trans_tab[idx].evt == last_evt))
+    {
+      cur_state = trans_tab[idx].func_ptr_new;
+    }
+  }
+  /* If no find, then oh no! */
+  if (sizeof(trans_tab) <= idx)
+  {
+    cur_state = i2c_state_error;
+  }
 }
 
 int i2c_init(void)
 {
-  i2c_set_send_immediatly(true);
-
-  //init_trans(&t1, (int)I2C_NEW_DATA, i2c_disable, i2c_disable);
-  current_state = i2c_state_idle;
-  state_exec = STATE_EXEC_ENTRY;
+  // init_trans(&t1, (int)I2C_NEW_DATA, i2c_disable, i2c_disable);
+  cur_state = i2c_state_idle;
 
   /* Initialise i2c driver */
-  if (EXIT_FAILURE == i2c1_init()) {
+  if (EXIT_FAILURE == i2c1_init())
+  {
     return EXIT_FAILURE;
   }
-  
-  /* Initialise buffers */
-  if (EXIT_FAILURE == buf_init(&buf_tx, buf_tx_data, sizeof(buf_tx_data))) {
-    return EXIT_FAILURE;
-  }
-  if (EXIT_FAILURE == buf_init(&buf_rx, buf_rx_data, sizeof(buf_rx_data))) {
+
+  /* Initialise buffer */
+  if (EXIT_FAILURE == buf_init(&msg_buf, i2c_msg_buf_data, sizeof(i2c_msg_buf_data)))
+  {
     return EXIT_FAILURE;
   }
 
@@ -66,8 +75,7 @@ void i2c_reset(void)
   i2c1_reset();
 
   /* reset buffers */
-  buf_reset(&buf_tx);
-  buf_reset(&buf_rx);
+  buf_reset(&msg_buf);
 }
 
 void i2c_enable(void)
@@ -84,51 +92,59 @@ void i2c_disable(void)
 
 uint8_t i2c_read(void)
 {
-  
 }
 
 void i2c_write(uint8_t data)
 {
-
 }
 
 /* Come back around to execute pending tasks */
-void i2c_poll(void)
+void i2c_poll_fsm(void)
 {
-  /* Do something if buffer not empty or already doing something */
-  if ((!buf_is_empty(&i2c_cmd_buf)) || (i2c_state_idle != current_state)){
-
-  }
+  cur_state();
 }
 
-void i2c_state_idle(void){
-  switch (class)
+void i2c_state_idle(void)
+{
+  /* Do something if buffer not empty */
+  if (!buf_is_empty(&msg_buf))
   {
-  case STATE_EXEC_ENTRY:
-    /* code */
-    break;
-  case STATE_EXEC_RECUR:
-    /* code */
-    break;
-  case STATE_EXEC_EXIT:
-    /* code */
-    break;
-  default:
-    break;
+    last_evt = I2C_NEW_DATA;
+    buf_read(&msg_buf, &msg_cur, sizeof(i2c_msg_t));
+  }
+
+  /* Transition to next state */
+  i2c_state_transition();
+}
+
+void i2c_state_start_bit(void)
+{
+  /* trigger start bit */
+  i2c1_start();
+
+  /* if start bit has finished */
+  if (false) {
+    last_evt = I2C_START_FIN;
+    /* Transition to next state */
+    i2c_state_transition();
   }
 }
 
-void i2c_state_start(void){
+void i2c_state_tx_byte(void)
+{
+  while (0 < msg_cur.n_send) {
+    msg_cur.n_send--;
+  }
 }
 
-void i2c_state_tx(void){
+void i2c_state_rx_byte(void)
+{
 }
 
-void i2c_state_rx(void){
+void i2c_state_stop_bit(void)
+{
 }
 
-void i2c_state_stop(void){
-}
-
-void i2c_state_error(void){
+void i2c_state_error(void)
+{
 }
