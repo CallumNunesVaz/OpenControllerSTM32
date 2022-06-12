@@ -100,39 +100,27 @@ Discarded input sections
  .text.i2c1_reset
                 0x0000000000000000       0x18 build/hw_i2c1.o
  .text.i2c1_init
-                0x0000000000000000      0x130 build/hw_i2c1.o
+                0x0000000000000000      0x10c build/hw_i2c1.o
  .text.i2c1_enable
                 0x0000000000000000       0x10 build/hw_i2c1.o
  .text.i2c1_disable
                 0x0000000000000000       0x10 build/hw_i2c1.o
- .text.i2c1_read_byte
+ .text.i2c1_read
                 0x0000000000000000        0x2 build/hw_i2c1.o
- .text.i2c1_read_byte_array
-                0x0000000000000000        0x2 build/hw_i2c1.o
- .text.i2c1_write_byte
+ .text.i2c1_write
                 0x0000000000000000       0x20 build/hw_i2c1.o
- .text.i2c1_write_byte_array
-                0x0000000000000000       0x14 build/hw_i2c1.o
- .text.i2c_poll
-                0x0000000000000000        0x2 build/hw_i2c1.o
- .bss.buf_rx    0x0000000000000000        0xc build/hw_i2c1.o
- .bss.buf_rx_data
-                0x0000000000000000       0xff build/hw_i2c1.o
- .bss.buf_tx    0x0000000000000000        0xc build/hw_i2c1.o
- .bss.buf_tx_data
-                0x0000000000000000       0xff build/hw_i2c1.o
  .bss.i2c1_scl  0x0000000000000000        0x4 build/hw_i2c1.o
  .bss.i2c1_sda  0x0000000000000000        0x4 build/hw_i2c1.o
- .debug_info    0x0000000000000000      0x82b build/hw_i2c1.o
- .debug_abbrev  0x0000000000000000      0x21f build/hw_i2c1.o
- .debug_loc     0x0000000000000000       0xd1 build/hw_i2c1.o
+ .debug_info    0x0000000000000000      0x62a build/hw_i2c1.o
+ .debug_abbrev  0x0000000000000000      0x1bb build/hw_i2c1.o
+ .debug_loc     0x0000000000000000       0x4d build/hw_i2c1.o
  .debug_aranges
-                0x0000000000000000       0x60 build/hw_i2c1.o
- .debug_ranges  0x0000000000000000       0x50 build/hw_i2c1.o
- .debug_line    0x0000000000000000      0x4bc build/hw_i2c1.o
- .debug_str     0x0000000000000000      0x4f5 build/hw_i2c1.o
+                0x0000000000000000       0x48 build/hw_i2c1.o
+ .debug_ranges  0x0000000000000000       0x38 build/hw_i2c1.o
+ .debug_line    0x0000000000000000      0x3b9 build/hw_i2c1.o
+ .debug_str     0x0000000000000000      0x443 build/hw_i2c1.o
  .comment       0x0000000000000000       0x44 build/hw_i2c1.o
- .debug_frame   0x0000000000000000       0xbc build/hw_i2c1.o
+ .debug_frame   0x0000000000000000       0x84 build/hw_i2c1.o
  .ARM.attributes
                 0x0000000000000000       0x2d build/hw_i2c1.o
  .text          0x0000000000000000        0x0 build/hw_spi2.o
@@ -240,6 +228,42 @@ Discarded input sections
  .debug_frame   0x0000000000000000       0x50 build/mgr_hv.o
  .ARM.attributes
                 0x0000000000000000       0x2d build/mgr_hv.o
+ .text          0x0000000000000000        0x0 build/mgr_i2c.o
+ .data          0x0000000000000000        0x0 build/mgr_i2c.o
+ .bss           0x0000000000000000        0x0 build/mgr_i2c.o
+ .text.i2c_reset
+                0x0000000000000000       0x1c build/mgr_i2c.o
+ .text.i2c_init
+                0x0000000000000000       0x40 build/mgr_i2c.o
+ .text.i2c_enable
+                0x0000000000000000        0x8 build/mgr_i2c.o
+ .text.i2c_disable
+                0x0000000000000000        0x8 build/mgr_i2c.o
+ .text.i2c_read
+                0x0000000000000000        0x2 build/mgr_i2c.o
+ .text.i2c_write
+                0x0000000000000000        0x2 build/mgr_i2c.o
+ .text.i2c_poll
+                0x0000000000000000        0x2 build/mgr_i2c.o
+ .bss.buf_rx    0x0000000000000000        0xc build/mgr_i2c.o
+ .bss.buf_rx_data
+                0x0000000000000000       0xff build/mgr_i2c.o
+ .bss.buf_tx    0x0000000000000000        0xc build/mgr_i2c.o
+ .bss.buf_tx_data
+                0x0000000000000000       0xff build/mgr_i2c.o
+ .bss.t1        0x0000000000000000        0xc build/mgr_i2c.o
+ .debug_info    0x0000000000000000      0x3e1 build/mgr_i2c.o
+ .debug_abbrev  0x0000000000000000      0x1c0 build/mgr_i2c.o
+ .debug_loc     0x0000000000000000       0x80 build/mgr_i2c.o
+ .debug_aranges
+                0x0000000000000000       0x50 build/mgr_i2c.o
+ .debug_ranges  0x0000000000000000       0x40 build/mgr_i2c.o
+ .debug_line    0x0000000000000000      0x269 build/mgr_i2c.o
+ .debug_str     0x0000000000000000      0x27c build/mgr_i2c.o
+ .comment       0x0000000000000000       0x44 build/mgr_i2c.o
+ .debug_frame   0x0000000000000000       0xa0 build/mgr_i2c.o
+ .ARM.attributes
+                0x0000000000000000       0x2d build/mgr_i2c.o
  .text          0x0000000000000000        0x0 build/stm32f1xx_it.o
  .data          0x0000000000000000        0x0 build/stm32f1xx_it.o
  .bss           0x0000000000000000        0x0 build/stm32f1xx_it.o
@@ -268,11 +292,28 @@ Discarded input sections
                 0x0000000000000000       0x40 build/util_buffer.o
  .debug_ranges  0x0000000000000000       0x30 build/util_buffer.o
  .debug_line    0x0000000000000000      0x467 build/util_buffer.o
- .debug_str     0x0000000000000000      0x242 build/util_buffer.o
+ .debug_str     0x0000000000000000      0x255 build/util_buffer.o
  .comment       0x0000000000000000       0x44 build/util_buffer.o
  .debug_frame   0x0000000000000000       0xdc build/util_buffer.o
  .ARM.attributes
                 0x0000000000000000       0x2d build/util_buffer.o
+ .text          0x0000000000000000        0x0 build/util_fsm.o
+ .data          0x0000000000000000        0x0 build/util_fsm.o
+ .bss           0x0000000000000000        0x0 build/util_fsm.o
+ .text.init_trans
+                0x0000000000000000       0x1c build/util_fsm.o
+ .debug_info    0x0000000000000000      0x12e build/util_fsm.o
+ .debug_abbrev  0x0000000000000000       0xd2 build/util_fsm.o
+ .debug_loc     0x0000000000000000       0x7c build/util_fsm.o
+ .debug_aranges
+                0x0000000000000000       0x20 build/util_fsm.o
+ .debug_ranges  0x0000000000000000       0x10 build/util_fsm.o
+ .debug_line    0x0000000000000000       0x9e build/util_fsm.o
+ .debug_str     0x0000000000000000      0x1a2 build/util_fsm.o
+ .comment       0x0000000000000000       0x44 build/util_fsm.o
+ .debug_frame   0x0000000000000000       0x20 build/util_fsm.o
+ .ARM.attributes
+                0x0000000000000000       0x2d build/util_fsm.o
  .text          0x0000000000000000       0x14 build/startup_stm32f103xb.o
  .data          0x0000000000000000        0x0 build/startup_stm32f103xb.o
  .bss           0x0000000000000000        0x0 build/startup_stm32f103xb.o
@@ -439,9 +480,11 @@ LOAD build/main.o
 LOAD build/mgr_bout.o
 LOAD build/mgr_hearbeat.o
 LOAD build/mgr_hv.o
+LOAD build/mgr_i2c.o
 LOAD build/stm32f1xx_it.o
 LOAD build/system_stm32f1xx.o
 LOAD build/util_buffer.o
+LOAD build/util_fsm.o
 LOAD build/startup_stm32f103xb.o
 LOAD /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a
 LOAD /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libm.a
@@ -1266,12 +1309,12 @@ bout_start                                        build/mgr_bout.o
 bout_stop                                         build/mgr_bout.o
 bout_tick_callback                                build/mgr_bout.o
 buf_init                                          build/util_buffer.o
-                                                  build/hw_i2c1.o
+                                                  build/mgr_i2c.o
 buf_peek                                          build/util_buffer.o
 buf_read                                          build/util_buffer.o
 buf_reset                                         build/util_buffer.o
+                                                  build/mgr_i2c.o
 buf_write                                         build/util_buffer.o
-                                                  build/hw_i2c1.o
 cleanup_glue                                      /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-reent.o)
 end                                               /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a(sbrk.o)
 errno                                             /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-reent.o)
@@ -1316,14 +1359,23 @@ hw_systick_start                                  build/hw_systick.o
                                                   build/main.o
 hw_systick_stop                                   build/hw_systick.o
 i2c1_disable                                      build/hw_i2c1.o
+                                                  build/mgr_i2c.o
 i2c1_enable                                       build/hw_i2c1.o
+                                                  build/mgr_i2c.o
 i2c1_init                                         build/hw_i2c1.o
-i2c1_read_byte                                    build/hw_i2c1.o
-i2c1_read_byte_array                              build/hw_i2c1.o
+                                                  build/mgr_i2c.o
+i2c1_read                                         build/hw_i2c1.o
 i2c1_reset                                        build/hw_i2c1.o
-i2c1_write_byte                                   build/hw_i2c1.o
-i2c1_write_byte_array                             build/hw_i2c1.o
-i2c_poll                                          build/hw_i2c1.o
+                                                  build/mgr_i2c.o
+i2c1_write                                        build/hw_i2c1.o
+i2c_disable                                       build/mgr_i2c.o
+i2c_enable                                        build/mgr_i2c.o
+i2c_init                                          build/mgr_i2c.o
+i2c_poll                                          build/mgr_i2c.o
+i2c_read                                          build/mgr_i2c.o
+i2c_reset                                         build/mgr_i2c.o
+i2c_write                                         build/mgr_i2c.o
+init_trans                                        build/util_fsm.o
 main                                              build/main.o
                                                   build/startup_stm32f103xb.o
                                                   /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o
@@ -1346,3 +1398,4 @@ stmgpio_setup_gpio                                build/hw_stmgpio.o
 stmgpio_write                                     build/hw_stmgpio.o
                                                   build/mgr_hearbeat.o
                                                   build/mgr_bout.o
+t1                                                build/mgr_i2c.o

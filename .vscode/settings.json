@@ -13,7 +13,8 @@
         "hw_usart2.h": "c",
         "hw_usart3.h": "c",
         "system_stm32f1xx.h": "c",
-        "hw_stmgpio.h": "c"
+        "hw_stmgpio.h": "c",
+        "cstdlib": "cpp"
     },
     "cortex-debug.variableUseNaturalFormat": true
 }

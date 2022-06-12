@@ -69,9 +69,10 @@ int buf_write(buffer_t *buf, void *src_data, size_t elem_cnt) {
         memcpy(wr_start_ptr, src_data, elem_cnt);
     }
 
-    /* increment head pointer */
-    buf->head += elem_cnt;
+    /* increment head pointer and count */
+    buf->head += elem_cnt;   
     buf->head %= buf->len;
+    buf->cnt += elem_cnt;
 
     /* yay */
     return EXIT_SUCCESS;
@@ -84,9 +85,10 @@ int buf_read(buffer_t *buf, void *dest_data, size_t elem_cnt) {
         return EXIT_FAILURE;
     }
 
-    /* increment head pointer */
+    /* increment tail pointer, lessen count */
     buf->tail += elem_cnt;
     buf->tail %= buf->len;
+    buf->cnt -= elem_cnt;
 
     /* yay */
     return EXIT_SUCCESS;
@@ -122,4 +124,26 @@ int buf_peek(buffer_t *buf, void *dest_data, size_t elem_cnt) {
 
     /* yay */
     return EXIT_SUCCESS;
+}
+
+bool buf_is_empty(buffer_t *buf) {
+    return (0 == buf->cnt);
+}
+
+size_t buf_get_free_elem(buffer_t *buf) {
+    /* if overflow */
+    if (buf->cnt > buf->len) {
+        return 0;
+    } else {
+        return (buf->len - buf->cnt);
+    }
+}
+
+size_t buf_get_free_data(buffer_t *buf, size_t size_of_data) {
+    /* if overflow */
+    if (buf->cnt > buf->len) {
+        return 0;
+    } else {
+        return (buf->len - buf->cnt) / size_of_data;
+    }
 }
