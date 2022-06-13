@@ -52,16 +52,10 @@ int i2c_init(void)
   cur_state = i2c_state_idle;
 
   /* Initialise i2c driver */
-  if (EXIT_FAILURE == i2c1_init())
-  {
-    return EXIT_FAILURE;
-  }
+  RET_ON_FAIL(i2c1_init())
 
   /* Initialise buffer */
-  if (EXIT_FAILURE == buf_init(&msg_buf, i2c_msg_buf_data, sizeof(i2c_msg_buf_data)))
-  {
-    return EXIT_FAILURE;
-  }
+  RET_ON_FAIL(buf_init(&msg_buf, i2c_msg_buf_data, sizeof(i2c_msg_buf_data)))
 
   /* Trigger reset before first usage */
   i2c_reset();
@@ -147,4 +141,5 @@ void i2c_state_stop_bit(void)
 
 void i2c_state_error(void)
 {
+  while(1);
 }

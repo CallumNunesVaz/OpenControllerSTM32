@@ -1,22 +1,3 @@
-/* USER CODE BEGIN Header */
-/**
- ******************************************************************************
- * @file           : main.c
- * @brief          : Main program body
- ******************************************************************************
- * @attention
- *
- * <h2><center>&copy; Copyright (c) 2022 STMicroelectronics.
- * All rights reserved.</center></h2>
- *
- * This software component is licensed by ST under BSD 3-Clause license,
- * the "License"; You may not use this file except in compliance with the
- * License. You may obtain a copy of the License at:
- *                        opensource.org/licenses/BSD-3-Clause
- *
- ******************************************************************************
- */
-/* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "hw_i2c1.h"
 
@@ -31,6 +12,14 @@ int i2c1_init(void)
   /* We only need these during init */
   stmgpio_setup_t i2c1_scl_setup;
   stmgpio_setup_t i2c1_sda_setup;
+
+  /* register interrupt handlers */
+  RET_ON_FAIL(IRQ_SetHandler(I2C1_EV_IRQn, i2c1_ev_irq_handler));
+  RET_ON_FAIL(IRQ_SetPriority(I2C1_EV_IRQn, I2C1_EV_IRQ_PRIORITY));
+  RET_ON_FAIL(IRQ_Enable(I2C1_EV_IRQn));
+  RET_ON_FAIL(IRQ_SetHandler(I2C1_ER_IRQn, i2c1_er_irq_handler));
+  RET_ON_FAIL(IRQ_SetPriority(I2C1_ER_IRQn, I2C1_ER_IRQ_PRIORITY));
+  RET_ON_FAIL(IRQ_Enable(I2C1_ER_IRQn));
 
   /* Enable the I2C1 clock */
   RCC->APB1ENR |= RCC_APB1ENR_I2C1EN;
@@ -99,26 +88,31 @@ int i2c1_init(void)
   I2C1->CR1 |= I2C_CR1_PE;
 
   /* Trigger reset before first usage */
-  i2c1_reset();
+  i2c1_reset_periph();
 
   return EXIT_SUCCESS;
 }
 
-void i2c1_reset(void)
+void i2c1_reset_periph(void)
 {
   I2C1->CR1 |= I2C_CR1_SWRST;
   // make sure the I2C lines are released and the bus is free
   I2C1->CR1 &= ~I2C_CR1_SWRST;
 }
 
-void i2c1_enable(void)
+void i2c1_enable_periph(void)
 {
   I2C1->CR1 |= I2C_CR1_PE;
 }
 
-void i2c1_disable(void)
+void i2c1_disable_periph(void)
 {
   I2C1->CR1 &= ~I2C_CR1_PE;
+}
+
+void i2c1_start(void) {
+  I2C1->CR1 |= I2C_CR1_ACK;
+  I2C1->CR1 |= I2C_CR1_START;
 }
 
 uint8_t i2c1_read(void)
@@ -128,11 +122,24 @@ uint8_t i2c1_read(void)
 
 void i2c1_write(uint8_t data)
 {
-  while (!(I2C1->SR1 & (1 << 7)))
-    ; // wait for TXE bit to set
+  while (!(I2C1->SR1 & (1 << 7))); // wait for TXE bit to set
 
   /* Set register bit */
   I2C1->DR = data;
   while (!(I2C1->SR1 & (1 << 2)))
     ; // wait for BTF bit to set
+}
+
+/* I2C1 event handler */
+void i2c1_ev_irq_handler(void){
+
+  IRQ_ClearPending(I2C1_EV_IRQn);
+  IRQ_EndOfInterrupt (I2C1_EV_IRQn);
+}
+
+/* I2C1 error handler */
+void i2c1_er_irq_handler(void){
+
+  IRQ_ClearPending(I2C1_ER_IRQn);
+  IRQ_EndOfInterrupt (I2C1_ER_IRQn);
 }

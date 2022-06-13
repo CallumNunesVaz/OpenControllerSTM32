@@ -14,7 +14,10 @@
         "hw_usart3.h": "c",
         "system_stm32f1xx.h": "c",
         "hw_stmgpio.h": "c",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "*.tcc": "cpp",
+        "typeinfo": "cpp",
+        "stdlib.h": "c"
     },
     "cortex-debug.variableUseNaturalFormat": true
 }

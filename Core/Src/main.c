@@ -28,6 +28,7 @@
 int main(void)
 {
   uint8_t idx;
+  uint8_t error_cnt = 0;
 
   /* Configure the system clocks */
   hw_system_clocks_init();
@@ -43,9 +44,23 @@ int main(void)
     heartbeat_set_poll_mode(false);
     heartbeat_set_period_ms(1000);
     heartbeat_start();
+  } else {
+    error_cnt++;
   }
 
-  bout_init();
+  /* Initialise binary outputs */
+  if (EXIT_SUCCESS == bout_init()) {
+
+  } else {
+    error_cnt++;
+  }
+
+  /* Initialise all interrupts */
+  if (EXIT_SUCCESS == IRQ_Initialize()) {
+
+  } else {
+    error_cnt++;
+  }
 
   /* Main loop */
   while (1)

@@ -27,6 +27,7 @@
 #include "stm32f103xb.h"
 #include "hw_systick.h"
 #include "util_buffer.h"
+#include "util_common.h"
 #include "util_fsm.h"
 #include <stdlib.h>
 
