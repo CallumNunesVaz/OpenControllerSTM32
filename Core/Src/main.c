@@ -21,6 +21,11 @@
 #include "main.h"
 #include "mgr_bout.h"
 
+/* Debug info */
+#ifdef DEBUG_EN
+static const char DBG_LIB_NAME[] = "hw_i2c1";
+#endif
+
 /**
  * @brief  The application entry point.
  * @retval int
@@ -44,23 +49,20 @@ int main(void)
     heartbeat_set_poll_mode(false);
     heartbeat_set_period_ms(1000);
     heartbeat_start();
-  } else {
-    error_cnt++;
   }
 
   /* Initialise binary outputs */
-  if (EXIT_SUCCESS == bout_init()) {
-
-  } else {
-    error_cnt++;
-  }
+  bout_init();
 
   /* Initialise all interrupts */
   if (EXIT_SUCCESS == IRQ_Initialize()) {
-
+    dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_LIB_NAME, sizeof(DBG_LIB_NAME));
   } else {
-    error_cnt++;
+    dbg_log(DBG_TYPE_ERROR, DBG_CODE_INIT, DBG_LIB_NAME, sizeof(DBG_LIB_NAME));
   }
+
+  /* Initialised everything! */
+  dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_LIB_NAME, sizeof(DBG_LIB_NAME));
 
   /* Main loop */
   while (1)

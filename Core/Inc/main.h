@@ -38,6 +38,7 @@ extern "C" {
 #include "hw_systick.h"
 #include <stdint.h>
 #include <stdlib.h>
+#include "util_error.h"
 
 #include "mgr_heartbeat.h"
 

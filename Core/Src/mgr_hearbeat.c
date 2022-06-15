@@ -27,7 +27,7 @@ static uint16_t heartbeat_period_ms;
 
 static uint32_t state_snapshot;
 
-static stmgpio_t *led;
+static stmgpio_t *gpio_led;
 
 static hb_mode_t hb_mode;
 
@@ -39,20 +39,12 @@ volatile static bool poll_mode;
 
 int heartbeat_init(void)
 {
-    /* Use special gpio setup */
-    stmgpio_setup_t hbled_setup;
-
-    hbled_setup.port = HB_LED_PORT;
-    hbled_setup.pin = HB_LED_PIN;
-    hbled_setup.cfg = OUT_PUSHPULL;
-    hbled_setup.dir = OUTPUT_2MHZ;
-
-    led = stmgpio_setup_gpio(&hbled_setup);
-
-    if (NULL == led)
-    {
-        return EXIT_FAILURE;
-    }
+    /* Setup led pin */
+    gpio_led->port = HB_LED_PORT;
+    gpio_led->pin = HB_LED_PIN;
+    gpio_led->cfg = OUT_PUSHPULL;
+    gpio_led->dir = OUTPUT_2MHZ;
+    RET_ON_FAIL(stmgpio_setup_gpio(gpio_led));
 
     /* Set DEFAULTS */
     heartbeat_set_period_ms(1000);
@@ -123,11 +115,11 @@ void heartbeat_poll(void)
             /* Set high for particular number of ticks per window */
             if (tick_per_window_cnt < fade_vals[window_cnt])
             {
-                stmgpio_write(led, PIN_HIGH);
+                stmgpio_write(gpio_led, PIN_HIGH);
             }
             else
             {
-                stmgpio_write(led, PIN_LOW);
+                stmgpio_write(gpio_led, PIN_LOW);
             }
 
             /* Increment tick counter */
@@ -159,7 +151,7 @@ void heartbeat_poll(void)
                 tick_per_window_cnt = 0;
 
                 /* write LED with value of LSB of snapshot */
-                stmgpio_write(led, (stmgpio_state_t)(state_snapshot & 0x01));
+                stmgpio_write(gpio_led, (stmgpio_state_t)(state_snapshot & 0x01));
 
                 /* go to next bit of snapshot */
                 state_snapshot >>= 1;

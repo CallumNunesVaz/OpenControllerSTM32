@@ -26,22 +26,14 @@ volatile static bool bouts_is_active;
 int bout_init(void)
 {
     uint8_t idx;
-    stmgpio_setup_t bout_gpio_setup[BOUT_CNT];
 
     /* set up each of the gpio */
     for (idx = 0; idx < BOUT_CNT; idx++) {
-        bout_gpio_setup[idx].port = bout_gpio_ports[idx];
-        bout_gpio_setup[idx].pin = bout_gpio_pins[idx];
-        bout_gpio_setup[idx].cfg = OUT_PUSHPULL;
-        bout_gpio_setup[idx].dir = OUTPUT_2MHZ;
-
-        bout_gpio[idx] = stmgpio_setup_gpio(&bout_gpio_setup[idx]);
-
-        /* check for failed setups */
-        if (NULL == bout_gpio[idx])
-        {
-            return EXIT_FAILURE;
-        }
+        bout_gpio[idx]->port = bout_gpio_ports[idx];
+        bout_gpio[idx]->pin = bout_gpio_pins[idx];
+        bout_gpio[idx]->cfg = OUT_PUSHPULL;
+        bout_gpio[idx]->dir = OUTPUT_2MHZ;
+        RET_ON_FAIL(stmgpio_setup_gpio(bout_gpio[idx]));
     }
 
     /* Setup callback for system tick */

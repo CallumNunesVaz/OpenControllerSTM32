@@ -27,21 +27,29 @@
 #include "stm32f103xb.h"
 #include "hw_systick.h"
 #include "util_buffer.h"
-#include "util_common.h"
+#include "util_error.h"
 #include "util_fsm.h"
 #include <stdlib.h>
 
 #define I2C_MSG_BUF_LEN 0x0F
 
 /*  */
-typedef enum i2c_event {
+typedef enum I2C_EVENTS {
   I2C_NEW_DATA,
   I2C_START_FIN,
   I2C_TX_FIN,
   I2C_RX_FIN,
   I2C_STOP_FIN,
   I2C_EVENT_CNT
-} i2c_event_t;
+} I2C_EVENT;
+
+typedef enum I2C_ERRORS {
+  I2C_ERROR_TX_TIMEOUT,
+  I2C_ERROR_RX_TIMEOUT,
+  I2C_ERROR_TX_BUF_OVF,
+  I2C_ERROR_TX_BUF_OVF,
+  I2C_ERROR_NACK,
+} I2C_ERROR;
 
 /* message structure for master-sent packets */
 typedef struct i2c_msg {
@@ -50,14 +58,6 @@ typedef struct i2c_msg {
   uint8_t *buf_send[];
   uint8_t *buf_recv[];
 } i2c_msg_t;
-
-typedef enum i2c_errors {
-  I2C_ERROR_TX_TIMEOUT,
-  I2C_ERROR_RX_TIMEOUT,
-  I2C_ERROR_TX_BUF_OVF,
-  I2C_ERROR_TX_BUF_OVF,
-  I2C_ERROR_NACK,
-} i2c_error;
 
 int i2c_init(void);
 

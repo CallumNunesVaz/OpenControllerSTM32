@@ -1,25 +1,28 @@
 /* Includes ------------------------------------------------------------------*/
 #include "hw_i2c1.h"
 
-// https://controllerstech.com/stm32-i2c-configuration-using-registers/
-
 /* GPIO handlers */
 static stmgpio_t *i2c1_scl;
 static stmgpio_t *i2c1_sda;
 
+/* interrupt callbacks */
+static void (*i2c1_evt_callback)(void);
+static void (*i2c1_err_callback)(void);
+
+/* Debug info */
+#ifdef DEBUG_EN
+static const char DBG_LIB_NAME[] = "main";
+#endif
+
 int i2c1_init(void)
 {
-  /* We only need these during init */
-  stmgpio_setup_t i2c1_scl_setup;
-  stmgpio_setup_t i2c1_sda_setup;
-
   /* register interrupt handlers */
-  RET_ON_FAIL(IRQ_SetHandler(I2C1_EV_IRQn, i2c1_ev_irq_handler));
-  RET_ON_FAIL(IRQ_SetPriority(I2C1_EV_IRQn, I2C1_EV_IRQ_PRIORITY));
-  RET_ON_FAIL(IRQ_Enable(I2C1_EV_IRQn));
-  RET_ON_FAIL(IRQ_SetHandler(I2C1_ER_IRQn, i2c1_er_irq_handler));
-  RET_ON_FAIL(IRQ_SetPriority(I2C1_ER_IRQn, I2C1_ER_IRQ_PRIORITY));
-  RET_ON_FAIL(IRQ_Enable(I2C1_ER_IRQn));
+  RET_FAIL(IRQ_SetHandler(I2C1_EV_IRQn, i2c1_ev_irq_handler));
+  RET_FAIL(IRQ_SetPriority(I2C1_EV_IRQn, I2C1_EV_IRQ_PRIORITY));
+  RET_FAIL(IRQ_Enable(I2C1_EV_IRQn));
+  RET_FAIL(IRQ_SetHandler(I2C1_ER_IRQn, i2c1_er_irq_handler));
+  RET_FAIL(IRQ_SetPriority(I2C1_ER_IRQn, I2C1_ER_IRQ_PRIORITY));
+  RET_FAIL(IRQ_Enable(I2C1_ER_IRQn));
 
   /* Enable the I2C1 clock */
   RCC->APB1ENR |= RCC_APB1ENR_I2C1EN;
@@ -28,19 +31,19 @@ int i2c1_init(void)
   RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
 
   /* Setup the GPIO pins */
-  i2c1_scl_setup.port = I2C_SCL_PORT;
-  i2c1_scl_setup.pin = I2C_SCL_PIN;
-  i2c1_scl_setup.cfg = OUT_ALT_OPENDRAIN;
-  i2c1_scl_setup.dir = OUTPUT_10MHZ;
-  i2c1_scl_setup.pull = PULLUP;
-  i2c1_scl = stmgpio_setup_gpio(&i2c1_scl_setup);
+  i2c1_scl->port = I2C_SCL_PORT;
+  i2c1_scl->pin = I2C_SCL_PIN;
+  i2c1_scl->cfg = OUT_ALT_OPENDRAIN;
+  i2c1_scl->dir = OUTPUT_10MHZ;
+  i2c1_scl->pull = PULLUP;
+  RET_FAIL(stmgpio_setup_gpio(i2c1_scl));
 
-  i2c1_sda_setup.port = I2C_SDA_PORT;
-  i2c1_sda_setup.pin = I2C_SDA_PIN;
-  i2c1_sda_setup.cfg = OUT_ALT_OPENDRAIN;
-  i2c1_sda_setup.dir = OUTPUT_10MHZ;
-  i2c1_sda_setup.pull = PULLUP;
-  i2c1_sda = stmgpio_setup_gpio(&i2c1_sda_setup);
+  i2c1_sda->port = I2C_SDA_PORT;
+  i2c1_sda->pin = I2C_SDA_PIN;
+  i2c1_sda->cfg = OUT_ALT_OPENDRAIN;
+  i2c1_sda->dir = OUTPUT_10MHZ;
+  i2c1_sda->pull = PULLUP;
+  RET_FAIL(stmgpio_setup_gpio(i2c1_sda));
 
   /* Set the pin remap for i2c1 */
   AFIO->MAPR |= AFIO_MAPR_I2C1_REMAP;
@@ -90,6 +93,8 @@ int i2c1_init(void)
   /* Trigger reset before first usage */
   i2c1_reset_periph();
 
+  /* hooray */
+  dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_LIB_NAME, sizeof(DBG_LIB_NAME));
   return EXIT_SUCCESS;
 }
 
@@ -102,16 +107,20 @@ void i2c1_reset_periph(void)
 
 void i2c1_enable_periph(void)
 {
+  /* enable peripheral */
   I2C1->CR1 |= I2C_CR1_PE;
+  /* enable ack on byte rcv */
+  I2C1->CR1 |= I2C_CR1_ACK;
 }
 
 void i2c1_disable_periph(void)
 {
+  /* disable peripheral */
   I2C1->CR1 &= ~I2C_CR1_PE;
 }
 
 void i2c1_start(void) {
-  I2C1->CR1 |= I2C_CR1_ACK;
+  /* trigger start bit to be sent */
   I2C1->CR1 |= I2C_CR1_START;
 }
 
@@ -122,24 +131,47 @@ uint8_t i2c1_read(void)
 
 void i2c1_write(uint8_t data)
 {
-  while (!(I2C1->SR1 & (1 << 7))); // wait for TXE bit to set
+  /* Check data register empty */
+  if (!(I2C1->SR1 & I2C_SR1_TXE)) {
+    /* load data */
+    I2C1->DR = data;
+  }
+}
 
-  /* Set register bit */
-  I2C1->DR = data;
-  while (!(I2C1->SR1 & (1 << 2)))
-    ; // wait for BTF bit to set
+int i2c1_set_evt_callback(void (*func_ptr)(void))
+{
+  if (NULL != func_ptr) {
+    i2c1_evt_callback = func_ptr;
+    return EXIT_SUCCESS;
+  } else {
+    return EXIT_FAILURE;
+  }
+}
+
+int i2c1_set_err_callback(void (*func_ptr)(void))
+{
+  if (NULL != func_ptr) {
+    i2c1_err_callback = func_ptr;
+    return EXIT_SUCCESS;
+  } else {
+    return EXIT_FAILURE;
+  }
 }
 
 /* I2C1 event handler */
 void i2c1_ev_irq_handler(void){
-
+  if (NULL != i2c1_evt_callback) {
+    i2c1_evt_callback();
+  }
   IRQ_ClearPending(I2C1_EV_IRQn);
-  IRQ_EndOfInterrupt (I2C1_EV_IRQn);
+  IRQ_EndOfInterrupt(I2C1_EV_IRQn);
 }
 
 /* I2C1 error handler */
 void i2c1_er_irq_handler(void){
-
+  if (NULL != i2c1_err_callback) {
+    i2c1_err_callback();
+  }
   IRQ_ClearPending(I2C1_ER_IRQn);
-  IRQ_EndOfInterrupt (I2C1_ER_IRQn);
+  IRQ_EndOfInterrupt(I2C1_ER_IRQn);
 }

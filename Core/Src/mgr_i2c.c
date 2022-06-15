@@ -7,7 +7,7 @@ static i2c_msg_t i2c_msg_buf_data[I2C_MSG_BUF_LEN];
 
 /* storage for working message */
 static i2c_msg_t msg_cur;
-static i2c_event_t last_evt;
+static I2C_EVENT last_evt;
 
 /* state transitions */
 static void (*cur_state)(void);
@@ -52,10 +52,10 @@ int i2c_init(void)
   cur_state = i2c_state_idle;
 
   /* Initialise i2c driver */
-  RET_ON_FAIL(i2c1_init())
+  RET_FAIL(i2c1_init())
 
   /* Initialise buffer */
-  RET_ON_FAIL(buf_init(&msg_buf, i2c_msg_buf_data, sizeof(i2c_msg_buf_data)))
+  RET_FAIL(buf_init(&msg_buf, i2c_msg_buf_data, sizeof(i2c_msg_buf_data)))
 
   /* Trigger reset before first usage */
   i2c_reset();
