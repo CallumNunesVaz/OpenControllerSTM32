@@ -17,7 +17,8 @@
         "cstdlib": "cpp",
         "*.tcc": "cpp",
         "typeinfo": "cpp",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "util_buffer.h": "c"
     },
     "cortex-debug.variableUseNaturalFormat": true
 }

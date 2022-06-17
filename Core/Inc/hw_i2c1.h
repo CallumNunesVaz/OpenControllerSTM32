@@ -2,7 +2,6 @@
 #define __HW_I2C1_H
 
 #include "stm32f103xb.h"
-#include "util_common.h"
 #include "irq_ctrl.h"
 #include "hw_stmgpio.h"
 #include "util_error.h"
@@ -19,26 +18,31 @@
 
 #define APB_BUS_FREQ_MHZ 50
 
-typedef enum I2C1_EVENTS
+typedef enum I2C1_EVTS
 {
-    I2C1_EVT_SB,
-    I2C1_EVT_ADDR,
-    I2C1_EVT_ADD10,
-    I2C1_EVT_BTF,
-    I2C1_EVT_TxE,
-    I2C1_EVT_RxNE
-} I2C1_EVENT;
+    I2C1_EVT_SB = I2C_SR1_SB,
+    I2C1_EVT_ADDR = I2C_SR1_ADDR,
+    I2C1_EVT_ADD10 = I2C_SR1_ADD10,
+    I2C1_EVT_BTF = I2C_SR1_BTF,
+    I2C1_EVT_TxE = I2C_SR1_TXE,
+    I2C1_EVT_RxNE = I2C_SR1_RXNE
+} I2C1_EVT;
 
-typedef enum I2C1_ERRORS
+typedef enum I2C1_ERRS
 {
-    I2C1_ERR_BERR,
-    I2C1_ERR_ARLO,
-    I2C1_ERR_AF,
-    I2C1_ERR_OVR,
-    I2C1_ERR_PECERR,
-    I2C1_ERR_TIMEOUT,
-    I2C1_ERR_SMBALERT
-} I2C1_ERROR;
+    I2C1_ERR_BERR = I2C_SR1_BERR,
+    I2C1_ERR_ARLO = I2C_SR1_ARLO,
+    I2C1_ERR_AF = I2C_SR1_AF,
+    I2C1_ERR_OVR = I2C_SR1_OVR,
+    I2C1_ERR_PECERR = I2C_SR1_PECERR,
+    I2C1_ERR_TIMEOUT = I2C_SR1_TIMEOUT,
+    I2C1_ERR_SMBALERT = I2C_SR1_SMBALERT
+} I2C1_ERR;
+
+/* Debug info */
+#ifdef DEBUG_EN
+static const char DBG_LIB_NAME[] = "hw_i2c1";
+#endif
 
 int i2c1_init(void);
 
@@ -48,9 +52,19 @@ void i2c1_enable_periph(void);
 
 void i2c1_disable_periph(void);
 
-uint8_t i2c1_read(void);
+void i2c1_start(void);
 
-void i2c1_write(uint8_t data);
+int i2c1_recv(uint8_t *data);
+
+int i2c1_send(uint8_t *data);
+
+int i2c1_set_evt_callback(void (*func_ptr)(void));
+
+int i2c1_set_err_callback(void (*func_ptr)(void));
+
+I2C1_EVT i2c1_get_last_event(void);
+
+I2C1_ERR i2c1_get_last_error(void);
 
 void i2c1_ev_irq_handler(void);
 

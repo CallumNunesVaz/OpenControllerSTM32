@@ -25,11 +25,11 @@ static uint32_t ticks_per_window;
 
 static uint16_t heartbeat_period_ms;
 
-static uint32_t state_snapshot;
+static uint32_t pattern_snapshot;
 
-static stmgpio_t *gpio_led;
+static stmgpio_t gpio_led;
 
-static hb_mode_t hb_mode;
+static hb_mode_t hb_pattern;
 
 volatile static uint8_t callback_cnt;
 
@@ -40,16 +40,16 @@ volatile static bool poll_mode;
 int heartbeat_init(void)
 {
     /* Setup led pin */
-    gpio_led->port = HB_LED_PORT;
-    gpio_led->pin = HB_LED_PIN;
-    gpio_led->cfg = OUT_PUSHPULL;
-    gpio_led->dir = OUTPUT_2MHZ;
-    RET_ON_FAIL(stmgpio_setup_gpio(gpio_led));
+    gpio_led.port = HB_LED_PORT;
+    gpio_led.pin = HB_LED_PIN;
+    gpio_led.cfg = OUT_PUSHPULL;
+    gpio_led.dir = OUTPUT_2MHZ;
+    RET_ON_FAIL(stmgpio_setup_gpio(&gpio_led));
 
     /* Set DEFAULTS */
     heartbeat_set_period_ms(1000);
-    hb_mode = LED_STATIC_OFF;
-    state_snapshot = (uint32_t)hb_mode;
+    hb_pattern = LED_STATIC_OFF;
+    pattern_snapshot = (uint32_t)hb_pattern;
 
     /* Setup callback for system tick */
     hw_systick_add_callback(heartbeat_tick_callback);
@@ -77,7 +77,7 @@ void heartbeat_start(void)
 
 void heartbeat_set_pattern_mode(hb_mode_t mode)
 {
-    hb_mode = mode;
+    hb_pattern = mode;
     heartbeat_set_period_ms(heartbeat_period_ms);
     heartbeat_reset();
 }
@@ -110,16 +110,16 @@ void heartbeat_poll(void)
     {
         callback_cnt--;
 
-        if (LED_PULSE == hb_mode)
+        if (LED_PULSE == hb_pattern)
         {
             /* Set high for particular number of ticks per window */
             if (tick_per_window_cnt < fade_vals[window_cnt])
             {
-                stmgpio_write(gpio_led, PIN_HIGH);
+                stmgpio_write(&gpio_led, PIN_HIGH);
             }
             else
             {
-                stmgpio_write(gpio_led, PIN_LOW);
+                stmgpio_write(&gpio_led, PIN_LOW);
             }
 
             /* Increment tick counter */
@@ -151,17 +151,17 @@ void heartbeat_poll(void)
                 tick_per_window_cnt = 0;
 
                 /* write LED with value of LSB of snapshot */
-                stmgpio_write(gpio_led, (stmgpio_state_t)(state_snapshot & 0x01));
+                stmgpio_write(&gpio_led, (stmgpio_state_t)(pattern_snapshot & 0x01));
 
                 /* go to next bit of snapshot */
-                state_snapshot >>= 1;
+                pattern_snapshot >>= 1;
                 window_cnt++;
 
                 /* If we've run out of bits in the snapshot, reset snapshot and snapshot counter */
                 if (window_cnt_total <= window_cnt)
                 {
                     window_cnt = 0;
-                    state_snapshot = (uint32_t)hb_mode;
+                    pattern_snapshot = (uint32_t)hb_pattern;
                 }
             }
         }
@@ -184,7 +184,7 @@ void heartbeat_set_period_ms(uint16_t period_ms)
     }
 
     /* Different window counts requierd for different modes */
-    if (LED_PULSE == hb_mode)
+    if (LED_PULSE == hb_pattern)
     {
         window_cnt_total = WINDOW_COUNT_FADE;
     }

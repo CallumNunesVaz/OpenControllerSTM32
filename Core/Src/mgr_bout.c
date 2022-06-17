@@ -17,7 +17,7 @@ static const char bout_gpio_ports[BOUT_CNT] = {PORT_BOUT_0,PORT_BOUT_1,PORT_BOUT
 
 static const uint8_t bout_gpio_pins[BOUT_CNT] = {PIN_BOUT_0,PIN_BOUT_1,PIN_BOUT_2,PIN_BOUT_3,PIN_BOUT_4,PIN_BOUT_5,PIN_BOUT_6,PIN_BOUT_7};
 
-static stmgpio_t *bout_gpio[BOUT_CNT];
+static stmgpio_t bout_gpio[BOUT_CNT];
 
 volatile static uint8_t callback_cnt;
 
@@ -29,11 +29,11 @@ int bout_init(void)
 
     /* set up each of the gpio */
     for (idx = 0; idx < BOUT_CNT; idx++) {
-        bout_gpio[idx]->port = bout_gpio_ports[idx];
-        bout_gpio[idx]->pin = bout_gpio_pins[idx];
-        bout_gpio[idx]->cfg = OUT_PUSHPULL;
-        bout_gpio[idx]->dir = OUTPUT_2MHZ;
-        RET_ON_FAIL(stmgpio_setup_gpio(bout_gpio[idx]));
+        bout_gpio[idx].port = bout_gpio_ports[idx];
+        bout_gpio[idx].pin = bout_gpio_pins[idx];
+        bout_gpio[idx].cfg = OUT_PUSHPULL;
+        bout_gpio[idx].dir = OUTPUT_2MHZ;
+        RET_ON_FAIL(stmgpio_setup_gpio(&bout_gpio[idx]));
     }
 
     /* Setup callback for system tick */
@@ -50,7 +50,7 @@ void bout_reset_lib(void)
     uint8_t idx;
     /* Set all pins to low by default */
     for (idx = 0; idx < BOUT_CNT; idx++) {
-        stmgpio_write(bout_gpio[idx], PIN_LOW);
+        stmgpio_write(&bout_gpio[idx], PIN_LOW);
     }
 }
 
@@ -58,7 +58,7 @@ void bout_reset(uint8_t bout_num)
 {
     /* write if its a relevant number */
     if (BOUT_CNT > bout_num) {
-        stmgpio_write(bout_gpio[bout_num], PIN_LOW);
+        stmgpio_write(&bout_gpio[bout_num], PIN_LOW);
     }
 }
 
@@ -66,7 +66,7 @@ void bout_set(uint8_t bout_num)
 {
     /* write if its a relevant number */
     if (BOUT_CNT > bout_num) {
-        stmgpio_write(bout_gpio[bout_num], PIN_HIGH);
+        stmgpio_write(&bout_gpio[bout_num], PIN_HIGH);
     }
 }
 

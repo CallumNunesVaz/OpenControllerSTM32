@@ -29,34 +29,32 @@
 #include "util_buffer.h"
 #include "util_error.h"
 #include "util_fsm.h"
+#include "hw_i2c1.h"
 #include <stdlib.h>
 
 #define I2C_MSG_BUF_LEN 0x0F
 
-/*  */
-typedef enum I2C_EVENTS {
-  I2C_NEW_DATA,
-  I2C_START_FIN,
-  I2C_TX_FIN,
-  I2C_RX_FIN,
-  I2C_STOP_FIN,
-  I2C_EVENT_CNT
-} I2C_EVENT;
+#define MSG_SEND_MIN 2
+#define MSG_RECV_MIN 1
 
-typedef enum I2C_ERRORS {
-  I2C_ERROR_TX_TIMEOUT,
-  I2C_ERROR_RX_TIMEOUT,
-  I2C_ERROR_TX_BUF_OVF,
-  I2C_ERROR_TX_BUF_OVF,
-  I2C_ERROR_NACK,
-} I2C_ERROR;
+/*  */
+typedef enum I2C_STATES {
+  I2C_NEW_DATA,
+  I2C_BUSY,
+  I2C_START,
+  I2C_ADDR,
+  I2C_SEND,
+  I2C_RECV,
+  I2C_ERROR,
+  I2C_STATE_CNT
+} I2C_STATE;
 
 /* message structure for master-sent packets */
 typedef struct i2c_msg {
   uint8_t n_send;
   uint8_t n_recv;
-  uint8_t *buf_send[];
   uint8_t *buf_recv[];
+  uint8_t *buf_send[];
 } i2c_msg_t;
 
 int i2c_init(void);
@@ -81,9 +79,9 @@ void i2c_state_idle(void);
 
 void i2c_state_start_bit(void);
 
-void i2c_state_tx_byte(void);
+void i2c_state_tx_data(void);
 
-void i2c_state_rx_byte(void);
+void i2c_state_rx_data(void);
 
 void i2c_state_stop_bit(void);
 
