@@ -12,7 +12,7 @@ static bytes_to_recv;
 
 /* state transitions */
 static I2C_EVENT last_evt;
-bool state_entry;
+bool state_executed;
 bool last_evt_processed;
 static void (*cur_state)(void);
 static trans_t trans_tab[] = {
@@ -118,7 +118,7 @@ int i2c_init(void)
 {
   // init_trans(&t1, (int)I2C_NEW_DATA, i2c_disable, i2c_disable);
   cur_state = i2c_state_idle;
-  state_entry = true;
+  state_executed = true;
 
   /* Initialise i2c driver */
   RET_FAIL(i2c1_init())
@@ -182,82 +182,42 @@ void i2c_state_idle(void)
     bytes_to_recv = msg_cur.n_recv;
 
     /* Configure state machine */
-    last_evt = I2C_BUF_NOT_EMPTY;
+    last_evt = I2C_NEW_DATA;
     i2c_trig_state_trans();
-  }
-}
-
-void i2c_state__rpt_start_bit(void)
-{
-  if (state_entry)
-  {
-    /* trigger start bit sending */
-    i2c1_start();
-    state_entry = false;
-  }
-  else
-  {
-    if (!last_evt_processed)
-    {
-      /* if start bit fully sent */
-      if (I2C1_EVT_SB == last_evt)
-      {
-        i2c_trig_state_trans();
-      }
-      /* processed fine */
-      last_evt_processed = true;
-    }
   }
 }
 
 void i2c_state_start_bit(void)
 {
-  if (state_entry)
+  if (!state_executed)
   {
     /* trigger start bit sending */
     i2c1_start();
-    state_entry = false;
-  }
-  else
-  {
-    if (!last_evt_processed)
-    {
-      /* if start bit fully sent */
-      if (I2C1_EVT_SB == last_evt)
-      {
-        i2c_trig_state_trans();
-      }
-      /* processed fine */
-      last_evt_processed = true;
-    }
+    state_executed = true;
   }
 }
 
 void i2c_state_tx_data(void)
 {
-  if (state_entry)
+  if (!state_executed)
   {
     /* Write new data to send */
     if (EXIT_SUCCESS == i2c1_send(&(msg_cur.buf_send[bytes_to_send])))
     {
       bytes_to_send--;
-    } 
-    else 
+    }
+    else
     {
       last_evt = I2C_ERROR;
       i2c_trig_state_trans();
     }
-    state_entry = false;
-  }
-  else
-  {
-    
+    state_executed = true;
   }
 }
 
 void i2c_state_rx_data(void)
 {
-  if (state_entry)
+  if (!state_executed)
   {
     if (EXIT_SUCCESS == i2c1_recv(msg_cur.buf_recv[msg_cur.n_recv - bytes_to_recv]))
     {
@@ -276,6 +236,7 @@ void i2c_state_rx_data(void)
       last_evt = I2C_ERROR;
       i2c_trig_state_trans();
     }
+    state_executed = true;
   }
 }
 
@@ -295,7 +256,7 @@ void i2c_trig_state_trans(void)
   static uint8_t idx;
 
   /* reset state entry condition */
-  state_entry = true;
+  state_executed = false;
 
   /* Find state transition action */
   for (idx = 0; idx < sizeof(trans_tab); idx++)
@@ -307,13 +268,13 @@ void i2c_trig_state_trans(void)
   }
 
   /* If not found, must be an error */
-  if (sizeof(trans_tab) <= idx)
+  if ((sizeof(trans_tab) <= idx) || (I2C_ERROR == last_evt))
   {
     cur_state = i2c_state_error;
   }
 
   /* Call new state function */
-  cur_state();
+  // cur_state();
 }
 
 void i2c_event_callback()
@@ -322,12 +283,12 @@ void i2c_event_callback()
   last_evt = i2c_decode_i2c1_event(i2c1_get_last_event());
 
   /* perform action */
-  last_evt_processed = false;
+  // last_evt_processed = false;
   cur_state();
 
   /* humour i2c peripheral */
-  i2c1_SR1_dummy_read();
-  i2c1_SR2_dummy_read();
+  // i2c1_SR1_dummy_read();
+  // i2c1_SR2_dummy_read();
 }
 
 void i2c_error_callback()
