@@ -62,6 +62,12 @@ int i2c1_set_evt_callback(void (*func_ptr)(void));
 
 int i2c1_set_err_callback(void (*func_ptr)(void));
 
+void i2c1_set_ack();
+
+uint16_t i2c1_SR1_dummy_read();
+
+uint16_t i2c1_SR2_dummy_read();
+
 I2C1_EVT i2c1_get_last_event(void);
 
 I2C1_ERR i2c1_get_last_error(void);

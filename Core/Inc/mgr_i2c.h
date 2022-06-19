@@ -38,16 +38,19 @@
 #define MSG_RECV_MIN 1
 
 /*  */
-typedef enum I2C_STATES {
+typedef enum I2C_EVENTS {
   I2C_NEW_DATA,
-  I2C_BUSY,
-  I2C_START,
-  I2C_ADDR,
-  I2C_SEND,
-  I2C_RECV,
+  I2C_SB_SENT,
+  I2C_RPT_SB_SENT,
+  I2C_PB_SENT,
+  I2C_BYTE_SENT,
+  I2C_LAST_BYTE_SENT_W,
+  I2C_LAST_BYTE_SENT_R,
+  I2C_BYTE_RECV,
+  I2C_LAST_BYTE_RECV,
   I2C_ERROR,
-  I2C_STATE_CNT
-} I2C_STATE;
+  I2C_EVENT_CNT
+} I2C_EVENT;
 
 /* message structure for master-sent packets */
 typedef struct i2c_msg {

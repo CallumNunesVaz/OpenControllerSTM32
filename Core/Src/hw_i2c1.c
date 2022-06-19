@@ -71,8 +71,8 @@ int i2c1_init(void)
   /* Disable i2c1 peripheral to apply settings */
   I2C1->CR1 &= ~I2C_CR1_PE;
 
-  /* Disable clock stretching */
-  I2C1->CR1 |= I2C_CR1_NOSTRETCH;
+  /* Enable clock stretching */
+  I2C1->CR1 &= ~I2C_CR1_NOSTRETCH;
 
   /* Disable general call */
   I2C1->CR1 &= ~I2C_CR1_ENGC;
@@ -130,7 +130,19 @@ void i2c1_enable_periph(void)
   /* enable peripheral */
   I2C1->CR1 |= I2C_CR1_PE;
   /* enable ack on byte rcv */
+  i2c1_set_ack();
+}
+
+void i2c1_ack_bit(void)
+{
+  /* enable ack on byte rcv */
   I2C1->CR1 |= I2C_CR1_ACK;
+}
+
+void i2c1_nack_bit(void)
+{
+  /* enable ack on byte rcv */
+  I2C1->CR1 &= ~I2C_CR1_ACK;
 }
 
 void i2c1_disable_periph(void)
@@ -143,6 +155,12 @@ void i2c1_start(void)
 {
   /* trigger start bit to be sent */
   I2C1->CR1 |= I2C_CR1_START;
+}
+
+void i2c1_stop(void)
+{
+  /* trigger start bit to be sent */
+  I2C1->CR1 |= I2C_CR1_STOP;
 }
 
 int i2c1_recv(uint8_t *data)
@@ -197,6 +215,14 @@ int i2c1_set_err_callback(void (*func_ptr)(void))
   {
     return EXIT_FAILURE;
   }
+}
+
+uint16_t i2c1_SR1_dummy_read(){
+  return I2C1->SR1;
+}
+
+uint16_t i2c1_SR2_dummy_read(){
+  return I2C1->SR2;
 }
 
 I2C1_EVT i2c1_get_last_event(void)
