@@ -5,7 +5,6 @@
 static volatile uint8_t idx;
 static volatile I2C1_EVT last_event;
 static volatile I2C1_ERR last_error;
-static volatile I2C1_STATE curr_state;
 
 /* GPIO handlers */
 static stmgpio_t i2c1_scl;
@@ -16,33 +15,33 @@ static void (*i2c1_evt_callback)(void);
 static void (*i2c1_err_callback)(void);
 
 /* */
-const I2C1_EVT EVT_LIST[] = {
-    I2C1_EVT.I2C1_EVT_SB,
-    I2C1_EVT.I2C1_EVT_ADDR,
-    I2C1_EVT.I2C1_EVT_ADD10,
-    I2C1_EVT.I2C1_EVT_BTF,
-    I2C1_EVT.I2C1_EVT_TxE,
-    I2C1_EVT.I2C1_EVT_RxNE};
+I2C1_EVT EVT_LIST[] = {
+    I2C1_EVT_SB,
+    I2C1_EVT_ADDR,
+    I2C1_EVT_ADD10,
+    I2C1_EVT_BTF,
+    I2C1_EVT_TxE,
+    I2C1_EVT_RxNE};
 
 /* */
-const I2C1_ERR ERR_LIST[] = {
-    I2C1_ERR.I2C1_ERR_BERR,
-    I2C1_ERR.I2C1_ERR_ARLO,
-    I2C1_ERR.I2C1_ERR_AF,
-    I2C1_ERR.I2C1_ERR_OVR,
-    I2C1_ERR.I2C1_ERR_PECERR,
-    I2C1_ERR.I2C1_ERR_TIMEOUT,
-    I2C1_ERR.I2C1_ERR_SMBALERT};
+I2C1_ERR ERR_LIST[] = {
+    I2C1_ERR_BERR,
+    I2C1_ERR_ARLO,
+    I2C1_ERR_AF,
+    I2C1_ERR_OVR,
+    I2C1_ERR_PECERR,
+    I2C1_ERR_TIMEOUT,
+    I2C1_ERR_SMBALERT};
 
 int i2c1_init(void)
 {
   /* register interrupt handlers */
-  RET_FAIL(IRQ_SetHandler(I2C1_EV_IRQn, i2c1_ev_irq_handler));
-  RET_FAIL(IRQ_SetPriority(I2C1_EV_IRQn, I2C1_EV_IRQ_PRIORITY));
-  RET_FAIL(IRQ_Enable(I2C1_EV_IRQn));
-  RET_FAIL(IRQ_SetHandler(I2C1_ER_IRQn, i2c1_er_irq_handler));
-  RET_FAIL(IRQ_SetPriority(I2C1_ER_IRQn, I2C1_ER_IRQ_PRIORITY));
-  RET_FAIL(IRQ_Enable(I2C1_ER_IRQn));
+  RET_ON_FAIL(IRQ_SetHandler(I2C1_EV_IRQn, i2c1_ev_irq_handler));
+  RET_ON_FAIL(IRQ_SetPriority(I2C1_EV_IRQn, I2C1_EV_IRQ_PRIORITY));
+  RET_ON_FAIL(IRQ_Enable(I2C1_EV_IRQn));
+  RET_ON_FAIL(IRQ_SetHandler(I2C1_ER_IRQn, i2c1_er_irq_handler));
+  RET_ON_FAIL(IRQ_SetPriority(I2C1_ER_IRQn, I2C1_ER_IRQ_PRIORITY));
+  RET_ON_FAIL(IRQ_Enable(I2C1_ER_IRQn));
 
   /* Enable the I2C1 clock */
   RCC->APB1ENR |= RCC_APB1ENR_I2C1EN;
@@ -56,14 +55,14 @@ int i2c1_init(void)
   i2c1_scl.cfg = OUT_ALT_OPENDRAIN;
   i2c1_scl.dir = OUTPUT_10MHZ;
   i2c1_scl.pull = PULLUP;
-  RET_FAIL(stmgpio_setup_gpio(&i2c1_scl));
+  RET_ON_FAIL(stmgpio_setup_gpio(&i2c1_scl));
 
   i2c1_sda.port = I2C_SDA_PORT;
   i2c1_sda.pin = I2C_SDA_PIN;
   i2c1_sda.cfg = OUT_ALT_OPENDRAIN;
   i2c1_sda.dir = OUTPUT_10MHZ;
   i2c1_sda.pull = PULLUP;
-  RET_FAIL(stmgpio_setup_gpio(&i2c1_sda));
+  RET_ON_FAIL(stmgpio_setup_gpio(&i2c1_sda));
 
   /* Set the pin remap for i2c1 */
   AFIO->MAPR |= AFIO_MAPR_I2C1_REMAP;

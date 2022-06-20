@@ -3,6 +3,7 @@
 
 #include "hw_stmgpio.h"
 #include "hw_systick.h"
+#include "util_error.h"
 #include <stdint.h>
 #include <stdbool.h>
 

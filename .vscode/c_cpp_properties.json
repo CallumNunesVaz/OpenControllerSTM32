@@ -19,6 +19,8 @@
       "name": "STM32",
       "includePath": [
         "Core/Inc",
+        "Drivers/CMSIS/Core/Include",
+        "Drivers/CMSIS/Core_A/Include",
         "Drivers/CMSIS/Device/ST/STM32F1xx/Include",
         "Drivers/CMSIS/Include"
       ],

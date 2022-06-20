@@ -31,6 +31,7 @@
 #include "util_fsm.h"
 #include "hw_i2c1.h"
 #include <stdlib.h>
+#include <stdint.h>
 
 #define I2C_MSG_BUF_LEN 0x0F
 
@@ -54,11 +55,15 @@ typedef enum I2C_EVENTS {
 
 /* message structure for master-sent packets */
 typedef struct i2c_msg {
+  uint8_t *buf_send_ptr;
   uint8_t n_send;
+  uint8_t *buf_recv_ptr;
   uint8_t n_recv;
-  uint8_t *buf_recv[];
-  uint8_t *buf_send[];
 } i2c_msg_t;
+
+I2C_EVENT i2c_decode_i2c1_event(I2C1_EVT i2c1_evt);
+
+int i2c_queue_msg(i2c_msg_t *msg);
 
 int i2c_init(void);
 
@@ -67,14 +72,6 @@ void i2c_reset(void);
 void i2c_enable(void);
 
 void i2c_disable(void);
-
-uint8_t i2c_read_byte(void);
-
-void i2c_read_byte_array(uint8_t *data[], size_t len);
-
-void i2c_write_byte(uint8_t data);
-
-void i2c_write_byte_array(uint8_t *data[], size_t len);
 
 void i2c_poll_fsm(void);
 
@@ -89,5 +86,11 @@ void i2c_state_rx_data(void);
 void i2c_state_stop_bit(void);
 
 void i2c_state_error(void);
+
+void i2c_trig_state_trans(void);
+
+void i2c_event_callback();
+
+void i2c_error_callback();
 
 #endif 

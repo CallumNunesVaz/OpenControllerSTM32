@@ -2,7 +2,7 @@
 #define __HW_I2C1_H
 
 #include "stm32f103xb.h"
-#include "irq_ctrl.h"
+#include "../Core_A/Include/irq_ctrl.h"
 #include "hw_stmgpio.h"
 #include "util_error.h"
 #include <stdlib.h>
@@ -50,9 +50,15 @@ void i2c1_reset_periph(void);
 
 void i2c1_enable_periph(void);
 
+void i2c1_ack_bit(void);
+
+void i2c1_nack_bit(void);
+
 void i2c1_disable_periph(void);
 
 void i2c1_start(void);
+
+void i2c1_stop(void);
 
 int i2c1_recv(uint8_t *data);
 
@@ -62,11 +68,9 @@ int i2c1_set_evt_callback(void (*func_ptr)(void));
 
 int i2c1_set_err_callback(void (*func_ptr)(void));
 
-void i2c1_set_ack();
+uint16_t i2c1_SR1_dummy_read(void);
 
-uint16_t i2c1_SR1_dummy_read();
-
-uint16_t i2c1_SR2_dummy_read();
+uint16_t i2c1_SR2_dummy_read(void);
 
 I2C1_EVT i2c1_get_last_event(void);
 

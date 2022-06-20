@@ -13,24 +13,18 @@
 
 /* Files required variables */
 
-static stmgpio_t *hv_en_gpio;
+static stmgpio_t hv_en_gpio;
 
 volatile static bool hv_is_active;
 
 int hv_init(void)
 {
-    /* Use special gpio setup */
-    stmgpio_setup_t hv_en_gpio_setup;
+    hv_en_gpio.port = HV_EN_PORT;
+    hv_en_gpio.pin = HV_EN_PIN;
+    hv_en_gpio.cfg = OUT_PUSHPULL;
+    hv_en_gpio.dir = OUTPUT_2MHZ;
 
-    hv_en_gpio_setup.port = HV_EN_PORT;
-    hv_en_gpio_setup.pin = HV_EN_PIN;
-    hv_en_gpio_setup.cfg = OUT_PUSHPULL;
-    hv_en_gpio_setup.dir = OUTPUT_2MHZ;
-
-    hv_en_gpio = stmgpio_setup_gpio(&hv_en_gpio_setup);
-
-    if (NULL == hv_en_gpio)
-    {
+    if (EXIT_FAILURE == stmgpio_setup_gpio(&hv_en_gpio)){
         return EXIT_FAILURE;
     }
 

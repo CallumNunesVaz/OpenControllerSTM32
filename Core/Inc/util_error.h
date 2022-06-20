@@ -9,7 +9,7 @@
 #include <stdint.h>
 #include <string.h>
 
-#define RET_FAIL(p) \
+#define RET_ON_FAIL(p) \
 if(!p){ \
     return EXIT_FAILURE; \
 }
@@ -45,7 +45,7 @@ typedef struct dbg_code {
     size_t lib_name_len;
 } dbg_code_t;
 
-void dbg_log(DBG_CODE_TYPE type, DBG_CODE_CONTENT content, char* lib_name, size_t lib_name_len);
+void dbg_log(DBG_CODE_TYPE type, DBG_CODE_CONTENT content, const char* lib_name, const size_t lib_name_len);
 
 void dbg_log_generic_fail(void);
 

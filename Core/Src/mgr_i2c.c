@@ -7,8 +7,8 @@ static i2c_msg_t msg_buf_data[I2C_MSG_BUF_LEN];
 
 /* storage for working message */
 static i2c_msg_t msg_cur;
-static bytes_to_send;
-static bytes_to_recv;
+static uint8_t bytes_to_send;
+static uint8_t bytes_to_recv;
 
 /* state transitions */
 static I2C_EVENT last_evt;
@@ -29,7 +29,7 @@ static trans_t trans_tab[] = {
 /* /*/
 I2C_EVENT i2c_decode_i2c1_event(I2C1_EVT i2c1_evt)
 {
-  I2C_EVENT evt;
+  I2C_EVENT evt = I2C_ERROR;
 
   switch (i2c1_evt)
   {
@@ -83,7 +83,7 @@ I2C_EVENT i2c_decode_i2c1_event(I2C1_EVT i2c1_evt)
     else
     {
       evt = I2C_BYTE_RECV;
-    };
+    }
     break;
   default:
     evt = I2C_ERROR;
@@ -97,7 +97,7 @@ I2C_EVENT i2c_decode_i2c1_event(I2C1_EVT i2c1_evt)
 int i2c_queue_msg(i2c_msg_t *msg)
 {
   /* checks */
-  if ((NULL == msg->buf_send) || (NULL == msg->buf_recv) || (MSG_SEND_MIN > msg->n_send) || (MSG_RECV_MIN > msg->n_recv))
+  if ((NULL == msg->buf_send_ptr) || (NULL == msg->buf_recv_ptr) || (MSG_SEND_MIN > msg->n_send) || (MSG_RECV_MIN > msg->n_recv))
   {
     return EXIT_FAILURE;
   }
@@ -121,14 +121,14 @@ int i2c_init(void)
   state_executed = true;
 
   /* Initialise i2c driver */
-  RET_FAIL(i2c1_init())
+  RET_ON_FAIL(i2c1_init());
 
   /* Register our callbacks with the driver */
   i2c1_set_evt_callback(i2c_event_callback);
   i2c1_set_err_callback(i2c_error_callback);
 
   /* Initialise buffer */
-  RET_FAIL(buf_init(&msg_buf, msg_buf_data, sizeof(msg_buf_data)))
+  RET_ON_FAIL(buf_init(&msg_buf, msg_buf_data, sizeof(msg_buf_data)));
 
   /* Trigger reset before first usage */
   i2c_reset();
@@ -139,7 +139,7 @@ int i2c_init(void)
 void i2c_reset(void)
 {
   /* reset hardware perihperal */
-  i2c1_reset();
+  i2c1_reset_periph();
 
   /* reset buffers */
   buf_reset(&msg_buf);
@@ -148,21 +148,13 @@ void i2c_reset(void)
 void i2c_enable(void)
 {
   /* Enable hardware perihperal */
-  i2c1_enable();
+  i2c1_enable_periph();
 }
 
 void i2c_disable(void)
 {
   /* Disable hardware perihperal */
-  i2c1_disable();
-}
-
-uint8_t i2c_read(void)
-{
-}
-
-void i2c_write(uint8_t data)
-{
+  i2c1_disable_periph();
 }
 
 /* Come back around to execute pending tasks */
@@ -202,7 +194,7 @@ void i2c_state_tx_data(void)
   if (!state_executed)
   {
     /* Write new data to send */
-    if (EXIT_SUCCESS == i2c1_send(&(msg_cur.buf_send[bytes_to_send])))
+    if (EXIT_SUCCESS == i2c1_send(&(msg_cur.buf_send_ptr[bytes_to_send])))
     {
       bytes_to_send--;
     }
@@ -219,7 +211,7 @@ void i2c_state_rx_data(void)
 {
   if (!state_executed)
   {
-    if (EXIT_SUCCESS == i2c1_recv(msg_cur.buf_recv[msg_cur.n_recv - bytes_to_recv]))
+    if (EXIT_SUCCESS == i2c1_recv(&(msg_cur.buf_recv_ptr)[msg_cur.n_recv - bytes_to_recv]))
     {
       bytes_to_recv--;
       if (bytes_to_recv)
@@ -279,11 +271,13 @@ void i2c_trig_state_trans(void)
 
 void i2c_event_callback()
 {
-  /* figure out what happened */
+  /* Figure out what happened */
   last_evt = i2c_decode_i2c1_event(i2c1_get_last_event());
 
-  /* perform action */
-  // last_evt_processed = false;
+  /* Transition to new state based on event */
+  i2c_trig_state_trans();
+
+  /* Run state actions */
   cur_state();
 
   /* humour i2c peripheral */
