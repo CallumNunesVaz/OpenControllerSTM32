@@ -28,8 +28,8 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "../Core_A/Include/irq_ctrl.h" 
 #include "stm32f103xb.h"
+#include "core_cm3.h"
 //#include "hw_adc1.h"
 //#include "hw_crc.h"
 //#include "hw_gpio.h"

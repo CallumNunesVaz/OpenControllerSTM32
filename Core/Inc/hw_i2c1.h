@@ -2,19 +2,23 @@
 #define __HW_I2C1_H
 
 #include "stm32f103xb.h"
-#include "../Core_A/Include/irq_ctrl.h"
+#include "core_cm3.h"
 #include "hw_stmgpio.h"
 #include "util_error.h"
 #include <stdlib.h>
 
+/* Pins */
 #define I2C_SCL_PORT 'B'
 #define I2C_SCL_PIN 8
-
 #define I2C_SDA_PORT 'B'
 #define I2C_SDA_PIN 9
 
-#define I2C1_EV_IRQ_PRIORITY 0xFFFF
-#define I2C1_ER_IRQ_PRIORITY 0xFFFF
+/* Interrupt priority */
+#define I2C1_EV_IRQ_PRIORITY 0x00
+#define I2C1_ER_IRQ_PRIORITY 0x00
+/* Interrupt alias */
+#define i2c1_ev_irq_handler I2C1_EV_IRQHandler 
+#define i2c1_er_irq_handler I2C1_ER_IRQHandler 
 
 #define APB_BUS_FREQ_MHZ 50
 

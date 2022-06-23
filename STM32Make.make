@@ -51,6 +51,7 @@ Core/Src/mgr_i2c.c \
 Core/Src/stm32f1xx_it.c \
 Core/Src/system_stm32f1xx.c \
 Core/Src/util_buffer.c \
+Core/Src/util_error.c \
 Core/Src/util_fsm.c
 
 

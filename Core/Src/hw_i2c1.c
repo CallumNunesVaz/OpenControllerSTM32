@@ -36,12 +36,10 @@ I2C1_ERR ERR_LIST[] = {
 int i2c1_init(void)
 {
   /* register interrupt handlers */
-  RET_ON_FAIL(IRQ_SetHandler(I2C1_EV_IRQn, i2c1_ev_irq_handler));
-  RET_ON_FAIL(IRQ_SetPriority(I2C1_EV_IRQn, I2C1_EV_IRQ_PRIORITY));
-  RET_ON_FAIL(IRQ_Enable(I2C1_EV_IRQn));
-  RET_ON_FAIL(IRQ_SetHandler(I2C1_ER_IRQn, i2c1_er_irq_handler));
-  RET_ON_FAIL(IRQ_SetPriority(I2C1_ER_IRQn, I2C1_ER_IRQ_PRIORITY));
-  RET_ON_FAIL(IRQ_Enable(I2C1_ER_IRQn));
+  NVIC_SetPriority(I2C1_EV_IRQn, I2C1_EV_IRQ_PRIORITY);
+  NVIC_EnableIRQ(I2C1_EV_IRQn);
+  NVIC_SetPriority(I2C1_ER_IRQn, I2C1_ER_IRQ_PRIORITY);
+  NVIC_EnableIRQ(I2C1_ER_IRQn);
 
   /* Enable the I2C1 clock */
   RCC->APB1ENR |= RCC_APB1ENR_I2C1EN;
@@ -246,6 +244,8 @@ void i2c1_ev_irq_handler(void)
     }
   }
 
+
+
   /* call a registered callback */
   if (NULL != i2c1_evt_callback)
   {
@@ -253,8 +253,7 @@ void i2c1_ev_irq_handler(void)
   }
 
   /* clear flag, interrupt over */
-  IRQ_ClearPending(I2C1_EV_IRQn);
-  IRQ_EndOfInterrupt(I2C1_EV_IRQn);
+  NVIC_ClearPendingIRQ(I2C1_EV_IRQn);
 }
 
 /* I2C1 error handler */
@@ -276,6 +275,5 @@ void i2c1_er_irq_handler(void)
   }
 
   /* clear flag, interrupt over */
-  IRQ_ClearPending(I2C1_ER_IRQn);
-  IRQ_EndOfInterrupt(I2C1_ER_IRQn);
+  NVIC_ClearPendingIRQ(I2C1_ER_IRQn);
 }

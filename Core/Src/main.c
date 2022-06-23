@@ -54,12 +54,8 @@ int main(void)
   /* Initialise binary outputs */
   bout_init();
 
-  /* Initialise all interrupts */
-  if (EXIT_SUCCESS == IRQ_Initialize()) {
-    dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_LIB_NAME, sizeof(DBG_LIB_NAME));
-  } else {
-    dbg_log(DBG_TYPE_ERROR, DBG_CODE_INIT, DBG_LIB_NAME, sizeof(DBG_LIB_NAME));
-  }
+  /* interrupts (move to new file!) */
+  __enable_irq();
 
   /* Initialised everything! */
   dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_LIB_NAME, sizeof(DBG_LIB_NAME));
