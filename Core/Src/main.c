@@ -20,11 +20,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "mgr_bout.h"
-
-/* Debug info */
-#ifdef DEBUG_EN
-static const char DBG_LIB_NAME[] = "hw_i2c1";
-#endif
+#include "mgr_i2c.h"
+#include "drv_gpioexp.h"
 
 /**
  * @brief  The application entry point.
@@ -33,46 +30,44 @@ static const char DBG_LIB_NAME[] = "hw_i2c1";
 int main(void)
 {
   uint8_t idx;
-  uint8_t error_cnt = 0;
 
   /* Configure the system clocks */
   hw_system_clocks_init();
 
   /* Configure and initialise the system tick */
   hw_systick_init(1000);
-  hw_systick_start();
 
   /* Configure the system heartbeat */
-  if (EXIT_SUCCESS == heartbeat_init())
-  {
-    heartbeat_set_pattern_mode(LED_PULSE);
-    heartbeat_set_poll_mode(false);
-    heartbeat_set_period_ms(1000);
-    heartbeat_start();
-  }
+  ASSERT(heartbeat_init());
+  heartbeat_set_pattern_mode(LED_BREATHE);
+  heartbeat_set_poll_mode(false);
+  heartbeat_set_period_ms(1000);
+  heartbeat_start();
 
   /* Initialise binary outputs */
-  bout_init();
+  // bout_init();
+
+  i2c_init();
 
   /* interrupts (move to new file!) */
   __enable_irq();
 
+  gpioexp_init();
+
   /* Initialised everything! */
-  dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_LIB_NAME, sizeof(DBG_LIB_NAME));
+  // dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_NAME, sizeof(DBG_NAME));
 
   /* Main loop */
   while (1)
-  {   
-    //heartbeat_poll();
-    for (idx = 1; idx < 9475; idx++) {
-      bout_reset_lib();
-      bout_set(idx);
-      idx--;
-      blocking_delay_ms(500);
-    }
+  {
+    heartbeat_poll();
+    // for (idx = 0; idx < 7; idx++) {
+    //   bout_reset_lib();
+    //   bout_set(idx);
+    // blocking_delay_ms(500);
+    //}
   }
 }
-
 
 /**
  * @brief System Clock Configuration

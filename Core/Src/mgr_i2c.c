@@ -97,16 +97,10 @@ I2C_EVENT i2c_decode_i2c1_event(I2C1_EVT i2c1_evt)
 int i2c_queue_msg(i2c_msg_t *msg)
 {
   /* checks */
-  if ((NULL == msg->buf_send_ptr) || (NULL == msg->buf_recv_ptr) || (MSG_SEND_MIN > msg->n_send) || (MSG_RECV_MIN > msg->n_recv))
-  {
-    return EXIT_FAILURE;
-  }
+  ASSERT((NULL != msg->buf_send_ptr) && (NULL != msg->buf_recv_ptr) && (MSG_SEND_MIN <= msg->n_send) && (MSG_RECV_MIN <= msg->n_recv));
 
   /* write message to the buffer */
-  if (EXIT_FAILURE == buf_write(&msg_buf, msg, sizeof(i2c_msg_t)))
-  {
-    return EXIT_FAILURE;
-  }
+  ASSERT(buf_write(&msg_buf, msg, sizeof(i2c_msg_t)));
 
   /* poll in case we can start this instantly */
   i2c_poll_fsm();
@@ -118,20 +112,20 @@ int i2c_init(void)
 {
   // init_trans(&t1, (int)I2C_NEW_DATA, i2c_disable, i2c_disable);
   cur_state = i2c_state_idle;
-  state_executed = true;
 
   /* Initialise i2c driver */
-  RET_ON_FAIL(i2c1_init());
+  ASSERT(i2c1_init());
 
   /* Register our callbacks with the driver */
   i2c1_set_evt_callback(i2c_event_callback);
   i2c1_set_err_callback(i2c_error_callback);
 
   /* Initialise buffer */
-  RET_ON_FAIL(buf_init(&msg_buf, msg_buf_data, sizeof(msg_buf_data)));
+  ASSERT(buf_init(&msg_buf, msg_buf_data, sizeof(msg_buf_data)));
 
   /* Trigger reset before first usage */
   i2c_reset();
+  i2c_enable();
 
   return EXIT_SUCCESS;
 }
@@ -143,6 +137,9 @@ void i2c_reset(void)
 
   /* reset buffers */
   buf_reset(&msg_buf);
+
+  /*reset flags*/
+  state_executed = false;
 }
 
 void i2c_enable(void)

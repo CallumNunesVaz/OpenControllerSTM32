@@ -45,9 +45,10 @@ int buf_write(buffer_t *buf, void *src_data, size_t elem_cnt) {
     size_t cnt_from_end;
 
     /* Sanity check */
-    if ((NULL == buf) || (NULL == src_data) || (0 == elem_cnt)) {
-        return EXIT_FAILURE;
-    }
+    //ASSERT((NULL != buf) && (NULL != src_data) && (0 < elem_cnt));
+    ASSERT(0x00 < elem_cnt);
+    ASSERT(NULL != src_data);
+    ASSERT(NULL != buf);
 
     /* Find pointer of starting write location */
     wr_start_ptr = buf->data + buf->head;

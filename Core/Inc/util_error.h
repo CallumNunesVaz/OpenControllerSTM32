@@ -9,17 +9,11 @@
 #include <stdint.h>
 #include <string.h>
 
-#define RET_ON_FAIL(p)       \
-    if (!p)                  \
+/* Anything other than success is failure */
+#define ASSERT(p);            \
+    if (!(p))   \
     {                        \
         return EXIT_FAILURE; \
-    }
-
-#define RET_FAIL_LOG(p)         \
-    if (!p)                     \
-    {                           \
-        dbg_log_generic_fail(); \
-        return EXIT_FAILURE;    \
     }
 
 /* Types of debug codes */
@@ -35,10 +29,12 @@ typedef enum DBG_CODE_TYPES
 typedef enum DBG_CODE_CONTENTS
 {
     DBG_CODE_INIT,
+    DBG_CODE_PARAM_RANGE,
     DBG_CODE_OVERFLOW,
     DBG_CODE_TIMEOUT,
     DBG_CODE_DATA_RANGE,
     DBG_CODE_NO_DATA,
+    DBG_CODE_ASSERT,
     DBG_CODE_CNT
 } DBG_CODE_CONTENT;
 

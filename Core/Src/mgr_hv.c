@@ -24,7 +24,7 @@ int hv_init(void)
     hv_en_gpio.cfg = OUT_PUSHPULL;
     hv_en_gpio.dir = OUTPUT_2MHZ;
 
-    if (EXIT_FAILURE == stmgpio_setup_gpio(&hv_en_gpio)){
+    if (EXIT_FAILURE == stmgpio_setup(&hv_en_gpio)){
         return EXIT_FAILURE;
     }
 

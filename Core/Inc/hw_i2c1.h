@@ -22,6 +22,9 @@
 
 #define APB_BUS_FREQ_MHZ 50
 
+#define I2C_READ_BIT 1
+#define I2C_WRITE_BIT 0
+
 typedef enum I2C1_EVTS
 {
     I2C1_EVT_SB = I2C_SR1_SB,

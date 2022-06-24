@@ -1,6 +1,7 @@
 #ifndef __UTIL_BUFFER_H
 #define __UTIL_BUFFER_H
 
+#include <util_error.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>

@@ -33,7 +33,7 @@ int bout_init(void)
         bout_gpio[idx].pin = bout_gpio_pins[idx];
         bout_gpio[idx].cfg = OUT_PUSHPULL;
         bout_gpio[idx].dir = OUTPUT_2MHZ;
-        RET_ON_FAIL(stmgpio_setup_gpio(&bout_gpio[idx]));
+        RET_ON_FAIL(stmgpio_setup(&bout_gpio[idx]));
     }
 
     /* Setup callback for system tick */

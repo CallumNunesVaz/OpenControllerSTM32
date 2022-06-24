@@ -44,7 +44,7 @@ int heartbeat_init(void)
     gpio_led.pin = HB_LED_PIN;
     gpio_led.cfg = OUT_PUSHPULL;
     gpio_led.dir = OUTPUT_2MHZ;
-    RET_ON_FAIL(stmgpio_setup_gpio(&gpio_led));
+    ASSERT(stmgpio_setup(&gpio_led));
 
     /* Set DEFAULTS */
     heartbeat_set_period_ms(1000);
@@ -110,7 +110,7 @@ void heartbeat_poll(void)
     {
         callback_cnt--;
 
-        if (LED_PULSE == hb_pattern)
+        if (LED_BREATHE == hb_pattern)
         {
             /* Set high for particular number of ticks per window */
             if (tick_per_window_cnt < fade_vals[window_cnt])
@@ -184,7 +184,7 @@ void heartbeat_set_period_ms(uint16_t period_ms)
     }
 
     /* Different window counts requierd for different modes */
-    if (LED_PULSE == hb_pattern)
+    if (LED_BREATHE == hb_pattern)
     {
         window_cnt_total = WINDOW_COUNT_FADE;
     }

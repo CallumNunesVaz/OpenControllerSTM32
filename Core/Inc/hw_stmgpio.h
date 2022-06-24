@@ -70,7 +70,7 @@ typedef struct stmgpio {
 
 void stmgpio_free_memory(stmgpio_t *gpio_t);
 
-int stmgpio_setup_gpio(stmgpio_t *gpio_t);
+int stmgpio_setup(stmgpio_t *gpio_t);
 
 int stmgpio_write(stmgpio_t* gpio_t, stmgpio_state_t state);
 

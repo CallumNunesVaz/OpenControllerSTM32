@@ -81,7 +81,7 @@ const bool PORT_D_PINS[GPIO_PORT_PIN_MAX] = {
 };
 
 /*  */
-int stmgpio_setup_gpio(stmgpio_t *g)
+int stmgpio_setup(stmgpio_t *g)
 {
   /* Sanity checks */
   if (!stmgpio_can_init(g))

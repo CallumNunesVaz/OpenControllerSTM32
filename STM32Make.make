@@ -36,6 +36,7 @@ BUILD_DIR = build
 ######################################
 # C sources
 C_SOURCES =  \
+Core/Src/drv_gpioexp.c \
 Core/Src/hw_adc1.c \
 Core/Src/hw_crc.c \
 Core/Src/hw_i2c1.c \

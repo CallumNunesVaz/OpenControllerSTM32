@@ -53,14 +53,14 @@ int i2c1_init(void)
   i2c1_scl.cfg = OUT_ALT_OPENDRAIN;
   i2c1_scl.dir = OUTPUT_10MHZ;
   i2c1_scl.pull = PULLUP;
-  RET_ON_FAIL(stmgpio_setup_gpio(&i2c1_scl));
+  ASSERT(stmgpio_setup(&i2c1_scl));
 
   i2c1_sda.port = I2C_SDA_PORT;
   i2c1_sda.pin = I2C_SDA_PIN;
   i2c1_sda.cfg = OUT_ALT_OPENDRAIN;
   i2c1_sda.dir = OUTPUT_10MHZ;
   i2c1_sda.pull = PULLUP;
-  RET_ON_FAIL(stmgpio_setup_gpio(&i2c1_sda));
+  ASSERT(stmgpio_setup(&i2c1_sda));
 
   /* Set the pin remap for i2c1 */
   AFIO->MAPR |= AFIO_MAPR_I2C1_REMAP;
@@ -127,7 +127,7 @@ void i2c1_enable_periph(void)
   /* enable peripheral */
   I2C1->CR1 |= I2C_CR1_PE;
   /* enable ack on byte rcv */
-  i2c1_set_ack();
+  i2c1_ack_bit();
 }
 
 void i2c1_ack_bit(void)

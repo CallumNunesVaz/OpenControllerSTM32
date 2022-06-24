@@ -31,7 +31,7 @@ void hw_systick_init(uint16_t tick_freq_hz){
     /* Set up with system core clock from system_stm32f1xx.h */
     SysTick_Config(SystemCoreClock / sys_tick_freq_hz);
     /* above function starts tick */
-    hw_systick_stop();
+    hw_systick_start();
     /* reset counter */
     counter = 0;
 }
@@ -57,13 +57,13 @@ void hw_systick_add_callback(void (*passed_func_ptr)(void)){
     
     /* check for duplicates */
     for (idx = 0; idx < func_ptr_count; idx++) {
-        if (passed_func_ptr == func_ptrs[idx]) {
+        if (passed_func_ptr == (void *)(func_ptrs[idx])) {
             return;
         }
     }
 
     /* add function pointer to list and increment count */
-    func_ptrs[func_ptr_count++] = passed_func_ptr;
+    func_ptrs[func_ptr_count++] = (void *)passed_func_ptr;
 
 }
 
@@ -72,13 +72,13 @@ void hw_systick_remove_callback(void (*passed_func_ptr)(void)){
     
     /* check for duplicates */
     for (idx = 0; idx < func_ptr_count; idx++) {
-        if (passed_func_ptr == func_ptrs[idx]) {
+        if (passed_func_ptr == (void *)(func_ptrs[idx])) {
             return;
         }
     }
 
     /* add function pointer to list and increment count */
-    func_ptrs[func_ptr_count++] = passed_func_ptr;
+    func_ptrs[func_ptr_count++] = (void *)passed_func_ptr;
 
 }
 
