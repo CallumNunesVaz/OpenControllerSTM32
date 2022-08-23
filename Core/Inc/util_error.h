@@ -10,11 +10,8 @@
 #include <string.h>
 
 /* Anything other than success is failure */
-#define ASSERT(p);            \
-    if (!(p))   \
-    {                        \
-        return EXIT_FAILURE; \
-    }
+#define ASSERT_BOOL(p)  if (!(p)) return EXIT_FAILURE
+#define ASSERT_INT(p)  if (EXIT_SUCCESS!=p) return EXIT_FAILURE
 
 /* Types of debug codes */
 typedef enum DBG_CODE_TYPES

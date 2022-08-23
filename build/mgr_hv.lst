@@ -1,0 +1,191 @@
+ARM GAS  /tmp/ccLB6ohJ.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"mgr_hv.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.hv_init,"ax",%progbits
+  18              		.align	1
+  19              		.global	hv_init
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	hv_init:
+  25              	.LFB65:
+  26              		.file 1 "Core/Src/mgr_hv.c"
+   1:Core/Src/mgr_hv.c **** /**
+   2:Core/Src/mgr_hv.c ****  * @file mgr_heartbeat.h
+   3:Core/Src/mgr_hv.c ****  * @author your name (you@domain.com)
+   4:Core/Src/mgr_hv.c ****  * @brief manager for the hearbeat LED. Assumed active high LED
+   5:Core/Src/mgr_hv.c ****  * @version 0.1
+   6:Core/Src/mgr_hv.c ****  * @date 2022-05-05
+   7:Core/Src/mgr_hv.c ****  *
+   8:Core/Src/mgr_hv.c ****  * @copyright Copyright (c) 2022
+   9:Core/Src/mgr_hv.c ****  *
+  10:Core/Src/mgr_hv.c ****  */
+  11:Core/Src/mgr_hv.c **** 
+  12:Core/Src/mgr_hv.c **** #include "mgr_hv.h"
+  13:Core/Src/mgr_hv.c **** 
+  14:Core/Src/mgr_hv.c **** /* Files required variables */
+  15:Core/Src/mgr_hv.c **** 
+  16:Core/Src/mgr_hv.c **** static stmgpio_t hv_en_gpio;
+  17:Core/Src/mgr_hv.c **** 
+  18:Core/Src/mgr_hv.c **** volatile static bool hv_is_active;
+  19:Core/Src/mgr_hv.c **** 
+  20:Core/Src/mgr_hv.c **** int hv_init(void)
+  21:Core/Src/mgr_hv.c **** {
+  27              		.loc 1 21 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  22:Core/Src/mgr_hv.c ****     hv_en_gpio.port = HV_EN_PORT;
+  36              		.loc 1 22 5 view .LVU1
+ARM GAS  /tmp/ccLB6ohJ.s 			page 2
+
+
+  37              		.loc 1 22 21 is_stmt 0 view .LVU2
+  38 0002 0748     		ldr	r0, .L4
+  39 0004 4323     		movs	r3, #67
+  40 0006 0371     		strb	r3, [r0, #4]
+  23:Core/Src/mgr_hv.c ****     hv_en_gpio.pin = HV_EN_PIN;
+  41              		.loc 1 23 5 is_stmt 1 view .LVU3
+  42              		.loc 1 23 20 is_stmt 0 view .LVU4
+  43 0008 0323     		movs	r3, #3
+  44 000a 4371     		strb	r3, [r0, #5]
+  24:Core/Src/mgr_hv.c ****     hv_en_gpio.cfg = OUT_PUSHPULL;
+  45              		.loc 1 24 5 is_stmt 1 view .LVU5
+  46              		.loc 1 24 20 is_stmt 0 view .LVU6
+  47 000c 0423     		movs	r3, #4
+  48 000e C370     		strb	r3, [r0, #3]
+  25:Core/Src/mgr_hv.c ****     hv_en_gpio.dir = OUTPUT_2MHZ;
+  49              		.loc 1 25 5 is_stmt 1 view .LVU7
+  50              		.loc 1 25 20 is_stmt 0 view .LVU8
+  51 0010 0223     		movs	r3, #2
+  52 0012 4370     		strb	r3, [r0, #1]
+  26:Core/Src/mgr_hv.c **** 
+  27:Core/Src/mgr_hv.c ****     if (EXIT_FAILURE == stmgpio_setup(&hv_en_gpio)){
+  53              		.loc 1 27 5 is_stmt 1 view .LVU9
+  54              		.loc 1 27 25 is_stmt 0 view .LVU10
+  55 0014 FFF7FEFF 		bl	stmgpio_setup
+  56              	.LVL0:
+  57              		.loc 1 27 8 view .LVU11
+  58 0018 0128     		cmp	r0, #1
+  59 001a 00D0     		beq	.L1
+  28:Core/Src/mgr_hv.c ****         return EXIT_FAILURE;
+  29:Core/Src/mgr_hv.c ****     }
+  30:Core/Src/mgr_hv.c **** 
+  31:Core/Src/mgr_hv.c ****     return EXIT_SUCCESS;
+  60              		.loc 1 31 12 view .LVU12
+  61 001c 0020     		movs	r0, #0
+  62              	.L1:
+  32:Core/Src/mgr_hv.c **** }
+  63              		.loc 1 32 1 view .LVU13
+  64 001e 08BD     		pop	{r3, pc}
+  65              	.L5:
+  66              		.align	2
+  67              	.L4:
+  68 0020 00000000 		.word	.LANCHOR0
+  69              		.cfi_endproc
+  70              	.LFE65:
+  72              		.section	.text.hv_rail_enable,"ax",%progbits
+  73              		.align	1
+  74              		.global	hv_rail_enable
+  75              		.syntax unified
+  76              		.thumb
+  77              		.thumb_func
+  79              	hv_rail_enable:
+  80              	.LVL1:
+  81              	.LFB66:
+  33:Core/Src/mgr_hv.c **** 
+  34:Core/Src/mgr_hv.c **** void hv_rail_enable(uint8_t bout_num)
+  35:Core/Src/mgr_hv.c **** {
+  82              		.loc 1 35 1 is_stmt 1 view -0
+ARM GAS  /tmp/ccLB6ohJ.s 			page 3
+
+
+  83              		.cfi_startproc
+  84              		@ args = 0, pretend = 0, frame = 0
+  85              		@ frame_needed = 0, uses_anonymous_args = 0
+  86              		@ link register save eliminated.
+  36:Core/Src/mgr_hv.c ****     
+  37:Core/Src/mgr_hv.c **** }
+  87              		.loc 1 37 1 view .LVU15
+  88 0000 7047     		bx	lr
+  89              		.cfi_endproc
+  90              	.LFE66:
+  92              		.section	.text.hv_rail_disable,"ax",%progbits
+  93              		.align	1
+  94              		.global	hv_rail_disable
+  95              		.syntax unified
+  96              		.thumb
+  97              		.thumb_func
+  99              	hv_rail_disable:
+ 100              	.LVL2:
+ 101              	.LFB67:
+  38:Core/Src/mgr_hv.c **** 
+  39:Core/Src/mgr_hv.c **** void hv_rail_disable(uint8_t bout_num)
+  40:Core/Src/mgr_hv.c **** {
+ 102              		.loc 1 40 1 view -0
+ 103              		.cfi_startproc
+ 104              		@ args = 0, pretend = 0, frame = 0
+ 105              		@ frame_needed = 0, uses_anonymous_args = 0
+ 106              		@ link register save eliminated.
+  41:Core/Src/mgr_hv.c ****     
+  42:Core/Src/mgr_hv.c **** }...
+ 107              		.loc 1 42 1 view .LVU17
+ 108 0000 7047     		bx	lr
+ 109              		.cfi_endproc
+ 110              	.LFE67:
+ 112              		.section	.bss.hv_en_gpio,"aw",%nobits
+ 113              		.align	2
+ 114              		.set	.LANCHOR0,. + 0
+ 117              	hv_en_gpio:
+ 118 0000 00000000 		.space	12
+ 118      00000000 
+ 118      00000000 
+ 119              		.section	.bss.hv_is_active,"aw",%nobits
+ 122              	hv_is_active:
+ 123 0000 00       		.space	1
+ 124              		.text
+ 125              	.Letext0:
+ 126              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 127              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 128              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 129              		.file 5 "Core/Inc/hw_stmgpio.h"
+ARM GAS  /tmp/ccLB6ohJ.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 mgr_hv.c
+     /tmp/ccLB6ohJ.s:18     .text.hv_init:0000000000000000 $t
+     /tmp/ccLB6ohJ.s:24     .text.hv_init:0000000000000000 hv_init
+     /tmp/ccLB6ohJ.s:68     .text.hv_init:0000000000000020 $d
+     /tmp/ccLB6ohJ.s:73     .text.hv_rail_enable:0000000000000000 $t
+     /tmp/ccLB6ohJ.s:79     .text.hv_rail_enable:0000000000000000 hv_rail_enable
+     /tmp/ccLB6ohJ.s:93     .text.hv_rail_disable:0000000000000000 $t
+     /tmp/ccLB6ohJ.s:99     .text.hv_rail_disable:0000000000000000 hv_rail_disable
+     /tmp/ccLB6ohJ.s:113    .bss.hv_en_gpio:0000000000000000 $d
+     /tmp/ccLB6ohJ.s:117    .bss.hv_en_gpio:0000000000000000 hv_en_gpio
+     /tmp/ccLB6ohJ.s:122    .bss.hv_is_active:0000000000000000 hv_is_active
+     /tmp/ccLB6ohJ.s:123    .bss.hv_is_active:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+stmgpio_setup

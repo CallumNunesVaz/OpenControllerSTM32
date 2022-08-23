@@ -7,6 +7,7 @@
 
 #include "stm32f103xb.h"
 #include "hw_systick.h"
+#include "util_error.h"
 #include <stdbool.h>
 #include <stdlib.h>
 

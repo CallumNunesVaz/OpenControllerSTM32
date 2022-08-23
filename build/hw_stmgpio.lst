@@ -1,0 +1,921 @@
+ARM GAS  /tmp/ccX8Eru9.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"hw_stmgpio.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.stmgpio_write,"ax",%progbits
+  18              		.align	1
+  19              		.global	stmgpio_write
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	stmgpio_write:
+  25              	.LVL0:
+  26              	.LFB66:
+  27              		.file 1 "Core/Src/hw_stmgpio.c"
+   1:Core/Src/hw_stmgpio.c **** /*
+   2:Core/Src/hw_stmgpio.c **** GPIO library designed to be relatively lightwieght but human readable.
+   3:Core/Src/hw_stmgpio.c **** */
+   4:Core/Src/hw_stmgpio.c **** #include "hw_stmgpio.h"
+   5:Core/Src/hw_stmgpio.c **** 
+   6:Core/Src/hw_stmgpio.c **** 
+   7:Core/Src/hw_stmgpio.c **** const bool PORT_A_PINS[GPIO_PORT_PIN_MAX] = {
+   8:Core/Src/hw_stmgpio.c ****   true, // PA0
+   9:Core/Src/hw_stmgpio.c ****   true, // PA1
+  10:Core/Src/hw_stmgpio.c ****   true, // PA2
+  11:Core/Src/hw_stmgpio.c ****   true, // PA3
+  12:Core/Src/hw_stmgpio.c ****   true, // PA4
+  13:Core/Src/hw_stmgpio.c ****   true, // PA5
+  14:Core/Src/hw_stmgpio.c ****   true, // PA6
+  15:Core/Src/hw_stmgpio.c ****   true, // PA7
+  16:Core/Src/hw_stmgpio.c ****   true, // PA8
+  17:Core/Src/hw_stmgpio.c ****   true, // PA9
+  18:Core/Src/hw_stmgpio.c ****   true, // PA10
+  19:Core/Src/hw_stmgpio.c ****   true, // PA11
+  20:Core/Src/hw_stmgpio.c ****   true, // PA12
+  21:Core/Src/hw_stmgpio.c ****   true, // PA13
+  22:Core/Src/hw_stmgpio.c ****   true, // PA14
+  23:Core/Src/hw_stmgpio.c ****   true  // PA15
+  24:Core/Src/hw_stmgpio.c **** };
+  25:Core/Src/hw_stmgpio.c **** 
+  26:Core/Src/hw_stmgpio.c **** const bool PORT_B_PINS[GPIO_PORT_PIN_MAX] = {
+  27:Core/Src/hw_stmgpio.c ****   true, // PB0
+  28:Core/Src/hw_stmgpio.c ****   true, // PB1
+  29:Core/Src/hw_stmgpio.c ****   true, // PB2
+  30:Core/Src/hw_stmgpio.c ****   true, // PB3
+  31:Core/Src/hw_stmgpio.c ****   true, // PB4
+ARM GAS  /tmp/ccX8Eru9.s 			page 2
+
+
+  32:Core/Src/hw_stmgpio.c ****   true, // PB5
+  33:Core/Src/hw_stmgpio.c ****   true, // PB6
+  34:Core/Src/hw_stmgpio.c ****   true, // PB7
+  35:Core/Src/hw_stmgpio.c ****   true, // PB8
+  36:Core/Src/hw_stmgpio.c ****   true, // PB9
+  37:Core/Src/hw_stmgpio.c ****   true, // PB10
+  38:Core/Src/hw_stmgpio.c ****   true, // PB11
+  39:Core/Src/hw_stmgpio.c ****   true, // PB12
+  40:Core/Src/hw_stmgpio.c ****   true, // PB13
+  41:Core/Src/hw_stmgpio.c ****   true, // PB14
+  42:Core/Src/hw_stmgpio.c ****   true  // PB15
+  43:Core/Src/hw_stmgpio.c **** };
+  44:Core/Src/hw_stmgpio.c **** 
+  45:Core/Src/hw_stmgpio.c **** const bool PORT_C_PINS[GPIO_PORT_PIN_MAX] = {
+  46:Core/Src/hw_stmgpio.c ****   false,// PC0
+  47:Core/Src/hw_stmgpio.c ****   false,// PC1
+  48:Core/Src/hw_stmgpio.c ****   false,// PC2
+  49:Core/Src/hw_stmgpio.c ****   false,// PC3
+  50:Core/Src/hw_stmgpio.c ****   false,// PC4
+  51:Core/Src/hw_stmgpio.c ****   false,// PC5
+  52:Core/Src/hw_stmgpio.c ****   false,// PC6
+  53:Core/Src/hw_stmgpio.c ****   false,// PC7
+  54:Core/Src/hw_stmgpio.c ****   false,// PC8
+  55:Core/Src/hw_stmgpio.c ****   false,// PC9
+  56:Core/Src/hw_stmgpio.c ****   false,// PC10
+  57:Core/Src/hw_stmgpio.c ****   false,// PC11
+  58:Core/Src/hw_stmgpio.c ****   false,// PC12
+  59:Core/Src/hw_stmgpio.c ****   true, // PC13
+  60:Core/Src/hw_stmgpio.c ****   true, // PC14
+  61:Core/Src/hw_stmgpio.c ****   true  // PC15
+  62:Core/Src/hw_stmgpio.c **** };
+  63:Core/Src/hw_stmgpio.c **** 
+  64:Core/Src/hw_stmgpio.c **** const bool PORT_D_PINS[GPIO_PORT_PIN_MAX] = {
+  65:Core/Src/hw_stmgpio.c ****   true, // PD0
+  66:Core/Src/hw_stmgpio.c ****   true, // PD1
+  67:Core/Src/hw_stmgpio.c ****   false,// PD2
+  68:Core/Src/hw_stmgpio.c ****   false,// PD3
+  69:Core/Src/hw_stmgpio.c ****   false,// PD4
+  70:Core/Src/hw_stmgpio.c ****   false,// PD5
+  71:Core/Src/hw_stmgpio.c ****   false,// PD6
+  72:Core/Src/hw_stmgpio.c ****   false,// PD7
+  73:Core/Src/hw_stmgpio.c ****   false,// PD8
+  74:Core/Src/hw_stmgpio.c ****   false,// PD9
+  75:Core/Src/hw_stmgpio.c ****   false,// PD10
+  76:Core/Src/hw_stmgpio.c ****   false,// PD11
+  77:Core/Src/hw_stmgpio.c ****   false,// PD12
+  78:Core/Src/hw_stmgpio.c ****   false,// PD13
+  79:Core/Src/hw_stmgpio.c ****   false,// PD14
+  80:Core/Src/hw_stmgpio.c ****   false // PD15
+  81:Core/Src/hw_stmgpio.c **** };
+  82:Core/Src/hw_stmgpio.c **** 
+  83:Core/Src/hw_stmgpio.c **** /*  */
+  84:Core/Src/hw_stmgpio.c **** int stmgpio_setup(stmgpio_t *g)
+  85:Core/Src/hw_stmgpio.c **** {
+  86:Core/Src/hw_stmgpio.c ****   /* Sanity checks */
+  87:Core/Src/hw_stmgpio.c ****   ASSERT_BOOL(stmgpio_can_init(g));
+  88:Core/Src/hw_stmgpio.c **** 
+ARM GAS  /tmp/ccX8Eru9.s 			page 3
+
+
+  89:Core/Src/hw_stmgpio.c ****   /* Turn on ports clock if not already on */
+  90:Core/Src/hw_stmgpio.c ****   RCC->APB2ENR |= RCC_APB2ENR_IOPAEN << (g->port - 'A');
+  91:Core/Src/hw_stmgpio.c **** 
+  92:Core/Src/hw_stmgpio.c ****   /* Find addr of base reg based on char */
+  93:Core/Src/hw_stmgpio.c ****   g->port_reg_addr = (GPIO_TypeDef *)(APB2PERIPH_BASE + (0x00000800UL + (0x00000400UL * (g->port - 
+  94:Core/Src/hw_stmgpio.c **** 
+  95:Core/Src/hw_stmgpio.c ****   /* Set registers based on GPIO settings */
+  96:Core/Src/hw_stmgpio.c ****   if (g->pin < 8)
+  97:Core/Src/hw_stmgpio.c ****   {
+  98:Core/Src/hw_stmgpio.c ****     /* Reset register */
+  99:Core/Src/hw_stmgpio.c ****     g->port_reg_addr->CRL &= ~(0x0F << (REG_PIN_CONF_BITLENGTH * g->pin));
+ 100:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
+ 101:Core/Src/hw_stmgpio.c ****     g->port_reg_addr->CRL |= ((uint32_t)(g->dir)) << ((REG_PIN_CONF_BITLENGTH * g->pin) + REG_MODE_
+ 102:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 103:Core/Src/hw_stmgpio.c ****     g->port_reg_addr->CRL |= (((uint32_t)(g->cfg)) & ~(0x04)) << ((REG_PIN_CONF_BITLENGTH * g->pin)
+ 104:Core/Src/hw_stmgpio.c ****   }
+ 105:Core/Src/hw_stmgpio.c ****   else
+ 106:Core/Src/hw_stmgpio.c ****   {
+ 107:Core/Src/hw_stmgpio.c ****     /* Reset register */
+ 108:Core/Src/hw_stmgpio.c ****     g->port_reg_addr->CRH &= ~(0x0F << (REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)));
+ 109:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
+ 110:Core/Src/hw_stmgpio.c ****     g->port_reg_addr->CRH |= ((uint32_t)(g->dir)) << ((REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)) + 
+ 111:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 112:Core/Src/hw_stmgpio.c ****     g->port_reg_addr->CRH |= (((uint32_t)(g->cfg)) & ~(0x04)) << ((REG_PIN_CONF_BITLENGTH * (g->pin
+ 113:Core/Src/hw_stmgpio.c ****   }
+ 114:Core/Src/hw_stmgpio.c **** 
+ 115:Core/Src/hw_stmgpio.c ****   /* Set pullup or down depending on configuration */
+ 116:Core/Src/hw_stmgpio.c ****   if (IN_PULL == g->cfg)
+ 117:Core/Src/hw_stmgpio.c ****   {
+ 118:Core/Src/hw_stmgpio.c ****     g->port_reg_addr->ODR = ((uint32_t)(g->pull)) << g->pin;
+ 119:Core/Src/hw_stmgpio.c ****   }
+ 120:Core/Src/hw_stmgpio.c **** 
+ 121:Core/Src/hw_stmgpio.c ****   /* Set default low if output */
+ 122:Core/Src/hw_stmgpio.c ****   if ((OUT_PUSHPULL == g->cfg) || (OUT_OPENDRAIN == g->cfg))
+ 123:Core/Src/hw_stmgpio.c ****   {
+ 124:Core/Src/hw_stmgpio.c ****     stmgpio_write(g, PIN_LOW);
+ 125:Core/Src/hw_stmgpio.c ****   }
+ 126:Core/Src/hw_stmgpio.c **** 
+ 127:Core/Src/hw_stmgpio.c ****   /* huzzah */
+ 128:Core/Src/hw_stmgpio.c ****   return EXIT_SUCCESS;
+ 129:Core/Src/hw_stmgpio.c **** }
+ 130:Core/Src/hw_stmgpio.c **** 
+ 131:Core/Src/hw_stmgpio.c **** int stmgpio_write(stmgpio_t *g, stmgpio_state_t set_state)
+ 132:Core/Src/hw_stmgpio.c **** {
+  28              		.loc 1 132 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+ 133:Core/Src/hw_stmgpio.c ****   if ((STATE_CNT <= set_state) || (NULL == g))
+  33              		.loc 1 133 3 view .LVU1
+  34              		.loc 1 133 6 is_stmt 0 view .LVU2
+  35 0000 0129     		cmp	r1, #1
+  36 0002 0BD8     		bhi	.L3
+  37              		.loc 1 133 32 discriminator 1 view .LVU3
+  38 0004 60B1     		cbz	r0, .L4
+ 134:Core/Src/hw_stmgpio.c ****   {
+ARM GAS  /tmp/ccX8Eru9.s 			page 4
+
+
+ 135:Core/Src/hw_stmgpio.c ****     return EXIT_FAILURE;
+ 136:Core/Src/hw_stmgpio.c ****   }
+ 137:Core/Src/hw_stmgpio.c **** 
+ 138:Core/Src/hw_stmgpio.c ****   g->state = set_state;
+  39              		.loc 1 138 3 is_stmt 1 view .LVU4
+  40              		.loc 1 138 12 is_stmt 0 view .LVU5
+  41 0006 0170     		strb	r1, [r0]
+ 139:Core/Src/hw_stmgpio.c ****   g->port_reg_addr->BSRR = (0x01 << g->pin << (((uint8_t)set_state) * 0x10));
+  42              		.loc 1 139 3 is_stmt 1 view .LVU6
+  43              		.loc 1 139 38 is_stmt 0 view .LVU7
+  44 0008 4279     		ldrb	r2, [r0, #5]	@ zero_extendqisi2
+  45              		.loc 1 139 34 view .LVU8
+  46 000a 0123     		movs	r3, #1
+  47 000c 9340     		lsls	r3, r3, r2
+  48              		.loc 1 139 69 view .LVU9
+  49 000e 0901     		lsls	r1, r1, #4
+  50              	.LVL1:
+  51              		.loc 1 139 4 view .LVU10
+  52 0010 8268     		ldr	r2, [r0, #8]
+  53              		.loc 1 139 44 view .LVU11
+  54 0012 03FA01F1 		lsl	r1, r3, r1
+  55              		.loc 1 139 26 view .LVU12
+  56 0016 1161     		str	r1, [r2, #16]
+  57              	.LVL2:
+ 140:Core/Src/hw_stmgpio.c **** 
+ 141:Core/Src/hw_stmgpio.c ****   return EXIT_SUCCESS;
+  58              		.loc 1 141 3 is_stmt 1 view .LVU13
+  59              		.loc 1 141 10 is_stmt 0 view .LVU14
+  60 0018 0020     		movs	r0, #0
+  61              	.LVL3:
+  62              		.loc 1 141 10 view .LVU15
+  63 001a 7047     		bx	lr
+  64              	.LVL4:
+  65              	.L3:
+ 135:Core/Src/hw_stmgpio.c ****   }
+  66              		.loc 1 135 12 view .LVU16
+  67 001c 0120     		movs	r0, #1
+  68              	.LVL5:
+ 135:Core/Src/hw_stmgpio.c ****   }
+  69              		.loc 1 135 12 view .LVU17
+  70 001e 7047     		bx	lr
+  71              	.LVL6:
+  72              	.L4:
+ 135:Core/Src/hw_stmgpio.c ****   }
+  73              		.loc 1 135 12 view .LVU18
+  74 0020 0120     		movs	r0, #1
+  75              	.LVL7:
+ 142:Core/Src/hw_stmgpio.c **** }
+  76              		.loc 1 142 1 view .LVU19
+  77 0022 7047     		bx	lr
+  78              		.cfi_endproc
+  79              	.LFE66:
+  81              		.section	.text.stmgpio_can_init,"ax",%progbits
+  82              		.align	1
+  83              		.global	stmgpio_can_init
+  84              		.syntax unified
+  85              		.thumb
+ARM GAS  /tmp/ccX8Eru9.s 			page 5
+
+
+  86              		.thumb_func
+  88              	stmgpio_can_init:
+  89              	.LVL8:
+  90              	.LFB67:
+ 143:Core/Src/hw_stmgpio.c **** 
+ 144:Core/Src/hw_stmgpio.c **** bool stmgpio_can_init(stmgpio_t *g)
+ 145:Core/Src/hw_stmgpio.c **** {
+  91              		.loc 1 145 1 is_stmt 1 view -0
+  92              		.cfi_startproc
+  93              		@ args = 0, pretend = 0, frame = 0
+  94              		@ frame_needed = 0, uses_anonymous_args = 0
+  95              		@ link register save eliminated.
+ 146:Core/Src/hw_stmgpio.c ****   bool is_valid = false;
+  96              		.loc 1 146 3 view .LVU21
+ 147:Core/Src/hw_stmgpio.c **** 
+ 148:Core/Src/hw_stmgpio.c ****   /* capitalise port char if not */
+ 149:Core/Src/hw_stmgpio.c ****   if (('a' <= g->port) && ('d' >= g->port))
+  97              		.loc 1 149 3 view .LVU22
+  98              		.loc 1 149 16 is_stmt 0 view .LVU23
+  99 0000 0279     		ldrb	r2, [r0, #4]	@ zero_extendqisi2
+ 100              		.loc 1 149 24 view .LVU24
+ 101 0002 A2F16103 		sub	r3, r2, #97
+ 102 0006 DBB2     		uxtb	r3, r3
+ 103              		.loc 1 149 6 view .LVU25
+ 104 0008 032B     		cmp	r3, #3
+ 105 000a 01D8     		bhi	.L6
+ 150:Core/Src/hw_stmgpio.c ****   {
+ 151:Core/Src/hw_stmgpio.c ****     g->port -= 32;
+ 106              		.loc 1 151 5 is_stmt 1 view .LVU26
+ 107              		.loc 1 151 13 is_stmt 0 view .LVU27
+ 108 000c 203A     		subs	r2, r2, #32
+ 109 000e 0271     		strb	r2, [r0, #4]
+ 110              	.L6:
+ 152:Core/Src/hw_stmgpio.c ****   }
+ 153:Core/Src/hw_stmgpio.c **** 
+ 154:Core/Src/hw_stmgpio.c ****   /* Check enums for silly errors */
+ 155:Core/Src/hw_stmgpio.c ****   if ((DIR_CNT >= g->dir) && (TYPE_CNT >= g->cfg) && (PULL_CNT >= g->pull))
+ 111              		.loc 1 155 3 is_stmt 1 view .LVU28
+ 112              		.loc 1 155 20 is_stmt 0 view .LVU29
+ 113 0010 4378     		ldrb	r3, [r0, #1]	@ zero_extendqisi2
+ 114              		.loc 1 155 6 view .LVU30
+ 115 0012 042B     		cmp	r3, #4
+ 116 0014 1CD8     		bhi	.L13
+ 117              		.loc 1 155 44 discriminator 1 view .LVU31
+ 118 0016 C378     		ldrb	r3, [r0, #3]	@ zero_extendqisi2
+ 119              		.loc 1 155 27 discriminator 1 view .LVU32
+ 120 0018 082B     		cmp	r3, #8
+ 121 001a 1BD8     		bhi	.L14
+ 122              		.loc 1 155 68 discriminator 2 view .LVU33
+ 123 001c 8378     		ldrb	r3, [r0, #2]	@ zero_extendqisi2
+ 124              		.loc 1 155 51 discriminator 2 view .LVU34
+ 125 001e 022B     		cmp	r3, #2
+ 126 0020 1AD8     		bhi	.L15
+ 156:Core/Src/hw_stmgpio.c ****   {
+ 157:Core/Src/hw_stmgpio.c ****     /* Check port ledger for pin existence */
+ 158:Core/Src/hw_stmgpio.c ****     if (GPIO_PORT_PIN_MAX > g->pin)
+ 127              		.loc 1 158 5 is_stmt 1 view .LVU35
+ARM GAS  /tmp/ccX8Eru9.s 			page 6
+
+
+ 128              		.loc 1 158 30 is_stmt 0 view .LVU36
+ 129 0022 4279     		ldrb	r2, [r0, #5]	@ zero_extendqisi2
+ 130              		.loc 1 158 8 view .LVU37
+ 131 0024 0F2A     		cmp	r2, #15
+ 132 0026 19D8     		bhi	.L16
+ 159:Core/Src/hw_stmgpio.c ****     {
+ 160:Core/Src/hw_stmgpio.c ****       switch (g->port)
+ 133              		.loc 1 160 7 is_stmt 1 view .LVU38
+ 134              		.loc 1 160 16 is_stmt 0 view .LVU39
+ 135 0028 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
+ 136              		.loc 1 160 7 view .LVU40
+ 137 002a 413B     		subs	r3, r3, #65
+ 138 002c 032B     		cmp	r3, #3
+ 139 002e 17D8     		bhi	.L17
+ 140 0030 DFE803F0 		tbb	[pc, r3]
+ 141              	.L9:
+ 142 0034 02       		.byte	(.L12-.L9)/2
+ 143 0035 05       		.byte	(.L11-.L9)/2
+ 144 0036 08       		.byte	(.L10-.L9)/2
+ 145 0037 0B       		.byte	(.L8-.L9)/2
+ 146              		.p2align 1
+ 147              	.L12:
+ 161:Core/Src/hw_stmgpio.c ****       {
+ 162:Core/Src/hw_stmgpio.c ****       case 'A':
+ 163:Core/Src/hw_stmgpio.c ****         is_valid = PORT_A_PINS[g->pin];
+ 148              		.loc 1 163 9 is_stmt 1 view .LVU41
+ 149              		.loc 1 163 18 is_stmt 0 view .LVU42
+ 150 0038 0A4B     		ldr	r3, .L18
+ 151 003a 985C     		ldrb	r0, [r3, r2]	@ zero_extendqisi2
+ 152              	.LVL9:
+ 164:Core/Src/hw_stmgpio.c ****         break;
+ 153              		.loc 1 164 9 is_stmt 1 view .LVU43
+ 154 003c 7047     		bx	lr
+ 155              	.LVL10:
+ 156              	.L11:
+ 165:Core/Src/hw_stmgpio.c ****       case 'B':
+ 166:Core/Src/hw_stmgpio.c ****         is_valid = PORT_B_PINS[g->pin];
+ 157              		.loc 1 166 9 view .LVU44
+ 158              		.loc 1 166 18 is_stmt 0 view .LVU45
+ 159 003e 0A4B     		ldr	r3, .L18+4
+ 160 0040 985C     		ldrb	r0, [r3, r2]	@ zero_extendqisi2
+ 161              	.LVL11:
+ 167:Core/Src/hw_stmgpio.c ****         break;
+ 162              		.loc 1 167 9 is_stmt 1 view .LVU46
+ 163 0042 7047     		bx	lr
+ 164              	.LVL12:
+ 165              	.L10:
+ 168:Core/Src/hw_stmgpio.c ****       case 'C':
+ 169:Core/Src/hw_stmgpio.c ****         is_valid = PORT_C_PINS[g->pin];
+ 166              		.loc 1 169 9 view .LVU47
+ 167              		.loc 1 169 18 is_stmt 0 view .LVU48
+ 168 0044 094B     		ldr	r3, .L18+8
+ 169 0046 985C     		ldrb	r0, [r3, r2]	@ zero_extendqisi2
+ 170              	.LVL13:
+ 170:Core/Src/hw_stmgpio.c ****         break;
+ 171              		.loc 1 170 9 is_stmt 1 view .LVU49
+ 172 0048 7047     		bx	lr
+ARM GAS  /tmp/ccX8Eru9.s 			page 7
+
+
+ 173              	.LVL14:
+ 174              	.L8:
+ 171:Core/Src/hw_stmgpio.c ****       case 'D':
+ 172:Core/Src/hw_stmgpio.c ****         is_valid = PORT_D_PINS[g->pin];
+ 175              		.loc 1 172 9 view .LVU50
+ 176              		.loc 1 172 18 is_stmt 0 view .LVU51
+ 177 004a 094B     		ldr	r3, .L18+12
+ 178 004c 985C     		ldrb	r0, [r3, r2]	@ zero_extendqisi2
+ 179              	.LVL15:
+ 173:Core/Src/hw_stmgpio.c ****         break;
+ 180              		.loc 1 173 9 is_stmt 1 view .LVU52
+ 181 004e 7047     		bx	lr
+ 182              	.LVL16:
+ 183              	.L13:
+ 146:Core/Src/hw_stmgpio.c **** 
+ 184              		.loc 1 146 8 is_stmt 0 view .LVU53
+ 185 0050 0020     		movs	r0, #0
+ 186              	.LVL17:
+ 146:Core/Src/hw_stmgpio.c **** 
+ 187              		.loc 1 146 8 view .LVU54
+ 188 0052 7047     		bx	lr
+ 189              	.LVL18:
+ 190              	.L14:
+ 146:Core/Src/hw_stmgpio.c **** 
+ 191              		.loc 1 146 8 view .LVU55
+ 192 0054 0020     		movs	r0, #0
+ 193              	.LVL19:
+ 146:Core/Src/hw_stmgpio.c **** 
+ 194              		.loc 1 146 8 view .LVU56
+ 195 0056 7047     		bx	lr
+ 196              	.LVL20:
+ 197              	.L15:
+ 146:Core/Src/hw_stmgpio.c **** 
+ 198              		.loc 1 146 8 view .LVU57
+ 199 0058 0020     		movs	r0, #0
+ 200              	.LVL21:
+ 146:Core/Src/hw_stmgpio.c **** 
+ 201              		.loc 1 146 8 view .LVU58
+ 202 005a 7047     		bx	lr
+ 203              	.LVL22:
+ 204              	.L16:
+ 146:Core/Src/hw_stmgpio.c **** 
+ 205              		.loc 1 146 8 view .LVU59
+ 206 005c 0020     		movs	r0, #0
+ 207              	.LVL23:
+ 146:Core/Src/hw_stmgpio.c **** 
+ 208              		.loc 1 146 8 view .LVU60
+ 209 005e 7047     		bx	lr
+ 210              	.LVL24:
+ 211              	.L17:
+ 160:Core/Src/hw_stmgpio.c ****       {
+ 212              		.loc 1 160 7 view .LVU61
+ 213 0060 0020     		movs	r0, #0
+ 214              	.LVL25:
+ 174:Core/Src/hw_stmgpio.c ****       default:
+ 175:Core/Src/hw_stmgpio.c ****         is_valid = false;
+ 176:Core/Src/hw_stmgpio.c ****         break;
+ARM GAS  /tmp/ccX8Eru9.s 			page 8
+
+
+ 177:Core/Src/hw_stmgpio.c ****       }
+ 178:Core/Src/hw_stmgpio.c ****     }
+ 179:Core/Src/hw_stmgpio.c ****   }
+ 180:Core/Src/hw_stmgpio.c **** 
+ 181:Core/Src/hw_stmgpio.c ****   return is_valid;
+ 215              		.loc 1 181 3 is_stmt 1 view .LVU62
+ 182:Core/Src/hw_stmgpio.c **** }
+ 216              		.loc 1 182 1 is_stmt 0 view .LVU63
+ 217 0062 7047     		bx	lr
+ 218              	.L19:
+ 219              		.align	2
+ 220              	.L18:
+ 221 0064 00000000 		.word	.LANCHOR0
+ 222 0068 00000000 		.word	.LANCHOR1
+ 223 006c 00000000 		.word	.LANCHOR2
+ 224 0070 00000000 		.word	.LANCHOR3
+ 225              		.cfi_endproc
+ 226              	.LFE67:
+ 228              		.section	.text.stmgpio_setup,"ax",%progbits
+ 229              		.align	1
+ 230              		.global	stmgpio_setup
+ 231              		.syntax unified
+ 232              		.thumb
+ 233              		.thumb_func
+ 235              	stmgpio_setup:
+ 236              	.LVL26:
+ 237              	.LFB65:
+  85:Core/Src/hw_stmgpio.c ****   /* Sanity checks */
+ 238              		.loc 1 85 1 is_stmt 1 view -0
+ 239              		.cfi_startproc
+ 240              		@ args = 0, pretend = 0, frame = 0
+ 241              		@ frame_needed = 0, uses_anonymous_args = 0
+  85:Core/Src/hw_stmgpio.c ****   /* Sanity checks */
+ 242              		.loc 1 85 1 is_stmt 0 view .LVU65
+ 243 0000 10B5     		push	{r4, lr}
+ 244              	.LCFI0:
+ 245              		.cfi_def_cfa_offset 8
+ 246              		.cfi_offset 4, -8
+ 247              		.cfi_offset 14, -4
+ 248 0002 0446     		mov	r4, r0
+  87:Core/Src/hw_stmgpio.c **** 
+ 249              		.loc 1 87 3 is_stmt 1 view .LVU66
+ 250 0004 FFF7FEFF 		bl	stmgpio_can_init
+ 251              	.LVL27:
+  87:Core/Src/hw_stmgpio.c **** 
+ 252              		.loc 1 87 3 is_stmt 0 view .LVU67
+ 253 0008 0028     		cmp	r0, #0
+ 254 000a 63D0     		beq	.L25
+  90:Core/Src/hw_stmgpio.c **** 
+ 255              		.loc 1 90 3 is_stmt 1 view .LVU68
+  90:Core/Src/hw_stmgpio.c **** 
+ 256              		.loc 1 90 16 is_stmt 0 view .LVU69
+ 257 000c 3248     		ldr	r0, .L30
+ 258 000e 8369     		ldr	r3, [r0, #24]
+  90:Core/Src/hw_stmgpio.c **** 
+ 259              		.loc 1 90 43 view .LVU70
+ 260 0010 2279     		ldrb	r2, [r4, #4]	@ zero_extendqisi2
+ARM GAS  /tmp/ccX8Eru9.s 			page 9
+
+
+  90:Core/Src/hw_stmgpio.c **** 
+ 261              		.loc 1 90 50 view .LVU71
+ 262 0012 A2F14101 		sub	r1, r2, #65
+  90:Core/Src/hw_stmgpio.c **** 
+ 263              		.loc 1 90 38 view .LVU72
+ 264 0016 0422     		movs	r2, #4
+ 265 0018 8A40     		lsls	r2, r2, r1
+  90:Core/Src/hw_stmgpio.c **** 
+ 266              		.loc 1 90 16 view .LVU73
+ 267 001a 1343     		orrs	r3, r3, r2
+ 268 001c 8361     		str	r3, [r0, #24]
+  93:Core/Src/hw_stmgpio.c **** 
+ 269              		.loc 1 93 3 is_stmt 1 view .LVU74
+  93:Core/Src/hw_stmgpio.c **** 
+ 270              		.loc 1 93 91 is_stmt 0 view .LVU75
+ 271 001e 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
+  93:Core/Src/hw_stmgpio.c **** 
+ 272              		.loc 1 93 55 view .LVU76
+ 273 0020 03F58013 		add	r3, r3, #1048576
+ 274 0024 0133     		adds	r3, r3, #1
+ 275 0026 9B02     		lsls	r3, r3, #10
+  93:Core/Src/hw_stmgpio.c **** 
+ 276              		.loc 1 93 20 view .LVU77
+ 277 0028 A360     		str	r3, [r4, #8]
+  96:Core/Src/hw_stmgpio.c ****   {
+ 278              		.loc 1 96 3 is_stmt 1 view .LVU78
+  96:Core/Src/hw_stmgpio.c ****   {
+ 279              		.loc 1 96 8 is_stmt 0 view .LVU79
+ 280 002a 6279     		ldrb	r2, [r4, #5]	@ zero_extendqisi2
+  96:Core/Src/hw_stmgpio.c ****   {
+ 281              		.loc 1 96 6 view .LVU80
+ 282 002c 072A     		cmp	r2, #7
+ 283 002e 24D8     		bhi	.L22
+  99:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
+ 284              		.loc 1 99 5 is_stmt 1 view .LVU81
+  99:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
+ 285              		.loc 1 99 27 is_stmt 0 view .LVU82
+ 286 0030 1968     		ldr	r1, [r3]
+  99:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
+ 287              		.loc 1 99 64 view .LVU83
+ 288 0032 9200     		lsls	r2, r2, #2
+  99:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
+ 289              		.loc 1 99 37 view .LVU84
+ 290 0034 0F20     		movs	r0, #15
+ 291 0036 00FA02F2 		lsl	r2, r0, r2
+  99:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
+ 292              		.loc 1 99 27 view .LVU85
+ 293 003a 21EA0202 		bic	r2, r1, r2
+ 294 003e 1A60     		str	r2, [r3]
+ 101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 295              		.loc 1 101 5 is_stmt 1 view .LVU86
+ 101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 296              		.loc 1 101 6 is_stmt 0 view .LVU87
+ 297 0040 A068     		ldr	r0, [r4, #8]
+ 101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 298              		.loc 1 101 27 view .LVU88
+ 299 0042 0368     		ldr	r3, [r0]
+ARM GAS  /tmp/ccX8Eru9.s 			page 10
+
+
+ 101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 300              		.loc 1 101 43 view .LVU89
+ 301 0044 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
+ 101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 302              		.loc 1 101 82 view .LVU90
+ 303 0046 6179     		ldrb	r1, [r4, #5]	@ zero_extendqisi2
+ 101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 304              		.loc 1 101 89 view .LVU91
+ 305 0048 8900     		lsls	r1, r1, #2
+ 101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 306              		.loc 1 101 51 view .LVU92
+ 307 004a 8A40     		lsls	r2, r2, r1
+ 101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 308              		.loc 1 101 27 view .LVU93
+ 309 004c 1343     		orrs	r3, r3, r2
+ 310 004e 0360     		str	r3, [r0]
+ 103:Core/Src/hw_stmgpio.c ****   }
+ 311              		.loc 1 103 5 is_stmt 1 view .LVU94
+ 103:Core/Src/hw_stmgpio.c ****   }
+ 312              		.loc 1 103 6 is_stmt 0 view .LVU95
+ 313 0050 A068     		ldr	r0, [r4, #8]
+ 103:Core/Src/hw_stmgpio.c ****   }
+ 314              		.loc 1 103 27 view .LVU96
+ 315 0052 0168     		ldr	r1, [r0]
+ 103:Core/Src/hw_stmgpio.c ****   }
+ 316              		.loc 1 103 44 view .LVU97
+ 317 0054 E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
+ 103:Core/Src/hw_stmgpio.c ****   }
+ 318              		.loc 1 103 52 view .LVU98
+ 319 0056 23F00403 		bic	r3, r3, #4
+ 103:Core/Src/hw_stmgpio.c ****   }
+ 320              		.loc 1 103 94 view .LVU99
+ 321 005a 6279     		ldrb	r2, [r4, #5]	@ zero_extendqisi2
+ 103:Core/Src/hw_stmgpio.c ****   }
+ 322              		.loc 1 103 91 view .LVU100
+ 323 005c 9200     		lsls	r2, r2, #2
+ 103:Core/Src/hw_stmgpio.c ****   }
+ 324              		.loc 1 103 101 view .LVU101
+ 325 005e 0232     		adds	r2, r2, #2
+ 103:Core/Src/hw_stmgpio.c ****   }
+ 326              		.loc 1 103 63 view .LVU102
+ 327 0060 9340     		lsls	r3, r3, r2
+ 103:Core/Src/hw_stmgpio.c ****   }
+ 328              		.loc 1 103 27 view .LVU103
+ 329 0062 0B43     		orrs	r3, r3, r1
+ 330 0064 0360     		str	r3, [r0]
+ 331              	.L23:
+ 116:Core/Src/hw_stmgpio.c ****   {
+ 332              		.loc 1 116 3 is_stmt 1 view .LVU104
+ 116:Core/Src/hw_stmgpio.c ****   {
+ 333              		.loc 1 116 19 is_stmt 0 view .LVU105
+ 334 0066 E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
+ 116:Core/Src/hw_stmgpio.c ****   {
+ 335              		.loc 1 116 6 view .LVU106
+ 336 0068 022B     		cmp	r3, #2
+ 337 006a 27D0     		beq	.L28
+ 338              	.L24:
+ARM GAS  /tmp/ccX8Eru9.s 			page 11
+
+
+ 122:Core/Src/hw_stmgpio.c ****   {
+ 339              		.loc 1 122 3 is_stmt 1 view .LVU107
+ 122:Core/Src/hw_stmgpio.c ****   {
+ 340              		.loc 1 122 25 is_stmt 0 view .LVU108
+ 341 006c E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
+ 122:Core/Src/hw_stmgpio.c ****   {
+ 342              		.loc 1 122 32 view .LVU109
+ 343 006e 043B     		subs	r3, r3, #4
+ 344 0070 DBB2     		uxtb	r3, r3
+ 122:Core/Src/hw_stmgpio.c ****   {
+ 345              		.loc 1 122 6 view .LVU110
+ 346 0072 012B     		cmp	r3, #1
+ 347 0074 28D9     		bls	.L29
+ 128:Core/Src/hw_stmgpio.c **** }
+ 348              		.loc 1 128 10 view .LVU111
+ 349 0076 0020     		movs	r0, #0
+ 350              	.L20:
+ 129:Core/Src/hw_stmgpio.c **** 
+ 351              		.loc 1 129 1 view .LVU112
+ 352 0078 10BD     		pop	{r4, pc}
+ 353              	.LVL28:
+ 354              	.L22:
+ 108:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
+ 355              		.loc 1 108 5 is_stmt 1 view .LVU113
+ 108:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
+ 356              		.loc 1 108 27 is_stmt 0 view .LVU114
+ 357 007a 5968     		ldr	r1, [r3, #4]
+ 108:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
+ 358              		.loc 1 108 74 view .LVU115
+ 359 007c 083A     		subs	r2, r2, #8
+ 108:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
+ 360              		.loc 1 108 64 view .LVU116
+ 361 007e 9200     		lsls	r2, r2, #2
+ 108:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
+ 362              		.loc 1 108 37 view .LVU117
+ 363 0080 0F20     		movs	r0, #15
+ 364 0082 00FA02F2 		lsl	r2, r0, r2
+ 108:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
+ 365              		.loc 1 108 27 view .LVU118
+ 366 0086 21EA0202 		bic	r2, r1, r2
+ 367 008a 5A60     		str	r2, [r3, #4]
+ 110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 368              		.loc 1 110 5 is_stmt 1 view .LVU119
+ 110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 369              		.loc 1 110 6 is_stmt 0 view .LVU120
+ 370 008c A068     		ldr	r0, [r4, #8]
+ 110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 371              		.loc 1 110 27 view .LVU121
+ 372 008e 4268     		ldr	r2, [r0, #4]
+ 110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 373              		.loc 1 110 43 view .LVU122
+ 374 0090 6178     		ldrb	r1, [r4, #1]	@ zero_extendqisi2
+ 110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 375              		.loc 1 110 83 view .LVU123
+ 376 0092 6379     		ldrb	r3, [r4, #5]	@ zero_extendqisi2
+ 110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 377              		.loc 1 110 89 view .LVU124
+ARM GAS  /tmp/ccX8Eru9.s 			page 12
+
+
+ 378 0094 083B     		subs	r3, r3, #8
+ 110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 379              		.loc 1 110 98 view .LVU125
+ 380 0096 9B00     		lsls	r3, r3, #2
+ 110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 381              		.loc 1 110 51 view .LVU126
+ 382 0098 01FA03F3 		lsl	r3, r1, r3
+ 110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ 383              		.loc 1 110 27 view .LVU127
+ 384 009c 1343     		orrs	r3, r3, r2
+ 385 009e 4360     		str	r3, [r0, #4]
+ 112:Core/Src/hw_stmgpio.c ****   }
+ 386              		.loc 1 112 5 is_stmt 1 view .LVU128
+ 112:Core/Src/hw_stmgpio.c ****   }
+ 387              		.loc 1 112 6 is_stmt 0 view .LVU129
+ 388 00a0 A068     		ldr	r0, [r4, #8]
+ 112:Core/Src/hw_stmgpio.c ****   }
+ 389              		.loc 1 112 27 view .LVU130
+ 390 00a2 4168     		ldr	r1, [r0, #4]
+ 112:Core/Src/hw_stmgpio.c ****   }
+ 391              		.loc 1 112 44 view .LVU131
+ 392 00a4 E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
+ 112:Core/Src/hw_stmgpio.c ****   }
+ 393              		.loc 1 112 52 view .LVU132
+ 394 00a6 23F00402 		bic	r2, r3, #4
+ 112:Core/Src/hw_stmgpio.c ****   }
+ 395              		.loc 1 112 95 view .LVU133
+ 396 00aa 6379     		ldrb	r3, [r4, #5]	@ zero_extendqisi2
+ 112:Core/Src/hw_stmgpio.c ****   }
+ 397              		.loc 1 112 101 view .LVU134
+ 398 00ac 083B     		subs	r3, r3, #8
+ 112:Core/Src/hw_stmgpio.c ****   }
+ 399              		.loc 1 112 91 view .LVU135
+ 400 00ae 9B00     		lsls	r3, r3, #2
+ 112:Core/Src/hw_stmgpio.c ****   }
+ 401              		.loc 1 112 110 view .LVU136
+ 402 00b0 0233     		adds	r3, r3, #2
+ 112:Core/Src/hw_stmgpio.c ****   }
+ 403              		.loc 1 112 63 view .LVU137
+ 404 00b2 02FA03F3 		lsl	r3, r2, r3
+ 112:Core/Src/hw_stmgpio.c ****   }
+ 405              		.loc 1 112 27 view .LVU138
+ 406 00b6 0B43     		orrs	r3, r3, r1
+ 407 00b8 4360     		str	r3, [r0, #4]
+ 408 00ba D4E7     		b	.L23
+ 409              	.L28:
+ 118:Core/Src/hw_stmgpio.c ****   }
+ 410              		.loc 1 118 5 is_stmt 1 view .LVU139
+ 118:Core/Src/hw_stmgpio.c ****   }
+ 411              		.loc 1 118 42 is_stmt 0 view .LVU140
+ 412 00bc A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
+ 118:Core/Src/hw_stmgpio.c ****   }
+ 413              		.loc 1 118 55 view .LVU141
+ 414 00be 6179     		ldrb	r1, [r4, #5]	@ zero_extendqisi2
+ 118:Core/Src/hw_stmgpio.c ****   }
+ 415              		.loc 1 118 6 view .LVU142
+ 416 00c0 A268     		ldr	r2, [r4, #8]
+ARM GAS  /tmp/ccX8Eru9.s 			page 13
+
+
+ 118:Core/Src/hw_stmgpio.c ****   }
+ 417              		.loc 1 118 51 view .LVU143
+ 418 00c2 8B40     		lsls	r3, r3, r1
+ 118:Core/Src/hw_stmgpio.c ****   }
+ 419              		.loc 1 118 27 view .LVU144
+ 420 00c4 D360     		str	r3, [r2, #12]
+ 421 00c6 D1E7     		b	.L24
+ 422              	.L29:
+ 124:Core/Src/hw_stmgpio.c ****   }
+ 423              		.loc 1 124 5 is_stmt 1 view .LVU145
+ 424 00c8 0121     		movs	r1, #1
+ 425 00ca 2046     		mov	r0, r4
+ 426 00cc FFF7FEFF 		bl	stmgpio_write
+ 427              	.LVL29:
+ 128:Core/Src/hw_stmgpio.c **** }
+ 428              		.loc 1 128 10 is_stmt 0 view .LVU146
+ 429 00d0 0020     		movs	r0, #0
+ 430 00d2 D1E7     		b	.L20
+ 431              	.L25:
+  87:Core/Src/hw_stmgpio.c **** 
+ 432              		.loc 1 87 3 view .LVU147
+ 433 00d4 0120     		movs	r0, #1
+ 434 00d6 CFE7     		b	.L20
+ 435              	.L31:
+ 436              		.align	2
+ 437              	.L30:
+ 438 00d8 00100240 		.word	1073876992
+ 439              		.cfi_endproc
+ 440              	.LFE65:
+ 442              		.section	.text.stmgpio_read,"ax",%progbits
+ 443              		.align	1
+ 444              		.global	stmgpio_read
+ 445              		.syntax unified
+ 446              		.thumb
+ 447              		.thumb_func
+ 449              	stmgpio_read:
+ 450              	.LVL30:
+ 451              	.LFB68:
+ 183:Core/Src/hw_stmgpio.c **** 
+ 184:Core/Src/hw_stmgpio.c **** stmgpio_state_t stmgpio_read(stmgpio_t *gpio)
+ 185:Core/Src/hw_stmgpio.c **** {
+ 452              		.loc 1 185 1 is_stmt 1 view -0
+ 453              		.cfi_startproc
+ 454              		@ args = 0, pretend = 0, frame = 0
+ 455              		@ frame_needed = 0, uses_anonymous_args = 0
+ 456              		@ link register save eliminated.
+ 457              		.loc 1 185 1 is_stmt 0 view .LVU149
+ 458 0000 0346     		mov	r3, r0
+ 186:Core/Src/hw_stmgpio.c ****   /* retrieve the GPIO state on function call */
+ 187:Core/Src/hw_stmgpio.c ****   gpio->state = (stmgpio_state_t)((gpio->port_reg_addr->IDR) & (0x01 << gpio->pin));
+ 459              		.loc 1 187 3 is_stmt 1 view .LVU150
+ 460              		.loc 1 187 40 is_stmt 0 view .LVU151
+ 461 0002 8268     		ldr	r2, [r0, #8]
+ 462              		.loc 1 187 55 view .LVU152
+ 463 0004 9268     		ldr	r2, [r2, #8]
+ 464              		.loc 1 187 77 view .LVU153
+ 465 0006 4179     		ldrb	r1, [r0, #5]	@ zero_extendqisi2
+ARM GAS  /tmp/ccX8Eru9.s 			page 14
+
+
+ 466              		.loc 1 187 70 view .LVU154
+ 467 0008 0120     		movs	r0, #1
+ 468              	.LVL31:
+ 469              		.loc 1 187 70 view .LVU155
+ 470 000a 8840     		lsls	r0, r0, r1
+ 471              		.loc 1 187 17 view .LVU156
+ 472 000c C0B2     		uxtb	r0, r0
+ 473              		.loc 1 187 62 view .LVU157
+ 474 000e 1040     		ands	r0, r0, r2
+ 475              		.loc 1 187 15 view .LVU158
+ 476 0010 1870     		strb	r0, [r3]
+ 188:Core/Src/hw_stmgpio.c ****   return gpio->state;
+ 477              		.loc 1 188 3 is_stmt 1 view .LVU159
+ 189:Core/Src/hw_stmgpio.c **** }...
+ 478              		.loc 1 189 1 is_stmt 0 view .LVU160
+ 479 0012 7047     		bx	lr
+ 480              		.cfi_endproc
+ 481              	.LFE68:
+ 483              		.global	PORT_D_PINS
+ 484              		.global	PORT_C_PINS
+ 485              		.global	PORT_B_PINS
+ 486              		.global	PORT_A_PINS
+ 487              		.section	.rodata.PORT_A_PINS,"a"
+ 488              		.align	2
+ 489              		.set	.LANCHOR0,. + 0
+ 492              	PORT_A_PINS:
+ 493 0000 01       		.byte	1
+ 494 0001 01       		.byte	1
+ 495 0002 01       		.byte	1
+ 496 0003 01       		.byte	1
+ 497 0004 01       		.byte	1
+ 498 0005 01       		.byte	1
+ 499 0006 01       		.byte	1
+ 500 0007 01       		.byte	1
+ 501 0008 01       		.byte	1
+ 502 0009 01       		.byte	1
+ 503 000a 01       		.byte	1
+ 504 000b 01       		.byte	1
+ 505 000c 01       		.byte	1
+ 506 000d 01       		.byte	1
+ 507 000e 01       		.byte	1
+ 508 000f 01       		.byte	1
+ 509              		.section	.rodata.PORT_B_PINS,"a"
+ 510              		.align	2
+ 511              		.set	.LANCHOR1,. + 0
+ 514              	PORT_B_PINS:
+ 515 0000 01       		.byte	1
+ 516 0001 01       		.byte	1
+ 517 0002 01       		.byte	1
+ 518 0003 01       		.byte	1
+ 519 0004 01       		.byte	1
+ 520 0005 01       		.byte	1
+ 521 0006 01       		.byte	1
+ 522 0007 01       		.byte	1
+ 523 0008 01       		.byte	1
+ 524 0009 01       		.byte	1
+ 525 000a 01       		.byte	1
+ARM GAS  /tmp/ccX8Eru9.s 			page 15
+
+
+ 526 000b 01       		.byte	1
+ 527 000c 01       		.byte	1
+ 528 000d 01       		.byte	1
+ 529 000e 01       		.byte	1
+ 530 000f 01       		.byte	1
+ 531              		.section	.rodata.PORT_C_PINS,"a"
+ 532              		.align	2
+ 533              		.set	.LANCHOR2,. + 0
+ 536              	PORT_C_PINS:
+ 537 0000 00       		.byte	0
+ 538 0001 00       		.byte	0
+ 539 0002 00       		.byte	0
+ 540 0003 00       		.byte	0
+ 541 0004 00       		.byte	0
+ 542 0005 00       		.byte	0
+ 543 0006 00       		.byte	0
+ 544 0007 00       		.byte	0
+ 545 0008 00       		.byte	0
+ 546 0009 00       		.byte	0
+ 547 000a 00       		.byte	0
+ 548 000b 00       		.byte	0
+ 549 000c 00       		.byte	0
+ 550 000d 01       		.byte	1
+ 551 000e 01       		.byte	1
+ 552 000f 01       		.byte	1
+ 553              		.section	.rodata.PORT_D_PINS,"a"
+ 554              		.align	2
+ 555              		.set	.LANCHOR3,. + 0
+ 558              	PORT_D_PINS:
+ 559 0000 01       		.byte	1
+ 560 0001 01       		.byte	1
+ 561 0002 00       		.byte	0
+ 562 0003 00       		.byte	0
+ 563 0004 00       		.byte	0
+ 564 0005 00       		.byte	0
+ 565 0006 00       		.byte	0
+ 566 0007 00       		.byte	0
+ 567 0008 00       		.byte	0
+ 568 0009 00       		.byte	0
+ 569 000a 00       		.byte	0
+ 570 000b 00       		.byte	0
+ 571 000c 00       		.byte	0
+ 572 000d 00       		.byte	0
+ 573 000e 00       		.byte	0
+ 574 000f 00       		.byte	0
+ 575              		.text
+ 576              	.Letext0:
+ 577              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 578              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 579              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 580              		.file 5 "Core/Inc/hw_stmgpio.h"
+ARM GAS  /tmp/ccX8Eru9.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 hw_stmgpio.c
+     /tmp/ccX8Eru9.s:18     .text.stmgpio_write:0000000000000000 $t
+     /tmp/ccX8Eru9.s:24     .text.stmgpio_write:0000000000000000 stmgpio_write
+     /tmp/ccX8Eru9.s:82     .text.stmgpio_can_init:0000000000000000 $t
+     /tmp/ccX8Eru9.s:88     .text.stmgpio_can_init:0000000000000000 stmgpio_can_init
+     /tmp/ccX8Eru9.s:142    .text.stmgpio_can_init:0000000000000034 $d
+     /tmp/ccX8Eru9.s:146    .text.stmgpio_can_init:0000000000000038 $t
+     /tmp/ccX8Eru9.s:221    .text.stmgpio_can_init:0000000000000064 $d
+     /tmp/ccX8Eru9.s:229    .text.stmgpio_setup:0000000000000000 $t
+     /tmp/ccX8Eru9.s:235    .text.stmgpio_setup:0000000000000000 stmgpio_setup
+     /tmp/ccX8Eru9.s:438    .text.stmgpio_setup:00000000000000d8 $d
+     /tmp/ccX8Eru9.s:443    .text.stmgpio_read:0000000000000000 $t
+     /tmp/ccX8Eru9.s:449    .text.stmgpio_read:0000000000000000 stmgpio_read
+     /tmp/ccX8Eru9.s:558    .rodata.PORT_D_PINS:0000000000000000 PORT_D_PINS
+     /tmp/ccX8Eru9.s:536    .rodata.PORT_C_PINS:0000000000000000 PORT_C_PINS
+     /tmp/ccX8Eru9.s:514    .rodata.PORT_B_PINS:0000000000000000 PORT_B_PINS
+     /tmp/ccX8Eru9.s:492    .rodata.PORT_A_PINS:0000000000000000 PORT_A_PINS
+     /tmp/ccX8Eru9.s:488    .rodata.PORT_A_PINS:0000000000000000 $d
+     /tmp/ccX8Eru9.s:510    .rodata.PORT_B_PINS:0000000000000000 $d
+     /tmp/ccX8Eru9.s:532    .rodata.PORT_C_PINS:0000000000000000 $d
+     /tmp/ccX8Eru9.s:554    .rodata.PORT_D_PINS:0000000000000000 $d
+
+NO UNDEFINED SYMBOLS

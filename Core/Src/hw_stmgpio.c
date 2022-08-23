@@ -84,11 +84,7 @@ const bool PORT_D_PINS[GPIO_PORT_PIN_MAX] = {
 int stmgpio_setup(stmgpio_t *g)
 {
   /* Sanity checks */
-  if (!stmgpio_can_init(g))
-  {
-    /* if at first you don't succeed, get it right */
-    return EXIT_FAILURE;
-  }
+  ASSERT_BOOL(stmgpio_can_init(g));
 
   /* Turn on ports clock if not already on */
   RCC->APB2ENR |= RCC_APB2ENR_IOPAEN << (g->port - 'A');
@@ -159,7 +155,7 @@ bool stmgpio_can_init(stmgpio_t *g)
   if ((DIR_CNT >= g->dir) && (TYPE_CNT >= g->cfg) && (PULL_CNT >= g->pull))
   {
     /* Check port ledger for pin existence */
-    if (GPIO_PORT_PIN_MAX <= g->pin)
+    if (GPIO_PORT_PIN_MAX > g->pin)
     {
       switch (g->port)
       {
@@ -181,6 +177,8 @@ bool stmgpio_can_init(stmgpio_t *g)
       }
     }
   }
+
+  return is_valid;
 }
 
 stmgpio_state_t stmgpio_read(stmgpio_t *gpio)

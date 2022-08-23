@@ -1,0 +1,118 @@
+ARM GAS  /tmp/ccpOGdHK.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"util_error.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.dbg_log_init,"ax",%progbits
+  18              		.align	1
+  19              		.global	dbg_log_init
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	dbg_log_init:
+  25              	.LFB0:
+  26              		.file 1 "Core/Src/util_error.c"
+   1:Core/Src/util_error.c **** /**
+   2:Core/Src/util_error.c **** 
+   3:Core/Src/util_error.c ****  */
+   4:Core/Src/util_error.c **** 
+   5:Core/Src/util_error.c **** #include "util_error.h"
+   6:Core/Src/util_error.c **** 
+   7:Core/Src/util_error.c **** int dbg_log_init(void){
+  27              		.loc 1 7 23 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+   8:Core/Src/util_error.c **** 
+   9:Core/Src/util_error.c **** }
+  32              		.loc 1 9 1 view .LVU1
+  33 0000 7047     		bx	lr
+  34              		.cfi_endproc
+  35              	.LFE0:
+  37              		.section	.text.dbg_log,"ax",%progbits
+  38              		.align	1
+  39              		.global	dbg_log
+  40              		.syntax unified
+  41              		.thumb
+  42              		.thumb_func
+  44              	dbg_log:
+  45              	.LVL0:
+  46              	.LFB1:
+  10:Core/Src/util_error.c **** 
+  11:Core/Src/util_error.c **** void dbg_log(DBG_CODE_TYPE type, DBG_CODE_CONTENT content, const char *lib_name, const size_t lib_n
+  47              		.loc 1 11 108 view -0
+  48              		.cfi_startproc
+  49              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccpOGdHK.s 			page 2
+
+
+  50              		@ frame_needed = 0, uses_anonymous_args = 0
+  51              		@ link register save eliminated.
+  12:Core/Src/util_error.c ****     
+  13:Core/Src/util_error.c **** }
+  52              		.loc 1 13 1 view .LVU3
+  53 0000 7047     		bx	lr
+  54              		.cfi_endproc
+  55              	.LFE1:
+  57              		.section	.text.dbg_log_code,"ax",%progbits
+  58              		.align	1
+  59              		.global	dbg_log_code
+  60              		.syntax unified
+  61              		.thumb
+  62              		.thumb_func
+  64              	dbg_log_code:
+  65              	.LFB2:
+  14:Core/Src/util_error.c **** 
+  15:Core/Src/util_error.c **** void dbg_log_code(dbg_code_t code){
+  66              		.loc 1 15 35 view -0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 16
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70              		@ link register save eliminated.
+  71 0000 84B0     		sub	sp, sp, #16
+  72              	.LCFI0:
+  73              		.cfi_def_cfa_offset 16
+  74 0002 04AB     		add	r3, sp, #16
+  75 0004 03E90700 		stmdb	r3, {r0, r1, r2}
+  16:Core/Src/util_error.c ****     
+  17:Core/Src/util_error.c **** }...
+  76              		.loc 1 17 1 view .LVU5
+  77 0008 04B0     		add	sp, sp, #16
+  78              	.LCFI1:
+  79              		.cfi_def_cfa_offset 0
+  80              		@ sp needed
+  81 000a 7047     		bx	lr
+  82              		.cfi_endproc
+  83              	.LFE2:
+  85              		.text
+  86              	.Letext0:
+  87              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+  88              		.file 3 "Core/Inc/util_error.h"
+ARM GAS  /tmp/ccpOGdHK.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 util_error.c
+     /tmp/ccpOGdHK.s:18     .text.dbg_log_init:0000000000000000 $t
+     /tmp/ccpOGdHK.s:24     .text.dbg_log_init:0000000000000000 dbg_log_init
+     /tmp/ccpOGdHK.s:38     .text.dbg_log:0000000000000000 $t
+     /tmp/ccpOGdHK.s:44     .text.dbg_log:0000000000000000 dbg_log
+     /tmp/ccpOGdHK.s:58     .text.dbg_log_code:0000000000000000 $t
+     /tmp/ccpOGdHK.s:64     .text.dbg_log_code:0000000000000000 dbg_log_code
+
+NO UNDEFINED SYMBOLS
