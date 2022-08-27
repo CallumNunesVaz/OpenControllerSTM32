@@ -12,10 +12,10 @@ static uint8_t bytes_to_recv;
 
 /* state transitions */
 static I2C_EVENT last_evt;
-bool state_executed;
-bool last_evt_processed;
+static bool state_executed;
+static bool last_evt_processed;
 static void (*cur_state)(void);
-static trans_t trans_tab[] = {
+const static trans_t TRANS_TAB[] = {
     {i2c_state_idle, I2C_NEW_DATA, i2c_state_start_bit},
     {i2c_state_start_bit, I2C_SB_SENT, i2c_state_tx_data},
     {i2c_state_tx_data, I2C_BYTE_SENT, i2c_state_tx_data},
@@ -25,6 +25,7 @@ static trans_t trans_tab[] = {
     {i2c_state_rx_data, I2C_BYTE_RECV, i2c_state_rx_data},
     {i2c_state_rx_data, I2C_LAST_BYTE_RECV, i2c_state_stop_bit},
     {i2c_state_stop_bit, I2C_PB_SENT, i2c_state_idle}};
+const static uint8_t TRANS_TAB_LEN = (uint8_t)(sizeof(TRANS_TAB) / sizeof(TRANS_TAB[0]));
 
 /* /*/
 I2C_EVENT i2c_decode_i2c1_event(I2C1_EVT i2c1_evt)
@@ -97,10 +98,10 @@ I2C_EVENT i2c_decode_i2c1_event(I2C1_EVT i2c1_evt)
 int i2c_queue_msg(i2c_msg_t *msg)
 {
   /* checks */
-  ASSERT((NULL != msg->buf_send_ptr) && (NULL != msg->buf_recv_ptr) && (MSG_SEND_MIN <= msg->n_send) && (MSG_RECV_MIN <= msg->n_recv));
+  ASSERT_INT((NULL != msg->buf_send_ptr) && (NULL != msg->buf_recv_ptr) && (MSG_SEND_MIN <= msg->n_send) && (MSG_RECV_MIN <= msg->n_recv));
 
   /* write message to the buffer */
-  ASSERT(buf_write(&msg_buf, msg, sizeof(i2c_msg_t)));
+  ASSERT_INT(buf_write(&msg_buf, msg, sizeof(i2c_msg_t)));
 
   /* poll in case we can start this instantly */
   i2c_poll_fsm();
@@ -110,18 +111,18 @@ int i2c_queue_msg(i2c_msg_t *msg)
 
 int i2c_init(void)
 {
-  // init_trans(&t1, (int)I2C_NEW_DATA, i2c_disable, i2c_disable);
+  /* Idle to start */
   cur_state = i2c_state_idle;
 
-  /* Initialise i2c driver */
-  ASSERT(i2c1_init());
+  /* Initialise i2c1 driver */
+  ASSERT_INT(i2c1_init());
 
   /* Register our callbacks with the driver */
   i2c1_set_evt_callback(i2c_event_callback);
   i2c1_set_err_callback(i2c_error_callback);
 
   /* Initialise buffer */
-  ASSERT(buf_init(&msg_buf, msg_buf_data, sizeof(msg_buf_data)));
+  ASSERT_INT(buf_init(&msg_buf, msg_buf_data, sizeof(msg_buf_data)));
 
   /* Trigger reset before first usage */
   i2c_reset();
@@ -154,7 +155,6 @@ void i2c_disable(void)
   i2c1_disable_periph();
 }
 
-/* Come back around to execute pending tasks */
 void i2c_poll_fsm(void)
 {
   cur_state();
@@ -244,23 +244,26 @@ void i2c_trig_state_trans(void)
 {
   static uint8_t idx;
 
-  /* reset state entry condition */
-  state_executed = false;
+  
 
   /* Find state transition action */
-  for (idx = 0; idx < sizeof(trans_tab); idx++)
+  for (idx = 0; idx < TRANS_TAB_LEN; idx++)
   {
-    if ((cur_state == trans_tab[idx].func_ptr_cur) && (trans_tab[idx].evt == last_evt))
+    if ((TRANS_TAB[idx].func_ptr_cur == cur_state) && (TRANS_TAB[idx].evt == last_evt))
     {
-      cur_state = trans_tab[idx].func_ptr_new;
+      cur_state = TRANS_TAB[idx].func_ptr_new;
+      break;
     }
   }
 
   /* If not found, must be an error */
-  if ((sizeof(trans_tab) <= idx) || (I2C_ERROR == last_evt))
+  if ((TRANS_TAB_LEN <= idx) || (I2C_ERROR == last_evt))
   {
     cur_state = i2c_state_error;
   }
+
+  /* reset state entry condition */
+  state_executed = false;
 
   /* Call new state function */
   // cur_state();
@@ -271,10 +274,8 @@ void i2c_event_callback()
   /* Figure out what happened */
   last_evt = i2c_decode_i2c1_event(i2c1_get_last_event());
 
-  /* Transition to new state based on event */
+  /* Transition to new state based on event and run */
   i2c_trig_state_trans();
-
-  /* Run state actions */
   cur_state();
 
   /* humour i2c peripheral */

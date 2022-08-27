@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cczXxXAt.s 			page 1
+ARM GAS  /tmp/ccu6rRfo.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cczXxXAt.s 			page 1
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   26:Core/Src/util_buffer.c ****     /* Sanity check */
   27:Core/Src/util_buffer.c ****     if (NULL == buf) {
-ARM GAS  /tmp/cczXxXAt.s 			page 2
+ARM GAS  /tmp/ccu6rRfo.s 			page 2
 
 
   32              		.loc 1 27 5 view .LVU1
@@ -67,767 +67,786 @@ ARM GAS  /tmp/cczXxXAt.s 			page 1
   25:Core/Src/util_buffer.c ****     /* Sanity check */
   35              		.loc 1 25 1 view .LVU3
   36 0002 10B5     		push	{r4, lr}
-  37              	.LCFI0:
-  38              		.cfi_def_cfa_offset 8
-  39              		.cfi_offset 4, -8
-  40              		.cfi_offset 14, -4
-  41 0004 0446     		mov	r4, r0
+  37              		.cfi_def_cfa_offset 8
+  38              		.cfi_offset 4, -8
+  39              		.cfi_offset 14, -4
+  40 0004 0446     		mov	r4, r0
   28:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
   29:Core/Src/util_buffer.c ****     }
   30:Core/Src/util_buffer.c **** 
   31:Core/Src/util_buffer.c ****     /* Clear data in buffer */
   32:Core/Src/util_buffer.c ****     memset(buf->data, 0x00, buf->len);
-  42              		.loc 1 32 5 is_stmt 1 view .LVU4
-  43 0006 8268     		ldr	r2, [r0, #8]
-  44 0008 0021     		movs	r1, #0
-  45 000a 0069     		ldr	r0, [r0, #16]
-  46              	.LVL1:
-  47              		.loc 1 32 5 is_stmt 0 view .LVU5
-  48 000c FFF7FEFF 		bl	memset
-  49              	.LVL2:
+  41              		.loc 1 32 5 is_stmt 1 view .LVU4
+  42 0006 8268     		ldr	r2, [r0, #8]
+  43 0008 0021     		movs	r1, #0
+  44 000a 0069     		ldr	r0, [r0, #16]
+  45              	.LVL1:
+  46              		.loc 1 32 5 is_stmt 0 view .LVU5
+  47 000c FFF7FEFF 		bl	memset
+  48              	.LVL2:
   33:Core/Src/util_buffer.c **** 
   34:Core/Src/util_buffer.c ****     /* link pointers */
   35:Core/Src/util_buffer.c ****     buf->head = 0;
-  50              		.loc 1 35 5 is_stmt 1 view .LVU6
-  51              		.loc 1 35 15 is_stmt 0 view .LVU7
-  52 0010 0020     		movs	r0, #0
-  53 0012 2060     		str	r0, [r4]
+  49              		.loc 1 35 5 is_stmt 1 view .LVU6
+  50              		.loc 1 35 15 is_stmt 0 view .LVU7
+  51 0010 0020     		movs	r0, #0
+  52 0012 2060     		str	r0, [r4]
   36:Core/Src/util_buffer.c ****     buf->tail = 0;
-  54              		.loc 1 36 5 is_stmt 1 view .LVU8
-  55              		.loc 1 36 15 is_stmt 0 view .LVU9
-  56 0014 6060     		str	r0, [r4, #4]
+  53              		.loc 1 36 5 is_stmt 1 view .LVU8
+  54              		.loc 1 36 15 is_stmt 0 view .LVU9
+  55 0014 6060     		str	r0, [r4, #4]
   37:Core/Src/util_buffer.c ****     buf->cnt = 0;
-  57              		.loc 1 37 5 is_stmt 1 view .LVU10
-  58              		.loc 1 37 14 is_stmt 0 view .LVU11
-  59 0016 E060     		str	r0, [r4, #12]
+  56              		.loc 1 37 5 is_stmt 1 view .LVU10
+  57              		.loc 1 37 14 is_stmt 0 view .LVU11
+  58 0016 E060     		str	r0, [r4, #12]
   38:Core/Src/util_buffer.c **** 
   39:Core/Src/util_buffer.c ****     return EXIT_SUCCESS;
-  60              		.loc 1 39 5 is_stmt 1 view .LVU12
+  59              		.loc 1 39 5 is_stmt 1 view .LVU12
   40:Core/Src/util_buffer.c **** }
-  61              		.loc 1 40 1 is_stmt 0 view .LVU13
-  62 0018 10BD     		pop	{r4, pc}
-  63              	.LVL3:
-  64              	.L3:
-  65              	.LCFI1:
-  66              		.cfi_def_cfa_offset 0
-  67              		.cfi_restore 4
-  68              		.cfi_restore 14
+  60              		.loc 1 40 1 is_stmt 0 view .LVU13
+  61 0018 10BD     		pop	{r4, pc}
+  62              	.LVL3:
+  63              	.L3:
+  64              		.cfi_def_cfa_offset 0
+  65              		.cfi_restore 4
+  66              		.cfi_restore 14
   28:Core/Src/util_buffer.c ****     }
-  69              		.loc 1 28 16 view .LVU14
-  70 001a 0120     		movs	r0, #1
-  71              	.LVL4:
-  72              		.loc 1 40 1 view .LVU15
-  73 001c 7047     		bx	lr
-ARM GAS  /tmp/cczXxXAt.s 			page 3
+  67              		.loc 1 28 16 view .LVU14
+  68 001a 0120     		movs	r0, #1
+  69              	.LVL4:
+  70              		.loc 1 40 1 view .LVU15
+  71 001c 7047     		bx	lr
+  72              		.cfi_endproc
+  73              	.LFE1:
+ARM GAS  /tmp/ccu6rRfo.s 			page 3
 
 
-  74              		.cfi_endproc
-  75              	.LFE1:
-  77              		.section	.text.buf_init,"ax",%progbits
-  78              		.align	1
-  79              		.global	buf_init
-  80              		.syntax unified
-  81              		.thumb
-  82              		.thumb_func
-  84              	buf_init:
-  85              	.LVL5:
-  86              	.LFB0:
+  75              		.section	.text.buf_init,"ax",%progbits
+  76              		.align	1
+  77              		.global	buf_init
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  82              	buf_init:
+  83              	.LVL5:
+  84              	.LFB0:
    8:Core/Src/util_buffer.c ****     /* Sanity check */
-  87              		.loc 1 8 1 is_stmt 1 view -0
-  88              		.cfi_startproc
-  89              		@ args = 0, pretend = 0, frame = 0
-  90              		@ frame_needed = 0, uses_anonymous_args = 0
+  85              		.loc 1 8 1 is_stmt 1 view -0
+  86              		.cfi_startproc
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
   10:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
-  91              		.loc 1 10 5 view .LVU17
+  89              		.loc 1 10 5 view .LVU17
   10:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
-  92              		.loc 1 10 8 is_stmt 0 view .LVU18
-  93 0000 50B1     		cbz	r0, .L10
+  90              		.loc 1 10 8 is_stmt 0 view .LVU18
+  91 0000 50B1     		cbz	r0, .L10
    8:Core/Src/util_buffer.c ****     /* Sanity check */
-  94              		.loc 1 8 1 discriminator 1 view .LVU19
-  95 0002 08B5     		push	{r3, lr}
-  96              	.LCFI2:
-  97              		.cfi_def_cfa_offset 8
-  98              		.cfi_offset 3, -8
-  99              		.cfi_offset 14, -4
+  92              		.loc 1 8 1 discriminator 1 view .LVU19
+  93 0002 08B5     		push	{r3, lr}
+  94              		.cfi_def_cfa_offset 8
+  95              		.cfi_offset 3, -8
+  96              		.cfi_offset 14, -4
   10:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
- 100              		.loc 1 10 23 discriminator 1 view .LVU20
- 101 0004 51B1     		cbz	r1, .L11
+  97              		.loc 1 10 23 discriminator 1 view .LVU20
+  98 0004 51B1     		cbz	r1, .L11
   10:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
- 102              		.loc 1 10 41 discriminator 2 view .LVU21
- 103 0006 0AB9     		cbnz	r2, .L17
+  99              		.loc 1 10 41 discriminator 2 view .LVU21
+ 100 0006 0AB9     		cbnz	r2, .L17
   11:Core/Src/util_buffer.c ****     }
- 104              		.loc 1 11 16 view .LVU22
- 105 0008 0120     		movs	r0, #1
- 106              	.LVL6:
- 107              	.L8:
+ 101              		.loc 1 11 16 view .LVU22
+ 102 0008 0120     		movs	r0, #1
+ 103              	.LVL6:
+ 104              	.L8:
   22:Core/Src/util_buffer.c **** 
- 108              		.loc 1 22 1 view .LVU23
- 109 000a 08BD     		pop	{r3, pc}
- 110              	.LVL7:
- 111              	.L17:
+ 105              		.loc 1 22 1 view .LVU23
+ 106 000a 08BD     		pop	{r3, pc}
+ 107              	.LVL7:
+ 108              	.L17:
   15:Core/Src/util_buffer.c ****     buf->len = len;
- 112              		.loc 1 15 5 is_stmt 1 view .LVU24
+ 109              		.loc 1 15 5 is_stmt 1 view .LVU24
   15:Core/Src/util_buffer.c ****     buf->len = len;
- 113              		.loc 1 15 15 is_stmt 0 view .LVU25
- 114 000c 0161     		str	r1, [r0, #16]
+ 110              		.loc 1 15 15 is_stmt 0 view .LVU25
+ 111 000c 0161     		str	r1, [r0, #16]
   16:Core/Src/util_buffer.c **** 
- 115              		.loc 1 16 5 is_stmt 1 view .LVU26
+ 112              		.loc 1 16 5 is_stmt 1 view .LVU26
   16:Core/Src/util_buffer.c **** 
- 116              		.loc 1 16 14 is_stmt 0 view .LVU27
- 117 000e 8260     		str	r2, [r0, #8]
+ 113              		.loc 1 16 14 is_stmt 0 view .LVU27
+ 114 000e 8260     		str	r2, [r0, #8]
   19:Core/Src/util_buffer.c **** 
- 118              		.loc 1 19 5 is_stmt 1 view .LVU28
- 119 0010 FFF7FEFF 		bl	buf_reset
-ARM GAS  /tmp/cczXxXAt.s 			page 4
+ 115              		.loc 1 19 5 is_stmt 1 view .LVU28
+ 116 0010 FFF7FEFF 		bl	buf_reset
+ 117              	.LVL8:
+  21:Core/Src/util_buffer.c **** }
+ 118              		.loc 1 21 5 view .LVU29
+ARM GAS  /tmp/ccu6rRfo.s 			page 4
 
 
- 120              	.LVL8:
   21:Core/Src/util_buffer.c **** }
- 121              		.loc 1 21 5 view .LVU29
-  21:Core/Src/util_buffer.c **** }
- 122              		.loc 1 21 12 is_stmt 0 view .LVU30
- 123 0014 0020     		movs	r0, #0
- 124 0016 F8E7     		b	.L8
- 125              	.LVL9:
- 126              	.L10:
- 127              	.LCFI3:
- 128              		.cfi_def_cfa_offset 0
- 129              		.cfi_restore 3
- 130              		.cfi_restore 14
+ 119              		.loc 1 21 12 is_stmt 0 view .LVU30
+ 120 0014 0020     		movs	r0, #0
+ 121 0016 F8E7     		b	.L8
+ 122              	.LVL9:
+ 123              	.L10:
+ 124              		.cfi_def_cfa_offset 0
+ 125              		.cfi_restore 3
+ 126              		.cfi_restore 14
   11:Core/Src/util_buffer.c ****     }
- 131              		.loc 1 11 16 view .LVU31
- 132 0018 0120     		movs	r0, #1
- 133              	.LVL10:
+ 127              		.loc 1 11 16 view .LVU31
+ 128 0018 0120     		movs	r0, #1
+ 129              	.LVL10:
   22:Core/Src/util_buffer.c **** 
- 134              		.loc 1 22 1 view .LVU32
- 135 001a 7047     		bx	lr
- 136              	.LVL11:
- 137              	.L11:
- 138              	.LCFI4:
- 139              		.cfi_def_cfa_offset 8
- 140              		.cfi_offset 3, -8
- 141              		.cfi_offset 14, -4
+ 130              		.loc 1 22 1 view .LVU32
+ 131 001a 7047     		bx	lr
+ 132              	.LVL11:
+ 133              	.L11:
+ 134              		.cfi_def_cfa_offset 8
+ 135              		.cfi_offset 3, -8
+ 136              		.cfi_offset 14, -4
   11:Core/Src/util_buffer.c ****     }
- 142              		.loc 1 11 16 view .LVU33
- 143 001c 0120     		movs	r0, #1
- 144              	.LVL12:
+ 137              		.loc 1 11 16 view .LVU33
+ 138 001c 0120     		movs	r0, #1
+ 139              	.LVL12:
   11:Core/Src/util_buffer.c ****     }
- 145              		.loc 1 11 16 view .LVU34
- 146 001e F4E7     		b	.L8
- 147              		.cfi_endproc
- 148              	.LFE0:
- 150              		.section	.text.buf_write,"ax",%progbits
- 151              		.align	1
- 152              		.global	buf_write
- 153              		.syntax unified
- 154              		.thumb
- 155              		.thumb_func
- 157              	buf_write:
- 158              	.LVL13:
- 159              	.LFB2:
+ 140              		.loc 1 11 16 view .LVU34
+ 141 001e F4E7     		b	.L8
+ 142              		.cfi_endproc
+ 143              	.LFE0:
+ 145              		.section	.text.buf_write,"ax",%progbits
+ 146              		.align	1
+ 147              		.global	buf_write
+ 148              		.syntax unified
+ 149              		.thumb
+ 150              		.thumb_func
+ 152              	buf_write:
+ 153              	.LVL13:
+ 154              	.LFB2:
   41:Core/Src/util_buffer.c **** 
   42:Core/Src/util_buffer.c **** int buf_write(buffer_t *buf, void *src_data, size_t elem_cnt) {
- 160              		.loc 1 42 63 is_stmt 1 view -0
- 161              		.cfi_startproc
- 162              		@ args = 0, pretend = 0, frame = 0
- 163              		@ frame_needed = 0, uses_anonymous_args = 0
- 164              		.loc 1 42 63 is_stmt 0 view .LVU36
- 165 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 166              	.LCFI5:
- 167              		.cfi_def_cfa_offset 24
- 168              		.cfi_offset 4, -24
- 169              		.cfi_offset 5, -20
- 170              		.cfi_offset 6, -16
-ARM GAS  /tmp/cczXxXAt.s 			page 5
-
-
- 171              		.cfi_offset 7, -12
- 172              		.cfi_offset 8, -8
- 173              		.cfi_offset 14, -4
- 174 0004 0446     		mov	r4, r0
- 175 0006 0E46     		mov	r6, r1
+ 155              		.loc 1 42 63 is_stmt 1 view -0
+ 156              		.cfi_startproc
+ 157              		@ args = 0, pretend = 0, frame = 0
+ 158              		@ frame_needed = 0, uses_anonymous_args = 0
   43:Core/Src/util_buffer.c **** 
   44:Core/Src/util_buffer.c ****     void *wr_start_ptr;
- 176              		.loc 1 44 5 is_stmt 1 view .LVU37
+ 159              		.loc 1 44 5 view .LVU36
   45:Core/Src/util_buffer.c ****     size_t cnt_from_end;
- 177              		.loc 1 45 5 view .LVU38
+ 160              		.loc 1 45 5 view .LVU37
   46:Core/Src/util_buffer.c **** 
   47:Core/Src/util_buffer.c ****     /* Sanity check */
-  48:Core/Src/util_buffer.c ****     //ASSERT((NULL != buf) && (NULL != src_data) && (0 < elem_cnt));
-  49:Core/Src/util_buffer.c ****     ASSERT(0x00 < elem_cnt);
- 178              		.loc 1 49 5 view .LVU39
- 179 0008 1546     		mov	r5, r2
- 180 000a 101E     		subs	r0, r2, #0
- 181              	.LVL14:
- 182              		.loc 1 49 5 is_stmt 0 view .LVU40
- 183 000c 18BF     		it	ne
- 184 000e 0120     		movne	r0, #1
- 185 0010 FFF7FEFF 		bl	ASSERT
- 186              	.LVL15:
-  50:Core/Src/util_buffer.c ****     ASSERT(NULL != src_data);
- 187              		.loc 1 50 5 is_stmt 1 view .LVU41
- 188 0014 301E     		subs	r0, r6, #0
- 189 0016 18BF     		it	ne
- 190 0018 0120     		movne	r0, #1
- 191 001a FFF7FEFF 		bl	ASSERT
- 192              	.LVL16:
-  51:Core/Src/util_buffer.c ****     ASSERT(NULL != buf);
- 193              		.loc 1 51 5 view .LVU42
- 194 001e 201E     		subs	r0, r4, #0
- 195 0020 18BF     		it	ne
- 196 0022 0120     		movne	r0, #1
- 197 0024 FFF7FEFF 		bl	ASSERT
- 198              	.LVL17:
-  52:Core/Src/util_buffer.c **** 
-  53:Core/Src/util_buffer.c ****     /* Find pointer of starting write location */
-  54:Core/Src/util_buffer.c ****     wr_start_ptr = buf->data + buf->head;
- 199              		.loc 1 54 5 view .LVU43
- 200              		.loc 1 54 23 is_stmt 0 view .LVU44
- 201 0028 2069     		ldr	r0, [r4, #16]
- 202              		.loc 1 54 35 view .LVU45
- 203 002a 2768     		ldr	r7, [r4]
- 204              		.loc 1 54 18 view .LVU46
- 205 002c 3844     		add	r0, r0, r7
- 206              	.LVL18:
-  55:Core/Src/util_buffer.c ****     /* find how far head is from the end */
-  56:Core/Src/util_buffer.c ****     cnt_from_end = buf->len - buf->head;
- 207              		.loc 1 56 5 is_stmt 1 view .LVU47
- 208              		.loc 1 56 23 is_stmt 0 view .LVU48
- 209 002e D4F80880 		ldr	r8, [r4, #8]
- 210              		.loc 1 56 18 view .LVU49
- 211 0032 A8EB0702 		sub	r2, r8, r7
- 212              	.LVL19:
-  57:Core/Src/util_buffer.c **** 
-ARM GAS  /tmp/cczXxXAt.s 			page 6
+  48:Core/Src/util_buffer.c ****     ASSERT_BOOL(0x00 < elem_cnt);
+ 161              		.loc 1 48 5 view .LVU38
+ 162 0000 9AB3     		cbz	r2, .L23
+  42:Core/Src/util_buffer.c **** 
+ 163              		.loc 1 42 63 is_stmt 0 view .LVU39
+ARM GAS  /tmp/ccu6rRfo.s 			page 5
 
 
-  58:Core/Src/util_buffer.c ****     /* if total write is more than buffer length, only write last section */
-  59:Core/Src/util_buffer.c ****     if (elem_cnt > buf->len) {
- 213              		.loc 1 59 5 is_stmt 1 view .LVU50
- 214              		.loc 1 59 8 is_stmt 0 view .LVU51
- 215 0036 A845     		cmp	r8, r5
- 216 0038 03D2     		bcs	.L19
-  60:Core/Src/util_buffer.c ****         /* increment pointer to last section */
-  61:Core/Src/util_buffer.c ****         src_data += elem_cnt - buf->len;
- 217              		.loc 1 61 9 is_stmt 1 view .LVU52
- 218              		.loc 1 61 30 is_stmt 0 view .LVU53
- 219 003a A5EB0805 		sub	r5, r5, r8
- 220              	.LVL20:
- 221              		.loc 1 61 18 view .LVU54
- 222 003e 2E44     		add	r6, r6, r5
- 223              	.LVL21:
-  62:Core/Src/util_buffer.c ****         /* we will write entirety of last section */
-  63:Core/Src/util_buffer.c ****         elem_cnt = buf->len;
- 224              		.loc 1 63 9 is_stmt 1 view .LVU55
- 225              		.loc 1 63 18 is_stmt 0 view .LVU56
- 226 0040 4546     		mov	r5, r8
- 227              	.LVL22:
- 228              	.L19:
-  64:Core/Src/util_buffer.c ****     }
-  65:Core/Src/util_buffer.c **** 
-  66:Core/Src/util_buffer.c ****     /* Copy data */
-  67:Core/Src/util_buffer.c ****     if (elem_cnt > cnt_from_end) {
- 229              		.loc 1 67 5 is_stmt 1 view .LVU57
- 230              		.loc 1 67 8 is_stmt 0 view .LVU58
- 231 0042 9542     		cmp	r5, r2
- 232 0044 18D9     		bls	.L20
-  68:Core/Src/util_buffer.c ****         memcpy(wr_start_ptr, src_data, cnt_from_end);
- 233              		.loc 1 68 9 is_stmt 1 view .LVU59
- 234 0046 3146     		mov	r1, r6
- 235 0048 FFF7FEFF 		bl	memcpy
- 236              	.LVL23:
-  69:Core/Src/util_buffer.c ****         memcpy(buf->data, src_data, elem_cnt - cnt_from_end);
- 237              		.loc 1 69 9 view .LVU60
- 238 004c A7EB0802 		sub	r2, r7, r8
- 239 0050 2A44     		add	r2, r2, r5
- 240 0052 3146     		mov	r1, r6
- 241 0054 2069     		ldr	r0, [r4, #16]
- 242 0056 FFF7FEFF 		bl	memcpy
- 243              	.LVL24:
- 244              	.L21:
-  70:Core/Src/util_buffer.c ****     } else {
-  71:Core/Src/util_buffer.c ****         memcpy(wr_start_ptr, src_data, elem_cnt);
-  72:Core/Src/util_buffer.c ****     }
-  73:Core/Src/util_buffer.c **** 
-  74:Core/Src/util_buffer.c ****     /* increment head pointer and count */
-  75:Core/Src/util_buffer.c ****     buf->head += elem_cnt;   
- 245              		.loc 1 75 5 view .LVU61
- 246              		.loc 1 75 15 is_stmt 0 view .LVU62
- 247 005a 2368     		ldr	r3, [r4]
- 248 005c 2B44     		add	r3, r3, r5
- 249 005e 2360     		str	r3, [r4]
-  76:Core/Src/util_buffer.c ****     buf->head %= buf->len;
- 250              		.loc 1 76 5 is_stmt 1 view .LVU63
-ARM GAS  /tmp/cczXxXAt.s 			page 7
+ 164 0002 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 165              		.cfi_def_cfa_offset 24
+ 166              		.cfi_offset 4, -24
+ 167              		.cfi_offset 5, -20
+ 168              		.cfi_offset 6, -16
+ 169              		.cfi_offset 7, -12
+ 170              		.cfi_offset 8, -8
+ 171              		.cfi_offset 14, -4
+ 172 0006 0446     		mov	r4, r0
+ 173 0008 0D46     		mov	r5, r1
+ 174 000a 1646     		mov	r6, r2
+  49:Core/Src/util_buffer.c ****     ASSERT_BOOL(NULL != src_data);
+ 175              		.loc 1 49 5 is_stmt 1 view .LVU40
+ 176 000c 79B3     		cbz	r1, .L24
+  50:Core/Src/util_buffer.c ****     ASSERT_BOOL(NULL != buf);
+ 177              		.loc 1 50 5 view .LVU41
+ 178 000e 80B3     		cbz	r0, .L25
+  51:Core/Src/util_buffer.c **** 
+  52:Core/Src/util_buffer.c ****     /* Find pointer of starting write location */
+  53:Core/Src/util_buffer.c ****     wr_start_ptr = buf->data + buf->head;
+ 179              		.loc 1 53 5 view .LVU42
+ 180              		.loc 1 53 23 is_stmt 0 view .LVU43
+ 181 0010 0069     		ldr	r0, [r0, #16]
+ 182              	.LVL14:
+ 183              		.loc 1 53 35 view .LVU44
+ 184 0012 2768     		ldr	r7, [r4]
+ 185              		.loc 1 53 18 view .LVU45
+ 186 0014 3844     		add	r0, r0, r7
+ 187              	.LVL15:
+  54:Core/Src/util_buffer.c ****     /* find how far head is from the end */
+  55:Core/Src/util_buffer.c ****     cnt_from_end = buf->len - buf->head;
+ 188              		.loc 1 55 5 is_stmt 1 view .LVU46
+ 189              		.loc 1 55 23 is_stmt 0 view .LVU47
+ 190 0016 D4F80880 		ldr	r8, [r4, #8]
+ 191              		.loc 1 55 18 view .LVU48
+ 192 001a A8EB0702 		sub	r2, r8, r7
+ 193              	.LVL16:
+  56:Core/Src/util_buffer.c **** 
+  57:Core/Src/util_buffer.c ****     /* if total write is more than buffer length, only write last section */
+  58:Core/Src/util_buffer.c ****     if (elem_cnt > buf->len) {
+ 194              		.loc 1 58 5 is_stmt 1 view .LVU49
+ 195              		.loc 1 58 8 is_stmt 0 view .LVU50
+ 196 001e B045     		cmp	r8, r6
+ 197 0020 03D2     		bcs	.L20
+  59:Core/Src/util_buffer.c ****         /* increment pointer to last section */
+  60:Core/Src/util_buffer.c ****         src_data += elem_cnt - buf->len;
+ 198              		.loc 1 60 9 is_stmt 1 view .LVU51
+ 199              		.loc 1 60 30 is_stmt 0 view .LVU52
+ 200 0022 A6EB0806 		sub	r6, r6, r8
+ 201              	.LVL17:
+ 202              		.loc 1 60 18 view .LVU53
+ 203 0026 3544     		add	r5, r5, r6
+ 204              	.LVL18:
+  61:Core/Src/util_buffer.c ****         /* we will write entirety of last section */
+  62:Core/Src/util_buffer.c ****         elem_cnt = buf->len;
+ 205              		.loc 1 62 9 is_stmt 1 view .LVU54
+ 206              		.loc 1 62 18 is_stmt 0 view .LVU55
+ARM GAS  /tmp/ccu6rRfo.s 			page 6
 
 
- 251              		.loc 1 76 21 is_stmt 0 view .LVU64
- 252 0060 A268     		ldr	r2, [r4, #8]
- 253              		.loc 1 76 15 view .LVU65
- 254 0062 B3FBF2F1 		udiv	r1, r3, r2
- 255 0066 02FB1133 		mls	r3, r2, r1, r3
- 256 006a 2360     		str	r3, [r4]
-  77:Core/Src/util_buffer.c ****     buf->cnt += elem_cnt;
- 257              		.loc 1 77 5 is_stmt 1 view .LVU66
- 258              		.loc 1 77 14 is_stmt 0 view .LVU67
- 259 006c E368     		ldr	r3, [r4, #12]
- 260 006e 2B44     		add	r3, r3, r5
- 261 0070 E360     		str	r3, [r4, #12]
-  78:Core/Src/util_buffer.c **** 
-  79:Core/Src/util_buffer.c ****     /* yay */
-  80:Core/Src/util_buffer.c ****     return EXIT_SUCCESS;
- 262              		.loc 1 80 5 is_stmt 1 view .LVU68
-  81:Core/Src/util_buffer.c **** }
- 263              		.loc 1 81 1 is_stmt 0 view .LVU69
- 264 0072 0020     		movs	r0, #0
- 265 0074 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 266              	.LVL25:
- 267              	.L20:
+ 207 0028 4646     		mov	r6, r8
+ 208              	.LVL19:
+ 209              	.L20:
+  63:Core/Src/util_buffer.c ****     }
+  64:Core/Src/util_buffer.c **** 
+  65:Core/Src/util_buffer.c ****     /* Copy data */
+  66:Core/Src/util_buffer.c ****     if (elem_cnt > cnt_from_end) {
+ 210              		.loc 1 66 5 is_stmt 1 view .LVU56
+ 211              		.loc 1 66 8 is_stmt 0 view .LVU57
+ 212 002a 9642     		cmp	r6, r2
+ 213 002c 18D9     		bls	.L21
+  67:Core/Src/util_buffer.c ****         memcpy(wr_start_ptr, src_data, cnt_from_end);
+ 214              		.loc 1 67 9 is_stmt 1 view .LVU58
+ 215 002e 2946     		mov	r1, r5
+ 216 0030 FFF7FEFF 		bl	memcpy
+ 217              	.LVL20:
+  68:Core/Src/util_buffer.c ****         memcpy(buf->data, src_data, elem_cnt - cnt_from_end);
+ 218              		.loc 1 68 9 view .LVU59
+ 219 0034 A7EB0802 		sub	r2, r7, r8
+ 220 0038 3244     		add	r2, r2, r6
+ 221 003a 2946     		mov	r1, r5
+ 222 003c 2069     		ldr	r0, [r4, #16]
+ 223 003e FFF7FEFF 		bl	memcpy
+ 224              	.LVL21:
+ 225              	.L22:
+  69:Core/Src/util_buffer.c ****     } else {
+  70:Core/Src/util_buffer.c ****         memcpy(wr_start_ptr, src_data, elem_cnt);
   71:Core/Src/util_buffer.c ****     }
- 268              		.loc 1 71 9 is_stmt 1 view .LVU70
- 269 0078 2A46     		mov	r2, r5
- 270              	.LVL26:
-  71:Core/Src/util_buffer.c ****     }
- 271              		.loc 1 71 9 is_stmt 0 view .LVU71
- 272 007a 3146     		mov	r1, r6
- 273 007c FFF7FEFF 		bl	memcpy
- 274              	.LVL27:
-  71:Core/Src/util_buffer.c ****     }
- 275              		.loc 1 71 9 view .LVU72
- 276 0080 EBE7     		b	.L21
- 277              		.cfi_endproc
- 278              	.LFE2:
- 280              		.section	.text.buf_peek,"ax",%progbits
- 281              		.align	1
- 282              		.global	buf_peek
- 283              		.syntax unified
- 284              		.thumb
- 285              		.thumb_func
- 287              	buf_peek:
- 288              	.LVL28:
- 289              	.LFB4:
-  82:Core/Src/util_buffer.c **** 
-  83:Core/Src/util_buffer.c **** int buf_read(buffer_t *buf, void *dest_data, size_t elem_cnt) {
-  84:Core/Src/util_buffer.c **** 
-  85:Core/Src/util_buffer.c ****     /* Sanity check */
-  86:Core/Src/util_buffer.c ****     if (EXIT_FAILURE == buf_peek(buf, dest_data, elem_cnt)) {
-  87:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
-  88:Core/Src/util_buffer.c ****     }
-  89:Core/Src/util_buffer.c **** 
-  90:Core/Src/util_buffer.c ****     /* increment tail pointer, lessen count */
-  91:Core/Src/util_buffer.c ****     buf->tail += elem_cnt;
-  92:Core/Src/util_buffer.c ****     buf->tail %= buf->len;
-  93:Core/Src/util_buffer.c ****     buf->cnt -= elem_cnt;
-ARM GAS  /tmp/cczXxXAt.s 			page 8
+  72:Core/Src/util_buffer.c **** 
+  73:Core/Src/util_buffer.c ****     /* increment head pointer and count */
+  74:Core/Src/util_buffer.c ****     buf->head += elem_cnt;   
+ 226              		.loc 1 74 5 view .LVU60
+ 227              		.loc 1 74 15 is_stmt 0 view .LVU61
+ 228 0042 2368     		ldr	r3, [r4]
+ 229 0044 3344     		add	r3, r3, r6
+ 230 0046 2360     		str	r3, [r4]
+  75:Core/Src/util_buffer.c ****     buf->head %= buf->len;
+ 231              		.loc 1 75 5 is_stmt 1 view .LVU62
+ 232              		.loc 1 75 21 is_stmt 0 view .LVU63
+ 233 0048 A268     		ldr	r2, [r4, #8]
+ 234              		.loc 1 75 15 view .LVU64
+ 235 004a B3FBF2F1 		udiv	r1, r3, r2
+ 236 004e 02FB1133 		mls	r3, r2, r1, r3
+ 237 0052 2360     		str	r3, [r4]
+  76:Core/Src/util_buffer.c ****     buf->cnt += elem_cnt;
+ 238              		.loc 1 76 5 is_stmt 1 view .LVU65
+ 239              		.loc 1 76 14 is_stmt 0 view .LVU66
+ 240 0054 E368     		ldr	r3, [r4, #12]
+ 241 0056 3344     		add	r3, r3, r6
+ 242 0058 E360     		str	r3, [r4, #12]
+  77:Core/Src/util_buffer.c **** 
+  78:Core/Src/util_buffer.c ****     /* yay */
+  79:Core/Src/util_buffer.c ****     return EXIT_SUCCESS;
+ 243              		.loc 1 79 5 is_stmt 1 view .LVU67
+ 244              		.loc 1 79 12 is_stmt 0 view .LVU68
+ 245 005a 0020     		movs	r0, #0
+ 246              	.LVL22:
+ARM GAS  /tmp/ccu6rRfo.s 			page 7
 
 
-  94:Core/Src/util_buffer.c **** 
-  95:Core/Src/util_buffer.c ****     /* yay */
-  96:Core/Src/util_buffer.c ****     return EXIT_SUCCESS;
-  97:Core/Src/util_buffer.c **** }
-  98:Core/Src/util_buffer.c **** 
-  99:Core/Src/util_buffer.c **** int buf_peek(buffer_t *buf, void *dest_data, size_t elem_cnt) {
- 290              		.loc 1 99 63 is_stmt 1 view -0
- 291              		.cfi_startproc
- 292              		@ args = 0, pretend = 0, frame = 0
- 293              		@ frame_needed = 0, uses_anonymous_args = 0
- 100:Core/Src/util_buffer.c **** 
- 101:Core/Src/util_buffer.c ****     void *rd_start_ptr;
- 294              		.loc 1 101 5 view .LVU74
- 102:Core/Src/util_buffer.c ****     size_t cnt_from_end;
- 295              		.loc 1 102 5 view .LVU75
- 103:Core/Src/util_buffer.c **** 
- 104:Core/Src/util_buffer.c ****     /* Sanity check */
- 105:Core/Src/util_buffer.c ****     if ((NULL == buf) || (NULL == dest_data) || (0 == elem_cnt)) {
- 296              		.loc 1 105 5 view .LVU76
- 297              		.loc 1 105 8 is_stmt 0 view .LVU77
- 298 0000 20B3     		cbz	r0, .L27
+ 247              	.L18:
+  80:Core/Src/util_buffer.c **** }
+ 248              		.loc 1 80 1 view .LVU69
+ 249 005c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 250              	.LVL23:
+ 251              	.L21:
+  70:Core/Src/util_buffer.c ****     }
+ 252              		.loc 1 70 9 is_stmt 1 view .LVU70
+ 253 0060 3246     		mov	r2, r6
+ 254              	.LVL24:
+  70:Core/Src/util_buffer.c ****     }
+ 255              		.loc 1 70 9 is_stmt 0 view .LVU71
+ 256 0062 2946     		mov	r1, r5
+ 257 0064 FFF7FEFF 		bl	memcpy
+ 258              	.LVL25:
+  70:Core/Src/util_buffer.c ****     }
+ 259              		.loc 1 70 9 view .LVU72
+ 260 0068 EBE7     		b	.L22
+ 261              	.LVL26:
+ 262              	.L23:
+ 263              		.cfi_def_cfa_offset 0
+ 264              		.cfi_restore 4
+ 265              		.cfi_restore 5
+ 266              		.cfi_restore 6
+ 267              		.cfi_restore 7
+ 268              		.cfi_restore 8
+ 269              		.cfi_restore 14
+  48:Core/Src/util_buffer.c ****     ASSERT_BOOL(NULL != src_data);
+ 270              		.loc 1 48 5 view .LVU73
+ 271 006a 0120     		movs	r0, #1
+ 272              	.LVL27:
+ 273              		.loc 1 80 1 view .LVU74
+ 274 006c 7047     		bx	lr
+ 275              	.LVL28:
+ 276              	.L24:
+ 277              		.cfi_def_cfa_offset 24
+ 278              		.cfi_offset 4, -24
+ 279              		.cfi_offset 5, -20
+ 280              		.cfi_offset 6, -16
+ 281              		.cfi_offset 7, -12
+ 282              		.cfi_offset 8, -8
+ 283              		.cfi_offset 14, -4
+  49:Core/Src/util_buffer.c ****     ASSERT_BOOL(NULL != buf);
+ 284              		.loc 1 49 5 view .LVU75
+ 285 006e 0120     		movs	r0, #1
+ 286              	.LVL29:
+  49:Core/Src/util_buffer.c ****     ASSERT_BOOL(NULL != buf);
+ 287              		.loc 1 49 5 view .LVU76
+ 288 0070 F4E7     		b	.L18
+ 289              	.LVL30:
+ 290              	.L25:
+  50:Core/Src/util_buffer.c **** 
+ 291              		.loc 1 50 5 view .LVU77
+ 292 0072 0120     		movs	r0, #1
+ 293              	.LVL31:
+  50:Core/Src/util_buffer.c **** 
+ 294              		.loc 1 50 5 view .LVU78
+ARM GAS  /tmp/ccu6rRfo.s 			page 8
+
+
+ 295 0074 F2E7     		b	.L18
+ 296              		.cfi_endproc
+ 297              	.LFE2:
+ 299              		.section	.text.buf_peek,"ax",%progbits
+ 300              		.align	1
+ 301              		.global	buf_peek
+ 302              		.syntax unified
+ 303              		.thumb
+ 304              		.thumb_func
+ 306              	buf_peek:
+ 307              	.LVL32:
+ 308              	.LFB4:
+  81:Core/Src/util_buffer.c **** 
+  82:Core/Src/util_buffer.c **** int buf_read(buffer_t *buf, void *dest_data, size_t elem_cnt) {
+  83:Core/Src/util_buffer.c **** 
+  84:Core/Src/util_buffer.c ****     /* Sanity check */
+  85:Core/Src/util_buffer.c ****     if (EXIT_FAILURE == buf_peek(buf, dest_data, elem_cnt)) {
+  86:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
+  87:Core/Src/util_buffer.c ****     }
+  88:Core/Src/util_buffer.c **** 
+  89:Core/Src/util_buffer.c ****     /* increment tail pointer, lessen count */
+  90:Core/Src/util_buffer.c ****     buf->tail += elem_cnt;
+  91:Core/Src/util_buffer.c ****     buf->tail %= buf->len;
+  92:Core/Src/util_buffer.c ****     buf->cnt -= elem_cnt;
+  93:Core/Src/util_buffer.c **** 
+  94:Core/Src/util_buffer.c ****     /* yay */
+  95:Core/Src/util_buffer.c ****     return EXIT_SUCCESS;
+  96:Core/Src/util_buffer.c **** }
+  97:Core/Src/util_buffer.c **** 
+  98:Core/Src/util_buffer.c **** int buf_peek(buffer_t *buf, void *dest_data, size_t elem_cnt) {
+ 309              		.loc 1 98 63 is_stmt 1 view -0
+ 310              		.cfi_startproc
+ 311              		@ args = 0, pretend = 0, frame = 0
+ 312              		@ frame_needed = 0, uses_anonymous_args = 0
   99:Core/Src/util_buffer.c **** 
- 299              		.loc 1 99 63 discriminator 1 view .LVU78
- 300 0002 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 301              	.LCFI6:
- 302              		.cfi_def_cfa_offset 24
- 303              		.cfi_offset 4, -24
- 304              		.cfi_offset 5, -20
- 305              		.cfi_offset 6, -16
- 306              		.cfi_offset 7, -12
- 307              		.cfi_offset 8, -8
- 308              		.cfi_offset 14, -4
- 309 0006 0D46     		mov	r5, r1
- 310 0008 1446     		mov	r4, r2
- 311 000a 0646     		mov	r6, r0
- 312              		.loc 1 105 23 discriminator 1 view .LVU79
- 313 000c 01B3     		cbz	r1, .L28
- 314              		.loc 1 105 46 discriminator 2 view .LVU80
- 315 000e 0AB3     		cbz	r2, .L29
- 106:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
- 107:Core/Src/util_buffer.c ****     }
- 108:Core/Src/util_buffer.c **** 
- 109:Core/Src/util_buffer.c ****     /* Find pointer of starting read location */
- 110:Core/Src/util_buffer.c ****     rd_start_ptr = buf->data + buf->tail;
- 316              		.loc 1 110 5 is_stmt 1 view .LVU81
- 317              		.loc 1 110 23 is_stmt 0 view .LVU82
- 318 0010 0169     		ldr	r1, [r0, #16]
- 319              	.LVL29:
- 320              		.loc 1 110 35 view .LVU83
- 321 0012 4768     		ldr	r7, [r0, #4]
- 322              		.loc 1 110 18 view .LVU84
- 323 0014 3944     		add	r1, r1, r7
- 324              	.LVL30:
- 111:Core/Src/util_buffer.c ****     /* find how far tail is from the end */
- 112:Core/Src/util_buffer.c ****     cnt_from_end = buf->len - buf->tail;
- 325              		.loc 1 112 5 is_stmt 1 view .LVU85
- 326              		.loc 1 112 23 is_stmt 0 view .LVU86
-ARM GAS  /tmp/cczXxXAt.s 			page 9
+ 100:Core/Src/util_buffer.c ****     void *rd_start_ptr;
+ 313              		.loc 1 100 5 view .LVU80
+ 101:Core/Src/util_buffer.c ****     size_t cnt_from_end;
+ 314              		.loc 1 101 5 view .LVU81
+ 102:Core/Src/util_buffer.c **** 
+ 103:Core/Src/util_buffer.c ****     /* Sanity check */
+ 104:Core/Src/util_buffer.c ****     if ((NULL == buf) || (NULL == dest_data) || (0 == elem_cnt)) {
+ 315              		.loc 1 104 5 view .LVU82
+ 316              		.loc 1 104 8 is_stmt 0 view .LVU83
+ 317 0000 20B3     		cbz	r0, .L34
+  98:Core/Src/util_buffer.c **** 
+ 318              		.loc 1 98 63 discriminator 1 view .LVU84
+ 319 0002 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 320              		.cfi_def_cfa_offset 24
+ 321              		.cfi_offset 4, -24
+ 322              		.cfi_offset 5, -20
+ 323              		.cfi_offset 6, -16
+ 324              		.cfi_offset 7, -12
+ 325              		.cfi_offset 8, -8
+ 326              		.cfi_offset 14, -4
+ 327 0006 0D46     		mov	r5, r1
+ 328 0008 1446     		mov	r4, r2
+ARM GAS  /tmp/ccu6rRfo.s 			page 9
 
 
- 327 0016 D0F80880 		ldr	r8, [r0, #8]
- 328              		.loc 1 112 18 view .LVU87
- 329 001a A8EB0702 		sub	r2, r8, r7
- 330              	.LVL31:
- 113:Core/Src/util_buffer.c **** 
- 114:Core/Src/util_buffer.c ****     /* if total read is more than buffer length, only read unique bytes */
- 115:Core/Src/util_buffer.c ****     if (elem_cnt > buf->len) {
- 331              		.loc 1 115 5 is_stmt 1 view .LVU88
- 332              		.loc 1 115 8 is_stmt 0 view .LVU89
- 333 001e A045     		cmp	r8, r4
- 334 0020 00D2     		bcs	.L25
- 116:Core/Src/util_buffer.c ****         elem_cnt = buf->len;
- 335              		.loc 1 116 18 view .LVU90
- 336 0022 4446     		mov	r4, r8
- 337              	.LVL32:
- 338              	.L25:
- 117:Core/Src/util_buffer.c ****     }
- 118:Core/Src/util_buffer.c **** 
- 119:Core/Src/util_buffer.c ****     /* Copy data */
- 120:Core/Src/util_buffer.c ****     if (elem_cnt > cnt_from_end) {
- 339              		.loc 1 120 5 is_stmt 1 view .LVU91
- 340              		.loc 1 120 8 is_stmt 0 view .LVU92
- 341 0024 9442     		cmp	r4, r2
- 342 0026 0BD9     		bls	.L26
- 121:Core/Src/util_buffer.c ****         memcpy(dest_data, rd_start_ptr, cnt_from_end);
- 343              		.loc 1 121 9 is_stmt 1 view .LVU93
- 344 0028 2846     		mov	r0, r5
- 345              	.LVL33:
- 346              		.loc 1 121 9 is_stmt 0 view .LVU94
- 347 002a FFF7FEFF 		bl	memcpy
- 348              	.LVL34:
- 122:Core/Src/util_buffer.c ****         memcpy(dest_data, buf->data, elem_cnt - cnt_from_end);
- 349              		.loc 1 122 9 is_stmt 1 view .LVU95
- 350 002e A7EB0802 		sub	r2, r7, r8
- 351 0032 2244     		add	r2, r2, r4
- 352 0034 3169     		ldr	r1, [r6, #16]
- 353 0036 2846     		mov	r0, r5
- 354 0038 FFF7FEFF 		bl	memcpy
- 355              	.LVL35:
- 123:Core/Src/util_buffer.c ****     } else {
- 124:Core/Src/util_buffer.c ****         memcpy(dest_data, rd_start_ptr, elem_cnt);
- 125:Core/Src/util_buffer.c ****     }
- 126:Core/Src/util_buffer.c **** 
- 127:Core/Src/util_buffer.c ****     /* yay */
- 128:Core/Src/util_buffer.c ****     return EXIT_SUCCESS;
- 356              		.loc 1 128 12 is_stmt 0 view .LVU96
- 357 003c 0020     		movs	r0, #0
- 358 003e 0AE0     		b	.L23
- 359              	.LVL36:
- 360              	.L26:
- 124:Core/Src/util_buffer.c ****     }
- 361              		.loc 1 124 9 is_stmt 1 view .LVU97
- 362 0040 2246     		mov	r2, r4
+ 329 000a 0646     		mov	r6, r0
+ 330              		.loc 1 104 23 discriminator 1 view .LVU85
+ 331 000c 01B3     		cbz	r1, .L35
+ 332              		.loc 1 104 46 discriminator 2 view .LVU86
+ 333 000e 0AB3     		cbz	r2, .L36
+ 105:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
+ 106:Core/Src/util_buffer.c ****     }
+ 107:Core/Src/util_buffer.c **** 
+ 108:Core/Src/util_buffer.c ****     /* Find pointer of starting read location */
+ 109:Core/Src/util_buffer.c ****     rd_start_ptr = buf->data + buf->tail;
+ 334              		.loc 1 109 5 is_stmt 1 view .LVU87
+ 335              		.loc 1 109 23 is_stmt 0 view .LVU88
+ 336 0010 0169     		ldr	r1, [r0, #16]
+ 337              	.LVL33:
+ 338              		.loc 1 109 35 view .LVU89
+ 339 0012 4768     		ldr	r7, [r0, #4]
+ 340              		.loc 1 109 18 view .LVU90
+ 341 0014 3944     		add	r1, r1, r7
+ 342              	.LVL34:
+ 110:Core/Src/util_buffer.c ****     /* find how far tail is from the end */
+ 111:Core/Src/util_buffer.c ****     cnt_from_end = buf->len - buf->tail;
+ 343              		.loc 1 111 5 is_stmt 1 view .LVU91
+ 344              		.loc 1 111 23 is_stmt 0 view .LVU92
+ 345 0016 D0F80880 		ldr	r8, [r0, #8]
+ 346              		.loc 1 111 18 view .LVU93
+ 347 001a A8EB0702 		sub	r2, r8, r7
+ 348              	.LVL35:
+ 112:Core/Src/util_buffer.c **** 
+ 113:Core/Src/util_buffer.c ****     /* if total read is more than buffer length, only read unique bytes */
+ 114:Core/Src/util_buffer.c ****     if (elem_cnt > buf->len) {
+ 349              		.loc 1 114 5 is_stmt 1 view .LVU94
+ 350              		.loc 1 114 8 is_stmt 0 view .LVU95
+ 351 001e A045     		cmp	r8, r4
+ 352 0020 00D2     		bcs	.L32
+ 115:Core/Src/util_buffer.c ****         elem_cnt = buf->len;
+ 353              		.loc 1 115 18 view .LVU96
+ 354 0022 4446     		mov	r4, r8
+ 355              	.LVL36:
+ 356              	.L32:
+ 116:Core/Src/util_buffer.c ****     }
+ 117:Core/Src/util_buffer.c **** 
+ 118:Core/Src/util_buffer.c ****     /* Copy data */
+ 119:Core/Src/util_buffer.c ****     if (elem_cnt > cnt_from_end) {
+ 357              		.loc 1 119 5 is_stmt 1 view .LVU97
+ 358              		.loc 1 119 8 is_stmt 0 view .LVU98
+ 359 0024 9442     		cmp	r4, r2
+ 360 0026 0BD9     		bls	.L33
+ 120:Core/Src/util_buffer.c ****         memcpy(dest_data, rd_start_ptr, cnt_from_end);
+ 361              		.loc 1 120 9 is_stmt 1 view .LVU99
+ 362 0028 2846     		mov	r0, r5
  363              	.LVL37:
- 124:Core/Src/util_buffer.c ****     }
- 364              		.loc 1 124 9 is_stmt 0 view .LVU98
- 365 0042 2846     		mov	r0, r5
-ARM GAS  /tmp/cczXxXAt.s 			page 10
-
-
+ 364              		.loc 1 120 9 is_stmt 0 view .LVU100
+ 365 002a FFF7FEFF 		bl	memcpy
  366              	.LVL38:
+ 121:Core/Src/util_buffer.c ****         memcpy(dest_data, buf->data, elem_cnt - cnt_from_end);
+ 367              		.loc 1 121 9 is_stmt 1 view .LVU101
+ 368 002e A7EB0802 		sub	r2, r7, r8
+ARM GAS  /tmp/ccu6rRfo.s 			page 10
+
+
+ 369 0032 2244     		add	r2, r2, r4
+ 370 0034 3169     		ldr	r1, [r6, #16]
+ 371 0036 2846     		mov	r0, r5
+ 372 0038 FFF7FEFF 		bl	memcpy
+ 373              	.LVL39:
+ 122:Core/Src/util_buffer.c ****     } else {
+ 123:Core/Src/util_buffer.c ****         memcpy(dest_data, rd_start_ptr, elem_cnt);
  124:Core/Src/util_buffer.c ****     }
- 367              		.loc 1 124 9 view .LVU99
- 368 0044 FFF7FEFF 		bl	memcpy
- 369              	.LVL39:
- 370              		.loc 1 128 12 view .LVU100
- 371 0048 0020     		movs	r0, #0
- 372 004a 04E0     		b	.L23
- 373              	.LVL40:
- 374              	.L27:
- 375              	.LCFI7:
- 376              		.cfi_def_cfa_offset 0
- 377              		.cfi_restore 4
- 378              		.cfi_restore 5
- 379              		.cfi_restore 6
- 380              		.cfi_restore 7
- 381              		.cfi_restore 8
- 382              		.cfi_restore 14
- 106:Core/Src/util_buffer.c ****     }
- 383              		.loc 1 106 16 view .LVU101
- 384 004c 0120     		movs	r0, #1
- 385              	.LVL41:
- 129:Core/Src/util_buffer.c **** }
- 386              		.loc 1 129 1 view .LVU102
- 387 004e 7047     		bx	lr
- 388              	.LVL42:
- 389              	.L28:
- 390              	.LCFI8:
- 391              		.cfi_def_cfa_offset 24
- 392              		.cfi_offset 4, -24
- 393              		.cfi_offset 5, -20
- 394              		.cfi_offset 6, -16
- 395              		.cfi_offset 7, -12
- 396              		.cfi_offset 8, -8
- 397              		.cfi_offset 14, -4
- 106:Core/Src/util_buffer.c ****     }
- 398              		.loc 1 106 16 view .LVU103
- 399 0050 0120     		movs	r0, #1
- 400              	.LVL43:
- 106:Core/Src/util_buffer.c ****     }
- 401              		.loc 1 106 16 view .LVU104
- 402 0052 00E0     		b	.L23
- 403              	.LVL44:
- 404              	.L29:
- 106:Core/Src/util_buffer.c ****     }
- 405              		.loc 1 106 16 view .LVU105
- 406 0054 0120     		movs	r0, #1
- 407              	.LVL45:
- 408              	.L23:
- 409              		.loc 1 129 1 view .LVU106
- 410 0056 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 411              		.loc 1 129 1 view .LVU107
- 412              		.cfi_endproc
- 413              	.LFE4:
- 415              		.section	.text.buf_read,"ax",%progbits
- 416              		.align	1
- 417              		.global	buf_read
-ARM GAS  /tmp/cczXxXAt.s 			page 11
+ 125:Core/Src/util_buffer.c **** 
+ 126:Core/Src/util_buffer.c ****     /* yay */
+ 127:Core/Src/util_buffer.c ****     return EXIT_SUCCESS;
+ 374              		.loc 1 127 12 is_stmt 0 view .LVU102
+ 375 003c 0020     		movs	r0, #0
+ 376 003e 0AE0     		b	.L30
+ 377              	.LVL40:
+ 378              	.L33:
+ 123:Core/Src/util_buffer.c ****     }
+ 379              		.loc 1 123 9 is_stmt 1 view .LVU103
+ 380 0040 2246     		mov	r2, r4
+ 381              	.LVL41:
+ 123:Core/Src/util_buffer.c ****     }
+ 382              		.loc 1 123 9 is_stmt 0 view .LVU104
+ 383 0042 2846     		mov	r0, r5
+ 384              	.LVL42:
+ 123:Core/Src/util_buffer.c ****     }
+ 385              		.loc 1 123 9 view .LVU105
+ 386 0044 FFF7FEFF 		bl	memcpy
+ 387              	.LVL43:
+ 388              		.loc 1 127 12 view .LVU106
+ 389 0048 0020     		movs	r0, #0
+ 390 004a 04E0     		b	.L30
+ 391              	.LVL44:
+ 392              	.L34:
+ 393              		.cfi_def_cfa_offset 0
+ 394              		.cfi_restore 4
+ 395              		.cfi_restore 5
+ 396              		.cfi_restore 6
+ 397              		.cfi_restore 7
+ 398              		.cfi_restore 8
+ 399              		.cfi_restore 14
+ 105:Core/Src/util_buffer.c ****     }
+ 400              		.loc 1 105 16 view .LVU107
+ 401 004c 0120     		movs	r0, #1
+ 402              	.LVL45:
+ 128:Core/Src/util_buffer.c **** }
+ 403              		.loc 1 128 1 view .LVU108
+ 404 004e 7047     		bx	lr
+ 405              	.LVL46:
+ 406              	.L35:
+ 407              		.cfi_def_cfa_offset 24
+ 408              		.cfi_offset 4, -24
+ 409              		.cfi_offset 5, -20
+ 410              		.cfi_offset 6, -16
+ 411              		.cfi_offset 7, -12
+ 412              		.cfi_offset 8, -8
+ 413              		.cfi_offset 14, -4
+ 105:Core/Src/util_buffer.c ****     }
+ARM GAS  /tmp/ccu6rRfo.s 			page 11
 
 
- 418              		.syntax unified
- 419              		.thumb
- 420              		.thumb_func
- 422              	buf_read:
- 423              	.LVL46:
- 424              	.LFB3:
-  83:Core/Src/util_buffer.c **** 
- 425              		.loc 1 83 63 is_stmt 1 view -0
- 426              		.cfi_startproc
- 427              		@ args = 0, pretend = 0, frame = 0
- 428              		@ frame_needed = 0, uses_anonymous_args = 0
-  83:Core/Src/util_buffer.c **** 
- 429              		.loc 1 83 63 is_stmt 0 view .LVU109
- 430 0000 38B5     		push	{r3, r4, r5, lr}
- 431              	.LCFI9:
- 432              		.cfi_def_cfa_offset 16
- 433              		.cfi_offset 3, -16
- 434              		.cfi_offset 4, -12
- 435              		.cfi_offset 5, -8
- 436              		.cfi_offset 14, -4
- 437 0002 0446     		mov	r4, r0
- 438 0004 1546     		mov	r5, r2
-  86:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
- 439              		.loc 1 86 5 is_stmt 1 view .LVU110
-  86:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
- 440              		.loc 1 86 25 is_stmt 0 view .LVU111
- 441 0006 FFF7FEFF 		bl	buf_peek
- 442              	.LVL47:
-  86:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
- 443              		.loc 1 86 8 view .LVU112
- 444 000a 0128     		cmp	r0, #1
- 445 000c 0CD0     		beq	.L35
-  91:Core/Src/util_buffer.c ****     buf->tail %= buf->len;
- 446              		.loc 1 91 5 is_stmt 1 view .LVU113
-  91:Core/Src/util_buffer.c ****     buf->tail %= buf->len;
- 447              		.loc 1 91 15 is_stmt 0 view .LVU114
- 448 000e 6368     		ldr	r3, [r4, #4]
- 449 0010 2B44     		add	r3, r3, r5
- 450 0012 6360     		str	r3, [r4, #4]
-  92:Core/Src/util_buffer.c ****     buf->cnt -= elem_cnt;
- 451              		.loc 1 92 5 is_stmt 1 view .LVU115
-  92:Core/Src/util_buffer.c ****     buf->cnt -= elem_cnt;
- 452              		.loc 1 92 21 is_stmt 0 view .LVU116
- 453 0014 A268     		ldr	r2, [r4, #8]
-  92:Core/Src/util_buffer.c ****     buf->cnt -= elem_cnt;
- 454              		.loc 1 92 15 view .LVU117
- 455 0016 B3FBF2F1 		udiv	r1, r3, r2
- 456 001a 02FB1133 		mls	r3, r2, r1, r3
- 457 001e 6360     		str	r3, [r4, #4]
-  93:Core/Src/util_buffer.c **** 
- 458              		.loc 1 93 5 is_stmt 1 view .LVU118
-  93:Core/Src/util_buffer.c **** 
- 459              		.loc 1 93 14 is_stmt 0 view .LVU119
- 460 0020 E268     		ldr	r2, [r4, #12]
- 461 0022 521B     		subs	r2, r2, r5
- 462 0024 E260     		str	r2, [r4, #12]
-  96:Core/Src/util_buffer.c **** }
-ARM GAS  /tmp/cczXxXAt.s 			page 12
+ 414              		.loc 1 105 16 view .LVU109
+ 415 0050 0120     		movs	r0, #1
+ 416              	.LVL47:
+ 105:Core/Src/util_buffer.c ****     }
+ 417              		.loc 1 105 16 view .LVU110
+ 418 0052 00E0     		b	.L30
+ 419              	.LVL48:
+ 420              	.L36:
+ 105:Core/Src/util_buffer.c ****     }
+ 421              		.loc 1 105 16 view .LVU111
+ 422 0054 0120     		movs	r0, #1
+ 423              	.LVL49:
+ 424              	.L30:
+ 425              		.loc 1 128 1 view .LVU112
+ 426 0056 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 427              		.loc 1 128 1 view .LVU113
+ 428              		.cfi_endproc
+ 429              	.LFE4:
+ 431              		.section	.text.buf_read,"ax",%progbits
+ 432              		.align	1
+ 433              		.global	buf_read
+ 434              		.syntax unified
+ 435              		.thumb
+ 436              		.thumb_func
+ 438              	buf_read:
+ 439              	.LVL50:
+ 440              	.LFB3:
+  82:Core/Src/util_buffer.c **** 
+ 441              		.loc 1 82 63 is_stmt 1 view -0
+ 442              		.cfi_startproc
+ 443              		@ args = 0, pretend = 0, frame = 0
+ 444              		@ frame_needed = 0, uses_anonymous_args = 0
+  82:Core/Src/util_buffer.c **** 
+ 445              		.loc 1 82 63 is_stmt 0 view .LVU115
+ 446 0000 38B5     		push	{r3, r4, r5, lr}
+ 447              		.cfi_def_cfa_offset 16
+ 448              		.cfi_offset 3, -16
+ 449              		.cfi_offset 4, -12
+ 450              		.cfi_offset 5, -8
+ 451              		.cfi_offset 14, -4
+ 452 0002 0446     		mov	r4, r0
+ 453 0004 1546     		mov	r5, r2
+  85:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
+ 454              		.loc 1 85 5 is_stmt 1 view .LVU116
+  85:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
+ 455              		.loc 1 85 25 is_stmt 0 view .LVU117
+ 456 0006 FFF7FEFF 		bl	buf_peek
+ 457              	.LVL51:
+  85:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
+ 458              		.loc 1 85 8 view .LVU118
+ 459 000a 0128     		cmp	r0, #1
+ 460 000c 0CD0     		beq	.L42
+  90:Core/Src/util_buffer.c ****     buf->tail %= buf->len;
+ 461              		.loc 1 90 5 is_stmt 1 view .LVU119
+  90:Core/Src/util_buffer.c ****     buf->tail %= buf->len;
+ 462              		.loc 1 90 15 is_stmt 0 view .LVU120
+ 463 000e 6368     		ldr	r3, [r4, #4]
+ARM GAS  /tmp/ccu6rRfo.s 			page 12
 
 
- 463              		.loc 1 96 5 is_stmt 1 view .LVU120
-  96:Core/Src/util_buffer.c **** }
- 464              		.loc 1 96 12 is_stmt 0 view .LVU121
- 465 0026 0020     		movs	r0, #0
- 466              	.L35:
-  97:Core/Src/util_buffer.c **** 
- 467              		.loc 1 97 1 view .LVU122
- 468 0028 38BD     		pop	{r3, r4, r5, pc}
-  97:Core/Src/util_buffer.c **** 
- 469              		.loc 1 97 1 view .LVU123
- 470              		.cfi_endproc
- 471              	.LFE3:
- 473              		.section	.text.buf_is_empty,"ax",%progbits
- 474              		.align	1
- 475              		.global	buf_is_empty
- 476              		.syntax unified
- 477              		.thumb
- 478              		.thumb_func
- 480              	buf_is_empty:
- 481              	.LVL48:
- 482              	.LFB5:
- 130:Core/Src/util_buffer.c **** 
- 131:Core/Src/util_buffer.c **** bool buf_is_empty(buffer_t *buf) {
- 483              		.loc 1 131 34 is_stmt 1 view -0
- 484              		.cfi_startproc
- 485              		@ args = 0, pretend = 0, frame = 0
- 486              		@ frame_needed = 0, uses_anonymous_args = 0
- 487              		@ link register save eliminated.
- 132:Core/Src/util_buffer.c ****     return (0 == buf->cnt);
- 488              		.loc 1 132 5 view .LVU125
- 489              		.loc 1 132 21 is_stmt 0 view .LVU126
- 490 0000 C068     		ldr	r0, [r0, #12]
- 491              	.LVL49:
- 133:Core/Src/util_buffer.c **** }
- 492              		.loc 1 133 1 view .LVU127
- 493 0002 B0FA80F0 		clz	r0, r0
- 494 0006 4009     		lsrs	r0, r0, #5
- 495 0008 7047     		bx	lr
- 496              		.cfi_endproc
- 497              	.LFE5:
- 499              		.section	.text.buf_get_free_elem,"ax",%progbits
- 500              		.align	1
- 501              		.global	buf_get_free_elem
- 502              		.syntax unified
- 503              		.thumb
- 504              		.thumb_func
- 506              	buf_get_free_elem:
- 507              	.LVL50:
- 508              	.LFB6:
- 134:Core/Src/util_buffer.c **** 
- 135:Core/Src/util_buffer.c **** size_t buf_get_free_elem(buffer_t *buf) {
- 509              		.loc 1 135 41 is_stmt 1 view -0
- 510              		.cfi_startproc
- 511              		@ args = 0, pretend = 0, frame = 0
- 512              		@ frame_needed = 0, uses_anonymous_args = 0
- 513              		@ link register save eliminated.
- 136:Core/Src/util_buffer.c ****     /* if overflow */
-ARM GAS  /tmp/cczXxXAt.s 			page 13
+ 464 0010 2B44     		add	r3, r3, r5
+ 465 0012 6360     		str	r3, [r4, #4]
+  91:Core/Src/util_buffer.c ****     buf->cnt -= elem_cnt;
+ 466              		.loc 1 91 5 is_stmt 1 view .LVU121
+  91:Core/Src/util_buffer.c ****     buf->cnt -= elem_cnt;
+ 467              		.loc 1 91 21 is_stmt 0 view .LVU122
+ 468 0014 A268     		ldr	r2, [r4, #8]
+  91:Core/Src/util_buffer.c ****     buf->cnt -= elem_cnt;
+ 469              		.loc 1 91 15 view .LVU123
+ 470 0016 B3FBF2F1 		udiv	r1, r3, r2
+ 471 001a 02FB1133 		mls	r3, r2, r1, r3
+ 472 001e 6360     		str	r3, [r4, #4]
+  92:Core/Src/util_buffer.c **** 
+ 473              		.loc 1 92 5 is_stmt 1 view .LVU124
+  92:Core/Src/util_buffer.c **** 
+ 474              		.loc 1 92 14 is_stmt 0 view .LVU125
+ 475 0020 E268     		ldr	r2, [r4, #12]
+ 476 0022 521B     		subs	r2, r2, r5
+ 477 0024 E260     		str	r2, [r4, #12]
+  95:Core/Src/util_buffer.c **** }
+ 478              		.loc 1 95 5 is_stmt 1 view .LVU126
+  95:Core/Src/util_buffer.c **** }
+ 479              		.loc 1 95 12 is_stmt 0 view .LVU127
+ 480 0026 0020     		movs	r0, #0
+ 481              	.L42:
+  96:Core/Src/util_buffer.c **** 
+ 482              		.loc 1 96 1 view .LVU128
+ 483 0028 38BD     		pop	{r3, r4, r5, pc}
+  96:Core/Src/util_buffer.c **** 
+ 484              		.loc 1 96 1 view .LVU129
+ 485              		.cfi_endproc
+ 486              	.LFE3:
+ 488              		.section	.text.buf_is_empty,"ax",%progbits
+ 489              		.align	1
+ 490              		.global	buf_is_empty
+ 491              		.syntax unified
+ 492              		.thumb
+ 493              		.thumb_func
+ 495              	buf_is_empty:
+ 496              	.LVL52:
+ 497              	.LFB5:
+ 129:Core/Src/util_buffer.c **** 
+ 130:Core/Src/util_buffer.c **** bool buf_is_empty(buffer_t *buf) {
+ 498              		.loc 1 130 34 is_stmt 1 view -0
+ 499              		.cfi_startproc
+ 500              		@ args = 0, pretend = 0, frame = 0
+ 501              		@ frame_needed = 0, uses_anonymous_args = 0
+ 502              		@ link register save eliminated.
+ 131:Core/Src/util_buffer.c ****     return (0 == buf->cnt);
+ 503              		.loc 1 131 5 view .LVU131
+ 504              		.loc 1 131 21 is_stmt 0 view .LVU132
+ 505 0000 C068     		ldr	r0, [r0, #12]
+ 506              	.LVL53:
+ 132:Core/Src/util_buffer.c **** }
+ 507              		.loc 1 132 1 view .LVU133
+ 508 0002 B0FA80F0 		clz	r0, r0
+ 509 0006 4009     		lsrs	r0, r0, #5
+ARM GAS  /tmp/ccu6rRfo.s 			page 13
 
 
- 137:Core/Src/util_buffer.c ****     if (buf->cnt > buf->len) {
- 514              		.loc 1 137 5 view .LVU129
- 515              		.loc 1 137 12 is_stmt 0 view .LVU130
- 516 0000 C368     		ldr	r3, [r0, #12]
- 517              		.loc 1 137 23 view .LVU131
- 518 0002 8068     		ldr	r0, [r0, #8]
- 519              	.LVL51:
- 520              		.loc 1 137 8 view .LVU132
- 521 0004 8342     		cmp	r3, r0
- 522 0006 01D8     		bhi	.L41
- 138:Core/Src/util_buffer.c ****         return 0;
- 139:Core/Src/util_buffer.c ****     } else {
- 140:Core/Src/util_buffer.c ****         return (buf->len - buf->cnt);
- 523              		.loc 1 140 9 is_stmt 1 view .LVU133
- 524              		.loc 1 140 26 is_stmt 0 view .LVU134
- 525 0008 C01A     		subs	r0, r0, r3
- 526 000a 7047     		bx	lr
- 527              	.L41:
- 138:Core/Src/util_buffer.c ****         return 0;
- 528              		.loc 1 138 16 view .LVU135
- 529 000c 0020     		movs	r0, #0
- 141:Core/Src/util_buffer.c ****     }
- 142:Core/Src/util_buffer.c **** }
- 530              		.loc 1 142 1 view .LVU136
- 531 000e 7047     		bx	lr
- 532              		.cfi_endproc
- 533              	.LFE6:
- 535              		.section	.text.buf_get_free_data,"ax",%progbits
- 536              		.align	1
- 537              		.global	buf_get_free_data
- 538              		.syntax unified
- 539              		.thumb
- 540              		.thumb_func
- 542              	buf_get_free_data:
- 543              	.LVL52:
- 544              	.LFB7:
- 143:Core/Src/util_buffer.c **** 
- 144:Core/Src/util_buffer.c **** size_t buf_get_free_data(buffer_t *buf, size_t size_of_data) {
- 545              		.loc 1 144 62 is_stmt 1 view -0
- 546              		.cfi_startproc
- 547              		@ args = 0, pretend = 0, frame = 0
- 548              		@ frame_needed = 0, uses_anonymous_args = 0
- 549              		@ link register save eliminated.
- 145:Core/Src/util_buffer.c ****     /* if overflow */
- 146:Core/Src/util_buffer.c ****     if (buf->cnt > buf->len) {
- 550              		.loc 1 146 5 view .LVU138
- 551              		.loc 1 146 12 is_stmt 0 view .LVU139
- 552 0000 C268     		ldr	r2, [r0, #12]
- 553              		.loc 1 146 23 view .LVU140
- 554 0002 8368     		ldr	r3, [r0, #8]
- 555              		.loc 1 146 8 view .LVU141
- 556 0004 9A42     		cmp	r2, r3
- 557 0006 03D8     		bhi	.L44
- 147:Core/Src/util_buffer.c ****         return 0;
- 148:Core/Src/util_buffer.c ****     } else {
- 149:Core/Src/util_buffer.c ****         return (buf->len - buf->cnt) / size_of_data;
- 558              		.loc 1 149 9 is_stmt 1 view .LVU142
-ARM GAS  /tmp/cczXxXAt.s 			page 14
+ 510 0008 7047     		bx	lr
+ 511              		.cfi_endproc
+ 512              	.LFE5:
+ 514              		.section	.text.buf_get_free_elem,"ax",%progbits
+ 515              		.align	1
+ 516              		.global	buf_get_free_elem
+ 517              		.syntax unified
+ 518              		.thumb
+ 519              		.thumb_func
+ 521              	buf_get_free_elem:
+ 522              	.LVL54:
+ 523              	.LFB6:
+ 133:Core/Src/util_buffer.c **** 
+ 134:Core/Src/util_buffer.c **** size_t buf_get_free_elem(buffer_t *buf) {
+ 524              		.loc 1 134 41 is_stmt 1 view -0
+ 525              		.cfi_startproc
+ 526              		@ args = 0, pretend = 0, frame = 0
+ 527              		@ frame_needed = 0, uses_anonymous_args = 0
+ 528              		@ link register save eliminated.
+ 135:Core/Src/util_buffer.c ****     /* if overflow */
+ 136:Core/Src/util_buffer.c ****     if (buf->cnt > buf->len) {
+ 529              		.loc 1 136 5 view .LVU135
+ 530              		.loc 1 136 12 is_stmt 0 view .LVU136
+ 531 0000 C368     		ldr	r3, [r0, #12]
+ 532              		.loc 1 136 23 view .LVU137
+ 533 0002 8068     		ldr	r0, [r0, #8]
+ 534              	.LVL55:
+ 535              		.loc 1 136 8 view .LVU138
+ 536 0004 8342     		cmp	r3, r0
+ 537 0006 01D8     		bhi	.L48
+ 137:Core/Src/util_buffer.c ****         return 0;
+ 138:Core/Src/util_buffer.c ****     } else {
+ 139:Core/Src/util_buffer.c ****         return (buf->len - buf->cnt);
+ 538              		.loc 1 139 9 is_stmt 1 view .LVU139
+ 539              		.loc 1 139 26 is_stmt 0 view .LVU140
+ 540 0008 C01A     		subs	r0, r0, r3
+ 541 000a 7047     		bx	lr
+ 542              	.L48:
+ 137:Core/Src/util_buffer.c ****         return 0;
+ 543              		.loc 1 137 16 view .LVU141
+ 544 000c 0020     		movs	r0, #0
+ 140:Core/Src/util_buffer.c ****     }
+ 141:Core/Src/util_buffer.c **** }
+ 545              		.loc 1 141 1 view .LVU142
+ 546 000e 7047     		bx	lr
+ 547              		.cfi_endproc
+ 548              	.LFE6:
+ 550              		.section	.text.buf_get_free_data,"ax",%progbits
+ 551              		.align	1
+ 552              		.global	buf_get_free_data
+ 553              		.syntax unified
+ 554              		.thumb
+ 555              		.thumb_func
+ 557              	buf_get_free_data:
+ 558              	.LVL56:
+ 559              	.LFB7:
+ 142:Core/Src/util_buffer.c **** 
+ARM GAS  /tmp/ccu6rRfo.s 			page 14
 
 
- 559              		.loc 1 149 26 is_stmt 0 view .LVU143
- 560 0008 9B1A     		subs	r3, r3, r2
- 561              		.loc 1 149 38 view .LVU144
- 562 000a B3FBF1F0 		udiv	r0, r3, r1
- 563              	.LVL53:
- 564              		.loc 1 149 38 view .LVU145
- 565 000e 7047     		bx	lr
- 566              	.LVL54:
- 567              	.L44:
- 147:Core/Src/util_buffer.c ****         return 0;
- 568              		.loc 1 147 16 view .LVU146
- 569 0010 0020     		movs	r0, #0
- 570              	.LVL55:
- 150:Core/Src/util_buffer.c ****     }
- 151:Core/Src/util_buffer.c **** }...
- 571              		.loc 1 151 1 view .LVU147
- 572 0012 7047     		bx	lr
- 573              		.cfi_endproc
- 574              	.LFE7:
- 576              		.text
- 577              	.Letext0:
- 578              		.file 2 "Core/Inc/util_buffer.h"
- 579              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 580              		.file 4 "<built-in>"
-ARM GAS  /tmp/cczXxXAt.s 			page 15
+ 143:Core/Src/util_buffer.c **** size_t buf_get_free_data(buffer_t *buf, size_t size_of_data) {
+ 560              		.loc 1 143 62 is_stmt 1 view -0
+ 561              		.cfi_startproc
+ 562              		@ args = 0, pretend = 0, frame = 0
+ 563              		@ frame_needed = 0, uses_anonymous_args = 0
+ 564              		@ link register save eliminated.
+ 144:Core/Src/util_buffer.c ****     /* if overflow */
+ 145:Core/Src/util_buffer.c ****     if (buf->cnt > buf->len) {
+ 565              		.loc 1 145 5 view .LVU144
+ 566              		.loc 1 145 12 is_stmt 0 view .LVU145
+ 567 0000 C268     		ldr	r2, [r0, #12]
+ 568              		.loc 1 145 23 view .LVU146
+ 569 0002 8368     		ldr	r3, [r0, #8]
+ 570              		.loc 1 145 8 view .LVU147
+ 571 0004 9A42     		cmp	r2, r3
+ 572 0006 03D8     		bhi	.L51
+ 146:Core/Src/util_buffer.c ****         return 0;
+ 147:Core/Src/util_buffer.c ****     } else {
+ 148:Core/Src/util_buffer.c ****         return (buf->len - buf->cnt) / size_of_data;
+ 573              		.loc 1 148 9 is_stmt 1 view .LVU148
+ 574              		.loc 1 148 26 is_stmt 0 view .LVU149
+ 575 0008 9B1A     		subs	r3, r3, r2
+ 576              		.loc 1 148 38 view .LVU150
+ 577 000a B3FBF1F0 		udiv	r0, r3, r1
+ 578              	.LVL57:
+ 579              		.loc 1 148 38 view .LVU151
+ 580 000e 7047     		bx	lr
+ 581              	.LVL58:
+ 582              	.L51:
+ 146:Core/Src/util_buffer.c ****         return 0;
+ 583              		.loc 1 146 16 view .LVU152
+ 584 0010 0020     		movs	r0, #0
+ 585              	.LVL59:
+ 149:Core/Src/util_buffer.c ****     }
+ 150:Core/Src/util_buffer.c **** }...
+ 586              		.loc 1 150 1 view .LVU153
+ 587 0012 7047     		bx	lr
+ 588              		.cfi_endproc
+ 589              	.LFE7:
+ 591              		.text
+ 592              	.Letext0:
+ 593              		.file 2 "Core/Inc/util_buffer.h"
+ 594              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 595              		.file 4 "<built-in>"
+ARM GAS  /tmp/ccu6rRfo.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 util_buffer.c
-     /tmp/cczXxXAt.s:18     .text.buf_reset:0000000000000000 $t
-     /tmp/cczXxXAt.s:24     .text.buf_reset:0000000000000000 buf_reset
-     /tmp/cczXxXAt.s:78     .text.buf_init:0000000000000000 $t
-     /tmp/cczXxXAt.s:84     .text.buf_init:0000000000000000 buf_init
-     /tmp/cczXxXAt.s:151    .text.buf_write:0000000000000000 $t
-     /tmp/cczXxXAt.s:157    .text.buf_write:0000000000000000 buf_write
-     /tmp/cczXxXAt.s:281    .text.buf_peek:0000000000000000 $t
-     /tmp/cczXxXAt.s:287    .text.buf_peek:0000000000000000 buf_peek
-     /tmp/cczXxXAt.s:416    .text.buf_read:0000000000000000 $t
-     /tmp/cczXxXAt.s:422    .text.buf_read:0000000000000000 buf_read
-     /tmp/cczXxXAt.s:474    .text.buf_is_empty:0000000000000000 $t
-     /tmp/cczXxXAt.s:480    .text.buf_is_empty:0000000000000000 buf_is_empty
-     /tmp/cczXxXAt.s:500    .text.buf_get_free_elem:0000000000000000 $t
-     /tmp/cczXxXAt.s:506    .text.buf_get_free_elem:0000000000000000 buf_get_free_elem
-     /tmp/cczXxXAt.s:536    .text.buf_get_free_data:0000000000000000 $t
-     /tmp/cczXxXAt.s:542    .text.buf_get_free_data:0000000000000000 buf_get_free_data
+     /tmp/ccu6rRfo.s:18     .text.buf_reset:0000000000000000 $t
+     /tmp/ccu6rRfo.s:24     .text.buf_reset:0000000000000000 buf_reset
+     /tmp/ccu6rRfo.s:76     .text.buf_init:0000000000000000 $t
+     /tmp/ccu6rRfo.s:82     .text.buf_init:0000000000000000 buf_init
+     /tmp/ccu6rRfo.s:146    .text.buf_write:0000000000000000 $t
+     /tmp/ccu6rRfo.s:152    .text.buf_write:0000000000000000 buf_write
+     /tmp/ccu6rRfo.s:300    .text.buf_peek:0000000000000000 $t
+     /tmp/ccu6rRfo.s:306    .text.buf_peek:0000000000000000 buf_peek
+     /tmp/ccu6rRfo.s:432    .text.buf_read:0000000000000000 $t
+     /tmp/ccu6rRfo.s:438    .text.buf_read:0000000000000000 buf_read
+     /tmp/ccu6rRfo.s:489    .text.buf_is_empty:0000000000000000 $t
+     /tmp/ccu6rRfo.s:495    .text.buf_is_empty:0000000000000000 buf_is_empty
+     /tmp/ccu6rRfo.s:515    .text.buf_get_free_elem:0000000000000000 $t
+     /tmp/ccu6rRfo.s:521    .text.buf_get_free_elem:0000000000000000 buf_get_free_elem
+     /tmp/ccu6rRfo.s:551    .text.buf_get_free_data:0000000000000000 $t
+     /tmp/ccu6rRfo.s:557    .text.buf_get_free_data:0000000000000000 buf_get_free_data
 
 UNDEFINED SYMBOLS
 memset
-ASSERT
 memcpy

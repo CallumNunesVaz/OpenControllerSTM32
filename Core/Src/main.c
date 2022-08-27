@@ -38,22 +38,21 @@ int main(void)
   hw_systick_init(1000);
 
   /* Configure the system heartbeat */
-  //ASSERT(heartbeat_init());
-  heartbeat_init();
+  ASSERT_INT(heartbeat_init());
   heartbeat_set_pattern_mode(LED_BREATHE);
-  heartbeat_set_poll_mode(false);
+  heartbeat_set_poll_mode(true);
   heartbeat_set_period_ms(1000);
   heartbeat_start();
 
   /* Initialise binary outputs */
-  // bout_init();
+  ASSERT_INT(bout_init());
 
-  //i2c_init();
+  ASSERT_INT(i2c_init());
 
   /* interrupts (move to new file!) */
   //__enable_irq();
 
-  //gpioexp_init();
+  gpioexp_init();
 
   /* Initialised everything! */
   // dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_NAME, sizeof(DBG_NAME));
@@ -61,6 +60,7 @@ int main(void)
   /* Main loop */
   while (1)
   {
+    i2c_poll_fsm();
     heartbeat_poll();
     // for (idx = 0; idx < 7; idx++) {
     //   bout_reset_lib();

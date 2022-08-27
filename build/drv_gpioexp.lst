@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccWtWC9N.s 			page 1
+ARM GAS  /tmp/ccrqaelN.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,168 +58,164 @@ ARM GAS  /tmp/ccWtWC9N.s 			page 1
   13:Core/Src/drv_gpioexp.c ****     i2c_msg_t msg;
   39              		.loc 1 13 35 view .LVU4
   40 0006 00B5     		push	{lr}
-ARM GAS  /tmp/ccWtWC9N.s 			page 2
+ARM GAS  /tmp/ccrqaelN.s 			page 2
 
 
-  41              	.LCFI0:
-  42              		.cfi_def_cfa_offset 4
-  43              		.cfi_offset 14, -4
-  44 0008 85B0     		sub	sp, sp, #20
-  45              	.LCFI1:
-  46              		.cfi_def_cfa_offset 24
+  41              		.cfi_def_cfa_offset 4
+  42              		.cfi_offset 14, -4
+  43 0008 85B0     		sub	sp, sp, #20
+  44              		.cfi_def_cfa_offset 24
   18:Core/Src/drv_gpioexp.c ****         return;
   19:Core/Src/drv_gpioexp.c ****     }
   20:Core/Src/drv_gpioexp.c **** 
   21:Core/Src/drv_gpioexp.c ****     /* construct message */
   22:Core/Src/drv_gpioexp.c ****     msg.n_send = 2;
-  47              		.loc 1 22 5 is_stmt 1 view .LVU5
-  48              		.loc 1 22 16 is_stmt 0 view .LVU6
-  49 000a 0223     		movs	r3, #2
-  50 000c 8DF80430 		strb	r3, [sp, #4]
+  45              		.loc 1 22 5 is_stmt 1 view .LVU5
+  46              		.loc 1 22 16 is_stmt 0 view .LVU6
+  47 000a 0223     		movs	r3, #2
+  48 000c 8DF80430 		strb	r3, [sp, #4]
   23:Core/Src/drv_gpioexp.c ****     msg.n_recv = 0;
-  51              		.loc 1 23 5 is_stmt 1 view .LVU7
-  52              		.loc 1 23 16 is_stmt 0 view .LVU8
-  53 0010 0023     		movs	r3, #0
-  54 0012 8DF80C30 		strb	r3, [sp, #12]
+  49              		.loc 1 23 5 is_stmt 1 view .LVU7
+  50              		.loc 1 23 16 is_stmt 0 view .LVU8
+  51 0010 0023     		movs	r3, #0
+  52 0012 8DF80C30 		strb	r3, [sp, #12]
   24:Core/Src/drv_gpioexp.c ****     msg.buf_send_ptr = buf_tx_data;
-  55              		.loc 1 24 5 is_stmt 1 view .LVU9
-  56              		.loc 1 24 22 is_stmt 0 view .LVU10
-  57 0016 084B     		ldr	r3, .L9
-  58 0018 0093     		str	r3, [sp]
+  53              		.loc 1 24 5 is_stmt 1 view .LVU9
+  54              		.loc 1 24 22 is_stmt 0 view .LVU10
+  55 0016 084B     		ldr	r3, .L9
+  56 0018 0093     		str	r3, [sp]
   25:Core/Src/drv_gpioexp.c ****     msg.buf_send_ptr = buf_rx_data;
-  59              		.loc 1 25 5 is_stmt 1 view .LVU11
-  60              		.loc 1 25 22 is_stmt 0 view .LVU12
-  61 001a 084A     		ldr	r2, .L9+4
-  62 001c 0092     		str	r2, [sp]
+  57              		.loc 1 25 5 is_stmt 1 view .LVU11
+  58              		.loc 1 25 22 is_stmt 0 view .LVU12
+  59 001a 084A     		ldr	r2, .L9+4
+  60 001c 0092     		str	r2, [sp]
   26:Core/Src/drv_gpioexp.c **** 
   27:Core/Src/drv_gpioexp.c ****     /* write tx buffer */
   28:Core/Src/drv_gpioexp.c ****     buf_tx_data[0] = PCF8574_ADDR | I2C_WRITE_BIT;
-  63              		.loc 1 28 5 is_stmt 1 view .LVU13
-  64              		.loc 1 28 20 is_stmt 0 view .LVU14
-  65 001e 4022     		movs	r2, #64
-  66 0020 1A70     		strb	r2, [r3]
+  61              		.loc 1 28 5 is_stmt 1 view .LVU13
+  62              		.loc 1 28 20 is_stmt 0 view .LVU14
+  63 001e 4022     		movs	r2, #64
+  64 0020 1A70     		strb	r2, [r3]
   29:Core/Src/drv_gpioexp.c ****     buf_tx_data[1] = 0x01 << pin;
-  67              		.loc 1 29 5 is_stmt 1 view .LVU15
-  68              		.loc 1 29 27 is_stmt 0 view .LVU16
-  69 0022 0122     		movs	r2, #1
-  70 0024 02FA00F0 		lsl	r0, r2, r0
-  71              	.LVL1:
-  72              		.loc 1 29 20 view .LVU17
-  73 0028 5870     		strb	r0, [r3, #1]
+  65              		.loc 1 29 5 is_stmt 1 view .LVU15
+  66              		.loc 1 29 27 is_stmt 0 view .LVU16
+  67 0022 0122     		movs	r2, #1
+  68 0024 02FA00F0 		lsl	r0, r2, r0
+  69              	.LVL1:
+  70              		.loc 1 29 20 view .LVU17
+  71 0028 5870     		strb	r0, [r3, #1]
   30:Core/Src/drv_gpioexp.c **** 
   31:Core/Src/drv_gpioexp.c ****     i2c_queue_msg(&msg);
-  74              		.loc 1 31 5 is_stmt 1 view .LVU18
-  75 002a 6846     		mov	r0, sp
-  76 002c FFF7FEFF 		bl	i2c_queue_msg
-  77              	.LVL2:
+  72              		.loc 1 31 5 is_stmt 1 view .LVU18
+  73 002a 6846     		mov	r0, sp
+  74 002c FFF7FEFF 		bl	i2c_queue_msg
+  75              	.LVL2:
   32:Core/Src/drv_gpioexp.c **** }
-  78              		.loc 1 32 1 is_stmt 0 view .LVU19
-  79 0030 05B0     		add	sp, sp, #20
-  80              	.LCFI2:
-  81              		.cfi_def_cfa_offset 4
-  82              		@ sp needed
-ARM GAS  /tmp/ccWtWC9N.s 			page 3
+  76              		.loc 1 32 1 is_stmt 0 view .LVU19
+  77 0030 05B0     		add	sp, sp, #20
+  78              		.cfi_def_cfa_offset 4
+  79              		@ sp needed
+  80 0032 5DF804FB 		ldr	pc, [sp], #4
+  81              	.L10:
+  82 0036 00BF     		.align	2
+ARM GAS  /tmp/ccrqaelN.s 			page 3
 
 
-  83 0032 5DF804FB 		ldr	pc, [sp], #4
-  84              	.L10:
-  85 0036 00BF     		.align	2
-  86              	.L9:
-  87 0038 00000000 		.word	.LANCHOR0
-  88 003c 00000000 		.word	.LANCHOR1
-  89              		.cfi_endproc
-  90              	.LFE66:
-  92              		.section	.text.gpioexp_init,"ax",%progbits
-  93              		.align	1
-  94              		.global	gpioexp_init
-  95              		.syntax unified
-  96              		.thumb
-  97              		.thumb_func
-  99              	gpioexp_init:
- 100              	.LFB65:
+  83              	.L9:
+  84 0038 00000000 		.word	.LANCHOR0
+  85 003c 00000000 		.word	.LANCHOR1
+  86              		.cfi_endproc
+  87              	.LFE66:
+  89              		.section	.text.gpioexp_init,"ax",%progbits
+  90              		.align	1
+  91              		.global	gpioexp_init
+  92              		.syntax unified
+  93              		.thumb
+  94              		.thumb_func
+  96              	gpioexp_init:
+  97              	.LFB65:
    8:Core/Src/drv_gpioexp.c ****     /* initialise buffers */
- 101              		.loc 1 8 24 is_stmt 1 view -0
- 102              		.cfi_startproc
- 103              		@ args = 0, pretend = 0, frame = 0
- 104              		@ frame_needed = 0, uses_anonymous_args = 0
- 105 0000 08B5     		push	{r3, lr}
- 106              	.LCFI3:
- 107              		.cfi_def_cfa_offset 8
- 108              		.cfi_offset 3, -8
- 109              		.cfi_offset 14, -4
+  98              		.loc 1 8 24 is_stmt 1 view -0
+  99              		.cfi_startproc
+ 100              		@ args = 0, pretend = 0, frame = 0
+ 101              		@ frame_needed = 0, uses_anonymous_args = 0
+ 102 0000 08B5     		push	{r3, lr}
+ 103              		.cfi_def_cfa_offset 8
+ 104              		.cfi_offset 3, -8
+ 105              		.cfi_offset 14, -4
   10:Core/Src/drv_gpioexp.c **** }
- 110              		.loc 1 10 5 view .LVU21
- 111 0002 0420     		movs	r0, #4
- 112 0004 FFF7FEFF 		bl	gpioexp_set_pin
- 113              	.LVL3:
+ 106              		.loc 1 10 5 view .LVU21
+ 107 0002 0420     		movs	r0, #4
+ 108 0004 FFF7FEFF 		bl	gpioexp_set_pin
+ 109              	.LVL3:
   11:Core/Src/drv_gpioexp.c **** 
- 114              		.loc 1 11 1 is_stmt 0 view .LVU22
- 115 0008 08BD     		pop	{r3, pc}
- 116              		.cfi_endproc
- 117              	.LFE65:
- 119              		.section	.text.gpioexp_get_pin,"ax",%progbits
- 120              		.align	1
- 121              		.global	gpioexp_get_pin
- 122              		.syntax unified
- 123              		.thumb
- 124              		.thumb_func
- 126              	gpioexp_get_pin:
- 127              	.LVL4:
- 128              	.LFB67:
+ 110              		.loc 1 11 1 is_stmt 0 view .LVU22
+ 111 0008 08BD     		pop	{r3, pc}
+ 112              		.cfi_endproc
+ 113              	.LFE65:
+ 115              		.section	.text.gpioexp_get_pin,"ax",%progbits
+ 116              		.align	1
+ 117              		.global	gpioexp_get_pin
+ 118              		.syntax unified
+ 119              		.thumb
+ 120              		.thumb_func
+ 122              	gpioexp_get_pin:
+ 123              	.LVL4:
+ 124              	.LFB67:
   33:Core/Src/drv_gpioexp.c **** 
   34:Core/Src/drv_gpioexp.c **** void gpioexp_get_pin(uint8_t pin) {
- 129              		.loc 1 34 35 is_stmt 1 view -0
- 130              		.cfi_startproc
- 131              		@ args = 0, pretend = 0, frame = 0
- 132              		@ frame_needed = 0, uses_anonymous_args = 0
- 133              		@ link register save eliminated.
+ 125              		.loc 1 34 35 is_stmt 1 view -0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              		@ link register save eliminated.
   35:Core/Src/drv_gpioexp.c **** 
   36:Core/Src/drv_gpioexp.c **** }
- 134              		.loc 1 36 1 view .LVU24
- 135 0000 7047     		bx	lr
- 136              		.cfi_endproc
-ARM GAS  /tmp/ccWtWC9N.s 			page 4
+ 130              		.loc 1 36 1 view .LVU24
+ 131 0000 7047     		bx	lr
+ 132              		.cfi_endproc
+ 133              	.LFE67:
+ 135              		.section	.bss.buf_rx_data,"aw",%nobits
+ 136              		.align	2
+ 137              		.set	.LANCHOR1,. + 0
+ARM GAS  /tmp/ccrqaelN.s 			page 4
 
 
- 137              	.LFE67:
- 139              		.section	.bss.buf_rx_data,"aw",%nobits
- 140              		.align	2
- 141              		.set	.LANCHOR1,. + 0
- 144              	buf_rx_data:
- 145 0000 00000000 		.space	15
- 145      00000000 
- 145      00000000 
- 145      000000
- 146              		.section	.bss.buf_tx_data,"aw",%nobits
- 147              		.align	2
- 148              		.set	.LANCHOR0,. + 0
- 151              	buf_tx_data:
- 152 0000 00000000 		.space	15
- 152      00000000 
- 152      00000000 
- 152      000000
- 153              		.text
- 154              	.Letext0:
- 155              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 156              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 157              		.file 4 "Core/Inc/mgr_i2c.h"
- 158              		.file 5 "Core/Inc/hw_i2c1.h"
-ARM GAS  /tmp/ccWtWC9N.s 			page 5
+ 140              	buf_rx_data:
+ 141 0000 00000000 		.space	15
+ 141      00000000 
+ 141      00000000 
+ 141      000000
+ 142              		.section	.bss.buf_tx_data,"aw",%nobits
+ 143              		.align	2
+ 144              		.set	.LANCHOR0,. + 0
+ 147              	buf_tx_data:
+ 148 0000 00000000 		.space	15
+ 148      00000000 
+ 148      00000000 
+ 148      000000
+ 149              		.text
+ 150              	.Letext0:
+ 151              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 152              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 153              		.file 4 "Core/Inc/mgr_i2c.h"
+ 154              		.file 5 "Core/Inc/hw_i2c1.h"
+ARM GAS  /tmp/ccrqaelN.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 drv_gpioexp.c
-     /tmp/ccWtWC9N.s:18     .text.gpioexp_set_pin:0000000000000000 $t
-     /tmp/ccWtWC9N.s:24     .text.gpioexp_set_pin:0000000000000000 gpioexp_set_pin
-     /tmp/ccWtWC9N.s:87     .text.gpioexp_set_pin:0000000000000038 $d
-     /tmp/ccWtWC9N.s:93     .text.gpioexp_init:0000000000000000 $t
-     /tmp/ccWtWC9N.s:99     .text.gpioexp_init:0000000000000000 gpioexp_init
-     /tmp/ccWtWC9N.s:120    .text.gpioexp_get_pin:0000000000000000 $t
-     /tmp/ccWtWC9N.s:126    .text.gpioexp_get_pin:0000000000000000 gpioexp_get_pin
-     /tmp/ccWtWC9N.s:140    .bss.buf_rx_data:0000000000000000 $d
-     /tmp/ccWtWC9N.s:144    .bss.buf_rx_data:0000000000000000 buf_rx_data
-     /tmp/ccWtWC9N.s:147    .bss.buf_tx_data:0000000000000000 $d
-     /tmp/ccWtWC9N.s:151    .bss.buf_tx_data:0000000000000000 buf_tx_data
+     /tmp/ccrqaelN.s:18     .text.gpioexp_set_pin:0000000000000000 $t
+     /tmp/ccrqaelN.s:24     .text.gpioexp_set_pin:0000000000000000 gpioexp_set_pin
+     /tmp/ccrqaelN.s:84     .text.gpioexp_set_pin:0000000000000038 $d
+     /tmp/ccrqaelN.s:90     .text.gpioexp_init:0000000000000000 $t
+     /tmp/ccrqaelN.s:96     .text.gpioexp_init:0000000000000000 gpioexp_init
+     /tmp/ccrqaelN.s:116    .text.gpioexp_get_pin:0000000000000000 $t
+     /tmp/ccrqaelN.s:122    .text.gpioexp_get_pin:0000000000000000 gpioexp_get_pin
+     /tmp/ccrqaelN.s:136    .bss.buf_rx_data:0000000000000000 $d
+     /tmp/ccrqaelN.s:140    .bss.buf_rx_data:0000000000000000 buf_rx_data
+     /tmp/ccrqaelN.s:143    .bss.buf_tx_data:0000000000000000 $d
+     /tmp/ccrqaelN.s:147    .bss.buf_tx_data:0000000000000000 buf_tx_data
 
 UNDEFINED SYMBOLS
 i2c_queue_msg

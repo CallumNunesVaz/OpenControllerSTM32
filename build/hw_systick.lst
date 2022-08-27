@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccAIf1CW.s 			page 1
+ARM GAS  /tmp/ccQnYEAn.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
   30:Core/Src/hw_systick.c ****     SystemCoreClockUpdate();
   31:Core/Src/hw_systick.c ****     /* Set up with system core clock from system_stm32f1xx.h */
   32:Core/Src/hw_systick.c ****     SysTick_Config(SystemCoreClock / sys_tick_freq_hz);
-ARM GAS  /tmp/ccAIf1CW.s 			page 2
+ARM GAS  /tmp/ccQnYEAn.s 			page 2
 
 
   33:Core/Src/hw_systick.c ****     /* above function starts tick */
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
   71              		.global	hw_systick_start
   72              		.syntax unified
   73              		.thumb
-ARM GAS  /tmp/ccAIf1CW.s 			page 3
+ARM GAS  /tmp/ccQnYEAn.s 			page 3
 
 
   74              		.thumb_func
@@ -160,47 +160,46 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
   22:Core/Src/hw_systick.c ****     /* Set accessible system tick */
  108              		.loc 1 22 44 is_stmt 0 view .LVU12
  109 0000 08B5     		push	{r3, lr}
- 110              	.LCFI0:
- 111              		.cfi_def_cfa_offset 8
- 112              		.cfi_offset 3, -8
- 113              		.cfi_offset 14, -4
+ 110              		.cfi_def_cfa_offset 8
+ 111              		.cfi_offset 3, -8
+ 112              		.cfi_offset 14, -4
   24:Core/Src/hw_systick.c ****     /* Must be at least SYS_TICK_MIN */
- 114              		.loc 1 24 5 is_stmt 1 view .LVU13
+ 113              		.loc 1 24 5 is_stmt 1 view .LVU13
   24:Core/Src/hw_systick.c ****     /* Must be at least SYS_TICK_MIN */
- 115              		.loc 1 24 22 is_stmt 0 view .LVU14
- 116 0002 124B     		ldr	r3, .L10
- 117 0004 1880     		strh	r0, [r3]	@ movhi
+ 114              		.loc 1 24 22 is_stmt 0 view .LVU14
+ 115 0002 124B     		ldr	r3, .L10
+ 116 0004 1880     		strh	r0, [r3]	@ movhi
   26:Core/Src/hw_systick.c ****         sys_tick_freq_hz = SYS_TICK_MIN;
- 118              		.loc 1 26 5 is_stmt 1 view .LVU15
+ 117              		.loc 1 26 5 is_stmt 1 view .LVU15
   26:Core/Src/hw_systick.c ****         sys_tick_freq_hz = SYS_TICK_MIN;
- 119              		.loc 1 26 8 is_stmt 0 view .LVU16
- 120 0006 B0F57A7F 		cmp	r0, #1000
- 121 000a 02D8     		bhi	.L7
+ 118              		.loc 1 26 8 is_stmt 0 view .LVU16
+ 119 0006 B0F57A7F 		cmp	r0, #1000
+ 120 000a 02D8     		bhi	.L7
   27:Core/Src/hw_systick.c ****     }
- 122              		.loc 1 27 9 is_stmt 1 view .LVU17
-ARM GAS  /tmp/ccAIf1CW.s 			page 4
+ 121              		.loc 1 27 9 is_stmt 1 view .LVU17
+  27:Core/Src/hw_systick.c ****     }
+ARM GAS  /tmp/ccQnYEAn.s 			page 4
 
 
-  27:Core/Src/hw_systick.c ****     }
- 123              		.loc 1 27 26 is_stmt 0 view .LVU18
- 124 000c 4FF47A72 		mov	r2, #1000
- 125 0010 1A80     		strh	r2, [r3]	@ movhi
- 126              	.L7:
+ 122              		.loc 1 27 26 is_stmt 0 view .LVU18
+ 123 000c 4FF47A72 		mov	r2, #1000
+ 124 0010 1A80     		strh	r2, [r3]	@ movhi
+ 125              	.L7:
   30:Core/Src/hw_systick.c ****     /* Set up with system core clock from system_stm32f1xx.h */
- 127              		.loc 1 30 5 is_stmt 1 view .LVU19
- 128 0012 FFF7FEFF 		bl	SystemCoreClockUpdate
- 129              	.LVL1:
+ 126              		.loc 1 30 5 is_stmt 1 view .LVU19
+ 127 0012 FFF7FEFF 		bl	SystemCoreClockUpdate
+ 128              	.LVL1:
   32:Core/Src/hw_systick.c ****     /* above function starts tick */
- 130              		.loc 1 32 5 view .LVU20
- 131 0016 0D4B     		ldr	r3, .L10
- 132 0018 1A88     		ldrh	r2, [r3]
- 133 001a 0D4B     		ldr	r3, .L10+4
- 134 001c 1B68     		ldr	r3, [r3]
- 135 001e B3FBF2F3 		udiv	r3, r3, r2
- 136              	.LVL2:
- 137              	.LBB8:
- 138              	.LBI8:
- 139              		.file 2 "Drivers/CMSIS/Include/core_cm3.h"
+ 129              		.loc 1 32 5 view .LVU20
+ 130 0016 0D4B     		ldr	r3, .L10
+ 131 0018 1A88     		ldrh	r2, [r3]
+ 132 001a 0D4B     		ldr	r3, .L10+4
+ 133 001c 1B68     		ldr	r3, [r3]
+ 134 001e B3FBF2F3 		udiv	r3, r3, r2
+ 135              	.LVL2:
+ 136              	.LBB8:
+ 137              	.LBI8:
+ 138              		.file 2 "Drivers/CMSIS/Include/core_cm3.h"
    1:Drivers/CMSIS/Include/core_cm3.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/core_cm3.h ****  * @file     core_cm3.h
    3:Drivers/CMSIS/Include/core_cm3.h ****  * @brief    CMSIS Cortex-M3 Core Peripheral Access Layer Header File
@@ -238,10 +237,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
   35:Drivers/CMSIS/Include/core_cm3.h **** 
   36:Drivers/CMSIS/Include/core_cm3.h **** #ifdef __cplusplus
   37:Drivers/CMSIS/Include/core_cm3.h ****  extern "C" {
-ARM GAS  /tmp/ccAIf1CW.s 			page 5
-
-
   38:Drivers/CMSIS/Include/core_cm3.h **** #endif
+ARM GAS  /tmp/ccQnYEAn.s 			page 5
+
+
   39:Drivers/CMSIS/Include/core_cm3.h **** 
   40:Drivers/CMSIS/Include/core_cm3.h **** /**
   41:Drivers/CMSIS/Include/core_cm3.h ****   \page CMSIS_MISRA_Exceptions  MISRA-C:2004 Compliance Exceptions
@@ -298,10 +297,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
   92:Drivers/CMSIS/Include/core_cm3.h **** 
   93:Drivers/CMSIS/Include/core_cm3.h **** #elif defined ( __ICCARM__ )
   94:Drivers/CMSIS/Include/core_cm3.h ****   #if defined __ARMVFP__
-ARM GAS  /tmp/ccAIf1CW.s 			page 6
-
-
   95:Drivers/CMSIS/Include/core_cm3.h ****     #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+ARM GAS  /tmp/ccQnYEAn.s 			page 6
+
+
   96:Drivers/CMSIS/Include/core_cm3.h ****   #endif
   97:Drivers/CMSIS/Include/core_cm3.h **** 
   98:Drivers/CMSIS/Include/core_cm3.h **** #elif defined ( __TI_ARM__ )
@@ -358,10 +357,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
  149:Drivers/CMSIS/Include/core_cm3.h **** 
  150:Drivers/CMSIS/Include/core_cm3.h ****   #ifndef __Vendor_SysTickConfig
  151:Drivers/CMSIS/Include/core_cm3.h ****     #define __Vendor_SysTickConfig    0U
-ARM GAS  /tmp/ccAIf1CW.s 			page 7
-
-
  152:Drivers/CMSIS/Include/core_cm3.h ****     #warning "__Vendor_SysTickConfig not defined in device header file; using default!"
+ARM GAS  /tmp/ccQnYEAn.s 			page 7
+
+
  153:Drivers/CMSIS/Include/core_cm3.h ****   #endif
  154:Drivers/CMSIS/Include/core_cm3.h **** #endif
  155:Drivers/CMSIS/Include/core_cm3.h **** 
@@ -418,10 +417,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
  206:Drivers/CMSIS/Include/core_cm3.h **** typedef union
  207:Drivers/CMSIS/Include/core_cm3.h **** {
  208:Drivers/CMSIS/Include/core_cm3.h ****   struct
-ARM GAS  /tmp/ccAIf1CW.s 			page 8
-
-
  209:Drivers/CMSIS/Include/core_cm3.h ****   {
+ARM GAS  /tmp/ccQnYEAn.s 			page 8
+
+
  210:Drivers/CMSIS/Include/core_cm3.h ****     uint32_t _reserved0:27;              /*!< bit:  0..26  Reserved */
  211:Drivers/CMSIS/Include/core_cm3.h ****     uint32_t Q:1;                        /*!< bit:     27  Saturation condition flag */
  212:Drivers/CMSIS/Include/core_cm3.h ****     uint32_t V:1;                        /*!< bit:     28  Overflow condition code flag */
@@ -478,10 +477,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
  263:Drivers/CMSIS/Include/core_cm3.h ****     uint32_t _reserved0:1;               /*!< bit:      9  Reserved */
  264:Drivers/CMSIS/Include/core_cm3.h ****     uint32_t ICI_IT_1:6;                 /*!< bit: 10..15  ICI/IT part 1 */
  265:Drivers/CMSIS/Include/core_cm3.h ****     uint32_t _reserved1:8;               /*!< bit: 16..23  Reserved */
-ARM GAS  /tmp/ccAIf1CW.s 			page 9
-
-
  266:Drivers/CMSIS/Include/core_cm3.h ****     uint32_t T:1;                        /*!< bit:     24  Thumb bit */
+ARM GAS  /tmp/ccQnYEAn.s 			page 9
+
+
  267:Drivers/CMSIS/Include/core_cm3.h ****     uint32_t ICI_IT_2:2;                 /*!< bit: 25..26  ICI/IT part 2 */
  268:Drivers/CMSIS/Include/core_cm3.h ****     uint32_t Q:1;                        /*!< bit:     27  Saturation condition flag */
  269:Drivers/CMSIS/Include/core_cm3.h ****     uint32_t V:1;                        /*!< bit:     28  Overflow condition code flag */
@@ -538,10 +537,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
  320:Drivers/CMSIS/Include/core_cm3.h **** /* CONTROL Register Definitions */
  321:Drivers/CMSIS/Include/core_cm3.h **** #define CONTROL_SPSEL_Pos                   1U                                            /*!< CONT
  322:Drivers/CMSIS/Include/core_cm3.h **** #define CONTROL_SPSEL_Msk                  (1UL << CONTROL_SPSEL_Pos)                     /*!< CONT
-ARM GAS  /tmp/ccAIf1CW.s 			page 10
-
-
  323:Drivers/CMSIS/Include/core_cm3.h **** 
+ARM GAS  /tmp/ccQnYEAn.s 			page 10
+
+
  324:Drivers/CMSIS/Include/core_cm3.h **** #define CONTROL_nPRIV_Pos                   0U                                            /*!< CONT
  325:Drivers/CMSIS/Include/core_cm3.h **** #define CONTROL_nPRIV_Msk                  (1UL /*<< CONTROL_nPRIV_Pos*/)                 /*!< CONT
  326:Drivers/CMSIS/Include/core_cm3.h **** 
@@ -598,10 +597,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
  377:Drivers/CMSIS/Include/core_cm3.h ****   __IOM uint32_t ICSR;                   /*!< Offset: 0x004 (R/W)  Interrupt Control and State Regi
  378:Drivers/CMSIS/Include/core_cm3.h ****   __IOM uint32_t VTOR;                   /*!< Offset: 0x008 (R/W)  Vector Table Offset Register */
  379:Drivers/CMSIS/Include/core_cm3.h ****   __IOM uint32_t AIRCR;                  /*!< Offset: 0x00C (R/W)  Application Interrupt and Reset 
-ARM GAS  /tmp/ccAIf1CW.s 			page 11
-
-
  380:Drivers/CMSIS/Include/core_cm3.h ****   __IOM uint32_t SCR;                    /*!< Offset: 0x010 (R/W)  System Control Register */
+ARM GAS  /tmp/ccQnYEAn.s 			page 11
+
+
  381:Drivers/CMSIS/Include/core_cm3.h ****   __IOM uint32_t CCR;                    /*!< Offset: 0x014 (R/W)  Configuration Control Register *
  382:Drivers/CMSIS/Include/core_cm3.h ****   __IOM uint8_t  SHP[12U];               /*!< Offset: 0x018 (R/W)  System Handlers Priority Registe
  383:Drivers/CMSIS/Include/core_cm3.h ****   __IOM uint32_t SHCSR;                  /*!< Offset: 0x024 (R/W)  System Handler Control and State
@@ -658,10 +657,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
  434:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_ICSR_ISRPENDING_Pos            22U                                            /*!< SCB 
  435:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_ICSR_ISRPENDING_Msk            (1UL << SCB_ICSR_ISRPENDING_Pos)               /*!< SCB 
  436:Drivers/CMSIS/Include/core_cm3.h **** 
-ARM GAS  /tmp/ccAIf1CW.s 			page 12
-
-
  437:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_ICSR_VECTPENDING_Pos           12U                                            /*!< SCB 
+ARM GAS  /tmp/ccQnYEAn.s 			page 12
+
+
  438:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_ICSR_VECTPENDING_Msk           (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)          /*!< SCB 
  439:Drivers/CMSIS/Include/core_cm3.h **** 
  440:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_ICSR_RETTOBASE_Pos             11U                                            /*!< SCB 
@@ -718,10 +717,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
  491:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_CCR_STKALIGN_Pos                9U                                            /*!< SCB 
  492:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_CCR_STKALIGN_Msk               (1UL << SCB_CCR_STKALIGN_Pos)                  /*!< SCB 
  493:Drivers/CMSIS/Include/core_cm3.h **** 
-ARM GAS  /tmp/ccAIf1CW.s 			page 13
-
-
  494:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_CCR_BFHFNMIGN_Pos               8U                                            /*!< SCB 
+ARM GAS  /tmp/ccQnYEAn.s 			page 13
+
+
  495:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_CCR_BFHFNMIGN_Msk              (1UL << SCB_CCR_BFHFNMIGN_Pos)                 /*!< SCB 
  496:Drivers/CMSIS/Include/core_cm3.h **** 
  497:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_CCR_DIV_0_TRP_Pos               4U                                            /*!< SCB 
@@ -778,10 +777,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
  548:Drivers/CMSIS/Include/core_cm3.h **** 
  549:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_SHCSR_MEMFAULTACT_Pos           0U                                            /*!< SCB 
  550:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_SHCSR_MEMFAULTACT_Msk          (1UL /*<< SCB_SHCSR_MEMFAULTACT_Pos*/)         /*!< SCB 
-ARM GAS  /tmp/ccAIf1CW.s 			page 14
-
-
  551:Drivers/CMSIS/Include/core_cm3.h **** 
+ARM GAS  /tmp/ccQnYEAn.s 			page 14
+
+
  552:Drivers/CMSIS/Include/core_cm3.h **** /* SCB Configurable Fault Status Register Definitions */
  553:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_CFSR_USGFAULTSR_Pos            16U                                            /*!< SCB 
  554:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_CFSR_USGFAULTSR_Msk            (0xFFFFUL << SCB_CFSR_USGFAULTSR_Pos)          /*!< SCB 
@@ -838,10 +837,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
  605:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_CFSR_NOCP_Msk                 (1UL << SCB_CFSR_NOCP_Pos)                      /*!< SCB 
  606:Drivers/CMSIS/Include/core_cm3.h **** 
  607:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_CFSR_INVPC_Pos                (SCB_CFSR_USGFAULTSR_Pos + 2U)                  /*!< SCB 
-ARM GAS  /tmp/ccAIf1CW.s 			page 15
-
-
  608:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_CFSR_INVPC_Msk                (1UL << SCB_CFSR_INVPC_Pos)                     /*!< SCB 
+ARM GAS  /tmp/ccQnYEAn.s 			page 15
+
+
  609:Drivers/CMSIS/Include/core_cm3.h **** 
  610:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_CFSR_INVSTATE_Pos             (SCB_CFSR_USGFAULTSR_Pos + 1U)                  /*!< SCB 
  611:Drivers/CMSIS/Include/core_cm3.h **** #define SCB_CFSR_INVSTATE_Msk             (1UL << SCB_CFSR_INVSTATE_Pos)                  /*!< SCB 
@@ -898,10 +897,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
  662:Drivers/CMSIS/Include/core_cm3.h ****         uint32_t RESERVED1[1U];
  663:Drivers/CMSIS/Include/core_cm3.h **** #endif
  664:Drivers/CMSIS/Include/core_cm3.h **** } SCnSCB_Type;
-ARM GAS  /tmp/ccAIf1CW.s 			page 16
-
-
  665:Drivers/CMSIS/Include/core_cm3.h **** 
+ARM GAS  /tmp/ccQnYEAn.s 			page 16
+
+
  666:Drivers/CMSIS/Include/core_cm3.h **** /* Interrupt Controller Type Register Definitions */
  667:Drivers/CMSIS/Include/core_cm3.h **** #define SCnSCB_ICTR_INTLINESNUM_Pos         0U                                         /*!< ICTR: I
  668:Drivers/CMSIS/Include/core_cm3.h **** #define SCnSCB_ICTR_INTLINESNUM_Msk        (0xFUL /*<< SCnSCB_ICTR_INTLINESNUM_Pos*/)  /*!< ICTR: I
@@ -958,10 +957,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
  719:Drivers/CMSIS/Include/core_cm3.h **** /* SysTick Current Register Definitions */
  720:Drivers/CMSIS/Include/core_cm3.h **** #define SysTick_VAL_CURRENT_Pos             0U                                            /*!< SysT
  721:Drivers/CMSIS/Include/core_cm3.h **** #define SysTick_VAL_CURRENT_Msk            (0xFFFFFFUL /*<< SysTick_VAL_CURRENT_Pos*/)    /*!< SysT
-ARM GAS  /tmp/ccAIf1CW.s 			page 17
-
-
  722:Drivers/CMSIS/Include/core_cm3.h **** 
+ARM GAS  /tmp/ccQnYEAn.s 			page 17
+
+
  723:Drivers/CMSIS/Include/core_cm3.h **** /* SysTick Calibration Register Definitions */
  724:Drivers/CMSIS/Include/core_cm3.h **** #define SysTick_CALIB_NOREF_Pos            31U                                            /*!< SysT
  725:Drivers/CMSIS/Include/core_cm3.h **** #define SysTick_CALIB_NOREF_Msk            (1UL << SysTick_CALIB_NOREF_Pos)               /*!< SysT
@@ -1018,10 +1017,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
  776:Drivers/CMSIS/Include/core_cm3.h ****   __IM  uint32_t CID0;                   /*!< Offset: 0xFF0 (R/ )  ITM Component  Identification Re
  777:Drivers/CMSIS/Include/core_cm3.h ****   __IM  uint32_t CID1;                   /*!< Offset: 0xFF4 (R/ )  ITM Component  Identification Re
  778:Drivers/CMSIS/Include/core_cm3.h ****   __IM  uint32_t CID2;                   /*!< Offset: 0xFF8 (R/ )  ITM Component  Identification Re
-ARM GAS  /tmp/ccAIf1CW.s 			page 18
-
-
  779:Drivers/CMSIS/Include/core_cm3.h ****   __IM  uint32_t CID3;                   /*!< Offset: 0xFFC (R/ )  ITM Component  Identification Re
+ARM GAS  /tmp/ccQnYEAn.s 			page 18
+
+
  780:Drivers/CMSIS/Include/core_cm3.h **** } ITM_Type;
  781:Drivers/CMSIS/Include/core_cm3.h **** 
  782:Drivers/CMSIS/Include/core_cm3.h **** /* ITM Trace Privilege Register Definitions */
@@ -1078,10 +1077,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
  833:Drivers/CMSIS/Include/core_cm3.h **** #define ITM_LSR_Present_Pos                 0U                                            /*!< ITM 
  834:Drivers/CMSIS/Include/core_cm3.h **** #define ITM_LSR_Present_Msk                (1UL /*<< ITM_LSR_Present_Pos*/)               /*!< ITM 
  835:Drivers/CMSIS/Include/core_cm3.h **** 
-ARM GAS  /tmp/ccAIf1CW.s 			page 19
-
-
  836:Drivers/CMSIS/Include/core_cm3.h **** /*@}*/ /* end of group CMSIS_ITM */
+ARM GAS  /tmp/ccQnYEAn.s 			page 19
+
+
  837:Drivers/CMSIS/Include/core_cm3.h **** 
  838:Drivers/CMSIS/Include/core_cm3.h **** 
  839:Drivers/CMSIS/Include/core_cm3.h **** /**
@@ -1138,10 +1137,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
  890:Drivers/CMSIS/Include/core_cm3.h **** #define DWT_CTRL_NOPRFCNT_Msk              (0x1UL << DWT_CTRL_NOPRFCNT_Pos)            /*!< DWT CTR
  891:Drivers/CMSIS/Include/core_cm3.h **** 
  892:Drivers/CMSIS/Include/core_cm3.h **** #define DWT_CTRL_CYCEVTENA_Pos             22U                                         /*!< DWT CTR
-ARM GAS  /tmp/ccAIf1CW.s 			page 20
-
-
  893:Drivers/CMSIS/Include/core_cm3.h **** #define DWT_CTRL_CYCEVTENA_Msk             (0x1UL << DWT_CTRL_CYCEVTENA_Pos)           /*!< DWT CTR
+ARM GAS  /tmp/ccQnYEAn.s 			page 20
+
+
  894:Drivers/CMSIS/Include/core_cm3.h **** 
  895:Drivers/CMSIS/Include/core_cm3.h **** #define DWT_CTRL_FOLDEVTENA_Pos            21U                                         /*!< DWT CTR
  896:Drivers/CMSIS/Include/core_cm3.h **** #define DWT_CTRL_FOLDEVTENA_Msk            (0x1UL << DWT_CTRL_FOLDEVTENA_Pos)          /*!< DWT CTR
@@ -1198,10 +1197,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
  947:Drivers/CMSIS/Include/core_cm3.h **** /* DWT Folded-instruction Count Register Definitions */
  948:Drivers/CMSIS/Include/core_cm3.h **** #define DWT_FOLDCNT_FOLDCNT_Pos             0U                                         /*!< DWT FOL
  949:Drivers/CMSIS/Include/core_cm3.h **** #define DWT_FOLDCNT_FOLDCNT_Msk            (0xFFUL /*<< DWT_FOLDCNT_FOLDCNT_Pos*/)     /*!< DWT FOL
-ARM GAS  /tmp/ccAIf1CW.s 			page 21
-
-
  950:Drivers/CMSIS/Include/core_cm3.h **** 
+ARM GAS  /tmp/ccQnYEAn.s 			page 21
+
+
  951:Drivers/CMSIS/Include/core_cm3.h **** /* DWT Comparator Mask Register Definitions */
  952:Drivers/CMSIS/Include/core_cm3.h **** #define DWT_MASK_MASK_Pos                   0U                                         /*!< DWT MAS
  953:Drivers/CMSIS/Include/core_cm3.h **** #define DWT_MASK_MASK_Msk                  (0x1FUL /*<< DWT_MASK_MASK_Pos*/)           /*!< DWT MAS
@@ -1258,10 +1257,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1004:Drivers/CMSIS/Include/core_cm3.h ****         uint32_t RESERVED2[131U];
 1005:Drivers/CMSIS/Include/core_cm3.h ****   __IM  uint32_t FFSR;                   /*!< Offset: 0x300 (R/ )  Formatter and Flush Status Regis
 1006:Drivers/CMSIS/Include/core_cm3.h ****   __IOM uint32_t FFCR;                   /*!< Offset: 0x304 (R/W)  Formatter and Flush Control Regi
-ARM GAS  /tmp/ccAIf1CW.s 			page 22
-
-
 1007:Drivers/CMSIS/Include/core_cm3.h ****   __IM  uint32_t FSCR;                   /*!< Offset: 0x308 (R/ )  Formatter Synchronization Counte
+ARM GAS  /tmp/ccQnYEAn.s 			page 22
+
+
 1008:Drivers/CMSIS/Include/core_cm3.h ****         uint32_t RESERVED3[759U];
 1009:Drivers/CMSIS/Include/core_cm3.h ****   __IM  uint32_t TRIGGER;                /*!< Offset: 0xEE8 (R/ )  TRIGGER Register */
 1010:Drivers/CMSIS/Include/core_cm3.h ****   __IM  uint32_t FIFO0;                  /*!< Offset: 0xEEC (R/ )  Integration ETM Data */
@@ -1318,10 +1317,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1061:Drivers/CMSIS/Include/core_cm3.h **** #define TPI_FIFO0_ITM_bytecount_Msk        (0x3UL << TPI_FIFO0_ITM_bytecount_Pos)      /*!< TPI FIF
 1062:Drivers/CMSIS/Include/core_cm3.h **** 
 1063:Drivers/CMSIS/Include/core_cm3.h **** #define TPI_FIFO0_ETM_ATVALID_Pos          26U                                         /*!< TPI FIF
-ARM GAS  /tmp/ccAIf1CW.s 			page 23
-
-
 1064:Drivers/CMSIS/Include/core_cm3.h **** #define TPI_FIFO0_ETM_ATVALID_Msk          (0x3UL << TPI_FIFO0_ETM_ATVALID_Pos)        /*!< TPI FIF
+ARM GAS  /tmp/ccQnYEAn.s 			page 23
+
+
 1065:Drivers/CMSIS/Include/core_cm3.h **** 
 1066:Drivers/CMSIS/Include/core_cm3.h **** #define TPI_FIFO0_ETM_bytecount_Pos        24U                                         /*!< TPI FIF
 1067:Drivers/CMSIS/Include/core_cm3.h **** #define TPI_FIFO0_ETM_bytecount_Msk        (0x3UL << TPI_FIFO0_ETM_bytecount_Pos)      /*!< TPI FIF
@@ -1378,10 +1377,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1118:Drivers/CMSIS/Include/core_cm3.h **** /* TPI DEVID Register Definitions */
 1119:Drivers/CMSIS/Include/core_cm3.h **** #define TPI_DEVID_NRZVALID_Pos             11U                                         /*!< TPI DEV
 1120:Drivers/CMSIS/Include/core_cm3.h **** #define TPI_DEVID_NRZVALID_Msk             (0x1UL << TPI_DEVID_NRZVALID_Pos)           /*!< TPI DEV
-ARM GAS  /tmp/ccAIf1CW.s 			page 24
-
-
 1121:Drivers/CMSIS/Include/core_cm3.h **** 
+ARM GAS  /tmp/ccQnYEAn.s 			page 24
+
+
 1122:Drivers/CMSIS/Include/core_cm3.h **** #define TPI_DEVID_MANCVALID_Pos            10U                                         /*!< TPI DEV
 1123:Drivers/CMSIS/Include/core_cm3.h **** #define TPI_DEVID_MANCVALID_Msk            (0x1UL << TPI_DEVID_MANCVALID_Pos)          /*!< TPI DEV
 1124:Drivers/CMSIS/Include/core_cm3.h **** 
@@ -1438,10 +1437,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1175:Drivers/CMSIS/Include/core_cm3.h **** /* MPU Type Register Definitions */
 1176:Drivers/CMSIS/Include/core_cm3.h **** #define MPU_TYPE_IREGION_Pos               16U                                            /*!< MPU 
 1177:Drivers/CMSIS/Include/core_cm3.h **** #define MPU_TYPE_IREGION_Msk               (0xFFUL << MPU_TYPE_IREGION_Pos)               /*!< MPU 
-ARM GAS  /tmp/ccAIf1CW.s 			page 25
-
-
 1178:Drivers/CMSIS/Include/core_cm3.h **** 
+ARM GAS  /tmp/ccQnYEAn.s 			page 25
+
+
 1179:Drivers/CMSIS/Include/core_cm3.h **** #define MPU_TYPE_DREGION_Pos                8U                                            /*!< MPU 
 1180:Drivers/CMSIS/Include/core_cm3.h **** #define MPU_TYPE_DREGION_Msk               (0xFFUL << MPU_TYPE_DREGION_Pos)               /*!< MPU 
 1181:Drivers/CMSIS/Include/core_cm3.h **** 
@@ -1498,10 +1497,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1232:Drivers/CMSIS/Include/core_cm3.h **** #define MPU_RASR_SRD_Msk                   (0xFFUL << MPU_RASR_SRD_Pos)                   /*!< MPU 
 1233:Drivers/CMSIS/Include/core_cm3.h **** 
 1234:Drivers/CMSIS/Include/core_cm3.h **** #define MPU_RASR_SIZE_Pos                   1U                                            /*!< MPU 
-ARM GAS  /tmp/ccAIf1CW.s 			page 26
-
-
 1235:Drivers/CMSIS/Include/core_cm3.h **** #define MPU_RASR_SIZE_Msk                  (0x1FUL << MPU_RASR_SIZE_Pos)                  /*!< MPU 
+ARM GAS  /tmp/ccQnYEAn.s 			page 26
+
+
 1236:Drivers/CMSIS/Include/core_cm3.h **** 
 1237:Drivers/CMSIS/Include/core_cm3.h **** #define MPU_RASR_ENABLE_Pos                 0U                                            /*!< MPU 
 1238:Drivers/CMSIS/Include/core_cm3.h **** #define MPU_RASR_ENABLE_Msk                (1UL /*<< MPU_RASR_ENABLE_Pos*/)               /*!< MPU 
@@ -1558,10 +1557,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1289:Drivers/CMSIS/Include/core_cm3.h **** 
 1290:Drivers/CMSIS/Include/core_cm3.h **** #define CoreDebug_DHCSR_C_STEP_Pos          2U                                            /*!< Core
 1291:Drivers/CMSIS/Include/core_cm3.h **** #define CoreDebug_DHCSR_C_STEP_Msk         (1UL << CoreDebug_DHCSR_C_STEP_Pos)            /*!< Core
-ARM GAS  /tmp/ccAIf1CW.s 			page 27
-
-
 1292:Drivers/CMSIS/Include/core_cm3.h **** 
+ARM GAS  /tmp/ccQnYEAn.s 			page 27
+
+
 1293:Drivers/CMSIS/Include/core_cm3.h **** #define CoreDebug_DHCSR_C_HALT_Pos          1U                                            /*!< Core
 1294:Drivers/CMSIS/Include/core_cm3.h **** #define CoreDebug_DHCSR_C_HALT_Msk         (1UL << CoreDebug_DHCSR_C_HALT_Pos)            /*!< Core
 1295:Drivers/CMSIS/Include/core_cm3.h **** 
@@ -1618,10 +1617,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1346:Drivers/CMSIS/Include/core_cm3.h **** /*@} end of group CMSIS_CoreDebug */
 1347:Drivers/CMSIS/Include/core_cm3.h **** 
 1348:Drivers/CMSIS/Include/core_cm3.h **** 
-ARM GAS  /tmp/ccAIf1CW.s 			page 28
-
-
 1349:Drivers/CMSIS/Include/core_cm3.h **** /**
+ARM GAS  /tmp/ccQnYEAn.s 			page 28
+
+
 1350:Drivers/CMSIS/Include/core_cm3.h ****   \ingroup    CMSIS_core_register
 1351:Drivers/CMSIS/Include/core_cm3.h ****   \defgroup   CMSIS_core_bitfield     Core register bit field macros
 1352:Drivers/CMSIS/Include/core_cm3.h ****   \brief      Macros for use with bit field definitions (xxx_Pos, xxx_Msk).
@@ -1678,10 +1677,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1403:Drivers/CMSIS/Include/core_cm3.h ****   #define MPU               ((MPU_Type       *)     MPU_BASE      )   /*!< Memory Protection Unit *
 1404:Drivers/CMSIS/Include/core_cm3.h **** #endif
 1405:Drivers/CMSIS/Include/core_cm3.h **** 
-ARM GAS  /tmp/ccAIf1CW.s 			page 29
-
-
 1406:Drivers/CMSIS/Include/core_cm3.h **** /*@} */
+ARM GAS  /tmp/ccQnYEAn.s 			page 29
+
+
 1407:Drivers/CMSIS/Include/core_cm3.h **** 
 1408:Drivers/CMSIS/Include/core_cm3.h **** 
 1409:Drivers/CMSIS/Include/core_cm3.h **** 
@@ -1738,10 +1737,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1460:Drivers/CMSIS/Include/core_cm3.h **** #endif  /* (CMSIS_VECTAB_VIRTUAL) */
 1461:Drivers/CMSIS/Include/core_cm3.h **** 
 1462:Drivers/CMSIS/Include/core_cm3.h **** #define NVIC_USER_IRQ_OFFSET          16
-ARM GAS  /tmp/ccAIf1CW.s 			page 30
-
-
 1463:Drivers/CMSIS/Include/core_cm3.h **** 
+ARM GAS  /tmp/ccQnYEAn.s 			page 30
+
+
 1464:Drivers/CMSIS/Include/core_cm3.h **** 
 1465:Drivers/CMSIS/Include/core_cm3.h **** /* The following EXC_RETURN values are saved the LR on exception entry */
 1466:Drivers/CMSIS/Include/core_cm3.h **** #define EXC_RETURN_HANDLER         (0xFFFFFFF1UL)     /* return to Handler mode, uses MSP after ret
@@ -1798,10 +1797,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1517:Drivers/CMSIS/Include/core_cm3.h **** }
 1518:Drivers/CMSIS/Include/core_cm3.h **** 
 1519:Drivers/CMSIS/Include/core_cm3.h **** 
-ARM GAS  /tmp/ccAIf1CW.s 			page 31
-
-
 1520:Drivers/CMSIS/Include/core_cm3.h **** /**
+ARM GAS  /tmp/ccQnYEAn.s 			page 31
+
+
 1521:Drivers/CMSIS/Include/core_cm3.h ****   \brief   Get Interrupt Enable status
 1522:Drivers/CMSIS/Include/core_cm3.h ****   \details Returns a device specific interrupt enable status from the NVIC interrupt controller.
 1523:Drivers/CMSIS/Include/core_cm3.h ****   \param [in]      IRQn  Device specific interrupt number.
@@ -1858,10 +1857,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1574:Drivers/CMSIS/Include/core_cm3.h ****     return(0U);
 1575:Drivers/CMSIS/Include/core_cm3.h ****   }
 1576:Drivers/CMSIS/Include/core_cm3.h **** }
-ARM GAS  /tmp/ccAIf1CW.s 			page 32
-
-
 1577:Drivers/CMSIS/Include/core_cm3.h **** 
+ARM GAS  /tmp/ccQnYEAn.s 			page 32
+
+
 1578:Drivers/CMSIS/Include/core_cm3.h **** 
 1579:Drivers/CMSIS/Include/core_cm3.h **** /**
 1580:Drivers/CMSIS/Include/core_cm3.h ****   \brief   Set Pending Interrupt
@@ -1918,10 +1917,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1631:Drivers/CMSIS/Include/core_cm3.h ****   \brief   Set Interrupt Priority
 1632:Drivers/CMSIS/Include/core_cm3.h ****   \details Sets the priority of a device specific interrupt or a processor exception.
 1633:Drivers/CMSIS/Include/core_cm3.h ****            The interrupt number can be positive to specify a device specific interrupt,
-ARM GAS  /tmp/ccAIf1CW.s 			page 33
-
-
 1634:Drivers/CMSIS/Include/core_cm3.h ****            or negative to specify a processor exception.
+ARM GAS  /tmp/ccQnYEAn.s 			page 33
+
+
 1635:Drivers/CMSIS/Include/core_cm3.h ****   \param [in]      IRQn  Interrupt number.
 1636:Drivers/CMSIS/Include/core_cm3.h ****   \param [in]  priority  Priority to set.
 1637:Drivers/CMSIS/Include/core_cm3.h ****   \note    The priority cannot be set for every processor exception.
@@ -1978,10 +1977,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1688:Drivers/CMSIS/Include/core_cm3.h ****   uint32_t PriorityGroupTmp = (PriorityGroup & (uint32_t)0x07UL);   /* only values 0..7 are used   
 1689:Drivers/CMSIS/Include/core_cm3.h ****   uint32_t PreemptPriorityBits;
 1690:Drivers/CMSIS/Include/core_cm3.h ****   uint32_t SubPriorityBits;
-ARM GAS  /tmp/ccAIf1CW.s 			page 34
-
-
 1691:Drivers/CMSIS/Include/core_cm3.h **** 
+ARM GAS  /tmp/ccQnYEAn.s 			page 34
+
+
 1692:Drivers/CMSIS/Include/core_cm3.h ****   PreemptPriorityBits = ((7UL - PriorityGroupTmp) > (uint32_t)(__NVIC_PRIO_BITS)) ? (uint32_t)(__NV
 1693:Drivers/CMSIS/Include/core_cm3.h ****   SubPriorityBits     = ((PriorityGroupTmp + (uint32_t)(__NVIC_PRIO_BITS)) < (uint32_t)7UL) ? (uint
 1694:Drivers/CMSIS/Include/core_cm3.h **** 
@@ -2038,10 +2037,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1745:Drivers/CMSIS/Include/core_cm3.h ****   \details Reads an interrupt vector from interrupt vector table.
 1746:Drivers/CMSIS/Include/core_cm3.h ****            The interrupt number can be positive to specify a device specific interrupt,
 1747:Drivers/CMSIS/Include/core_cm3.h ****            or negative to specify a processor exception.
-ARM GAS  /tmp/ccAIf1CW.s 			page 35
-
-
 1748:Drivers/CMSIS/Include/core_cm3.h ****   \param [in]   IRQn      Interrupt number.
+ARM GAS  /tmp/ccQnYEAn.s 			page 35
+
+
 1749:Drivers/CMSIS/Include/core_cm3.h ****   \return                 Address of interrupt handler function
 1750:Drivers/CMSIS/Include/core_cm3.h ****  */
 1751:Drivers/CMSIS/Include/core_cm3.h **** __STATIC_INLINE uint32_t __NVIC_GetVector(IRQn_Type IRQn)
@@ -2098,10 +2097,10 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1802:Drivers/CMSIS/Include/core_cm3.h ****  */
 1803:Drivers/CMSIS/Include/core_cm3.h **** __STATIC_INLINE uint32_t SCB_GetFPUType(void)
 1804:Drivers/CMSIS/Include/core_cm3.h **** {
-ARM GAS  /tmp/ccAIf1CW.s 			page 36
-
-
 1805:Drivers/CMSIS/Include/core_cm3.h ****     return 0U;           /* No FPU */
+ARM GAS  /tmp/ccQnYEAn.s 			page 36
+
+
 1806:Drivers/CMSIS/Include/core_cm3.h **** }
 1807:Drivers/CMSIS/Include/core_cm3.h **** 
 1808:Drivers/CMSIS/Include/core_cm3.h **** 
@@ -2131,592 +2130,590 @@ ARM GAS  /tmp/ccAIf1CW.s 			page 1
 1832:Drivers/CMSIS/Include/core_cm3.h ****            must contain a vendor-specific implementation of this function.
 1833:Drivers/CMSIS/Include/core_cm3.h ****  */
 1834:Drivers/CMSIS/Include/core_cm3.h **** __STATIC_INLINE uint32_t SysTick_Config(uint32_t ticks)
- 140              		.loc 2 1834 26 view .LVU21
- 141              	.LBB9:
+ 139              		.loc 2 1834 26 view .LVU21
+ 140              	.LBB9:
 1835:Drivers/CMSIS/Include/core_cm3.h **** {
 1836:Drivers/CMSIS/Include/core_cm3.h ****   if ((ticks - 1UL) > SysTick_LOAD_RELOAD_Msk)
- 142              		.loc 2 1836 3 view .LVU22
- 143              		.loc 2 1836 14 is_stmt 0 view .LVU23
- 144 0022 013B     		subs	r3, r3, #1
- 145              	.LVL3:
- 146              		.loc 2 1836 6 view .LVU24
- 147 0024 B3F1807F 		cmp	r3, #16777216
- 148 0028 0AD2     		bcs	.L8
+ 141              		.loc 2 1836 3 view .LVU22
+ 142              		.loc 2 1836 14 is_stmt 0 view .LVU23
+ 143 0022 013B     		subs	r3, r3, #1
+ 144              	.LVL3:
+ 145              		.loc 2 1836 6 view .LVU24
+ 146 0024 B3F1807F 		cmp	r3, #16777216
+ 147 0028 0AD2     		bcs	.L8
 1837:Drivers/CMSIS/Include/core_cm3.h ****   {
 1838:Drivers/CMSIS/Include/core_cm3.h ****     return (1UL);                                                   /* Reload value impossible */
 1839:Drivers/CMSIS/Include/core_cm3.h ****   }
 1840:Drivers/CMSIS/Include/core_cm3.h **** 
 1841:Drivers/CMSIS/Include/core_cm3.h ****   SysTick->LOAD  = (uint32_t)(ticks - 1UL);                         /* set reload register */
- 149              		.loc 2 1841 3 is_stmt 1 view .LVU25
- 150              		.loc 2 1841 18 is_stmt 0 view .LVU26
- 151 002a 4FF0E022 		mov	r2, #-536813568
- 152 002e 5361     		str	r3, [r2, #20]
+ 148              		.loc 2 1841 3 is_stmt 1 view .LVU25
+ 149              		.loc 2 1841 18 is_stmt 0 view .LVU26
+ 150 002a 4FF0E022 		mov	r2, #-536813568
+ 151 002e 5361     		str	r3, [r2, #20]
 1842:Drivers/CMSIS/Include/core_cm3.h ****   NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Int
- 153              		.loc 2 1842 3 is_stmt 1 view .LVU27
- 154              	.LVL4:
- 155              	.LBB10:
- 156              	.LBI10:
+ 152              		.loc 2 1842 3 is_stmt 1 view .LVU27
+ 153              	.LVL4:
+ 154              	.LBB10:
+ 155              	.LBI10:
 1639:Drivers/CMSIS/Include/core_cm3.h **** {
- 157              		.loc 2 1639 22 view .LVU28
-ARM GAS  /tmp/ccAIf1CW.s 			page 37
+ 156              		.loc 2 1639 22 view .LVU28
+ 157              	.LBB11:
+ARM GAS  /tmp/ccQnYEAn.s 			page 37
 
 
- 158              	.LBB11:
 1641:Drivers/CMSIS/Include/core_cm3.h ****   {
- 159              		.loc 2 1641 3 view .LVU29
+ 158              		.loc 2 1641 3 view .LVU29
 1647:Drivers/CMSIS/Include/core_cm3.h ****   }
- 160              		.loc 2 1647 5 view .LVU30
+ 159              		.loc 2 1647 5 view .LVU30
 1647:Drivers/CMSIS/Include/core_cm3.h ****   }
- 161              		.loc 2 1647 46 is_stmt 0 view .LVU31
- 162 0030 084B     		ldr	r3, .L10+8
- 163              	.LVL5:
+ 160              		.loc 2 1647 46 is_stmt 0 view .LVU31
+ 161 0030 084B     		ldr	r3, .L10+8
+ 162              	.LVL5:
 1647:Drivers/CMSIS/Include/core_cm3.h ****   }
- 164              		.loc 2 1647 46 view .LVU32
- 165 0032 F021     		movs	r1, #240
- 166 0034 83F82310 		strb	r1, [r3, #35]
- 167              	.LVL6:
+ 163              		.loc 2 1647 46 view .LVU32
+ 164 0032 F021     		movs	r1, #240
+ 165 0034 83F82310 		strb	r1, [r3, #35]
+ 166              	.LVL6:
 1647:Drivers/CMSIS/Include/core_cm3.h ****   }
- 168              		.loc 2 1647 46 view .LVU33
- 169              	.LBE11:
- 170              	.LBE10:
+ 167              		.loc 2 1647 46 view .LVU33
+ 168              	.LBE11:
+ 169              	.LBE10:
 1843:Drivers/CMSIS/Include/core_cm3.h ****   SysTick->VAL   = 0UL;                                             /* Load the SysTick Counter Val
- 171              		.loc 2 1843 3 is_stmt 1 view .LVU34
- 172              		.loc 2 1843 18 is_stmt 0 view .LVU35
- 173 0038 0023     		movs	r3, #0
- 174 003a 9361     		str	r3, [r2, #24]
+ 170              		.loc 2 1843 3 is_stmt 1 view .LVU34
+ 171              		.loc 2 1843 18 is_stmt 0 view .LVU35
+ 172 0038 0023     		movs	r3, #0
+ 173 003a 9361     		str	r3, [r2, #24]
 1844:Drivers/CMSIS/Include/core_cm3.h ****   SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk |
- 175              		.loc 2 1844 3 is_stmt 1 view .LVU36
- 176              		.loc 2 1844 18 is_stmt 0 view .LVU37
- 177 003c 0723     		movs	r3, #7
- 178 003e 1361     		str	r3, [r2, #16]
+ 174              		.loc 2 1844 3 is_stmt 1 view .LVU36
+ 175              		.loc 2 1844 18 is_stmt 0 view .LVU37
+ 176 003c 0723     		movs	r3, #7
+ 177 003e 1361     		str	r3, [r2, #16]
 1845:Drivers/CMSIS/Include/core_cm3.h ****                    SysTick_CTRL_TICKINT_Msk   |
 1846:Drivers/CMSIS/Include/core_cm3.h ****                    SysTick_CTRL_ENABLE_Msk;                         /* Enable SysTick IRQ and SysTi
 1847:Drivers/CMSIS/Include/core_cm3.h ****   return (0UL);                                                     /* Function successful */
- 179              		.loc 2 1847 3 is_stmt 1 view .LVU38
- 180              	.L8:
- 181              		.loc 2 1847 3 is_stmt 0 view .LVU39
- 182              	.LBE9:
- 183              	.LBE8:
+ 178              		.loc 2 1847 3 is_stmt 1 view .LVU38
+ 179              	.L8:
+ 180              		.loc 2 1847 3 is_stmt 0 view .LVU39
+ 181              	.LBE9:
+ 182              	.LBE8:
   34:Core/Src/hw_systick.c ****     /* reset counter */
- 184              		.loc 1 34 5 is_stmt 1 view .LVU40
- 185 0040 FFF7FEFF 		bl	hw_systick_start
- 186              	.LVL7:
+ 183              		.loc 1 34 5 is_stmt 1 view .LVU40
+ 184 0040 FFF7FEFF 		bl	hw_systick_start
+ 185              	.LVL7:
   36:Core/Src/hw_systick.c **** }
- 187              		.loc 1 36 5 view .LVU41
+ 186              		.loc 1 36 5 view .LVU41
   36:Core/Src/hw_systick.c **** }
- 188              		.loc 1 36 13 is_stmt 0 view .LVU42
- 189 0044 044B     		ldr	r3, .L10+12
- 190 0046 0022     		movs	r2, #0
- 191 0048 1A60     		str	r2, [r3]
+ 187              		.loc 1 36 13 is_stmt 0 view .LVU42
+ 188 0044 044B     		ldr	r3, .L10+12
+ 189 0046 0022     		movs	r2, #0
+ 190 0048 1A60     		str	r2, [r3]
   37:Core/Src/hw_systick.c **** 
- 192              		.loc 1 37 1 view .LVU43
- 193 004a 08BD     		pop	{r3, pc}
- 194              	.L11:
- 195              		.align	2
- 196              	.L10:
- 197 004c 00000000 		.word	.LANCHOR0
- 198 0050 00000000 		.word	SystemCoreClock
- 199 0054 00ED00E0 		.word	-536810240
- 200 0058 00000000 		.word	.LANCHOR1
-ARM GAS  /tmp/ccAIf1CW.s 			page 38
+ 191              		.loc 1 37 1 view .LVU43
+ 192 004a 08BD     		pop	{r3, pc}
+ 193              	.L11:
+ 194              		.align	2
+ 195              	.L10:
+ 196 004c 00000000 		.word	.LANCHOR0
+ 197 0050 00000000 		.word	SystemCoreClock
+ 198 0054 00ED00E0 		.word	-536810240
+ 199 0058 00000000 		.word	.LANCHOR1
+ 200              		.cfi_endproc
+ARM GAS  /tmp/ccQnYEAn.s 			page 38
 
 
- 201              		.cfi_endproc
- 202              	.LFE65:
- 204              		.section	.text.hw_systick_reset,"ax",%progbits
- 205              		.align	1
- 206              		.global	hw_systick_reset
- 207              		.syntax unified
- 208              		.thumb
- 209              		.thumb_func
- 211              	hw_systick_reset:
- 212              	.LFB69:
+ 201              	.LFE65:
+ 203              		.section	.text.hw_systick_reset,"ax",%progbits
+ 204              		.align	1
+ 205              		.global	hw_systick_reset
+ 206              		.syntax unified
+ 207              		.thumb
+ 208              		.thumb_func
+ 210              	hw_systick_reset:
+ 211              	.LFB69:
   50:Core/Src/hw_systick.c **** 
   51:Core/Src/hw_systick.c **** void hw_systick_reset(void){
- 213              		.loc 1 51 28 is_stmt 1 view -0
- 214              		.cfi_startproc
- 215              		@ args = 0, pretend = 0, frame = 0
- 216              		@ frame_needed = 0, uses_anonymous_args = 0
- 217              		@ link register save eliminated.
+ 212              		.loc 1 51 28 is_stmt 1 view -0
+ 213              		.cfi_startproc
+ 214              		@ args = 0, pretend = 0, frame = 0
+ 215              		@ frame_needed = 0, uses_anonymous_args = 0
+ 216              		@ link register save eliminated.
   52:Core/Src/hw_systick.c ****     SysTick->VAL = 0UL;  
- 218              		.loc 1 52 5 view .LVU45
- 219              		.loc 1 52 18 is_stmt 0 view .LVU46
- 220 0000 4FF0E023 		mov	r3, #-536813568
- 221 0004 0022     		movs	r2, #0
- 222 0006 9A61     		str	r2, [r3, #24]
+ 217              		.loc 1 52 5 view .LVU45
+ 218              		.loc 1 52 18 is_stmt 0 view .LVU46
+ 219 0000 4FF0E023 		mov	r3, #-536813568
+ 220 0004 0022     		movs	r2, #0
+ 221 0006 9A61     		str	r2, [r3, #24]
   53:Core/Src/hw_systick.c **** }
- 223              		.loc 1 53 1 view .LVU47
- 224 0008 7047     		bx	lr
- 225              		.cfi_endproc
- 226              	.LFE69:
- 228              		.section	.text.hw_systick_add_callback,"ax",%progbits
- 229              		.align	1
- 230              		.global	hw_systick_add_callback
- 231              		.syntax unified
- 232              		.thumb
- 233              		.thumb_func
- 235              	hw_systick_add_callback:
- 236              	.LVL8:
- 237              	.LFB70:
+ 222              		.loc 1 53 1 view .LVU47
+ 223 0008 7047     		bx	lr
+ 224              		.cfi_endproc
+ 225              	.LFE69:
+ 227              		.section	.text.hw_systick_add_callback,"ax",%progbits
+ 228              		.align	1
+ 229              		.global	hw_systick_add_callback
+ 230              		.syntax unified
+ 231              		.thumb
+ 232              		.thumb_func
+ 234              	hw_systick_add_callback:
+ 235              	.LVL8:
+ 236              	.LFB70:
   54:Core/Src/hw_systick.c **** 
   55:Core/Src/hw_systick.c **** void hw_systick_add_callback(void (*passed_func_ptr)(void)){
- 238              		.loc 1 55 60 is_stmt 1 view -0
- 239              		.cfi_startproc
- 240              		@ args = 0, pretend = 0, frame = 0
- 241              		@ frame_needed = 0, uses_anonymous_args = 0
- 242              		@ link register save eliminated.
+ 237              		.loc 1 55 60 is_stmt 1 view -0
+ 238              		.cfi_startproc
+ 239              		@ args = 0, pretend = 0, frame = 0
+ 240              		@ frame_needed = 0, uses_anonymous_args = 0
+ 241              		@ link register save eliminated.
   56:Core/Src/hw_systick.c ****     uint8_t idx;
- 243              		.loc 1 56 5 view .LVU49
+ 242              		.loc 1 56 5 view .LVU49
   57:Core/Src/hw_systick.c ****     
   58:Core/Src/hw_systick.c ****     /* check for duplicates */
   59:Core/Src/hw_systick.c ****     for (idx = 0; idx < func_ptr_count; idx++) {
- 244              		.loc 1 59 5 view .LVU50
- 245              		.loc 1 59 14 is_stmt 0 view .LVU51
- 246 0000 0023     		movs	r3, #0
- 247              		.loc 1 59 5 view .LVU52
- 248 0002 01E0     		b	.L14
- 249              	.LVL9:
- 250              	.L18:
- 251              		.loc 1 59 41 is_stmt 1 discriminator 2 view .LVU53
-ARM GAS  /tmp/ccAIf1CW.s 			page 39
+ 243              		.loc 1 59 5 view .LVU50
+ 244              		.loc 1 59 14 is_stmt 0 view .LVU51
+ 245 0000 0023     		movs	r3, #0
+ 246              		.loc 1 59 5 view .LVU52
+ 247 0002 01E0     		b	.L14
+ 248              	.LVL9:
+ 249              	.L18:
+ 250              		.loc 1 59 41 is_stmt 1 discriminator 2 view .LVU53
+ 251              		.loc 1 59 44 is_stmt 0 discriminator 2 view .LVU54
+ARM GAS  /tmp/ccQnYEAn.s 			page 39
 
 
- 252              		.loc 1 59 44 is_stmt 0 discriminator 2 view .LVU54
- 253 0004 0133     		adds	r3, r3, #1
- 254              	.LVL10:
- 255              		.loc 1 59 44 discriminator 2 view .LVU55
- 256 0006 DBB2     		uxtb	r3, r3
- 257              	.LVL11:
- 258              	.L14:
- 259              		.loc 1 59 19 is_stmt 1 discriminator 1 view .LVU56
- 260              		.loc 1 59 23 is_stmt 0 discriminator 1 view .LVU57
- 261 0008 084A     		ldr	r2, .L19
- 262 000a 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
- 263              		.loc 1 59 5 discriminator 1 view .LVU58
- 264 000c 9A42     		cmp	r2, r3
- 265 000e 05D9     		bls	.L17
+ 252 0004 0133     		adds	r3, r3, #1
+ 253              	.LVL10:
+ 254              		.loc 1 59 44 discriminator 2 view .LVU55
+ 255 0006 DBB2     		uxtb	r3, r3
+ 256              	.LVL11:
+ 257              	.L14:
+ 258              		.loc 1 59 19 is_stmt 1 discriminator 1 view .LVU56
+ 259              		.loc 1 59 23 is_stmt 0 discriminator 1 view .LVU57
+ 260 0008 084A     		ldr	r2, .L19
+ 261 000a 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 262              		.loc 1 59 5 discriminator 1 view .LVU58
+ 263 000c 9A42     		cmp	r2, r3
+ 264 000e 05D9     		bls	.L17
   60:Core/Src/hw_systick.c ****         if (passed_func_ptr == (void *)(func_ptrs[idx])) {
- 266              		.loc 1 60 9 is_stmt 1 view .LVU59
- 267              		.loc 1 60 50 is_stmt 0 view .LVU60
- 268 0010 074A     		ldr	r2, .L19+4
- 269 0012 52F82320 		ldr	r2, [r2, r3, lsl #2]
- 270              		.loc 1 60 12 view .LVU61
- 271 0016 8242     		cmp	r2, r0
- 272 0018 F4D1     		bne	.L18
- 273 001a 05E0     		b	.L13
- 274              	.L17:
+ 265              		.loc 1 60 9 is_stmt 1 view .LVU59
+ 266              		.loc 1 60 50 is_stmt 0 view .LVU60
+ 267 0010 074A     		ldr	r2, .L19+4
+ 268 0012 52F82320 		ldr	r2, [r2, r3, lsl #2]
+ 269              		.loc 1 60 12 view .LVU61
+ 270 0016 8242     		cmp	r2, r0
+ 271 0018 F4D1     		bne	.L18
+ 272 001a 05E0     		b	.L13
+ 273              	.L17:
   61:Core/Src/hw_systick.c ****             return;
   62:Core/Src/hw_systick.c ****         }
   63:Core/Src/hw_systick.c ****     }
   64:Core/Src/hw_systick.c **** 
   65:Core/Src/hw_systick.c ****     /* add function pointer to list and increment count */
   66:Core/Src/hw_systick.c ****     func_ptrs[func_ptr_count++] = (void *)passed_func_ptr;
- 275              		.loc 1 66 5 is_stmt 1 view .LVU62
- 276              		.loc 1 66 29 is_stmt 0 view .LVU63
- 277 001c 511C     		adds	r1, r2, #1
- 278 001e 034B     		ldr	r3, .L19
- 279              	.LVL12:
- 280              		.loc 1 66 29 view .LVU64
- 281 0020 1970     		strb	r1, [r3]
- 282              		.loc 1 66 33 view .LVU65
- 283 0022 034B     		ldr	r3, .L19+4
- 284 0024 43F82200 		str	r0, [r3, r2, lsl #2]
- 285              	.L13:
+ 274              		.loc 1 66 5 is_stmt 1 view .LVU62
+ 275              		.loc 1 66 29 is_stmt 0 view .LVU63
+ 276 001c 511C     		adds	r1, r2, #1
+ 277 001e 034B     		ldr	r3, .L19
+ 278              	.LVL12:
+ 279              		.loc 1 66 29 view .LVU64
+ 280 0020 1970     		strb	r1, [r3]
+ 281              		.loc 1 66 33 view .LVU65
+ 282 0022 034B     		ldr	r3, .L19+4
+ 283 0024 43F82200 		str	r0, [r3, r2, lsl #2]
+ 284              	.L13:
   67:Core/Src/hw_systick.c **** 
   68:Core/Src/hw_systick.c **** }
- 286              		.loc 1 68 1 view .LVU66
- 287 0028 7047     		bx	lr
- 288              	.L20:
- 289 002a 00BF     		.align	2
- 290              	.L19:
- 291 002c 00000000 		.word	.LANCHOR3
- 292 0030 00000000 		.word	.LANCHOR2
- 293              		.cfi_endproc
- 294              	.LFE70:
- 296              		.section	.text.hw_systick_remove_callback,"ax",%progbits
- 297              		.align	1
- 298              		.global	hw_systick_remove_callback
- 299              		.syntax unified
- 300              		.thumb
-ARM GAS  /tmp/ccAIf1CW.s 			page 40
+ 285              		.loc 1 68 1 view .LVU66
+ 286 0028 7047     		bx	lr
+ 287              	.L20:
+ 288 002a 00BF     		.align	2
+ 289              	.L19:
+ 290 002c 00000000 		.word	.LANCHOR3
+ 291 0030 00000000 		.word	.LANCHOR2
+ 292              		.cfi_endproc
+ 293              	.LFE70:
+ 295              		.section	.text.hw_systick_remove_callback,"ax",%progbits
+ 296              		.align	1
+ 297              		.global	hw_systick_remove_callback
+ 298              		.syntax unified
+ 299              		.thumb
+ 300              		.thumb_func
+ARM GAS  /tmp/ccQnYEAn.s 			page 40
 
 
- 301              		.thumb_func
- 303              	hw_systick_remove_callback:
- 304              	.LVL13:
- 305              	.LFB71:
+ 302              	hw_systick_remove_callback:
+ 303              	.LVL13:
+ 304              	.LFB71:
   69:Core/Src/hw_systick.c **** 
   70:Core/Src/hw_systick.c **** void hw_systick_remove_callback(void (*passed_func_ptr)(void)){
- 306              		.loc 1 70 63 is_stmt 1 view -0
- 307              		.cfi_startproc
- 308              		@ args = 0, pretend = 0, frame = 0
- 309              		@ frame_needed = 0, uses_anonymous_args = 0
- 310              		@ link register save eliminated.
+ 305              		.loc 1 70 63 is_stmt 1 view -0
+ 306              		.cfi_startproc
+ 307              		@ args = 0, pretend = 0, frame = 0
+ 308              		@ frame_needed = 0, uses_anonymous_args = 0
+ 309              		@ link register save eliminated.
   71:Core/Src/hw_systick.c ****     uint8_t idx;
- 311              		.loc 1 71 5 view .LVU68
+ 310              		.loc 1 71 5 view .LVU68
   72:Core/Src/hw_systick.c ****     
   73:Core/Src/hw_systick.c ****     /* check for duplicates */
   74:Core/Src/hw_systick.c ****     for (idx = 0; idx < func_ptr_count; idx++) {
- 312              		.loc 1 74 5 view .LVU69
- 313              		.loc 1 74 14 is_stmt 0 view .LVU70
- 314 0000 0023     		movs	r3, #0
- 315              		.loc 1 74 5 view .LVU71
- 316 0002 01E0     		b	.L22
- 317              	.LVL14:
- 318              	.L26:
- 319              		.loc 1 74 41 is_stmt 1 discriminator 2 view .LVU72
- 320              		.loc 1 74 44 is_stmt 0 discriminator 2 view .LVU73
- 321 0004 0133     		adds	r3, r3, #1
- 322              	.LVL15:
- 323              		.loc 1 74 44 discriminator 2 view .LVU74
- 324 0006 DBB2     		uxtb	r3, r3
- 325              	.LVL16:
- 326              	.L22:
- 327              		.loc 1 74 19 is_stmt 1 discriminator 1 view .LVU75
- 328              		.loc 1 74 23 is_stmt 0 discriminator 1 view .LVU76
- 329 0008 084A     		ldr	r2, .L27
- 330 000a 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
- 331              		.loc 1 74 5 discriminator 1 view .LVU77
- 332 000c 9A42     		cmp	r2, r3
- 333 000e 05D9     		bls	.L25
+ 311              		.loc 1 74 5 view .LVU69
+ 312              		.loc 1 74 14 is_stmt 0 view .LVU70
+ 313 0000 0023     		movs	r3, #0
+ 314              		.loc 1 74 5 view .LVU71
+ 315 0002 01E0     		b	.L22
+ 316              	.LVL14:
+ 317              	.L26:
+ 318              		.loc 1 74 41 is_stmt 1 discriminator 2 view .LVU72
+ 319              		.loc 1 74 44 is_stmt 0 discriminator 2 view .LVU73
+ 320 0004 0133     		adds	r3, r3, #1
+ 321              	.LVL15:
+ 322              		.loc 1 74 44 discriminator 2 view .LVU74
+ 323 0006 DBB2     		uxtb	r3, r3
+ 324              	.LVL16:
+ 325              	.L22:
+ 326              		.loc 1 74 19 is_stmt 1 discriminator 1 view .LVU75
+ 327              		.loc 1 74 23 is_stmt 0 discriminator 1 view .LVU76
+ 328 0008 084A     		ldr	r2, .L27
+ 329 000a 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 330              		.loc 1 74 5 discriminator 1 view .LVU77
+ 331 000c 9A42     		cmp	r2, r3
+ 332 000e 05D9     		bls	.L25
   75:Core/Src/hw_systick.c ****         if (passed_func_ptr == (void *)(func_ptrs[idx])) {
- 334              		.loc 1 75 9 is_stmt 1 view .LVU78
- 335              		.loc 1 75 50 is_stmt 0 view .LVU79
- 336 0010 074A     		ldr	r2, .L27+4
- 337 0012 52F82320 		ldr	r2, [r2, r3, lsl #2]
- 338              		.loc 1 75 12 view .LVU80
- 339 0016 8242     		cmp	r2, r0
- 340 0018 F4D1     		bne	.L26
- 341 001a 05E0     		b	.L21
- 342              	.L25:
+ 333              		.loc 1 75 9 is_stmt 1 view .LVU78
+ 334              		.loc 1 75 50 is_stmt 0 view .LVU79
+ 335 0010 074A     		ldr	r2, .L27+4
+ 336 0012 52F82320 		ldr	r2, [r2, r3, lsl #2]
+ 337              		.loc 1 75 12 view .LVU80
+ 338 0016 8242     		cmp	r2, r0
+ 339 0018 F4D1     		bne	.L26
+ 340 001a 05E0     		b	.L21
+ 341              	.L25:
   76:Core/Src/hw_systick.c ****             return;
   77:Core/Src/hw_systick.c ****         }
   78:Core/Src/hw_systick.c ****     }
   79:Core/Src/hw_systick.c **** 
   80:Core/Src/hw_systick.c ****     /* add function pointer to list and increment count */
   81:Core/Src/hw_systick.c ****     func_ptrs[func_ptr_count++] = (void *)passed_func_ptr;
- 343              		.loc 1 81 5 is_stmt 1 view .LVU81
- 344              		.loc 1 81 29 is_stmt 0 view .LVU82
- 345 001c 511C     		adds	r1, r2, #1
-ARM GAS  /tmp/ccAIf1CW.s 			page 41
+ 342              		.loc 1 81 5 is_stmt 1 view .LVU81
+ 343              		.loc 1 81 29 is_stmt 0 view .LVU82
+ 344 001c 511C     		adds	r1, r2, #1
+ 345 001e 034B     		ldr	r3, .L27
+ARM GAS  /tmp/ccQnYEAn.s 			page 41
 
 
- 346 001e 034B     		ldr	r3, .L27
- 347              	.LVL17:
- 348              		.loc 1 81 29 view .LVU83
- 349 0020 1970     		strb	r1, [r3]
- 350              		.loc 1 81 33 view .LVU84
- 351 0022 034B     		ldr	r3, .L27+4
- 352 0024 43F82200 		str	r0, [r3, r2, lsl #2]
- 353              	.L21:
+ 346              	.LVL17:
+ 347              		.loc 1 81 29 view .LVU83
+ 348 0020 1970     		strb	r1, [r3]
+ 349              		.loc 1 81 33 view .LVU84
+ 350 0022 034B     		ldr	r3, .L27+4
+ 351 0024 43F82200 		str	r0, [r3, r2, lsl #2]
+ 352              	.L21:
   82:Core/Src/hw_systick.c **** 
   83:Core/Src/hw_systick.c **** }
- 354              		.loc 1 83 1 view .LVU85
- 355 0028 7047     		bx	lr
- 356              	.L28:
- 357 002a 00BF     		.align	2
- 358              	.L27:
- 359 002c 00000000 		.word	.LANCHOR3
- 360 0030 00000000 		.word	.LANCHOR2
- 361              		.cfi_endproc
- 362              	.LFE71:
- 364              		.section	.text.hw_systick_clear_callbacks,"ax",%progbits
- 365              		.align	1
- 366              		.global	hw_systick_clear_callbacks
- 367              		.syntax unified
- 368              		.thumb
- 369              		.thumb_func
- 371              	hw_systick_clear_callbacks:
- 372              	.LFB72:
+ 353              		.loc 1 83 1 view .LVU85
+ 354 0028 7047     		bx	lr
+ 355              	.L28:
+ 356 002a 00BF     		.align	2
+ 357              	.L27:
+ 358 002c 00000000 		.word	.LANCHOR3
+ 359 0030 00000000 		.word	.LANCHOR2
+ 360              		.cfi_endproc
+ 361              	.LFE71:
+ 363              		.section	.text.hw_systick_clear_callbacks,"ax",%progbits
+ 364              		.align	1
+ 365              		.global	hw_systick_clear_callbacks
+ 366              		.syntax unified
+ 367              		.thumb
+ 368              		.thumb_func
+ 370              	hw_systick_clear_callbacks:
+ 371              	.LFB72:
   84:Core/Src/hw_systick.c **** 
   85:Core/Src/hw_systick.c **** void hw_systick_clear_callbacks(void){
- 373              		.loc 1 85 38 is_stmt 1 view -0
- 374              		.cfi_startproc
- 375              		@ args = 0, pretend = 0, frame = 0
- 376              		@ frame_needed = 0, uses_anonymous_args = 0
- 377              		@ link register save eliminated.
+ 372              		.loc 1 85 38 is_stmt 1 view -0
+ 373              		.cfi_startproc
+ 374              		@ args = 0, pretend = 0, frame = 0
+ 375              		@ frame_needed = 0, uses_anonymous_args = 0
+ 376              		@ link register save eliminated.
   86:Core/Src/hw_systick.c ****     
   87:Core/Src/hw_systick.c ****     func_ptr_count = 0;
- 378              		.loc 1 87 5 view .LVU87
- 379              		.loc 1 87 20 is_stmt 0 view .LVU88
- 380 0000 014B     		ldr	r3, .L30
- 381 0002 0022     		movs	r2, #0
- 382 0004 1A70     		strb	r2, [r3]
+ 377              		.loc 1 87 5 view .LVU87
+ 378              		.loc 1 87 20 is_stmt 0 view .LVU88
+ 379 0000 014B     		ldr	r3, .L30
+ 380 0002 0022     		movs	r2, #0
+ 381 0004 1A70     		strb	r2, [r3]
   88:Core/Src/hw_systick.c **** }
- 383              		.loc 1 88 1 view .LVU89
- 384 0006 7047     		bx	lr
- 385              	.L31:
- 386              		.align	2
- 387              	.L30:
- 388 0008 00000000 		.word	.LANCHOR3
- 389              		.cfi_endproc
- 390              	.LFE72:
- 392              		.global	__aeabi_ui2f
- 393              		.global	__aeabi_f2d
- 394              		.global	__aeabi_ddiv
- 395              		.global	__aeabi_dmul
- 396              		.global	__aeabi_d2uiz
- 397              		.section	.text.blocking_delay_ms,"ax",%progbits
- 398              		.align	1
-ARM GAS  /tmp/ccAIf1CW.s 			page 42
+ 382              		.loc 1 88 1 view .LVU89
+ 383 0006 7047     		bx	lr
+ 384              	.L31:
+ 385              		.align	2
+ 386              	.L30:
+ 387 0008 00000000 		.word	.LANCHOR3
+ 388              		.cfi_endproc
+ 389              	.LFE72:
+ 391              		.global	__aeabi_ui2f
+ 392              		.global	__aeabi_f2d
+ 393              		.global	__aeabi_ddiv
+ 394              		.global	__aeabi_dmul
+ 395              		.global	__aeabi_d2uiz
+ 396              		.section	.text.blocking_delay_ms,"ax",%progbits
+ 397              		.align	1
+ 398              		.global	blocking_delay_ms
+ARM GAS  /tmp/ccQnYEAn.s 			page 42
 
 
- 399              		.global	blocking_delay_ms
- 400              		.syntax unified
- 401              		.thumb
- 402              		.thumb_func
- 404              	blocking_delay_ms:
- 405              	.LVL18:
- 406              	.LFB73:
+ 399              		.syntax unified
+ 400              		.thumb
+ 401              		.thumb_func
+ 403              	blocking_delay_ms:
+ 404              	.LVL18:
+ 405              	.LFB73:
   89:Core/Src/hw_systick.c **** 
   90:Core/Src/hw_systick.c **** void blocking_delay_ms(uint32_t delay_ms){
- 407              		.loc 1 90 42 is_stmt 1 view -0
- 408              		.cfi_startproc
- 409              		@ args = 0, pretend = 0, frame = 0
- 410              		@ frame_needed = 0, uses_anonymous_args = 0
- 411              		.loc 1 90 42 is_stmt 0 view .LVU91
- 412 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 413              	.LCFI1:
- 414              		.cfi_def_cfa_offset 24
- 415              		.cfi_offset 3, -24
- 416              		.cfi_offset 4, -20
- 417              		.cfi_offset 5, -16
- 418              		.cfi_offset 6, -12
- 419              		.cfi_offset 7, -8
- 420              		.cfi_offset 14, -4
- 421 0002 0546     		mov	r5, r0
+ 406              		.loc 1 90 42 is_stmt 1 view -0
+ 407              		.cfi_startproc
+ 408              		@ args = 0, pretend = 0, frame = 0
+ 409              		@ frame_needed = 0, uses_anonymous_args = 0
+ 410              		.loc 1 90 42 is_stmt 0 view .LVU91
+ 411 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 412              		.cfi_def_cfa_offset 24
+ 413              		.cfi_offset 3, -24
+ 414              		.cfi_offset 4, -20
+ 415              		.cfi_offset 5, -16
+ 416              		.cfi_offset 6, -12
+ 417              		.cfi_offset 7, -8
+ 418              		.cfi_offset 14, -4
+ 419 0002 0546     		mov	r5, r0
   91:Core/Src/hw_systick.c ****     /* get inital counter number */
   92:Core/Src/hw_systick.c ****     const uint32_t counter_snapshot = counter;
- 422              		.loc 1 92 5 is_stmt 1 view .LVU92
- 423              		.loc 1 92 20 is_stmt 0 view .LVU93
- 424 0004 104B     		ldr	r3, .L35
- 425 0006 1C68     		ldr	r4, [r3]
- 426              	.LVL19:
+ 420              		.loc 1 92 5 is_stmt 1 view .LVU92
+ 421              		.loc 1 92 20 is_stmt 0 view .LVU93
+ 422 0004 104B     		ldr	r3, .L35
+ 423 0006 1C68     		ldr	r4, [r3]
+ 424              	.LVL19:
   93:Core/Src/hw_systick.c ****     /* Calculate number of ticks needed. Should be less than 1ms to do... */
   94:Core/Src/hw_systick.c ****     const uint32_t counter_goal = counter_snapshot + ((uint32_t)(1000.0 / ((float)(hw_systick_get_f
- 427              		.loc 1 94 5 is_stmt 1 view .LVU94
- 428              		.loc 1 94 84 is_stmt 0 view .LVU95
- 429 0008 FFF7FEFF 		bl	hw_systick_get_freq
- 430              	.LVL20:
- 431              		.loc 1 94 76 view .LVU96
- 432 000c FFF7FEFF 		bl	__aeabi_ui2f
- 433              	.LVL21:
- 434 0010 FFF7FEFF 		bl	__aeabi_f2d
- 435              	.LVL22:
- 436 0014 0246     		mov	r2, r0
- 437 0016 0B46     		mov	r3, r1
- 438              		.loc 1 94 73 view .LVU97
- 439 0018 0020     		movs	r0, #0
- 440 001a 0C49     		ldr	r1, .L35+4
- 441 001c FFF7FEFF 		bl	__aeabi_ddiv
- 442              	.LVL23:
- 443 0020 0646     		mov	r6, r0
- 444 0022 0F46     		mov	r7, r1
- 445              		.loc 1 94 111 view .LVU98
- 446 0024 2846     		mov	r0, r5
- 447 0026 FFF7FEFF 		bl	__aeabi_ui2f
- 448              	.LVL24:
- 449 002a FFF7FEFF 		bl	__aeabi_f2d
- 450              	.LVL25:
-ARM GAS  /tmp/ccAIf1CW.s 			page 43
+ 425              		.loc 1 94 5 is_stmt 1 view .LVU94
+ 426              		.loc 1 94 84 is_stmt 0 view .LVU95
+ 427 0008 FFF7FEFF 		bl	hw_systick_get_freq
+ 428              	.LVL20:
+ 429              		.loc 1 94 76 view .LVU96
+ 430 000c FFF7FEFF 		bl	__aeabi_ui2f
+ 431              	.LVL21:
+ 432 0010 FFF7FEFF 		bl	__aeabi_f2d
+ 433              	.LVL22:
+ 434 0014 0246     		mov	r2, r0
+ 435 0016 0B46     		mov	r3, r1
+ 436              		.loc 1 94 73 view .LVU97
+ 437 0018 0020     		movs	r0, #0
+ 438 001a 0C49     		ldr	r1, .L35+4
+ 439 001c FFF7FEFF 		bl	__aeabi_ddiv
+ 440              	.LVL23:
+ 441 0020 0646     		mov	r6, r0
+ 442 0022 0F46     		mov	r7, r1
+ 443              		.loc 1 94 111 view .LVU98
+ 444 0024 2846     		mov	r0, r5
+ 445 0026 FFF7FEFF 		bl	__aeabi_ui2f
+ 446              	.LVL24:
+ 447 002a FFF7FEFF 		bl	__aeabi_f2d
+ 448              	.LVL25:
+ 449 002e 0246     		mov	r2, r0
+ 450 0030 0B46     		mov	r3, r1
+ARM GAS  /tmp/ccQnYEAn.s 			page 43
 
 
- 451 002e 0246     		mov	r2, r0
- 452 0030 0B46     		mov	r3, r1
- 453              		.loc 1 94 108 view .LVU99
- 454 0032 3046     		mov	r0, r6
- 455 0034 3946     		mov	r1, r7
- 456 0036 FFF7FEFF 		bl	__aeabi_dmul
- 457              	.LVL26:
- 458              		.loc 1 94 55 view .LVU100
- 459 003a FFF7FEFF 		bl	__aeabi_d2uiz
- 460              	.LVL27:
- 461              		.loc 1 94 20 view .LVU101
- 462 003e 2044     		add	r0, r0, r4
- 463              	.LVL28:
+ 451              		.loc 1 94 108 view .LVU99
+ 452 0032 3046     		mov	r0, r6
+ 453 0034 3946     		mov	r1, r7
+ 454 0036 FFF7FEFF 		bl	__aeabi_dmul
+ 455              	.LVL26:
+ 456              		.loc 1 94 55 view .LVU100
+ 457 003a FFF7FEFF 		bl	__aeabi_d2uiz
+ 458              	.LVL27:
+ 459              		.loc 1 94 20 view .LVU101
+ 460 003e 2044     		add	r0, r0, r4
+ 461              	.LVL28:
   95:Core/Src/hw_systick.c ****     /* wait for goal acheived */
   96:Core/Src/hw_systick.c ****     while (counter_goal >= counter);
- 464              		.loc 1 96 5 is_stmt 1 view .LVU102
- 465              	.L33:
- 466              		.loc 1 96 36 discriminator 1 view .LVU103
- 467              		.loc 1 96 11 discriminator 1 view .LVU104
- 468 0040 8442     		cmp	r4, r0
- 469 0042 FDD9     		bls	.L33
+ 462              		.loc 1 96 5 is_stmt 1 view .LVU102
+ 463              	.L33:
+ 464              		.loc 1 96 36 discriminator 1 view .LVU103
+ 465              		.loc 1 96 11 discriminator 1 view .LVU104
+ 466 0040 8442     		cmp	r4, r0
+ 467 0042 FDD9     		bls	.L33
   97:Core/Src/hw_systick.c **** }
- 470              		.loc 1 97 1 is_stmt 0 view .LVU105
- 471 0044 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 472              	.LVL29:
- 473              	.L36:
- 474              		.loc 1 97 1 view .LVU106
- 475 0046 00BF     		.align	2
- 476              	.L35:
- 477 0048 00000000 		.word	.LANCHOR1
- 478 004c 00408F40 		.word	1083129856
- 479              		.cfi_endproc
- 480              	.LFE73:
- 482              		.section	.text.SysTick_Handler,"ax",%progbits
- 483              		.align	1
- 484              		.global	SysTick_Handler
- 485              		.syntax unified
- 486              		.thumb
- 487              		.thumb_func
- 489              	SysTick_Handler:
- 490              	.LFB74:
+ 468              		.loc 1 97 1 is_stmt 0 view .LVU105
+ 469 0044 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 470              	.LVL29:
+ 471              	.L36:
+ 472              		.loc 1 97 1 view .LVU106
+ 473 0046 00BF     		.align	2
+ 474              	.L35:
+ 475 0048 00000000 		.word	.LANCHOR1
+ 476 004c 00408F40 		.word	1083129856
+ 477              		.cfi_endproc
+ 478              	.LFE73:
+ 480              		.section	.text.SysTick_Handler,"ax",%progbits
+ 481              		.align	1
+ 482              		.global	SysTick_Handler
+ 483              		.syntax unified
+ 484              		.thumb
+ 485              		.thumb_func
+ 487              	SysTick_Handler:
+ 488              	.LFB74:
   98:Core/Src/hw_systick.c **** 
   99:Core/Src/hw_systick.c **** void SysTick_Handler (void) {
- 491              		.loc 1 99 29 is_stmt 1 view -0
- 492              		.cfi_startproc
- 493              		@ args = 0, pretend = 0, frame = 0
- 494              		@ frame_needed = 0, uses_anonymous_args = 0
- 495 0000 08B5     		push	{r3, lr}
- 496              	.LCFI2:
- 497              		.cfi_def_cfa_offset 8
- 498              		.cfi_offset 3, -8
- 499              		.cfi_offset 14, -4
+ 489              		.loc 1 99 29 is_stmt 1 view -0
+ 490              		.cfi_startproc
+ 491              		@ args = 0, pretend = 0, frame = 0
+ 492              		@ frame_needed = 0, uses_anonymous_args = 0
+ 493 0000 08B5     		push	{r3, lr}
+ 494              		.cfi_def_cfa_offset 8
+ 495              		.cfi_offset 3, -8
+ 496              		.cfi_offset 14, -4
  100:Core/Src/hw_systick.c ****     static uint8_t idx;
- 500              		.loc 1 100 5 view .LVU108
+ 497              		.loc 1 100 5 view .LVU108
  101:Core/Src/hw_systick.c ****     
  102:Core/Src/hw_systick.c ****     /* Iterate through callback ledger */
  103:Core/Src/hw_systick.c ****     for (idx = 0; idx < func_ptr_count; idx++) {
-ARM GAS  /tmp/ccAIf1CW.s 			page 44
+ 498              		.loc 1 103 5 view .LVU109
+ 499              		.loc 1 103 14 is_stmt 0 view .LVU110
+ 500 0002 0B4B     		ldr	r3, .L41
+ARM GAS  /tmp/ccQnYEAn.s 			page 44
 
 
- 501              		.loc 1 103 5 view .LVU109
- 502              		.loc 1 103 14 is_stmt 0 view .LVU110
- 503 0002 0B4B     		ldr	r3, .L41
- 504 0004 0022     		movs	r2, #0
- 505 0006 1A70     		strb	r2, [r3]
- 506              		.loc 1 103 5 view .LVU111
- 507 0008 07E0     		b	.L38
- 508              	.L39:
+ 501 0004 0022     		movs	r2, #0
+ 502 0006 1A70     		strb	r2, [r3]
+ 503              		.loc 1 103 5 view .LVU111
+ 504 0008 07E0     		b	.L38
+ 505              	.L39:
  104:Core/Src/hw_systick.c ****         (*func_ptrs[idx])();
- 509              		.loc 1 104 9 is_stmt 1 discriminator 3 view .LVU112
- 510              		.loc 1 104 10 is_stmt 0 discriminator 3 view .LVU113
- 511 000a 0A4A     		ldr	r2, .L41+4
- 512 000c 52F82330 		ldr	r3, [r2, r3, lsl #2]
- 513 0010 9847     		blx	r3
- 514              	.LVL30:
+ 506              		.loc 1 104 9 is_stmt 1 discriminator 3 view .LVU112
+ 507              		.loc 1 104 10 is_stmt 0 discriminator 3 view .LVU113
+ 508 000a 0A4A     		ldr	r2, .L41+4
+ 509 000c 52F82330 		ldr	r3, [r2, r3, lsl #2]
+ 510 0010 9847     		blx	r3
+ 511              	.LVL30:
  103:Core/Src/hw_systick.c ****         (*func_ptrs[idx])();
- 515              		.loc 1 103 41 is_stmt 1 discriminator 3 view .LVU114
+ 512              		.loc 1 103 41 is_stmt 1 discriminator 3 view .LVU114
  103:Core/Src/hw_systick.c ****         (*func_ptrs[idx])();
- 516              		.loc 1 103 44 is_stmt 0 discriminator 3 view .LVU115
- 517 0012 074A     		ldr	r2, .L41
- 518 0014 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 519 0016 0133     		adds	r3, r3, #1
- 520 0018 1370     		strb	r3, [r2]
- 521              	.L38:
+ 513              		.loc 1 103 44 is_stmt 0 discriminator 3 view .LVU115
+ 514 0012 074A     		ldr	r2, .L41
+ 515 0014 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 516 0016 0133     		adds	r3, r3, #1
+ 517 0018 1370     		strb	r3, [r2]
+ 518              	.L38:
  103:Core/Src/hw_systick.c ****         (*func_ptrs[idx])();
- 522              		.loc 1 103 19 is_stmt 1 discriminator 1 view .LVU116
+ 519              		.loc 1 103 19 is_stmt 1 discriminator 1 view .LVU116
  103:Core/Src/hw_systick.c ****         (*func_ptrs[idx])();
- 523              		.loc 1 103 23 is_stmt 0 discriminator 1 view .LVU117
- 524 001a 054B     		ldr	r3, .L41
- 525 001c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 526 001e 064A     		ldr	r2, .L41+8
- 527 0020 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 520              		.loc 1 103 23 is_stmt 0 discriminator 1 view .LVU117
+ 521 001a 054B     		ldr	r3, .L41
+ 522 001c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 523 001e 064A     		ldr	r2, .L41+8
+ 524 0020 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
  103:Core/Src/hw_systick.c ****         (*func_ptrs[idx])();
- 528              		.loc 1 103 5 discriminator 1 view .LVU118
- 529 0022 9342     		cmp	r3, r2
- 530 0024 F1D3     		bcc	.L39
+ 525              		.loc 1 103 5 discriminator 1 view .LVU118
+ 526 0022 9342     		cmp	r3, r2
+ 527 0024 F1D3     		bcc	.L39
  105:Core/Src/hw_systick.c ****     }
  106:Core/Src/hw_systick.c **** 
  107:Core/Src/hw_systick.c ****     /* update global counter */
  108:Core/Src/hw_systick.c ****     counter++;
- 531              		.loc 1 108 5 is_stmt 1 view .LVU119
- 532              		.loc 1 108 12 is_stmt 0 view .LVU120
- 533 0026 054A     		ldr	r2, .L41+12
- 534 0028 1368     		ldr	r3, [r2]
- 535 002a 0133     		adds	r3, r3, #1
- 536 002c 1360     		str	r3, [r2]
+ 528              		.loc 1 108 5 is_stmt 1 view .LVU119
+ 529              		.loc 1 108 12 is_stmt 0 view .LVU120
+ 530 0026 054A     		ldr	r2, .L41+12
+ 531 0028 1368     		ldr	r3, [r2]
+ 532 002a 0133     		adds	r3, r3, #1
+ 533 002c 1360     		str	r3, [r2]
  109:Core/Src/hw_systick.c **** }...
- 537              		.loc 1 109 1 view .LVU121
- 538 002e 08BD     		pop	{r3, pc}
- 539              	.L42:
- 540              		.align	2
- 541              	.L41:
- 542 0030 00000000 		.word	.LANCHOR4
- 543 0034 00000000 		.word	.LANCHOR2
- 544 0038 00000000 		.word	.LANCHOR3
- 545 003c 00000000 		.word	.LANCHOR1
- 546              		.cfi_endproc
-ARM GAS  /tmp/ccAIf1CW.s 			page 45
+ 534              		.loc 1 109 1 view .LVU121
+ 535 002e 08BD     		pop	{r3, pc}
+ 536              	.L42:
+ 537              		.align	2
+ 538              	.L41:
+ 539 0030 00000000 		.word	.LANCHOR4
+ 540 0034 00000000 		.word	.LANCHOR2
+ 541 0038 00000000 		.word	.LANCHOR3
+ 542 003c 00000000 		.word	.LANCHOR1
+ 543              		.cfi_endproc
+ 544              	.LFE74:
+ 546              		.section	.bss.counter,"aw",%nobits
+ 547              		.align	2
+ARM GAS  /tmp/ccQnYEAn.s 			page 45
 
 
- 547              	.LFE74:
- 549              		.section	.bss.counter,"aw",%nobits
- 550              		.align	2
- 551              		.set	.LANCHOR1,. + 0
- 554              	counter:
- 555 0000 00000000 		.space	4
- 556              		.section	.bss.func_ptr_count,"aw",%nobits
- 557              		.set	.LANCHOR3,. + 0
- 560              	func_ptr_count:
- 561 0000 00       		.space	1
- 562              		.section	.bss.func_ptrs,"aw",%nobits
- 563              		.align	2
- 564              		.set	.LANCHOR2,. + 0
- 567              	func_ptrs:
- 568 0000 00000000 		.space	128
- 568      00000000 
- 568      00000000 
- 568      00000000 
- 568      00000000 
- 569              		.section	.bss.idx.0,"aw",%nobits
- 570              		.set	.LANCHOR4,. + 0
- 573              	idx.0:
- 574 0000 00       		.space	1
- 575              		.section	.bss.sys_tick_freq_hz,"aw",%nobits
- 576              		.align	1
- 577              		.set	.LANCHOR0,. + 0
- 580              	sys_tick_freq_hz:
- 581 0000 0000     		.space	2
- 582              		.text
- 583              	.Letext0:
- 584              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 585              		.file 4 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 586              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 587              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
-ARM GAS  /tmp/ccAIf1CW.s 			page 46
+ 548              		.set	.LANCHOR1,. + 0
+ 551              	counter:
+ 552 0000 00000000 		.space	4
+ 553              		.section	.bss.func_ptr_count,"aw",%nobits
+ 554              		.set	.LANCHOR3,. + 0
+ 557              	func_ptr_count:
+ 558 0000 00       		.space	1
+ 559              		.section	.bss.func_ptrs,"aw",%nobits
+ 560              		.align	2
+ 561              		.set	.LANCHOR2,. + 0
+ 564              	func_ptrs:
+ 565 0000 00000000 		.space	128
+ 565      00000000 
+ 565      00000000 
+ 565      00000000 
+ 565      00000000 
+ 566              		.section	.bss.idx.0,"aw",%nobits
+ 567              		.set	.LANCHOR4,. + 0
+ 570              	idx.0:
+ 571 0000 00       		.space	1
+ 572              		.section	.bss.sys_tick_freq_hz,"aw",%nobits
+ 573              		.align	1
+ 574              		.set	.LANCHOR0,. + 0
+ 577              	sys_tick_freq_hz:
+ 578 0000 0000     		.space	2
+ 579              		.text
+ 580              	.Letext0:
+ 581              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 582              		.file 4 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 583              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 584              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ARM GAS  /tmp/ccQnYEAn.s 			page 46
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hw_systick.c
-     /tmp/ccAIf1CW.s:18     .text.hw_systick_get_freq:0000000000000000 $t
-     /tmp/ccAIf1CW.s:24     .text.hw_systick_get_freq:0000000000000000 hw_systick_get_freq
-     /tmp/ccAIf1CW.s:40     .text.hw_systick_get_freq:0000000000000008 $d
-     /tmp/ccAIf1CW.s:45     .text.hw_systick_stop:0000000000000000 $t
-     /tmp/ccAIf1CW.s:51     .text.hw_systick_stop:0000000000000000 hw_systick_stop
-     /tmp/ccAIf1CW.s:70     .text.hw_systick_start:0000000000000000 $t
-     /tmp/ccAIf1CW.s:76     .text.hw_systick_start:0000000000000000 hw_systick_start
-     /tmp/ccAIf1CW.s:95     .text.hw_systick_init:0000000000000000 $t
-     /tmp/ccAIf1CW.s:101    .text.hw_systick_init:0000000000000000 hw_systick_init
-     /tmp/ccAIf1CW.s:197    .text.hw_systick_init:000000000000004c $d
-     /tmp/ccAIf1CW.s:205    .text.hw_systick_reset:0000000000000000 $t
-     /tmp/ccAIf1CW.s:211    .text.hw_systick_reset:0000000000000000 hw_systick_reset
-     /tmp/ccAIf1CW.s:229    .text.hw_systick_add_callback:0000000000000000 $t
-     /tmp/ccAIf1CW.s:235    .text.hw_systick_add_callback:0000000000000000 hw_systick_add_callback
-     /tmp/ccAIf1CW.s:291    .text.hw_systick_add_callback:000000000000002c $d
-     /tmp/ccAIf1CW.s:297    .text.hw_systick_remove_callback:0000000000000000 $t
-     /tmp/ccAIf1CW.s:303    .text.hw_systick_remove_callback:0000000000000000 hw_systick_remove_callback
-     /tmp/ccAIf1CW.s:359    .text.hw_systick_remove_callback:000000000000002c $d
-     /tmp/ccAIf1CW.s:365    .text.hw_systick_clear_callbacks:0000000000000000 $t
-     /tmp/ccAIf1CW.s:371    .text.hw_systick_clear_callbacks:0000000000000000 hw_systick_clear_callbacks
-     /tmp/ccAIf1CW.s:388    .text.hw_systick_clear_callbacks:0000000000000008 $d
-     /tmp/ccAIf1CW.s:398    .text.blocking_delay_ms:0000000000000000 $t
-     /tmp/ccAIf1CW.s:404    .text.blocking_delay_ms:0000000000000000 blocking_delay_ms
-     /tmp/ccAIf1CW.s:477    .text.blocking_delay_ms:0000000000000048 $d
-     /tmp/ccAIf1CW.s:483    .text.SysTick_Handler:0000000000000000 $t
-     /tmp/ccAIf1CW.s:489    .text.SysTick_Handler:0000000000000000 SysTick_Handler
-     /tmp/ccAIf1CW.s:542    .text.SysTick_Handler:0000000000000030 $d
-     /tmp/ccAIf1CW.s:550    .bss.counter:0000000000000000 $d
-     /tmp/ccAIf1CW.s:554    .bss.counter:0000000000000000 counter
-     /tmp/ccAIf1CW.s:560    .bss.func_ptr_count:0000000000000000 func_ptr_count
-     /tmp/ccAIf1CW.s:561    .bss.func_ptr_count:0000000000000000 $d
-     /tmp/ccAIf1CW.s:563    .bss.func_ptrs:0000000000000000 $d
-     /tmp/ccAIf1CW.s:567    .bss.func_ptrs:0000000000000000 func_ptrs
-     /tmp/ccAIf1CW.s:573    .bss.idx.0:0000000000000000 idx.0
-     /tmp/ccAIf1CW.s:574    .bss.idx.0:0000000000000000 $d
-     /tmp/ccAIf1CW.s:576    .bss.sys_tick_freq_hz:0000000000000000 $d
-     /tmp/ccAIf1CW.s:580    .bss.sys_tick_freq_hz:0000000000000000 sys_tick_freq_hz
+     /tmp/ccQnYEAn.s:18     .text.hw_systick_get_freq:0000000000000000 $t
+     /tmp/ccQnYEAn.s:24     .text.hw_systick_get_freq:0000000000000000 hw_systick_get_freq
+     /tmp/ccQnYEAn.s:40     .text.hw_systick_get_freq:0000000000000008 $d
+     /tmp/ccQnYEAn.s:45     .text.hw_systick_stop:0000000000000000 $t
+     /tmp/ccQnYEAn.s:51     .text.hw_systick_stop:0000000000000000 hw_systick_stop
+     /tmp/ccQnYEAn.s:70     .text.hw_systick_start:0000000000000000 $t
+     /tmp/ccQnYEAn.s:76     .text.hw_systick_start:0000000000000000 hw_systick_start
+     /tmp/ccQnYEAn.s:95     .text.hw_systick_init:0000000000000000 $t
+     /tmp/ccQnYEAn.s:101    .text.hw_systick_init:0000000000000000 hw_systick_init
+     /tmp/ccQnYEAn.s:196    .text.hw_systick_init:000000000000004c $d
+     /tmp/ccQnYEAn.s:204    .text.hw_systick_reset:0000000000000000 $t
+     /tmp/ccQnYEAn.s:210    .text.hw_systick_reset:0000000000000000 hw_systick_reset
+     /tmp/ccQnYEAn.s:228    .text.hw_systick_add_callback:0000000000000000 $t
+     /tmp/ccQnYEAn.s:234    .text.hw_systick_add_callback:0000000000000000 hw_systick_add_callback
+     /tmp/ccQnYEAn.s:290    .text.hw_systick_add_callback:000000000000002c $d
+     /tmp/ccQnYEAn.s:296    .text.hw_systick_remove_callback:0000000000000000 $t
+     /tmp/ccQnYEAn.s:302    .text.hw_systick_remove_callback:0000000000000000 hw_systick_remove_callback
+     /tmp/ccQnYEAn.s:358    .text.hw_systick_remove_callback:000000000000002c $d
+     /tmp/ccQnYEAn.s:364    .text.hw_systick_clear_callbacks:0000000000000000 $t
+     /tmp/ccQnYEAn.s:370    .text.hw_systick_clear_callbacks:0000000000000000 hw_systick_clear_callbacks
+     /tmp/ccQnYEAn.s:387    .text.hw_systick_clear_callbacks:0000000000000008 $d
+     /tmp/ccQnYEAn.s:397    .text.blocking_delay_ms:0000000000000000 $t
+     /tmp/ccQnYEAn.s:403    .text.blocking_delay_ms:0000000000000000 blocking_delay_ms
+     /tmp/ccQnYEAn.s:475    .text.blocking_delay_ms:0000000000000048 $d
+     /tmp/ccQnYEAn.s:481    .text.SysTick_Handler:0000000000000000 $t
+     /tmp/ccQnYEAn.s:487    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+     /tmp/ccQnYEAn.s:539    .text.SysTick_Handler:0000000000000030 $d
+     /tmp/ccQnYEAn.s:547    .bss.counter:0000000000000000 $d
+     /tmp/ccQnYEAn.s:551    .bss.counter:0000000000000000 counter
+     /tmp/ccQnYEAn.s:557    .bss.func_ptr_count:0000000000000000 func_ptr_count
+     /tmp/ccQnYEAn.s:558    .bss.func_ptr_count:0000000000000000 $d
+     /tmp/ccQnYEAn.s:560    .bss.func_ptrs:0000000000000000 $d
+     /tmp/ccQnYEAn.s:564    .bss.func_ptrs:0000000000000000 func_ptrs
+     /tmp/ccQnYEAn.s:570    .bss.idx.0:0000000000000000 idx.0
+     /tmp/ccQnYEAn.s:571    .bss.idx.0:0000000000000000 $d
+     /tmp/ccQnYEAn.s:573    .bss.sys_tick_freq_hz:0000000000000000 $d
+     /tmp/ccQnYEAn.s:577    .bss.sys_tick_freq_hz:0000000000000000 sys_tick_freq_hz
 
 UNDEFINED SYMBOLS
 SystemCoreClockUpdate

@@ -53,14 +53,14 @@ int i2c1_init(void)
   i2c1_scl.cfg = OUT_ALT_OPENDRAIN;
   i2c1_scl.dir = OUTPUT_10MHZ;
   i2c1_scl.pull = PULLUP;
-  ASSERT(stmgpio_setup(&i2c1_scl));
+  ASSERT_INT(stmgpio_setup(&i2c1_scl));
 
   i2c1_sda.port = I2C_SDA_PORT;
   i2c1_sda.pin = I2C_SDA_PIN;
   i2c1_sda.cfg = OUT_ALT_OPENDRAIN;
   i2c1_sda.dir = OUTPUT_10MHZ;
   i2c1_sda.pull = PULLUP;
-  ASSERT(stmgpio_setup(&i2c1_sda));
+  ASSERT_INT(stmgpio_setup(&i2c1_sda));
 
   /* Set the pin remap for i2c1 */
   AFIO->MAPR |= AFIO_MAPR_I2C1_REMAP;
@@ -80,8 +80,8 @@ int i2c1_init(void)
   /* Disable DMA */
   I2C1->CR2 &= ~I2C_CR2_DMAEN;
 
-  /* Enable DMA TX buffer interrupt */
-  I2C1->CR2 |= I2C_CR2_ITBUFEN;
+  /* Disable DMA TX buffer interrupt */
+  I2C1->CR2 &= ~I2C_CR2_ITBUFEN;
 
   /* Enable event interrupt */
   I2C1->CR2 |= I2C_CR2_ITEVTEN;
@@ -163,55 +163,31 @@ void i2c1_stop(void)
 int i2c1_recv(uint8_t *data)
 {
   /* If data reg not empty */
-  if (!(I2C1->SR1 & I2C_SR1_RXNE))
-  {
-    *data = I2C1->DR;
-    return EXIT_SUCCESS;
-  }
-  else
-  {
-    return EXIT_FAILURE;
-  }
+  ASSERT_BOOL(!(I2C1->SR1 & I2C_SR1_RXNE));
+  *data = I2C1->DR;
+  return EXIT_SUCCESS;
 }
 
 int i2c1_send(uint8_t *data)
 {
   /* send if data reg empty */
-  if (!(I2C1->SR1 & I2C_SR1_TXE))
-  {
-    I2C1->DR = *data;
-    return EXIT_SUCCESS;
-  }
-  else
-  {
-    return EXIT_FAILURE;
-  }
+  ASSERT_BOOL(!(I2C1->SR1 & I2C_SR1_TXE));
+  I2C1->DR = *data;
+  return EXIT_SUCCESS;
 }
 
 int i2c1_set_evt_callback(void (*func_ptr)(void))
 {
-  if (NULL != func_ptr)
-  {
-    i2c1_evt_callback = func_ptr;
-    return EXIT_SUCCESS;
-  }
-  else
-  {
-    return EXIT_FAILURE;
-  }
+  ASSERT_BOOL(NULL != func_ptr);
+  i2c1_evt_callback = func_ptr;
+  return EXIT_SUCCESS;
 }
 
 int i2c1_set_err_callback(void (*func_ptr)(void))
 {
-  if (NULL != func_ptr)
-  {
-    i2c1_err_callback = func_ptr;
-    return EXIT_SUCCESS;
-  }
-  else
-  {
-    return EXIT_FAILURE;
-  }
+  ASSERT_BOOL(NULL != func_ptr);
+  i2c1_err_callback = func_ptr;
+  return EXIT_SUCCESS;
 }
 
 uint16_t i2c1_SR1_dummy_read(){
@@ -244,8 +220,6 @@ void i2c1_ev_irq_handler(void)
     }
   }
 
-
-
   /* call a registered callback */
   if (NULL != i2c1_evt_callback)
   {
@@ -253,7 +227,7 @@ void i2c1_ev_irq_handler(void)
   }
 
   /* clear flag, interrupt over */
-  NVIC_ClearPendingIRQ(I2C1_EV_IRQn);
+  //NVIC_ClearPendingIRQ(I2C1_EV_IRQn);
 }
 
 /* I2C1 error handler */
@@ -275,5 +249,5 @@ void i2c1_er_irq_handler(void)
   }
 
   /* clear flag, interrupt over */
-  NVIC_ClearPendingIRQ(I2C1_ER_IRQn);
+  //NVIC_ClearPendingIRQ(I2C1_ER_IRQn);
 }

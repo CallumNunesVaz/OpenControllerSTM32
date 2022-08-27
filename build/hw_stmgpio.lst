@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccX8Eru9.s 			page 1
+ARM GAS  /tmp/ccxJpNTf.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccX8Eru9.s 			page 1
   29:Core/Src/hw_stmgpio.c ****   true, // PB2
   30:Core/Src/hw_stmgpio.c ****   true, // PB3
   31:Core/Src/hw_stmgpio.c ****   true, // PB4
-ARM GAS  /tmp/ccX8Eru9.s 			page 2
+ARM GAS  /tmp/ccxJpNTf.s 			page 2
 
 
   32:Core/Src/hw_stmgpio.c ****   true, // PB5
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccX8Eru9.s 			page 1
   86:Core/Src/hw_stmgpio.c ****   /* Sanity checks */
   87:Core/Src/hw_stmgpio.c ****   ASSERT_BOOL(stmgpio_can_init(g));
   88:Core/Src/hw_stmgpio.c **** 
-ARM GAS  /tmp/ccX8Eru9.s 			page 3
+ARM GAS  /tmp/ccxJpNTf.s 			page 3
 
 
   89:Core/Src/hw_stmgpio.c ****   /* Turn on ports clock if not already on */
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccX8Eru9.s 			page 1
   37              		.loc 1 133 32 discriminator 1 view .LVU3
   38 0004 60B1     		cbz	r0, .L4
  134:Core/Src/hw_stmgpio.c ****   {
-ARM GAS  /tmp/ccX8Eru9.s 			page 4
+ARM GAS  /tmp/ccxJpNTf.s 			page 4
 
 
  135:Core/Src/hw_stmgpio.c ****     return EXIT_FAILURE;
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccX8Eru9.s 			page 1
   83              		.global	stmgpio_can_init
   84              		.syntax unified
   85              		.thumb
-ARM GAS  /tmp/ccX8Eru9.s 			page 5
+ARM GAS  /tmp/ccxJpNTf.s 			page 5
 
 
   86              		.thumb_func
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccX8Eru9.s 			page 1
  157:Core/Src/hw_stmgpio.c ****     /* Check port ledger for pin existence */
  158:Core/Src/hw_stmgpio.c ****     if (GPIO_PORT_PIN_MAX > g->pin)
  127              		.loc 1 158 5 is_stmt 1 view .LVU35
-ARM GAS  /tmp/ccX8Eru9.s 			page 6
+ARM GAS  /tmp/ccxJpNTf.s 			page 6
 
 
  128              		.loc 1 158 30 is_stmt 0 view .LVU36
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccX8Eru9.s 			page 1
  170:Core/Src/hw_stmgpio.c ****         break;
  171              		.loc 1 170 9 is_stmt 1 view .LVU49
  172 0048 7047     		bx	lr
-ARM GAS  /tmp/ccX8Eru9.s 			page 7
+ARM GAS  /tmp/ccxJpNTf.s 			page 7
 
 
  173              	.LVL14:
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccX8Eru9.s 			page 1
  174:Core/Src/hw_stmgpio.c ****       default:
  175:Core/Src/hw_stmgpio.c ****         is_valid = false;
  176:Core/Src/hw_stmgpio.c ****         break;
-ARM GAS  /tmp/ccX8Eru9.s 			page 8
+ARM GAS  /tmp/ccxJpNTf.s 			page 8
 
 
  177:Core/Src/hw_stmgpio.c ****       }
@@ -456,466 +456,465 @@ ARM GAS  /tmp/ccX8Eru9.s 			page 1
   85:Core/Src/hw_stmgpio.c ****   /* Sanity checks */
  242              		.loc 1 85 1 is_stmt 0 view .LVU65
  243 0000 10B5     		push	{r4, lr}
- 244              	.LCFI0:
- 245              		.cfi_def_cfa_offset 8
- 246              		.cfi_offset 4, -8
- 247              		.cfi_offset 14, -4
- 248 0002 0446     		mov	r4, r0
+ 244              		.cfi_def_cfa_offset 8
+ 245              		.cfi_offset 4, -8
+ 246              		.cfi_offset 14, -4
+ 247 0002 0446     		mov	r4, r0
   87:Core/Src/hw_stmgpio.c **** 
- 249              		.loc 1 87 3 is_stmt 1 view .LVU66
- 250 0004 FFF7FEFF 		bl	stmgpio_can_init
- 251              	.LVL27:
+ 248              		.loc 1 87 3 is_stmt 1 view .LVU66
+ 249 0004 FFF7FEFF 		bl	stmgpio_can_init
+ 250              	.LVL27:
   87:Core/Src/hw_stmgpio.c **** 
- 252              		.loc 1 87 3 is_stmt 0 view .LVU67
- 253 0008 0028     		cmp	r0, #0
- 254 000a 63D0     		beq	.L25
+ 251              		.loc 1 87 3 is_stmt 0 view .LVU67
+ 252 0008 0028     		cmp	r0, #0
+ 253 000a 63D0     		beq	.L25
   90:Core/Src/hw_stmgpio.c **** 
- 255              		.loc 1 90 3 is_stmt 1 view .LVU68
+ 254              		.loc 1 90 3 is_stmt 1 view .LVU68
   90:Core/Src/hw_stmgpio.c **** 
- 256              		.loc 1 90 16 is_stmt 0 view .LVU69
- 257 000c 3248     		ldr	r0, .L30
- 258 000e 8369     		ldr	r3, [r0, #24]
+ 255              		.loc 1 90 16 is_stmt 0 view .LVU69
+ 256 000c 3248     		ldr	r0, .L30
+ 257 000e 8369     		ldr	r3, [r0, #24]
   90:Core/Src/hw_stmgpio.c **** 
- 259              		.loc 1 90 43 view .LVU70
- 260 0010 2279     		ldrb	r2, [r4, #4]	@ zero_extendqisi2
-ARM GAS  /tmp/ccX8Eru9.s 			page 9
+ 258              		.loc 1 90 43 view .LVU70
+ 259 0010 2279     		ldrb	r2, [r4, #4]	@ zero_extendqisi2
+  90:Core/Src/hw_stmgpio.c **** 
+ARM GAS  /tmp/ccxJpNTf.s 			page 9
 
 
+ 260              		.loc 1 90 50 view .LVU71
+ 261 0012 A2F14101 		sub	r1, r2, #65
   90:Core/Src/hw_stmgpio.c **** 
- 261              		.loc 1 90 50 view .LVU71
- 262 0012 A2F14101 		sub	r1, r2, #65
+ 262              		.loc 1 90 38 view .LVU72
+ 263 0016 0422     		movs	r2, #4
+ 264 0018 8A40     		lsls	r2, r2, r1
   90:Core/Src/hw_stmgpio.c **** 
- 263              		.loc 1 90 38 view .LVU72
- 264 0016 0422     		movs	r2, #4
- 265 0018 8A40     		lsls	r2, r2, r1
-  90:Core/Src/hw_stmgpio.c **** 
- 266              		.loc 1 90 16 view .LVU73
- 267 001a 1343     		orrs	r3, r3, r2
- 268 001c 8361     		str	r3, [r0, #24]
+ 265              		.loc 1 90 16 view .LVU73
+ 266 001a 1343     		orrs	r3, r3, r2
+ 267 001c 8361     		str	r3, [r0, #24]
   93:Core/Src/hw_stmgpio.c **** 
- 269              		.loc 1 93 3 is_stmt 1 view .LVU74
+ 268              		.loc 1 93 3 is_stmt 1 view .LVU74
   93:Core/Src/hw_stmgpio.c **** 
- 270              		.loc 1 93 91 is_stmt 0 view .LVU75
- 271 001e 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
+ 269              		.loc 1 93 91 is_stmt 0 view .LVU75
+ 270 001e 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
   93:Core/Src/hw_stmgpio.c **** 
- 272              		.loc 1 93 55 view .LVU76
- 273 0020 03F58013 		add	r3, r3, #1048576
- 274 0024 0133     		adds	r3, r3, #1
- 275 0026 9B02     		lsls	r3, r3, #10
+ 271              		.loc 1 93 55 view .LVU76
+ 272 0020 03F58013 		add	r3, r3, #1048576
+ 273 0024 0133     		adds	r3, r3, #1
+ 274 0026 9B02     		lsls	r3, r3, #10
   93:Core/Src/hw_stmgpio.c **** 
- 276              		.loc 1 93 20 view .LVU77
- 277 0028 A360     		str	r3, [r4, #8]
+ 275              		.loc 1 93 20 view .LVU77
+ 276 0028 A360     		str	r3, [r4, #8]
   96:Core/Src/hw_stmgpio.c ****   {
- 278              		.loc 1 96 3 is_stmt 1 view .LVU78
+ 277              		.loc 1 96 3 is_stmt 1 view .LVU78
   96:Core/Src/hw_stmgpio.c ****   {
- 279              		.loc 1 96 8 is_stmt 0 view .LVU79
- 280 002a 6279     		ldrb	r2, [r4, #5]	@ zero_extendqisi2
+ 278              		.loc 1 96 8 is_stmt 0 view .LVU79
+ 279 002a 6279     		ldrb	r2, [r4, #5]	@ zero_extendqisi2
   96:Core/Src/hw_stmgpio.c ****   {
- 281              		.loc 1 96 6 view .LVU80
- 282 002c 072A     		cmp	r2, #7
- 283 002e 24D8     		bhi	.L22
+ 280              		.loc 1 96 6 view .LVU80
+ 281 002c 072A     		cmp	r2, #7
+ 282 002e 24D8     		bhi	.L22
   99:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
- 284              		.loc 1 99 5 is_stmt 1 view .LVU81
+ 283              		.loc 1 99 5 is_stmt 1 view .LVU81
   99:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
- 285              		.loc 1 99 27 is_stmt 0 view .LVU82
- 286 0030 1968     		ldr	r1, [r3]
+ 284              		.loc 1 99 27 is_stmt 0 view .LVU82
+ 285 0030 1968     		ldr	r1, [r3]
   99:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
- 287              		.loc 1 99 64 view .LVU83
- 288 0032 9200     		lsls	r2, r2, #2
+ 286              		.loc 1 99 64 view .LVU83
+ 287 0032 9200     		lsls	r2, r2, #2
   99:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
- 289              		.loc 1 99 37 view .LVU84
- 290 0034 0F20     		movs	r0, #15
- 291 0036 00FA02F2 		lsl	r2, r0, r2
+ 288              		.loc 1 99 37 view .LVU84
+ 289 0034 0F20     		movs	r0, #15
+ 290 0036 00FA02F2 		lsl	r2, r0, r2
   99:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
- 292              		.loc 1 99 27 view .LVU85
- 293 003a 21EA0202 		bic	r2, r1, r2
- 294 003e 1A60     		str	r2, [r3]
+ 291              		.loc 1 99 27 view .LVU85
+ 292 003a 21EA0202 		bic	r2, r1, r2
+ 293 003e 1A60     		str	r2, [r3]
  101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 295              		.loc 1 101 5 is_stmt 1 view .LVU86
+ 294              		.loc 1 101 5 is_stmt 1 view .LVU86
  101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 296              		.loc 1 101 6 is_stmt 0 view .LVU87
- 297 0040 A068     		ldr	r0, [r4, #8]
+ 295              		.loc 1 101 6 is_stmt 0 view .LVU87
+ 296 0040 A068     		ldr	r0, [r4, #8]
  101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 298              		.loc 1 101 27 view .LVU88
- 299 0042 0368     		ldr	r3, [r0]
-ARM GAS  /tmp/ccX8Eru9.s 			page 10
+ 297              		.loc 1 101 27 view .LVU88
+ 298 0042 0368     		ldr	r3, [r0]
+ 101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
+ARM GAS  /tmp/ccxJpNTf.s 			page 10
 
 
+ 299              		.loc 1 101 43 view .LVU89
+ 300 0044 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
  101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 300              		.loc 1 101 43 view .LVU89
- 301 0044 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
+ 301              		.loc 1 101 82 view .LVU90
+ 302 0046 6179     		ldrb	r1, [r4, #5]	@ zero_extendqisi2
  101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 302              		.loc 1 101 82 view .LVU90
- 303 0046 6179     		ldrb	r1, [r4, #5]	@ zero_extendqisi2
+ 303              		.loc 1 101 89 view .LVU91
+ 304 0048 8900     		lsls	r1, r1, #2
  101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 304              		.loc 1 101 89 view .LVU91
- 305 0048 8900     		lsls	r1, r1, #2
+ 305              		.loc 1 101 51 view .LVU92
+ 306 004a 8A40     		lsls	r2, r2, r1
  101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 306              		.loc 1 101 51 view .LVU92
- 307 004a 8A40     		lsls	r2, r2, r1
- 101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 308              		.loc 1 101 27 view .LVU93
- 309 004c 1343     		orrs	r3, r3, r2
- 310 004e 0360     		str	r3, [r0]
+ 307              		.loc 1 101 27 view .LVU93
+ 308 004c 1343     		orrs	r3, r3, r2
+ 309 004e 0360     		str	r3, [r0]
  103:Core/Src/hw_stmgpio.c ****   }
- 311              		.loc 1 103 5 is_stmt 1 view .LVU94
+ 310              		.loc 1 103 5 is_stmt 1 view .LVU94
  103:Core/Src/hw_stmgpio.c ****   }
- 312              		.loc 1 103 6 is_stmt 0 view .LVU95
- 313 0050 A068     		ldr	r0, [r4, #8]
+ 311              		.loc 1 103 6 is_stmt 0 view .LVU95
+ 312 0050 A068     		ldr	r0, [r4, #8]
  103:Core/Src/hw_stmgpio.c ****   }
- 314              		.loc 1 103 27 view .LVU96
- 315 0052 0168     		ldr	r1, [r0]
+ 313              		.loc 1 103 27 view .LVU96
+ 314 0052 0168     		ldr	r1, [r0]
  103:Core/Src/hw_stmgpio.c ****   }
- 316              		.loc 1 103 44 view .LVU97
- 317 0054 E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
+ 315              		.loc 1 103 44 view .LVU97
+ 316 0054 E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
  103:Core/Src/hw_stmgpio.c ****   }
- 318              		.loc 1 103 52 view .LVU98
- 319 0056 23F00403 		bic	r3, r3, #4
+ 317              		.loc 1 103 52 view .LVU98
+ 318 0056 23F00403 		bic	r3, r3, #4
  103:Core/Src/hw_stmgpio.c ****   }
- 320              		.loc 1 103 94 view .LVU99
- 321 005a 6279     		ldrb	r2, [r4, #5]	@ zero_extendqisi2
+ 319              		.loc 1 103 94 view .LVU99
+ 320 005a 6279     		ldrb	r2, [r4, #5]	@ zero_extendqisi2
  103:Core/Src/hw_stmgpio.c ****   }
- 322              		.loc 1 103 91 view .LVU100
- 323 005c 9200     		lsls	r2, r2, #2
+ 321              		.loc 1 103 91 view .LVU100
+ 322 005c 9200     		lsls	r2, r2, #2
  103:Core/Src/hw_stmgpio.c ****   }
- 324              		.loc 1 103 101 view .LVU101
- 325 005e 0232     		adds	r2, r2, #2
+ 323              		.loc 1 103 101 view .LVU101
+ 324 005e 0232     		adds	r2, r2, #2
  103:Core/Src/hw_stmgpio.c ****   }
- 326              		.loc 1 103 63 view .LVU102
- 327 0060 9340     		lsls	r3, r3, r2
+ 325              		.loc 1 103 63 view .LVU102
+ 326 0060 9340     		lsls	r3, r3, r2
  103:Core/Src/hw_stmgpio.c ****   }
- 328              		.loc 1 103 27 view .LVU103
- 329 0062 0B43     		orrs	r3, r3, r1
- 330 0064 0360     		str	r3, [r0]
- 331              	.L23:
+ 327              		.loc 1 103 27 view .LVU103
+ 328 0062 0B43     		orrs	r3, r3, r1
+ 329 0064 0360     		str	r3, [r0]
+ 330              	.L23:
  116:Core/Src/hw_stmgpio.c ****   {
- 332              		.loc 1 116 3 is_stmt 1 view .LVU104
+ 331              		.loc 1 116 3 is_stmt 1 view .LVU104
  116:Core/Src/hw_stmgpio.c ****   {
- 333              		.loc 1 116 19 is_stmt 0 view .LVU105
- 334 0066 E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
+ 332              		.loc 1 116 19 is_stmt 0 view .LVU105
+ 333 0066 E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
  116:Core/Src/hw_stmgpio.c ****   {
- 335              		.loc 1 116 6 view .LVU106
- 336 0068 022B     		cmp	r3, #2
- 337 006a 27D0     		beq	.L28
- 338              	.L24:
-ARM GAS  /tmp/ccX8Eru9.s 			page 11
+ 334              		.loc 1 116 6 view .LVU106
+ 335 0068 022B     		cmp	r3, #2
+ 336 006a 27D0     		beq	.L28
+ 337              	.L24:
+ 122:Core/Src/hw_stmgpio.c ****   {
+ARM GAS  /tmp/ccxJpNTf.s 			page 11
 
 
+ 338              		.loc 1 122 3 is_stmt 1 view .LVU107
  122:Core/Src/hw_stmgpio.c ****   {
- 339              		.loc 1 122 3 is_stmt 1 view .LVU107
+ 339              		.loc 1 122 25 is_stmt 0 view .LVU108
+ 340 006c E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
  122:Core/Src/hw_stmgpio.c ****   {
- 340              		.loc 1 122 25 is_stmt 0 view .LVU108
- 341 006c E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
+ 341              		.loc 1 122 32 view .LVU109
+ 342 006e 043B     		subs	r3, r3, #4
+ 343 0070 DBB2     		uxtb	r3, r3
  122:Core/Src/hw_stmgpio.c ****   {
- 342              		.loc 1 122 32 view .LVU109
- 343 006e 043B     		subs	r3, r3, #4
- 344 0070 DBB2     		uxtb	r3, r3
- 122:Core/Src/hw_stmgpio.c ****   {
- 345              		.loc 1 122 6 view .LVU110
- 346 0072 012B     		cmp	r3, #1
- 347 0074 28D9     		bls	.L29
+ 344              		.loc 1 122 6 view .LVU110
+ 345 0072 012B     		cmp	r3, #1
+ 346 0074 28D9     		bls	.L29
  128:Core/Src/hw_stmgpio.c **** }
- 348              		.loc 1 128 10 view .LVU111
- 349 0076 0020     		movs	r0, #0
- 350              	.L20:
+ 347              		.loc 1 128 10 view .LVU111
+ 348 0076 0020     		movs	r0, #0
+ 349              	.L20:
  129:Core/Src/hw_stmgpio.c **** 
- 351              		.loc 1 129 1 view .LVU112
- 352 0078 10BD     		pop	{r4, pc}
- 353              	.LVL28:
- 354              	.L22:
+ 350              		.loc 1 129 1 view .LVU112
+ 351 0078 10BD     		pop	{r4, pc}
+ 352              	.LVL28:
+ 353              	.L22:
  108:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
- 355              		.loc 1 108 5 is_stmt 1 view .LVU113
+ 354              		.loc 1 108 5 is_stmt 1 view .LVU113
  108:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
- 356              		.loc 1 108 27 is_stmt 0 view .LVU114
- 357 007a 5968     		ldr	r1, [r3, #4]
+ 355              		.loc 1 108 27 is_stmt 0 view .LVU114
+ 356 007a 5968     		ldr	r1, [r3, #4]
  108:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
- 358              		.loc 1 108 74 view .LVU115
- 359 007c 083A     		subs	r2, r2, #8
+ 357              		.loc 1 108 74 view .LVU115
+ 358 007c 083A     		subs	r2, r2, #8
  108:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
- 360              		.loc 1 108 64 view .LVU116
- 361 007e 9200     		lsls	r2, r2, #2
+ 359              		.loc 1 108 64 view .LVU116
+ 360 007e 9200     		lsls	r2, r2, #2
  108:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
- 362              		.loc 1 108 37 view .LVU117
- 363 0080 0F20     		movs	r0, #15
- 364 0082 00FA02F2 		lsl	r2, r0, r2
+ 361              		.loc 1 108 37 view .LVU117
+ 362 0080 0F20     		movs	r0, #15
+ 363 0082 00FA02F2 		lsl	r2, r0, r2
  108:Core/Src/hw_stmgpio.c ****     /* Set pin direction and mode */
- 365              		.loc 1 108 27 view .LVU118
- 366 0086 21EA0202 		bic	r2, r1, r2
- 367 008a 5A60     		str	r2, [r3, #4]
+ 364              		.loc 1 108 27 view .LVU118
+ 365 0086 21EA0202 		bic	r2, r1, r2
+ 366 008a 5A60     		str	r2, [r3, #4]
  110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 368              		.loc 1 110 5 is_stmt 1 view .LVU119
+ 367              		.loc 1 110 5 is_stmt 1 view .LVU119
  110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 369              		.loc 1 110 6 is_stmt 0 view .LVU120
- 370 008c A068     		ldr	r0, [r4, #8]
+ 368              		.loc 1 110 6 is_stmt 0 view .LVU120
+ 369 008c A068     		ldr	r0, [r4, #8]
  110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 371              		.loc 1 110 27 view .LVU121
- 372 008e 4268     		ldr	r2, [r0, #4]
+ 370              		.loc 1 110 27 view .LVU121
+ 371 008e 4268     		ldr	r2, [r0, #4]
  110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 373              		.loc 1 110 43 view .LVU122
- 374 0090 6178     		ldrb	r1, [r4, #1]	@ zero_extendqisi2
+ 372              		.loc 1 110 43 view .LVU122
+ 373 0090 6178     		ldrb	r1, [r4, #1]	@ zero_extendqisi2
  110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 375              		.loc 1 110 83 view .LVU123
- 376 0092 6379     		ldrb	r3, [r4, #5]	@ zero_extendqisi2
+ 374              		.loc 1 110 83 view .LVU123
+ 375 0092 6379     		ldrb	r3, [r4, #5]	@ zero_extendqisi2
  110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 377              		.loc 1 110 89 view .LVU124
-ARM GAS  /tmp/ccX8Eru9.s 			page 12
+ 376              		.loc 1 110 89 view .LVU124
+ 377 0094 083B     		subs	r3, r3, #8
+ARM GAS  /tmp/ccxJpNTf.s 			page 12
 
 
- 378 0094 083B     		subs	r3, r3, #8
  110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 379              		.loc 1 110 98 view .LVU125
- 380 0096 9B00     		lsls	r3, r3, #2
+ 378              		.loc 1 110 98 view .LVU125
+ 379 0096 9B00     		lsls	r3, r3, #2
  110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 381              		.loc 1 110 51 view .LVU126
- 382 0098 01FA03F3 		lsl	r3, r1, r3
+ 380              		.loc 1 110 51 view .LVU126
+ 381 0098 01FA03F3 		lsl	r3, r1, r3
  110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
- 383              		.loc 1 110 27 view .LVU127
- 384 009c 1343     		orrs	r3, r3, r2
- 385 009e 4360     		str	r3, [r0, #4]
+ 382              		.loc 1 110 27 view .LVU127
+ 383 009c 1343     		orrs	r3, r3, r2
+ 384 009e 4360     		str	r3, [r0, #4]
  112:Core/Src/hw_stmgpio.c ****   }
- 386              		.loc 1 112 5 is_stmt 1 view .LVU128
+ 385              		.loc 1 112 5 is_stmt 1 view .LVU128
  112:Core/Src/hw_stmgpio.c ****   }
- 387              		.loc 1 112 6 is_stmt 0 view .LVU129
- 388 00a0 A068     		ldr	r0, [r4, #8]
+ 386              		.loc 1 112 6 is_stmt 0 view .LVU129
+ 387 00a0 A068     		ldr	r0, [r4, #8]
  112:Core/Src/hw_stmgpio.c ****   }
- 389              		.loc 1 112 27 view .LVU130
- 390 00a2 4168     		ldr	r1, [r0, #4]
+ 388              		.loc 1 112 27 view .LVU130
+ 389 00a2 4168     		ldr	r1, [r0, #4]
  112:Core/Src/hw_stmgpio.c ****   }
- 391              		.loc 1 112 44 view .LVU131
- 392 00a4 E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
+ 390              		.loc 1 112 44 view .LVU131
+ 391 00a4 E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
  112:Core/Src/hw_stmgpio.c ****   }
- 393              		.loc 1 112 52 view .LVU132
- 394 00a6 23F00402 		bic	r2, r3, #4
+ 392              		.loc 1 112 52 view .LVU132
+ 393 00a6 23F00402 		bic	r2, r3, #4
  112:Core/Src/hw_stmgpio.c ****   }
- 395              		.loc 1 112 95 view .LVU133
- 396 00aa 6379     		ldrb	r3, [r4, #5]	@ zero_extendqisi2
+ 394              		.loc 1 112 95 view .LVU133
+ 395 00aa 6379     		ldrb	r3, [r4, #5]	@ zero_extendqisi2
  112:Core/Src/hw_stmgpio.c ****   }
- 397              		.loc 1 112 101 view .LVU134
- 398 00ac 083B     		subs	r3, r3, #8
+ 396              		.loc 1 112 101 view .LVU134
+ 397 00ac 083B     		subs	r3, r3, #8
  112:Core/Src/hw_stmgpio.c ****   }
- 399              		.loc 1 112 91 view .LVU135
- 400 00ae 9B00     		lsls	r3, r3, #2
+ 398              		.loc 1 112 91 view .LVU135
+ 399 00ae 9B00     		lsls	r3, r3, #2
  112:Core/Src/hw_stmgpio.c ****   }
- 401              		.loc 1 112 110 view .LVU136
- 402 00b0 0233     		adds	r3, r3, #2
+ 400              		.loc 1 112 110 view .LVU136
+ 401 00b0 0233     		adds	r3, r3, #2
  112:Core/Src/hw_stmgpio.c ****   }
- 403              		.loc 1 112 63 view .LVU137
- 404 00b2 02FA03F3 		lsl	r3, r2, r3
+ 402              		.loc 1 112 63 view .LVU137
+ 403 00b2 02FA03F3 		lsl	r3, r2, r3
  112:Core/Src/hw_stmgpio.c ****   }
- 405              		.loc 1 112 27 view .LVU138
- 406 00b6 0B43     		orrs	r3, r3, r1
- 407 00b8 4360     		str	r3, [r0, #4]
- 408 00ba D4E7     		b	.L23
- 409              	.L28:
+ 404              		.loc 1 112 27 view .LVU138
+ 405 00b6 0B43     		orrs	r3, r3, r1
+ 406 00b8 4360     		str	r3, [r0, #4]
+ 407 00ba D4E7     		b	.L23
+ 408              	.L28:
  118:Core/Src/hw_stmgpio.c ****   }
- 410              		.loc 1 118 5 is_stmt 1 view .LVU139
+ 409              		.loc 1 118 5 is_stmt 1 view .LVU139
  118:Core/Src/hw_stmgpio.c ****   }
- 411              		.loc 1 118 42 is_stmt 0 view .LVU140
- 412 00bc A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
+ 410              		.loc 1 118 42 is_stmt 0 view .LVU140
+ 411 00bc A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
  118:Core/Src/hw_stmgpio.c ****   }
- 413              		.loc 1 118 55 view .LVU141
- 414 00be 6179     		ldrb	r1, [r4, #5]	@ zero_extendqisi2
+ 412              		.loc 1 118 55 view .LVU141
+ 413 00be 6179     		ldrb	r1, [r4, #5]	@ zero_extendqisi2
  118:Core/Src/hw_stmgpio.c ****   }
- 415              		.loc 1 118 6 view .LVU142
- 416 00c0 A268     		ldr	r2, [r4, #8]
-ARM GAS  /tmp/ccX8Eru9.s 			page 13
+ 414              		.loc 1 118 6 view .LVU142
+ 415 00c0 A268     		ldr	r2, [r4, #8]
+ 118:Core/Src/hw_stmgpio.c ****   }
+ARM GAS  /tmp/ccxJpNTf.s 			page 13
 
 
+ 416              		.loc 1 118 51 view .LVU143
+ 417 00c2 8B40     		lsls	r3, r3, r1
  118:Core/Src/hw_stmgpio.c ****   }
- 417              		.loc 1 118 51 view .LVU143
- 418 00c2 8B40     		lsls	r3, r3, r1
- 118:Core/Src/hw_stmgpio.c ****   }
- 419              		.loc 1 118 27 view .LVU144
- 420 00c4 D360     		str	r3, [r2, #12]
- 421 00c6 D1E7     		b	.L24
- 422              	.L29:
+ 418              		.loc 1 118 27 view .LVU144
+ 419 00c4 D360     		str	r3, [r2, #12]
+ 420 00c6 D1E7     		b	.L24
+ 421              	.L29:
  124:Core/Src/hw_stmgpio.c ****   }
- 423              		.loc 1 124 5 is_stmt 1 view .LVU145
- 424 00c8 0121     		movs	r1, #1
- 425 00ca 2046     		mov	r0, r4
- 426 00cc FFF7FEFF 		bl	stmgpio_write
- 427              	.LVL29:
+ 422              		.loc 1 124 5 is_stmt 1 view .LVU145
+ 423 00c8 0121     		movs	r1, #1
+ 424 00ca 2046     		mov	r0, r4
+ 425 00cc FFF7FEFF 		bl	stmgpio_write
+ 426              	.LVL29:
  128:Core/Src/hw_stmgpio.c **** }
- 428              		.loc 1 128 10 is_stmt 0 view .LVU146
- 429 00d0 0020     		movs	r0, #0
- 430 00d2 D1E7     		b	.L20
- 431              	.L25:
+ 427              		.loc 1 128 10 is_stmt 0 view .LVU146
+ 428 00d0 0020     		movs	r0, #0
+ 429 00d2 D1E7     		b	.L20
+ 430              	.L25:
   87:Core/Src/hw_stmgpio.c **** 
- 432              		.loc 1 87 3 view .LVU147
- 433 00d4 0120     		movs	r0, #1
- 434 00d6 CFE7     		b	.L20
- 435              	.L31:
- 436              		.align	2
- 437              	.L30:
- 438 00d8 00100240 		.word	1073876992
- 439              		.cfi_endproc
- 440              	.LFE65:
- 442              		.section	.text.stmgpio_read,"ax",%progbits
- 443              		.align	1
- 444              		.global	stmgpio_read
- 445              		.syntax unified
- 446              		.thumb
- 447              		.thumb_func
- 449              	stmgpio_read:
- 450              	.LVL30:
- 451              	.LFB68:
+ 431              		.loc 1 87 3 view .LVU147
+ 432 00d4 0120     		movs	r0, #1
+ 433 00d6 CFE7     		b	.L20
+ 434              	.L31:
+ 435              		.align	2
+ 436              	.L30:
+ 437 00d8 00100240 		.word	1073876992
+ 438              		.cfi_endproc
+ 439              	.LFE65:
+ 441              		.section	.text.stmgpio_read,"ax",%progbits
+ 442              		.align	1
+ 443              		.global	stmgpio_read
+ 444              		.syntax unified
+ 445              		.thumb
+ 446              		.thumb_func
+ 448              	stmgpio_read:
+ 449              	.LVL30:
+ 450              	.LFB68:
  183:Core/Src/hw_stmgpio.c **** 
  184:Core/Src/hw_stmgpio.c **** stmgpio_state_t stmgpio_read(stmgpio_t *gpio)
  185:Core/Src/hw_stmgpio.c **** {
- 452              		.loc 1 185 1 is_stmt 1 view -0
- 453              		.cfi_startproc
- 454              		@ args = 0, pretend = 0, frame = 0
- 455              		@ frame_needed = 0, uses_anonymous_args = 0
- 456              		@ link register save eliminated.
- 457              		.loc 1 185 1 is_stmt 0 view .LVU149
- 458 0000 0346     		mov	r3, r0
+ 451              		.loc 1 185 1 is_stmt 1 view -0
+ 452              		.cfi_startproc
+ 453              		@ args = 0, pretend = 0, frame = 0
+ 454              		@ frame_needed = 0, uses_anonymous_args = 0
+ 455              		@ link register save eliminated.
+ 456              		.loc 1 185 1 is_stmt 0 view .LVU149
+ 457 0000 0346     		mov	r3, r0
  186:Core/Src/hw_stmgpio.c ****   /* retrieve the GPIO state on function call */
  187:Core/Src/hw_stmgpio.c ****   gpio->state = (stmgpio_state_t)((gpio->port_reg_addr->IDR) & (0x01 << gpio->pin));
- 459              		.loc 1 187 3 is_stmt 1 view .LVU150
- 460              		.loc 1 187 40 is_stmt 0 view .LVU151
- 461 0002 8268     		ldr	r2, [r0, #8]
- 462              		.loc 1 187 55 view .LVU152
- 463 0004 9268     		ldr	r2, [r2, #8]
- 464              		.loc 1 187 77 view .LVU153
- 465 0006 4179     		ldrb	r1, [r0, #5]	@ zero_extendqisi2
-ARM GAS  /tmp/ccX8Eru9.s 			page 14
+ 458              		.loc 1 187 3 is_stmt 1 view .LVU150
+ 459              		.loc 1 187 40 is_stmt 0 view .LVU151
+ 460 0002 8268     		ldr	r2, [r0, #8]
+ 461              		.loc 1 187 55 view .LVU152
+ 462 0004 9268     		ldr	r2, [r2, #8]
+ 463              		.loc 1 187 77 view .LVU153
+ 464 0006 4179     		ldrb	r1, [r0, #5]	@ zero_extendqisi2
+ 465              		.loc 1 187 70 view .LVU154
+ARM GAS  /tmp/ccxJpNTf.s 			page 14
 
 
- 466              		.loc 1 187 70 view .LVU154
- 467 0008 0120     		movs	r0, #1
- 468              	.LVL31:
- 469              		.loc 1 187 70 view .LVU155
- 470 000a 8840     		lsls	r0, r0, r1
- 471              		.loc 1 187 17 view .LVU156
- 472 000c C0B2     		uxtb	r0, r0
- 473              		.loc 1 187 62 view .LVU157
- 474 000e 1040     		ands	r0, r0, r2
- 475              		.loc 1 187 15 view .LVU158
- 476 0010 1870     		strb	r0, [r3]
+ 466 0008 0120     		movs	r0, #1
+ 467              	.LVL31:
+ 468              		.loc 1 187 70 view .LVU155
+ 469 000a 8840     		lsls	r0, r0, r1
+ 470              		.loc 1 187 17 view .LVU156
+ 471 000c C0B2     		uxtb	r0, r0
+ 472              		.loc 1 187 62 view .LVU157
+ 473 000e 1040     		ands	r0, r0, r2
+ 474              		.loc 1 187 15 view .LVU158
+ 475 0010 1870     		strb	r0, [r3]
  188:Core/Src/hw_stmgpio.c ****   return gpio->state;
- 477              		.loc 1 188 3 is_stmt 1 view .LVU159
+ 476              		.loc 1 188 3 is_stmt 1 view .LVU159
  189:Core/Src/hw_stmgpio.c **** }...
- 478              		.loc 1 189 1 is_stmt 0 view .LVU160
- 479 0012 7047     		bx	lr
- 480              		.cfi_endproc
- 481              	.LFE68:
- 483              		.global	PORT_D_PINS
- 484              		.global	PORT_C_PINS
- 485              		.global	PORT_B_PINS
- 486              		.global	PORT_A_PINS
- 487              		.section	.rodata.PORT_A_PINS,"a"
- 488              		.align	2
- 489              		.set	.LANCHOR0,. + 0
- 492              	PORT_A_PINS:
- 493 0000 01       		.byte	1
- 494 0001 01       		.byte	1
- 495 0002 01       		.byte	1
- 496 0003 01       		.byte	1
- 497 0004 01       		.byte	1
- 498 0005 01       		.byte	1
- 499 0006 01       		.byte	1
- 500 0007 01       		.byte	1
- 501 0008 01       		.byte	1
- 502 0009 01       		.byte	1
- 503 000a 01       		.byte	1
- 504 000b 01       		.byte	1
- 505 000c 01       		.byte	1
- 506 000d 01       		.byte	1
- 507 000e 01       		.byte	1
- 508 000f 01       		.byte	1
- 509              		.section	.rodata.PORT_B_PINS,"a"
- 510              		.align	2
- 511              		.set	.LANCHOR1,. + 0
- 514              	PORT_B_PINS:
- 515 0000 01       		.byte	1
- 516 0001 01       		.byte	1
- 517 0002 01       		.byte	1
- 518 0003 01       		.byte	1
- 519 0004 01       		.byte	1
- 520 0005 01       		.byte	1
- 521 0006 01       		.byte	1
- 522 0007 01       		.byte	1
- 523 0008 01       		.byte	1
- 524 0009 01       		.byte	1
- 525 000a 01       		.byte	1
-ARM GAS  /tmp/ccX8Eru9.s 			page 15
+ 477              		.loc 1 189 1 is_stmt 0 view .LVU160
+ 478 0012 7047     		bx	lr
+ 479              		.cfi_endproc
+ 480              	.LFE68:
+ 482              		.global	PORT_D_PINS
+ 483              		.global	PORT_C_PINS
+ 484              		.global	PORT_B_PINS
+ 485              		.global	PORT_A_PINS
+ 486              		.section	.rodata.PORT_A_PINS,"a"
+ 487              		.align	2
+ 488              		.set	.LANCHOR0,. + 0
+ 491              	PORT_A_PINS:
+ 492 0000 01       		.byte	1
+ 493 0001 01       		.byte	1
+ 494 0002 01       		.byte	1
+ 495 0003 01       		.byte	1
+ 496 0004 01       		.byte	1
+ 497 0005 01       		.byte	1
+ 498 0006 01       		.byte	1
+ 499 0007 01       		.byte	1
+ 500 0008 01       		.byte	1
+ 501 0009 01       		.byte	1
+ 502 000a 01       		.byte	1
+ 503 000b 01       		.byte	1
+ 504 000c 01       		.byte	1
+ 505 000d 01       		.byte	1
+ 506 000e 01       		.byte	1
+ 507 000f 01       		.byte	1
+ 508              		.section	.rodata.PORT_B_PINS,"a"
+ 509              		.align	2
+ 510              		.set	.LANCHOR1,. + 0
+ 513              	PORT_B_PINS:
+ 514 0000 01       		.byte	1
+ 515 0001 01       		.byte	1
+ 516 0002 01       		.byte	1
+ 517 0003 01       		.byte	1
+ 518 0004 01       		.byte	1
+ 519 0005 01       		.byte	1
+ 520 0006 01       		.byte	1
+ 521 0007 01       		.byte	1
+ 522 0008 01       		.byte	1
+ 523 0009 01       		.byte	1
+ 524 000a 01       		.byte	1
+ 525 000b 01       		.byte	1
+ARM GAS  /tmp/ccxJpNTf.s 			page 15
 
 
- 526 000b 01       		.byte	1
- 527 000c 01       		.byte	1
- 528 000d 01       		.byte	1
- 529 000e 01       		.byte	1
- 530 000f 01       		.byte	1
- 531              		.section	.rodata.PORT_C_PINS,"a"
- 532              		.align	2
- 533              		.set	.LANCHOR2,. + 0
- 536              	PORT_C_PINS:
- 537 0000 00       		.byte	0
- 538 0001 00       		.byte	0
- 539 0002 00       		.byte	0
- 540 0003 00       		.byte	0
- 541 0004 00       		.byte	0
- 542 0005 00       		.byte	0
- 543 0006 00       		.byte	0
- 544 0007 00       		.byte	0
- 545 0008 00       		.byte	0
- 546 0009 00       		.byte	0
- 547 000a 00       		.byte	0
- 548 000b 00       		.byte	0
- 549 000c 00       		.byte	0
- 550 000d 01       		.byte	1
- 551 000e 01       		.byte	1
- 552 000f 01       		.byte	1
- 553              		.section	.rodata.PORT_D_PINS,"a"
- 554              		.align	2
- 555              		.set	.LANCHOR3,. + 0
- 558              	PORT_D_PINS:
- 559 0000 01       		.byte	1
- 560 0001 01       		.byte	1
- 561 0002 00       		.byte	0
- 562 0003 00       		.byte	0
- 563 0004 00       		.byte	0
- 564 0005 00       		.byte	0
- 565 0006 00       		.byte	0
- 566 0007 00       		.byte	0
- 567 0008 00       		.byte	0
- 568 0009 00       		.byte	0
- 569 000a 00       		.byte	0
- 570 000b 00       		.byte	0
- 571 000c 00       		.byte	0
- 572 000d 00       		.byte	0
- 573 000e 00       		.byte	0
- 574 000f 00       		.byte	0
- 575              		.text
- 576              	.Letext0:
- 577              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 578              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 579              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 580              		.file 5 "Core/Inc/hw_stmgpio.h"
-ARM GAS  /tmp/ccX8Eru9.s 			page 16
+ 526 000c 01       		.byte	1
+ 527 000d 01       		.byte	1
+ 528 000e 01       		.byte	1
+ 529 000f 01       		.byte	1
+ 530              		.section	.rodata.PORT_C_PINS,"a"
+ 531              		.align	2
+ 532              		.set	.LANCHOR2,. + 0
+ 535              	PORT_C_PINS:
+ 536 0000 00       		.byte	0
+ 537 0001 00       		.byte	0
+ 538 0002 00       		.byte	0
+ 539 0003 00       		.byte	0
+ 540 0004 00       		.byte	0
+ 541 0005 00       		.byte	0
+ 542 0006 00       		.byte	0
+ 543 0007 00       		.byte	0
+ 544 0008 00       		.byte	0
+ 545 0009 00       		.byte	0
+ 546 000a 00       		.byte	0
+ 547 000b 00       		.byte	0
+ 548 000c 00       		.byte	0
+ 549 000d 01       		.byte	1
+ 550 000e 01       		.byte	1
+ 551 000f 01       		.byte	1
+ 552              		.section	.rodata.PORT_D_PINS,"a"
+ 553              		.align	2
+ 554              		.set	.LANCHOR3,. + 0
+ 557              	PORT_D_PINS:
+ 558 0000 01       		.byte	1
+ 559 0001 01       		.byte	1
+ 560 0002 00       		.byte	0
+ 561 0003 00       		.byte	0
+ 562 0004 00       		.byte	0
+ 563 0005 00       		.byte	0
+ 564 0006 00       		.byte	0
+ 565 0007 00       		.byte	0
+ 566 0008 00       		.byte	0
+ 567 0009 00       		.byte	0
+ 568 000a 00       		.byte	0
+ 569 000b 00       		.byte	0
+ 570 000c 00       		.byte	0
+ 571 000d 00       		.byte	0
+ 572 000e 00       		.byte	0
+ 573 000f 00       		.byte	0
+ 574              		.text
+ 575              	.Letext0:
+ 576              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 577              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 578              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 579              		.file 5 "Core/Inc/hw_stmgpio.h"
+ARM GAS  /tmp/ccxJpNTf.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hw_stmgpio.c
-     /tmp/ccX8Eru9.s:18     .text.stmgpio_write:0000000000000000 $t
-     /tmp/ccX8Eru9.s:24     .text.stmgpio_write:0000000000000000 stmgpio_write
-     /tmp/ccX8Eru9.s:82     .text.stmgpio_can_init:0000000000000000 $t
-     /tmp/ccX8Eru9.s:88     .text.stmgpio_can_init:0000000000000000 stmgpio_can_init
-     /tmp/ccX8Eru9.s:142    .text.stmgpio_can_init:0000000000000034 $d
-     /tmp/ccX8Eru9.s:146    .text.stmgpio_can_init:0000000000000038 $t
-     /tmp/ccX8Eru9.s:221    .text.stmgpio_can_init:0000000000000064 $d
-     /tmp/ccX8Eru9.s:229    .text.stmgpio_setup:0000000000000000 $t
-     /tmp/ccX8Eru9.s:235    .text.stmgpio_setup:0000000000000000 stmgpio_setup
-     /tmp/ccX8Eru9.s:438    .text.stmgpio_setup:00000000000000d8 $d
-     /tmp/ccX8Eru9.s:443    .text.stmgpio_read:0000000000000000 $t
-     /tmp/ccX8Eru9.s:449    .text.stmgpio_read:0000000000000000 stmgpio_read
-     /tmp/ccX8Eru9.s:558    .rodata.PORT_D_PINS:0000000000000000 PORT_D_PINS
-     /tmp/ccX8Eru9.s:536    .rodata.PORT_C_PINS:0000000000000000 PORT_C_PINS
-     /tmp/ccX8Eru9.s:514    .rodata.PORT_B_PINS:0000000000000000 PORT_B_PINS
-     /tmp/ccX8Eru9.s:492    .rodata.PORT_A_PINS:0000000000000000 PORT_A_PINS
-     /tmp/ccX8Eru9.s:488    .rodata.PORT_A_PINS:0000000000000000 $d
-     /tmp/ccX8Eru9.s:510    .rodata.PORT_B_PINS:0000000000000000 $d
-     /tmp/ccX8Eru9.s:532    .rodata.PORT_C_PINS:0000000000000000 $d
-     /tmp/ccX8Eru9.s:554    .rodata.PORT_D_PINS:0000000000000000 $d
+     /tmp/ccxJpNTf.s:18     .text.stmgpio_write:0000000000000000 $t
+     /tmp/ccxJpNTf.s:24     .text.stmgpio_write:0000000000000000 stmgpio_write
+     /tmp/ccxJpNTf.s:82     .text.stmgpio_can_init:0000000000000000 $t
+     /tmp/ccxJpNTf.s:88     .text.stmgpio_can_init:0000000000000000 stmgpio_can_init
+     /tmp/ccxJpNTf.s:142    .text.stmgpio_can_init:0000000000000034 $d
+     /tmp/ccxJpNTf.s:146    .text.stmgpio_can_init:0000000000000038 $t
+     /tmp/ccxJpNTf.s:221    .text.stmgpio_can_init:0000000000000064 $d
+     /tmp/ccxJpNTf.s:229    .text.stmgpio_setup:0000000000000000 $t
+     /tmp/ccxJpNTf.s:235    .text.stmgpio_setup:0000000000000000 stmgpio_setup
+     /tmp/ccxJpNTf.s:437    .text.stmgpio_setup:00000000000000d8 $d
+     /tmp/ccxJpNTf.s:442    .text.stmgpio_read:0000000000000000 $t
+     /tmp/ccxJpNTf.s:448    .text.stmgpio_read:0000000000000000 stmgpio_read
+     /tmp/ccxJpNTf.s:557    .rodata.PORT_D_PINS:0000000000000000 PORT_D_PINS
+     /tmp/ccxJpNTf.s:535    .rodata.PORT_C_PINS:0000000000000000 PORT_C_PINS
+     /tmp/ccxJpNTf.s:513    .rodata.PORT_B_PINS:0000000000000000 PORT_B_PINS
+     /tmp/ccxJpNTf.s:491    .rodata.PORT_A_PINS:0000000000000000 PORT_A_PINS
+     /tmp/ccxJpNTf.s:487    .rodata.PORT_A_PINS:0000000000000000 $d
+     /tmp/ccxJpNTf.s:509    .rodata.PORT_B_PINS:0000000000000000 $d
+     /tmp/ccxJpNTf.s:531    .rodata.PORT_C_PINS:0000000000000000 $d
+     /tmp/ccxJpNTf.s:553    .rodata.PORT_D_PINS:0000000000000000 $d
 
 NO UNDEFINED SYMBOLS

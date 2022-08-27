@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccpOGdHK.s 			page 1
+ARM GAS  /tmp/cczRfTgy.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccpOGdHK.s 			page 1
   47              		.loc 1 11 108 view -0
   48              		.cfi_startproc
   49              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccpOGdHK.s 			page 2
+ARM GAS  /tmp/cczRfTgy.s 			page 2
 
 
   50              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -85,34 +85,32 @@ ARM GAS  /tmp/ccpOGdHK.s 			page 1
   69              		@ frame_needed = 0, uses_anonymous_args = 0
   70              		@ link register save eliminated.
   71 0000 84B0     		sub	sp, sp, #16
-  72              	.LCFI0:
-  73              		.cfi_def_cfa_offset 16
-  74 0002 04AB     		add	r3, sp, #16
-  75 0004 03E90700 		stmdb	r3, {r0, r1, r2}
+  72              		.cfi_def_cfa_offset 16
+  73 0002 04AB     		add	r3, sp, #16
+  74 0004 03E90700 		stmdb	r3, {r0, r1, r2}
   16:Core/Src/util_error.c ****     
   17:Core/Src/util_error.c **** }...
-  76              		.loc 1 17 1 view .LVU5
-  77 0008 04B0     		add	sp, sp, #16
-  78              	.LCFI1:
-  79              		.cfi_def_cfa_offset 0
-  80              		@ sp needed
-  81 000a 7047     		bx	lr
-  82              		.cfi_endproc
-  83              	.LFE2:
-  85              		.text
-  86              	.Letext0:
-  87              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
-  88              		.file 3 "Core/Inc/util_error.h"
-ARM GAS  /tmp/ccpOGdHK.s 			page 3
+  75              		.loc 1 17 1 view .LVU5
+  76 0008 04B0     		add	sp, sp, #16
+  77              		.cfi_def_cfa_offset 0
+  78              		@ sp needed
+  79 000a 7047     		bx	lr
+  80              		.cfi_endproc
+  81              	.LFE2:
+  83              		.text
+  84              	.Letext0:
+  85              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+  86              		.file 3 "Core/Inc/util_error.h"
+ARM GAS  /tmp/cczRfTgy.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 util_error.c
-     /tmp/ccpOGdHK.s:18     .text.dbg_log_init:0000000000000000 $t
-     /tmp/ccpOGdHK.s:24     .text.dbg_log_init:0000000000000000 dbg_log_init
-     /tmp/ccpOGdHK.s:38     .text.dbg_log:0000000000000000 $t
-     /tmp/ccpOGdHK.s:44     .text.dbg_log:0000000000000000 dbg_log
-     /tmp/ccpOGdHK.s:58     .text.dbg_log_code:0000000000000000 $t
-     /tmp/ccpOGdHK.s:64     .text.dbg_log_code:0000000000000000 dbg_log_code
+     /tmp/cczRfTgy.s:18     .text.dbg_log_init:0000000000000000 $t
+     /tmp/cczRfTgy.s:24     .text.dbg_log_init:0000000000000000 dbg_log_init
+     /tmp/cczRfTgy.s:38     .text.dbg_log:0000000000000000 $t
+     /tmp/cczRfTgy.s:44     .text.dbg_log:0000000000000000 dbg_log
+     /tmp/cczRfTgy.s:58     .text.dbg_log_code:0000000000000000 $t
+     /tmp/cczRfTgy.s:64     .text.dbg_log_code:0000000000000000 dbg_log_code
 
 NO UNDEFINED SYMBOLS

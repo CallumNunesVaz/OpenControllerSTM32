@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccJD4Rpe.s 			page 1
+ARM GAS  /tmp/ccUzcCJ8.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccJD4Rpe.s 			page 1
   30:Core/Src/main.c **** int main(void)
   31:Core/Src/main.c **** {
   32:Core/Src/main.c ****   uint8_t idx;
-ARM GAS  /tmp/ccJD4Rpe.s 			page 2
+ARM GAS  /tmp/ccUzcCJ8.s 			page 2
 
 
   33:Core/Src/main.c **** 
@@ -69,29 +69,29 @@ ARM GAS  /tmp/ccJD4Rpe.s 			page 1
   38:Core/Src/main.c ****   hw_systick_init(1000);
   39:Core/Src/main.c **** 
   40:Core/Src/main.c ****   /* Configure the system heartbeat */
-  41:Core/Src/main.c ****   //ASSERT(heartbeat_init());
-  42:Core/Src/main.c ****   heartbeat_init();
-  43:Core/Src/main.c ****   heartbeat_set_pattern_mode(LED_BREATHE);
-  44:Core/Src/main.c ****   heartbeat_set_poll_mode(false);
-  45:Core/Src/main.c ****   heartbeat_set_period_ms(1000);
-  46:Core/Src/main.c ****   heartbeat_start();
-  47:Core/Src/main.c **** 
-  48:Core/Src/main.c ****   /* Initialise binary outputs */
-  49:Core/Src/main.c ****   // bout_init();
-  50:Core/Src/main.c **** 
-  51:Core/Src/main.c ****   //i2c_init();
-  52:Core/Src/main.c **** 
-  53:Core/Src/main.c ****   /* interrupts (move to new file!) */
-  54:Core/Src/main.c ****   //__enable_irq();
-  55:Core/Src/main.c **** 
-  56:Core/Src/main.c ****   //gpioexp_init();
-  57:Core/Src/main.c **** 
-  58:Core/Src/main.c ****   /* Initialised everything! */
-  59:Core/Src/main.c ****   // dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_NAME, sizeof(DBG_NAME));
-  60:Core/Src/main.c **** 
-  61:Core/Src/main.c ****   /* Main loop */
-  62:Core/Src/main.c ****   while (1)
-  63:Core/Src/main.c ****   {
+  41:Core/Src/main.c ****   ASSERT_INT(heartbeat_init());
+  42:Core/Src/main.c ****   heartbeat_set_pattern_mode(LED_BREATHE);
+  43:Core/Src/main.c ****   heartbeat_set_poll_mode(true);
+  44:Core/Src/main.c ****   heartbeat_set_period_ms(1000);
+  45:Core/Src/main.c ****   heartbeat_start();
+  46:Core/Src/main.c **** 
+  47:Core/Src/main.c ****   /* Initialise binary outputs */
+  48:Core/Src/main.c ****   ASSERT_INT(bout_init());
+  49:Core/Src/main.c **** 
+  50:Core/Src/main.c ****   ASSERT_INT(i2c_init());
+  51:Core/Src/main.c **** 
+  52:Core/Src/main.c ****   /* interrupts (move to new file!) */
+  53:Core/Src/main.c ****   //__enable_irq();
+  54:Core/Src/main.c **** 
+  55:Core/Src/main.c ****   gpioexp_init();
+  56:Core/Src/main.c **** 
+  57:Core/Src/main.c ****   /* Initialised everything! */
+  58:Core/Src/main.c ****   // dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_NAME, sizeof(DBG_NAME));
+  59:Core/Src/main.c **** 
+  60:Core/Src/main.c ****   /* Main loop */
+  61:Core/Src/main.c ****   while (1)
+  62:Core/Src/main.c ****   {
+  63:Core/Src/main.c ****     i2c_poll_fsm();
   64:Core/Src/main.c ****     heartbeat_poll();
   65:Core/Src/main.c ****     // for (idx = 0; idx < 7; idx++) {
   66:Core/Src/main.c ****     //   bout_reset_lib();
@@ -112,39 +112,38 @@ ARM GAS  /tmp/ccJD4Rpe.s 			page 1
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31 0000 08B5     		push	{r3, lr}
-  32              	.LCFI0:
-  33              		.cfi_def_cfa_offset 8
-  34              		.cfi_offset 3, -8
-  35              		.cfi_offset 14, -4
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 3, -8
+  34              		.cfi_offset 14, -4
   79:Core/Src/main.c ****   /* Internal 8MHz HSI Configuration:
   80:Core/Src/main.c ****    * ON
-ARM GAS  /tmp/ccJD4Rpe.s 			page 3
-
-
   81:Core/Src/main.c ****    * Trim set to default = 16
+ARM GAS  /tmp/ccUzcCJ8.s 			page 3
+
+
   82:Core/Src/main.c ****    * Cal at startup default
   83:Core/Src/main.c ****    */
   84:Core/Src/main.c ****   RCC->CR |= RCC_CR_HSION_Pos;
-  36              		.loc 1 84 3 view .LVU1
-  37              		.loc 1 84 11 is_stmt 0 view .LVU2
-  38 0002 374B     		ldr	r3, .L7
-  39 0004 1A68     		ldr	r2, [r3]
-  40 0006 1A60     		str	r2, [r3]
+  35              		.loc 1 84 3 view .LVU1
+  36              		.loc 1 84 11 is_stmt 0 view .LVU2
+  37 0002 374B     		ldr	r3, .L7
+  38 0004 1A68     		ldr	r2, [r3]
+  39 0006 1A60     		str	r2, [r3]
   85:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSIRDY))
-  41              		.loc 1 85 3 is_stmt 1 view .LVU3
-  42              	.L2:
+  40              		.loc 1 85 3 is_stmt 1 view .LVU3
+  41              	.L2:
   86:Core/Src/main.c ****     ;
-  43              		.loc 1 86 5 discriminator 1 view .LVU4
+  42              		.loc 1 86 5 discriminator 1 view .LVU4
   85:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSIRDY))
-  44              		.loc 1 85 9 discriminator 1 view .LVU5
+  43              		.loc 1 85 9 discriminator 1 view .LVU5
   85:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSIRDY))
-  45              		.loc 1 85 15 is_stmt 0 discriminator 1 view .LVU6
-  46 0008 354B     		ldr	r3, .L7
-  47 000a 1B68     		ldr	r3, [r3]
+  44              		.loc 1 85 15 is_stmt 0 discriminator 1 view .LVU6
+  45 0008 354B     		ldr	r3, .L7
+  46 000a 1B68     		ldr	r3, [r3]
   85:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSIRDY))
-  48              		.loc 1 85 9 discriminator 1 view .LVU7
-  49 000c 13F0020F 		tst	r3, #2
-  50 0010 FAD0     		beq	.L2
+  47              		.loc 1 85 9 discriminator 1 view .LVU7
+  48 000c 13F0020F 		tst	r3, #2
+  49 0010 FAD0     		beq	.L2
   87:Core/Src/main.c **** 
   88:Core/Src/main.c ****   /* External 8MHz HSE Configuration:
   89:Core/Src/main.c ****    * ON
@@ -152,36 +151,36 @@ ARM GAS  /tmp/ccJD4Rpe.s 			page 1
   91:Core/Src/main.c ****    *
   92:Core/Src/main.c ****    */
   93:Core/Src/main.c ****   RCC->CR |= RCC_CR_HSEON;
-  51              		.loc 1 93 3 is_stmt 1 view .LVU8
-  52              		.loc 1 93 11 is_stmt 0 view .LVU9
-  53 0012 334B     		ldr	r3, .L7
-  54 0014 1A68     		ldr	r2, [r3]
-  55 0016 42F48032 		orr	r2, r2, #65536
-  56 001a 1A60     		str	r2, [r3]
+  50              		.loc 1 93 3 is_stmt 1 view .LVU8
+  51              		.loc 1 93 11 is_stmt 0 view .LVU9
+  52 0012 334B     		ldr	r3, .L7
+  53 0014 1A68     		ldr	r2, [r3]
+  54 0016 42F48032 		orr	r2, r2, #65536
+  55 001a 1A60     		str	r2, [r3]
   94:Core/Src/main.c ****   RCC->CR &= ~RCC_CR_HSEBYP;
-  57              		.loc 1 94 3 is_stmt 1 view .LVU10
-  58              		.loc 1 94 11 is_stmt 0 view .LVU11
-  59 001c 1A68     		ldr	r2, [r3]
-  60 001e 22F48022 		bic	r2, r2, #262144
-  61 0022 1A60     		str	r2, [r3]
+  56              		.loc 1 94 3 is_stmt 1 view .LVU10
+  57              		.loc 1 94 11 is_stmt 0 view .LVU11
+  58 001c 1A68     		ldr	r2, [r3]
+  59 001e 22F48022 		bic	r2, r2, #262144
+  60 0022 1A60     		str	r2, [r3]
   95:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSERDY))
-  62              		.loc 1 95 3 is_stmt 1 view .LVU12
-  63              	.L3:
+  61              		.loc 1 95 3 is_stmt 1 view .LVU12
+  62              	.L3:
   96:Core/Src/main.c ****     ;
-  64              		.loc 1 96 5 discriminator 1 view .LVU13
+  63              		.loc 1 96 5 discriminator 1 view .LVU13
   95:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSERDY))
-  65              		.loc 1 95 9 discriminator 1 view .LVU14
+  64              		.loc 1 95 9 discriminator 1 view .LVU14
   95:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSERDY))
-  66              		.loc 1 95 15 is_stmt 0 discriminator 1 view .LVU15
-  67 0024 2E4B     		ldr	r3, .L7
-  68 0026 1B68     		ldr	r3, [r3]
+  65              		.loc 1 95 15 is_stmt 0 discriminator 1 view .LVU15
+  66 0024 2E4B     		ldr	r3, .L7
+  67 0026 1B68     		ldr	r3, [r3]
   95:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSERDY))
-  69              		.loc 1 95 9 discriminator 1 view .LVU16
-  70 0028 13F4003F 		tst	r3, #131072
-ARM GAS  /tmp/ccJD4Rpe.s 			page 4
+  68              		.loc 1 95 9 discriminator 1 view .LVU16
+  69 0028 13F4003F 		tst	r3, #131072
+  70 002c FAD0     		beq	.L3
+ARM GAS  /tmp/ccUzcCJ8.s 			page 4
 
 
-  71 002c FAD0     		beq	.L3
   97:Core/Src/main.c **** 
   98:Core/Src/main.c ****   /* Flash latency configuration:
   99:Core/Src/main.c ****    * Enable pre-fetch buffer
@@ -189,30 +188,30 @@ ARM GAS  /tmp/ccJD4Rpe.s 			page 1
  101:Core/Src/main.c ****    * Set wait states (latency) to two, as main clock will be 72MHz
  102:Core/Src/main.c ****    */
  103:Core/Src/main.c ****   FLASH->ACR |= FLASH_ACR_PRFTBE;
-  72              		.loc 1 103 3 is_stmt 1 view .LVU17
-  73              		.loc 1 103 14 is_stmt 0 view .LVU18
-  74 002e 2D4B     		ldr	r3, .L7+4
-  75 0030 1A68     		ldr	r2, [r3]
-  76 0032 42F01002 		orr	r2, r2, #16
-  77 0036 1A60     		str	r2, [r3]
+  71              		.loc 1 103 3 is_stmt 1 view .LVU17
+  72              		.loc 1 103 14 is_stmt 0 view .LVU18
+  73 002e 2D4B     		ldr	r3, .L7+4
+  74 0030 1A68     		ldr	r2, [r3]
+  75 0032 42F01002 		orr	r2, r2, #16
+  76 0036 1A60     		str	r2, [r3]
  104:Core/Src/main.c ****   FLASH->ACR &= ~FLASH_ACR_HLFCYA;
-  78              		.loc 1 104 3 is_stmt 1 view .LVU19
-  79              		.loc 1 104 14 is_stmt 0 view .LVU20
-  80 0038 1A68     		ldr	r2, [r3]
-  81 003a 22F00802 		bic	r2, r2, #8
-  82 003e 1A60     		str	r2, [r3]
+  77              		.loc 1 104 3 is_stmt 1 view .LVU19
+  78              		.loc 1 104 14 is_stmt 0 view .LVU20
+  79 0038 1A68     		ldr	r2, [r3]
+  80 003a 22F00802 		bic	r2, r2, #8
+  81 003e 1A60     		str	r2, [r3]
  105:Core/Src/main.c ****   FLASH->ACR &= ~FLASH_ACR_LATENCY; // reset
-  83              		.loc 1 105 3 is_stmt 1 view .LVU21
-  84              		.loc 1 105 14 is_stmt 0 view .LVU22
-  85 0040 1A68     		ldr	r2, [r3]
-  86 0042 22F00702 		bic	r2, r2, #7
-  87 0046 1A60     		str	r2, [r3]
+  82              		.loc 1 105 3 is_stmt 1 view .LVU21
+  83              		.loc 1 105 14 is_stmt 0 view .LVU22
+  84 0040 1A68     		ldr	r2, [r3]
+  85 0042 22F00702 		bic	r2, r2, #7
+  86 0046 1A60     		str	r2, [r3]
  106:Core/Src/main.c ****   FLASH->ACR |= FLASH_ACR_LATENCY_1;
-  88              		.loc 1 106 3 is_stmt 1 view .LVU23
-  89              		.loc 1 106 14 is_stmt 0 view .LVU24
-  90 0048 1A68     		ldr	r2, [r3]
-  91 004a 42F00202 		orr	r2, r2, #2
-  92 004e 1A60     		str	r2, [r3]
+  87              		.loc 1 106 3 is_stmt 1 view .LVU23
+  88              		.loc 1 106 14 is_stmt 0 view .LVU24
+  89 0048 1A68     		ldr	r2, [r3]
+  90 004a 42F00202 		orr	r2, r2, #2
+  91 004e 1A60     		str	r2, [r3]
  107:Core/Src/main.c **** 
  108:Core/Src/main.c ****   /* Clock configuration
  109:Core/Src/main.c ****    * Disable PLL
@@ -228,223 +227,247 @@ ARM GAS  /tmp/ccJD4Rpe.s 			page 1
  119:Core/Src/main.c ****    * PLL as system clock
  120:Core/Src/main.c ****    */
  121:Core/Src/main.c ****   RCC->CR &= ~RCC_CR_PLLON; // clear to allow changes
-  93              		.loc 1 121 3 is_stmt 1 view .LVU25
-  94              		.loc 1 121 11 is_stmt 0 view .LVU26
-  95 0050 A3F58053 		sub	r3, r3, #4096
-  96 0054 1A68     		ldr	r2, [r3]
-  97 0056 22F08072 		bic	r2, r2, #16777216
-  98 005a 1A60     		str	r2, [r3]
+  92              		.loc 1 121 3 is_stmt 1 view .LVU25
+  93              		.loc 1 121 11 is_stmt 0 view .LVU26
+  94 0050 A3F58053 		sub	r3, r3, #4096
+  95 0054 1A68     		ldr	r2, [r3]
+  96 0056 22F08072 		bic	r2, r2, #16777216
+  97 005a 1A60     		str	r2, [r3]
  122:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_MCO;
-  99              		.loc 1 122 3 is_stmt 1 view .LVU27
- 100              		.loc 1 122 13 is_stmt 0 view .LVU28
- 101 005c 5A68     		ldr	r2, [r3, #4]
-ARM GAS  /tmp/ccJD4Rpe.s 			page 5
+  98              		.loc 1 122 3 is_stmt 1 view .LVU27
+  99              		.loc 1 122 13 is_stmt 0 view .LVU28
+ 100 005c 5A68     		ldr	r2, [r3, #4]
+ 101 005e 22F0E062 		bic	r2, r2, #117440512
+ARM GAS  /tmp/ccUzcCJ8.s 			page 5
 
 
- 102 005e 22F0E062 		bic	r2, r2, #117440512
- 103 0062 5A60     		str	r2, [r3, #4]
+ 102 0062 5A60     		str	r2, [r3, #4]
  123:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_USBPRE;
- 104              		.loc 1 123 3 is_stmt 1 view .LVU29
- 105              		.loc 1 123 13 is_stmt 0 view .LVU30
- 106 0064 5A68     		ldr	r2, [r3, #4]
- 107 0066 22F48002 		bic	r2, r2, #4194304
- 108 006a 5A60     		str	r2, [r3, #4]
+ 103              		.loc 1 123 3 is_stmt 1 view .LVU29
+ 104              		.loc 1 123 13 is_stmt 0 view .LVU30
+ 105 0064 5A68     		ldr	r2, [r3, #4]
+ 106 0066 22F48002 		bic	r2, r2, #4194304
+ 107 006a 5A60     		str	r2, [r3, #4]
  124:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_PLLSRC;
- 109              		.loc 1 124 3 is_stmt 1 view .LVU31
- 110              		.loc 1 124 13 is_stmt 0 view .LVU32
- 111 006c 5A68     		ldr	r2, [r3, #4]
- 112 006e 42F48032 		orr	r2, r2, #65536
- 113 0072 5A60     		str	r2, [r3, #4]
+ 108              		.loc 1 124 3 is_stmt 1 view .LVU31
+ 109              		.loc 1 124 13 is_stmt 0 view .LVU32
+ 110 006c 5A68     		ldr	r2, [r3, #4]
+ 111 006e 42F48032 		orr	r2, r2, #65536
+ 112 0072 5A60     		str	r2, [r3, #4]
  125:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_ADCPRE;
- 114              		.loc 1 125 3 is_stmt 1 view .LVU33
- 115              		.loc 1 125 13 is_stmt 0 view .LVU34
- 116 0074 5A68     		ldr	r2, [r3, #4]
- 117 0076 42F44042 		orr	r2, r2, #49152
- 118 007a 5A60     		str	r2, [r3, #4]
+ 113              		.loc 1 125 3 is_stmt 1 view .LVU33
+ 114              		.loc 1 125 13 is_stmt 0 view .LVU34
+ 115 0074 5A68     		ldr	r2, [r3, #4]
+ 116 0076 42F44042 		orr	r2, r2, #49152
+ 117 007a 5A60     		str	r2, [r3, #4]
  126:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_PPRE2;
- 119              		.loc 1 126 3 is_stmt 1 view .LVU35
- 120              		.loc 1 126 13 is_stmt 0 view .LVU36
- 121 007c 5A68     		ldr	r2, [r3, #4]
- 122 007e 22F46052 		bic	r2, r2, #14336
- 123 0082 5A60     		str	r2, [r3, #4]
+ 118              		.loc 1 126 3 is_stmt 1 view .LVU35
+ 119              		.loc 1 126 13 is_stmt 0 view .LVU36
+ 120 007c 5A68     		ldr	r2, [r3, #4]
+ 121 007e 22F46052 		bic	r2, r2, #14336
+ 122 0082 5A60     		str	r2, [r3, #4]
  127:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_PPRE1; // reset
- 124              		.loc 1 127 3 is_stmt 1 view .LVU37
- 125              		.loc 1 127 13 is_stmt 0 view .LVU38
- 126 0084 5A68     		ldr	r2, [r3, #4]
- 127 0086 22F4E062 		bic	r2, r2, #1792
- 128 008a 5A60     		str	r2, [r3, #4]
+ 123              		.loc 1 127 3 is_stmt 1 view .LVU37
+ 124              		.loc 1 127 13 is_stmt 0 view .LVU38
+ 125 0084 5A68     		ldr	r2, [r3, #4]
+ 126 0086 22F4E062 		bic	r2, r2, #1792
+ 127 008a 5A60     		str	r2, [r3, #4]
  128:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_PPRE1_2;
- 129              		.loc 1 128 3 is_stmt 1 view .LVU39
- 130              		.loc 1 128 13 is_stmt 0 view .LVU40
- 131 008c 5A68     		ldr	r2, [r3, #4]
- 132 008e 42F48062 		orr	r2, r2, #1024
- 133 0092 5A60     		str	r2, [r3, #4]
+ 128              		.loc 1 128 3 is_stmt 1 view .LVU39
+ 129              		.loc 1 128 13 is_stmt 0 view .LVU40
+ 130 008c 5A68     		ldr	r2, [r3, #4]
+ 131 008e 42F48062 		orr	r2, r2, #1024
+ 132 0092 5A60     		str	r2, [r3, #4]
  129:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_PLLMULL; // reset
- 134              		.loc 1 129 3 is_stmt 1 view .LVU41
- 135              		.loc 1 129 13 is_stmt 0 view .LVU42
- 136 0094 5A68     		ldr	r2, [r3, #4]
- 137 0096 22F47012 		bic	r2, r2, #3932160
- 138 009a 5A60     		str	r2, [r3, #4]
+ 133              		.loc 1 129 3 is_stmt 1 view .LVU41
+ 134              		.loc 1 129 13 is_stmt 0 view .LVU42
+ 135 0094 5A68     		ldr	r2, [r3, #4]
+ 136 0096 22F47012 		bic	r2, r2, #3932160
+ 137 009a 5A60     		str	r2, [r3, #4]
  130:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_PLLMULL9;
- 139              		.loc 1 130 3 is_stmt 1 view .LVU43
- 140              		.loc 1 130 13 is_stmt 0 view .LVU44
- 141 009c 5A68     		ldr	r2, [r3, #4]
- 142 009e 42F4E012 		orr	r2, r2, #1835008
- 143 00a2 5A60     		str	r2, [r3, #4]
+ 138              		.loc 1 130 3 is_stmt 1 view .LVU43
+ 139              		.loc 1 130 13 is_stmt 0 view .LVU44
+ 140 009c 5A68     		ldr	r2, [r3, #4]
+ 141 009e 42F4E012 		orr	r2, r2, #1835008
+ 142 00a2 5A60     		str	r2, [r3, #4]
  131:Core/Src/main.c ****   RCC->CR |= RCC_CR_PLLON;
- 144              		.loc 1 131 3 is_stmt 1 view .LVU45
- 145              		.loc 1 131 11 is_stmt 0 view .LVU46
- 146 00a4 1A68     		ldr	r2, [r3]
- 147 00a6 42F08072 		orr	r2, r2, #16777216
- 148 00aa 1A60     		str	r2, [r3]
+ 143              		.loc 1 131 3 is_stmt 1 view .LVU45
+ 144              		.loc 1 131 11 is_stmt 0 view .LVU46
+ 145 00a4 1A68     		ldr	r2, [r3]
+ 146 00a6 42F08072 		orr	r2, r2, #16777216
+ 147 00aa 1A60     		str	r2, [r3]
  132:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_PLLRDY))
-ARM GAS  /tmp/ccJD4Rpe.s 			page 6
+ 148              		.loc 1 132 3 is_stmt 1 view .LVU47
+ARM GAS  /tmp/ccUzcCJ8.s 			page 6
 
 
- 149              		.loc 1 132 3 is_stmt 1 view .LVU47
- 150              	.L4:
+ 149              	.L4:
  133:Core/Src/main.c ****     ;
- 151              		.loc 1 133 5 discriminator 1 view .LVU48
+ 150              		.loc 1 133 5 discriminator 1 view .LVU48
  132:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_PLLRDY))
- 152              		.loc 1 132 9 discriminator 1 view .LVU49
+ 151              		.loc 1 132 9 discriminator 1 view .LVU49
  132:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_PLLRDY))
- 153              		.loc 1 132 15 is_stmt 0 discriminator 1 view .LVU50
- 154 00ac 0C4B     		ldr	r3, .L7
- 155 00ae 1B68     		ldr	r3, [r3]
+ 152              		.loc 1 132 15 is_stmt 0 discriminator 1 view .LVU50
+ 153 00ac 0C4B     		ldr	r3, .L7
+ 154 00ae 1B68     		ldr	r3, [r3]
  132:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_PLLRDY))
- 156              		.loc 1 132 9 discriminator 1 view .LVU51
- 157 00b0 13F0007F 		tst	r3, #33554432
- 158 00b4 FAD0     		beq	.L4
+ 155              		.loc 1 132 9 discriminator 1 view .LVU51
+ 156 00b0 13F0007F 		tst	r3, #33554432
+ 157 00b4 FAD0     		beq	.L4
  134:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_HPRE;
- 159              		.loc 1 134 3 is_stmt 1 view .LVU52
- 160              		.loc 1 134 13 is_stmt 0 view .LVU53
- 161 00b6 0A4B     		ldr	r3, .L7
- 162 00b8 5A68     		ldr	r2, [r3, #4]
- 163 00ba 22F0F002 		bic	r2, r2, #240
- 164 00be 5A60     		str	r2, [r3, #4]
+ 158              		.loc 1 134 3 is_stmt 1 view .LVU52
+ 159              		.loc 1 134 13 is_stmt 0 view .LVU53
+ 160 00b6 0A4B     		ldr	r3, .L7
+ 161 00b8 5A68     		ldr	r2, [r3, #4]
+ 162 00ba 22F0F002 		bic	r2, r2, #240
+ 163 00be 5A60     		str	r2, [r3, #4]
  135:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_SW;
- 165              		.loc 1 135 3 is_stmt 1 view .LVU54
- 166              		.loc 1 135 13 is_stmt 0 view .LVU55
- 167 00c0 5A68     		ldr	r2, [r3, #4]
- 168 00c2 22F00302 		bic	r2, r2, #3
- 169 00c6 5A60     		str	r2, [r3, #4]
+ 164              		.loc 1 135 3 is_stmt 1 view .LVU54
+ 165              		.loc 1 135 13 is_stmt 0 view .LVU55
+ 166 00c0 5A68     		ldr	r2, [r3, #4]
+ 167 00c2 22F00302 		bic	r2, r2, #3
+ 168 00c6 5A60     		str	r2, [r3, #4]
  136:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_SW_PLL;
- 170              		.loc 1 136 3 is_stmt 1 view .LVU56
- 171              		.loc 1 136 13 is_stmt 0 view .LVU57
- 172 00c8 5A68     		ldr	r2, [r3, #4]
- 173 00ca 42F00202 		orr	r2, r2, #2
- 174 00ce 5A60     		str	r2, [r3, #4]
+ 169              		.loc 1 136 3 is_stmt 1 view .LVU56
+ 170              		.loc 1 136 13 is_stmt 0 view .LVU57
+ 171 00c8 5A68     		ldr	r2, [r3, #4]
+ 172 00ca 42F00202 		orr	r2, r2, #2
+ 173 00ce 5A60     		str	r2, [r3, #4]
  137:Core/Src/main.c ****   while (!(RCC->CFGR & RCC_CFGR_SWS_PLL))
- 175              		.loc 1 137 3 is_stmt 1 view .LVU58
- 176              	.L5:
+ 174              		.loc 1 137 3 is_stmt 1 view .LVU58
+ 175              	.L5:
  138:Core/Src/main.c ****     ;
- 177              		.loc 1 138 5 discriminator 1 view .LVU59
+ 176              		.loc 1 138 5 discriminator 1 view .LVU59
  137:Core/Src/main.c ****   while (!(RCC->CFGR & RCC_CFGR_SWS_PLL))
- 178              		.loc 1 137 9 discriminator 1 view .LVU60
+ 177              		.loc 1 137 9 discriminator 1 view .LVU60
  137:Core/Src/main.c ****   while (!(RCC->CFGR & RCC_CFGR_SWS_PLL))
- 179              		.loc 1 137 15 is_stmt 0 discriminator 1 view .LVU61
- 180 00d0 034B     		ldr	r3, .L7
- 181 00d2 5B68     		ldr	r3, [r3, #4]
+ 178              		.loc 1 137 15 is_stmt 0 discriminator 1 view .LVU61
+ 179 00d0 034B     		ldr	r3, .L7
+ 180 00d2 5B68     		ldr	r3, [r3, #4]
  137:Core/Src/main.c ****   while (!(RCC->CFGR & RCC_CFGR_SWS_PLL))
- 182              		.loc 1 137 9 discriminator 1 view .LVU62
- 183 00d4 13F0080F 		tst	r3, #8
- 184 00d8 FAD0     		beq	.L5
+ 181              		.loc 1 137 9 discriminator 1 view .LVU62
+ 182 00d4 13F0080F 		tst	r3, #8
+ 183 00d8 FAD0     		beq	.L5
  139:Core/Src/main.c **** 
  140:Core/Src/main.c ****   /* Inform core libraries of change to clocks
  141:Core/Src/main.c ****    */
  142:Core/Src/main.c ****   SystemCoreClockUpdate();
- 185              		.loc 1 142 3 is_stmt 1 view .LVU63
- 186 00da FFF7FEFF 		bl	SystemCoreClockUpdate
- 187              	.LVL0:
+ 184              		.loc 1 142 3 is_stmt 1 view .LVU63
+ 185 00da FFF7FEFF 		bl	SystemCoreClockUpdate
+ 186              	.LVL0:
  143:Core/Src/main.c **** }
- 188              		.loc 1 143 1 is_stmt 0 view .LVU64
-ARM GAS  /tmp/ccJD4Rpe.s 			page 7
+ 187              		.loc 1 143 1 is_stmt 0 view .LVU64
+ 188 00de 08BD     		pop	{r3, pc}
+ARM GAS  /tmp/ccUzcCJ8.s 			page 7
 
 
- 189 00de 08BD     		pop	{r3, pc}
- 190              	.L8:
- 191              		.align	2
- 192              	.L7:
- 193 00e0 00100240 		.word	1073876992
- 194 00e4 00200240 		.word	1073881088
- 195              		.cfi_endproc
- 196              	.LFE66:
- 198              		.section	.text.main,"ax",%progbits
- 199              		.align	1
- 200              		.global	main
- 201              		.syntax unified
- 202              		.thumb
- 203              		.thumb_func
- 205              	main:
- 206              	.LFB65:
+ 189              	.L8:
+ 190              		.align	2
+ 191              	.L7:
+ 192 00e0 00100240 		.word	1073876992
+ 193 00e4 00200240 		.word	1073881088
+ 194              		.cfi_endproc
+ 195              	.LFE66:
+ 197              		.section	.text.main,"ax",%progbits
+ 198              		.align	1
+ 199              		.global	main
+ 200              		.syntax unified
+ 201              		.thumb
+ 202              		.thumb_func
+ 204              	main:
+ 205              	.LFB65:
   31:Core/Src/main.c ****   uint8_t idx;
- 207              		.loc 1 31 1 is_stmt 1 view -0
- 208              		.cfi_startproc
- 209              		@ Volatile: function does not return.
- 210              		@ args = 0, pretend = 0, frame = 0
- 211              		@ frame_needed = 0, uses_anonymous_args = 0
- 212 0000 08B5     		push	{r3, lr}
- 213              	.LCFI1:
- 214              		.cfi_def_cfa_offset 8
- 215              		.cfi_offset 3, -8
- 216              		.cfi_offset 14, -4
+ 206              		.loc 1 31 1 is_stmt 1 view -0
+ 207              		.cfi_startproc
+ 208              		@ args = 0, pretend = 0, frame = 0
+ 209              		@ frame_needed = 0, uses_anonymous_args = 0
+ 210 0000 08B5     		push	{r3, lr}
+ 211              		.cfi_def_cfa_offset 8
+ 212              		.cfi_offset 3, -8
+ 213              		.cfi_offset 14, -4
   32:Core/Src/main.c **** 
- 217              		.loc 1 32 3 view .LVU66
+ 214              		.loc 1 32 3 view .LVU66
   35:Core/Src/main.c **** 
- 218              		.loc 1 35 3 view .LVU67
- 219 0002 FFF7FEFF 		bl	hw_system_clocks_init
- 220              	.LVL1:
+ 215              		.loc 1 35 3 view .LVU67
+ 216 0002 FFF7FEFF 		bl	hw_system_clocks_init
+ 217              	.LVL1:
   38:Core/Src/main.c **** 
- 221              		.loc 1 38 3 view .LVU68
- 222 0006 4FF47A70 		mov	r0, #1000
- 223 000a FFF7FEFF 		bl	hw_systick_init
- 224              	.LVL2:
-  42:Core/Src/main.c ****   heartbeat_set_pattern_mode(LED_BREATHE);
- 225              		.loc 1 42 3 view .LVU69
- 226 000e FFF7FEFF 		bl	heartbeat_init
- 227              	.LVL3:
-  43:Core/Src/main.c ****   heartbeat_set_poll_mode(false);
- 228              		.loc 1 43 3 view .LVU70
- 229 0012 0020     		movs	r0, #0
- 230 0014 FFF7FEFF 		bl	heartbeat_set_pattern_mode
- 231              	.LVL4:
-  44:Core/Src/main.c ****   heartbeat_set_period_ms(1000);
- 232              		.loc 1 44 3 view .LVU71
- 233 0018 0020     		movs	r0, #0
- 234 001a FFF7FEFF 		bl	heartbeat_set_poll_mode
- 235              	.LVL5:
-  45:Core/Src/main.c ****   heartbeat_start();
- 236              		.loc 1 45 3 view .LVU72
- 237 001e 4FF47A70 		mov	r0, #1000
- 238 0022 FFF7FEFF 		bl	heartbeat_set_period_ms
- 239              	.LVL6:
-ARM GAS  /tmp/ccJD4Rpe.s 			page 8
+ 218              		.loc 1 38 3 view .LVU68
+ 219 0006 4FF47A70 		mov	r0, #1000
+ 220 000a FFF7FEFF 		bl	hw_systick_init
+ 221              	.LVL2:
+  41:Core/Src/main.c ****   heartbeat_set_pattern_mode(LED_BREATHE);
+ 222              		.loc 1 41 3 view .LVU69
+ 223 000e FFF7FEFF 		bl	heartbeat_init
+ 224              	.LVL3:
+ 225 0012 08B1     		cbz	r0, .L13
+ 226              	.L10:
+  71:Core/Src/main.c **** 
+ 227              		.loc 1 71 1 is_stmt 0 view .LVU70
+ 228 0014 0120     		movs	r0, #1
+ 229 0016 08BD     		pop	{r3, pc}
+ 230              	.L13:
+  42:Core/Src/main.c ****   heartbeat_set_poll_mode(true);
+ 231              		.loc 1 42 3 is_stmt 1 view .LVU71
+ 232 0018 FFF7FEFF 		bl	heartbeat_set_pattern_mode
+ 233              	.LVL4:
+  43:Core/Src/main.c ****   heartbeat_set_period_ms(1000);
+ 234              		.loc 1 43 3 view .LVU72
+ 235 001c 0120     		movs	r0, #1
+ 236 001e FFF7FEFF 		bl	heartbeat_set_poll_mode
+ 237              	.LVL5:
+  44:Core/Src/main.c ****   heartbeat_start();
+ 238              		.loc 1 44 3 view .LVU73
+ARM GAS  /tmp/ccUzcCJ8.s 			page 8
 
 
-  46:Core/Src/main.c **** 
- 240              		.loc 1 46 3 view .LVU73
- 241 0026 FFF7FEFF 		bl	heartbeat_start
- 242              	.LVL7:
- 243              	.L10:
-  62:Core/Src/main.c ****   {
- 244              		.loc 1 62 3 discriminator 1 view .LVU74
-  64:Core/Src/main.c ****     // for (idx = 0; idx < 7; idx++) {
- 245              		.loc 1 64 5 discriminator 1 view .LVU75
- 246 002a FFF7FEFF 		bl	heartbeat_poll
+ 239 0022 4FF47A70 		mov	r0, #1000
+ 240 0026 FFF7FEFF 		bl	heartbeat_set_period_ms
+ 241              	.LVL6:
+  45:Core/Src/main.c **** 
+ 242              		.loc 1 45 3 view .LVU74
+ 243 002a FFF7FEFF 		bl	heartbeat_start
+ 244              	.LVL7:
+  48:Core/Src/main.c **** 
+ 245              		.loc 1 48 3 view .LVU75
+ 246 002e FFF7FEFF 		bl	bout_init
  247              	.LVL8:
-  62:Core/Src/main.c ****   {
- 248              		.loc 1 62 9 discriminator 1 view .LVU76
- 249 002e FCE7     		b	.L10
- 250              		.cfi_endproc
- 251              	.LFE65:
- 253              		.section	.text.Error_Handler,"ax",%progbits
- 254              		.align	1
- 255              		.global	Error_Handler
- 256              		.syntax unified
- 257              		.thumb
- 258              		.thumb_func
- 260              	Error_Handler:
- 261              	.LFB67:
+ 248 0032 0028     		cmp	r0, #0
+ 249 0034 EED1     		bne	.L10
+  50:Core/Src/main.c **** 
+ 250              		.loc 1 50 3 view .LVU76
+ 251 0036 FFF7FEFF 		bl	i2c_init
+ 252              	.LVL9:
+ 253 003a 0028     		cmp	r0, #0
+ 254 003c EAD1     		bne	.L10
+  55:Core/Src/main.c **** 
+ 255              		.loc 1 55 3 view .LVU77
+ 256 003e FFF7FEFF 		bl	gpioexp_init
+ 257              	.LVL10:
+ 258              	.L11:
+  61:Core/Src/main.c ****   {
+ 259              		.loc 1 61 3 discriminator 1 view .LVU78
+  63:Core/Src/main.c ****     heartbeat_poll();
+ 260              		.loc 1 63 5 discriminator 1 view .LVU79
+ 261 0042 FFF7FEFF 		bl	i2c_poll_fsm
+ 262              	.LVL11:
+  64:Core/Src/main.c ****     // for (idx = 0; idx < 7; idx++) {
+ 263              		.loc 1 64 5 discriminator 1 view .LVU80
+ 264 0046 FFF7FEFF 		bl	heartbeat_poll
+ 265              	.LVL12:
+  61:Core/Src/main.c ****   {
+ 266              		.loc 1 61 9 discriminator 1 view .LVU81
+ 267 004a FAE7     		b	.L11
+ 268              		.cfi_endproc
+ 269              	.LFE65:
+ 271              		.section	.text.Error_Handler,"ax",%progbits
+ 272              		.align	1
+ 273              		.global	Error_Handler
+ 274              		.syntax unified
+ 275              		.thumb
+ 276              		.thumb_func
+ 278              	Error_Handler:
+ 279              	.LFB67:
  144:Core/Src/main.c **** 
  145:Core/Src/main.c **** /**
  146:Core/Src/main.c ****  * @brief  This function is executed in case of error occurrence.
@@ -452,19 +475,22 @@ ARM GAS  /tmp/ccJD4Rpe.s 			page 1
  148:Core/Src/main.c ****  */
  149:Core/Src/main.c **** void Error_Handler(void)
  150:Core/Src/main.c **** {
- 262              		.loc 1 150 1 view -0
- 263              		.cfi_startproc
- 264              		@ Volatile: function does not return.
- 265              		@ args = 0, pretend = 0, frame = 0
- 266              		@ frame_needed = 0, uses_anonymous_args = 0
- 267              		@ link register save eliminated.
+ 280              		.loc 1 150 1 view -0
+ 281              		.cfi_startproc
+ 282              		@ Volatile: function does not return.
+ARM GAS  /tmp/ccUzcCJ8.s 			page 9
+
+
+ 283              		@ args = 0, pretend = 0, frame = 0
+ 284              		@ frame_needed = 0, uses_anonymous_args = 0
+ 285              		@ link register save eliminated.
  151:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
  152:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
  153:Core/Src/main.c ****   __disable_irq();
- 268              		.loc 1 153 3 view .LVU78
- 269              	.LBB4:
- 270              	.LBI4:
- 271              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+ 286              		.loc 1 153 3 view .LVU83
+ 287              	.LBB4:
+ 288              	.LBI4:
+ 289              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -478,9 +504,6 @@ ARM GAS  /tmp/ccJD4Rpe.s 			page 1
   11:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   12:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
   13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
-ARM GAS  /tmp/ccJD4Rpe.s 			page 9
-
-
   14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
   15:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   16:Drivers/CMSIS/Include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
@@ -515,6 +538,9 @@ ARM GAS  /tmp/ccJD4Rpe.s 			page 1
   45:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   46:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
   47:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_INLINE                        static inline
+ARM GAS  /tmp/ccUzcCJ8.s 			page 10
+
+
   48:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   49:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_FORCEINLINE                 
   50:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_FORCEINLINE                   __attribute__((always_inline)) static inline
@@ -538,9 +564,6 @@ ARM GAS  /tmp/ccJD4Rpe.s 			page 1
   68:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
   69:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
-ARM GAS  /tmp/ccJD4Rpe.s 			page 10
-
-
   71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   72:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
   73:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
@@ -575,6 +598,9 @@ ARM GAS  /tmp/ccJD4Rpe.s 			page 1
  102:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
  103:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
  104:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+ARM GAS  /tmp/ccUzcCJ8.s 			page 11
+
+
  105:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
  106:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
  107:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
@@ -598,9 +624,6 @@ ARM GAS  /tmp/ccJD4Rpe.s 			page 1
  125:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
  126:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
  127:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
-ARM GAS  /tmp/ccJD4Rpe.s 			page 11
-
-
  128:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  129:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
  130:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -614,51 +637,57 @@ ARM GAS  /tmp/ccJD4Rpe.s 			page 1
  138:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  139:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  140:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
- 272              		.loc 2 140 27 view .LVU79
- 273              	.LBB5:
+ 290              		.loc 2 140 27 view .LVU84
+ 291              	.LBB5:
  141:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  142:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
- 274              		.loc 2 142 3 view .LVU80
- 275              		.syntax unified
- 276              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 277 0000 72B6     		cpsid i
- 278              	@ 0 "" 2
- 279              		.thumb
- 280              		.syntax unified
- 281              	.L13:
- 282              	.LBE5:
- 283              	.LBE4:
+ 292              		.loc 2 142 3 view .LVU85
+ 293              		.syntax unified
+ 294              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 295 0000 72B6     		cpsid i
+ 296              	@ 0 "" 2
+ 297              		.thumb
+ 298              		.syntax unified
+ 299              	.L15:
+ 300              	.LBE5:
+ 301              	.LBE4:
  154:Core/Src/main.c ****   while (1)
- 284              		.loc 1 154 3 discriminator 1 view .LVU81
+ 302              		.loc 1 154 3 discriminator 1 view .LVU86
  155:Core/Src/main.c ****   {
  156:Core/Src/main.c ****   }
- 285              		.loc 1 156 3 discriminator 1 view .LVU82
+ 303              		.loc 1 156 3 discriminator 1 view .LVU87
  154:Core/Src/main.c ****   while (1)
- 286              		.loc 1 154 9 discriminator 1 view .LVU83
- 287 0002 FEE7     		b	.L13
- 288              		.cfi_endproc
- 289              	.LFE67:
- 291              		.text
- 292              	.Letext0:
- 293              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 294              		.file 4 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 295              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 296              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
- 297              		.file 7 "Core/Inc/hw_systick.h"
- 298              		.file 8 "Core/Inc/mgr_heartbeat.h"
- 299              		.file 9 "Core/Inc/hw_i2c1.h"
-ARM GAS  /tmp/ccJD4Rpe.s 			page 12
+ 304              		.loc 1 154 9 discriminator 1 view .LVU88
+ARM GAS  /tmp/ccUzcCJ8.s 			page 12
+
+
+ 305 0002 FEE7     		b	.L15
+ 306              		.cfi_endproc
+ 307              	.LFE67:
+ 309              		.text
+ 310              	.Letext0:
+ 311              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 312              		.file 4 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 313              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 314              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 315              		.file 7 "Core/Inc/hw_systick.h"
+ 316              		.file 8 "Core/Inc/mgr_heartbeat.h"
+ 317              		.file 9 "Core/Inc/mgr_bout.h"
+ 318              		.file 10 "Core/Inc/mgr_i2c.h"
+ 319              		.file 11 "Core/Inc/drv_gpioexp.h"
+ 320              		.file 12 "Core/Inc/hw_i2c1.h"
+ARM GAS  /tmp/ccUzcCJ8.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccJD4Rpe.s:18     .text.hw_system_clocks_init:0000000000000000 $t
-     /tmp/ccJD4Rpe.s:24     .text.hw_system_clocks_init:0000000000000000 hw_system_clocks_init
-     /tmp/ccJD4Rpe.s:193    .text.hw_system_clocks_init:00000000000000e0 $d
-     /tmp/ccJD4Rpe.s:199    .text.main:0000000000000000 $t
-     /tmp/ccJD4Rpe.s:205    .text.main:0000000000000000 main
-     /tmp/ccJD4Rpe.s:254    .text.Error_Handler:0000000000000000 $t
-     /tmp/ccJD4Rpe.s:260    .text.Error_Handler:0000000000000000 Error_Handler
+     /tmp/ccUzcCJ8.s:18     .text.hw_system_clocks_init:0000000000000000 $t
+     /tmp/ccUzcCJ8.s:24     .text.hw_system_clocks_init:0000000000000000 hw_system_clocks_init
+     /tmp/ccUzcCJ8.s:192    .text.hw_system_clocks_init:00000000000000e0 $d
+     /tmp/ccUzcCJ8.s:198    .text.main:0000000000000000 $t
+     /tmp/ccUzcCJ8.s:204    .text.main:0000000000000000 main
+     /tmp/ccUzcCJ8.s:272    .text.Error_Handler:0000000000000000 $t
+     /tmp/ccUzcCJ8.s:278    .text.Error_Handler:0000000000000000 Error_Handler
 
 UNDEFINED SYMBOLS
 SystemCoreClockUpdate
@@ -668,4 +697,8 @@ heartbeat_set_pattern_mode
 heartbeat_set_poll_mode
 heartbeat_set_period_ms
 heartbeat_start
+bout_init
+i2c_init
+gpioexp_init
+i2c_poll_fsm
 heartbeat_poll
