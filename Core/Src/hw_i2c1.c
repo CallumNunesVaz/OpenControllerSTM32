@@ -111,7 +111,7 @@ int i2c1_init(void)
   i2c1_reset_periph();
 
   /* hooray */
-  //dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_LIB_NAME, sizeof(DBG_LIB_NAME));
+  // dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_LIB_NAME, sizeof(DBG_LIB_NAME));
   return EXIT_SUCCESS;
 }
 
@@ -152,6 +152,68 @@ void i2c1_start(void)
 {
   /* trigger start bit to be sent */
   I2C1->CR1 |= I2C_CR1_START;
+
+  /* Workaround: Errata 2.8.7 can't start due to analogue filters */
+  if (I2C1->SR2 & I2C_SR2_BUSY)
+  {
+    /* Step 1 */
+    i2c1_disable_periph();
+    /* Step 2 */
+    //i2c1_scl.cfg = OUT_OPENDRAIN;
+    //i2c1_sda.cfg = OUT_OPENDRAIN;
+    //ASSERT_INT(stmgpio_setup(&i2c1_scl));
+    //ASSERT_INT(stmgpio_setup(&i2c1_sda));
+    //stmgpio_write(&i2c1_scl, PIN_HIGH);
+    //stmgpio_write(&i2c1_sda, PIN_HIGH);
+    GPIOB->CRH &= 0xFFF0;
+    GPIOB->CRH |= 0x0005;
+    GPIOB->CRH |= (0x0005 << 4);
+    GPIOB->ODR |= I2C_SCL_PIN;
+    GPIOB->ODR |= I2C_SDA_PIN;
+    /* Step 3 */
+    //while(PIN_LOW == stmgpio_read(&i2c1_scl));
+    //while(PIN_LOW == stmgpio_read(&i2c1_sda));
+    while ((GPIOB->IDR & I2C_SCL_PIN));
+    while ((GPIOB->IDR & I2C_SDA_PIN));
+    /* Step 4 */
+    //stmgpio_write(&i2c1_sda, PIN_LOW);
+    GPIOB->ODR &= ~I2C_SDA_PIN;
+    /* Step 5 */
+    //while(PIN_HIGH == stmgpio_read(&i2c1_sda));
+    while (!(GPIOB->IDR & I2C_SDA_PIN));
+    /* Step 6 */
+    //stmgpio_write(&i2c1_scl, PIN_LOW);
+    GPIOB->ODR &= ~I2C_SCL_PIN;
+    /* Step 7 */
+    //while(PIN_HIGH == stmgpio_read(&i2c1_scl));
+    while (!(GPIOB->IDR & I2C_SCL_PIN));
+    /* Step 8 */
+    //stmgpio_write(&i2c1_scl, PIN_HIGH);
+    GPIOB->ODR |= I2C_SCL_PIN;
+    /* Step 9 */
+    //while(PIN_LOW == stmgpio_read(&i2c1_scl));
+    while ((GPIOB->IDR & I2C_SCL_PIN));
+    /* Step 10 */
+    //stmgpio_write(&i2c1_sda, PIN_HIGH);
+    GPIOB->ODR |= I2C_SDA_PIN;
+    /* Step 11 */
+    //while(PIN_LOW == stmgpio_read(&i2c1_sda));
+    while (!(GPIOB->IDR & I2C_SDA_PIN));
+    /* Step 12 */
+    //i2c1_scl.cfg = OUT_ALT_OPENDRAIN;
+    //i2c1_sda.cfg = OUT_ALT_OPENDRAIN;
+    //ASSERT_INT(stmgpio_setup(&i2c1_scl));
+    //ASSERT_INT(stmgpio_setup(&i2c1_sda));
+    GPIOB->CRH &= 0xFFF0;
+    GPIOB->CRH |= 0x000D;
+    GPIOB->CRH |= (0x000D << 4);
+    /* Step 13 */
+    I2C1->CR1 |= I2C_CR1_SWRST;
+    /* Step 14 */
+    I2C1->CR1 &= ~I2C_CR1_SWRST;
+    /* Step 15 */
+    i2c1_enable_periph();
+  }
 }
 
 void i2c1_stop(void)
@@ -190,11 +252,13 @@ int i2c1_set_err_callback(void (*func_ptr)(void))
   return EXIT_SUCCESS;
 }
 
-uint16_t i2c1_SR1_dummy_read(){
+uint16_t i2c1_SR1_dummy_read()
+{
   return I2C1->SR1;
 }
 
-uint16_t i2c1_SR2_dummy_read(){
+uint16_t i2c1_SR2_dummy_read()
+{
   return I2C1->SR2;
 }
 
@@ -227,7 +291,7 @@ void I2C1_EV_IRQHandler(void)
   }
 
   /* clear flag, interrupt over */
-  //NVIC_ClearPendingIRQ(I2C1_EV_IRQn);
+  // NVIC_ClearPendingIRQ(I2C1_EV_IRQn);
 }
 
 /* I2C1 error handler */
@@ -249,5 +313,5 @@ void I2C1_ER_IRQHandler(void)
   }
 
   /* clear flag, interrupt over */
-  //NVIC_ClearPendingIRQ(I2C1_ER_IRQn);
+  // NVIC_ClearPendingIRQ(I2C1_ER_IRQn);
 }

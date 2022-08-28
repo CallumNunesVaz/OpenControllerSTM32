@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccnRw2s0.s 			page 1
+ARM GAS  /tmp/ccv2O6GG.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
   30:Core/Src/mgr_hearbeat.c **** static stmgpio_t gpio_led;
   31:Core/Src/mgr_hearbeat.c **** 
   32:Core/Src/mgr_hearbeat.c **** static hb_mode_t hb_pattern;
-ARM GAS  /tmp/ccnRw2s0.s 			page 2
+ARM GAS  /tmp/ccv2O6GG.s 			page 2
 
 
   33:Core/Src/mgr_hearbeat.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
   47              	.L3:
   48              		.align	2
   49              	.L2:
-ARM GAS  /tmp/ccnRw2s0.s 			page 3
+ARM GAS  /tmp/ccv2O6GG.s 			page 3
 
 
   50 0010 00000000 		.word	.LANCHOR0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
   99              		.loc 1 75 25 is_stmt 0 view .LVU14
  100 0000 014B     		ldr	r3, .L8
  101 0002 0122     		movs	r2, #1
-ARM GAS  /tmp/ccnRw2s0.s 			page 4
+ARM GAS  /tmp/ccv2O6GG.s 			page 4
 
 
  102 0004 1A70     		strb	r2, [r3]
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  147              	heartbeat_get_poll_mode:
  148              	.LFB71:
   89:Core/Src/mgr_hearbeat.c **** 
-ARM GAS  /tmp/ccnRw2s0.s 			page 5
+ARM GAS  /tmp/ccv2O6GG.s 			page 5
 
 
   90:Core/Src/mgr_hearbeat.c **** bool heartbeat_get_poll_mode(void)
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  190              		.loc 1 104 1 is_stmt 0 view .LVU30
  191 0008 401A     		subs	r0, r0, r1
  192              	.LVL3:
-ARM GAS  /tmp/ccnRw2s0.s 			page 6
+ARM GAS  /tmp/ccv2O6GG.s 			page 6
 
 
  193              		.loc 1 104 1 view .LVU31
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  230              	.LVL4:
  231 0014 21E0     		b	.L21
  232              	.L19:
-ARM GAS  /tmp/ccnRw2s0.s 			page 7
+ARM GAS  /tmp/ccv2O6GG.s 			page 7
 
 
  123:Core/Src/mgr_hearbeat.c ****             }
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  111:Core/Src/mgr_hearbeat.c **** 
  257              		.loc 1 111 21 is_stmt 0 view .LVU48
  258 0030 254A     		ldr	r2, .L30
-ARM GAS  /tmp/ccnRw2s0.s 			page 8
+ARM GAS  /tmp/ccv2O6GG.s 			page 8
 
 
  259 0032 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  300 0068 9342     		cmp	r3, r2
  301 006a DDD3     		bcc	.L18
  132:Core/Src/mgr_hearbeat.c ****                 tick_per_window_cnt = 0;
-ARM GAS  /tmp/ccnRw2s0.s 			page 9
+ARM GAS  /tmp/ccv2O6GG.s 			page 9
 
 
  302              		.loc 1 132 17 is_stmt 1 view .LVU62
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  339              		.loc 1 157 17 view .LVU74
  340              		.loc 1 157 34 is_stmt 0 view .LVU75
  341 009e 2368     		ldr	r3, [r4]
-ARM GAS  /tmp/ccnRw2s0.s 			page 10
+ARM GAS  /tmp/ccv2O6GG.s 			page 10
 
 
  342 00a0 5B08     		lsrs	r3, r3, #1
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  384 00d8 00000000 		.word	.LANCHOR5
  385 00dc 00000000 		.word	.LANCHOR0
  386 00e0 00000000 		.word	.LANCHOR6
-ARM GAS  /tmp/ccnRw2s0.s 			page 11
+ARM GAS  /tmp/ccv2O6GG.s 			page 11
 
 
  387 00e4 00000000 		.word	.LANCHOR9
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  212:Core/Src/mgr_hearbeat.c **** 
  213:Core/Src/mgr_hearbeat.c **** void heartbeat_tick_callback(void)
  214:Core/Src/mgr_hearbeat.c **** {
-ARM GAS  /tmp/ccnRw2s0.s 			page 12
+ARM GAS  /tmp/ccv2O6GG.s 			page 12
 
 
  401              		.loc 1 214 1 is_stmt 1 view -0
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  444              		.cfi_endproc
  445              	.LFE75:
  447              		.global	__aeabi_ui2f
-ARM GAS  /tmp/ccnRw2s0.s 			page 13
+ARM GAS  /tmp/ccv2O6GG.s 			page 13
 
 
  448              		.global	__aeabi_fdiv
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  181:Core/Src/mgr_hearbeat.c ****     if (500 >= period_ms)
  495              		.loc 1 181 5 is_stmt 1 view .LVU106
  181:Core/Src/mgr_hearbeat.c ****     if (500 >= period_ms)
-ARM GAS  /tmp/ccnRw2s0.s 			page 14
+ARM GAS  /tmp/ccv2O6GG.s 			page 14
 
 
  496              		.loc 1 181 8 is_stmt 0 view .LVU107
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  200:Core/Src/mgr_hearbeat.c ****     ticks_per_window = (uint32_t)(((float)systick_freq_hz) / ((float)window_cnt_total) * ((float)he
  537              		.loc 1 200 36 is_stmt 0 view .LVU121
  538 0042 3046     		mov	r0, r6
-ARM GAS  /tmp/ccnRw2s0.s 			page 15
+ARM GAS  /tmp/ccv2O6GG.s 			page 15
 
 
  539 0044 FFF7FEFF 		bl	__aeabi_ui2f
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  583              	.LVL27:
  584              	.L41:
  193:Core/Src/mgr_hearbeat.c ****         window_cnt_total = WINDOW_COUNT_FLASH;
-ARM GAS  /tmp/ccnRw2s0.s 			page 16
+ARM GAS  /tmp/ccv2O6GG.s 			page 16
 
 
  585              		.loc 1 193 9 is_stmt 1 view .LVU132
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  630 00c6 0B55     		strb	r3, [r1, r4]
  206:Core/Src/mgr_hearbeat.c ****         fade_vals[window_cnt_total - idx - 1] = fade_vals[idx];
  631              		.loc 1 206 9 is_stmt 1 discriminator 3 view .LVU142
-ARM GAS  /tmp/ccnRw2s0.s 			page 17
+ARM GAS  /tmp/ccv2O6GG.s 			page 17
 
 
  206:Core/Src/mgr_hearbeat.c ****         fade_vals[window_cnt_total - idx - 1] = fade_vals[idx];
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  677              	.LFB65:
   41:Core/Src/mgr_hearbeat.c **** {
  678              		.loc 1 41 1 is_stmt 1 view -0
-ARM GAS  /tmp/ccnRw2s0.s 			page 18
+ARM GAS  /tmp/ccv2O6GG.s 			page 18
 
 
  679              		.cfi_startproc
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  720 002a 0023     		movs	r3, #0
  721 002c 044A     		ldr	r2, .L55+4
  722 002e 1360     		str	r3, [r2]
-ARM GAS  /tmp/ccnRw2s0.s 			page 19
+ARM GAS  /tmp/ccv2O6GG.s 			page 19
 
 
   52:Core/Src/mgr_hearbeat.c ****     pattern_snapshot = (uint32_t)hb_pattern;
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  769 0008 1888     		ldrh	r0, [r3]
  770              	.LVL45:
   81:Core/Src/mgr_hearbeat.c ****     heartbeat_set_period_ms(heartbeat_period_ms);
-ARM GAS  /tmp/ccnRw2s0.s 			page 20
+ARM GAS  /tmp/ccv2O6GG.s 			page 20
 
 
  771              		.loc 1 81 5 is_stmt 0 view .LVU178
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  832              	pattern_snapshot:
  833 0000 00000000 		.space	4
  834              		.section	.bss.poll_mode,"aw",%nobits
-ARM GAS  /tmp/ccnRw2s0.s 			page 21
+ARM GAS  /tmp/ccv2O6GG.s 			page 21
 
 
  835              		.set	.LANCHOR4,. + 0
@@ -1229,70 +1229,70 @@ ARM GAS  /tmp/ccnRw2s0.s 			page 1
  870              		.file 5 "Core/Inc/hw_stmgpio.h"
  871              		.file 6 "Core/Inc/mgr_heartbeat.h"
  872              		.file 7 "Core/Inc/hw_systick.h"
-ARM GAS  /tmp/ccnRw2s0.s 			page 22
+ARM GAS  /tmp/ccv2O6GG.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 mgr_hearbeat.c
-     /tmp/ccnRw2s0.s:18     .text.heartbeat_reset:0000000000000000 $t
-     /tmp/ccnRw2s0.s:24     .text.heartbeat_reset:0000000000000000 heartbeat_reset
-     /tmp/ccnRw2s0.s:50     .text.heartbeat_reset:0000000000000010 $d
-     /tmp/ccnRw2s0.s:57     .text.heartbeat_stop:0000000000000000 $t
-     /tmp/ccnRw2s0.s:63     .text.heartbeat_stop:0000000000000000 heartbeat_stop
-     /tmp/ccnRw2s0.s:80     .text.heartbeat_stop:0000000000000008 $d
-     /tmp/ccnRw2s0.s:85     .text.heartbeat_start:0000000000000000 $t
-     /tmp/ccnRw2s0.s:91     .text.heartbeat_start:0000000000000000 heartbeat_start
-     /tmp/ccnRw2s0.s:108    .text.heartbeat_start:0000000000000008 $d
-     /tmp/ccnRw2s0.s:113    .text.heartbeat_set_poll_mode:0000000000000000 $t
-     /tmp/ccnRw2s0.s:119    .text.heartbeat_set_poll_mode:0000000000000000 heartbeat_set_poll_mode
-     /tmp/ccnRw2s0.s:136    .text.heartbeat_set_poll_mode:0000000000000008 $d
-     /tmp/ccnRw2s0.s:141    .text.heartbeat_get_poll_mode:0000000000000000 $t
-     /tmp/ccnRw2s0.s:147    .text.heartbeat_get_poll_mode:0000000000000000 heartbeat_get_poll_mode
-     /tmp/ccnRw2s0.s:163    .text.heartbeat_get_poll_mode:0000000000000008 $d
-     /tmp/ccnRw2s0.s:168    .text.heartbeat_lower_multiple:0000000000000000 $t
-     /tmp/ccnRw2s0.s:174    .text.heartbeat_lower_multiple:0000000000000000 heartbeat_lower_multiple
-     /tmp/ccnRw2s0.s:199    .text.heartbeat_poll:0000000000000000 $t
-     /tmp/ccnRw2s0.s:205    .text.heartbeat_poll:0000000000000000 heartbeat_poll
-     /tmp/ccnRw2s0.s:380    .text.heartbeat_poll:00000000000000c8 $d
-     /tmp/ccnRw2s0.s:393    .text.heartbeat_tick_callback:0000000000000000 $t
-     /tmp/ccnRw2s0.s:399    .text.heartbeat_tick_callback:0000000000000000 heartbeat_tick_callback
-     /tmp/ccnRw2s0.s:441    .text.heartbeat_tick_callback:0000000000000020 $d
-     /tmp/ccnRw2s0.s:456    .text.heartbeat_set_period_ms:0000000000000000 $t
-     /tmp/ccnRw2s0.s:462    .text.heartbeat_set_period_ms:0000000000000000 heartbeat_set_period_ms
-     /tmp/ccnRw2s0.s:660    .text.heartbeat_set_period_ms:00000000000000e0 $d
-     /tmp/ccnRw2s0.s:670    .text.heartbeat_init:0000000000000000 $t
-     /tmp/ccnRw2s0.s:676    .text.heartbeat_init:0000000000000000 heartbeat_init
-     /tmp/ccnRw2s0.s:737    .text.heartbeat_init:000000000000003c $d
-     /tmp/ccnRw2s0.s:745    .text.heartbeat_set_pattern_mode:0000000000000000 $t
-     /tmp/ccnRw2s0.s:751    .text.heartbeat_set_pattern_mode:0000000000000000 heartbeat_set_pattern_mode
-     /tmp/ccnRw2s0.s:782    .text.heartbeat_set_pattern_mode:0000000000000014 $d
-     /tmp/ccnRw2s0.s:791    .bss.callback_cnt:0000000000000000 callback_cnt
-     /tmp/ccnRw2s0.s:792    .bss.callback_cnt:0000000000000000 $d
-     /tmp/ccnRw2s0.s:794    .bss.fade_vals:0000000000000000 $d
-     /tmp/ccnRw2s0.s:798    .bss.fade_vals:0000000000000000 fade_vals
-     /tmp/ccnRw2s0.s:801    .bss.gpio_led:0000000000000000 $d
-     /tmp/ccnRw2s0.s:805    .bss.gpio_led:0000000000000000 gpio_led
-     /tmp/ccnRw2s0.s:808    .bss.hb_pattern:0000000000000000 $d
-     /tmp/ccnRw2s0.s:812    .bss.hb_pattern:0000000000000000 hb_pattern
-     /tmp/ccnRw2s0.s:818    .bss.heartbeat_is_active:0000000000000000 heartbeat_is_active
-     /tmp/ccnRw2s0.s:819    .bss.heartbeat_is_active:0000000000000000 $d
-     /tmp/ccnRw2s0.s:821    .bss.heartbeat_period_ms:0000000000000000 $d
-     /tmp/ccnRw2s0.s:825    .bss.heartbeat_period_ms:0000000000000000 heartbeat_period_ms
-     /tmp/ccnRw2s0.s:828    .bss.pattern_snapshot:0000000000000000 $d
-     /tmp/ccnRw2s0.s:832    .bss.pattern_snapshot:0000000000000000 pattern_snapshot
-     /tmp/ccnRw2s0.s:838    .bss.poll_mode:0000000000000000 poll_mode
-     /tmp/ccnRw2s0.s:839    .bss.poll_mode:0000000000000000 $d
-     /tmp/ccnRw2s0.s:844    .bss.tick_per_window_cnt:0000000000000000 tick_per_window_cnt
-     /tmp/ccnRw2s0.s:845    .bss.tick_per_window_cnt:0000000000000000 $d
-     /tmp/ccnRw2s0.s:847    .bss.ticks_per_window:0000000000000000 $d
-     /tmp/ccnRw2s0.s:851    .bss.ticks_per_window:0000000000000000 ticks_per_window
-     /tmp/ccnRw2s0.s:857    .bss.window_cnt:0000000000000000 window_cnt
-     /tmp/ccnRw2s0.s:858    .bss.window_cnt:0000000000000000 $d
-     /tmp/ccnRw2s0.s:863    .bss.window_cnt_total:0000000000000000 window_cnt_total
-ARM GAS  /tmp/ccnRw2s0.s 			page 23
+     /tmp/ccv2O6GG.s:18     .text.heartbeat_reset:0000000000000000 $t
+     /tmp/ccv2O6GG.s:24     .text.heartbeat_reset:0000000000000000 heartbeat_reset
+     /tmp/ccv2O6GG.s:50     .text.heartbeat_reset:0000000000000010 $d
+     /tmp/ccv2O6GG.s:57     .text.heartbeat_stop:0000000000000000 $t
+     /tmp/ccv2O6GG.s:63     .text.heartbeat_stop:0000000000000000 heartbeat_stop
+     /tmp/ccv2O6GG.s:80     .text.heartbeat_stop:0000000000000008 $d
+     /tmp/ccv2O6GG.s:85     .text.heartbeat_start:0000000000000000 $t
+     /tmp/ccv2O6GG.s:91     .text.heartbeat_start:0000000000000000 heartbeat_start
+     /tmp/ccv2O6GG.s:108    .text.heartbeat_start:0000000000000008 $d
+     /tmp/ccv2O6GG.s:113    .text.heartbeat_set_poll_mode:0000000000000000 $t
+     /tmp/ccv2O6GG.s:119    .text.heartbeat_set_poll_mode:0000000000000000 heartbeat_set_poll_mode
+     /tmp/ccv2O6GG.s:136    .text.heartbeat_set_poll_mode:0000000000000008 $d
+     /tmp/ccv2O6GG.s:141    .text.heartbeat_get_poll_mode:0000000000000000 $t
+     /tmp/ccv2O6GG.s:147    .text.heartbeat_get_poll_mode:0000000000000000 heartbeat_get_poll_mode
+     /tmp/ccv2O6GG.s:163    .text.heartbeat_get_poll_mode:0000000000000008 $d
+     /tmp/ccv2O6GG.s:168    .text.heartbeat_lower_multiple:0000000000000000 $t
+     /tmp/ccv2O6GG.s:174    .text.heartbeat_lower_multiple:0000000000000000 heartbeat_lower_multiple
+     /tmp/ccv2O6GG.s:199    .text.heartbeat_poll:0000000000000000 $t
+     /tmp/ccv2O6GG.s:205    .text.heartbeat_poll:0000000000000000 heartbeat_poll
+     /tmp/ccv2O6GG.s:380    .text.heartbeat_poll:00000000000000c8 $d
+     /tmp/ccv2O6GG.s:393    .text.heartbeat_tick_callback:0000000000000000 $t
+     /tmp/ccv2O6GG.s:399    .text.heartbeat_tick_callback:0000000000000000 heartbeat_tick_callback
+     /tmp/ccv2O6GG.s:441    .text.heartbeat_tick_callback:0000000000000020 $d
+     /tmp/ccv2O6GG.s:456    .text.heartbeat_set_period_ms:0000000000000000 $t
+     /tmp/ccv2O6GG.s:462    .text.heartbeat_set_period_ms:0000000000000000 heartbeat_set_period_ms
+     /tmp/ccv2O6GG.s:660    .text.heartbeat_set_period_ms:00000000000000e0 $d
+     /tmp/ccv2O6GG.s:670    .text.heartbeat_init:0000000000000000 $t
+     /tmp/ccv2O6GG.s:676    .text.heartbeat_init:0000000000000000 heartbeat_init
+     /tmp/ccv2O6GG.s:737    .text.heartbeat_init:000000000000003c $d
+     /tmp/ccv2O6GG.s:745    .text.heartbeat_set_pattern_mode:0000000000000000 $t
+     /tmp/ccv2O6GG.s:751    .text.heartbeat_set_pattern_mode:0000000000000000 heartbeat_set_pattern_mode
+     /tmp/ccv2O6GG.s:782    .text.heartbeat_set_pattern_mode:0000000000000014 $d
+     /tmp/ccv2O6GG.s:791    .bss.callback_cnt:0000000000000000 callback_cnt
+     /tmp/ccv2O6GG.s:792    .bss.callback_cnt:0000000000000000 $d
+     /tmp/ccv2O6GG.s:794    .bss.fade_vals:0000000000000000 $d
+     /tmp/ccv2O6GG.s:798    .bss.fade_vals:0000000000000000 fade_vals
+     /tmp/ccv2O6GG.s:801    .bss.gpio_led:0000000000000000 $d
+     /tmp/ccv2O6GG.s:805    .bss.gpio_led:0000000000000000 gpio_led
+     /tmp/ccv2O6GG.s:808    .bss.hb_pattern:0000000000000000 $d
+     /tmp/ccv2O6GG.s:812    .bss.hb_pattern:0000000000000000 hb_pattern
+     /tmp/ccv2O6GG.s:818    .bss.heartbeat_is_active:0000000000000000 heartbeat_is_active
+     /tmp/ccv2O6GG.s:819    .bss.heartbeat_is_active:0000000000000000 $d
+     /tmp/ccv2O6GG.s:821    .bss.heartbeat_period_ms:0000000000000000 $d
+     /tmp/ccv2O6GG.s:825    .bss.heartbeat_period_ms:0000000000000000 heartbeat_period_ms
+     /tmp/ccv2O6GG.s:828    .bss.pattern_snapshot:0000000000000000 $d
+     /tmp/ccv2O6GG.s:832    .bss.pattern_snapshot:0000000000000000 pattern_snapshot
+     /tmp/ccv2O6GG.s:838    .bss.poll_mode:0000000000000000 poll_mode
+     /tmp/ccv2O6GG.s:839    .bss.poll_mode:0000000000000000 $d
+     /tmp/ccv2O6GG.s:844    .bss.tick_per_window_cnt:0000000000000000 tick_per_window_cnt
+     /tmp/ccv2O6GG.s:845    .bss.tick_per_window_cnt:0000000000000000 $d
+     /tmp/ccv2O6GG.s:847    .bss.ticks_per_window:0000000000000000 $d
+     /tmp/ccv2O6GG.s:851    .bss.ticks_per_window:0000000000000000 ticks_per_window
+     /tmp/ccv2O6GG.s:857    .bss.window_cnt:0000000000000000 window_cnt
+     /tmp/ccv2O6GG.s:858    .bss.window_cnt:0000000000000000 $d
+     /tmp/ccv2O6GG.s:863    .bss.window_cnt_total:0000000000000000 window_cnt_total
+ARM GAS  /tmp/ccv2O6GG.s 			page 23
 
 
-     /tmp/ccnRw2s0.s:864    .bss.window_cnt_total:0000000000000000 $d
+     /tmp/ccv2O6GG.s:864    .bss.window_cnt_total:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 stmgpio_write
