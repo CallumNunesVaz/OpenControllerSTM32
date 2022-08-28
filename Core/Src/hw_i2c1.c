@@ -80,8 +80,8 @@ int i2c1_init(void)
   /* Disable DMA */
   I2C1->CR2 &= ~I2C_CR2_DMAEN;
 
-  /* Disable DMA TX buffer interrupt */
-  I2C1->CR2 &= ~I2C_CR2_ITBUFEN;
+  /* Enable TX buffer interrupt */
+  I2C1->CR2 |= I2C_CR2_ITBUFEN;
 
   /* Enable event interrupt */
   I2C1->CR2 |= I2C_CR2_ITEVTEN;
@@ -111,7 +111,7 @@ int i2c1_init(void)
   i2c1_reset_periph();
 
   /* hooray */
-  dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_LIB_NAME, sizeof(DBG_LIB_NAME));
+  //dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_LIB_NAME, sizeof(DBG_LIB_NAME));
   return EXIT_SUCCESS;
 }
 
@@ -209,7 +209,7 @@ I2C1_ERR i2c1_get_last_error(void)
 }
 
 /* I2C1 event handler */
-void i2c1_ev_irq_handler(void)
+void I2C1_EV_IRQHandler(void)
 {
   /* Check flags, log event */
   for (idx = 0; idx < sizeof(EVT_LIST); idx++)
@@ -231,7 +231,7 @@ void i2c1_ev_irq_handler(void)
 }
 
 /* I2C1 error handler */
-void i2c1_er_irq_handler(void)
+void I2C1_ER_IRQHandler(void)
 {
   /* Check flags, log error */
   for (idx = 0; idx < sizeof(ERR_LIST); idx++)

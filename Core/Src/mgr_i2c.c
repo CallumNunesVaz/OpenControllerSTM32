@@ -244,8 +244,6 @@ void i2c_trig_state_trans(void)
 {
   static uint8_t idx;
 
-  
-
   /* Find state transition action */
   for (idx = 0; idx < TRANS_TAB_LEN; idx++)
   {
@@ -265,8 +263,8 @@ void i2c_trig_state_trans(void)
   /* reset state entry condition */
   state_executed = false;
 
-  /* Call new state function */
-  // cur_state();
+  /* Call new state function immediately */
+  cur_state();
 }
 
 void i2c_event_callback()
@@ -276,7 +274,7 @@ void i2c_event_callback()
 
   /* Transition to new state based on event and run */
   i2c_trig_state_trans();
-  cur_state();
+  //cur_state();
 
   /* humour i2c peripheral */
   // i2c1_SR1_dummy_read();

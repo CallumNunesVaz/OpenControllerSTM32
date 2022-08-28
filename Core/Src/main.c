@@ -45,7 +45,9 @@ int main(void)
   heartbeat_start();
 
   /* Initialise binary outputs */
-  ASSERT_INT(bout_init());
+  //ASSERT_INT(bout_init());
+  //bout_reset_lib();
+  //bout_set(7);
 
   ASSERT_INT(i2c_init());
 
@@ -58,15 +60,13 @@ int main(void)
   // dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_NAME, sizeof(DBG_NAME));
 
   /* Main loop */
+
+
+
   while (1)
   {
-    i2c_poll_fsm();
+    //i2c_poll_fsm();
     heartbeat_poll();
-    // for (idx = 0; idx < 7; idx++) {
-    //   bout_reset_lib();
-    //   bout_set(idx);
-    // blocking_delay_ms(500);
-    //}
   }
 }
 

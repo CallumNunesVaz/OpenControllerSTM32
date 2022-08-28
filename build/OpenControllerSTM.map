@@ -152,6 +152,12 @@ Discarded input sections
  .text          0x0000000000000000        0x0 build/mgr_bout.o
  .data          0x0000000000000000        0x0 build/mgr_bout.o
  .bss           0x0000000000000000        0x0 build/mgr_bout.o
+ .text.bout_tick_callback
+                0x0000000000000000       0x1c build/mgr_bout.o
+ .text.bout_reset_lib
+                0x0000000000000000       0x24 build/mgr_bout.o
+ .text.bout_init
+                0x0000000000000000       0x58 build/mgr_bout.o
  .text.bout_reset
                 0x0000000000000000       0x20 build/mgr_bout.o
  .text.bout_set
@@ -162,6 +168,28 @@ Discarded input sections
                 0x0000000000000000        0xc build/mgr_bout.o
  .text.bout_poll
                 0x0000000000000000       0x1c build/mgr_bout.o
+ .bss.bout_gpio
+                0x0000000000000000       0x60 build/mgr_bout.o
+ .bss.bouts_is_active
+                0x0000000000000000        0x1 build/mgr_bout.o
+ .bss.callback_cnt
+                0x0000000000000000        0x1 build/mgr_bout.o
+ .rodata.bout_gpio_pins
+                0x0000000000000000        0x8 build/mgr_bout.o
+ .rodata.bout_gpio_ports
+                0x0000000000000000        0x8 build/mgr_bout.o
+ .debug_info    0x0000000000000000      0x4e4 build/mgr_bout.o
+ .debug_abbrev  0x0000000000000000      0x1c2 build/mgr_bout.o
+ .debug_loc     0x0000000000000000       0xaa build/mgr_bout.o
+ .debug_aranges
+                0x0000000000000000       0x58 build/mgr_bout.o
+ .debug_ranges  0x0000000000000000       0x48 build/mgr_bout.o
+ .debug_line    0x0000000000000000      0x38a build/mgr_bout.o
+ .debug_str     0x0000000000000000      0x3fe build/mgr_bout.o
+ .comment       0x0000000000000000       0x44 build/mgr_bout.o
+ .debug_frame   0x0000000000000000       0xb0 build/mgr_bout.o
+ .ARM.attributes
+                0x0000000000000000       0x2d build/mgr_bout.o
  .text          0x0000000000000000        0x0 build/mgr_hearbeat.o
  .data          0x0000000000000000        0x0 build/mgr_hearbeat.o
  .bss           0x0000000000000000        0x0 build/mgr_hearbeat.o
@@ -217,8 +245,20 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 build/util_error.o
  .text.dbg_log_init
                 0x0000000000000000        0x2 build/util_error.o
+ .text.dbg_log  0x0000000000000000        0x2 build/util_error.o
  .text.dbg_log_code
                 0x0000000000000000        0xc build/util_error.o
+ .debug_info    0x0000000000000000      0x201 build/util_error.o
+ .debug_abbrev  0x0000000000000000       0xd2 build/util_error.o
+ .debug_aranges
+                0x0000000000000000       0x30 build/util_error.o
+ .debug_ranges  0x0000000000000000       0x20 build/util_error.o
+ .debug_line    0x0000000000000000      0x135 build/util_error.o
+ .debug_str     0x0000000000000000      0x2e2 build/util_error.o
+ .comment       0x0000000000000000       0x44 build/util_error.o
+ .debug_frame   0x0000000000000000       0x48 build/util_error.o
+ .ARM.attributes
+                0x0000000000000000       0x2d build/util_error.o
  .text          0x0000000000000000        0x0 build/util_fsm.o
  .data          0x0000000000000000        0x0 build/util_fsm.o
  .bss           0x0000000000000000        0x0 build/util_fsm.o
@@ -366,7 +406,7 @@ LOAD /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-de
                 0x0000000008000000                g_pfnVectors
                 0x000000000800010c                . = ALIGN (0x4)
 
-.text           0x000000000800010c     0x1c5c
+.text           0x000000000800010c     0x1ba4
                 0x000000000800010c                . = ALIGN (0x4)
  *(.text)
  .text          0x000000000800010c      0x378 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubdf3.o)
@@ -428,345 +468,329 @@ LOAD /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-de
                 0x0000000008000e30       0x18 build/hw_i2c1.o
                 0x0000000008000e30                i2c1_reset_periph
  .text.i2c1_init
-                0x0000000008000e48      0x128 build/hw_i2c1.o
+                0x0000000008000e48      0x118 build/hw_i2c1.o
                 0x0000000008000e48                i2c1_init
  .text.i2c1_ack_bit
-                0x0000000008000f70       0x10 build/hw_i2c1.o
-                0x0000000008000f70                i2c1_ack_bit
+                0x0000000008000f60       0x10 build/hw_i2c1.o
+                0x0000000008000f60                i2c1_ack_bit
  .text.i2c1_enable_periph
-                0x0000000008000f80       0x18 build/hw_i2c1.o
-                0x0000000008000f80                i2c1_enable_periph
+                0x0000000008000f70       0x18 build/hw_i2c1.o
+                0x0000000008000f70                i2c1_enable_periph
  .text.i2c1_nack_bit
-                0x0000000008000f98       0x10 build/hw_i2c1.o
-                0x0000000008000f98                i2c1_nack_bit
+                0x0000000008000f88       0x10 build/hw_i2c1.o
+                0x0000000008000f88                i2c1_nack_bit
  .text.i2c1_start
-                0x0000000008000fa8       0x10 build/hw_i2c1.o
-                0x0000000008000fa8                i2c1_start
+                0x0000000008000f98       0x10 build/hw_i2c1.o
+                0x0000000008000f98                i2c1_start
  .text.i2c1_stop
-                0x0000000008000fb8       0x10 build/hw_i2c1.o
-                0x0000000008000fb8                i2c1_stop
+                0x0000000008000fa8       0x10 build/hw_i2c1.o
+                0x0000000008000fa8                i2c1_stop
  .text.i2c1_recv
-                0x0000000008000fc8       0x1c build/hw_i2c1.o
-                0x0000000008000fc8                i2c1_recv
+                0x0000000008000fb8       0x1c build/hw_i2c1.o
+                0x0000000008000fb8                i2c1_recv
  .text.i2c1_send
-                0x0000000008000fe4       0x1c build/hw_i2c1.o
-                0x0000000008000fe4                i2c1_send
+                0x0000000008000fd4       0x1c build/hw_i2c1.o
+                0x0000000008000fd4                i2c1_send
  .text.i2c1_set_evt_callback
-                0x0000000008001000       0x14 build/hw_i2c1.o
-                0x0000000008001000                i2c1_set_evt_callback
+                0x0000000008000ff0       0x14 build/hw_i2c1.o
+                0x0000000008000ff0                i2c1_set_evt_callback
  .text.i2c1_set_err_callback
-                0x0000000008001014       0x14 build/hw_i2c1.o
-                0x0000000008001014                i2c1_set_err_callback
+                0x0000000008001004       0x14 build/hw_i2c1.o
+                0x0000000008001004                i2c1_set_err_callback
  .text.i2c1_get_last_event
-                0x0000000008001028        0xc build/hw_i2c1.o
-                0x0000000008001028                i2c1_get_last_event
+                0x0000000008001018        0xc build/hw_i2c1.o
+                0x0000000008001018                i2c1_get_last_event
  .text.I2C1_EV_IRQHandler
-                0x0000000008001034       0x5c build/hw_i2c1.o
-                0x0000000008001034                I2C1_EV_IRQHandler
+                0x0000000008001024       0x5c build/hw_i2c1.o
+                0x0000000008001024                I2C1_EV_IRQHandler
  .text.I2C1_ER_IRQHandler
-                0x0000000008001090       0x60 build/hw_i2c1.o
-                0x0000000008001090                I2C1_ER_IRQHandler
+                0x0000000008001080       0x60 build/hw_i2c1.o
+                0x0000000008001080                I2C1_ER_IRQHandler
  .text.stmgpio_write
-                0x00000000080010f0       0x24 build/hw_stmgpio.o
-                0x00000000080010f0                stmgpio_write
+                0x00000000080010e0       0x24 build/hw_stmgpio.o
+                0x00000000080010e0                stmgpio_write
  .text.stmgpio_can_init
-                0x0000000008001114       0x74 build/hw_stmgpio.o
-                0x0000000008001114                stmgpio_can_init
+                0x0000000008001104       0x74 build/hw_stmgpio.o
+                0x0000000008001104                stmgpio_can_init
  .text.stmgpio_setup
-                0x0000000008001188       0xdc build/hw_stmgpio.o
-                0x0000000008001188                stmgpio_setup
+                0x0000000008001178       0xdc build/hw_stmgpio.o
+                0x0000000008001178                stmgpio_setup
  .text.hw_systick_get_freq
-                0x0000000008001264        0xc build/hw_systick.o
-                0x0000000008001264                hw_systick_get_freq
+                0x0000000008001254        0xc build/hw_systick.o
+                0x0000000008001254                hw_systick_get_freq
  .text.hw_systick_start
-                0x0000000008001270        0xe build/hw_systick.o
-                0x0000000008001270                hw_systick_start
- *fill*         0x000000000800127e        0x2 
+                0x0000000008001260        0xe build/hw_systick.o
+                0x0000000008001260                hw_systick_start
+ *fill*         0x000000000800126e        0x2 
  .text.hw_systick_init
-                0x0000000008001280       0x5c build/hw_systick.o
-                0x0000000008001280                hw_systick_init
+                0x0000000008001270       0x5c build/hw_systick.o
+                0x0000000008001270                hw_systick_init
  .text.hw_systick_add_callback
-                0x00000000080012dc       0x34 build/hw_systick.o
-                0x00000000080012dc                hw_systick_add_callback
+                0x00000000080012cc       0x34 build/hw_systick.o
+                0x00000000080012cc                hw_systick_add_callback
  .text.SysTick_Handler
-                0x0000000008001310       0x40 build/hw_systick.o
-                0x0000000008001310                SysTick_Handler
+                0x0000000008001300       0x40 build/hw_systick.o
+                0x0000000008001300                SysTick_Handler
  .text.hw_system_clocks_init
-                0x0000000008001350       0xe8 build/main.o
-                0x0000000008001350                hw_system_clocks_init
- .text.main     0x0000000008001438       0x4c build/main.o
-                0x0000000008001438                main
- .text.bout_tick_callback
-                0x0000000008001484       0x1c build/mgr_bout.o
-                0x0000000008001484                bout_tick_callback
- .text.bout_reset_lib
-                0x00000000080014a0       0x24 build/mgr_bout.o
-                0x00000000080014a0                bout_reset_lib
- .text.bout_init
-                0x00000000080014c4       0x58 build/mgr_bout.o
-                0x00000000080014c4                bout_init
+                0x0000000008001340       0xe8 build/main.o
+                0x0000000008001340                hw_system_clocks_init
+ .text.main     0x0000000008001428       0x40 build/main.o
+                0x0000000008001428                main
  .text.heartbeat_reset
-                0x000000000800151c       0x1c build/mgr_hearbeat.o
-                0x000000000800151c                heartbeat_reset
+                0x0000000008001468       0x1c build/mgr_hearbeat.o
+                0x0000000008001468                heartbeat_reset
  .text.heartbeat_start
-                0x0000000008001538        0xc build/mgr_hearbeat.o
-                0x0000000008001538                heartbeat_start
+                0x0000000008001484        0xc build/mgr_hearbeat.o
+                0x0000000008001484                heartbeat_start
  .text.heartbeat_set_poll_mode
-                0x0000000008001544        0xc build/mgr_hearbeat.o
-                0x0000000008001544                heartbeat_set_poll_mode
+                0x0000000008001490        0xc build/mgr_hearbeat.o
+                0x0000000008001490                heartbeat_set_poll_mode
  .text.heartbeat_lower_multiple
-                0x0000000008001550        0xc build/mgr_hearbeat.o
-                0x0000000008001550                heartbeat_lower_multiple
+                0x000000000800149c        0xc build/mgr_hearbeat.o
+                0x000000000800149c                heartbeat_lower_multiple
  .text.heartbeat_poll
-                0x000000000800155c       0xec build/mgr_hearbeat.o
-                0x000000000800155c                heartbeat_poll
+                0x00000000080014a8       0xec build/mgr_hearbeat.o
+                0x00000000080014a8                heartbeat_poll
  .text.heartbeat_tick_callback
-                0x0000000008001648       0x2c build/mgr_hearbeat.o
-                0x0000000008001648                heartbeat_tick_callback
+                0x0000000008001594       0x2c build/mgr_hearbeat.o
+                0x0000000008001594                heartbeat_tick_callback
  .text.heartbeat_set_period_ms
-                0x0000000008001674       0xf8 build/mgr_hearbeat.o
-                0x0000000008001674                heartbeat_set_period_ms
+                0x00000000080015c0       0xf8 build/mgr_hearbeat.o
+                0x00000000080015c0                heartbeat_set_period_ms
  .text.heartbeat_init
-                0x000000000800176c       0x4c build/mgr_hearbeat.o
-                0x000000000800176c                heartbeat_init
+                0x00000000080016b8       0x4c build/mgr_hearbeat.o
+                0x00000000080016b8                heartbeat_init
  .text.heartbeat_set_pattern_mode
-                0x00000000080017b8       0x1c build/mgr_hearbeat.o
-                0x00000000080017b8                heartbeat_set_pattern_mode
+                0x0000000008001704       0x1c build/mgr_hearbeat.o
+                0x0000000008001704                heartbeat_set_pattern_mode
  .text.i2c_state_error
-                0x00000000080017d4        0x2 build/mgr_i2c.o
-                0x00000000080017d4                i2c_state_error
+                0x0000000008001720        0x2 build/mgr_i2c.o
+                0x0000000008001720                i2c_state_error
  .text.i2c_error_callback
-                0x00000000080017d6        0x6 build/mgr_i2c.o
-                0x00000000080017d6                i2c_error_callback
+                0x0000000008001722        0x6 build/mgr_i2c.o
+                0x0000000008001722                i2c_error_callback
  .text.i2c_state_start_bit
-                0x00000000080017dc       0x1c build/mgr_i2c.o
-                0x00000000080017dc                i2c_state_start_bit
+                0x0000000008001728       0x1c build/mgr_i2c.o
+                0x0000000008001728                i2c_state_start_bit
  .text.i2c_state_stop_bit
-                0x00000000080017f8        0x8 build/mgr_i2c.o
-                0x00000000080017f8                i2c_state_stop_bit
+                0x0000000008001744        0x8 build/mgr_i2c.o
+                0x0000000008001744                i2c_state_stop_bit
  .text.i2c_decode_i2c1_event
-                0x0000000008001800       0x60 build/mgr_i2c.o
-                0x0000000008001800                i2c_decode_i2c1_event
+                0x000000000800174c       0x60 build/mgr_i2c.o
+                0x000000000800174c                i2c_decode_i2c1_event
  .text.i2c_reset
-                0x0000000008001860       0x1c build/mgr_i2c.o
-                0x0000000008001860                i2c_reset
+                0x00000000080017ac       0x1c build/mgr_i2c.o
+                0x00000000080017ac                i2c_reset
  .text.i2c_enable
-                0x000000000800187c        0x8 build/mgr_i2c.o
-                0x000000000800187c                i2c_enable
+                0x00000000080017c8        0x8 build/mgr_i2c.o
+                0x00000000080017c8                i2c_enable
  .text.i2c_init
-                0x0000000008001884       0x54 build/mgr_i2c.o
-                0x0000000008001884                i2c_init
+                0x00000000080017d0       0x54 build/mgr_i2c.o
+                0x00000000080017d0                i2c_init
  .text.i2c_poll_fsm
-                0x00000000080018d8       0x10 build/mgr_i2c.o
-                0x00000000080018d8                i2c_poll_fsm
+                0x0000000008001824       0x10 build/mgr_i2c.o
+                0x0000000008001824                i2c_poll_fsm
  .text.i2c_queue_msg
-                0x00000000080018e8       0x38 build/mgr_i2c.o
-                0x00000000080018e8                i2c_queue_msg
+                0x0000000008001834       0x38 build/mgr_i2c.o
+                0x0000000008001834                i2c_queue_msg
  .text.i2c_trig_state_trans
-                0x0000000008001920       0x80 build/mgr_i2c.o
-                0x0000000008001920                i2c_trig_state_trans
+                0x000000000800186c       0x88 build/mgr_i2c.o
+                0x000000000800186c                i2c_trig_state_trans
  .text.i2c_state_idle
-                0x00000000080019a0       0x44 build/mgr_i2c.o
-                0x00000000080019a0                i2c_state_idle
+                0x00000000080018f4       0x44 build/mgr_i2c.o
+                0x00000000080018f4                i2c_state_idle
  .text.i2c_state_tx_data
-                0x00000000080019e4       0x48 build/mgr_i2c.o
-                0x00000000080019e4                i2c_state_tx_data
+                0x0000000008001938       0x48 build/mgr_i2c.o
+                0x0000000008001938                i2c_state_tx_data
  .text.i2c_state_rx_data
-                0x0000000008001a2c       0x58 build/mgr_i2c.o
-                0x0000000008001a2c                i2c_state_rx_data
+                0x0000000008001980       0x58 build/mgr_i2c.o
+                0x0000000008001980                i2c_state_rx_data
  .text.i2c_event_callback
-                0x0000000008001a84       0x24 build/mgr_i2c.o
-                0x0000000008001a84                i2c_event_callback
+                0x00000000080019d8       0x18 build/mgr_i2c.o
+                0x00000000080019d8                i2c_event_callback
  .text.NMI_Handler
-                0x0000000008001aa8        0x2 build/stm32f1xx_it.o
-                0x0000000008001aa8                NMI_Handler
+                0x00000000080019f0        0x2 build/stm32f1xx_it.o
+                0x00000000080019f0                NMI_Handler
  .text.HardFault_Handler
-                0x0000000008001aaa        0x2 build/stm32f1xx_it.o
-                0x0000000008001aaa                HardFault_Handler
+                0x00000000080019f2        0x2 build/stm32f1xx_it.o
+                0x00000000080019f2                HardFault_Handler
  .text.BusFault_Handler
-                0x0000000008001aac        0x2 build/stm32f1xx_it.o
-                0x0000000008001aac                BusFault_Handler
+                0x00000000080019f4        0x2 build/stm32f1xx_it.o
+                0x00000000080019f4                BusFault_Handler
  .text.UsageFault_Handler
-                0x0000000008001aae        0x2 build/stm32f1xx_it.o
-                0x0000000008001aae                UsageFault_Handler
+                0x00000000080019f6        0x2 build/stm32f1xx_it.o
+                0x00000000080019f6                UsageFault_Handler
  .text.SVC_Handler
-                0x0000000008001ab0        0x2 build/stm32f1xx_it.o
-                0x0000000008001ab0                SVC_Handler
+                0x00000000080019f8        0x2 build/stm32f1xx_it.o
+                0x00000000080019f8                SVC_Handler
  .text.DebugMon_Handler
-                0x0000000008001ab2        0x2 build/stm32f1xx_it.o
-                0x0000000008001ab2                DebugMon_Handler
+                0x00000000080019fa        0x2 build/stm32f1xx_it.o
+                0x00000000080019fa                DebugMon_Handler
  .text.PendSV_Handler
-                0x0000000008001ab4        0x2 build/stm32f1xx_it.o
-                0x0000000008001ab4                PendSV_Handler
+                0x00000000080019fc        0x2 build/stm32f1xx_it.o
+                0x00000000080019fc                PendSV_Handler
  .text.SystemInit
-                0x0000000008001ab6        0x2 build/system_stm32f1xx.o
-                0x0000000008001ab6                SystemInit
+                0x00000000080019fe        0x2 build/system_stm32f1xx.o
+                0x00000000080019fe                SystemInit
  .text.SystemCoreClockUpdate
-                0x0000000008001ab8       0x94 build/system_stm32f1xx.o
-                0x0000000008001ab8                SystemCoreClockUpdate
+                0x0000000008001a00       0x94 build/system_stm32f1xx.o
+                0x0000000008001a00                SystemCoreClockUpdate
  .text.buf_reset
-                0x0000000008001b4c       0x1e build/util_buffer.o
-                0x0000000008001b4c                buf_reset
+                0x0000000008001a94       0x1e build/util_buffer.o
+                0x0000000008001a94                buf_reset
  .text.buf_init
-                0x0000000008001b6a       0x20 build/util_buffer.o
-                0x0000000008001b6a                buf_init
+                0x0000000008001ab2       0x20 build/util_buffer.o
+                0x0000000008001ab2                buf_init
  .text.buf_write
-                0x0000000008001b8a       0x76 build/util_buffer.o
-                0x0000000008001b8a                buf_write
+                0x0000000008001ad2       0x76 build/util_buffer.o
+                0x0000000008001ad2                buf_write
  .text.buf_peek
-                0x0000000008001c00       0x5a build/util_buffer.o
-                0x0000000008001c00                buf_peek
+                0x0000000008001b48       0x5a build/util_buffer.o
+                0x0000000008001b48                buf_peek
  .text.buf_read
-                0x0000000008001c5a       0x2a build/util_buffer.o
-                0x0000000008001c5a                buf_read
+                0x0000000008001ba2       0x2a build/util_buffer.o
+                0x0000000008001ba2                buf_read
  .text.buf_is_empty
-                0x0000000008001c84        0xa build/util_buffer.o
-                0x0000000008001c84                buf_is_empty
- .text.dbg_log  0x0000000008001c8e        0x2 build/util_error.o
-                0x0000000008001c8e                dbg_log
+                0x0000000008001bcc        0xa build/util_buffer.o
+                0x0000000008001bcc                buf_is_empty
+ *fill*         0x0000000008001bd6        0x2 
  .text.Reset_Handler
-                0x0000000008001c90       0x48 build/startup_stm32f103xb.o
-                0x0000000008001c90                Reset_Handler
+                0x0000000008001bd8       0x48 build/startup_stm32f103xb.o
+                0x0000000008001bd8                Reset_Handler
  .text.Default_Handler
-                0x0000000008001cd8        0x2 build/startup_stm32f103xb.o
-                0x0000000008001cd8                RTC_Alarm_IRQHandler
-                0x0000000008001cd8                EXTI2_IRQHandler
-                0x0000000008001cd8                TIM1_CC_IRQHandler
-                0x0000000008001cd8                PVD_IRQHandler
-                0x0000000008001cd8                EXTI3_IRQHandler
-                0x0000000008001cd8                EXTI0_IRQHandler
-                0x0000000008001cd8                I2C2_EV_IRQHandler
-                0x0000000008001cd8                ADC1_2_IRQHandler
-                0x0000000008001cd8                SPI1_IRQHandler
-                0x0000000008001cd8                TAMPER_IRQHandler
-                0x0000000008001cd8                DMA1_Channel4_IRQHandler
-                0x0000000008001cd8                USART3_IRQHandler
-                0x0000000008001cd8                RTC_IRQHandler
-                0x0000000008001cd8                DMA1_Channel7_IRQHandler
-                0x0000000008001cd8                CAN1_RX1_IRQHandler
-                0x0000000008001cd8                TIM4_IRQHandler
-                0x0000000008001cd8                DMA1_Channel6_IRQHandler
-                0x0000000008001cd8                TIM3_IRQHandler
-                0x0000000008001cd8                RCC_IRQHandler
-                0x0000000008001cd8                TIM1_TRG_COM_IRQHandler
-                0x0000000008001cd8                DMA1_Channel1_IRQHandler
-                0x0000000008001cd8                Default_Handler
-                0x0000000008001cd8                EXTI15_10_IRQHandler
-                0x0000000008001cd8                EXTI9_5_IRQHandler
-                0x0000000008001cd8                SPI2_IRQHandler
-                0x0000000008001cd8                MemManage_Handler
-                0x0000000008001cd8                DMA1_Channel5_IRQHandler
-                0x0000000008001cd8                EXTI4_IRQHandler
-                0x0000000008001cd8                USB_LP_CAN1_RX0_IRQHandler
-                0x0000000008001cd8                USB_HP_CAN1_TX_IRQHandler
-                0x0000000008001cd8                DMA1_Channel3_IRQHandler
-                0x0000000008001cd8                TIM1_UP_IRQHandler
-                0x0000000008001cd8                WWDG_IRQHandler
-                0x0000000008001cd8                TIM2_IRQHandler
-                0x0000000008001cd8                TIM1_BRK_IRQHandler
-                0x0000000008001cd8                EXTI1_IRQHandler
-                0x0000000008001cd8                USART2_IRQHandler
-                0x0000000008001cd8                I2C2_ER_IRQHandler
-                0x0000000008001cd8                DMA1_Channel2_IRQHandler
-                0x0000000008001cd8                CAN1_SCE_IRQHandler
-                0x0000000008001cd8                FLASH_IRQHandler
-                0x0000000008001cd8                USART1_IRQHandler
-                0x0000000008001cd8                USBWakeUp_IRQHandler
- *fill*         0x0000000008001cda        0x2 
+                0x0000000008001c20        0x2 build/startup_stm32f103xb.o
+                0x0000000008001c20                RTC_Alarm_IRQHandler
+                0x0000000008001c20                EXTI2_IRQHandler
+                0x0000000008001c20                TIM1_CC_IRQHandler
+                0x0000000008001c20                PVD_IRQHandler
+                0x0000000008001c20                EXTI3_IRQHandler
+                0x0000000008001c20                EXTI0_IRQHandler
+                0x0000000008001c20                I2C2_EV_IRQHandler
+                0x0000000008001c20                ADC1_2_IRQHandler
+                0x0000000008001c20                SPI1_IRQHandler
+                0x0000000008001c20                TAMPER_IRQHandler
+                0x0000000008001c20                DMA1_Channel4_IRQHandler
+                0x0000000008001c20                USART3_IRQHandler
+                0x0000000008001c20                RTC_IRQHandler
+                0x0000000008001c20                DMA1_Channel7_IRQHandler
+                0x0000000008001c20                CAN1_RX1_IRQHandler
+                0x0000000008001c20                TIM4_IRQHandler
+                0x0000000008001c20                DMA1_Channel6_IRQHandler
+                0x0000000008001c20                TIM3_IRQHandler
+                0x0000000008001c20                RCC_IRQHandler
+                0x0000000008001c20                TIM1_TRG_COM_IRQHandler
+                0x0000000008001c20                DMA1_Channel1_IRQHandler
+                0x0000000008001c20                Default_Handler
+                0x0000000008001c20                EXTI15_10_IRQHandler
+                0x0000000008001c20                EXTI9_5_IRQHandler
+                0x0000000008001c20                SPI2_IRQHandler
+                0x0000000008001c20                MemManage_Handler
+                0x0000000008001c20                DMA1_Channel5_IRQHandler
+                0x0000000008001c20                EXTI4_IRQHandler
+                0x0000000008001c20                USB_LP_CAN1_RX0_IRQHandler
+                0x0000000008001c20                USB_HP_CAN1_TX_IRQHandler
+                0x0000000008001c20                DMA1_Channel3_IRQHandler
+                0x0000000008001c20                TIM1_UP_IRQHandler
+                0x0000000008001c20                WWDG_IRQHandler
+                0x0000000008001c20                TIM2_IRQHandler
+                0x0000000008001c20                TIM1_BRK_IRQHandler
+                0x0000000008001c20                EXTI1_IRQHandler
+                0x0000000008001c20                USART2_IRQHandler
+                0x0000000008001c20                I2C2_ER_IRQHandler
+                0x0000000008001c20                DMA1_Channel2_IRQHandler
+                0x0000000008001c20                CAN1_SCE_IRQHandler
+                0x0000000008001c20                FLASH_IRQHandler
+                0x0000000008001c20                USART1_IRQHandler
+                0x0000000008001c20                USBWakeUp_IRQHandler
+ *fill*         0x0000000008001c22        0x2 
  .text.__libc_init_array
-                0x0000000008001cdc       0x48 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-init.o)
-                0x0000000008001cdc                __libc_init_array
- .text.memcpy   0x0000000008001d24       0x1c /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
-                0x0000000008001d24                memcpy
- .text.memset   0x0000000008001d40       0x10 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-memset.o)
-                0x0000000008001d40                memset
+                0x0000000008001c24       0x48 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-init.o)
+                0x0000000008001c24                __libc_init_array
+ .text.memcpy   0x0000000008001c6c       0x1c /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
+                0x0000000008001c6c                memcpy
+ .text.memset   0x0000000008001c88       0x10 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-memset.o)
+                0x0000000008001c88                memset
  *(.glue_7)
- .glue_7        0x0000000008001d50        0x0 linker stubs
+ .glue_7        0x0000000008001c98        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000008001d50        0x0 linker stubs
+ .glue_7t       0x0000000008001c98        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0000000008001d50        0x0 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+ .eh_frame      0x0000000008001c98        0x0 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
  *(.init)
- .init          0x0000000008001d50        0x4 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
-                0x0000000008001d50                _init
- .init          0x0000000008001d54        0x8 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
+ .init          0x0000000008001c98        0x4 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
+                0x0000000008001c98                _init
+ .init          0x0000000008001c9c        0x8 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  *(.fini)
- .fini          0x0000000008001d5c        0x4 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
-                0x0000000008001d5c                _fini
- .fini          0x0000000008001d60        0x8 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
-                0x0000000008001d68                . = ALIGN (0x4)
-                0x0000000008001d68                _etext = .
+ .fini          0x0000000008001ca4        0x4 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
+                0x0000000008001ca4                _fini
+ .fini          0x0000000008001ca8        0x8 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
+                0x0000000008001cb0                . = ALIGN (0x4)
+                0x0000000008001cb0                _etext = .
 
-.vfp11_veneer   0x0000000008001d68        0x0
- .vfp11_veneer  0x0000000008001d68        0x0 linker stubs
+.vfp11_veneer   0x0000000008001cb0        0x0
+ .vfp11_veneer  0x0000000008001cb0        0x0 linker stubs
 
-.v4_bx          0x0000000008001d68        0x0
- .v4_bx         0x0000000008001d68        0x0 linker stubs
+.v4_bx          0x0000000008001cb0        0x0
+ .v4_bx         0x0000000008001cb0        0x0 linker stubs
 
-.iplt           0x0000000008001d68        0x0
- .iplt          0x0000000008001d68        0x0 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+.iplt           0x0000000008001cb0        0x0
+ .iplt          0x0000000008001cb0        0x0 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
 
-.rodata         0x0000000008001d68       0xd4
-                0x0000000008001d68                . = ALIGN (0x4)
+.rodata         0x0000000008001cb0       0xbc
+                0x0000000008001cb0                . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
- .rodata.DBG_LIB_NAME
-                0x0000000008001d68        0x8 build/hw_i2c1.o
  .rodata.PORT_A_PINS
-                0x0000000008001d70       0x10 build/hw_stmgpio.o
-                0x0000000008001d70                PORT_A_PINS
+                0x0000000008001cb0       0x10 build/hw_stmgpio.o
+                0x0000000008001cb0                PORT_A_PINS
  .rodata.PORT_B_PINS
-                0x0000000008001d80       0x10 build/hw_stmgpio.o
-                0x0000000008001d80                PORT_B_PINS
+                0x0000000008001cc0       0x10 build/hw_stmgpio.o
+                0x0000000008001cc0                PORT_B_PINS
  .rodata.PORT_C_PINS
-                0x0000000008001d90       0x10 build/hw_stmgpio.o
-                0x0000000008001d90                PORT_C_PINS
+                0x0000000008001cd0       0x10 build/hw_stmgpio.o
+                0x0000000008001cd0                PORT_C_PINS
  .rodata.PORT_D_PINS
-                0x0000000008001da0       0x10 build/hw_stmgpio.o
-                0x0000000008001da0                PORT_D_PINS
- .rodata.bout_gpio_pins
-                0x0000000008001db0        0x8 build/mgr_bout.o
- .rodata.bout_gpio_ports
-                0x0000000008001db8        0x8 build/mgr_bout.o
+                0x0000000008001ce0       0x10 build/hw_stmgpio.o
+                0x0000000008001ce0                PORT_D_PINS
  .rodata.TRANS_TAB
-                0x0000000008001dc0       0x6c build/mgr_i2c.o
+                0x0000000008001cf0       0x6c build/mgr_i2c.o
  .rodata.AHBPrescTable
-                0x0000000008001e2c       0x10 build/system_stm32f1xx.o
-                0x0000000008001e2c                AHBPrescTable
-                0x0000000008001e3c                . = ALIGN (0x4)
+                0x0000000008001d5c       0x10 build/system_stm32f1xx.o
+                0x0000000008001d5c                AHBPrescTable
+                0x0000000008001d6c                . = ALIGN (0x4)
 
-.rel.dyn        0x0000000008001e3c        0x0
- .rel.iplt      0x0000000008001e3c        0x0 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+.rel.dyn        0x0000000008001d6c        0x0
+ .rel.iplt      0x0000000008001d6c        0x0 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x0000000008001e3c        0x0
-                0x0000000008001e3c                __exidx_start = .
+.ARM            0x0000000008001d6c        0x0
+                0x0000000008001d6c                __exidx_start = .
  *(.ARM.exidx*)
-                0x0000000008001e3c                __exidx_end = .
+                0x0000000008001d6c                __exidx_end = .
 
-.preinit_array  0x0000000008001e3c        0x0
-                0x0000000008001e3c                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0000000008001d6c        0x0
+                0x0000000008001d6c                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0000000008001e3c                PROVIDE (__preinit_array_end = .)
+                0x0000000008001d6c                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0000000008001e3c        0x4
-                0x0000000008001e3c                PROVIDE (__init_array_start = .)
+.init_array     0x0000000008001d6c        0x4
+                0x0000000008001d6c                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0000000008001e3c        0x4 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
-                0x0000000008001e40                PROVIDE (__init_array_end = .)
+ .init_array    0x0000000008001d6c        0x4 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+                0x0000000008001d70                PROVIDE (__init_array_end = .)
 
-.fini_array     0x0000000008001e40        0x4
+.fini_array     0x0000000008001d70        0x4
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0000000008001e40        0x4 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+ .fini_array    0x0000000008001d70        0x4 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0000000008001e44                _sidata = LOADADDR (.data)
+                0x0000000008001d74                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000       0x1c load address 0x0000000008001e44
+.data           0x0000000020000000       0x1c load address 0x0000000008001d74
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -785,11 +809,11 @@ LOAD /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-de
                 0x000000002000001c                . = ALIGN (0x4)
                 0x000000002000001c                _edata = .
 
-.igot.plt       0x000000002000001c        0x0 load address 0x0000000008001e60
+.igot.plt       0x000000002000001c        0x0 load address 0x0000000008001d90
  .igot.plt      0x000000002000001c        0x0 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
                 0x000000002000001c                . = ALIGN (0x4)
 
-.bss            0x000000002000001c      0x2fc load address 0x0000000008001e60
+.bss            0x000000002000001c      0x29c load address 0x0000000008001d90
                 0x000000002000001c                _sbss = .
                 0x000000002000001c                __bss_start__ = _sbss
  *(.bss)
@@ -827,69 +851,63 @@ LOAD /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-de
  *fill*         0x0000000020000109        0x1 
  .bss.sys_tick_freq_hz
                 0x000000002000010a        0x2 build/hw_systick.o
- .bss.bout_gpio
-                0x000000002000010c       0x60 build/mgr_bout.o
- .bss.bouts_is_active
-                0x000000002000016c        0x1 build/mgr_bout.o
  .bss.callback_cnt
-                0x000000002000016d        0x1 build/mgr_bout.o
- .bss.callback_cnt
-                0x000000002000016e        0x1 build/mgr_hearbeat.o
- *fill*         0x000000002000016f        0x1 
+                0x000000002000010c        0x1 build/mgr_hearbeat.o
+ *fill*         0x000000002000010d        0x3 
  .bss.fade_vals
-                0x0000000020000170       0x64 build/mgr_hearbeat.o
- .bss.gpio_led  0x00000000200001d4        0xc build/mgr_hearbeat.o
+                0x0000000020000110       0x64 build/mgr_hearbeat.o
+ .bss.gpio_led  0x0000000020000174        0xc build/mgr_hearbeat.o
  .bss.hb_pattern
-                0x00000000200001e0        0x4 build/mgr_hearbeat.o
+                0x0000000020000180        0x4 build/mgr_hearbeat.o
  .bss.heartbeat_is_active
-                0x00000000200001e4        0x1 build/mgr_hearbeat.o
- *fill*         0x00000000200001e5        0x1 
+                0x0000000020000184        0x1 build/mgr_hearbeat.o
+ *fill*         0x0000000020000185        0x1 
  .bss.heartbeat_period_ms
-                0x00000000200001e6        0x2 build/mgr_hearbeat.o
+                0x0000000020000186        0x2 build/mgr_hearbeat.o
  .bss.pattern_snapshot
-                0x00000000200001e8        0x4 build/mgr_hearbeat.o
+                0x0000000020000188        0x4 build/mgr_hearbeat.o
  .bss.poll_mode
-                0x00000000200001ec        0x1 build/mgr_hearbeat.o
+                0x000000002000018c        0x1 build/mgr_hearbeat.o
  .bss.tick_per_window_cnt
-                0x00000000200001ed        0x1 build/mgr_hearbeat.o
- *fill*         0x00000000200001ee        0x2 
+                0x000000002000018d        0x1 build/mgr_hearbeat.o
+ *fill*         0x000000002000018e        0x2 
  .bss.ticks_per_window
-                0x00000000200001f0        0x4 build/mgr_hearbeat.o
+                0x0000000020000190        0x4 build/mgr_hearbeat.o
  .bss.window_cnt
-                0x00000000200001f4        0x1 build/mgr_hearbeat.o
+                0x0000000020000194        0x1 build/mgr_hearbeat.o
  .bss.window_cnt_total
-                0x00000000200001f5        0x1 build/mgr_hearbeat.o
+                0x0000000020000195        0x1 build/mgr_hearbeat.o
  .bss.bytes_to_recv
-                0x00000000200001f6        0x1 build/mgr_i2c.o
+                0x0000000020000196        0x1 build/mgr_i2c.o
  .bss.bytes_to_send
-                0x00000000200001f7        0x1 build/mgr_i2c.o
+                0x0000000020000197        0x1 build/mgr_i2c.o
  .bss.cur_state
-                0x00000000200001f8        0x4 build/mgr_i2c.o
- .bss.idx.0     0x00000000200001fc        0x1 build/mgr_i2c.o
- .bss.last_evt  0x00000000200001fd        0x1 build/mgr_i2c.o
- *fill*         0x00000000200001fe        0x2 
- .bss.msg_buf   0x0000000020000200       0x14 build/mgr_i2c.o
+                0x0000000020000198        0x4 build/mgr_i2c.o
+ .bss.idx.0     0x000000002000019c        0x1 build/mgr_i2c.o
+ .bss.last_evt  0x000000002000019d        0x1 build/mgr_i2c.o
+ *fill*         0x000000002000019e        0x2 
+ .bss.msg_buf   0x00000000200001a0       0x14 build/mgr_i2c.o
  .bss.msg_buf_data
-                0x0000000020000214       0xf0 build/mgr_i2c.o
- .bss.msg_cur   0x0000000020000304       0x10 build/mgr_i2c.o
+                0x00000000200001b4       0xf0 build/mgr_i2c.o
+ .bss.msg_cur   0x00000000200002a4       0x10 build/mgr_i2c.o
  .bss.state_executed
-                0x0000000020000314        0x1 build/mgr_i2c.o
+                0x00000000200002b4        0x1 build/mgr_i2c.o
  *(COMMON)
-                0x0000000020000318                . = ALIGN (0x4)
- *fill*         0x0000000020000315        0x3 
-                0x0000000020000318                _ebss = .
-                0x0000000020000318                __bss_end__ = _ebss
+                0x00000000200002b8                . = ALIGN (0x4)
+ *fill*         0x00000000200002b5        0x3 
+                0x00000000200002b8                _ebss = .
+                0x00000000200002b8                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x0000000020000318      0x600 load address 0x0000000008001e60
-                0x0000000020000318                . = ALIGN (0x8)
+                0x00000000200002b8      0x600 load address 0x0000000008001d90
+                0x00000000200002b8                . = ALIGN (0x8)
                 [!provide]                        PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)
-                0x0000000020000518                . = (. + _Min_Heap_Size)
- *fill*         0x0000000020000318      0x200 
-                0x0000000020000918                . = (. + _Min_Stack_Size)
- *fill*         0x0000000020000518      0x400 
-                0x0000000020000918                . = ALIGN (0x8)
+                0x00000000200004b8                . = (. + _Min_Heap_Size)
+ *fill*         0x00000000200002b8      0x200 
+                0x00000000200008b8                . = (. + _Min_Stack_Size)
+ *fill*         0x00000000200004b8      0x400 
+                0x00000000200008b8                . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
@@ -914,39 +932,35 @@ LOAD /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-de
  .ARM.attributes
                 0x00000000000000fe       0x2d build/main.o
  .ARM.attributes
-                0x000000000000012b       0x2d build/mgr_bout.o
+                0x000000000000012b       0x2d build/mgr_hearbeat.o
  .ARM.attributes
-                0x0000000000000158       0x2d build/mgr_hearbeat.o
+                0x0000000000000158       0x2d build/mgr_i2c.o
  .ARM.attributes
-                0x0000000000000185       0x2d build/mgr_i2c.o
+                0x0000000000000185       0x2d build/stm32f1xx_it.o
  .ARM.attributes
-                0x00000000000001b2       0x2d build/stm32f1xx_it.o
+                0x00000000000001b2       0x2d build/system_stm32f1xx.o
  .ARM.attributes
-                0x00000000000001df       0x2d build/system_stm32f1xx.o
+                0x00000000000001df       0x2d build/util_buffer.o
  .ARM.attributes
-                0x000000000000020c       0x2d build/util_buffer.o
+                0x000000000000020c       0x21 build/startup_stm32f103xb.o
  .ARM.attributes
-                0x0000000000000239       0x2d build/util_error.o
+                0x000000000000022d       0x2d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-init.o)
  .ARM.attributes
-                0x0000000000000266       0x21 build/startup_stm32f103xb.o
+                0x000000000000025a       0x2d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x0000000000000287       0x2d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-init.o)
+                0x0000000000000287       0x2d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-memset.o)
  .ARM.attributes
-                0x00000000000002b4       0x2d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
+                0x00000000000002b4       0x1d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x00000000000002e1       0x2d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-memset.o)
+                0x00000000000002d1       0x1d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivdf3.o)
  .ARM.attributes
-                0x000000000000030e       0x1d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubdf3.o)
+                0x00000000000002ee       0x1d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a(_arm_fixunsdfsi.o)
  .ARM.attributes
-                0x000000000000032b       0x1d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivdf3.o)
+                0x000000000000030b       0x1d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubsf3.o)
  .ARM.attributes
-                0x0000000000000348       0x1d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a(_arm_fixunsdfsi.o)
+                0x0000000000000328       0x1d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivsf3.o)
  .ARM.attributes
-                0x0000000000000365       0x1d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubsf3.o)
- .ARM.attributes
-                0x0000000000000382       0x1d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivsf3.o)
- .ARM.attributes
-                0x000000000000039f       0x1d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
+                0x0000000000000345       0x1d /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
 OUTPUT(build/OpenControllerSTM.elf elf32-littlearm)
 LOAD linker stubs
 LOAD /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a
@@ -961,59 +975,52 @@ LOAD /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-de
  .comment       0x0000000000000043       0x44 build/hw_stmgpio.o
  .comment       0x0000000000000043       0x44 build/hw_systick.o
  .comment       0x0000000000000043       0x44 build/main.o
- .comment       0x0000000000000043       0x44 build/mgr_bout.o
  .comment       0x0000000000000043       0x44 build/mgr_hearbeat.o
  .comment       0x0000000000000043       0x44 build/mgr_i2c.o
  .comment       0x0000000000000043       0x44 build/stm32f1xx_it.o
  .comment       0x0000000000000043       0x44 build/system_stm32f1xx.o
  .comment       0x0000000000000043       0x44 build/util_buffer.o
- .comment       0x0000000000000043       0x44 build/util_error.o
  .comment       0x0000000000000043       0x44 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-init.o)
  .comment       0x0000000000000043       0x44 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
  .comment       0x0000000000000043       0x44 /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-memset.o)
 
-.debug_info     0x0000000000000000     0x3f15
+.debug_info     0x0000000000000000     0x3761
  .debug_info    0x0000000000000000      0x204 build/drv_gpioexp.o
- .debug_info    0x0000000000000204      0xe0b build/hw_i2c1.o
- .debug_info    0x000000000000100f      0x4ad build/hw_stmgpio.o
- .debug_info    0x00000000000014bc      0x889 build/hw_systick.o
- .debug_info    0x0000000000001d45      0x418 build/main.o
- .debug_info    0x000000000000215d      0x4e4 build/mgr_bout.o
- .debug_info    0x0000000000002641      0x78c build/mgr_hearbeat.o
- .debug_info    0x0000000000002dcd      0x766 build/mgr_i2c.o
- .debug_info    0x0000000000003533      0x11f build/stm32f1xx_it.o
- .debug_info    0x0000000000003652      0x241 build/system_stm32f1xx.o
- .debug_info    0x0000000000003893      0x45f build/util_buffer.o
- .debug_info    0x0000000000003cf2      0x201 build/util_error.o
- .debug_info    0x0000000000003ef3       0x22 build/startup_stm32f103xb.o
+ .debug_info    0x0000000000000204      0xd66 build/hw_i2c1.o
+ .debug_info    0x0000000000000f6a      0x4ad build/hw_stmgpio.o
+ .debug_info    0x0000000000001417      0x889 build/hw_systick.o
+ .debug_info    0x0000000000001ca0      0x3ee build/main.o
+ .debug_info    0x000000000000208e      0x78c build/mgr_hearbeat.o
+ .debug_info    0x000000000000281a      0x766 build/mgr_i2c.o
+ .debug_info    0x0000000000002f80      0x11f build/stm32f1xx_it.o
+ .debug_info    0x000000000000309f      0x241 build/system_stm32f1xx.o
+ .debug_info    0x00000000000032e0      0x45f build/util_buffer.o
+ .debug_info    0x000000000000373f       0x22 build/startup_stm32f103xb.o
 
-.debug_abbrev   0x0000000000000000     0x1385
+.debug_abbrev   0x0000000000000000     0x10df
  .debug_abbrev  0x0000000000000000      0x12c build/drv_gpioexp.o
- .debug_abbrev  0x000000000000012c      0x2ce build/hw_i2c1.o
- .debug_abbrev  0x00000000000003fa      0x1a0 build/hw_stmgpio.o
- .debug_abbrev  0x000000000000059a      0x2a4 build/hw_systick.o
- .debug_abbrev  0x000000000000083e      0x181 build/main.o
- .debug_abbrev  0x00000000000009bf      0x1c2 build/mgr_bout.o
- .debug_abbrev  0x0000000000000b81      0x21b build/mgr_hearbeat.o
- .debug_abbrev  0x0000000000000d9c      0x22d build/mgr_i2c.o
- .debug_abbrev  0x0000000000000fc9       0x7e build/stm32f1xx_it.o
- .debug_abbrev  0x0000000000001047      0x13e build/system_stm32f1xx.o
- .debug_abbrev  0x0000000000001185      0x11c build/util_buffer.o
- .debug_abbrev  0x00000000000012a1       0xd2 build/util_error.o
- .debug_abbrev  0x0000000000001373       0x12 build/startup_stm32f103xb.o
+ .debug_abbrev  0x000000000000012c      0x2ba build/hw_i2c1.o
+ .debug_abbrev  0x00000000000003e6      0x1a0 build/hw_stmgpio.o
+ .debug_abbrev  0x0000000000000586      0x2a4 build/hw_systick.o
+ .debug_abbrev  0x000000000000082a      0x181 build/main.o
+ .debug_abbrev  0x00000000000009ab      0x21b build/mgr_hearbeat.o
+ .debug_abbrev  0x0000000000000bc6      0x22f build/mgr_i2c.o
+ .debug_abbrev  0x0000000000000df5       0x7e build/stm32f1xx_it.o
+ .debug_abbrev  0x0000000000000e73      0x13e build/system_stm32f1xx.o
+ .debug_abbrev  0x0000000000000fb1      0x11c build/util_buffer.o
+ .debug_abbrev  0x00000000000010cd       0x12 build/startup_stm32f103xb.o
 
-.debug_loc      0x0000000000000000      0xf1d
+.debug_loc      0x0000000000000000      0xe73
  .debug_loc     0x0000000000000000       0x25 build/drv_gpioexp.o
  .debug_loc     0x0000000000000025      0x190 build/hw_i2c1.o
  .debug_loc     0x00000000000001b5      0x27f build/hw_stmgpio.o
  .debug_loc     0x0000000000000434      0x144 build/hw_systick.o
- .debug_loc     0x0000000000000578       0xaa build/mgr_bout.o
- .debug_loc     0x0000000000000622      0x152 build/mgr_hearbeat.o
- .debug_loc     0x0000000000000774      0x18c build/mgr_i2c.o
- .debug_loc     0x0000000000000900       0xff build/system_stm32f1xx.o
- .debug_loc     0x00000000000009ff      0x51e build/util_buffer.o
+ .debug_loc     0x0000000000000578      0x152 build/mgr_hearbeat.o
+ .debug_loc     0x00000000000006ca      0x18c build/mgr_i2c.o
+ .debug_loc     0x0000000000000856       0xff build/system_stm32f1xx.o
+ .debug_loc     0x0000000000000955      0x51e build/util_buffer.o
 
-.debug_aranges  0x0000000000000000      0x430
+.debug_aranges  0x0000000000000000      0x3a8
  .debug_aranges
                 0x0000000000000000       0x30 build/drv_gpioexp.o
  .debug_aranges
@@ -1025,93 +1032,79 @@ LOAD /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-de
  .debug_aranges
                 0x0000000000000178       0x30 build/main.o
  .debug_aranges
-                0x00000000000001a8       0x58 build/mgr_bout.o
+                0x00000000000001a8       0x70 build/mgr_hearbeat.o
  .debug_aranges
-                0x0000000000000200       0x70 build/mgr_hearbeat.o
+                0x0000000000000218       0x98 build/mgr_i2c.o
  .debug_aranges
-                0x0000000000000270       0x98 build/mgr_i2c.o
+                0x00000000000002b0       0x50 build/stm32f1xx_it.o
  .debug_aranges
-                0x0000000000000308       0x50 build/stm32f1xx_it.o
+                0x0000000000000300       0x28 build/system_stm32f1xx.o
  .debug_aranges
-                0x0000000000000358       0x28 build/system_stm32f1xx.o
+                0x0000000000000328       0x58 build/util_buffer.o
  .debug_aranges
-                0x0000000000000380       0x58 build/util_buffer.o
- .debug_aranges
-                0x00000000000003d8       0x30 build/util_error.o
- .debug_aranges
-                0x0000000000000408       0x28 build/startup_stm32f103xb.o
+                0x0000000000000380       0x28 build/startup_stm32f103xb.o
 
-.debug_ranges   0x0000000000000000      0x368
+.debug_ranges   0x0000000000000000      0x300
  .debug_ranges  0x0000000000000000       0x20 build/drv_gpioexp.o
  .debug_ranges  0x0000000000000020       0x98 build/hw_i2c1.o
  .debug_ranges  0x00000000000000b8       0x28 build/hw_stmgpio.o
  .debug_ranges  0x00000000000000e0       0x58 build/hw_systick.o
  .debug_ranges  0x0000000000000138       0x20 build/main.o
- .debug_ranges  0x0000000000000158       0x48 build/mgr_bout.o
- .debug_ranges  0x00000000000001a0       0x60 build/mgr_hearbeat.o
- .debug_ranges  0x0000000000000200       0x88 build/mgr_i2c.o
- .debug_ranges  0x0000000000000288       0x40 build/stm32f1xx_it.o
- .debug_ranges  0x00000000000002c8       0x18 build/system_stm32f1xx.o
- .debug_ranges  0x00000000000002e0       0x48 build/util_buffer.o
- .debug_ranges  0x0000000000000328       0x20 build/util_error.o
- .debug_ranges  0x0000000000000348       0x20 build/startup_stm32f103xb.o
+ .debug_ranges  0x0000000000000158       0x60 build/mgr_hearbeat.o
+ .debug_ranges  0x00000000000001b8       0x88 build/mgr_i2c.o
+ .debug_ranges  0x0000000000000240       0x40 build/stm32f1xx_it.o
+ .debug_ranges  0x0000000000000280       0x18 build/system_stm32f1xx.o
+ .debug_ranges  0x0000000000000298       0x48 build/util_buffer.o
+ .debug_ranges  0x00000000000002e0       0x20 build/startup_stm32f103xb.o
 
-.debug_line     0x0000000000000000     0x2eae
+.debug_line     0x0000000000000000     0x29b6
  .debug_line    0x0000000000000000      0x22c build/drv_gpioexp.o
- .debug_line    0x000000000000022c      0x679 build/hw_i2c1.o
- .debug_line    0x00000000000008a5      0x432 build/hw_stmgpio.o
- .debug_line    0x0000000000000cd7      0x478 build/hw_systick.o
- .debug_line    0x000000000000114f      0x416 build/main.o
- .debug_line    0x0000000000001565      0x38a build/mgr_bout.o
- .debug_line    0x00000000000018ef      0x55b build/mgr_hearbeat.o
- .debug_line    0x0000000000001e4a      0x614 build/mgr_i2c.o
- .debug_line    0x000000000000245e      0x24d build/stm32f1xx_it.o
- .debug_line    0x00000000000026ab      0x2ba build/system_stm32f1xx.o
- .debug_line    0x0000000000002965      0x398 build/util_buffer.o
- .debug_line    0x0000000000002cfd      0x135 build/util_error.o
- .debug_line    0x0000000000002e32       0x7c build/startup_stm32f103xb.o
+ .debug_line    0x000000000000022c      0x64e build/hw_i2c1.o
+ .debug_line    0x000000000000087a      0x432 build/hw_stmgpio.o
+ .debug_line    0x0000000000000cac      0x478 build/hw_systick.o
+ .debug_line    0x0000000000001124      0x404 build/main.o
+ .debug_line    0x0000000000001528      0x55b build/mgr_hearbeat.o
+ .debug_line    0x0000000000001a83      0x618 build/mgr_i2c.o
+ .debug_line    0x000000000000209b      0x24d build/stm32f1xx_it.o
+ .debug_line    0x00000000000022e8      0x2ba build/system_stm32f1xx.o
+ .debug_line    0x00000000000025a2      0x398 build/util_buffer.o
+ .debug_line    0x000000000000293a       0x7c build/startup_stm32f103xb.o
 
-.debug_str      0x0000000000000000     0x1673
+.debug_str      0x0000000000000000     0x1444
  .debug_str     0x0000000000000000      0x1e6 build/drv_gpioexp.o
                                         0x227 (size before relaxing)
- .debug_str     0x00000000000001e6      0x945 build/hw_i2c1.o
-                                        0xb0e (size before relaxing)
- .debug_str     0x0000000000000b2b       0x8b build/hw_stmgpio.o
+ .debug_str     0x00000000000001e6      0x851 build/hw_i2c1.o
+                                        0xa19 (size before relaxing)
+ .debug_str     0x0000000000000a37       0x8b build/hw_stmgpio.o
                                         0x3df (size before relaxing)
- .debug_str     0x0000000000000bb6      0x1d5 build/hw_systick.o
+ .debug_str     0x0000000000000ac2      0x1d5 build/hw_systick.o
                                         0x730 (size before relaxing)
- .debug_str     0x0000000000000d8b      0x1da build/main.o
-                                        0x3df (size before relaxing)
- .debug_str     0x0000000000000f65       0xb8 build/mgr_bout.o
-                                        0x3fe (size before relaxing)
- .debug_str     0x000000000000101d      0x15f build/mgr_hearbeat.o
+ .debug_str     0x0000000000000c97      0x1c3 build/main.o
+                                        0x3c8 (size before relaxing)
+ .debug_str     0x0000000000000e5a      0x16c build/mgr_hearbeat.o
                                         0x68d (size before relaxing)
- .debug_str     0x000000000000117c      0x2af build/mgr_i2c.o
+ .debug_str     0x0000000000000fc6      0x2bc build/mgr_i2c.o
                                         0x5c3 (size before relaxing)
- .debug_str     0x000000000000142b       0x86 build/stm32f1xx_it.o
+ .debug_str     0x0000000000001282       0x86 build/stm32f1xx_it.o
                                         0x1ed (size before relaxing)
- .debug_str     0x00000000000014b1       0x5b build/system_stm32f1xx.o
+ .debug_str     0x0000000000001308       0x5b build/system_stm32f1xx.o
                                         0x228 (size before relaxing)
- .debug_str     0x000000000000150c       0xb6 build/util_buffer.o
+ .debug_str     0x0000000000001363       0xb6 build/util_buffer.o
                                         0x276 (size before relaxing)
- .debug_str     0x00000000000015c2       0x86 build/util_error.o
-                                        0x2e2 (size before relaxing)
- .debug_str     0x0000000000001648       0x2b build/startup_stm32f103xb.o
+ .debug_str     0x0000000000001419       0x2b build/startup_stm32f103xb.o
                                          0x56 (size before relaxing)
 
-.debug_frame    0x0000000000000000      0x844
+.debug_frame    0x0000000000000000      0x754
  .debug_frame   0x0000000000000000       0x54 build/drv_gpioexp.o
  .debug_frame   0x0000000000000054      0x150 build/hw_i2c1.o
  .debug_frame   0x00000000000001a4       0x58 build/hw_stmgpio.o
  .debug_frame   0x00000000000001fc       0xd0 build/hw_systick.o
  .debug_frame   0x00000000000002cc       0x50 build/main.o
- .debug_frame   0x000000000000031c       0xb0 build/mgr_bout.o
- .debug_frame   0x00000000000003cc       0xfc build/mgr_hearbeat.o
- .debug_frame   0x00000000000004c8      0x178 build/mgr_i2c.o
- .debug_frame   0x0000000000000640       0x80 build/stm32f1xx_it.o
- .debug_frame   0x00000000000006c0       0x30 build/system_stm32f1xx.o
- .debug_frame   0x00000000000006f0      0x10c build/util_buffer.o
- .debug_frame   0x00000000000007fc       0x48 build/util_error.o
+ .debug_frame   0x000000000000031c       0xfc build/mgr_hearbeat.o
+ .debug_frame   0x0000000000000418      0x180 build/mgr_i2c.o
+ .debug_frame   0x0000000000000598       0x80 build/stm32f1xx_it.o
+ .debug_frame   0x0000000000000618       0x30 build/system_stm32f1xx.o
+ .debug_frame   0x0000000000000648      0x10c build/util_buffer.o
 
 Cross Reference Table
 
@@ -1283,7 +1276,6 @@ _start                                            /home/callum/.config/Code/User
 atexit                                            /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o
 blocking_delay_ms                                 build/hw_systick.o
 bout_init                                         build/mgr_bout.o
-                                                  build/main.o
 bout_poll                                         build/mgr_bout.o
 bout_reset                                        build/mgr_bout.o
 bout_reset_lib                                    build/mgr_bout.o
@@ -1305,7 +1297,6 @@ buf_reset                                         build/util_buffer.o
 buf_write                                         build/util_buffer.o
                                                   build/mgr_i2c.o
 dbg_log                                           build/util_error.o
-                                                  build/hw_i2c1.o
 dbg_log_code                                      build/util_error.o
 dbg_log_init                                      build/util_error.o
 exit                                              /home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.3.1-2.3.1/.content/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a(lib_a-exit.o)
@@ -1386,7 +1377,6 @@ i2c_event_callback                                build/mgr_i2c.o
 i2c_init                                          build/mgr_i2c.o
                                                   build/main.o
 i2c_poll_fsm                                      build/mgr_i2c.o
-                                                  build/main.o
 i2c_queue_msg                                     build/mgr_i2c.o
                                                   build/drv_gpioexp.o
 i2c_reset                                         build/mgr_i2c.o

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccUzcCJ8.s 			page 1
+ARM GAS  /tmp/cc747E2c.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccUzcCJ8.s 			page 1
   30:Core/Src/main.c **** int main(void)
   31:Core/Src/main.c **** {
   32:Core/Src/main.c ****   uint8_t idx;
-ARM GAS  /tmp/ccUzcCJ8.s 			page 2
+ARM GAS  /tmp/cc747E2c.s 			page 2
 
 
   33:Core/Src/main.c **** 
@@ -76,28 +76,28 @@ ARM GAS  /tmp/ccUzcCJ8.s 			page 1
   45:Core/Src/main.c ****   heartbeat_start();
   46:Core/Src/main.c **** 
   47:Core/Src/main.c ****   /* Initialise binary outputs */
-  48:Core/Src/main.c ****   ASSERT_INT(bout_init());
-  49:Core/Src/main.c **** 
-  50:Core/Src/main.c ****   ASSERT_INT(i2c_init());
+  48:Core/Src/main.c ****   //ASSERT_INT(bout_init());
+  49:Core/Src/main.c ****   //bout_reset_lib();
+  50:Core/Src/main.c ****   //bout_set(7);
   51:Core/Src/main.c **** 
-  52:Core/Src/main.c ****   /* interrupts (move to new file!) */
-  53:Core/Src/main.c ****   //__enable_irq();
-  54:Core/Src/main.c **** 
-  55:Core/Src/main.c ****   gpioexp_init();
+  52:Core/Src/main.c ****   ASSERT_INT(i2c_init());
+  53:Core/Src/main.c **** 
+  54:Core/Src/main.c ****   /* interrupts (move to new file!) */
+  55:Core/Src/main.c ****   //__enable_irq();
   56:Core/Src/main.c **** 
-  57:Core/Src/main.c ****   /* Initialised everything! */
-  58:Core/Src/main.c ****   // dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_NAME, sizeof(DBG_NAME));
-  59:Core/Src/main.c **** 
-  60:Core/Src/main.c ****   /* Main loop */
-  61:Core/Src/main.c ****   while (1)
-  62:Core/Src/main.c ****   {
-  63:Core/Src/main.c ****     i2c_poll_fsm();
-  64:Core/Src/main.c ****     heartbeat_poll();
-  65:Core/Src/main.c ****     // for (idx = 0; idx < 7; idx++) {
-  66:Core/Src/main.c ****     //   bout_reset_lib();
-  67:Core/Src/main.c ****     //   bout_set(idx);
-  68:Core/Src/main.c ****     // blocking_delay_ms(500);
-  69:Core/Src/main.c ****     //}
+  57:Core/Src/main.c ****   gpioexp_init();
+  58:Core/Src/main.c **** 
+  59:Core/Src/main.c ****   /* Initialised everything! */
+  60:Core/Src/main.c ****   // dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_NAME, sizeof(DBG_NAME));
+  61:Core/Src/main.c **** 
+  62:Core/Src/main.c ****   /* Main loop */
+  63:Core/Src/main.c **** 
+  64:Core/Src/main.c **** 
+  65:Core/Src/main.c **** 
+  66:Core/Src/main.c ****   while (1)
+  67:Core/Src/main.c ****   {
+  68:Core/Src/main.c ****     //i2c_poll_fsm();
+  69:Core/Src/main.c ****     heartbeat_poll();
   70:Core/Src/main.c ****   }
   71:Core/Src/main.c **** }
   72:Core/Src/main.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccUzcCJ8.s 			page 1
   79:Core/Src/main.c ****   /* Internal 8MHz HSI Configuration:
   80:Core/Src/main.c ****    * ON
   81:Core/Src/main.c ****    * Trim set to default = 16
-ARM GAS  /tmp/ccUzcCJ8.s 			page 3
+ARM GAS  /tmp/cc747E2c.s 			page 3
 
 
   82:Core/Src/main.c ****    * Cal at startup default
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccUzcCJ8.s 			page 1
   68              		.loc 1 95 9 discriminator 1 view .LVU16
   69 0028 13F4003F 		tst	r3, #131072
   70 002c FAD0     		beq	.L3
-ARM GAS  /tmp/ccUzcCJ8.s 			page 4
+ARM GAS  /tmp/cc747E2c.s 			page 4
 
 
   97:Core/Src/main.c **** 
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccUzcCJ8.s 			page 1
   99              		.loc 1 122 13 is_stmt 0 view .LVU28
  100 005c 5A68     		ldr	r2, [r3, #4]
  101 005e 22F0E062 		bic	r2, r2, #117440512
-ARM GAS  /tmp/ccUzcCJ8.s 			page 5
+ARM GAS  /tmp/cc747E2c.s 			page 5
 
 
  102 0062 5A60     		str	r2, [r3, #4]
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccUzcCJ8.s 			page 1
  147 00aa 1A60     		str	r2, [r3]
  132:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_PLLRDY))
  148              		.loc 1 132 3 is_stmt 1 view .LVU47
-ARM GAS  /tmp/ccUzcCJ8.s 			page 6
+ARM GAS  /tmp/cc747E2c.s 			page 6
 
 
  149              	.L4:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccUzcCJ8.s 			page 1
  143:Core/Src/main.c **** }
  187              		.loc 1 143 1 is_stmt 0 view .LVU64
  188 00de 08BD     		pop	{r3, pc}
-ARM GAS  /tmp/ccUzcCJ8.s 			page 7
+ARM GAS  /tmp/cc747E2c.s 			page 7
 
 
  189              	.L8:
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccUzcCJ8.s 			page 1
  237              	.LVL5:
   44:Core/Src/main.c ****   heartbeat_start();
  238              		.loc 1 44 3 view .LVU73
-ARM GAS  /tmp/ccUzcCJ8.s 			page 8
+ARM GAS  /tmp/cc747E2c.s 			page 8
 
 
  239 0022 4FF47A70 		mov	r0, #1000
@@ -428,46 +428,36 @@ ARM GAS  /tmp/ccUzcCJ8.s 			page 1
  242              		.loc 1 45 3 view .LVU74
  243 002a FFF7FEFF 		bl	heartbeat_start
  244              	.LVL7:
-  48:Core/Src/main.c **** 
- 245              		.loc 1 48 3 view .LVU75
- 246 002e FFF7FEFF 		bl	bout_init
+  52:Core/Src/main.c **** 
+ 245              		.loc 1 52 3 view .LVU75
+ 246 002e FFF7FEFF 		bl	i2c_init
  247              	.LVL8:
  248 0032 0028     		cmp	r0, #0
  249 0034 EED1     		bne	.L10
-  50:Core/Src/main.c **** 
- 250              		.loc 1 50 3 view .LVU76
- 251 0036 FFF7FEFF 		bl	i2c_init
+  57:Core/Src/main.c **** 
+ 250              		.loc 1 57 3 view .LVU76
+ 251 0036 FFF7FEFF 		bl	gpioexp_init
  252              	.LVL9:
- 253 003a 0028     		cmp	r0, #0
- 254 003c EAD1     		bne	.L10
-  55:Core/Src/main.c **** 
- 255              		.loc 1 55 3 view .LVU77
- 256 003e FFF7FEFF 		bl	gpioexp_init
+ 253              	.L11:
+  66:Core/Src/main.c ****   {
+ 254              		.loc 1 66 3 discriminator 1 view .LVU77
+  69:Core/Src/main.c ****   }
+ 255              		.loc 1 69 5 discriminator 1 view .LVU78
+ 256 003a FFF7FEFF 		bl	heartbeat_poll
  257              	.LVL10:
- 258              	.L11:
-  61:Core/Src/main.c ****   {
- 259              		.loc 1 61 3 discriminator 1 view .LVU78
-  63:Core/Src/main.c ****     heartbeat_poll();
- 260              		.loc 1 63 5 discriminator 1 view .LVU79
- 261 0042 FFF7FEFF 		bl	i2c_poll_fsm
- 262              	.LVL11:
-  64:Core/Src/main.c ****     // for (idx = 0; idx < 7; idx++) {
- 263              		.loc 1 64 5 discriminator 1 view .LVU80
- 264 0046 FFF7FEFF 		bl	heartbeat_poll
- 265              	.LVL12:
-  61:Core/Src/main.c ****   {
- 266              		.loc 1 61 9 discriminator 1 view .LVU81
- 267 004a FAE7     		b	.L11
- 268              		.cfi_endproc
- 269              	.LFE65:
- 271              		.section	.text.Error_Handler,"ax",%progbits
- 272              		.align	1
- 273              		.global	Error_Handler
- 274              		.syntax unified
- 275              		.thumb
- 276              		.thumb_func
- 278              	Error_Handler:
- 279              	.LFB67:
+  66:Core/Src/main.c ****   {
+ 258              		.loc 1 66 9 discriminator 1 view .LVU79
+ 259 003e FCE7     		b	.L11
+ 260              		.cfi_endproc
+ 261              	.LFE65:
+ 263              		.section	.text.Error_Handler,"ax",%progbits
+ 264              		.align	1
+ 265              		.global	Error_Handler
+ 266              		.syntax unified
+ 267              		.thumb
+ 268              		.thumb_func
+ 270              	Error_Handler:
+ 271              	.LFB67:
  144:Core/Src/main.c **** 
  145:Core/Src/main.c **** /**
  146:Core/Src/main.c ****  * @brief  This function is executed in case of error occurrence.
@@ -475,22 +465,22 @@ ARM GAS  /tmp/ccUzcCJ8.s 			page 1
  148:Core/Src/main.c ****  */
  149:Core/Src/main.c **** void Error_Handler(void)
  150:Core/Src/main.c **** {
- 280              		.loc 1 150 1 view -0
- 281              		.cfi_startproc
- 282              		@ Volatile: function does not return.
-ARM GAS  /tmp/ccUzcCJ8.s 			page 9
-
-
- 283              		@ args = 0, pretend = 0, frame = 0
- 284              		@ frame_needed = 0, uses_anonymous_args = 0
- 285              		@ link register save eliminated.
+ 272              		.loc 1 150 1 view -0
+ 273              		.cfi_startproc
+ 274              		@ Volatile: function does not return.
+ 275              		@ args = 0, pretend = 0, frame = 0
+ 276              		@ frame_needed = 0, uses_anonymous_args = 0
+ 277              		@ link register save eliminated.
  151:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
  152:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
  153:Core/Src/main.c ****   __disable_irq();
- 286              		.loc 1 153 3 view .LVU83
- 287              	.LBB4:
- 288              	.LBI4:
- 289              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+ 278              		.loc 1 153 3 view .LVU81
+ 279              	.LBB4:
+ 280              	.LBI4:
+ 281              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+ARM GAS  /tmp/cc747E2c.s 			page 9
+
+
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -538,9 +528,6 @@ ARM GAS  /tmp/ccUzcCJ8.s 			page 1
   45:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   46:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
   47:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_INLINE                        static inline
-ARM GAS  /tmp/ccUzcCJ8.s 			page 10
-
-
   48:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   49:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_FORCEINLINE                 
   50:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_FORCEINLINE                   __attribute__((always_inline)) static inline
@@ -551,6 +538,9 @@ ARM GAS  /tmp/ccUzcCJ8.s 			page 1
   55:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __USED
   56:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __USED                                 __attribute__((used))
   57:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ARM GAS  /tmp/cc747E2c.s 			page 10
+
+
   58:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __WEAK
   59:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
   60:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -598,9 +588,6 @@ ARM GAS  /tmp/ccUzcCJ8.s 			page 1
  102:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
  103:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
  104:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
-ARM GAS  /tmp/ccUzcCJ8.s 			page 11
-
-
  105:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
  106:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
  107:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
@@ -611,6 +598,9 @@ ARM GAS  /tmp/ccUzcCJ8.s 			page 1
  112:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  113:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __RESTRICT
  114:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
+ARM GAS  /tmp/cc747E2c.s 			page 11
+
+
  115:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  116:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  117:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -637,57 +627,56 @@ ARM GAS  /tmp/ccUzcCJ8.s 			page 1
  138:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  139:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  140:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
- 290              		.loc 2 140 27 view .LVU84
- 291              	.LBB5:
+ 282              		.loc 2 140 27 view .LVU82
+ 283              	.LBB5:
  141:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  142:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
- 292              		.loc 2 142 3 view .LVU85
- 293              		.syntax unified
- 294              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 295 0000 72B6     		cpsid i
- 296              	@ 0 "" 2
- 297              		.thumb
- 298              		.syntax unified
- 299              	.L15:
- 300              	.LBE5:
- 301              	.LBE4:
+ 284              		.loc 2 142 3 view .LVU83
+ 285              		.syntax unified
+ 286              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 287 0000 72B6     		cpsid i
+ 288              	@ 0 "" 2
+ 289              		.thumb
+ 290              		.syntax unified
+ 291              	.L15:
+ 292              	.LBE5:
+ 293              	.LBE4:
  154:Core/Src/main.c ****   while (1)
- 302              		.loc 1 154 3 discriminator 1 view .LVU86
+ 294              		.loc 1 154 3 discriminator 1 view .LVU84
  155:Core/Src/main.c ****   {
  156:Core/Src/main.c ****   }
- 303              		.loc 1 156 3 discriminator 1 view .LVU87
+ 295              		.loc 1 156 3 discriminator 1 view .LVU85
  154:Core/Src/main.c ****   while (1)
- 304              		.loc 1 154 9 discriminator 1 view .LVU88
-ARM GAS  /tmp/ccUzcCJ8.s 			page 12
+ 296              		.loc 1 154 9 discriminator 1 view .LVU86
+ 297 0002 FEE7     		b	.L15
+ 298              		.cfi_endproc
+ 299              	.LFE67:
+ 301              		.text
+ 302              	.Letext0:
+ 303              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 304              		.file 4 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+ 305              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 306              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 307              		.file 7 "Core/Inc/hw_systick.h"
+ARM GAS  /tmp/cc747E2c.s 			page 12
 
 
- 305 0002 FEE7     		b	.L15
- 306              		.cfi_endproc
- 307              	.LFE67:
- 309              		.text
- 310              	.Letext0:
- 311              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 312              		.file 4 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 313              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 314              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
- 315              		.file 7 "Core/Inc/hw_systick.h"
- 316              		.file 8 "Core/Inc/mgr_heartbeat.h"
- 317              		.file 9 "Core/Inc/mgr_bout.h"
- 318              		.file 10 "Core/Inc/mgr_i2c.h"
- 319              		.file 11 "Core/Inc/drv_gpioexp.h"
- 320              		.file 12 "Core/Inc/hw_i2c1.h"
-ARM GAS  /tmp/ccUzcCJ8.s 			page 13
+ 308              		.file 8 "Core/Inc/mgr_heartbeat.h"
+ 309              		.file 9 "Core/Inc/mgr_i2c.h"
+ 310              		.file 10 "Core/Inc/drv_gpioexp.h"
+ 311              		.file 11 "Core/Inc/hw_i2c1.h"
+ARM GAS  /tmp/cc747E2c.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccUzcCJ8.s:18     .text.hw_system_clocks_init:0000000000000000 $t
-     /tmp/ccUzcCJ8.s:24     .text.hw_system_clocks_init:0000000000000000 hw_system_clocks_init
-     /tmp/ccUzcCJ8.s:192    .text.hw_system_clocks_init:00000000000000e0 $d
-     /tmp/ccUzcCJ8.s:198    .text.main:0000000000000000 $t
-     /tmp/ccUzcCJ8.s:204    .text.main:0000000000000000 main
-     /tmp/ccUzcCJ8.s:272    .text.Error_Handler:0000000000000000 $t
-     /tmp/ccUzcCJ8.s:278    .text.Error_Handler:0000000000000000 Error_Handler
+     /tmp/cc747E2c.s:18     .text.hw_system_clocks_init:0000000000000000 $t
+     /tmp/cc747E2c.s:24     .text.hw_system_clocks_init:0000000000000000 hw_system_clocks_init
+     /tmp/cc747E2c.s:192    .text.hw_system_clocks_init:00000000000000e0 $d
+     /tmp/cc747E2c.s:198    .text.main:0000000000000000 $t
+     /tmp/cc747E2c.s:204    .text.main:0000000000000000 main
+     /tmp/cc747E2c.s:264    .text.Error_Handler:0000000000000000 $t
+     /tmp/cc747E2c.s:270    .text.Error_Handler:0000000000000000 Error_Handler
 
 UNDEFINED SYMBOLS
 SystemCoreClockUpdate
@@ -697,8 +686,6 @@ heartbeat_set_pattern_mode
 heartbeat_set_poll_mode
 heartbeat_set_period_ms
 heartbeat_start
-bout_init
 i2c_init
 gpioexp_init
-i2c_poll_fsm
 heartbeat_poll

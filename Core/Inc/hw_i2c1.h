@@ -16,9 +16,6 @@
 /* Interrupt priority */
 #define I2C1_EV_IRQ_PRIORITY 0x00
 #define I2C1_ER_IRQ_PRIORITY 0x00
-/* Interrupt alias */
-#define i2c1_ev_irq_handler I2C1_EV_IRQHandler 
-#define i2c1_er_irq_handler I2C1_ER_IRQHandler 
 
 #define APB_BUS_FREQ_MHZ 50
 

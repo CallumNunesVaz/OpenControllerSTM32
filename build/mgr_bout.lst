@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc6j95W3.s 			page 1
+ARM GAS  /tmp/ccrjupSi.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc6j95W3.s 			page 1
   30:Core/Src/mgr_bout.c ****     /* set up each of the gpio */
   31:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
   32:Core/Src/mgr_bout.c ****         bout_gpio[idx].port = bout_gpio_ports[idx];
-ARM GAS  /tmp/cc6j95W3.s 			page 2
+ARM GAS  /tmp/ccrjupSi.s 			page 2
 
 
   33:Core/Src/mgr_bout.c ****         bout_gpio[idx].pin = bout_gpio_pins[idx];
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc6j95W3.s 			page 1
   87:Core/Src/mgr_bout.c ****         callback_cnt--;
   88:Core/Src/mgr_bout.c ****     }
   89:Core/Src/mgr_bout.c **** }
-ARM GAS  /tmp/cc6j95W3.s 			page 3
+ARM GAS  /tmp/ccrjupSi.s 			page 3
 
 
   90:Core/Src/mgr_bout.c **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc6j95W3.s 			page 1
   73              		.loc 1 50 5 view .LVU8
   52:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
   74              		.loc 1 52 5 view .LVU9
-ARM GAS  /tmp/cc6j95W3.s 			page 4
+ARM GAS  /tmp/ccrjupSi.s 			page 4
 
 
   75              	.LVL0:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc6j95W3.s 			page 1
  121              	.LFB65:
   27:Core/Src/mgr_bout.c **** {
  122              		.loc 1 27 1 is_stmt 1 view -0
-ARM GAS  /tmp/cc6j95W3.s 			page 5
+ARM GAS  /tmp/ccrjupSi.s 			page 5
 
 
  123              		.cfi_startproc
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc6j95W3.s 			page 1
  162 0022 0221     		movs	r1, #2
  163 0024 5970     		strb	r1, [r3, #1]
   36:Core/Src/mgr_bout.c ****         ASSERT_INT(stmgpio_setup(&bout_gpio[idx]));
-ARM GAS  /tmp/cc6j95W3.s 			page 6
+ARM GAS  /tmp/ccrjupSi.s 			page 6
 
 
  164              		.loc 1 36 9 is_stmt 1 view .LVU36
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc6j95W3.s 			page 1
  209              		.global	bout_reset
  210              		.syntax unified
  211              		.thumb
-ARM GAS  /tmp/cc6j95W3.s 			page 7
+ARM GAS  /tmp/ccrjupSi.s 			page 7
 
 
  212              		.thumb_func
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc6j95W3.s 			page 1
  261              		.cfi_startproc
  262              		@ args = 0, pretend = 0, frame = 0
  263              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/cc6j95W3.s 			page 8
+ARM GAS  /tmp/ccrjupSi.s 			page 8
 
 
   68:Core/Src/mgr_bout.c ****     if (BOUT_CNT > bout_num) {
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc6j95W3.s 			page 1
  311 0004 1A70     		strb	r2, [r3]
   76:Core/Src/mgr_bout.c **** }
  312              		.loc 1 76 1 view .LVU64
-ARM GAS  /tmp/cc6j95W3.s 			page 9
+ARM GAS  /tmp/ccrjupSi.s 			page 9
 
 
  313 0006 7047     		bx	lr
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc6j95W3.s 			page 1
  364              		.loc 1 86 11 is_stmt 0 view .LVU71
  365 0000 04E0     		b	.L45
  366              	.L46:
-ARM GAS  /tmp/cc6j95W3.s 			page 10
+ARM GAS  /tmp/ccrjupSi.s 			page 10
 
 
   87:Core/Src/mgr_bout.c ****         callback_cnt--;
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc6j95W3.s 			page 1
  419              		.set	.LANCHOR3,. + 0
  422              	bout_gpio_ports:
  423 0000 41424242 		.ascii	"ABBBBBBB"
-ARM GAS  /tmp/cc6j95W3.s 			page 11
+ARM GAS  /tmp/ccrjupSi.s 			page 11
 
 
  423      42424242 
@@ -609,45 +609,45 @@ ARM GAS  /tmp/cc6j95W3.s 			page 1
  428              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
  429              		.file 5 "Core/Inc/hw_stmgpio.h"
  430              		.file 6 "Core/Inc/hw_systick.h"
-ARM GAS  /tmp/cc6j95W3.s 			page 12
+ARM GAS  /tmp/ccrjupSi.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 mgr_bout.c
-     /tmp/cc6j95W3.s:18     .text.bout_tick_callback:0000000000000000 $t
-     /tmp/cc6j95W3.s:24     .text.bout_tick_callback:0000000000000000 bout_tick_callback
-     /tmp/cc6j95W3.s:51     .text.bout_tick_callback:0000000000000014 $d
-     /tmp/cc6j95W3.s:57     .text.bout_reset_lib:0000000000000000 $t
-     /tmp/cc6j95W3.s:63     .text.bout_reset_lib:0000000000000000 bout_reset_lib
-     /tmp/cc6j95W3.s:109    .text.bout_reset_lib:0000000000000020 $d
-     /tmp/cc6j95W3.s:114    .text.bout_init:0000000000000000 $t
-     /tmp/cc6j95W3.s:120    .text.bout_init:0000000000000000 bout_init
-     /tmp/cc6j95W3.s:200    .text.bout_init:0000000000000048 $d
-     /tmp/cc6j95W3.s:208    .text.bout_reset:0000000000000000 $t
-     /tmp/cc6j95W3.s:214    .text.bout_reset:0000000000000000 bout_reset
-     /tmp/cc6j95W3.s:246    .text.bout_reset:000000000000001c $d
-     /tmp/cc6j95W3.s:251    .text.bout_set:0000000000000000 $t
-     /tmp/cc6j95W3.s:257    .text.bout_set:0000000000000000 bout_set
-     /tmp/cc6j95W3.s:289    .text.bout_set:000000000000001c $d
-     /tmp/cc6j95W3.s:294    .text.bout_stop:0000000000000000 $t
-     /tmp/cc6j95W3.s:300    .text.bout_stop:0000000000000000 bout_stop
-     /tmp/cc6j95W3.s:317    .text.bout_stop:0000000000000008 $d
-     /tmp/cc6j95W3.s:322    .text.bout_start:0000000000000000 $t
-     /tmp/cc6j95W3.s:328    .text.bout_start:0000000000000000 bout_start
-     /tmp/cc6j95W3.s:345    .text.bout_start:0000000000000008 $d
-     /tmp/cc6j95W3.s:350    .text.bout_poll:0000000000000000 $t
-     /tmp/cc6j95W3.s:356    .text.bout_poll:0000000000000000 bout_poll
-     /tmp/cc6j95W3.s:387    .text.bout_poll:0000000000000018 $d
-     /tmp/cc6j95W3.s:392    .bss.bout_gpio:0000000000000000 $d
-     /tmp/cc6j95W3.s:396    .bss.bout_gpio:0000000000000000 bout_gpio
-     /tmp/cc6j95W3.s:402    .bss.bouts_is_active:0000000000000000 bouts_is_active
-     /tmp/cc6j95W3.s:403    .bss.bouts_is_active:0000000000000000 $d
-     /tmp/cc6j95W3.s:408    .bss.callback_cnt:0000000000000000 callback_cnt
-     /tmp/cc6j95W3.s:409    .bss.callback_cnt:0000000000000000 $d
-     /tmp/cc6j95W3.s:411    .rodata.bout_gpio_pins:0000000000000000 $d
-     /tmp/cc6j95W3.s:415    .rodata.bout_gpio_pins:0000000000000000 bout_gpio_pins
-     /tmp/cc6j95W3.s:418    .rodata.bout_gpio_ports:0000000000000000 $d
-     /tmp/cc6j95W3.s:422    .rodata.bout_gpio_ports:0000000000000000 bout_gpio_ports
+     /tmp/ccrjupSi.s:18     .text.bout_tick_callback:0000000000000000 $t
+     /tmp/ccrjupSi.s:24     .text.bout_tick_callback:0000000000000000 bout_tick_callback
+     /tmp/ccrjupSi.s:51     .text.bout_tick_callback:0000000000000014 $d
+     /tmp/ccrjupSi.s:57     .text.bout_reset_lib:0000000000000000 $t
+     /tmp/ccrjupSi.s:63     .text.bout_reset_lib:0000000000000000 bout_reset_lib
+     /tmp/ccrjupSi.s:109    .text.bout_reset_lib:0000000000000020 $d
+     /tmp/ccrjupSi.s:114    .text.bout_init:0000000000000000 $t
+     /tmp/ccrjupSi.s:120    .text.bout_init:0000000000000000 bout_init
+     /tmp/ccrjupSi.s:200    .text.bout_init:0000000000000048 $d
+     /tmp/ccrjupSi.s:208    .text.bout_reset:0000000000000000 $t
+     /tmp/ccrjupSi.s:214    .text.bout_reset:0000000000000000 bout_reset
+     /tmp/ccrjupSi.s:246    .text.bout_reset:000000000000001c $d
+     /tmp/ccrjupSi.s:251    .text.bout_set:0000000000000000 $t
+     /tmp/ccrjupSi.s:257    .text.bout_set:0000000000000000 bout_set
+     /tmp/ccrjupSi.s:289    .text.bout_set:000000000000001c $d
+     /tmp/ccrjupSi.s:294    .text.bout_stop:0000000000000000 $t
+     /tmp/ccrjupSi.s:300    .text.bout_stop:0000000000000000 bout_stop
+     /tmp/ccrjupSi.s:317    .text.bout_stop:0000000000000008 $d
+     /tmp/ccrjupSi.s:322    .text.bout_start:0000000000000000 $t
+     /tmp/ccrjupSi.s:328    .text.bout_start:0000000000000000 bout_start
+     /tmp/ccrjupSi.s:345    .text.bout_start:0000000000000008 $d
+     /tmp/ccrjupSi.s:350    .text.bout_poll:0000000000000000 $t
+     /tmp/ccrjupSi.s:356    .text.bout_poll:0000000000000000 bout_poll
+     /tmp/ccrjupSi.s:387    .text.bout_poll:0000000000000018 $d
+     /tmp/ccrjupSi.s:392    .bss.bout_gpio:0000000000000000 $d
+     /tmp/ccrjupSi.s:396    .bss.bout_gpio:0000000000000000 bout_gpio
+     /tmp/ccrjupSi.s:402    .bss.bouts_is_active:0000000000000000 bouts_is_active
+     /tmp/ccrjupSi.s:403    .bss.bouts_is_active:0000000000000000 $d
+     /tmp/ccrjupSi.s:408    .bss.callback_cnt:0000000000000000 callback_cnt
+     /tmp/ccrjupSi.s:409    .bss.callback_cnt:0000000000000000 $d
+     /tmp/ccrjupSi.s:411    .rodata.bout_gpio_pins:0000000000000000 $d
+     /tmp/ccrjupSi.s:415    .rodata.bout_gpio_pins:0000000000000000 bout_gpio_pins
+     /tmp/ccrjupSi.s:418    .rodata.bout_gpio_ports:0000000000000000 $d
+     /tmp/ccrjupSi.s:422    .rodata.bout_gpio_ports:0000000000000000 bout_gpio_ports
 
 UNDEFINED SYMBOLS
 stmgpio_write
