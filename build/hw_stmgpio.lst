@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccxJpNTf.s 			page 1
+ARM GAS  /tmp/ccIKhrXs.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccxJpNTf.s 			page 1
   29:Core/Src/hw_stmgpio.c ****   true, // PB2
   30:Core/Src/hw_stmgpio.c ****   true, // PB3
   31:Core/Src/hw_stmgpio.c ****   true, // PB4
-ARM GAS  /tmp/ccxJpNTf.s 			page 2
+ARM GAS  /tmp/ccIKhrXs.s 			page 2
 
 
   32:Core/Src/hw_stmgpio.c ****   true, // PB5
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccxJpNTf.s 			page 1
   86:Core/Src/hw_stmgpio.c ****   /* Sanity checks */
   87:Core/Src/hw_stmgpio.c ****   ASSERT_BOOL(stmgpio_can_init(g));
   88:Core/Src/hw_stmgpio.c **** 
-ARM GAS  /tmp/ccxJpNTf.s 			page 3
+ARM GAS  /tmp/ccIKhrXs.s 			page 3
 
 
   89:Core/Src/hw_stmgpio.c ****   /* Turn on ports clock if not already on */
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccxJpNTf.s 			page 1
   37              		.loc 1 133 32 discriminator 1 view .LVU3
   38 0004 60B1     		cbz	r0, .L4
  134:Core/Src/hw_stmgpio.c ****   {
-ARM GAS  /tmp/ccxJpNTf.s 			page 4
+ARM GAS  /tmp/ccIKhrXs.s 			page 4
 
 
  135:Core/Src/hw_stmgpio.c ****     return EXIT_FAILURE;
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccxJpNTf.s 			page 1
   83              		.global	stmgpio_can_init
   84              		.syntax unified
   85              		.thumb
-ARM GAS  /tmp/ccxJpNTf.s 			page 5
+ARM GAS  /tmp/ccIKhrXs.s 			page 5
 
 
   86              		.thumb_func
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccxJpNTf.s 			page 1
  157:Core/Src/hw_stmgpio.c ****     /* Check port ledger for pin existence */
  158:Core/Src/hw_stmgpio.c ****     if (GPIO_PORT_PIN_MAX > g->pin)
  127              		.loc 1 158 5 is_stmt 1 view .LVU35
-ARM GAS  /tmp/ccxJpNTf.s 			page 6
+ARM GAS  /tmp/ccIKhrXs.s 			page 6
 
 
  128              		.loc 1 158 30 is_stmt 0 view .LVU36
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccxJpNTf.s 			page 1
  170:Core/Src/hw_stmgpio.c ****         break;
  171              		.loc 1 170 9 is_stmt 1 view .LVU49
  172 0048 7047     		bx	lr
-ARM GAS  /tmp/ccxJpNTf.s 			page 7
+ARM GAS  /tmp/ccIKhrXs.s 			page 7
 
 
  173              	.LVL14:
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccxJpNTf.s 			page 1
  174:Core/Src/hw_stmgpio.c ****       default:
  175:Core/Src/hw_stmgpio.c ****         is_valid = false;
  176:Core/Src/hw_stmgpio.c ****         break;
-ARM GAS  /tmp/ccxJpNTf.s 			page 8
+ARM GAS  /tmp/ccIKhrXs.s 			page 8
 
 
  177:Core/Src/hw_stmgpio.c ****       }
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccxJpNTf.s 			page 1
  258              		.loc 1 90 43 view .LVU70
  259 0010 2279     		ldrb	r2, [r4, #4]	@ zero_extendqisi2
   90:Core/Src/hw_stmgpio.c **** 
-ARM GAS  /tmp/ccxJpNTf.s 			page 9
+ARM GAS  /tmp/ccIKhrXs.s 			page 9
 
 
  260              		.loc 1 90 50 view .LVU71
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccxJpNTf.s 			page 1
  297              		.loc 1 101 27 view .LVU88
  298 0042 0368     		ldr	r3, [r0]
  101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
-ARM GAS  /tmp/ccxJpNTf.s 			page 10
+ARM GAS  /tmp/ccIKhrXs.s 			page 10
 
 
  299              		.loc 1 101 43 view .LVU89
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccxJpNTf.s 			page 1
  336 006a 27D0     		beq	.L28
  337              	.L24:
  122:Core/Src/hw_stmgpio.c ****   {
-ARM GAS  /tmp/ccxJpNTf.s 			page 11
+ARM GAS  /tmp/ccIKhrXs.s 			page 11
 
 
  338              		.loc 1 122 3 is_stmt 1 view .LVU107
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccxJpNTf.s 			page 1
  110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
  376              		.loc 1 110 89 view .LVU124
  377 0094 083B     		subs	r3, r3, #8
-ARM GAS  /tmp/ccxJpNTf.s 			page 12
+ARM GAS  /tmp/ccIKhrXs.s 			page 12
 
 
  110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccxJpNTf.s 			page 1
  414              		.loc 1 118 6 view .LVU142
  415 00c0 A268     		ldr	r2, [r4, #8]
  118:Core/Src/hw_stmgpio.c ****   }
-ARM GAS  /tmp/ccxJpNTf.s 			page 13
+ARM GAS  /tmp/ccIKhrXs.s 			page 13
 
 
  416              		.loc 1 118 51 view .LVU143
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccxJpNTf.s 			page 1
  463              		.loc 1 187 77 view .LVU153
  464 0006 4179     		ldrb	r1, [r0, #5]	@ zero_extendqisi2
  465              		.loc 1 187 70 view .LVU154
-ARM GAS  /tmp/ccxJpNTf.s 			page 14
+ARM GAS  /tmp/ccIKhrXs.s 			page 14
 
 
  466 0008 0120     		movs	r0, #1
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccxJpNTf.s 			page 1
  523 0009 01       		.byte	1
  524 000a 01       		.byte	1
  525 000b 01       		.byte	1
-ARM GAS  /tmp/ccxJpNTf.s 			page 15
+ARM GAS  /tmp/ccIKhrXs.s 			page 15
 
 
  526 000c 01       		.byte	1
@@ -891,30 +891,30 @@ ARM GAS  /tmp/ccxJpNTf.s 			page 1
  577              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
  578              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
  579              		.file 5 "Core/Inc/hw_stmgpio.h"
-ARM GAS  /tmp/ccxJpNTf.s 			page 16
+ARM GAS  /tmp/ccIKhrXs.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hw_stmgpio.c
-     /tmp/ccxJpNTf.s:18     .text.stmgpio_write:0000000000000000 $t
-     /tmp/ccxJpNTf.s:24     .text.stmgpio_write:0000000000000000 stmgpio_write
-     /tmp/ccxJpNTf.s:82     .text.stmgpio_can_init:0000000000000000 $t
-     /tmp/ccxJpNTf.s:88     .text.stmgpio_can_init:0000000000000000 stmgpio_can_init
-     /tmp/ccxJpNTf.s:142    .text.stmgpio_can_init:0000000000000034 $d
-     /tmp/ccxJpNTf.s:146    .text.stmgpio_can_init:0000000000000038 $t
-     /tmp/ccxJpNTf.s:221    .text.stmgpio_can_init:0000000000000064 $d
-     /tmp/ccxJpNTf.s:229    .text.stmgpio_setup:0000000000000000 $t
-     /tmp/ccxJpNTf.s:235    .text.stmgpio_setup:0000000000000000 stmgpio_setup
-     /tmp/ccxJpNTf.s:437    .text.stmgpio_setup:00000000000000d8 $d
-     /tmp/ccxJpNTf.s:442    .text.stmgpio_read:0000000000000000 $t
-     /tmp/ccxJpNTf.s:448    .text.stmgpio_read:0000000000000000 stmgpio_read
-     /tmp/ccxJpNTf.s:557    .rodata.PORT_D_PINS:0000000000000000 PORT_D_PINS
-     /tmp/ccxJpNTf.s:535    .rodata.PORT_C_PINS:0000000000000000 PORT_C_PINS
-     /tmp/ccxJpNTf.s:513    .rodata.PORT_B_PINS:0000000000000000 PORT_B_PINS
-     /tmp/ccxJpNTf.s:491    .rodata.PORT_A_PINS:0000000000000000 PORT_A_PINS
-     /tmp/ccxJpNTf.s:487    .rodata.PORT_A_PINS:0000000000000000 $d
-     /tmp/ccxJpNTf.s:509    .rodata.PORT_B_PINS:0000000000000000 $d
-     /tmp/ccxJpNTf.s:531    .rodata.PORT_C_PINS:0000000000000000 $d
-     /tmp/ccxJpNTf.s:553    .rodata.PORT_D_PINS:0000000000000000 $d
+     /tmp/ccIKhrXs.s:18     .text.stmgpio_write:0000000000000000 $t
+     /tmp/ccIKhrXs.s:24     .text.stmgpio_write:0000000000000000 stmgpio_write
+     /tmp/ccIKhrXs.s:82     .text.stmgpio_can_init:0000000000000000 $t
+     /tmp/ccIKhrXs.s:88     .text.stmgpio_can_init:0000000000000000 stmgpio_can_init
+     /tmp/ccIKhrXs.s:142    .text.stmgpio_can_init:0000000000000034 $d
+     /tmp/ccIKhrXs.s:146    .text.stmgpio_can_init:0000000000000038 $t
+     /tmp/ccIKhrXs.s:221    .text.stmgpio_can_init:0000000000000064 $d
+     /tmp/ccIKhrXs.s:229    .text.stmgpio_setup:0000000000000000 $t
+     /tmp/ccIKhrXs.s:235    .text.stmgpio_setup:0000000000000000 stmgpio_setup
+     /tmp/ccIKhrXs.s:437    .text.stmgpio_setup:00000000000000d8 $d
+     /tmp/ccIKhrXs.s:442    .text.stmgpio_read:0000000000000000 $t
+     /tmp/ccIKhrXs.s:448    .text.stmgpio_read:0000000000000000 stmgpio_read
+     /tmp/ccIKhrXs.s:557    .rodata.PORT_D_PINS:0000000000000000 PORT_D_PINS
+     /tmp/ccIKhrXs.s:535    .rodata.PORT_C_PINS:0000000000000000 PORT_C_PINS
+     /tmp/ccIKhrXs.s:513    .rodata.PORT_B_PINS:0000000000000000 PORT_B_PINS
+     /tmp/ccIKhrXs.s:491    .rodata.PORT_A_PINS:0000000000000000 PORT_A_PINS
+     /tmp/ccIKhrXs.s:487    .rodata.PORT_A_PINS:0000000000000000 $d
+     /tmp/ccIKhrXs.s:509    .rodata.PORT_B_PINS:0000000000000000 $d
+     /tmp/ccIKhrXs.s:531    .rodata.PORT_C_PINS:0000000000000000 $d
+     /tmp/ccIKhrXs.s:553    .rodata.PORT_D_PINS:0000000000000000 $d
 
 NO UNDEFINED SYMBOLS

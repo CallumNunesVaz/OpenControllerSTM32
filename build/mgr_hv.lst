@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccSm95h6.s 			page 1
+ARM GAS  /tmp/ccBCM99X.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccSm95h6.s 			page 1
   22:Core/Src/mgr_hv.c ****     hv_en_gpio.port = HV_EN_PORT;
   35              		.loc 1 22 5 view .LVU1
   36              		.loc 1 22 21 is_stmt 0 view .LVU2
-ARM GAS  /tmp/ccSm95h6.s 			page 2
+ARM GAS  /tmp/ccBCM99X.s 			page 2
 
 
   37 0002 0748     		ldr	r0, .L4
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccSm95h6.s 			page 1
   35:Core/Src/mgr_hv.c **** {
   81              		.loc 1 35 1 is_stmt 1 view -0
   82              		.cfi_startproc
-ARM GAS  /tmp/ccSm95h6.s 			page 3
+ARM GAS  /tmp/ccBCM99X.s 			page 3
 
 
   83              		@ args = 0, pretend = 0, frame = 0
@@ -169,22 +169,22 @@ ARM GAS  /tmp/ccSm95h6.s 			page 1
  126              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
  127              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
  128              		.file 5 "Core/Inc/hw_stmgpio.h"
-ARM GAS  /tmp/ccSm95h6.s 			page 4
+ARM GAS  /tmp/ccBCM99X.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 mgr_hv.c
-     /tmp/ccSm95h6.s:18     .text.hv_init:0000000000000000 $t
-     /tmp/ccSm95h6.s:24     .text.hv_init:0000000000000000 hv_init
-     /tmp/ccSm95h6.s:67     .text.hv_init:0000000000000020 $d
-     /tmp/ccSm95h6.s:72     .text.hv_rail_enable:0000000000000000 $t
-     /tmp/ccSm95h6.s:78     .text.hv_rail_enable:0000000000000000 hv_rail_enable
-     /tmp/ccSm95h6.s:92     .text.hv_rail_disable:0000000000000000 $t
-     /tmp/ccSm95h6.s:98     .text.hv_rail_disable:0000000000000000 hv_rail_disable
-     /tmp/ccSm95h6.s:112    .bss.hv_en_gpio:0000000000000000 $d
-     /tmp/ccSm95h6.s:116    .bss.hv_en_gpio:0000000000000000 hv_en_gpio
-     /tmp/ccSm95h6.s:121    .bss.hv_is_active:0000000000000000 hv_is_active
-     /tmp/ccSm95h6.s:122    .bss.hv_is_active:0000000000000000 $d
+     /tmp/ccBCM99X.s:18     .text.hv_init:0000000000000000 $t
+     /tmp/ccBCM99X.s:24     .text.hv_init:0000000000000000 hv_init
+     /tmp/ccBCM99X.s:67     .text.hv_init:0000000000000020 $d
+     /tmp/ccBCM99X.s:72     .text.hv_rail_enable:0000000000000000 $t
+     /tmp/ccBCM99X.s:78     .text.hv_rail_enable:0000000000000000 hv_rail_enable
+     /tmp/ccBCM99X.s:92     .text.hv_rail_disable:0000000000000000 $t
+     /tmp/ccBCM99X.s:98     .text.hv_rail_disable:0000000000000000 hv_rail_disable
+     /tmp/ccBCM99X.s:112    .bss.hv_en_gpio:0000000000000000 $d
+     /tmp/ccBCM99X.s:116    .bss.hv_en_gpio:0000000000000000 hv_en_gpio
+     /tmp/ccBCM99X.s:121    .bss.hv_is_active:0000000000000000 hv_is_active
+     /tmp/ccBCM99X.s:122    .bss.hv_is_active:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 stmgpio_setup

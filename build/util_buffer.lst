@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccu6rRfo.s 			page 1
+ARM GAS  /tmp/cc7KWSOF.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccu6rRfo.s 			page 1
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   26:Core/Src/util_buffer.c ****     /* Sanity check */
   27:Core/Src/util_buffer.c ****     if (NULL == buf) {
-ARM GAS  /tmp/ccu6rRfo.s 			page 2
+ARM GAS  /tmp/cc7KWSOF.s 			page 2
 
 
   32              		.loc 1 27 5 view .LVU1
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccu6rRfo.s 			page 1
   71 001c 7047     		bx	lr
   72              		.cfi_endproc
   73              	.LFE1:
-ARM GAS  /tmp/ccu6rRfo.s 			page 3
+ARM GAS  /tmp/cc7KWSOF.s 			page 3
 
 
   75              		.section	.text.buf_init,"ax",%progbits
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccu6rRfo.s 			page 1
  117              	.LVL8:
   21:Core/Src/util_buffer.c **** }
  118              		.loc 1 21 5 view .LVU29
-ARM GAS  /tmp/ccu6rRfo.s 			page 4
+ARM GAS  /tmp/cc7KWSOF.s 			page 4
 
 
   21:Core/Src/util_buffer.c **** }
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccu6rRfo.s 			page 1
  162 0000 9AB3     		cbz	r2, .L23
   42:Core/Src/util_buffer.c **** 
  163              		.loc 1 42 63 is_stmt 0 view .LVU39
-ARM GAS  /tmp/ccu6rRfo.s 			page 5
+ARM GAS  /tmp/cc7KWSOF.s 			page 5
 
 
  164 0002 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccu6rRfo.s 			page 1
   62:Core/Src/util_buffer.c ****         elem_cnt = buf->len;
  205              		.loc 1 62 9 is_stmt 1 view .LVU54
  206              		.loc 1 62 18 is_stmt 0 view .LVU55
-ARM GAS  /tmp/ccu6rRfo.s 			page 6
+ARM GAS  /tmp/cc7KWSOF.s 			page 6
 
 
  207 0028 4646     		mov	r6, r8
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccu6rRfo.s 			page 1
  244              		.loc 1 79 12 is_stmt 0 view .LVU68
  245 005a 0020     		movs	r0, #0
  246              	.LVL22:
-ARM GAS  /tmp/ccu6rRfo.s 			page 7
+ARM GAS  /tmp/cc7KWSOF.s 			page 7
 
 
  247              	.L18:
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccu6rRfo.s 			page 1
  293              	.LVL31:
   50:Core/Src/util_buffer.c **** 
  294              		.loc 1 50 5 view .LVU78
-ARM GAS  /tmp/ccu6rRfo.s 			page 8
+ARM GAS  /tmp/cc7KWSOF.s 			page 8
 
 
  295 0074 F2E7     		b	.L18
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccu6rRfo.s 			page 1
  326              		.cfi_offset 14, -4
  327 0006 0D46     		mov	r5, r1
  328 0008 1446     		mov	r4, r2
-ARM GAS  /tmp/ccu6rRfo.s 			page 9
+ARM GAS  /tmp/cc7KWSOF.s 			page 9
 
 
  329 000a 0646     		mov	r6, r0
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccu6rRfo.s 			page 1
  121:Core/Src/util_buffer.c ****         memcpy(dest_data, buf->data, elem_cnt - cnt_from_end);
  367              		.loc 1 121 9 is_stmt 1 view .LVU101
  368 002e A7EB0802 		sub	r2, r7, r8
-ARM GAS  /tmp/ccu6rRfo.s 			page 10
+ARM GAS  /tmp/cc7KWSOF.s 			page 10
 
 
  369 0032 2244     		add	r2, r2, r4
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccu6rRfo.s 			page 1
  412              		.cfi_offset 8, -8
  413              		.cfi_offset 14, -4
  105:Core/Src/util_buffer.c ****     }
-ARM GAS  /tmp/ccu6rRfo.s 			page 11
+ARM GAS  /tmp/cc7KWSOF.s 			page 11
 
 
  414              		.loc 1 105 16 view .LVU109
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccu6rRfo.s 			page 1
   90:Core/Src/util_buffer.c ****     buf->tail %= buf->len;
  462              		.loc 1 90 15 is_stmt 0 view .LVU120
  463 000e 6368     		ldr	r3, [r4, #4]
-ARM GAS  /tmp/ccu6rRfo.s 			page 12
+ARM GAS  /tmp/cc7KWSOF.s 			page 12
 
 
  464 0010 2B44     		add	r3, r3, r5
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccu6rRfo.s 			page 1
  507              		.loc 1 132 1 view .LVU133
  508 0002 B0FA80F0 		clz	r0, r0
  509 0006 4009     		lsrs	r0, r0, #5
-ARM GAS  /tmp/ccu6rRfo.s 			page 13
+ARM GAS  /tmp/cc7KWSOF.s 			page 13
 
 
  510 0008 7047     		bx	lr
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccu6rRfo.s 			page 1
  558              	.LVL56:
  559              	.LFB7:
  142:Core/Src/util_buffer.c **** 
-ARM GAS  /tmp/ccu6rRfo.s 			page 14
+ARM GAS  /tmp/cc7KWSOF.s 			page 14
 
 
  143:Core/Src/util_buffer.c **** size_t buf_get_free_data(buffer_t *buf, size_t size_of_data) {
@@ -825,27 +825,27 @@ ARM GAS  /tmp/ccu6rRfo.s 			page 1
  593              		.file 2 "Core/Inc/util_buffer.h"
  594              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
  595              		.file 4 "<built-in>"
-ARM GAS  /tmp/ccu6rRfo.s 			page 15
+ARM GAS  /tmp/cc7KWSOF.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 util_buffer.c
-     /tmp/ccu6rRfo.s:18     .text.buf_reset:0000000000000000 $t
-     /tmp/ccu6rRfo.s:24     .text.buf_reset:0000000000000000 buf_reset
-     /tmp/ccu6rRfo.s:76     .text.buf_init:0000000000000000 $t
-     /tmp/ccu6rRfo.s:82     .text.buf_init:0000000000000000 buf_init
-     /tmp/ccu6rRfo.s:146    .text.buf_write:0000000000000000 $t
-     /tmp/ccu6rRfo.s:152    .text.buf_write:0000000000000000 buf_write
-     /tmp/ccu6rRfo.s:300    .text.buf_peek:0000000000000000 $t
-     /tmp/ccu6rRfo.s:306    .text.buf_peek:0000000000000000 buf_peek
-     /tmp/ccu6rRfo.s:432    .text.buf_read:0000000000000000 $t
-     /tmp/ccu6rRfo.s:438    .text.buf_read:0000000000000000 buf_read
-     /tmp/ccu6rRfo.s:489    .text.buf_is_empty:0000000000000000 $t
-     /tmp/ccu6rRfo.s:495    .text.buf_is_empty:0000000000000000 buf_is_empty
-     /tmp/ccu6rRfo.s:515    .text.buf_get_free_elem:0000000000000000 $t
-     /tmp/ccu6rRfo.s:521    .text.buf_get_free_elem:0000000000000000 buf_get_free_elem
-     /tmp/ccu6rRfo.s:551    .text.buf_get_free_data:0000000000000000 $t
-     /tmp/ccu6rRfo.s:557    .text.buf_get_free_data:0000000000000000 buf_get_free_data
+     /tmp/cc7KWSOF.s:18     .text.buf_reset:0000000000000000 $t
+     /tmp/cc7KWSOF.s:24     .text.buf_reset:0000000000000000 buf_reset
+     /tmp/cc7KWSOF.s:76     .text.buf_init:0000000000000000 $t
+     /tmp/cc7KWSOF.s:82     .text.buf_init:0000000000000000 buf_init
+     /tmp/cc7KWSOF.s:146    .text.buf_write:0000000000000000 $t
+     /tmp/cc7KWSOF.s:152    .text.buf_write:0000000000000000 buf_write
+     /tmp/cc7KWSOF.s:300    .text.buf_peek:0000000000000000 $t
+     /tmp/cc7KWSOF.s:306    .text.buf_peek:0000000000000000 buf_peek
+     /tmp/cc7KWSOF.s:432    .text.buf_read:0000000000000000 $t
+     /tmp/cc7KWSOF.s:438    .text.buf_read:0000000000000000 buf_read
+     /tmp/cc7KWSOF.s:489    .text.buf_is_empty:0000000000000000 $t
+     /tmp/cc7KWSOF.s:495    .text.buf_is_empty:0000000000000000 buf_is_empty
+     /tmp/cc7KWSOF.s:515    .text.buf_get_free_elem:0000000000000000 $t
+     /tmp/cc7KWSOF.s:521    .text.buf_get_free_elem:0000000000000000 buf_get_free_elem
+     /tmp/cc7KWSOF.s:551    .text.buf_get_free_data:0000000000000000 $t
+     /tmp/cc7KWSOF.s:557    .text.buf_get_free_data:0000000000000000 buf_get_free_data
 
 UNDEFINED SYMBOLS
 memset
