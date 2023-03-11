@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cchPX2IS.s 			page 1
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -17,15 +17,15 @@ ARM GAS  /tmp/cchPX2IS.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.section	.text.heartbeat_reset,"ax",%progbits
-  18              		.align	1
-  19              		.global	heartbeat_reset
-  20              		.syntax unified
-  21              		.thumb
-  22              		.thumb_func
-  24              	heartbeat_reset:
-  25              	.LFB66:
-  26              		.file 1 "Core/Src/mgr_hearbeat.c"
+  17              		.file 1 "Core/Src/mgr_hearbeat.c"
+  18              		.section	.text.heartbeat_reset,"ax",%progbits
+  19              		.align	1
+  20              		.global	heartbeat_reset
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	heartbeat_reset:
+  26              	.LFB66:
    1:Core/Src/mgr_hearbeat.c **** /**
    2:Core/Src/mgr_hearbeat.c ****  * @file mgr_heartbeat.h
    3:Core/Src/mgr_hearbeat.c ****  * @author your name (you@domain.com)
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cchPX2IS.s 			page 1
   30:Core/Src/mgr_hearbeat.c **** static stmgpio_t gpio_led;
   31:Core/Src/mgr_hearbeat.c **** 
   32:Core/Src/mgr_hearbeat.c **** static hb_mode_t hb_pattern;
-ARM GAS  /tmp/cchPX2IS.s 			page 2
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 2
 
 
   33:Core/Src/mgr_hearbeat.c **** 
@@ -118,12 +118,12 @@ ARM GAS  /tmp/cchPX2IS.s 			page 1
   47              	.L3:
   48              		.align	2
   49              	.L2:
-ARM GAS  /tmp/cchPX2IS.s 			page 3
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 3
 
 
-  50 0010 00000000 		.word	.LANCHOR0
-  51 0014 00000000 		.word	.LANCHOR1
-  52 0018 00000000 		.word	.LANCHOR2
+  50 0010 00000000 		.word	window_cnt
+  51 0014 00000000 		.word	tick_per_window_cnt
+  52 0018 00000000 		.word	callback_cnt
   53              		.cfi_endproc
   54              	.LFE66:
   56              		.section	.text.heartbeat_stop,"ax",%progbits
@@ -154,7 +154,7 @@ ARM GAS  /tmp/cchPX2IS.s 			page 1
   77              	.L6:
   78              		.align	2
   79              	.L5:
-  80 0008 00000000 		.word	.LANCHOR3
+  80 0008 00000000 		.word	heartbeat_is_active
   81              		.cfi_endproc
   82              	.LFE67:
   84              		.section	.text.heartbeat_start,"ax",%progbits
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cchPX2IS.s 			page 1
   99              		.loc 1 75 25 is_stmt 0 view .LVU14
  100 0000 014B     		ldr	r3, .L8
  101 0002 0122     		movs	r2, #1
-ARM GAS  /tmp/cchPX2IS.s 			page 4
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 4
 
 
  102 0004 1A70     		strb	r2, [r3]
@@ -188,7 +188,7 @@ ARM GAS  /tmp/cchPX2IS.s 			page 1
  105              	.L9:
  106              		.align	2
  107              	.L8:
- 108 0008 00000000 		.word	.LANCHOR3
+ 108 0008 00000000 		.word	heartbeat_is_active
  109              		.cfi_endproc
  110              	.LFE68:
  112              		.section	.text.heartbeat_set_poll_mode,"ax",%progbits
@@ -226,7 +226,7 @@ ARM GAS  /tmp/cchPX2IS.s 			page 1
  133              	.L12:
  134 0006 00BF     		.align	2
  135              	.L11:
- 136 0008 00000000 		.word	.LANCHOR4
+ 136 0008 00000000 		.word	poll_mode
  137              		.cfi_endproc
  138              	.LFE70:
  140              		.section	.text.heartbeat_get_poll_mode,"ax",%progbits
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cchPX2IS.s 			page 1
  147              	heartbeat_get_poll_mode:
  148              	.LFB71:
   89:Core/Src/mgr_hearbeat.c **** 
-ARM GAS  /tmp/cchPX2IS.s 			page 5
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 5
 
 
   90:Core/Src/mgr_hearbeat.c **** bool heartbeat_get_poll_mode(void)
@@ -259,7 +259,7 @@ ARM GAS  /tmp/cchPX2IS.s 			page 1
  160              	.L15:
  161 0006 00BF     		.align	2
  162              	.L14:
- 163 0008 00000000 		.word	.LANCHOR4
+ 163 0008 00000000 		.word	poll_mode
  164              		.cfi_endproc
  165              	.LFE71:
  167              		.section	.text.heartbeat_lower_multiple,"ax",%progbits
@@ -286,7 +286,7 @@ ARM GAS  /tmp/cchPX2IS.s 			page 1
  183              		.loc 1 99 5 view .LVU26
  184              		.loc 1 99 15 is_stmt 0 view .LVU27
  185 0000 B0FBF1F3 		udiv	r3, r0, r1
- 186 0004 01FB1301 		mls	r1, r1, r3, r0
+ 186 0004 01FB1303 		mls	r3, r1, r3, r0
  187              	.LVL2:
  100:Core/Src/mgr_hearbeat.c **** 
  101:Core/Src/mgr_hearbeat.c ****     number -= remainder;
@@ -296,9 +296,9 @@ ARM GAS  /tmp/cchPX2IS.s 			page 1
  189              		.loc 1 103 5 view .LVU29
  104:Core/Src/mgr_hearbeat.c **** }
  190              		.loc 1 104 1 is_stmt 0 view .LVU30
- 191 0008 401A     		subs	r0, r0, r1
+ 191 0008 C01A     		subs	r0, r0, r3
  192              	.LVL3:
-ARM GAS  /tmp/cchPX2IS.s 			page 6
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 6
 
 
  193              		.loc 1 104 1 view .LVU31
@@ -323,21 +323,19 @@ ARM GAS  /tmp/cchPX2IS.s 			page 1
  108:Core/Src/mgr_hearbeat.c ****     /* Iterate for every time callback was called. Gotta catch up. */
  109:Core/Src/mgr_hearbeat.c ****     while (callback_cnt > 0)
  211              		.loc 1 109 5 view .LVU33
- 212              		.loc 1 109 11 view .LVU34
- 213              		.loc 1 109 25 is_stmt 0 view .LVU35
- 214 0000 314B     		ldr	r3, .L30
- 215 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 216              		.loc 1 109 11 view .LVU36
- 217 0004 002B     		cmp	r3, #0
- 218 0006 5ED0     		beq	.L27
+ 212              		.loc 1 109 25 view .LVU34
+ 213 0000 314B     		ldr	r3, .L30
+ 214 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 215 0004 002B     		cmp	r3, #0
+ 216 0006 5ED0     		beq	.L27
  107:Core/Src/mgr_hearbeat.c ****     /* Iterate for every time callback was called. Gotta catch up. */
- 219              		.loc 1 107 1 view .LVU37
- 220 0008 10B5     		push	{r4, lr}
- 221              		.cfi_def_cfa_offset 8
- 222              		.cfi_offset 4, -8
- 223              		.cfi_offset 14, -4
- 224 000a 11E0     		b	.L23
- 225              	.L20:
+ 217              		.loc 1 107 1 is_stmt 0 view .LVU35
+ 218 0008 10B5     		push	{r4, lr}
+ 219              		.cfi_def_cfa_offset 8
+ 220              		.cfi_offset 4, -8
+ 221              		.cfi_offset 14, -4
+ 222 000a 11E0     		b	.L23
+ 223              	.L20:
  110:Core/Src/mgr_hearbeat.c ****     {
  111:Core/Src/mgr_hearbeat.c ****         callback_cnt--;
  112:Core/Src/mgr_hearbeat.c **** 
@@ -351,18 +349,18 @@ ARM GAS  /tmp/cchPX2IS.s 			page 1
  120:Core/Src/mgr_hearbeat.c ****             else
  121:Core/Src/mgr_hearbeat.c ****             {
  122:Core/Src/mgr_hearbeat.c ****                 stmgpio_write(&gpio_led, PIN_LOW);
- 226              		.loc 1 122 17 is_stmt 1 view .LVU38
- 227 000c 0121     		movs	r1, #1
- 228 000e 2F48     		ldr	r0, .L30+4
- 229 0010 FFF7FEFF 		bl	stmgpio_write
- 230              	.LVL4:
- 231 0014 21E0     		b	.L21
- 232              	.L19:
-ARM GAS  /tmp/cchPX2IS.s 			page 7
-
-
+ 224              		.loc 1 122 17 is_stmt 1 view .LVU36
+ 225 000c 0121     		movs	r1, #1
+ 226 000e 2F48     		ldr	r0, .L30+4
+ 227 0010 FFF7FEFF 		bl	stmgpio_write
+ 228              	.LVL4:
+ 229 0014 21E0     		b	.L21
+ 230              	.L19:
  123:Core/Src/mgr_hearbeat.c ****             }
  124:Core/Src/mgr_hearbeat.c **** 
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 7
+
+
  125:Core/Src/mgr_hearbeat.c ****             /* Increment tick counter */
  126:Core/Src/mgr_hearbeat.c ****             tick_per_window_cnt++;
  127:Core/Src/mgr_hearbeat.c **** 
@@ -384,235 +382,231 @@ ARM GAS  /tmp/cchPX2IS.s 			page 1
  143:Core/Src/mgr_hearbeat.c ****         {
  144:Core/Src/mgr_hearbeat.c ****             /* Increment tick counter */
  145:Core/Src/mgr_hearbeat.c ****             tick_per_window_cnt++;
- 233              		.loc 1 145 13 view .LVU39
- 234              		.loc 1 145 32 is_stmt 0 view .LVU40
- 235 0016 2E4A     		ldr	r2, .L30+8
- 236 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 237 001a 0133     		adds	r3, r3, #1
- 238 001c DBB2     		uxtb	r3, r3
- 239 001e 1370     		strb	r3, [r2]
+ 231              		.loc 1 145 13 view .LVU37
+ 232              		.loc 1 145 32 is_stmt 0 view .LVU38
+ 233 0016 2E4A     		ldr	r2, .L30+8
+ 234 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 235 001a 0133     		adds	r3, r3, #1
+ 236 001c DBB2     		uxtb	r3, r3
+ 237 001e 1370     		strb	r3, [r2]
  146:Core/Src/mgr_hearbeat.c **** 
  147:Core/Src/mgr_hearbeat.c ****             /* If counter ticked up enough to move to next window (bit of snapshot) */
  148:Core/Src/mgr_hearbeat.c ****             if (tick_per_window_cnt >= ticks_per_window)
- 240              		.loc 1 148 13 is_stmt 1 view .LVU41
- 241              		.loc 1 148 37 is_stmt 0 view .LVU42
- 242 0020 2C4A     		ldr	r2, .L30+12
- 243 0022 1268     		ldr	r2, [r2]
- 244              		.loc 1 148 16 view .LVU43
- 245 0024 9342     		cmp	r3, r2
- 246 0026 30D2     		bcs	.L28
- 247              	.L18:
+ 238              		.loc 1 148 13 is_stmt 1 view .LVU39
+ 239              		.loc 1 148 37 is_stmt 0 view .LVU40
+ 240 0020 2C4A     		ldr	r2, .L30+12
+ 241 0022 1268     		ldr	r2, [r2]
+ 242              		.loc 1 148 16 view .LVU41
+ 243 0024 9342     		cmp	r3, r2
+ 244 0026 30D2     		bcs	.L28
+ 245              	.L18:
  109:Core/Src/mgr_hearbeat.c ****     {
- 248              		.loc 1 109 11 is_stmt 1 view .LVU44
- 109:Core/Src/mgr_hearbeat.c ****     {
- 249              		.loc 1 109 25 is_stmt 0 view .LVU45
- 250 0028 274B     		ldr	r3, .L30
- 251 002a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 109:Core/Src/mgr_hearbeat.c ****     {
- 252              		.loc 1 109 11 view .LVU46
- 253 002c 002B     		cmp	r3, #0
- 254 002e 49D0     		beq	.L29
- 255              	.L23:
+ 246              		.loc 1 109 25 is_stmt 1 view .LVU42
+ 247 0028 274B     		ldr	r3, .L30
+ 248 002a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 249 002c 002B     		cmp	r3, #0
+ 250 002e 49D0     		beq	.L29
+ 251              	.L23:
  111:Core/Src/mgr_hearbeat.c **** 
- 256              		.loc 1 111 9 is_stmt 1 view .LVU47
+ 252              		.loc 1 111 9 view .LVU43
  111:Core/Src/mgr_hearbeat.c **** 
- 257              		.loc 1 111 21 is_stmt 0 view .LVU48
- 258 0030 254A     		ldr	r2, .L30
-ARM GAS  /tmp/cchPX2IS.s 			page 8
+ 253              		.loc 1 111 21 is_stmt 0 view .LVU44
+ 254 0030 254A     		ldr	r2, .L30
+ 255 0032 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 256 0034 013B     		subs	r3, r3, #1
+ 257 0036 DBB2     		uxtb	r3, r3
+ 258 0038 1370     		strb	r3, [r2]
+ 113:Core/Src/mgr_hearbeat.c ****         {
+ 259              		.loc 1 113 9 is_stmt 1 view .LVU45
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 8
 
 
- 259 0032 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 260 0034 013B     		subs	r3, r3, #1
- 261 0036 DBB2     		uxtb	r3, r3
- 262 0038 1370     		strb	r3, [r2]
  113:Core/Src/mgr_hearbeat.c ****         {
- 263              		.loc 1 113 9 is_stmt 1 view .LVU49
+ 260              		.loc 1 113 25 is_stmt 0 view .LVU46
+ 261 003a 274B     		ldr	r3, .L30+16
+ 262 003c 1B68     		ldr	r3, [r3]
  113:Core/Src/mgr_hearbeat.c ****         {
- 264              		.loc 1 113 25 is_stmt 0 view .LVU50
- 265 003a 274B     		ldr	r3, .L30+16
- 266 003c 1B68     		ldr	r3, [r3]
- 113:Core/Src/mgr_hearbeat.c ****         {
- 267              		.loc 1 113 12 view .LVU51
- 268 003e 002B     		cmp	r3, #0
- 269 0040 E9D1     		bne	.L19
+ 263              		.loc 1 113 12 view .LVU47
+ 264 003e 002B     		cmp	r3, #0
+ 265 0040 E9D1     		bne	.L19
  116:Core/Src/mgr_hearbeat.c ****             {
- 270              		.loc 1 116 13 is_stmt 1 view .LVU52
+ 266              		.loc 1 116 13 is_stmt 1 view .LVU48
  116:Core/Src/mgr_hearbeat.c ****             {
- 271              		.loc 1 116 48 is_stmt 0 view .LVU53
- 272 0042 264B     		ldr	r3, .L30+20
- 273 0044 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 274 0046 264A     		ldr	r2, .L30+24
- 275 0048 D25C     		ldrb	r2, [r2, r3]	@ zero_extendqisi2
+ 267              		.loc 1 116 48 is_stmt 0 view .LVU49
+ 268 0042 264B     		ldr	r3, .L30+20
+ 269 0044 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 270 0046 264A     		ldr	r2, .L30+24
+ 271 0048 D25C     		ldrb	r2, [r2, r3]	@ zero_extendqisi2
  116:Core/Src/mgr_hearbeat.c ****             {
- 276              		.loc 1 116 37 view .LVU54
- 277 004a 214B     		ldr	r3, .L30+8
- 278 004c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 272              		.loc 1 116 37 view .LVU50
+ 273 004a 214B     		ldr	r3, .L30+8
+ 274 004c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  116:Core/Src/mgr_hearbeat.c ****             {
- 279              		.loc 1 116 16 view .LVU55
- 280 004e 9A42     		cmp	r2, r3
- 281 0050 DCD9     		bls	.L20
+ 275              		.loc 1 116 16 view .LVU51
+ 276 004e 9A42     		cmp	r2, r3
+ 277 0050 DCD9     		bls	.L20
  118:Core/Src/mgr_hearbeat.c ****             }
- 282              		.loc 1 118 17 is_stmt 1 view .LVU56
- 283 0052 0021     		movs	r1, #0
- 284 0054 1D48     		ldr	r0, .L30+4
- 285 0056 FFF7FEFF 		bl	stmgpio_write
- 286              	.LVL5:
- 287              	.L21:
+ 278              		.loc 1 118 17 is_stmt 1 view .LVU52
+ 279 0052 0021     		movs	r1, #0
+ 280 0054 1D48     		ldr	r0, .L30+4
+ 281 0056 FFF7FEFF 		bl	stmgpio_write
+ 282              	.LVL5:
+ 283              	.L21:
  126:Core/Src/mgr_hearbeat.c **** 
- 288              		.loc 1 126 13 view .LVU57
+ 284              		.loc 1 126 13 view .LVU53
  126:Core/Src/mgr_hearbeat.c **** 
- 289              		.loc 1 126 32 is_stmt 0 view .LVU58
- 290 005a 1D4A     		ldr	r2, .L30+8
- 291 005c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 292 005e 0133     		adds	r3, r3, #1
- 293 0060 DBB2     		uxtb	r3, r3
- 294 0062 1370     		strb	r3, [r2]
+ 285              		.loc 1 126 32 is_stmt 0 view .LVU54
+ 286 005a 1D4A     		ldr	r2, .L30+8
+ 287 005c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 288 005e 0133     		adds	r3, r3, #1
+ 289 0060 DBB2     		uxtb	r3, r3
+ 290 0062 1370     		strb	r3, [r2]
  129:Core/Src/mgr_hearbeat.c ****             {
- 295              		.loc 1 129 13 is_stmt 1 view .LVU59
+ 291              		.loc 1 129 13 is_stmt 1 view .LVU55
  129:Core/Src/mgr_hearbeat.c ****             {
- 296              		.loc 1 129 37 is_stmt 0 view .LVU60
- 297 0064 1B4A     		ldr	r2, .L30+12
- 298 0066 1268     		ldr	r2, [r2]
+ 292              		.loc 1 129 37 is_stmt 0 view .LVU56
+ 293 0064 1B4A     		ldr	r2, .L30+12
+ 294 0066 1268     		ldr	r2, [r2]
  129:Core/Src/mgr_hearbeat.c ****             {
- 299              		.loc 1 129 16 view .LVU61
- 300 0068 9342     		cmp	r3, r2
- 301 006a DDD3     		bcc	.L18
+ 295              		.loc 1 129 16 view .LVU57
+ 296 0068 9342     		cmp	r3, r2
+ 297 006a DDD3     		bcc	.L18
  132:Core/Src/mgr_hearbeat.c ****                 tick_per_window_cnt = 0;
-ARM GAS  /tmp/cchPX2IS.s 			page 9
+ 298              		.loc 1 132 17 is_stmt 1 view .LVU58
+ 132:Core/Src/mgr_hearbeat.c ****                 tick_per_window_cnt = 0;
+ 299              		.loc 1 132 27 is_stmt 0 view .LVU59
+ 300 006c 1B4A     		ldr	r2, .L30+20
+ 301 006e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 302 0070 0133     		adds	r3, r3, #1
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 9
 
 
- 302              		.loc 1 132 17 is_stmt 1 view .LVU62
- 132:Core/Src/mgr_hearbeat.c ****                 tick_per_window_cnt = 0;
- 303              		.loc 1 132 27 is_stmt 0 view .LVU63
- 304 006c 1B4A     		ldr	r2, .L30+20
- 305 006e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 306 0070 0133     		adds	r3, r3, #1
- 307 0072 DBB2     		uxtb	r3, r3
- 308 0074 1370     		strb	r3, [r2]
+ 303 0072 DBB2     		uxtb	r3, r3
+ 304 0074 1370     		strb	r3, [r2]
  133:Core/Src/mgr_hearbeat.c **** 
- 309              		.loc 1 133 17 is_stmt 1 view .LVU64
+ 305              		.loc 1 133 17 is_stmt 1 view .LVU60
  133:Core/Src/mgr_hearbeat.c **** 
- 310              		.loc 1 133 37 is_stmt 0 view .LVU65
- 311 0076 164A     		ldr	r2, .L30+8
- 312 0078 0021     		movs	r1, #0
- 313 007a 1170     		strb	r1, [r2]
+ 306              		.loc 1 133 37 is_stmt 0 view .LVU61
+ 307 0076 164A     		ldr	r2, .L30+8
+ 308 0078 0021     		movs	r1, #0
+ 309 007a 1170     		strb	r1, [r2]
  136:Core/Src/mgr_hearbeat.c ****                 {
- 314              		.loc 1 136 17 is_stmt 1 view .LVU66
+ 310              		.loc 1 136 17 is_stmt 1 view .LVU62
  136:Core/Src/mgr_hearbeat.c ****                 {
- 315              		.loc 1 136 38 is_stmt 0 view .LVU67
- 316 007c 194A     		ldr	r2, .L30+28
- 317 007e 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 311              		.loc 1 136 38 is_stmt 0 view .LVU63
+ 312 007c 194A     		ldr	r2, .L30+28
+ 313 007e 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
  136:Core/Src/mgr_hearbeat.c ****                 {
- 318              		.loc 1 136 20 view .LVU68
- 319 0080 9342     		cmp	r3, r2
- 320 0082 D1D3     		bcc	.L18
+ 314              		.loc 1 136 20 view .LVU64
+ 315 0080 9342     		cmp	r3, r2
+ 316 0082 D1D3     		bcc	.L18
  138:Core/Src/mgr_hearbeat.c ****                 }
- 321              		.loc 1 138 21 is_stmt 1 view .LVU69
+ 317              		.loc 1 138 21 is_stmt 1 view .LVU65
  138:Core/Src/mgr_hearbeat.c ****                 }
- 322              		.loc 1 138 32 is_stmt 0 view .LVU70
- 323 0084 154B     		ldr	r3, .L30+20
- 324 0086 1970     		strb	r1, [r3]
- 325 0088 CEE7     		b	.L18
- 326              	.L28:
+ 318              		.loc 1 138 32 is_stmt 0 view .LVU66
+ 319 0084 154B     		ldr	r3, .L30+20
+ 320 0086 1970     		strb	r1, [r3]
+ 321 0088 CEE7     		b	.L18
+ 322              	.L28:
  149:Core/Src/mgr_hearbeat.c ****             {
  150:Core/Src/mgr_hearbeat.c ****                 /* reset window tick counter */
  151:Core/Src/mgr_hearbeat.c ****                 tick_per_window_cnt = 0;
- 327              		.loc 1 151 17 is_stmt 1 view .LVU71
- 328              		.loc 1 151 37 is_stmt 0 view .LVU72
- 329 008a 114B     		ldr	r3, .L30+8
- 330 008c 0022     		movs	r2, #0
- 331 008e 1A70     		strb	r2, [r3]
+ 323              		.loc 1 151 17 is_stmt 1 view .LVU67
+ 324              		.loc 1 151 37 is_stmt 0 view .LVU68
+ 325 008a 114B     		ldr	r3, .L30+8
+ 326 008c 0022     		movs	r2, #0
+ 327 008e 1A70     		strb	r2, [r3]
  152:Core/Src/mgr_hearbeat.c **** 
  153:Core/Src/mgr_hearbeat.c ****                 /* write LED with value of LSB of snapshot */
  154:Core/Src/mgr_hearbeat.c ****                 stmgpio_write(&gpio_led, (stmgpio_state_t)(pattern_snapshot & 0x01));
- 332              		.loc 1 154 17 is_stmt 1 view .LVU73
- 333 0090 154C     		ldr	r4, .L30+32
- 334 0092 2178     		ldrb	r1, [r4]	@ zero_extendqisi2
- 335 0094 01F00101 		and	r1, r1, #1
- 336 0098 0C48     		ldr	r0, .L30+4
- 337 009a FFF7FEFF 		bl	stmgpio_write
- 338              	.LVL6:
+ 328              		.loc 1 154 17 is_stmt 1 view .LVU69
+ 329 0090 154C     		ldr	r4, .L30+32
+ 330 0092 2178     		ldrb	r1, [r4]	@ zero_extendqisi2
+ 331 0094 01F00101 		and	r1, r1, #1
+ 332 0098 0C48     		ldr	r0, .L30+4
+ 333 009a FFF7FEFF 		bl	stmgpio_write
+ 334              	.LVL6:
  155:Core/Src/mgr_hearbeat.c **** 
  156:Core/Src/mgr_hearbeat.c ****                 /* go to next bit of snapshot */
  157:Core/Src/mgr_hearbeat.c ****                 pattern_snapshot >>= 1;
- 339              		.loc 1 157 17 view .LVU74
- 340              		.loc 1 157 34 is_stmt 0 view .LVU75
- 341 009e 2368     		ldr	r3, [r4]
-ARM GAS  /tmp/cchPX2IS.s 			page 10
-
-
- 342 00a0 5B08     		lsrs	r3, r3, #1
- 343 00a2 2360     		str	r3, [r4]
+ 335              		.loc 1 157 17 view .LVU70
+ 336              		.loc 1 157 34 is_stmt 0 view .LVU71
+ 337 009e 2368     		ldr	r3, [r4]
+ 338 00a0 5B08     		lsrs	r3, r3, #1
+ 339 00a2 2360     		str	r3, [r4]
  158:Core/Src/mgr_hearbeat.c ****                 window_cnt++;
- 344              		.loc 1 158 17 is_stmt 1 view .LVU76
- 345              		.loc 1 158 27 is_stmt 0 view .LVU77
- 346 00a4 0D4A     		ldr	r2, .L30+20
- 347 00a6 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 348 00a8 0133     		adds	r3, r3, #1
- 349 00aa DBB2     		uxtb	r3, r3
- 350 00ac 1370     		strb	r3, [r2]
+ 340              		.loc 1 158 17 is_stmt 1 view .LVU72
+ 341              		.loc 1 158 27 is_stmt 0 view .LVU73
+ 342 00a4 0D4A     		ldr	r2, .L30+20
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 10
+
+
+ 343 00a6 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 344 00a8 0133     		adds	r3, r3, #1
+ 345 00aa DBB2     		uxtb	r3, r3
+ 346 00ac 1370     		strb	r3, [r2]
  159:Core/Src/mgr_hearbeat.c **** 
  160:Core/Src/mgr_hearbeat.c ****                 /* If we've run out of bits in the snapshot, reset snapshot and snapshot counter */
  161:Core/Src/mgr_hearbeat.c ****                 if (window_cnt_total <= window_cnt)
- 351              		.loc 1 161 17 is_stmt 1 view .LVU78
- 352              		.loc 1 161 38 is_stmt 0 view .LVU79
- 353 00ae 0D4A     		ldr	r2, .L30+28
- 354 00b0 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
- 355              		.loc 1 161 20 view .LVU80
- 356 00b2 9342     		cmp	r3, r2
- 357 00b4 B8D3     		bcc	.L18
+ 347              		.loc 1 161 17 is_stmt 1 view .LVU74
+ 348              		.loc 1 161 38 is_stmt 0 view .LVU75
+ 349 00ae 0D4A     		ldr	r2, .L30+28
+ 350 00b0 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 351              		.loc 1 161 20 view .LVU76
+ 352 00b2 9342     		cmp	r3, r2
+ 353 00b4 B8D3     		bcc	.L18
  162:Core/Src/mgr_hearbeat.c ****                 {
  163:Core/Src/mgr_hearbeat.c ****                     window_cnt = 0;
- 358              		.loc 1 163 21 is_stmt 1 view .LVU81
- 359              		.loc 1 163 32 is_stmt 0 view .LVU82
- 360 00b6 094B     		ldr	r3, .L30+20
- 361 00b8 0022     		movs	r2, #0
- 362 00ba 1A70     		strb	r2, [r3]
+ 354              		.loc 1 163 21 is_stmt 1 view .LVU77
+ 355              		.loc 1 163 32 is_stmt 0 view .LVU78
+ 356 00b6 094B     		ldr	r3, .L30+20
+ 357 00b8 0022     		movs	r2, #0
+ 358 00ba 1A70     		strb	r2, [r3]
  164:Core/Src/mgr_hearbeat.c ****                     pattern_snapshot = (uint32_t)hb_pattern;
- 363              		.loc 1 164 21 is_stmt 1 view .LVU83
- 364              		.loc 1 164 38 is_stmt 0 view .LVU84
- 365 00bc 064B     		ldr	r3, .L30+16
- 366 00be 1A68     		ldr	r2, [r3]
- 367 00c0 2260     		str	r2, [r4]
- 368 00c2 B1E7     		b	.L18
- 369              	.L29:
+ 359              		.loc 1 164 21 is_stmt 1 view .LVU79
+ 360              		.loc 1 164 38 is_stmt 0 view .LVU80
+ 361 00bc 064B     		ldr	r3, .L30+16
+ 362 00be 1A68     		ldr	r2, [r3]
+ 363 00c0 2260     		str	r2, [r4]
+ 364 00c2 B1E7     		b	.L18
+ 365              	.L29:
  165:Core/Src/mgr_hearbeat.c ****                 }
  166:Core/Src/mgr_hearbeat.c ****             }
  167:Core/Src/mgr_hearbeat.c ****         }
  168:Core/Src/mgr_hearbeat.c ****     }
  169:Core/Src/mgr_hearbeat.c **** }
- 370              		.loc 1 169 1 view .LVU85
- 371 00c4 10BD     		pop	{r4, pc}
- 372              	.L27:
- 373              		.cfi_def_cfa_offset 0
- 374              		.cfi_restore 4
- 375              		.cfi_restore 14
- 376 00c6 7047     		bx	lr
- 377              	.L31:
- 378              		.align	2
- 379              	.L30:
- 380 00c8 00000000 		.word	.LANCHOR2
- 381 00cc 00000000 		.word	.LANCHOR7
- 382 00d0 00000000 		.word	.LANCHOR1
- 383 00d4 00000000 		.word	.LANCHOR8
- 384 00d8 00000000 		.word	.LANCHOR5
- 385 00dc 00000000 		.word	.LANCHOR0
- 386 00e0 00000000 		.word	.LANCHOR6
-ARM GAS  /tmp/cchPX2IS.s 			page 11
+ 366              		.loc 1 169 1 view .LVU81
+ 367 00c4 10BD     		pop	{r4, pc}
+ 368              	.L27:
+ 369              		.cfi_def_cfa_offset 0
+ 370              		.cfi_restore 4
+ 371              		.cfi_restore 14
+ 372 00c6 7047     		bx	lr
+ 373              	.L31:
+ 374              		.align	2
+ 375              	.L30:
+ 376 00c8 00000000 		.word	callback_cnt
+ 377 00cc 00000000 		.word	gpio_led
+ 378 00d0 00000000 		.word	tick_per_window_cnt
+ 379 00d4 00000000 		.word	ticks_per_window
+ 380 00d8 00000000 		.word	hb_pattern
+ 381 00dc 00000000 		.word	window_cnt
+ 382 00e0 00000000 		.word	fade_vals
+ 383 00e4 00000000 		.word	window_cnt_total
+ 384 00e8 00000000 		.word	pattern_snapshot
+ 385              		.cfi_endproc
+ 386              	.LFE73:
+ 388              		.section	.text.heartbeat_tick_callback,"ax",%progbits
+ 389              		.align	1
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 11
 
 
- 387 00e4 00000000 		.word	.LANCHOR9
- 388 00e8 00000000 		.word	.LANCHOR10
- 389              		.cfi_endproc
- 390              	.LFE73:
- 392              		.section	.text.heartbeat_tick_callback,"ax",%progbits
- 393              		.align	1
- 394              		.global	heartbeat_tick_callback
- 395              		.syntax unified
- 396              		.thumb
- 397              		.thumb_func
- 399              	heartbeat_tick_callback:
- 400              	.LFB75:
+ 390              		.global	heartbeat_tick_callback
+ 391              		.syntax unified
+ 392              		.thumb
+ 393              		.thumb_func
+ 395              	heartbeat_tick_callback:
+ 396              	.LFB75:
  170:Core/Src/mgr_hearbeat.c **** 
  171:Core/Src/mgr_hearbeat.c **** void heartbeat_set_period_ms(uint16_t period_ms)
  172:Core/Src/mgr_hearbeat.c **** {
@@ -658,641 +652,625 @@ ARM GAS  /tmp/cchPX2IS.s 			page 1
  212:Core/Src/mgr_hearbeat.c **** 
  213:Core/Src/mgr_hearbeat.c **** void heartbeat_tick_callback(void)
  214:Core/Src/mgr_hearbeat.c **** {
-ARM GAS  /tmp/cchPX2IS.s 			page 12
+ 397              		.loc 1 214 1 is_stmt 1 view -0
+ 398              		.cfi_startproc
+ 399              		@ args = 0, pretend = 0, frame = 0
+ 400              		@ frame_needed = 0, uses_anonymous_args = 0
+ 401 0000 08B5     		push	{r3, lr}
+ 402              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 12
 
 
- 401              		.loc 1 214 1 is_stmt 1 view -0
- 402              		.cfi_startproc
- 403              		@ args = 0, pretend = 0, frame = 0
- 404              		@ frame_needed = 0, uses_anonymous_args = 0
- 405 0000 08B5     		push	{r3, lr}
- 406              		.cfi_def_cfa_offset 8
- 407              		.cfi_offset 3, -8
- 408              		.cfi_offset 14, -4
+ 403              		.cfi_offset 3, -8
+ 404              		.cfi_offset 14, -4
  215:Core/Src/mgr_hearbeat.c ****     /* only take action if told to */
  216:Core/Src/mgr_hearbeat.c ****     if (heartbeat_is_active)
- 409              		.loc 1 216 5 view .LVU87
- 410              		.loc 1 216 9 is_stmt 0 view .LVU88
- 411 0002 074B     		ldr	r3, .L37
- 412 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 413              		.loc 1 216 8 view .LVU89
- 414 0006 23B1     		cbz	r3, .L33
+ 405              		.loc 1 216 5 view .LVU83
+ 406              		.loc 1 216 9 is_stmt 0 view .LVU84
+ 407 0002 074B     		ldr	r3, .L37
+ 408 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 409              		.loc 1 216 8 view .LVU85
+ 410 0006 23B1     		cbz	r3, .L33
  217:Core/Src/mgr_hearbeat.c ****     {
  218:Core/Src/mgr_hearbeat.c ****         callback_cnt++;
- 415              		.loc 1 218 9 is_stmt 1 view .LVU90
- 416              		.loc 1 218 21 is_stmt 0 view .LVU91
- 417 0008 064A     		ldr	r2, .L37+4
- 418 000a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 419 000c 0133     		adds	r3, r3, #1
- 420 000e DBB2     		uxtb	r3, r3
- 421 0010 1370     		strb	r3, [r2]
- 422              	.L33:
+ 411              		.loc 1 218 9 is_stmt 1 view .LVU86
+ 412              		.loc 1 218 21 is_stmt 0 view .LVU87
+ 413 0008 064A     		ldr	r2, .L37+4
+ 414 000a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 415 000c 0133     		adds	r3, r3, #1
+ 416 000e DBB2     		uxtb	r3, r3
+ 417 0010 1370     		strb	r3, [r2]
+ 418              	.L33:
  219:Core/Src/mgr_hearbeat.c ****     }
  220:Core/Src/mgr_hearbeat.c ****     /* if not manualy polled, do all the stuff in the callback (intensive) */
  221:Core/Src/mgr_hearbeat.c ****     if (!poll_mode) {
- 423              		.loc 1 221 5 is_stmt 1 view .LVU92
- 424              		.loc 1 221 9 is_stmt 0 view .LVU93
- 425 0012 054B     		ldr	r3, .L37+8
- 426 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 427              		.loc 1 221 8 view .LVU94
- 428 0016 03B1     		cbz	r3, .L36
- 429              	.L32:
+ 419              		.loc 1 221 5 is_stmt 1 view .LVU88
+ 420              		.loc 1 221 9 is_stmt 0 view .LVU89
+ 421 0012 054B     		ldr	r3, .L37+8
+ 422 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 423              		.loc 1 221 8 view .LVU90
+ 424 0016 03B1     		cbz	r3, .L36
+ 425              	.L32:
  222:Core/Src/mgr_hearbeat.c ****         heartbeat_poll();
  223:Core/Src/mgr_hearbeat.c ****     }
  224:Core/Src/mgr_hearbeat.c **** }...
- 430              		.loc 1 224 1 view .LVU95
- 431 0018 08BD     		pop	{r3, pc}
- 432              	.L36:
+ 426              		.loc 1 224 1 view .LVU91
+ 427 0018 08BD     		pop	{r3, pc}
+ 428              	.L36:
  222:Core/Src/mgr_hearbeat.c ****         heartbeat_poll();
- 433              		.loc 1 222 9 is_stmt 1 view .LVU96
- 434 001a FFF7FEFF 		bl	heartbeat_poll
- 435              	.LVL7:
- 436              		.loc 1 224 1 is_stmt 0 view .LVU97
- 437 001e FBE7     		b	.L32
- 438              	.L38:
- 439              		.align	2
- 440              	.L37:
- 441 0020 00000000 		.word	.LANCHOR3
- 442 0024 00000000 		.word	.LANCHOR2
- 443 0028 00000000 		.word	.LANCHOR4
- 444              		.cfi_endproc
- 445              	.LFE75:
- 447              		.global	__aeabi_ui2f
-ARM GAS  /tmp/cchPX2IS.s 			page 13
+ 429              		.loc 1 222 9 is_stmt 1 view .LVU92
+ 430 001a FFF7FEFF 		bl	heartbeat_poll
+ 431              	.LVL7:
+ 432              		.loc 1 224 1 is_stmt 0 view .LVU93
+ 433 001e FBE7     		b	.L32
+ 434              	.L38:
+ 435              		.align	2
+ 436              	.L37:
+ 437 0020 00000000 		.word	heartbeat_is_active
+ 438 0024 00000000 		.word	callback_cnt
+ 439 0028 00000000 		.word	poll_mode
+ 440              		.cfi_endproc
+ 441              	.LFE75:
+ 443              		.global	__aeabi_ui2f
+ 444              		.global	__aeabi_fdiv
+ 445              		.global	__aeabi_fmul
+ 446              		.global	__aeabi_f2d
+ 447              		.global	__aeabi_ddiv
+ 448              		.global	__aeabi_d2uiz
+ 449              		.global	__aeabi_dadd
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 13
 
 
- 448              		.global	__aeabi_fdiv
- 449              		.global	__aeabi_fmul
- 450              		.global	__aeabi_f2d
- 451              		.global	__aeabi_ddiv
- 452              		.global	__aeabi_d2uiz
- 453              		.global	__aeabi_dadd
- 454              		.global	__aeabi_dmul
- 455              		.section	.text.heartbeat_set_period_ms,"ax",%progbits
- 456              		.align	1
- 457              		.global	heartbeat_set_period_ms
- 458              		.syntax unified
- 459              		.thumb
- 460              		.thumb_func
- 462              	heartbeat_set_period_ms:
- 463              	.LVL8:
- 464              	.LFB74:
+ 450              		.global	__aeabi_dmul
+ 451              		.section	.text.heartbeat_set_period_ms,"ax",%progbits
+ 452              		.align	1
+ 453              		.global	heartbeat_set_period_ms
+ 454              		.syntax unified
+ 455              		.thumb
+ 456              		.thumb_func
+ 458              	heartbeat_set_period_ms:
+ 459              	.LVL8:
+ 460              	.LFB74:
  172:Core/Src/mgr_hearbeat.c **** {
- 465              		.loc 1 172 1 is_stmt 1 view -0
- 466              		.cfi_startproc
- 467              		@ args = 0, pretend = 0, frame = 0
- 468              		@ frame_needed = 0, uses_anonymous_args = 0
+ 461              		.loc 1 172 1 is_stmt 1 view -0
+ 462              		.cfi_startproc
+ 463              		@ args = 0, pretend = 0, frame = 0
+ 464              		@ frame_needed = 0, uses_anonymous_args = 0
  172:Core/Src/mgr_hearbeat.c **** {
- 469              		.loc 1 172 1 is_stmt 0 view .LVU99
- 470 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
- 471              		.cfi_def_cfa_offset 32
- 472              		.cfi_offset 3, -32
- 473              		.cfi_offset 4, -28
- 474              		.cfi_offset 5, -24
- 475              		.cfi_offset 6, -20
- 476              		.cfi_offset 7, -16
- 477              		.cfi_offset 8, -12
- 478              		.cfi_offset 9, -8
- 479              		.cfi_offset 14, -4
- 480 0004 0446     		mov	r4, r0
+ 465              		.loc 1 172 1 is_stmt 0 view .LVU95
+ 466 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 467              		.cfi_def_cfa_offset 32
+ 468              		.cfi_offset 3, -32
+ 469              		.cfi_offset 4, -28
+ 470              		.cfi_offset 5, -24
+ 471              		.cfi_offset 6, -20
+ 472              		.cfi_offset 7, -16
+ 473              		.cfi_offset 8, -12
+ 474              		.cfi_offset 9, -8
+ 475              		.cfi_offset 14, -4
+ 476 0004 0446     		mov	r4, r0
  173:Core/Src/mgr_hearbeat.c ****     uint16_t idx;
- 481              		.loc 1 173 5 is_stmt 1 view .LVU100
+ 477              		.loc 1 173 5 is_stmt 1 view .LVU96
  174:Core/Src/mgr_hearbeat.c ****     uint16_t systick_freq_hz = hw_systick_get_freq();
- 482              		.loc 1 174 5 view .LVU101
+ 478              		.loc 1 174 5 view .LVU97
  174:Core/Src/mgr_hearbeat.c ****     uint16_t systick_freq_hz = hw_systick_get_freq();
- 483              		.loc 1 174 32 is_stmt 0 view .LVU102
- 484 0006 FFF7FEFF 		bl	hw_systick_get_freq
- 485              	.LVL9:
+ 479              		.loc 1 174 32 is_stmt 0 view .LVU98
+ 480 0006 FFF7FEFF 		bl	hw_systick_get_freq
+ 481              	.LVL9:
  174:Core/Src/mgr_hearbeat.c ****     uint16_t systick_freq_hz = hw_systick_get_freq();
- 486              		.loc 1 174 32 view .LVU103
- 487 000a 0646     		mov	r6, r0
- 488              	.LVL10:
+ 482              		.loc 1 174 32 view .LVU99
+ 483 000a 0646     		mov	r6, r0
+ 484              	.LVL10:
  177:Core/Src/mgr_hearbeat.c ****     if (3000 <= period_ms)
- 489              		.loc 1 177 5 is_stmt 1 view .LVU104
+ 485              		.loc 1 177 5 is_stmt 1 view .LVU100
  177:Core/Src/mgr_hearbeat.c ****     if (3000 <= period_ms)
- 490              		.loc 1 177 8 is_stmt 0 view .LVU105
- 491 000c 40F6B733 		movw	r3, #2999
- 492 0010 9C42     		cmp	r4, r3
- 493 0012 05D8     		bhi	.L45
- 494              	.LVL11:
+ 486              		.loc 1 177 8 is_stmt 0 view .LVU101
+ 487 000c 40F6B733 		movw	r3, #2999
+ 488 0010 9C42     		cmp	r4, r3
+ 489 0012 05D8     		bhi	.L45
+ 490              	.LVL11:
  181:Core/Src/mgr_hearbeat.c ****     if (500 >= period_ms)
- 495              		.loc 1 181 5 is_stmt 1 view .LVU106
+ 491              		.loc 1 181 5 is_stmt 1 view .LVU102
  181:Core/Src/mgr_hearbeat.c ****     if (500 >= period_ms)
-ARM GAS  /tmp/cchPX2IS.s 			page 14
+ 492              		.loc 1 181 8 is_stmt 0 view .LVU103
+ 493 0014 B4F5FA7F 		cmp	r4, #500
+ 494 0018 04D8     		bhi	.L40
+ 183:Core/Src/mgr_hearbeat.c ****         period_ms = 500;
+ 495              		.loc 1 183 19 view .LVU104
+ 496 001a 4FF4FA74 		mov	r4, #500
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 14
 
 
- 496              		.loc 1 181 8 is_stmt 0 view .LVU107
- 497 0014 B4F5FA7F 		cmp	r4, #500
- 498 0018 04D8     		bhi	.L40
+ 497              	.LVL12:
  183:Core/Src/mgr_hearbeat.c ****         period_ms = 500;
- 499              		.loc 1 183 19 view .LVU108
- 500 001a 4FF4FA74 		mov	r4, #500
- 501              	.LVL12:
- 183:Core/Src/mgr_hearbeat.c ****         period_ms = 500;
- 502              		.loc 1 183 19 view .LVU109
- 503 001e 01E0     		b	.L40
- 504              	.LVL13:
- 505              	.L45:
+ 498              		.loc 1 183 19 view .LVU105
+ 499 001e 01E0     		b	.L40
+ 500              	.LVL13:
+ 501              	.L45:
  179:Core/Src/mgr_hearbeat.c ****         period_ms = 3000;
- 506              		.loc 1 179 19 view .LVU110
- 507 0020 40F6B834 		movw	r4, #3000
- 508              	.LVL14:
- 509              	.L40:
+ 502              		.loc 1 179 19 view .LVU106
+ 503 0020 40F6B834 		movw	r4, #3000
+ 504              	.LVL14:
+ 505              	.L40:
  187:Core/Src/mgr_hearbeat.c ****     if (LED_BREATHE == hb_pattern)
- 510              		.loc 1 187 5 is_stmt 1 view .LVU111
+ 506              		.loc 1 187 5 is_stmt 1 view .LVU107
  187:Core/Src/mgr_hearbeat.c ****     if (LED_BREATHE == hb_pattern)
- 511              		.loc 1 187 21 is_stmt 0 view .LVU112
- 512 0024 2E4B     		ldr	r3, .L48
- 513 0026 1B68     		ldr	r3, [r3]
+ 507              		.loc 1 187 21 is_stmt 0 view .LVU108
+ 508 0024 2E4B     		ldr	r3, .L48
+ 509 0026 1B68     		ldr	r3, [r3]
  187:Core/Src/mgr_hearbeat.c ****     if (LED_BREATHE == hb_pattern)
- 514              		.loc 1 187 8 view .LVU113
- 515 0028 63BB     		cbnz	r3, .L41
+ 510              		.loc 1 187 8 view .LVU109
+ 511 0028 63BB     		cbnz	r3, .L41
  189:Core/Src/mgr_hearbeat.c ****         window_cnt_total = WINDOW_COUNT_FADE;
- 516              		.loc 1 189 9 is_stmt 1 view .LVU114
+ 512              		.loc 1 189 9 is_stmt 1 view .LVU110
  189:Core/Src/mgr_hearbeat.c ****         window_cnt_total = WINDOW_COUNT_FADE;
- 517              		.loc 1 189 26 is_stmt 0 view .LVU115
- 518 002a 2E4B     		ldr	r3, .L48+4
- 519 002c 6422     		movs	r2, #100
- 520 002e 1A70     		strb	r2, [r3]
- 521              	.L42:
+ 513              		.loc 1 189 26 is_stmt 0 view .LVU111
+ 514 002a 2E4B     		ldr	r3, .L48+4
+ 515 002c 6422     		movs	r2, #100
+ 516 002e 1A70     		strb	r2, [r3]
+ 517              	.L42:
  197:Core/Src/mgr_hearbeat.c ****     heartbeat_period_ms = heartbeat_lower_multiple(period_ms, window_cnt_total);
- 522              		.loc 1 197 5 is_stmt 1 view .LVU116
+ 518              		.loc 1 197 5 is_stmt 1 view .LVU112
  197:Core/Src/mgr_hearbeat.c ****     heartbeat_period_ms = heartbeat_lower_multiple(period_ms, window_cnt_total);
- 523              		.loc 1 197 27 is_stmt 0 view .LVU117
- 524 0030 2C4B     		ldr	r3, .L48+4
- 525 0032 1D78     		ldrb	r5, [r3]	@ zero_extendqisi2
- 526 0034 2946     		mov	r1, r5
- 527 0036 2046     		mov	r0, r4
- 528 0038 FFF7FEFF 		bl	heartbeat_lower_multiple
- 529              	.LVL15:
+ 519              		.loc 1 197 27 is_stmt 0 view .LVU113
+ 520 0030 2C4B     		ldr	r3, .L48+4
+ 521 0032 1D78     		ldrb	r5, [r3]	@ zero_extendqisi2
+ 522 0034 2946     		mov	r1, r5
+ 523 0036 2046     		mov	r0, r4
+ 524 0038 FFF7FEFF 		bl	heartbeat_lower_multiple
+ 525              	.LVL15:
  197:Core/Src/mgr_hearbeat.c ****     heartbeat_period_ms = heartbeat_lower_multiple(period_ms, window_cnt_total);
- 530              		.loc 1 197 25 view .LVU118
- 531 003c 84B2     		uxth	r4, r0
- 532              	.LVL16:
+ 526              		.loc 1 197 25 view .LVU114
+ 527 003c 84B2     		uxth	r4, r0
+ 528              	.LVL16:
  197:Core/Src/mgr_hearbeat.c ****     heartbeat_period_ms = heartbeat_lower_multiple(period_ms, window_cnt_total);
- 533              		.loc 1 197 25 view .LVU119
- 534 003e 2A4B     		ldr	r3, .L48+8
- 535 0040 1C80     		strh	r4, [r3]	@ movhi
+ 529              		.loc 1 197 25 view .LVU115
+ 530 003e 2A4B     		ldr	r3, .L48+8
+ 531 0040 1C80     		strh	r4, [r3]	@ movhi
  200:Core/Src/mgr_hearbeat.c ****     ticks_per_window = (uint32_t)(((float)systick_freq_hz) / ((float)window_cnt_total) * ((float)he
- 536              		.loc 1 200 5 is_stmt 1 view .LVU120
+ 532              		.loc 1 200 5 is_stmt 1 view .LVU116
  200:Core/Src/mgr_hearbeat.c ****     ticks_per_window = (uint32_t)(((float)systick_freq_hz) / ((float)window_cnt_total) * ((float)he
- 537              		.loc 1 200 36 is_stmt 0 view .LVU121
- 538 0042 3046     		mov	r0, r6
-ARM GAS  /tmp/cchPX2IS.s 			page 15
+ 533              		.loc 1 200 36 is_stmt 0 view .LVU117
+ 534 0042 3046     		mov	r0, r6
+ 535 0044 FFF7FEFF 		bl	__aeabi_ui2f
+ 536              	.LVL17:
+ 537 0048 0646     		mov	r6, r0
+ 538              	.LVL18:
+ 200:Core/Src/mgr_hearbeat.c ****     ticks_per_window = (uint32_t)(((float)systick_freq_hz) / ((float)window_cnt_total) * ((float)he
+ 539              		.loc 1 200 63 view .LVU118
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 15
 
 
- 539 0044 FFF7FEFF 		bl	__aeabi_ui2f
- 540              	.LVL17:
- 541 0048 0646     		mov	r6, r0
- 542              	.LVL18:
+ 540 004a 2846     		mov	r0, r5
+ 541 004c FFF7FEFF 		bl	__aeabi_ui2f
+ 542              	.LVL19:
+ 543 0050 8146     		mov	r9, r0
  200:Core/Src/mgr_hearbeat.c ****     ticks_per_window = (uint32_t)(((float)systick_freq_hz) / ((float)window_cnt_total) * ((float)he
- 543              		.loc 1 200 63 view .LVU122
- 544 004a 2846     		mov	r0, r5
- 545 004c FFF7FEFF 		bl	__aeabi_ui2f
- 546              	.LVL19:
- 547 0050 8146     		mov	r9, r0
+ 544              		.loc 1 200 60 view .LVU119
+ 545 0052 0146     		mov	r1, r0
+ 546 0054 3046     		mov	r0, r6
+ 547 0056 FFF7FEFF 		bl	__aeabi_fdiv
+ 548              	.LVL20:
+ 549 005a 0646     		mov	r6, r0
  200:Core/Src/mgr_hearbeat.c ****     ticks_per_window = (uint32_t)(((float)systick_freq_hz) / ((float)window_cnt_total) * ((float)he
- 548              		.loc 1 200 60 view .LVU123
- 549 0052 0146     		mov	r1, r0
- 550 0054 3046     		mov	r0, r6
- 551 0056 FFF7FEFF 		bl	__aeabi_fdiv
- 552              	.LVL20:
- 553 005a 0646     		mov	r6, r0
+ 550              		.loc 1 200 91 view .LVU120
+ 551 005c 2046     		mov	r0, r4
+ 552 005e FFF7FEFF 		bl	__aeabi_ui2f
+ 553              	.LVL21:
+ 554 0062 0146     		mov	r1, r0
  200:Core/Src/mgr_hearbeat.c ****     ticks_per_window = (uint32_t)(((float)systick_freq_hz) / ((float)window_cnt_total) * ((float)he
- 554              		.loc 1 200 91 view .LVU124
- 555 005c 2046     		mov	r0, r4
- 556 005e FFF7FEFF 		bl	__aeabi_ui2f
- 557              	.LVL21:
- 558 0062 0146     		mov	r1, r0
+ 555              		.loc 1 200 88 view .LVU121
+ 556 0064 3046     		mov	r0, r6
+ 557 0066 FFF7FEFF 		bl	__aeabi_fmul
+ 558              	.LVL22:
+ 559 006a FFF7FEFF 		bl	__aeabi_f2d
+ 560              	.LVL23:
  200:Core/Src/mgr_hearbeat.c ****     ticks_per_window = (uint32_t)(((float)systick_freq_hz) / ((float)window_cnt_total) * ((float)he
- 559              		.loc 1 200 88 view .LVU125
- 560 0064 3046     		mov	r0, r6
- 561 0066 FFF7FEFF 		bl	__aeabi_fmul
- 562              	.LVL22:
- 563 006a FFF7FEFF 		bl	__aeabi_f2d
- 564              	.LVL23:
+ 561              		.loc 1 200 119 view .LVU122
+ 562 006e 0022     		movs	r2, #0
+ 563 0070 1E4B     		ldr	r3, .L48+12
+ 564 0072 FFF7FEFF 		bl	__aeabi_ddiv
+ 565              	.LVL24:
  200:Core/Src/mgr_hearbeat.c ****     ticks_per_window = (uint32_t)(((float)systick_freq_hz) / ((float)window_cnt_total) * ((float)he
- 565              		.loc 1 200 119 view .LVU126
- 566 006e 0022     		movs	r2, #0
- 567 0070 1E4B     		ldr	r3, .L48+12
- 568 0072 FFF7FEFF 		bl	__aeabi_ddiv
- 569              	.LVL24:
+ 566              		.loc 1 200 24 view .LVU123
+ 567 0076 FFF7FEFF 		bl	__aeabi_d2uiz
+ 568              	.LVL25:
+ 569 007a 8046     		mov	r8, r0
  200:Core/Src/mgr_hearbeat.c ****     ticks_per_window = (uint32_t)(((float)systick_freq_hz) / ((float)window_cnt_total) * ((float)he
- 570              		.loc 1 200 24 view .LVU127
- 571 0076 FFF7FEFF 		bl	__aeabi_d2uiz
- 572              	.LVL25:
- 573 007a 8046     		mov	r8, r0
- 200:Core/Src/mgr_hearbeat.c ****     ticks_per_window = (uint32_t)(((float)systick_freq_hz) / ((float)window_cnt_total) * ((float)he
- 574              		.loc 1 200 22 view .LVU128
- 575 007c 1C4B     		ldr	r3, .L48+16
- 576 007e 1860     		str	r0, [r3]
+ 570              		.loc 1 200 22 view .LVU124
+ 571 007c 1C4B     		ldr	r3, .L48+16
+ 572 007e 1860     		str	r0, [r3]
  203:Core/Src/mgr_hearbeat.c ****     for (idx = 0; idx < (window_cnt_total / 2); idx++)
- 577              		.loc 1 203 5 is_stmt 1 view .LVU129
- 578              	.LVL26:
+ 573              		.loc 1 203 5 is_stmt 1 view .LVU125
+ 574              	.LVL26:
  203:Core/Src/mgr_hearbeat.c ****     for (idx = 0; idx < (window_cnt_total / 2); idx++)
- 579              		.loc 1 203 14 is_stmt 0 view .LVU130
- 580 0080 0024     		movs	r4, #0
+ 575              		.loc 1 203 14 is_stmt 0 view .LVU126
+ 576 0080 0024     		movs	r4, #0
  203:Core/Src/mgr_hearbeat.c ****     for (idx = 0; idx < (window_cnt_total / 2); idx++)
- 581              		.loc 1 203 5 view .LVU131
- 582 0082 26E0     		b	.L43
- 583              	.LVL27:
- 584              	.L41:
+ 577              		.loc 1 203 5 view .LVU127
+ 578 0082 26E0     		b	.L43
+ 579              	.LVL27:
+ 580              	.L41:
  193:Core/Src/mgr_hearbeat.c ****         window_cnt_total = WINDOW_COUNT_FLASH;
-ARM GAS  /tmp/cchPX2IS.s 			page 16
-
-
- 585              		.loc 1 193 9 is_stmt 1 view .LVU132
+ 581              		.loc 1 193 9 is_stmt 1 view .LVU128
  193:Core/Src/mgr_hearbeat.c ****         window_cnt_total = WINDOW_COUNT_FLASH;
- 586              		.loc 1 193 26 is_stmt 0 view .LVU133
- 587 0084 174B     		ldr	r3, .L48+4
- 588 0086 2022     		movs	r2, #32
- 589 0088 1A70     		strb	r2, [r3]
- 590 008a D1E7     		b	.L42
- 591              	.LVL28:
- 592              	.L44:
+ 582              		.loc 1 193 26 is_stmt 0 view .LVU129
+ 583 0084 174B     		ldr	r3, .L48+4
+ 584 0086 2022     		movs	r2, #32
+ 585 0088 1A70     		strb	r2, [r3]
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 16
+
+
+ 586 008a D1E7     		b	.L42
+ 587              	.LVL28:
+ 588              	.L44:
  205:Core/Src/mgr_hearbeat.c ****         fade_vals[idx] = (uint8_t)(2.0 * (((float)idx) / ((float)window_cnt_total)) * ((float)ticks
- 593              		.loc 1 205 9 is_stmt 1 discriminator 3 view .LVU134
+ 589              		.loc 1 205 9 is_stmt 1 discriminator 3 view .LVU130
  205:Core/Src/mgr_hearbeat.c ****         fade_vals[idx] = (uint8_t)(2.0 * (((float)idx) / ((float)window_cnt_total)) * ((float)ticks
- 594              		.loc 1 205 44 is_stmt 0 discriminator 3 view .LVU135
- 595 008c 2046     		mov	r0, r4
- 596 008e FFF7FEFF 		bl	__aeabi_ui2f
- 597              	.LVL29:
+ 590              		.loc 1 205 44 is_stmt 0 discriminator 3 view .LVU131
+ 591 008c 2046     		mov	r0, r4
+ 592 008e FFF7FEFF 		bl	__aeabi_ui2f
+ 593              	.LVL29:
  205:Core/Src/mgr_hearbeat.c ****         fade_vals[idx] = (uint8_t)(2.0 * (((float)idx) / ((float)window_cnt_total)) * ((float)ticks
- 598              		.loc 1 205 56 discriminator 3 view .LVU136
- 599 0092 4946     		mov	r1, r9
- 600 0094 FFF7FEFF 		bl	__aeabi_fdiv
- 601              	.LVL30:
- 602 0098 FFF7FEFF 		bl	__aeabi_f2d
- 603              	.LVL31:
- 604 009c 0246     		mov	r2, r0
- 605 009e 0B46     		mov	r3, r1
+ 594              		.loc 1 205 56 discriminator 3 view .LVU132
+ 595 0092 4946     		mov	r1, r9
+ 596 0094 FFF7FEFF 		bl	__aeabi_fdiv
+ 597              	.LVL30:
+ 598 0098 FFF7FEFF 		bl	__aeabi_f2d
+ 599              	.LVL31:
+ 600 009c 0246     		mov	r2, r0
+ 601 009e 0B46     		mov	r3, r1
  205:Core/Src/mgr_hearbeat.c ****         fade_vals[idx] = (uint8_t)(2.0 * (((float)idx) / ((float)window_cnt_total)) * ((float)ticks
- 606              		.loc 1 205 40 discriminator 3 view .LVU137
- 607 00a0 FFF7FEFF 		bl	__aeabi_dadd
- 608              	.LVL32:
- 609 00a4 0646     		mov	r6, r0
- 610 00a6 0F46     		mov	r7, r1
+ 602              		.loc 1 205 40 discriminator 3 view .LVU133
+ 603 00a0 FFF7FEFF 		bl	__aeabi_dadd
+ 604              	.LVL32:
+ 605 00a4 0646     		mov	r6, r0
+ 606 00a6 0F46     		mov	r7, r1
  205:Core/Src/mgr_hearbeat.c ****         fade_vals[idx] = (uint8_t)(2.0 * (((float)idx) / ((float)window_cnt_total)) * ((float)ticks
- 611              		.loc 1 205 88 discriminator 3 view .LVU138
- 612 00a8 4046     		mov	r0, r8
- 613 00aa FFF7FEFF 		bl	__aeabi_ui2f
- 614              	.LVL33:
- 615 00ae FFF7FEFF 		bl	__aeabi_f2d
- 616              	.LVL34:
- 617 00b2 0246     		mov	r2, r0
- 618 00b4 0B46     		mov	r3, r1
+ 607              		.loc 1 205 88 discriminator 3 view .LVU134
+ 608 00a8 4046     		mov	r0, r8
+ 609 00aa FFF7FEFF 		bl	__aeabi_ui2f
+ 610              	.LVL33:
+ 611 00ae FFF7FEFF 		bl	__aeabi_f2d
+ 612              	.LVL34:
+ 613 00b2 0246     		mov	r2, r0
+ 614 00b4 0B46     		mov	r3, r1
  205:Core/Src/mgr_hearbeat.c ****         fade_vals[idx] = (uint8_t)(2.0 * (((float)idx) / ((float)window_cnt_total)) * ((float)ticks
- 619              		.loc 1 205 85 discriminator 3 view .LVU139
- 620 00b6 3046     		mov	r0, r6
- 621 00b8 3946     		mov	r1, r7
- 622 00ba FFF7FEFF 		bl	__aeabi_dmul
- 623              	.LVL35:
+ 615              		.loc 1 205 85 discriminator 3 view .LVU135
+ 616 00b6 3046     		mov	r0, r6
+ 617 00b8 3946     		mov	r1, r7
+ 618 00ba FFF7FEFF 		bl	__aeabi_dmul
+ 619              	.LVL35:
  205:Core/Src/mgr_hearbeat.c ****         fade_vals[idx] = (uint8_t)(2.0 * (((float)idx) / ((float)window_cnt_total)) * ((float)ticks
- 624              		.loc 1 205 26 discriminator 3 view .LVU140
- 625 00be FFF7FEFF 		bl	__aeabi_d2uiz
- 626              	.LVL36:
- 627 00c2 C3B2     		uxtb	r3, r0
+ 620              		.loc 1 205 26 discriminator 3 view .LVU136
+ 621 00be FFF7FEFF 		bl	__aeabi_d2uiz
+ 622              	.LVL36:
+ 623 00c2 C3B2     		uxtb	r3, r0
  205:Core/Src/mgr_hearbeat.c ****         fade_vals[idx] = (uint8_t)(2.0 * (((float)idx) / ((float)window_cnt_total)) * ((float)ticks
- 628              		.loc 1 205 24 discriminator 3 view .LVU141
- 629 00c4 0B49     		ldr	r1, .L48+20
- 630 00c6 0B55     		strb	r3, [r1, r4]
+ 624              		.loc 1 205 24 discriminator 3 view .LVU137
+ 625 00c4 0B49     		ldr	r1, .L48+20
+ 626 00c6 0B55     		strb	r3, [r1, r4]
  206:Core/Src/mgr_hearbeat.c ****         fade_vals[window_cnt_total - idx - 1] = fade_vals[idx];
- 631              		.loc 1 206 9 is_stmt 1 discriminator 3 view .LVU142
-ARM GAS  /tmp/cchPX2IS.s 			page 17
+ 627              		.loc 1 206 9 is_stmt 1 discriminator 3 view .LVU138
+ 206:Core/Src/mgr_hearbeat.c ****         fade_vals[window_cnt_total - idx - 1] = fade_vals[idx];
+ 628              		.loc 1 206 36 is_stmt 0 discriminator 3 view .LVU139
+ 629 00c8 2A1B     		subs	r2, r5, r4
+ 206:Core/Src/mgr_hearbeat.c ****         fade_vals[window_cnt_total - idx - 1] = fade_vals[idx];
+ 630              		.loc 1 206 42 discriminator 3 view .LVU140
+ 631 00ca 013A     		subs	r2, r2, #1
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 17
 
 
  206:Core/Src/mgr_hearbeat.c ****         fade_vals[window_cnt_total - idx - 1] = fade_vals[idx];
- 632              		.loc 1 206 36 is_stmt 0 discriminator 3 view .LVU143
- 633 00c8 2A1B     		subs	r2, r5, r4
- 206:Core/Src/mgr_hearbeat.c ****         fade_vals[window_cnt_total - idx - 1] = fade_vals[idx];
- 634              		.loc 1 206 42 discriminator 3 view .LVU144
- 635 00ca 013A     		subs	r2, r2, #1
- 206:Core/Src/mgr_hearbeat.c ****         fade_vals[window_cnt_total - idx - 1] = fade_vals[idx];
- 636              		.loc 1 206 47 discriminator 3 view .LVU145
- 637 00cc 8B54     		strb	r3, [r1, r2]
+ 632              		.loc 1 206 47 discriminator 3 view .LVU141
+ 633 00cc 8B54     		strb	r3, [r1, r2]
  203:Core/Src/mgr_hearbeat.c ****     for (idx = 0; idx < (window_cnt_total / 2); idx++)
- 638              		.loc 1 203 49 is_stmt 1 discriminator 3 view .LVU146
+ 634              		.loc 1 203 52 is_stmt 1 discriminator 3 view .LVU142
+ 635 00ce 0134     		adds	r4, r4, #1
+ 636              	.LVL37:
  203:Core/Src/mgr_hearbeat.c ****     for (idx = 0; idx < (window_cnt_total / 2); idx++)
- 639              		.loc 1 203 52 is_stmt 0 discriminator 3 view .LVU147
- 640 00ce 0134     		adds	r4, r4, #1
- 641              	.LVL37:
+ 637              		.loc 1 203 52 is_stmt 0 discriminator 3 view .LVU143
+ 638 00d0 A4B2     		uxth	r4, r4
+ 639              	.LVL38:
+ 640              	.L43:
  203:Core/Src/mgr_hearbeat.c ****     for (idx = 0; idx < (window_cnt_total / 2); idx++)
- 642              		.loc 1 203 52 discriminator 3 view .LVU148
- 643 00d0 A4B2     		uxth	r4, r4
- 644              	.LVL38:
- 645              	.L43:
- 203:Core/Src/mgr_hearbeat.c ****     for (idx = 0; idx < (window_cnt_total / 2); idx++)
- 646              		.loc 1 203 19 is_stmt 1 discriminator 1 view .LVU149
- 203:Core/Src/mgr_hearbeat.c ****     for (idx = 0; idx < (window_cnt_total / 2); idx++)
- 647              		.loc 1 203 5 is_stmt 0 discriminator 1 view .LVU150
- 648 00d2 B4EB550F 		cmp	r4, r5, lsr #1
- 649 00d6 D9D3     		bcc	.L44
+ 641              		.loc 1 203 23 is_stmt 1 discriminator 1 view .LVU144
+ 642 00d2 B4EB550F 		cmp	r4, r5, lsr #1
+ 643 00d6 D9D3     		bcc	.L44
  210:Core/Src/mgr_hearbeat.c ****     heartbeat_reset();
- 650              		.loc 1 210 5 is_stmt 1 view .LVU151
- 651 00d8 FFF7FEFF 		bl	heartbeat_reset
- 652              	.LVL39:
+ 644              		.loc 1 210 5 view .LVU145
+ 645 00d8 FFF7FEFF 		bl	heartbeat_reset
+ 646              	.LVL39:
  211:Core/Src/mgr_hearbeat.c **** }
- 653              		.loc 1 211 1 is_stmt 0 view .LVU152
- 654 00dc BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
- 655              	.LVL40:
- 656              	.L49:
+ 647              		.loc 1 211 1 is_stmt 0 view .LVU146
+ 648 00dc BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 649              	.LVL40:
+ 650              	.L49:
  211:Core/Src/mgr_hearbeat.c **** }
- 657              		.loc 1 211 1 view .LVU153
- 658              		.align	2
- 659              	.L48:
- 660 00e0 00000000 		.word	.LANCHOR5
- 661 00e4 00000000 		.word	.LANCHOR9
- 662 00e8 00000000 		.word	.LANCHOR11
- 663 00ec 00408F40 		.word	1083129856
- 664 00f0 00000000 		.word	.LANCHOR8
- 665 00f4 00000000 		.word	.LANCHOR6
- 666              		.cfi_endproc
- 667              	.LFE74:
- 669              		.section	.text.heartbeat_init,"ax",%progbits
- 670              		.align	1
- 671              		.global	heartbeat_init
- 672              		.syntax unified
- 673              		.thumb
- 674              		.thumb_func
- 676              	heartbeat_init:
- 677              	.LFB65:
+ 651              		.loc 1 211 1 view .LVU147
+ 652              		.align	2
+ 653              	.L48:
+ 654 00e0 00000000 		.word	hb_pattern
+ 655 00e4 00000000 		.word	window_cnt_total
+ 656 00e8 00000000 		.word	heartbeat_period_ms
+ 657 00ec 00408F40 		.word	1083129856
+ 658 00f0 00000000 		.word	ticks_per_window
+ 659 00f4 00000000 		.word	fade_vals
+ 660              		.cfi_endproc
+ 661              	.LFE74:
+ 663              		.section	.text.heartbeat_init,"ax",%progbits
+ 664              		.align	1
+ 665              		.global	heartbeat_init
+ 666              		.syntax unified
+ 667              		.thumb
+ 668              		.thumb_func
+ 670              	heartbeat_init:
+ 671              	.LFB65:
   41:Core/Src/mgr_hearbeat.c **** {
- 678              		.loc 1 41 1 is_stmt 1 view -0
-ARM GAS  /tmp/cchPX2IS.s 			page 18
+ 672              		.loc 1 41 1 is_stmt 1 view -0
+ 673              		.cfi_startproc
+ 674              		@ args = 0, pretend = 0, frame = 0
+ 675              		@ frame_needed = 0, uses_anonymous_args = 0
+ 676 0000 10B5     		push	{r4, lr}
+ 677              		.cfi_def_cfa_offset 8
+ 678              		.cfi_offset 4, -8
+ 679              		.cfi_offset 14, -4
+  43:Core/Src/mgr_hearbeat.c ****     gpio_led.port = HB_LED_PORT;
+ 680              		.loc 1 43 5 view .LVU149
+  43:Core/Src/mgr_hearbeat.c ****     gpio_led.port = HB_LED_PORT;
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 18
 
 
- 679              		.cfi_startproc
- 680              		@ args = 0, pretend = 0, frame = 0
- 681              		@ frame_needed = 0, uses_anonymous_args = 0
- 682 0000 10B5     		push	{r4, lr}
- 683              		.cfi_def_cfa_offset 8
- 684              		.cfi_offset 4, -8
- 685              		.cfi_offset 14, -4
-  43:Core/Src/mgr_hearbeat.c ****     gpio_led.port = HB_LED_PORT;
- 686              		.loc 1 43 5 view .LVU155
-  43:Core/Src/mgr_hearbeat.c ****     gpio_led.port = HB_LED_PORT;
- 687              		.loc 1 43 19 is_stmt 0 view .LVU156
- 688 0002 0E48     		ldr	r0, .L55
- 689 0004 4323     		movs	r3, #67
- 690 0006 0371     		strb	r3, [r0, #4]
+ 681              		.loc 1 43 19 is_stmt 0 view .LVU150
+ 682 0002 0E48     		ldr	r0, .L55
+ 683 0004 4323     		movs	r3, #67
+ 684 0006 0371     		strb	r3, [r0, #4]
   44:Core/Src/mgr_hearbeat.c ****     gpio_led.pin = HB_LED_PIN;
- 691              		.loc 1 44 5 is_stmt 1 view .LVU157
+ 685              		.loc 1 44 5 is_stmt 1 view .LVU151
   44:Core/Src/mgr_hearbeat.c ****     gpio_led.pin = HB_LED_PIN;
- 692              		.loc 1 44 18 is_stmt 0 view .LVU158
- 693 0008 0D23     		movs	r3, #13
- 694 000a 4371     		strb	r3, [r0, #5]
+ 686              		.loc 1 44 18 is_stmt 0 view .LVU152
+ 687 0008 0D23     		movs	r3, #13
+ 688 000a 4371     		strb	r3, [r0, #5]
   45:Core/Src/mgr_hearbeat.c ****     gpio_led.cfg = OUT_PUSHPULL;
- 695              		.loc 1 45 5 is_stmt 1 view .LVU159
+ 689              		.loc 1 45 5 is_stmt 1 view .LVU153
   45:Core/Src/mgr_hearbeat.c ****     gpio_led.cfg = OUT_PUSHPULL;
- 696              		.loc 1 45 18 is_stmt 0 view .LVU160
- 697 000c 0423     		movs	r3, #4
- 698 000e C370     		strb	r3, [r0, #3]
+ 690              		.loc 1 45 18 is_stmt 0 view .LVU154
+ 691 000c 0423     		movs	r3, #4
+ 692 000e C370     		strb	r3, [r0, #3]
   46:Core/Src/mgr_hearbeat.c ****     gpio_led.dir = OUTPUT_2MHZ;
- 699              		.loc 1 46 5 is_stmt 1 view .LVU161
+ 693              		.loc 1 46 5 is_stmt 1 view .LVU155
   46:Core/Src/mgr_hearbeat.c ****     gpio_led.dir = OUTPUT_2MHZ;
- 700              		.loc 1 46 18 is_stmt 0 view .LVU162
- 701 0010 0223     		movs	r3, #2
- 702 0012 4370     		strb	r3, [r0, #1]
+ 694              		.loc 1 46 18 is_stmt 0 view .LVU156
+ 695 0010 0223     		movs	r3, #2
+ 696 0012 4370     		strb	r3, [r0, #1]
   47:Core/Src/mgr_hearbeat.c ****     ASSERT_INT(stmgpio_setup(&gpio_led));
- 703              		.loc 1 47 5 is_stmt 1 view .LVU163
- 704 0014 FFF7FEFF 		bl	stmgpio_setup
- 705              	.LVL41:
- 706 0018 10B1     		cbz	r0, .L54
- 707 001a 0124     		movs	r4, #1
- 708              	.L50:
+ 697              		.loc 1 47 5 is_stmt 1 view .LVU157
+ 698 0014 FFF7FEFF 		bl	stmgpio_setup
+ 699              	.LVL41:
+ 700 0018 10B1     		cbz	r0, .L54
+ 701 001a 0124     		movs	r4, #1
+ 702              	.L50:
   58:Core/Src/mgr_hearbeat.c **** }
- 709              		.loc 1 58 1 is_stmt 0 view .LVU164
- 710 001c 2046     		mov	r0, r4
- 711 001e 10BD     		pop	{r4, pc}
- 712              	.L54:
- 713 0020 0446     		mov	r4, r0
+ 703              		.loc 1 58 1 is_stmt 0 view .LVU158
+ 704 001c 2046     		mov	r0, r4
+ 705 001e 10BD     		pop	{r4, pc}
+ 706              	.L54:
+ 707 0020 0446     		mov	r4, r0
   50:Core/Src/mgr_hearbeat.c ****     heartbeat_set_period_ms(1000);
- 714              		.loc 1 50 5 is_stmt 1 view .LVU165
- 715 0022 4FF47A70 		mov	r0, #1000
- 716 0026 FFF7FEFF 		bl	heartbeat_set_period_ms
- 717              	.LVL42:
+ 708              		.loc 1 50 5 is_stmt 1 view .LVU159
+ 709 0022 4FF47A70 		mov	r0, #1000
+ 710 0026 FFF7FEFF 		bl	heartbeat_set_period_ms
+ 711              	.LVL42:
   51:Core/Src/mgr_hearbeat.c ****     hb_pattern = LED_STATIC_OFF;
- 718              		.loc 1 51 5 view .LVU166
+ 712              		.loc 1 51 5 view .LVU160
   51:Core/Src/mgr_hearbeat.c ****     hb_pattern = LED_STATIC_OFF;
- 719              		.loc 1 51 16 is_stmt 0 view .LVU167
- 720 002a 0023     		movs	r3, #0
- 721 002c 044A     		ldr	r2, .L55+4
- 722 002e 1360     		str	r3, [r2]
-ARM GAS  /tmp/cchPX2IS.s 			page 19
-
-
+ 713              		.loc 1 51 16 is_stmt 0 view .LVU161
+ 714 002a 0023     		movs	r3, #0
+ 715 002c 044A     		ldr	r2, .L55+4
+ 716 002e 1360     		str	r3, [r2]
   52:Core/Src/mgr_hearbeat.c ****     pattern_snapshot = (uint32_t)hb_pattern;
- 723              		.loc 1 52 5 is_stmt 1 view .LVU168
+ 717              		.loc 1 52 5 is_stmt 1 view .LVU162
   52:Core/Src/mgr_hearbeat.c ****     pattern_snapshot = (uint32_t)hb_pattern;
- 724              		.loc 1 52 22 is_stmt 0 view .LVU169
- 725 0030 044A     		ldr	r2, .L55+8
- 726 0032 1360     		str	r3, [r2]
+ 718              		.loc 1 52 22 is_stmt 0 view .LVU163
+ 719 0030 044A     		ldr	r2, .L55+8
+ 720 0032 1360     		str	r3, [r2]
   55:Core/Src/mgr_hearbeat.c ****     hw_systick_add_callback(heartbeat_tick_callback);
- 727              		.loc 1 55 5 is_stmt 1 view .LVU170
- 728 0034 0448     		ldr	r0, .L55+12
- 729 0036 FFF7FEFF 		bl	hw_systick_add_callback
- 730              	.LVL43:
-  57:Core/Src/mgr_hearbeat.c ****     return EXIT_SUCCESS;
- 731              		.loc 1 57 5 view .LVU171
-  57:Core/Src/mgr_hearbeat.c ****     return EXIT_SUCCESS;
- 732              		.loc 1 57 12 is_stmt 0 view .LVU172
- 733 003a EFE7     		b	.L50
- 734              	.L56:
- 735              		.align	2
- 736              	.L55:
- 737 003c 00000000 		.word	.LANCHOR7
- 738 0040 00000000 		.word	.LANCHOR5
- 739 0044 00000000 		.word	.LANCHOR10
- 740 0048 00000000 		.word	heartbeat_tick_callback
- 741              		.cfi_endproc
- 742              	.LFE65:
- 744              		.section	.text.heartbeat_set_pattern_mode,"ax",%progbits
- 745              		.align	1
- 746              		.global	heartbeat_set_pattern_mode
- 747              		.syntax unified
- 748              		.thumb
- 749              		.thumb_func
- 751              	heartbeat_set_pattern_mode:
- 752              	.LVL44:
- 753              	.LFB69:
-  79:Core/Src/mgr_hearbeat.c **** {
- 754              		.loc 1 79 1 is_stmt 1 view -0
- 755              		.cfi_startproc
- 756              		@ args = 0, pretend = 0, frame = 0
- 757              		@ frame_needed = 0, uses_anonymous_args = 0
-  79:Core/Src/mgr_hearbeat.c **** {
- 758              		.loc 1 79 1 is_stmt 0 view .LVU174
- 759 0000 08B5     		push	{r3, lr}
- 760              		.cfi_def_cfa_offset 8
- 761              		.cfi_offset 3, -8
- 762              		.cfi_offset 14, -4
-  80:Core/Src/mgr_hearbeat.c ****     hb_pattern = mode;
- 763              		.loc 1 80 5 is_stmt 1 view .LVU175
-  80:Core/Src/mgr_hearbeat.c ****     hb_pattern = mode;
- 764              		.loc 1 80 16 is_stmt 0 view .LVU176
- 765 0002 044B     		ldr	r3, .L59
- 766 0004 1860     		str	r0, [r3]
-  81:Core/Src/mgr_hearbeat.c ****     heartbeat_set_period_ms(heartbeat_period_ms);
- 767              		.loc 1 81 5 is_stmt 1 view .LVU177
- 768 0006 044B     		ldr	r3, .L59+4
- 769 0008 1888     		ldrh	r0, [r3]
- 770              	.LVL45:
-  81:Core/Src/mgr_hearbeat.c ****     heartbeat_set_period_ms(heartbeat_period_ms);
-ARM GAS  /tmp/cchPX2IS.s 			page 20
+ 721              		.loc 1 55 5 is_stmt 1 view .LVU164
+ 722 0034 0448     		ldr	r0, .L55+12
+ 723 0036 FFF7FEFF 		bl	hw_systick_add_callback
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 19
 
 
- 771              		.loc 1 81 5 is_stmt 0 view .LVU178
- 772 000a FFF7FEFF 		bl	heartbeat_set_period_ms
- 773              	.LVL46:
+ 724              	.LVL43:
+  57:Core/Src/mgr_hearbeat.c ****     return EXIT_SUCCESS;
+ 725              		.loc 1 57 5 view .LVU165
+  57:Core/Src/mgr_hearbeat.c ****     return EXIT_SUCCESS;
+ 726              		.loc 1 57 12 is_stmt 0 view .LVU166
+ 727 003a EFE7     		b	.L50
+ 728              	.L56:
+ 729              		.align	2
+ 730              	.L55:
+ 731 003c 00000000 		.word	gpio_led
+ 732 0040 00000000 		.word	hb_pattern
+ 733 0044 00000000 		.word	pattern_snapshot
+ 734 0048 00000000 		.word	heartbeat_tick_callback
+ 735              		.cfi_endproc
+ 736              	.LFE65:
+ 738              		.section	.text.heartbeat_set_pattern_mode,"ax",%progbits
+ 739              		.align	1
+ 740              		.global	heartbeat_set_pattern_mode
+ 741              		.syntax unified
+ 742              		.thumb
+ 743              		.thumb_func
+ 745              	heartbeat_set_pattern_mode:
+ 746              	.LVL44:
+ 747              	.LFB69:
+  79:Core/Src/mgr_hearbeat.c **** {
+ 748              		.loc 1 79 1 is_stmt 1 view -0
+ 749              		.cfi_startproc
+ 750              		@ args = 0, pretend = 0, frame = 0
+ 751              		@ frame_needed = 0, uses_anonymous_args = 0
+  79:Core/Src/mgr_hearbeat.c **** {
+ 752              		.loc 1 79 1 is_stmt 0 view .LVU168
+ 753 0000 08B5     		push	{r3, lr}
+ 754              		.cfi_def_cfa_offset 8
+ 755              		.cfi_offset 3, -8
+ 756              		.cfi_offset 14, -4
+  80:Core/Src/mgr_hearbeat.c ****     hb_pattern = mode;
+ 757              		.loc 1 80 5 is_stmt 1 view .LVU169
+  80:Core/Src/mgr_hearbeat.c ****     hb_pattern = mode;
+ 758              		.loc 1 80 16 is_stmt 0 view .LVU170
+ 759 0002 044B     		ldr	r3, .L59
+ 760 0004 1860     		str	r0, [r3]
+  81:Core/Src/mgr_hearbeat.c ****     heartbeat_set_period_ms(heartbeat_period_ms);
+ 761              		.loc 1 81 5 is_stmt 1 view .LVU171
+ 762 0006 044B     		ldr	r3, .L59+4
+ 763 0008 1888     		ldrh	r0, [r3]
+ 764              	.LVL45:
+  81:Core/Src/mgr_hearbeat.c ****     heartbeat_set_period_ms(heartbeat_period_ms);
+ 765              		.loc 1 81 5 is_stmt 0 view .LVU172
+ 766 000a FFF7FEFF 		bl	heartbeat_set_period_ms
+ 767              	.LVL46:
   82:Core/Src/mgr_hearbeat.c ****     heartbeat_reset();
- 774              		.loc 1 82 5 is_stmt 1 view .LVU179
- 775 000e FFF7FEFF 		bl	heartbeat_reset
- 776              	.LVL47:
+ 768              		.loc 1 82 5 is_stmt 1 view .LVU173
+ 769 000e FFF7FEFF 		bl	heartbeat_reset
+ 770              	.LVL47:
   83:Core/Src/mgr_hearbeat.c **** }
- 777              		.loc 1 83 1 is_stmt 0 view .LVU180
- 778 0012 08BD     		pop	{r3, pc}
- 779              	.L60:
- 780              		.align	2
- 781              	.L59:
- 782 0014 00000000 		.word	.LANCHOR5
- 783 0018 00000000 		.word	.LANCHOR11
- 784              		.cfi_endproc
- 785              	.LFE69:
- 787              		.section	.bss.callback_cnt,"aw",%nobits
- 788              		.set	.LANCHOR2,. + 0
- 791              	callback_cnt:
- 792 0000 00       		.space	1
- 793              		.section	.bss.fade_vals,"aw",%nobits
- 794              		.align	2
- 795              		.set	.LANCHOR6,. + 0
- 798              	fade_vals:
- 799 0000 00000000 		.space	100
- 799      00000000 
- 799      00000000 
- 799      00000000 
- 799      00000000 
- 800              		.section	.bss.gpio_led,"aw",%nobits
- 801              		.align	2
- 802              		.set	.LANCHOR7,. + 0
- 805              	gpio_led:
- 806 0000 00000000 		.space	12
- 806      00000000 
- 806      00000000 
- 807              		.section	.bss.hb_pattern,"aw",%nobits
- 808              		.align	2
- 809              		.set	.LANCHOR5,. + 0
- 812              	hb_pattern:
+ 771              		.loc 1 83 1 is_stmt 0 view .LVU174
+ 772 0012 08BD     		pop	{r3, pc}
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 20
+
+
+ 773              	.L60:
+ 774              		.align	2
+ 775              	.L59:
+ 776 0014 00000000 		.word	hb_pattern
+ 777 0018 00000000 		.word	heartbeat_period_ms
+ 778              		.cfi_endproc
+ 779              	.LFE69:
+ 781              		.section	.bss.poll_mode,"aw",%nobits
+ 784              	poll_mode:
+ 785 0000 00       		.space	1
+ 786              		.section	.bss.heartbeat_is_active,"aw",%nobits
+ 789              	heartbeat_is_active:
+ 790 0000 00       		.space	1
+ 791              		.section	.bss.callback_cnt,"aw",%nobits
+ 794              	callback_cnt:
+ 795 0000 00       		.space	1
+ 796              		.section	.bss.hb_pattern,"aw",%nobits
+ 797              		.align	2
+ 800              	hb_pattern:
+ 801 0000 00000000 		.space	4
+ 802              		.section	.bss.gpio_led,"aw",%nobits
+ 803              		.align	2
+ 806              	gpio_led:
+ 807 0000 00000000 		.space	12
+ 807      00000000 
+ 807      00000000 
+ 808              		.section	.bss.pattern_snapshot,"aw",%nobits
+ 809              		.align	2
+ 812              	pattern_snapshot:
  813 0000 00000000 		.space	4
- 814              		.section	.bss.heartbeat_is_active,"aw",%nobits
- 815              		.set	.LANCHOR3,. + 0
- 818              	heartbeat_is_active:
- 819 0000 00       		.space	1
- 820              		.section	.bss.heartbeat_period_ms,"aw",%nobits
- 821              		.align	1
- 822              		.set	.LANCHOR11,. + 0
- 825              	heartbeat_period_ms:
- 826 0000 0000     		.space	2
- 827              		.section	.bss.pattern_snapshot,"aw",%nobits
- 828              		.align	2
- 829              		.set	.LANCHOR10,. + 0
- 832              	pattern_snapshot:
- 833 0000 00000000 		.space	4
- 834              		.section	.bss.poll_mode,"aw",%nobits
-ARM GAS  /tmp/cchPX2IS.s 			page 21
+ 814              		.section	.bss.heartbeat_period_ms,"aw",%nobits
+ 815              		.align	1
+ 818              	heartbeat_period_ms:
+ 819 0000 0000     		.space	2
+ 820              		.section	.bss.ticks_per_window,"aw",%nobits
+ 821              		.align	2
+ 824              	ticks_per_window:
+ 825 0000 00000000 		.space	4
+ 826              		.section	.bss.fade_vals,"aw",%nobits
+ 827              		.align	2
+ 830              	fade_vals:
+ 831 0000 00000000 		.space	100
+ 831      00000000 
+ 831      00000000 
+ 831      00000000 
+ 831      00000000 
+ 832              		.section	.bss.window_cnt,"aw",%nobits
+ 835              	window_cnt:
+ 836 0000 00       		.space	1
+ 837              		.section	.bss.tick_per_window_cnt,"aw",%nobits
+ 840              	tick_per_window_cnt:
+ 841 0000 00       		.space	1
+ 842              		.section	.bss.window_cnt_total,"aw",%nobits
+ 845              	window_cnt_total:
+ 846 0000 00       		.space	1
+ 847              		.text
+ 848              	.Letext0:
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 21
 
 
- 835              		.set	.LANCHOR4,. + 0
- 838              	poll_mode:
- 839 0000 00       		.space	1
- 840              		.section	.bss.tick_per_window_cnt,"aw",%nobits
- 841              		.set	.LANCHOR1,. + 0
- 844              	tick_per_window_cnt:
- 845 0000 00       		.space	1
- 846              		.section	.bss.ticks_per_window,"aw",%nobits
- 847              		.align	2
- 848              		.set	.LANCHOR8,. + 0
- 851              	ticks_per_window:
- 852 0000 00000000 		.space	4
- 853              		.section	.bss.window_cnt,"aw",%nobits
- 854              		.set	.LANCHOR0,. + 0
- 857              	window_cnt:
- 858 0000 00       		.space	1
- 859              		.section	.bss.window_cnt_total,"aw",%nobits
- 860              		.set	.LANCHOR9,. + 0
- 863              	window_cnt_total:
- 864 0000 00       		.space	1
- 865              		.text
- 866              	.Letext0:
- 867              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 868              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 869              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 870              		.file 5 "Core/Inc/hw_stmgpio.h"
- 871              		.file 6 "Core/Inc/mgr_heartbeat.h"
- 872              		.file 7 "Core/Inc/hw_systick.h"
-ARM GAS  /tmp/cchPX2IS.s 			page 22
+ 849              		.file 2 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
+ 850              		.file 3 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
+ 851              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 852              		.file 5 "Core/Inc/hw_stmgpio.h"
+ 853              		.file 6 "Core/Inc/mgr_heartbeat.h"
+ 854              		.file 7 "Core/Inc/hw_systick.h"
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 mgr_hearbeat.c
-     /tmp/cchPX2IS.s:18     .text.heartbeat_reset:0000000000000000 $t
-     /tmp/cchPX2IS.s:24     .text.heartbeat_reset:0000000000000000 heartbeat_reset
-     /tmp/cchPX2IS.s:50     .text.heartbeat_reset:0000000000000010 $d
-     /tmp/cchPX2IS.s:57     .text.heartbeat_stop:0000000000000000 $t
-     /tmp/cchPX2IS.s:63     .text.heartbeat_stop:0000000000000000 heartbeat_stop
-     /tmp/cchPX2IS.s:80     .text.heartbeat_stop:0000000000000008 $d
-     /tmp/cchPX2IS.s:85     .text.heartbeat_start:0000000000000000 $t
-     /tmp/cchPX2IS.s:91     .text.heartbeat_start:0000000000000000 heartbeat_start
-     /tmp/cchPX2IS.s:108    .text.heartbeat_start:0000000000000008 $d
-     /tmp/cchPX2IS.s:113    .text.heartbeat_set_poll_mode:0000000000000000 $t
-     /tmp/cchPX2IS.s:119    .text.heartbeat_set_poll_mode:0000000000000000 heartbeat_set_poll_mode
-     /tmp/cchPX2IS.s:136    .text.heartbeat_set_poll_mode:0000000000000008 $d
-     /tmp/cchPX2IS.s:141    .text.heartbeat_get_poll_mode:0000000000000000 $t
-     /tmp/cchPX2IS.s:147    .text.heartbeat_get_poll_mode:0000000000000000 heartbeat_get_poll_mode
-     /tmp/cchPX2IS.s:163    .text.heartbeat_get_poll_mode:0000000000000008 $d
-     /tmp/cchPX2IS.s:168    .text.heartbeat_lower_multiple:0000000000000000 $t
-     /tmp/cchPX2IS.s:174    .text.heartbeat_lower_multiple:0000000000000000 heartbeat_lower_multiple
-     /tmp/cchPX2IS.s:199    .text.heartbeat_poll:0000000000000000 $t
-     /tmp/cchPX2IS.s:205    .text.heartbeat_poll:0000000000000000 heartbeat_poll
-     /tmp/cchPX2IS.s:380    .text.heartbeat_poll:00000000000000c8 $d
-     /tmp/cchPX2IS.s:393    .text.heartbeat_tick_callback:0000000000000000 $t
-     /tmp/cchPX2IS.s:399    .text.heartbeat_tick_callback:0000000000000000 heartbeat_tick_callback
-     /tmp/cchPX2IS.s:441    .text.heartbeat_tick_callback:0000000000000020 $d
-     /tmp/cchPX2IS.s:456    .text.heartbeat_set_period_ms:0000000000000000 $t
-     /tmp/cchPX2IS.s:462    .text.heartbeat_set_period_ms:0000000000000000 heartbeat_set_period_ms
-     /tmp/cchPX2IS.s:660    .text.heartbeat_set_period_ms:00000000000000e0 $d
-     /tmp/cchPX2IS.s:670    .text.heartbeat_init:0000000000000000 $t
-     /tmp/cchPX2IS.s:676    .text.heartbeat_init:0000000000000000 heartbeat_init
-     /tmp/cchPX2IS.s:737    .text.heartbeat_init:000000000000003c $d
-     /tmp/cchPX2IS.s:745    .text.heartbeat_set_pattern_mode:0000000000000000 $t
-     /tmp/cchPX2IS.s:751    .text.heartbeat_set_pattern_mode:0000000000000000 heartbeat_set_pattern_mode
-     /tmp/cchPX2IS.s:782    .text.heartbeat_set_pattern_mode:0000000000000014 $d
-     /tmp/cchPX2IS.s:791    .bss.callback_cnt:0000000000000000 callback_cnt
-     /tmp/cchPX2IS.s:792    .bss.callback_cnt:0000000000000000 $d
-     /tmp/cchPX2IS.s:794    .bss.fade_vals:0000000000000000 $d
-     /tmp/cchPX2IS.s:798    .bss.fade_vals:0000000000000000 fade_vals
-     /tmp/cchPX2IS.s:801    .bss.gpio_led:0000000000000000 $d
-     /tmp/cchPX2IS.s:805    .bss.gpio_led:0000000000000000 gpio_led
-     /tmp/cchPX2IS.s:808    .bss.hb_pattern:0000000000000000 $d
-     /tmp/cchPX2IS.s:812    .bss.hb_pattern:0000000000000000 hb_pattern
-     /tmp/cchPX2IS.s:818    .bss.heartbeat_is_active:0000000000000000 heartbeat_is_active
-     /tmp/cchPX2IS.s:819    .bss.heartbeat_is_active:0000000000000000 $d
-     /tmp/cchPX2IS.s:821    .bss.heartbeat_period_ms:0000000000000000 $d
-     /tmp/cchPX2IS.s:825    .bss.heartbeat_period_ms:0000000000000000 heartbeat_period_ms
-     /tmp/cchPX2IS.s:828    .bss.pattern_snapshot:0000000000000000 $d
-     /tmp/cchPX2IS.s:832    .bss.pattern_snapshot:0000000000000000 pattern_snapshot
-     /tmp/cchPX2IS.s:838    .bss.poll_mode:0000000000000000 poll_mode
-     /tmp/cchPX2IS.s:839    .bss.poll_mode:0000000000000000 $d
-     /tmp/cchPX2IS.s:844    .bss.tick_per_window_cnt:0000000000000000 tick_per_window_cnt
-     /tmp/cchPX2IS.s:845    .bss.tick_per_window_cnt:0000000000000000 $d
-     /tmp/cchPX2IS.s:847    .bss.ticks_per_window:0000000000000000 $d
-     /tmp/cchPX2IS.s:851    .bss.ticks_per_window:0000000000000000 ticks_per_window
-     /tmp/cchPX2IS.s:857    .bss.window_cnt:0000000000000000 window_cnt
-     /tmp/cchPX2IS.s:858    .bss.window_cnt:0000000000000000 $d
-     /tmp/cchPX2IS.s:863    .bss.window_cnt_total:0000000000000000 window_cnt_total
-ARM GAS  /tmp/cchPX2IS.s 			page 23
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:19     .text.heartbeat_reset:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:25     .text.heartbeat_reset:0000000000000000 heartbeat_reset
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:50     .text.heartbeat_reset:0000000000000010 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:835    .bss.window_cnt:0000000000000000 window_cnt
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:840    .bss.tick_per_window_cnt:0000000000000000 tick_per_window_cnt
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:794    .bss.callback_cnt:0000000000000000 callback_cnt
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:57     .text.heartbeat_stop:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:63     .text.heartbeat_stop:0000000000000000 heartbeat_stop
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:80     .text.heartbeat_stop:0000000000000008 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:789    .bss.heartbeat_is_active:0000000000000000 heartbeat_is_active
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:85     .text.heartbeat_start:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:91     .text.heartbeat_start:0000000000000000 heartbeat_start
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:108    .text.heartbeat_start:0000000000000008 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:113    .text.heartbeat_set_poll_mode:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:119    .text.heartbeat_set_poll_mode:0000000000000000 heartbeat_set_poll_mode
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:136    .text.heartbeat_set_poll_mode:0000000000000008 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:784    .bss.poll_mode:0000000000000000 poll_mode
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:141    .text.heartbeat_get_poll_mode:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:147    .text.heartbeat_get_poll_mode:0000000000000000 heartbeat_get_poll_mode
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:163    .text.heartbeat_get_poll_mode:0000000000000008 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:168    .text.heartbeat_lower_multiple:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:174    .text.heartbeat_lower_multiple:0000000000000000 heartbeat_lower_multiple
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:199    .text.heartbeat_poll:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:205    .text.heartbeat_poll:0000000000000000 heartbeat_poll
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:376    .text.heartbeat_poll:00000000000000c8 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:806    .bss.gpio_led:0000000000000000 gpio_led
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:824    .bss.ticks_per_window:0000000000000000 ticks_per_window
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:800    .bss.hb_pattern:0000000000000000 hb_pattern
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:830    .bss.fade_vals:0000000000000000 fade_vals
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:845    .bss.window_cnt_total:0000000000000000 window_cnt_total
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:812    .bss.pattern_snapshot:0000000000000000 pattern_snapshot
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:389    .text.heartbeat_tick_callback:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:395    .text.heartbeat_tick_callback:0000000000000000 heartbeat_tick_callback
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:437    .text.heartbeat_tick_callback:0000000000000020 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:452    .text.heartbeat_set_period_ms:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:458    .text.heartbeat_set_period_ms:0000000000000000 heartbeat_set_period_ms
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:654    .text.heartbeat_set_period_ms:00000000000000e0 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:818    .bss.heartbeat_period_ms:0000000000000000 heartbeat_period_ms
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:664    .text.heartbeat_init:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:670    .text.heartbeat_init:0000000000000000 heartbeat_init
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:731    .text.heartbeat_init:000000000000003c $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:739    .text.heartbeat_set_pattern_mode:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:745    .text.heartbeat_set_pattern_mode:0000000000000000 heartbeat_set_pattern_mode
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:776    .text.heartbeat_set_pattern_mode:0000000000000014 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:785    .bss.poll_mode:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:790    .bss.heartbeat_is_active:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:795    .bss.callback_cnt:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:797    .bss.hb_pattern:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:803    .bss.gpio_led:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:809    .bss.pattern_snapshot:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:815    .bss.heartbeat_period_ms:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:821    .bss.ticks_per_window:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:827    .bss.fade_vals:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:836    .bss.window_cnt:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:841    .bss.tick_per_window_cnt:0000000000000000 $d
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 23
 
 
-     /tmp/cchPX2IS.s:864    .bss.window_cnt_total:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:846    .bss.window_cnt_total:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 stmgpio_write

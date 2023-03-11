@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccr9sxNm.s 			page 1
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -17,15 +17,15 @@ ARM GAS  /tmp/ccr9sxNm.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.section	.text.hw_system_clocks_init,"ax",%progbits
-  18              		.align	1
-  19              		.global	hw_system_clocks_init
-  20              		.syntax unified
-  21              		.thumb
-  22              		.thumb_func
-  24              	hw_system_clocks_init:
-  25              	.LFB66:
-  26              		.file 1 "Core/Src/main.c"
+  17              		.file 1 "Core/Src/main.c"
+  18              		.section	.text.hw_system_clocks_init,"ax",%progbits
+  19              		.align	1
+  20              		.global	hw_system_clocks_init
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	hw_system_clocks_init:
+  26              	.LFB66:
    1:Core/Src/main.c **** /* USER CODE BEGIN Header */
    2:Core/Src/main.c **** /**
    3:Core/Src/main.c ****  ******************************************************************************
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccr9sxNm.s 			page 1
   30:Core/Src/main.c **** int main(void)
   31:Core/Src/main.c **** {
   32:Core/Src/main.c ****   uint8_t idx;
-ARM GAS  /tmp/ccr9sxNm.s 			page 2
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s 			page 2
 
 
   33:Core/Src/main.c **** 
@@ -118,32 +118,29 @@ ARM GAS  /tmp/ccr9sxNm.s 			page 1
   79:Core/Src/main.c ****   /* Internal 8MHz HSI Configuration:
   80:Core/Src/main.c ****    * ON
   81:Core/Src/main.c ****    * Trim set to default = 16
-ARM GAS  /tmp/ccr9sxNm.s 			page 3
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s 			page 3
 
 
   82:Core/Src/main.c ****    * Cal at startup default
   83:Core/Src/main.c ****    */
   84:Core/Src/main.c ****   RCC->CR |= RCC_CR_HSION_Pos;
   35              		.loc 1 84 3 view .LVU1
-  36              		.loc 1 84 11 is_stmt 0 view .LVU2
+  36              		.loc 1 84 6 is_stmt 0 view .LVU2
   37 0002 374B     		ldr	r3, .L7
   38 0004 1A68     		ldr	r2, [r3]
-  39 0006 1A60     		str	r2, [r3]
+  39              		.loc 1 84 11 view .LVU3
+  40 0006 1A60     		str	r2, [r3]
   85:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSIRDY))
-  40              		.loc 1 85 3 is_stmt 1 view .LVU3
-  41              	.L2:
-  86:Core/Src/main.c ****     ;
-  42              		.loc 1 86 5 discriminator 1 view .LVU4
-  85:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSIRDY))
-  43              		.loc 1 85 9 discriminator 1 view .LVU5
-  85:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSIRDY))
+  41              		.loc 1 85 3 is_stmt 1 view .LVU4
+  42              	.L2:
+  43              		.loc 1 85 10 discriminator 1 view .LVU5
   44              		.loc 1 85 15 is_stmt 0 discriminator 1 view .LVU6
   45 0008 354B     		ldr	r3, .L7
   46 000a 1B68     		ldr	r3, [r3]
-  85:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSIRDY))
-  47              		.loc 1 85 9 discriminator 1 view .LVU7
+  47              		.loc 1 85 10 discriminator 1 view .LVU7
   48 000c 13F0020F 		tst	r3, #2
   49 0010 FAD0     		beq	.L2
+  86:Core/Src/main.c ****     ;
   87:Core/Src/main.c **** 
   88:Core/Src/main.c ****   /* External 8MHz HSE Configuration:
   89:Core/Src/main.c ****    * ON
@@ -152,66 +149,68 @@ ARM GAS  /tmp/ccr9sxNm.s 			page 1
   92:Core/Src/main.c ****    */
   93:Core/Src/main.c ****   RCC->CR |= RCC_CR_HSEON;
   50              		.loc 1 93 3 is_stmt 1 view .LVU8
-  51              		.loc 1 93 11 is_stmt 0 view .LVU9
+  51              		.loc 1 93 6 is_stmt 0 view .LVU9
   52 0012 334B     		ldr	r3, .L7
   53 0014 1A68     		ldr	r2, [r3]
-  54 0016 42F48032 		orr	r2, r2, #65536
-  55 001a 1A60     		str	r2, [r3]
+  54              		.loc 1 93 11 view .LVU10
+  55 0016 42F48032 		orr	r2, r2, #65536
+  56 001a 1A60     		str	r2, [r3]
   94:Core/Src/main.c ****   RCC->CR &= ~RCC_CR_HSEBYP;
-  56              		.loc 1 94 3 is_stmt 1 view .LVU10
-  57              		.loc 1 94 11 is_stmt 0 view .LVU11
-  58 001c 1A68     		ldr	r2, [r3]
-  59 001e 22F48022 		bic	r2, r2, #262144
-  60 0022 1A60     		str	r2, [r3]
+  57              		.loc 1 94 3 is_stmt 1 view .LVU11
+  58              		.loc 1 94 6 is_stmt 0 view .LVU12
+  59 001c 1A68     		ldr	r2, [r3]
+  60              		.loc 1 94 11 view .LVU13
+  61 001e 22F48022 		bic	r2, r2, #262144
+  62 0022 1A60     		str	r2, [r3]
   95:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSERDY))
-  61              		.loc 1 95 3 is_stmt 1 view .LVU12
-  62              	.L3:
+  63              		.loc 1 95 3 is_stmt 1 view .LVU14
+  64              	.L3:
+  65              		.loc 1 95 10 discriminator 1 view .LVU15
+  66              		.loc 1 95 15 is_stmt 0 discriminator 1 view .LVU16
+  67 0024 2E4B     		ldr	r3, .L7
+  68 0026 1B68     		ldr	r3, [r3]
+  69              		.loc 1 95 10 discriminator 1 view .LVU17
+  70 0028 13F4003F 		tst	r3, #131072
+  71 002c FAD0     		beq	.L3
   96:Core/Src/main.c ****     ;
-  63              		.loc 1 96 5 discriminator 1 view .LVU13
-  95:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSERDY))
-  64              		.loc 1 95 9 discriminator 1 view .LVU14
-  95:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSERDY))
-  65              		.loc 1 95 15 is_stmt 0 discriminator 1 view .LVU15
-  66 0024 2E4B     		ldr	r3, .L7
-  67 0026 1B68     		ldr	r3, [r3]
-  95:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_HSERDY))
-  68              		.loc 1 95 9 discriminator 1 view .LVU16
-  69 0028 13F4003F 		tst	r3, #131072
-  70 002c FAD0     		beq	.L3
-ARM GAS  /tmp/ccr9sxNm.s 			page 4
-
-
   97:Core/Src/main.c **** 
   98:Core/Src/main.c ****   /* Flash latency configuration:
   99:Core/Src/main.c ****    * Enable pre-fetch buffer
  100:Core/Src/main.c ****    * Disable Flash half cycle access
  101:Core/Src/main.c ****    * Set wait states (latency) to two, as main clock will be 72MHz
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s 			page 4
+
+
  102:Core/Src/main.c ****    */
  103:Core/Src/main.c ****   FLASH->ACR |= FLASH_ACR_PRFTBE;
-  71              		.loc 1 103 3 is_stmt 1 view .LVU17
-  72              		.loc 1 103 14 is_stmt 0 view .LVU18
-  73 002e 2D4B     		ldr	r3, .L7+4
-  74 0030 1A68     		ldr	r2, [r3]
-  75 0032 42F01002 		orr	r2, r2, #16
-  76 0036 1A60     		str	r2, [r3]
+  72              		.loc 1 103 3 is_stmt 1 view .LVU18
+  73              		.loc 1 103 8 is_stmt 0 view .LVU19
+  74 002e 2D4B     		ldr	r3, .L7+4
+  75 0030 1A68     		ldr	r2, [r3]
+  76              		.loc 1 103 14 view .LVU20
+  77 0032 42F01002 		orr	r2, r2, #16
+  78 0036 1A60     		str	r2, [r3]
  104:Core/Src/main.c ****   FLASH->ACR &= ~FLASH_ACR_HLFCYA;
-  77              		.loc 1 104 3 is_stmt 1 view .LVU19
-  78              		.loc 1 104 14 is_stmt 0 view .LVU20
-  79 0038 1A68     		ldr	r2, [r3]
-  80 003a 22F00802 		bic	r2, r2, #8
-  81 003e 1A60     		str	r2, [r3]
+  79              		.loc 1 104 3 is_stmt 1 view .LVU21
+  80              		.loc 1 104 8 is_stmt 0 view .LVU22
+  81 0038 1A68     		ldr	r2, [r3]
+  82              		.loc 1 104 14 view .LVU23
+  83 003a 22F00802 		bic	r2, r2, #8
+  84 003e 1A60     		str	r2, [r3]
  105:Core/Src/main.c ****   FLASH->ACR &= ~FLASH_ACR_LATENCY; // reset
-  82              		.loc 1 105 3 is_stmt 1 view .LVU21
-  83              		.loc 1 105 14 is_stmt 0 view .LVU22
-  84 0040 1A68     		ldr	r2, [r3]
-  85 0042 22F00702 		bic	r2, r2, #7
-  86 0046 1A60     		str	r2, [r3]
+  85              		.loc 1 105 3 is_stmt 1 view .LVU24
+  86              		.loc 1 105 8 is_stmt 0 view .LVU25
+  87 0040 1A68     		ldr	r2, [r3]
+  88              		.loc 1 105 14 view .LVU26
+  89 0042 22F00702 		bic	r2, r2, #7
+  90 0046 1A60     		str	r2, [r3]
  106:Core/Src/main.c ****   FLASH->ACR |= FLASH_ACR_LATENCY_1;
-  87              		.loc 1 106 3 is_stmt 1 view .LVU23
-  88              		.loc 1 106 14 is_stmt 0 view .LVU24
-  89 0048 1A68     		ldr	r2, [r3]
-  90 004a 42F00202 		orr	r2, r2, #2
-  91 004e 1A60     		str	r2, [r3]
+  91              		.loc 1 106 3 is_stmt 1 view .LVU27
+  92              		.loc 1 106 8 is_stmt 0 view .LVU28
+  93 0048 1A68     		ldr	r2, [r3]
+  94              		.loc 1 106 14 view .LVU29
+  95 004a 42F00202 		orr	r2, r2, #2
+  96 004e 1A60     		str	r2, [r3]
  107:Core/Src/main.c **** 
  108:Core/Src/main.c ****   /* Clock configuration
  109:Core/Src/main.c ****    * Disable PLL
@@ -227,237 +226,243 @@ ARM GAS  /tmp/ccr9sxNm.s 			page 1
  119:Core/Src/main.c ****    * PLL as system clock
  120:Core/Src/main.c ****    */
  121:Core/Src/main.c ****   RCC->CR &= ~RCC_CR_PLLON; // clear to allow changes
-  92              		.loc 1 121 3 is_stmt 1 view .LVU25
-  93              		.loc 1 121 11 is_stmt 0 view .LVU26
-  94 0050 A3F58053 		sub	r3, r3, #4096
-  95 0054 1A68     		ldr	r2, [r3]
-  96 0056 22F08072 		bic	r2, r2, #16777216
-  97 005a 1A60     		str	r2, [r3]
+  97              		.loc 1 121 3 is_stmt 1 view .LVU30
+  98              		.loc 1 121 6 is_stmt 0 view .LVU31
+  99 0050 A3F58053 		sub	r3, r3, #4096
+ 100 0054 1A68     		ldr	r2, [r3]
+ 101              		.loc 1 121 11 view .LVU32
+ 102 0056 22F08072 		bic	r2, r2, #16777216
+ 103 005a 1A60     		str	r2, [r3]
  122:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_MCO;
-  98              		.loc 1 122 3 is_stmt 1 view .LVU27
-  99              		.loc 1 122 13 is_stmt 0 view .LVU28
- 100 005c 5A68     		ldr	r2, [r3, #4]
- 101 005e 22F0E062 		bic	r2, r2, #117440512
-ARM GAS  /tmp/ccr9sxNm.s 			page 5
+ 104              		.loc 1 122 3 is_stmt 1 view .LVU33
+ 105              		.loc 1 122 6 is_stmt 0 view .LVU34
+ 106 005c 5A68     		ldr	r2, [r3, #4]
+ 107              		.loc 1 122 13 view .LVU35
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s 			page 5
 
 
- 102 0062 5A60     		str	r2, [r3, #4]
+ 108 005e 22F0E062 		bic	r2, r2, #117440512
+ 109 0062 5A60     		str	r2, [r3, #4]
  123:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_USBPRE;
- 103              		.loc 1 123 3 is_stmt 1 view .LVU29
- 104              		.loc 1 123 13 is_stmt 0 view .LVU30
- 105 0064 5A68     		ldr	r2, [r3, #4]
- 106 0066 22F48002 		bic	r2, r2, #4194304
- 107 006a 5A60     		str	r2, [r3, #4]
+ 110              		.loc 1 123 3 is_stmt 1 view .LVU36
+ 111              		.loc 1 123 6 is_stmt 0 view .LVU37
+ 112 0064 5A68     		ldr	r2, [r3, #4]
+ 113              		.loc 1 123 13 view .LVU38
+ 114 0066 22F48002 		bic	r2, r2, #4194304
+ 115 006a 5A60     		str	r2, [r3, #4]
  124:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_PLLSRC;
- 108              		.loc 1 124 3 is_stmt 1 view .LVU31
- 109              		.loc 1 124 13 is_stmt 0 view .LVU32
- 110 006c 5A68     		ldr	r2, [r3, #4]
- 111 006e 42F48032 		orr	r2, r2, #65536
- 112 0072 5A60     		str	r2, [r3, #4]
+ 116              		.loc 1 124 3 is_stmt 1 view .LVU39
+ 117              		.loc 1 124 6 is_stmt 0 view .LVU40
+ 118 006c 5A68     		ldr	r2, [r3, #4]
+ 119              		.loc 1 124 13 view .LVU41
+ 120 006e 42F48032 		orr	r2, r2, #65536
+ 121 0072 5A60     		str	r2, [r3, #4]
  125:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_ADCPRE;
- 113              		.loc 1 125 3 is_stmt 1 view .LVU33
- 114              		.loc 1 125 13 is_stmt 0 view .LVU34
- 115 0074 5A68     		ldr	r2, [r3, #4]
- 116 0076 42F44042 		orr	r2, r2, #49152
- 117 007a 5A60     		str	r2, [r3, #4]
+ 122              		.loc 1 125 3 is_stmt 1 view .LVU42
+ 123              		.loc 1 125 6 is_stmt 0 view .LVU43
+ 124 0074 5A68     		ldr	r2, [r3, #4]
+ 125              		.loc 1 125 13 view .LVU44
+ 126 0076 42F44042 		orr	r2, r2, #49152
+ 127 007a 5A60     		str	r2, [r3, #4]
  126:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_PPRE2;
- 118              		.loc 1 126 3 is_stmt 1 view .LVU35
- 119              		.loc 1 126 13 is_stmt 0 view .LVU36
- 120 007c 5A68     		ldr	r2, [r3, #4]
- 121 007e 22F46052 		bic	r2, r2, #14336
- 122 0082 5A60     		str	r2, [r3, #4]
+ 128              		.loc 1 126 3 is_stmt 1 view .LVU45
+ 129              		.loc 1 126 6 is_stmt 0 view .LVU46
+ 130 007c 5A68     		ldr	r2, [r3, #4]
+ 131              		.loc 1 126 13 view .LVU47
+ 132 007e 22F46052 		bic	r2, r2, #14336
+ 133 0082 5A60     		str	r2, [r3, #4]
  127:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_PPRE1; // reset
- 123              		.loc 1 127 3 is_stmt 1 view .LVU37
- 124              		.loc 1 127 13 is_stmt 0 view .LVU38
- 125 0084 5A68     		ldr	r2, [r3, #4]
- 126 0086 22F4E062 		bic	r2, r2, #1792
- 127 008a 5A60     		str	r2, [r3, #4]
+ 134              		.loc 1 127 3 is_stmt 1 view .LVU48
+ 135              		.loc 1 127 6 is_stmt 0 view .LVU49
+ 136 0084 5A68     		ldr	r2, [r3, #4]
+ 137              		.loc 1 127 13 view .LVU50
+ 138 0086 22F4E062 		bic	r2, r2, #1792
+ 139 008a 5A60     		str	r2, [r3, #4]
  128:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_PPRE1_2;
- 128              		.loc 1 128 3 is_stmt 1 view .LVU39
- 129              		.loc 1 128 13 is_stmt 0 view .LVU40
- 130 008c 5A68     		ldr	r2, [r3, #4]
- 131 008e 42F48062 		orr	r2, r2, #1024
- 132 0092 5A60     		str	r2, [r3, #4]
+ 140              		.loc 1 128 3 is_stmt 1 view .LVU51
+ 141              		.loc 1 128 6 is_stmt 0 view .LVU52
+ 142 008c 5A68     		ldr	r2, [r3, #4]
+ 143              		.loc 1 128 13 view .LVU53
+ 144 008e 42F48062 		orr	r2, r2, #1024
+ 145 0092 5A60     		str	r2, [r3, #4]
  129:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_PLLMULL; // reset
- 133              		.loc 1 129 3 is_stmt 1 view .LVU41
- 134              		.loc 1 129 13 is_stmt 0 view .LVU42
- 135 0094 5A68     		ldr	r2, [r3, #4]
- 136 0096 22F47012 		bic	r2, r2, #3932160
- 137 009a 5A60     		str	r2, [r3, #4]
+ 146              		.loc 1 129 3 is_stmt 1 view .LVU54
+ 147              		.loc 1 129 6 is_stmt 0 view .LVU55
+ 148 0094 5A68     		ldr	r2, [r3, #4]
+ 149              		.loc 1 129 13 view .LVU56
+ 150 0096 22F47012 		bic	r2, r2, #3932160
+ 151 009a 5A60     		str	r2, [r3, #4]
  130:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_PLLMULL9;
- 138              		.loc 1 130 3 is_stmt 1 view .LVU43
- 139              		.loc 1 130 13 is_stmt 0 view .LVU44
- 140 009c 5A68     		ldr	r2, [r3, #4]
- 141 009e 42F4E012 		orr	r2, r2, #1835008
- 142 00a2 5A60     		str	r2, [r3, #4]
+ 152              		.loc 1 130 3 is_stmt 1 view .LVU57
+ 153              		.loc 1 130 6 is_stmt 0 view .LVU58
+ 154 009c 5A68     		ldr	r2, [r3, #4]
+ 155              		.loc 1 130 13 view .LVU59
+ 156 009e 42F4E012 		orr	r2, r2, #1835008
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s 			page 6
+
+
+ 157 00a2 5A60     		str	r2, [r3, #4]
  131:Core/Src/main.c ****   RCC->CR |= RCC_CR_PLLON;
- 143              		.loc 1 131 3 is_stmt 1 view .LVU45
- 144              		.loc 1 131 11 is_stmt 0 view .LVU46
- 145 00a4 1A68     		ldr	r2, [r3]
- 146 00a6 42F08072 		orr	r2, r2, #16777216
- 147 00aa 1A60     		str	r2, [r3]
+ 158              		.loc 1 131 3 is_stmt 1 view .LVU60
+ 159              		.loc 1 131 6 is_stmt 0 view .LVU61
+ 160 00a4 1A68     		ldr	r2, [r3]
+ 161              		.loc 1 131 11 view .LVU62
+ 162 00a6 42F08072 		orr	r2, r2, #16777216
+ 163 00aa 1A60     		str	r2, [r3]
  132:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_PLLRDY))
- 148              		.loc 1 132 3 is_stmt 1 view .LVU47
-ARM GAS  /tmp/ccr9sxNm.s 			page 6
-
-
- 149              	.L4:
+ 164              		.loc 1 132 3 is_stmt 1 view .LVU63
+ 165              	.L4:
+ 166              		.loc 1 132 10 discriminator 1 view .LVU64
+ 167              		.loc 1 132 15 is_stmt 0 discriminator 1 view .LVU65
+ 168 00ac 0C4B     		ldr	r3, .L7
+ 169 00ae 1B68     		ldr	r3, [r3]
+ 170              		.loc 1 132 10 discriminator 1 view .LVU66
+ 171 00b0 13F0007F 		tst	r3, #33554432
+ 172 00b4 FAD0     		beq	.L4
  133:Core/Src/main.c ****     ;
- 150              		.loc 1 133 5 discriminator 1 view .LVU48
- 132:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_PLLRDY))
- 151              		.loc 1 132 9 discriminator 1 view .LVU49
- 132:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_PLLRDY))
- 152              		.loc 1 132 15 is_stmt 0 discriminator 1 view .LVU50
- 153 00ac 0C4B     		ldr	r3, .L7
- 154 00ae 1B68     		ldr	r3, [r3]
- 132:Core/Src/main.c ****   while (!(RCC->CR & RCC_CR_PLLRDY))
- 155              		.loc 1 132 9 discriminator 1 view .LVU51
- 156 00b0 13F0007F 		tst	r3, #33554432
- 157 00b4 FAD0     		beq	.L4
  134:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_HPRE;
- 158              		.loc 1 134 3 is_stmt 1 view .LVU52
- 159              		.loc 1 134 13 is_stmt 0 view .LVU53
- 160 00b6 0A4B     		ldr	r3, .L7
- 161 00b8 5A68     		ldr	r2, [r3, #4]
- 162 00ba 22F0F002 		bic	r2, r2, #240
- 163 00be 5A60     		str	r2, [r3, #4]
+ 173              		.loc 1 134 3 is_stmt 1 view .LVU67
+ 174              		.loc 1 134 6 is_stmt 0 view .LVU68
+ 175 00b6 0A4B     		ldr	r3, .L7
+ 176 00b8 5A68     		ldr	r2, [r3, #4]
+ 177              		.loc 1 134 13 view .LVU69
+ 178 00ba 22F0F002 		bic	r2, r2, #240
+ 179 00be 5A60     		str	r2, [r3, #4]
  135:Core/Src/main.c ****   RCC->CFGR &= ~RCC_CFGR_SW;
- 164              		.loc 1 135 3 is_stmt 1 view .LVU54
- 165              		.loc 1 135 13 is_stmt 0 view .LVU55
- 166 00c0 5A68     		ldr	r2, [r3, #4]
- 167 00c2 22F00302 		bic	r2, r2, #3
- 168 00c6 5A60     		str	r2, [r3, #4]
+ 180              		.loc 1 135 3 is_stmt 1 view .LVU70
+ 181              		.loc 1 135 6 is_stmt 0 view .LVU71
+ 182 00c0 5A68     		ldr	r2, [r3, #4]
+ 183              		.loc 1 135 13 view .LVU72
+ 184 00c2 22F00302 		bic	r2, r2, #3
+ 185 00c6 5A60     		str	r2, [r3, #4]
  136:Core/Src/main.c ****   RCC->CFGR |= RCC_CFGR_SW_PLL;
- 169              		.loc 1 136 3 is_stmt 1 view .LVU56
- 170              		.loc 1 136 13 is_stmt 0 view .LVU57
- 171 00c8 5A68     		ldr	r2, [r3, #4]
- 172 00ca 42F00202 		orr	r2, r2, #2
- 173 00ce 5A60     		str	r2, [r3, #4]
+ 186              		.loc 1 136 3 is_stmt 1 view .LVU73
+ 187              		.loc 1 136 6 is_stmt 0 view .LVU74
+ 188 00c8 5A68     		ldr	r2, [r3, #4]
+ 189              		.loc 1 136 13 view .LVU75
+ 190 00ca 42F00202 		orr	r2, r2, #2
+ 191 00ce 5A60     		str	r2, [r3, #4]
  137:Core/Src/main.c ****   while (!(RCC->CFGR & RCC_CFGR_SWS_PLL))
- 174              		.loc 1 137 3 is_stmt 1 view .LVU58
- 175              	.L5:
+ 192              		.loc 1 137 3 is_stmt 1 view .LVU76
+ 193              	.L5:
+ 194              		.loc 1 137 10 discriminator 1 view .LVU77
+ 195              		.loc 1 137 15 is_stmt 0 discriminator 1 view .LVU78
+ 196 00d0 034B     		ldr	r3, .L7
+ 197 00d2 5B68     		ldr	r3, [r3, #4]
+ 198              		.loc 1 137 10 discriminator 1 view .LVU79
+ 199 00d4 13F0080F 		tst	r3, #8
+ 200 00d8 FAD0     		beq	.L5
  138:Core/Src/main.c ****     ;
- 176              		.loc 1 138 5 discriminator 1 view .LVU59
- 137:Core/Src/main.c ****   while (!(RCC->CFGR & RCC_CFGR_SWS_PLL))
- 177              		.loc 1 137 9 discriminator 1 view .LVU60
- 137:Core/Src/main.c ****   while (!(RCC->CFGR & RCC_CFGR_SWS_PLL))
- 178              		.loc 1 137 15 is_stmt 0 discriminator 1 view .LVU61
- 179 00d0 034B     		ldr	r3, .L7
- 180 00d2 5B68     		ldr	r3, [r3, #4]
- 137:Core/Src/main.c ****   while (!(RCC->CFGR & RCC_CFGR_SWS_PLL))
- 181              		.loc 1 137 9 discriminator 1 view .LVU62
- 182 00d4 13F0080F 		tst	r3, #8
- 183 00d8 FAD0     		beq	.L5
  139:Core/Src/main.c **** 
  140:Core/Src/main.c ****   /* Inform core libraries of change to clocks
  141:Core/Src/main.c ****    */
  142:Core/Src/main.c ****   SystemCoreClockUpdate();
- 184              		.loc 1 142 3 is_stmt 1 view .LVU63
- 185 00da FFF7FEFF 		bl	SystemCoreClockUpdate
- 186              	.LVL0:
+ 201              		.loc 1 142 3 is_stmt 1 view .LVU80
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s 			page 7
+
+
+ 202 00da FFF7FEFF 		bl	SystemCoreClockUpdate
+ 203              	.LVL0:
  143:Core/Src/main.c **** }
- 187              		.loc 1 143 1 is_stmt 0 view .LVU64
- 188 00de 08BD     		pop	{r3, pc}
-ARM GAS  /tmp/ccr9sxNm.s 			page 7
-
-
- 189              	.L8:
- 190              		.align	2
- 191              	.L7:
- 192 00e0 00100240 		.word	1073876992
- 193 00e4 00200240 		.word	1073881088
- 194              		.cfi_endproc
- 195              	.LFE66:
- 197              		.section	.text.main,"ax",%progbits
- 198              		.align	1
- 199              		.global	main
- 200              		.syntax unified
- 201              		.thumb
- 202              		.thumb_func
- 204              	main:
- 205              	.LFB65:
+ 204              		.loc 1 143 1 is_stmt 0 view .LVU81
+ 205 00de 08BD     		pop	{r3, pc}
+ 206              	.L8:
+ 207              		.align	2
+ 208              	.L7:
+ 209 00e0 00100240 		.word	1073876992
+ 210 00e4 00200240 		.word	1073881088
+ 211              		.cfi_endproc
+ 212              	.LFE66:
+ 214              		.section	.text.main,"ax",%progbits
+ 215              		.align	1
+ 216              		.global	main
+ 217              		.syntax unified
+ 218              		.thumb
+ 219              		.thumb_func
+ 221              	main:
+ 222              	.LFB65:
   31:Core/Src/main.c ****   uint8_t idx;
- 206              		.loc 1 31 1 is_stmt 1 view -0
- 207              		.cfi_startproc
- 208              		@ args = 0, pretend = 0, frame = 0
- 209              		@ frame_needed = 0, uses_anonymous_args = 0
- 210 0000 08B5     		push	{r3, lr}
- 211              		.cfi_def_cfa_offset 8
- 212              		.cfi_offset 3, -8
- 213              		.cfi_offset 14, -4
+ 223              		.loc 1 31 1 is_stmt 1 view -0
+ 224              		.cfi_startproc
+ 225              		@ args = 0, pretend = 0, frame = 0
+ 226              		@ frame_needed = 0, uses_anonymous_args = 0
+ 227 0000 08B5     		push	{r3, lr}
+ 228              		.cfi_def_cfa_offset 8
+ 229              		.cfi_offset 3, -8
+ 230              		.cfi_offset 14, -4
   32:Core/Src/main.c **** 
- 214              		.loc 1 32 3 view .LVU66
+ 231              		.loc 1 32 3 view .LVU83
   35:Core/Src/main.c **** 
- 215              		.loc 1 35 3 view .LVU67
- 216 0002 FFF7FEFF 		bl	hw_system_clocks_init
- 217              	.LVL1:
+ 232              		.loc 1 35 3 view .LVU84
+ 233 0002 FFF7FEFF 		bl	hw_system_clocks_init
+ 234              	.LVL1:
   38:Core/Src/main.c **** 
- 218              		.loc 1 38 3 view .LVU68
- 219 0006 4FF47A70 		mov	r0, #1000
- 220 000a FFF7FEFF 		bl	hw_systick_init
- 221              	.LVL2:
+ 235              		.loc 1 38 3 view .LVU85
+ 236 0006 4FF47A70 		mov	r0, #1000
+ 237 000a FFF7FEFF 		bl	hw_systick_init
+ 238              	.LVL2:
   41:Core/Src/main.c ****   heartbeat_set_pattern_mode(LED_BREATHE);
- 222              		.loc 1 41 3 view .LVU69
- 223 000e FFF7FEFF 		bl	heartbeat_init
- 224              	.LVL3:
- 225 0012 08B1     		cbz	r0, .L13
- 226              	.L10:
+ 239              		.loc 1 41 3 view .LVU86
+ 240 000e FFF7FEFF 		bl	heartbeat_init
+ 241              	.LVL3:
+ 242 0012 08B1     		cbz	r0, .L13
+ 243              	.L10:
   71:Core/Src/main.c **** 
- 227              		.loc 1 71 1 is_stmt 0 view .LVU70
- 228 0014 0120     		movs	r0, #1
- 229 0016 08BD     		pop	{r3, pc}
- 230              	.L13:
+ 244              		.loc 1 71 1 is_stmt 0 view .LVU87
+ 245 0014 0120     		movs	r0, #1
+ 246 0016 08BD     		pop	{r3, pc}
+ 247              	.L13:
   42:Core/Src/main.c ****   heartbeat_set_poll_mode(true);
- 231              		.loc 1 42 3 is_stmt 1 view .LVU71
- 232 0018 FFF7FEFF 		bl	heartbeat_set_pattern_mode
- 233              	.LVL4:
+ 248              		.loc 1 42 3 is_stmt 1 view .LVU88
+ 249 0018 FFF7FEFF 		bl	heartbeat_set_pattern_mode
+ 250              	.LVL4:
   43:Core/Src/main.c ****   heartbeat_set_period_ms(1000);
- 234              		.loc 1 43 3 view .LVU72
- 235 001c 0120     		movs	r0, #1
- 236 001e FFF7FEFF 		bl	heartbeat_set_poll_mode
- 237              	.LVL5:
+ 251              		.loc 1 43 3 view .LVU89
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s 			page 8
+
+
+ 252 001c 0120     		movs	r0, #1
+ 253 001e FFF7FEFF 		bl	heartbeat_set_poll_mode
+ 254              	.LVL5:
   44:Core/Src/main.c ****   heartbeat_start();
- 238              		.loc 1 44 3 view .LVU73
-ARM GAS  /tmp/ccr9sxNm.s 			page 8
-
-
- 239 0022 4FF47A70 		mov	r0, #1000
- 240 0026 FFF7FEFF 		bl	heartbeat_set_period_ms
- 241              	.LVL6:
+ 255              		.loc 1 44 3 view .LVU90
+ 256 0022 4FF47A70 		mov	r0, #1000
+ 257 0026 FFF7FEFF 		bl	heartbeat_set_period_ms
+ 258              	.LVL6:
   45:Core/Src/main.c **** 
- 242              		.loc 1 45 3 view .LVU74
- 243 002a FFF7FEFF 		bl	heartbeat_start
- 244              	.LVL7:
+ 259              		.loc 1 45 3 view .LVU91
+ 260 002a FFF7FEFF 		bl	heartbeat_start
+ 261              	.LVL7:
   52:Core/Src/main.c **** 
- 245              		.loc 1 52 3 view .LVU75
- 246 002e FFF7FEFF 		bl	i2c_init
- 247              	.LVL8:
- 248 0032 0028     		cmp	r0, #0
- 249 0034 EED1     		bne	.L10
+ 262              		.loc 1 52 3 view .LVU92
+ 263 002e FFF7FEFF 		bl	i2c_init
+ 264              	.LVL8:
+ 265 0032 0028     		cmp	r0, #0
+ 266 0034 EED1     		bne	.L10
   57:Core/Src/main.c **** 
- 250              		.loc 1 57 3 view .LVU76
- 251 0036 FFF7FEFF 		bl	gpioexp_init
- 252              	.LVL9:
- 253              	.L11:
+ 267              		.loc 1 57 3 view .LVU93
+ 268 0036 FFF7FEFF 		bl	gpioexp_init
+ 269              	.LVL9:
+ 270              	.L11:
   66:Core/Src/main.c ****   {
- 254              		.loc 1 66 3 discriminator 1 view .LVU77
+ 271              		.loc 1 66 3 discriminator 1 view .LVU94
   69:Core/Src/main.c ****   }
- 255              		.loc 1 69 5 discriminator 1 view .LVU78
- 256 003a FFF7FEFF 		bl	heartbeat_poll
- 257              	.LVL10:
+ 272              		.loc 1 69 5 discriminator 1 view .LVU95
+ 273 003a FFF7FEFF 		bl	heartbeat_poll
+ 274              	.LVL10:
   66:Core/Src/main.c ****   {
- 258              		.loc 1 66 9 discriminator 1 view .LVU79
- 259 003e FCE7     		b	.L11
- 260              		.cfi_endproc
- 261              	.LFE65:
- 263              		.section	.text.Error_Handler,"ax",%progbits
- 264              		.align	1
- 265              		.global	Error_Handler
- 266              		.syntax unified
- 267              		.thumb
- 268              		.thumb_func
- 270              	Error_Handler:
- 271              	.LFB67:
+ 275              		.loc 1 66 9 discriminator 1 view .LVU96
+ 276 003e FCE7     		b	.L11
+ 277              		.cfi_endproc
+ 278              	.LFE65:
+ 280              		.section	.text.Error_Handler,"ax",%progbits
+ 281              		.align	1
+ 282              		.global	Error_Handler
+ 283              		.syntax unified
+ 284              		.thumb
+ 285              		.thumb_func
+ 287              	Error_Handler:
+ 288              	.LFB67:
  144:Core/Src/main.c **** 
  145:Core/Src/main.c **** /**
  146:Core/Src/main.c ****  * @brief  This function is executed in case of error occurrence.
@@ -465,22 +470,22 @@ ARM GAS  /tmp/ccr9sxNm.s 			page 1
  148:Core/Src/main.c ****  */
  149:Core/Src/main.c **** void Error_Handler(void)
  150:Core/Src/main.c **** {
- 272              		.loc 1 150 1 view -0
- 273              		.cfi_startproc
- 274              		@ Volatile: function does not return.
- 275              		@ args = 0, pretend = 0, frame = 0
- 276              		@ frame_needed = 0, uses_anonymous_args = 0
- 277              		@ link register save eliminated.
+ 289              		.loc 1 150 1 view -0
+ 290              		.cfi_startproc
+ 291              		@ Volatile: function does not return.
+ 292              		@ args = 0, pretend = 0, frame = 0
+ 293              		@ frame_needed = 0, uses_anonymous_args = 0
+ 294              		@ link register save eliminated.
  151:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
  152:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s 			page 9
+
+
  153:Core/Src/main.c ****   __disable_irq();
- 278              		.loc 1 153 3 view .LVU81
- 279              	.LBB4:
- 280              	.LBI4:
- 281              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
-ARM GAS  /tmp/ccr9sxNm.s 			page 9
-
-
+ 295              		.loc 1 153 3 view .LVU98
+ 296              	.LBB4:
+ 297              	.LBI4:
+ 298              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -533,14 +538,14 @@ ARM GAS  /tmp/ccr9sxNm.s 			page 1
   50:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_FORCEINLINE                   __attribute__((always_inline)) static inline
   51:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif                                           
   52:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __NO_RETURN
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s 			page 10
+
+
   53:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __NO_RETURN                            __attribute__((__noreturn__))
   54:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   55:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __USED
   56:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __USED                                 __attribute__((used))
   57:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  /tmp/ccr9sxNm.s 			page 10
-
-
   58:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __WEAK
   59:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
   60:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -593,14 +598,14 @@ ARM GAS  /tmp/ccr9sxNm.s 			page 1
  107:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
  108:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(add
  109:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s 			page 11
+
+
  110:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ALIGNED
  111:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
  112:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  113:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __RESTRICT
  114:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
-ARM GAS  /tmp/ccr9sxNm.s 			page 11
-
-
  115:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  116:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  117:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -627,56 +632,56 @@ ARM GAS  /tmp/ccr9sxNm.s 			page 1
  138:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  139:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  140:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
- 282              		.loc 2 140 27 view .LVU82
- 283              	.LBB5:
+ 299              		.loc 2 140 27 view .LVU99
+ 300              	.LBB5:
  141:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  142:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
- 284              		.loc 2 142 3 view .LVU83
- 285              		.syntax unified
- 286              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 287 0000 72B6     		cpsid i
- 288              	@ 0 "" 2
- 289              		.thumb
- 290              		.syntax unified
- 291              	.L15:
- 292              	.LBE5:
- 293              	.LBE4:
+ 301              		.loc 2 142 3 view .LVU100
+ 302              		.syntax unified
+ 303              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 304 0000 72B6     		cpsid i
+ 305              	@ 0 "" 2
+ 306              		.thumb
+ 307              		.syntax unified
+ 308              	.L15:
+ 309              	.LBE5:
+ 310              	.LBE4:
  154:Core/Src/main.c ****   while (1)
- 294              		.loc 1 154 3 discriminator 1 view .LVU84
+ 311              		.loc 1 154 3 discriminator 1 view .LVU101
  155:Core/Src/main.c ****   {
  156:Core/Src/main.c ****   }
- 295              		.loc 1 156 3 discriminator 1 view .LVU85
+ 312              		.loc 1 156 3 discriminator 1 view .LVU102
  154:Core/Src/main.c ****   while (1)
- 296              		.loc 1 154 9 discriminator 1 view .LVU86
- 297 0002 FEE7     		b	.L15
- 298              		.cfi_endproc
- 299              	.LFE67:
- 301              		.text
- 302              	.Letext0:
- 303              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 304              		.file 4 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 305              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 306              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
- 307              		.file 7 "Core/Inc/hw_systick.h"
-ARM GAS  /tmp/ccr9sxNm.s 			page 12
+ 313              		.loc 1 154 9 discriminator 1 view .LVU103
+ 314 0002 FEE7     		b	.L15
+ 315              		.cfi_endproc
+ 316              	.LFE67:
+ 318              		.text
+ 319              	.Letext0:
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s 			page 12
 
 
- 308              		.file 8 "Core/Inc/mgr_heartbeat.h"
- 309              		.file 9 "Core/Inc/mgr_i2c.h"
- 310              		.file 10 "Core/Inc/drv_gpioexp.h"
- 311              		.file 11 "Core/Inc/hw_i2c1.h"
-ARM GAS  /tmp/ccr9sxNm.s 			page 13
+ 320              		.file 3 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
+ 321              		.file 4 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
+ 322              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 323              		.file 6 "Core/Inc/mgr_heartbeat.h"
+ 324              		.file 7 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 325              		.file 8 "Core/Inc/drv_gpioexp.h"
+ 326              		.file 9 "Core/Inc/mgr_i2c.h"
+ 327              		.file 10 "Core/Inc/hw_systick.h"
+ 328              		.file 11 "Core/Inc/hw_i2c1.h"
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccr9sxNm.s:18     .text.hw_system_clocks_init:0000000000000000 $t
-     /tmp/ccr9sxNm.s:24     .text.hw_system_clocks_init:0000000000000000 hw_system_clocks_init
-     /tmp/ccr9sxNm.s:192    .text.hw_system_clocks_init:00000000000000e0 $d
-     /tmp/ccr9sxNm.s:198    .text.main:0000000000000000 $t
-     /tmp/ccr9sxNm.s:204    .text.main:0000000000000000 main
-     /tmp/ccr9sxNm.s:264    .text.Error_Handler:0000000000000000 $t
-     /tmp/ccr9sxNm.s:270    .text.Error_Handler:0000000000000000 Error_Handler
+C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s:19     .text.hw_system_clocks_init:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s:25     .text.hw_system_clocks_init:0000000000000000 hw_system_clocks_init
+C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s:209    .text.hw_system_clocks_init:00000000000000e0 $d
+C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s:215    .text.main:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s:221    .text.main:0000000000000000 main
+C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s:281    .text.Error_Handler:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccM7AnP2.s:287    .text.Error_Handler:0000000000000000 Error_Handler
 
 UNDEFINED SYMBOLS
 SystemCoreClockUpdate

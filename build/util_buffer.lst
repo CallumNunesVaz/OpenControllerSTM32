@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc7KWSOF.s 			page 1
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -17,16 +17,16 @@ ARM GAS  /tmp/cc7KWSOF.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.section	.text.buf_reset,"ax",%progbits
-  18              		.align	1
-  19              		.global	buf_reset
-  20              		.syntax unified
-  21              		.thumb
-  22              		.thumb_func
-  24              	buf_reset:
-  25              	.LVL0:
-  26              	.LFB1:
-  27              		.file 1 "Core/Src/util_buffer.c"
+  17              		.file 1 "Core/Src/util_buffer.c"
+  18              		.section	.text.buf_reset,"ax",%progbits
+  19              		.align	1
+  20              		.global	buf_reset
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	buf_reset:
+  26              	.LVL0:
+  27              	.LFB1:
    1:Core/Src/util_buffer.c **** /**
    2:Core/Src/util_buffer.c **** 
    3:Core/Src/util_buffer.c ****  */
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc7KWSOF.s 			page 1
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   26:Core/Src/util_buffer.c ****     /* Sanity check */
   27:Core/Src/util_buffer.c ****     if (NULL == buf) {
-ARM GAS  /tmp/cc7KWSOF.s 			page 2
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s 			page 2
 
 
   32              		.loc 1 27 5 view .LVU1
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc7KWSOF.s 			page 1
   71 001c 7047     		bx	lr
   72              		.cfi_endproc
   73              	.LFE1:
-ARM GAS  /tmp/cc7KWSOF.s 			page 3
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s 			page 3
 
 
   75              		.section	.text.buf_init,"ax",%progbits
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc7KWSOF.s 			page 1
  117              	.LVL8:
   21:Core/Src/util_buffer.c **** }
  118              		.loc 1 21 5 view .LVU29
-ARM GAS  /tmp/cc7KWSOF.s 			page 4
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s 			page 4
 
 
   21:Core/Src/util_buffer.c **** }
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc7KWSOF.s 			page 1
  162 0000 9AB3     		cbz	r2, .L23
   42:Core/Src/util_buffer.c **** 
  163              		.loc 1 42 63 is_stmt 0 view .LVU39
-ARM GAS  /tmp/cc7KWSOF.s 			page 5
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s 			page 5
 
 
  164 0002 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc7KWSOF.s 			page 1
   62:Core/Src/util_buffer.c ****         elem_cnt = buf->len;
  205              		.loc 1 62 9 is_stmt 1 view .LVU54
  206              		.loc 1 62 18 is_stmt 0 view .LVU55
-ARM GAS  /tmp/cc7KWSOF.s 			page 6
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s 			page 6
 
 
  207 0028 4646     		mov	r6, r8
@@ -333,106 +333,108 @@ ARM GAS  /tmp/cc7KWSOF.s 			page 1
   73:Core/Src/util_buffer.c ****     /* increment head pointer and count */
   74:Core/Src/util_buffer.c ****     buf->head += elem_cnt;   
  226              		.loc 1 74 5 view .LVU60
- 227              		.loc 1 74 15 is_stmt 0 view .LVU61
+ 227              		.loc 1 74 8 is_stmt 0 view .LVU61
  228 0042 2368     		ldr	r3, [r4]
- 229 0044 3344     		add	r3, r3, r6
- 230 0046 2360     		str	r3, [r4]
+ 229              		.loc 1 74 15 view .LVU62
+ 230 0044 3344     		add	r3, r3, r6
+ 231 0046 2360     		str	r3, [r4]
   75:Core/Src/util_buffer.c ****     buf->head %= buf->len;
- 231              		.loc 1 75 5 is_stmt 1 view .LVU62
- 232              		.loc 1 75 21 is_stmt 0 view .LVU63
- 233 0048 A268     		ldr	r2, [r4, #8]
- 234              		.loc 1 75 15 view .LVU64
- 235 004a B3FBF2F1 		udiv	r1, r3, r2
- 236 004e 02FB1133 		mls	r3, r2, r1, r3
- 237 0052 2360     		str	r3, [r4]
+ 232              		.loc 1 75 5 is_stmt 1 view .LVU63
+ 233              		.loc 1 75 21 is_stmt 0 view .LVU64
+ 234 0048 A268     		ldr	r2, [r4, #8]
+ 235              		.loc 1 75 15 view .LVU65
+ 236 004a B3FBF2F1 		udiv	r1, r3, r2
+ 237 004e 02FB1133 		mls	r3, r2, r1, r3
+ 238 0052 2360     		str	r3, [r4]
   76:Core/Src/util_buffer.c ****     buf->cnt += elem_cnt;
- 238              		.loc 1 76 5 is_stmt 1 view .LVU65
- 239              		.loc 1 76 14 is_stmt 0 view .LVU66
- 240 0054 E368     		ldr	r3, [r4, #12]
- 241 0056 3344     		add	r3, r3, r6
- 242 0058 E360     		str	r3, [r4, #12]
+ 239              		.loc 1 76 5 is_stmt 1 view .LVU66
+ 240              		.loc 1 76 8 is_stmt 0 view .LVU67
+ 241 0054 E368     		ldr	r3, [r4, #12]
+ 242              		.loc 1 76 14 view .LVU68
+ 243 0056 3344     		add	r3, r3, r6
+ 244 0058 E360     		str	r3, [r4, #12]
   77:Core/Src/util_buffer.c **** 
   78:Core/Src/util_buffer.c ****     /* yay */
   79:Core/Src/util_buffer.c ****     return EXIT_SUCCESS;
- 243              		.loc 1 79 5 is_stmt 1 view .LVU67
- 244              		.loc 1 79 12 is_stmt 0 view .LVU68
- 245 005a 0020     		movs	r0, #0
- 246              	.LVL22:
-ARM GAS  /tmp/cc7KWSOF.s 			page 7
+ 245              		.loc 1 79 5 is_stmt 1 view .LVU69
+ 246              		.loc 1 79 12 is_stmt 0 view .LVU70
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s 			page 7
 
 
- 247              	.L18:
+ 247 005a 0020     		movs	r0, #0
+ 248              	.LVL22:
+ 249              	.L18:
   80:Core/Src/util_buffer.c **** }
- 248              		.loc 1 80 1 view .LVU69
- 249 005c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 250              	.LVL23:
- 251              	.L21:
+ 250              		.loc 1 80 1 view .LVU71
+ 251 005c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 252              	.LVL23:
+ 253              	.L21:
   70:Core/Src/util_buffer.c ****     }
- 252              		.loc 1 70 9 is_stmt 1 view .LVU70
- 253 0060 3246     		mov	r2, r6
- 254              	.LVL24:
+ 254              		.loc 1 70 9 is_stmt 1 view .LVU72
+ 255 0060 3246     		mov	r2, r6
+ 256              	.LVL24:
   70:Core/Src/util_buffer.c ****     }
- 255              		.loc 1 70 9 is_stmt 0 view .LVU71
- 256 0062 2946     		mov	r1, r5
- 257 0064 FFF7FEFF 		bl	memcpy
- 258              	.LVL25:
+ 257              		.loc 1 70 9 is_stmt 0 view .LVU73
+ 258 0062 2946     		mov	r1, r5
+ 259 0064 FFF7FEFF 		bl	memcpy
+ 260              	.LVL25:
   70:Core/Src/util_buffer.c ****     }
- 259              		.loc 1 70 9 view .LVU72
- 260 0068 EBE7     		b	.L22
- 261              	.LVL26:
- 262              	.L23:
- 263              		.cfi_def_cfa_offset 0
- 264              		.cfi_restore 4
- 265              		.cfi_restore 5
- 266              		.cfi_restore 6
- 267              		.cfi_restore 7
- 268              		.cfi_restore 8
- 269              		.cfi_restore 14
+ 261              		.loc 1 70 9 view .LVU74
+ 262 0068 EBE7     		b	.L22
+ 263              	.LVL26:
+ 264              	.L23:
+ 265              		.cfi_def_cfa_offset 0
+ 266              		.cfi_restore 4
+ 267              		.cfi_restore 5
+ 268              		.cfi_restore 6
+ 269              		.cfi_restore 7
+ 270              		.cfi_restore 8
+ 271              		.cfi_restore 14
   48:Core/Src/util_buffer.c ****     ASSERT_BOOL(NULL != src_data);
- 270              		.loc 1 48 5 view .LVU73
- 271 006a 0120     		movs	r0, #1
- 272              	.LVL27:
- 273              		.loc 1 80 1 view .LVU74
- 274 006c 7047     		bx	lr
- 275              	.LVL28:
- 276              	.L24:
- 277              		.cfi_def_cfa_offset 24
- 278              		.cfi_offset 4, -24
- 279              		.cfi_offset 5, -20
- 280              		.cfi_offset 6, -16
- 281              		.cfi_offset 7, -12
- 282              		.cfi_offset 8, -8
- 283              		.cfi_offset 14, -4
+ 272              		.loc 1 48 5 view .LVU75
+ 273 006a 0120     		movs	r0, #1
+ 274              	.LVL27:
+ 275              		.loc 1 80 1 view .LVU76
+ 276 006c 7047     		bx	lr
+ 277              	.LVL28:
+ 278              	.L24:
+ 279              		.cfi_def_cfa_offset 24
+ 280              		.cfi_offset 4, -24
+ 281              		.cfi_offset 5, -20
+ 282              		.cfi_offset 6, -16
+ 283              		.cfi_offset 7, -12
+ 284              		.cfi_offset 8, -8
+ 285              		.cfi_offset 14, -4
   49:Core/Src/util_buffer.c ****     ASSERT_BOOL(NULL != buf);
- 284              		.loc 1 49 5 view .LVU75
- 285 006e 0120     		movs	r0, #1
- 286              	.LVL29:
+ 286              		.loc 1 49 5 view .LVU77
+ 287 006e 0120     		movs	r0, #1
+ 288              	.LVL29:
   49:Core/Src/util_buffer.c ****     ASSERT_BOOL(NULL != buf);
- 287              		.loc 1 49 5 view .LVU76
- 288 0070 F4E7     		b	.L18
- 289              	.LVL30:
- 290              	.L25:
+ 289              		.loc 1 49 5 view .LVU78
+ 290 0070 F4E7     		b	.L18
+ 291              	.LVL30:
+ 292              	.L25:
   50:Core/Src/util_buffer.c **** 
- 291              		.loc 1 50 5 view .LVU77
- 292 0072 0120     		movs	r0, #1
- 293              	.LVL31:
-  50:Core/Src/util_buffer.c **** 
- 294              		.loc 1 50 5 view .LVU78
-ARM GAS  /tmp/cc7KWSOF.s 			page 8
+ 293              		.loc 1 50 5 view .LVU79
+ 294 0072 0120     		movs	r0, #1
+ 295              	.LVL31:
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s 			page 8
 
 
- 295 0074 F2E7     		b	.L18
- 296              		.cfi_endproc
- 297              	.LFE2:
- 299              		.section	.text.buf_peek,"ax",%progbits
- 300              		.align	1
- 301              		.global	buf_peek
- 302              		.syntax unified
- 303              		.thumb
- 304              		.thumb_func
- 306              	buf_peek:
- 307              	.LVL32:
- 308              	.LFB4:
+  50:Core/Src/util_buffer.c **** 
+ 296              		.loc 1 50 5 view .LVU80
+ 297 0074 F2E7     		b	.L18
+ 298              		.cfi_endproc
+ 299              	.LFE2:
+ 301              		.section	.text.buf_peek,"ax",%progbits
+ 302              		.align	1
+ 303              		.global	buf_peek
+ 304              		.syntax unified
+ 305              		.thumb
+ 306              		.thumb_func
+ 308              	buf_peek:
+ 309              	.LVL32:
+ 310              	.LFB4:
   81:Core/Src/util_buffer.c **** 
   82:Core/Src/util_buffer.c **** int buf_read(buffer_t *buf, void *dest_data, size_t elem_cnt) {
   83:Core/Src/util_buffer.c **** 
@@ -451,401 +453,403 @@ ARM GAS  /tmp/cc7KWSOF.s 			page 1
   96:Core/Src/util_buffer.c **** }
   97:Core/Src/util_buffer.c **** 
   98:Core/Src/util_buffer.c **** int buf_peek(buffer_t *buf, void *dest_data, size_t elem_cnt) {
- 309              		.loc 1 98 63 is_stmt 1 view -0
- 310              		.cfi_startproc
- 311              		@ args = 0, pretend = 0, frame = 0
- 312              		@ frame_needed = 0, uses_anonymous_args = 0
+ 311              		.loc 1 98 63 is_stmt 1 view -0
+ 312              		.cfi_startproc
+ 313              		@ args = 0, pretend = 0, frame = 0
+ 314              		@ frame_needed = 0, uses_anonymous_args = 0
   99:Core/Src/util_buffer.c **** 
  100:Core/Src/util_buffer.c ****     void *rd_start_ptr;
- 313              		.loc 1 100 5 view .LVU80
+ 315              		.loc 1 100 5 view .LVU82
  101:Core/Src/util_buffer.c ****     size_t cnt_from_end;
- 314              		.loc 1 101 5 view .LVU81
+ 316              		.loc 1 101 5 view .LVU83
  102:Core/Src/util_buffer.c **** 
  103:Core/Src/util_buffer.c ****     /* Sanity check */
  104:Core/Src/util_buffer.c ****     if ((NULL == buf) || (NULL == dest_data) || (0 == elem_cnt)) {
- 315              		.loc 1 104 5 view .LVU82
- 316              		.loc 1 104 8 is_stmt 0 view .LVU83
- 317 0000 20B3     		cbz	r0, .L34
+ 317              		.loc 1 104 5 view .LVU84
+ 318              		.loc 1 104 8 is_stmt 0 view .LVU85
+ 319 0000 20B3     		cbz	r0, .L34
   98:Core/Src/util_buffer.c **** 
- 318              		.loc 1 98 63 discriminator 1 view .LVU84
- 319 0002 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 320              		.cfi_def_cfa_offset 24
- 321              		.cfi_offset 4, -24
- 322              		.cfi_offset 5, -20
- 323              		.cfi_offset 6, -16
- 324              		.cfi_offset 7, -12
- 325              		.cfi_offset 8, -8
- 326              		.cfi_offset 14, -4
- 327 0006 0D46     		mov	r5, r1
- 328 0008 1446     		mov	r4, r2
-ARM GAS  /tmp/cc7KWSOF.s 			page 9
+ 320              		.loc 1 98 63 discriminator 1 view .LVU86
+ 321 0002 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 322              		.cfi_def_cfa_offset 24
+ 323              		.cfi_offset 4, -24
+ 324              		.cfi_offset 5, -20
+ 325              		.cfi_offset 6, -16
+ 326              		.cfi_offset 7, -12
+ 327              		.cfi_offset 8, -8
+ 328              		.cfi_offset 14, -4
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s 			page 9
 
 
- 329 000a 0646     		mov	r6, r0
- 330              		.loc 1 104 23 discriminator 1 view .LVU85
- 331 000c 01B3     		cbz	r1, .L35
- 332              		.loc 1 104 46 discriminator 2 view .LVU86
- 333 000e 0AB3     		cbz	r2, .L36
+ 329 0006 0D46     		mov	r5, r1
+ 330 0008 1446     		mov	r4, r2
+ 331 000a 0646     		mov	r6, r0
+ 332              		.loc 1 104 23 discriminator 1 view .LVU87
+ 333 000c 01B3     		cbz	r1, .L35
+ 334              		.loc 1 104 46 discriminator 2 view .LVU88
+ 335 000e 0AB3     		cbz	r2, .L36
  105:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
  106:Core/Src/util_buffer.c ****     }
  107:Core/Src/util_buffer.c **** 
  108:Core/Src/util_buffer.c ****     /* Find pointer of starting read location */
  109:Core/Src/util_buffer.c ****     rd_start_ptr = buf->data + buf->tail;
- 334              		.loc 1 109 5 is_stmt 1 view .LVU87
- 335              		.loc 1 109 23 is_stmt 0 view .LVU88
- 336 0010 0169     		ldr	r1, [r0, #16]
- 337              	.LVL33:
- 338              		.loc 1 109 35 view .LVU89
- 339 0012 4768     		ldr	r7, [r0, #4]
- 340              		.loc 1 109 18 view .LVU90
- 341 0014 3944     		add	r1, r1, r7
- 342              	.LVL34:
+ 336              		.loc 1 109 5 is_stmt 1 view .LVU89
+ 337              		.loc 1 109 23 is_stmt 0 view .LVU90
+ 338 0010 0169     		ldr	r1, [r0, #16]
+ 339              	.LVL33:
+ 340              		.loc 1 109 35 view .LVU91
+ 341 0012 4768     		ldr	r7, [r0, #4]
+ 342              		.loc 1 109 18 view .LVU92
+ 343 0014 3944     		add	r1, r1, r7
+ 344              	.LVL34:
  110:Core/Src/util_buffer.c ****     /* find how far tail is from the end */
  111:Core/Src/util_buffer.c ****     cnt_from_end = buf->len - buf->tail;
- 343              		.loc 1 111 5 is_stmt 1 view .LVU91
- 344              		.loc 1 111 23 is_stmt 0 view .LVU92
- 345 0016 D0F80880 		ldr	r8, [r0, #8]
- 346              		.loc 1 111 18 view .LVU93
- 347 001a A8EB0702 		sub	r2, r8, r7
- 348              	.LVL35:
+ 345              		.loc 1 111 5 is_stmt 1 view .LVU93
+ 346              		.loc 1 111 23 is_stmt 0 view .LVU94
+ 347 0016 D0F80880 		ldr	r8, [r0, #8]
+ 348              		.loc 1 111 18 view .LVU95
+ 349 001a A8EB0702 		sub	r2, r8, r7
+ 350              	.LVL35:
  112:Core/Src/util_buffer.c **** 
  113:Core/Src/util_buffer.c ****     /* if total read is more than buffer length, only read unique bytes */
  114:Core/Src/util_buffer.c ****     if (elem_cnt > buf->len) {
- 349              		.loc 1 114 5 is_stmt 1 view .LVU94
- 350              		.loc 1 114 8 is_stmt 0 view .LVU95
- 351 001e A045     		cmp	r8, r4
- 352 0020 00D2     		bcs	.L32
+ 351              		.loc 1 114 5 is_stmt 1 view .LVU96
+ 352              		.loc 1 114 8 is_stmt 0 view .LVU97
+ 353 001e A045     		cmp	r8, r4
+ 354 0020 00D2     		bcs	.L32
  115:Core/Src/util_buffer.c ****         elem_cnt = buf->len;
- 353              		.loc 1 115 18 view .LVU96
- 354 0022 4446     		mov	r4, r8
- 355              	.LVL36:
- 356              	.L32:
+ 355              		.loc 1 115 18 view .LVU98
+ 356 0022 4446     		mov	r4, r8
+ 357              	.LVL36:
+ 358              	.L32:
  116:Core/Src/util_buffer.c ****     }
  117:Core/Src/util_buffer.c **** 
  118:Core/Src/util_buffer.c ****     /* Copy data */
  119:Core/Src/util_buffer.c ****     if (elem_cnt > cnt_from_end) {
- 357              		.loc 1 119 5 is_stmt 1 view .LVU97
- 358              		.loc 1 119 8 is_stmt 0 view .LVU98
- 359 0024 9442     		cmp	r4, r2
- 360 0026 0BD9     		bls	.L33
+ 359              		.loc 1 119 5 is_stmt 1 view .LVU99
+ 360              		.loc 1 119 8 is_stmt 0 view .LVU100
+ 361 0024 9442     		cmp	r4, r2
+ 362 0026 0BD9     		bls	.L33
  120:Core/Src/util_buffer.c ****         memcpy(dest_data, rd_start_ptr, cnt_from_end);
- 361              		.loc 1 120 9 is_stmt 1 view .LVU99
- 362 0028 2846     		mov	r0, r5
- 363              	.LVL37:
- 364              		.loc 1 120 9 is_stmt 0 view .LVU100
- 365 002a FFF7FEFF 		bl	memcpy
- 366              	.LVL38:
+ 363              		.loc 1 120 9 is_stmt 1 view .LVU101
+ 364 0028 2846     		mov	r0, r5
+ 365              	.LVL37:
+ 366              		.loc 1 120 9 is_stmt 0 view .LVU102
+ 367 002a FFF7FEFF 		bl	memcpy
+ 368              	.LVL38:
  121:Core/Src/util_buffer.c ****         memcpy(dest_data, buf->data, elem_cnt - cnt_from_end);
- 367              		.loc 1 121 9 is_stmt 1 view .LVU101
- 368 002e A7EB0802 		sub	r2, r7, r8
-ARM GAS  /tmp/cc7KWSOF.s 			page 10
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s 			page 10
 
 
- 369 0032 2244     		add	r2, r2, r4
- 370 0034 3169     		ldr	r1, [r6, #16]
- 371 0036 2846     		mov	r0, r5
- 372 0038 FFF7FEFF 		bl	memcpy
- 373              	.LVL39:
+ 369              		.loc 1 121 9 is_stmt 1 view .LVU103
+ 370 002e A7EB0802 		sub	r2, r7, r8
+ 371 0032 2244     		add	r2, r2, r4
+ 372 0034 3169     		ldr	r1, [r6, #16]
+ 373 0036 2846     		mov	r0, r5
+ 374 0038 FFF7FEFF 		bl	memcpy
+ 375              	.LVL39:
  122:Core/Src/util_buffer.c ****     } else {
  123:Core/Src/util_buffer.c ****         memcpy(dest_data, rd_start_ptr, elem_cnt);
  124:Core/Src/util_buffer.c ****     }
  125:Core/Src/util_buffer.c **** 
  126:Core/Src/util_buffer.c ****     /* yay */
  127:Core/Src/util_buffer.c ****     return EXIT_SUCCESS;
- 374              		.loc 1 127 12 is_stmt 0 view .LVU102
- 375 003c 0020     		movs	r0, #0
- 376 003e 0AE0     		b	.L30
- 377              	.LVL40:
- 378              	.L33:
+ 376              		.loc 1 127 12 is_stmt 0 view .LVU104
+ 377 003c 0020     		movs	r0, #0
+ 378 003e 0AE0     		b	.L30
+ 379              	.LVL40:
+ 380              	.L33:
  123:Core/Src/util_buffer.c ****     }
- 379              		.loc 1 123 9 is_stmt 1 view .LVU103
- 380 0040 2246     		mov	r2, r4
- 381              	.LVL41:
+ 381              		.loc 1 123 9 is_stmt 1 view .LVU105
+ 382 0040 2246     		mov	r2, r4
+ 383              	.LVL41:
  123:Core/Src/util_buffer.c ****     }
- 382              		.loc 1 123 9 is_stmt 0 view .LVU104
- 383 0042 2846     		mov	r0, r5
- 384              	.LVL42:
+ 384              		.loc 1 123 9 is_stmt 0 view .LVU106
+ 385 0042 2846     		mov	r0, r5
+ 386              	.LVL42:
  123:Core/Src/util_buffer.c ****     }
- 385              		.loc 1 123 9 view .LVU105
- 386 0044 FFF7FEFF 		bl	memcpy
- 387              	.LVL43:
- 388              		.loc 1 127 12 view .LVU106
- 389 0048 0020     		movs	r0, #0
- 390 004a 04E0     		b	.L30
- 391              	.LVL44:
- 392              	.L34:
- 393              		.cfi_def_cfa_offset 0
- 394              		.cfi_restore 4
- 395              		.cfi_restore 5
- 396              		.cfi_restore 6
- 397              		.cfi_restore 7
- 398              		.cfi_restore 8
- 399              		.cfi_restore 14
+ 387              		.loc 1 123 9 view .LVU107
+ 388 0044 FFF7FEFF 		bl	memcpy
+ 389              	.LVL43:
+ 390              		.loc 1 127 12 view .LVU108
+ 391 0048 0020     		movs	r0, #0
+ 392 004a 04E0     		b	.L30
+ 393              	.LVL44:
+ 394              	.L34:
+ 395              		.cfi_def_cfa_offset 0
+ 396              		.cfi_restore 4
+ 397              		.cfi_restore 5
+ 398              		.cfi_restore 6
+ 399              		.cfi_restore 7
+ 400              		.cfi_restore 8
+ 401              		.cfi_restore 14
  105:Core/Src/util_buffer.c ****     }
- 400              		.loc 1 105 16 view .LVU107
- 401 004c 0120     		movs	r0, #1
- 402              	.LVL45:
+ 402              		.loc 1 105 16 view .LVU109
+ 403 004c 0120     		movs	r0, #1
+ 404              	.LVL45:
  128:Core/Src/util_buffer.c **** }
- 403              		.loc 1 128 1 view .LVU108
- 404 004e 7047     		bx	lr
- 405              	.LVL46:
- 406              	.L35:
- 407              		.cfi_def_cfa_offset 24
- 408              		.cfi_offset 4, -24
- 409              		.cfi_offset 5, -20
- 410              		.cfi_offset 6, -16
- 411              		.cfi_offset 7, -12
- 412              		.cfi_offset 8, -8
- 413              		.cfi_offset 14, -4
- 105:Core/Src/util_buffer.c ****     }
-ARM GAS  /tmp/cc7KWSOF.s 			page 11
+ 405              		.loc 1 128 1 view .LVU110
+ 406 004e 7047     		bx	lr
+ 407              	.LVL46:
+ 408              	.L35:
+ 409              		.cfi_def_cfa_offset 24
+ 410              		.cfi_offset 4, -24
+ 411              		.cfi_offset 5, -20
+ 412              		.cfi_offset 6, -16
+ 413              		.cfi_offset 7, -12
+ 414              		.cfi_offset 8, -8
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s 			page 11
 
 
- 414              		.loc 1 105 16 view .LVU109
- 415 0050 0120     		movs	r0, #1
- 416              	.LVL47:
+ 415              		.cfi_offset 14, -4
  105:Core/Src/util_buffer.c ****     }
- 417              		.loc 1 105 16 view .LVU110
- 418 0052 00E0     		b	.L30
- 419              	.LVL48:
- 420              	.L36:
+ 416              		.loc 1 105 16 view .LVU111
+ 417 0050 0120     		movs	r0, #1
+ 418              	.LVL47:
  105:Core/Src/util_buffer.c ****     }
- 421              		.loc 1 105 16 view .LVU111
- 422 0054 0120     		movs	r0, #1
- 423              	.LVL49:
- 424              	.L30:
- 425              		.loc 1 128 1 view .LVU112
- 426 0056 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 427              		.loc 1 128 1 view .LVU113
- 428              		.cfi_endproc
- 429              	.LFE4:
- 431              		.section	.text.buf_read,"ax",%progbits
- 432              		.align	1
- 433              		.global	buf_read
- 434              		.syntax unified
- 435              		.thumb
- 436              		.thumb_func
- 438              	buf_read:
- 439              	.LVL50:
- 440              	.LFB3:
+ 419              		.loc 1 105 16 view .LVU112
+ 420 0052 00E0     		b	.L30
+ 421              	.LVL48:
+ 422              	.L36:
+ 105:Core/Src/util_buffer.c ****     }
+ 423              		.loc 1 105 16 view .LVU113
+ 424 0054 0120     		movs	r0, #1
+ 425              	.LVL49:
+ 426              	.L30:
+ 427              		.loc 1 128 1 view .LVU114
+ 428 0056 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 429              		.loc 1 128 1 view .LVU115
+ 430              		.cfi_endproc
+ 431              	.LFE4:
+ 433              		.section	.text.buf_read,"ax",%progbits
+ 434              		.align	1
+ 435              		.global	buf_read
+ 436              		.syntax unified
+ 437              		.thumb
+ 438              		.thumb_func
+ 440              	buf_read:
+ 441              	.LVL50:
+ 442              	.LFB3:
   82:Core/Src/util_buffer.c **** 
- 441              		.loc 1 82 63 is_stmt 1 view -0
- 442              		.cfi_startproc
- 443              		@ args = 0, pretend = 0, frame = 0
- 444              		@ frame_needed = 0, uses_anonymous_args = 0
+ 443              		.loc 1 82 63 is_stmt 1 view -0
+ 444              		.cfi_startproc
+ 445              		@ args = 0, pretend = 0, frame = 0
+ 446              		@ frame_needed = 0, uses_anonymous_args = 0
   82:Core/Src/util_buffer.c **** 
- 445              		.loc 1 82 63 is_stmt 0 view .LVU115
- 446 0000 38B5     		push	{r3, r4, r5, lr}
- 447              		.cfi_def_cfa_offset 16
- 448              		.cfi_offset 3, -16
- 449              		.cfi_offset 4, -12
- 450              		.cfi_offset 5, -8
- 451              		.cfi_offset 14, -4
- 452 0002 0446     		mov	r4, r0
- 453 0004 1546     		mov	r5, r2
+ 447              		.loc 1 82 63 is_stmt 0 view .LVU117
+ 448 0000 38B5     		push	{r3, r4, r5, lr}
+ 449              		.cfi_def_cfa_offset 16
+ 450              		.cfi_offset 3, -16
+ 451              		.cfi_offset 4, -12
+ 452              		.cfi_offset 5, -8
+ 453              		.cfi_offset 14, -4
+ 454 0002 0446     		mov	r4, r0
+ 455 0004 1546     		mov	r5, r2
   85:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
- 454              		.loc 1 85 5 is_stmt 1 view .LVU116
+ 456              		.loc 1 85 5 is_stmt 1 view .LVU118
   85:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
- 455              		.loc 1 85 25 is_stmt 0 view .LVU117
- 456 0006 FFF7FEFF 		bl	buf_peek
- 457              	.LVL51:
+ 457              		.loc 1 85 25 is_stmt 0 view .LVU119
+ 458 0006 FFF7FEFF 		bl	buf_peek
+ 459              	.LVL51:
   85:Core/Src/util_buffer.c ****         return EXIT_FAILURE;
- 458              		.loc 1 85 8 view .LVU118
- 459 000a 0128     		cmp	r0, #1
- 460 000c 0CD0     		beq	.L42
+ 460              		.loc 1 85 8 view .LVU120
+ 461 000a 0128     		cmp	r0, #1
+ 462 000c 0CD0     		beq	.L42
   90:Core/Src/util_buffer.c ****     buf->tail %= buf->len;
- 461              		.loc 1 90 5 is_stmt 1 view .LVU119
+ 463              		.loc 1 90 5 is_stmt 1 view .LVU121
   90:Core/Src/util_buffer.c ****     buf->tail %= buf->len;
- 462              		.loc 1 90 15 is_stmt 0 view .LVU120
- 463 000e 6368     		ldr	r3, [r4, #4]
-ARM GAS  /tmp/cc7KWSOF.s 			page 12
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s 			page 12
 
 
- 464 0010 2B44     		add	r3, r3, r5
- 465 0012 6360     		str	r3, [r4, #4]
+ 464              		.loc 1 90 8 is_stmt 0 view .LVU122
+ 465 000e 6368     		ldr	r3, [r4, #4]
+  90:Core/Src/util_buffer.c ****     buf->tail %= buf->len;
+ 466              		.loc 1 90 15 view .LVU123
+ 467 0010 2B44     		add	r3, r3, r5
+ 468 0012 6360     		str	r3, [r4, #4]
   91:Core/Src/util_buffer.c ****     buf->cnt -= elem_cnt;
- 466              		.loc 1 91 5 is_stmt 1 view .LVU121
+ 469              		.loc 1 91 5 is_stmt 1 view .LVU124
   91:Core/Src/util_buffer.c ****     buf->cnt -= elem_cnt;
- 467              		.loc 1 91 21 is_stmt 0 view .LVU122
- 468 0014 A268     		ldr	r2, [r4, #8]
+ 470              		.loc 1 91 21 is_stmt 0 view .LVU125
+ 471 0014 A268     		ldr	r2, [r4, #8]
   91:Core/Src/util_buffer.c ****     buf->cnt -= elem_cnt;
- 469              		.loc 1 91 15 view .LVU123
- 470 0016 B3FBF2F1 		udiv	r1, r3, r2
- 471 001a 02FB1133 		mls	r3, r2, r1, r3
- 472 001e 6360     		str	r3, [r4, #4]
+ 472              		.loc 1 91 15 view .LVU126
+ 473 0016 B3FBF2F1 		udiv	r1, r3, r2
+ 474 001a 02FB1133 		mls	r3, r2, r1, r3
+ 475 001e 6360     		str	r3, [r4, #4]
   92:Core/Src/util_buffer.c **** 
- 473              		.loc 1 92 5 is_stmt 1 view .LVU124
+ 476              		.loc 1 92 5 is_stmt 1 view .LVU127
   92:Core/Src/util_buffer.c **** 
- 474              		.loc 1 92 14 is_stmt 0 view .LVU125
- 475 0020 E268     		ldr	r2, [r4, #12]
- 476 0022 521B     		subs	r2, r2, r5
- 477 0024 E260     		str	r2, [r4, #12]
+ 477              		.loc 1 92 8 is_stmt 0 view .LVU128
+ 478 0020 E368     		ldr	r3, [r4, #12]
+  92:Core/Src/util_buffer.c **** 
+ 479              		.loc 1 92 14 view .LVU129
+ 480 0022 5B1B     		subs	r3, r3, r5
+ 481 0024 E360     		str	r3, [r4, #12]
   95:Core/Src/util_buffer.c **** }
- 478              		.loc 1 95 5 is_stmt 1 view .LVU126
+ 482              		.loc 1 95 5 is_stmt 1 view .LVU130
   95:Core/Src/util_buffer.c **** }
- 479              		.loc 1 95 12 is_stmt 0 view .LVU127
- 480 0026 0020     		movs	r0, #0
- 481              	.L42:
+ 483              		.loc 1 95 12 is_stmt 0 view .LVU131
+ 484 0026 0020     		movs	r0, #0
+ 485              	.L42:
   96:Core/Src/util_buffer.c **** 
- 482              		.loc 1 96 1 view .LVU128
- 483 0028 38BD     		pop	{r3, r4, r5, pc}
+ 486              		.loc 1 96 1 view .LVU132
+ 487 0028 38BD     		pop	{r3, r4, r5, pc}
   96:Core/Src/util_buffer.c **** 
- 484              		.loc 1 96 1 view .LVU129
- 485              		.cfi_endproc
- 486              	.LFE3:
- 488              		.section	.text.buf_is_empty,"ax",%progbits
- 489              		.align	1
- 490              		.global	buf_is_empty
- 491              		.syntax unified
- 492              		.thumb
- 493              		.thumb_func
- 495              	buf_is_empty:
- 496              	.LVL52:
- 497              	.LFB5:
+ 488              		.loc 1 96 1 view .LVU133
+ 489              		.cfi_endproc
+ 490              	.LFE3:
+ 492              		.section	.text.buf_is_empty,"ax",%progbits
+ 493              		.align	1
+ 494              		.global	buf_is_empty
+ 495              		.syntax unified
+ 496              		.thumb
+ 497              		.thumb_func
+ 499              	buf_is_empty:
+ 500              	.LVL52:
+ 501              	.LFB5:
  129:Core/Src/util_buffer.c **** 
  130:Core/Src/util_buffer.c **** bool buf_is_empty(buffer_t *buf) {
- 498              		.loc 1 130 34 is_stmt 1 view -0
- 499              		.cfi_startproc
- 500              		@ args = 0, pretend = 0, frame = 0
- 501              		@ frame_needed = 0, uses_anonymous_args = 0
- 502              		@ link register save eliminated.
+ 502              		.loc 1 130 34 is_stmt 1 view -0
+ 503              		.cfi_startproc
+ 504              		@ args = 0, pretend = 0, frame = 0
+ 505              		@ frame_needed = 0, uses_anonymous_args = 0
+ 506              		@ link register save eliminated.
  131:Core/Src/util_buffer.c ****     return (0 == buf->cnt);
- 503              		.loc 1 131 5 view .LVU131
- 504              		.loc 1 131 21 is_stmt 0 view .LVU132
- 505 0000 C068     		ldr	r0, [r0, #12]
- 506              	.LVL53:
+ 507              		.loc 1 131 5 view .LVU135
+ 508              		.loc 1 131 21 is_stmt 0 view .LVU136
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s 			page 13
+
+
+ 509 0000 C068     		ldr	r0, [r0, #12]
+ 510              	.LVL53:
  132:Core/Src/util_buffer.c **** }
- 507              		.loc 1 132 1 view .LVU133
- 508 0002 B0FA80F0 		clz	r0, r0
- 509 0006 4009     		lsrs	r0, r0, #5
-ARM GAS  /tmp/cc7KWSOF.s 			page 13
-
-
- 510 0008 7047     		bx	lr
- 511              		.cfi_endproc
- 512              	.LFE5:
- 514              		.section	.text.buf_get_free_elem,"ax",%progbits
- 515              		.align	1
- 516              		.global	buf_get_free_elem
- 517              		.syntax unified
- 518              		.thumb
- 519              		.thumb_func
- 521              	buf_get_free_elem:
- 522              	.LVL54:
- 523              	.LFB6:
+ 511              		.loc 1 132 1 view .LVU137
+ 512 0002 B0FA80F0 		clz	r0, r0
+ 513 0006 4009     		lsrs	r0, r0, #5
+ 514 0008 7047     		bx	lr
+ 515              		.cfi_endproc
+ 516              	.LFE5:
+ 518              		.section	.text.buf_get_free_elem,"ax",%progbits
+ 519              		.align	1
+ 520              		.global	buf_get_free_elem
+ 521              		.syntax unified
+ 522              		.thumb
+ 523              		.thumb_func
+ 525              	buf_get_free_elem:
+ 526              	.LVL54:
+ 527              	.LFB6:
  133:Core/Src/util_buffer.c **** 
  134:Core/Src/util_buffer.c **** size_t buf_get_free_elem(buffer_t *buf) {
- 524              		.loc 1 134 41 is_stmt 1 view -0
- 525              		.cfi_startproc
- 526              		@ args = 0, pretend = 0, frame = 0
- 527              		@ frame_needed = 0, uses_anonymous_args = 0
- 528              		@ link register save eliminated.
+ 528              		.loc 1 134 41 is_stmt 1 view -0
+ 529              		.cfi_startproc
+ 530              		@ args = 0, pretend = 0, frame = 0
+ 531              		@ frame_needed = 0, uses_anonymous_args = 0
+ 532              		@ link register save eliminated.
  135:Core/Src/util_buffer.c ****     /* if overflow */
  136:Core/Src/util_buffer.c ****     if (buf->cnt > buf->len) {
- 529              		.loc 1 136 5 view .LVU135
- 530              		.loc 1 136 12 is_stmt 0 view .LVU136
- 531 0000 C368     		ldr	r3, [r0, #12]
- 532              		.loc 1 136 23 view .LVU137
- 533 0002 8068     		ldr	r0, [r0, #8]
- 534              	.LVL55:
- 535              		.loc 1 136 8 view .LVU138
- 536 0004 8342     		cmp	r3, r0
- 537 0006 01D8     		bhi	.L48
+ 533              		.loc 1 136 5 view .LVU139
+ 534              		.loc 1 136 12 is_stmt 0 view .LVU140
+ 535 0000 C368     		ldr	r3, [r0, #12]
+ 536              		.loc 1 136 23 view .LVU141
+ 537 0002 8068     		ldr	r0, [r0, #8]
+ 538              	.LVL55:
+ 539              		.loc 1 136 8 view .LVU142
+ 540 0004 8342     		cmp	r3, r0
+ 541 0006 01D8     		bhi	.L48
  137:Core/Src/util_buffer.c ****         return 0;
  138:Core/Src/util_buffer.c ****     } else {
  139:Core/Src/util_buffer.c ****         return (buf->len - buf->cnt);
- 538              		.loc 1 139 9 is_stmt 1 view .LVU139
- 539              		.loc 1 139 26 is_stmt 0 view .LVU140
- 540 0008 C01A     		subs	r0, r0, r3
- 541 000a 7047     		bx	lr
- 542              	.L48:
+ 542              		.loc 1 139 9 is_stmt 1 view .LVU143
+ 543              		.loc 1 139 26 is_stmt 0 view .LVU144
+ 544 0008 C01A     		subs	r0, r0, r3
+ 545 000a 7047     		bx	lr
+ 546              	.L48:
  137:Core/Src/util_buffer.c ****         return 0;
- 543              		.loc 1 137 16 view .LVU141
- 544 000c 0020     		movs	r0, #0
+ 547              		.loc 1 137 16 view .LVU145
+ 548 000c 0020     		movs	r0, #0
  140:Core/Src/util_buffer.c ****     }
  141:Core/Src/util_buffer.c **** }
- 545              		.loc 1 141 1 view .LVU142
- 546 000e 7047     		bx	lr
- 547              		.cfi_endproc
- 548              	.LFE6:
- 550              		.section	.text.buf_get_free_data,"ax",%progbits
- 551              		.align	1
- 552              		.global	buf_get_free_data
- 553              		.syntax unified
- 554              		.thumb
- 555              		.thumb_func
- 557              	buf_get_free_data:
- 558              	.LVL56:
- 559              	.LFB7:
+ 549              		.loc 1 141 1 view .LVU146
+ 550 000e 7047     		bx	lr
+ 551              		.cfi_endproc
+ 552              	.LFE6:
+ 554              		.section	.text.buf_get_free_data,"ax",%progbits
+ 555              		.align	1
+ 556              		.global	buf_get_free_data
+ 557              		.syntax unified
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s 			page 14
+
+
+ 558              		.thumb
+ 559              		.thumb_func
+ 561              	buf_get_free_data:
+ 562              	.LVL56:
+ 563              	.LFB7:
  142:Core/Src/util_buffer.c **** 
-ARM GAS  /tmp/cc7KWSOF.s 			page 14
-
-
  143:Core/Src/util_buffer.c **** size_t buf_get_free_data(buffer_t *buf, size_t size_of_data) {
- 560              		.loc 1 143 62 is_stmt 1 view -0
- 561              		.cfi_startproc
- 562              		@ args = 0, pretend = 0, frame = 0
- 563              		@ frame_needed = 0, uses_anonymous_args = 0
- 564              		@ link register save eliminated.
+ 564              		.loc 1 143 62 is_stmt 1 view -0
+ 565              		.cfi_startproc
+ 566              		@ args = 0, pretend = 0, frame = 0
+ 567              		@ frame_needed = 0, uses_anonymous_args = 0
+ 568              		@ link register save eliminated.
  144:Core/Src/util_buffer.c ****     /* if overflow */
  145:Core/Src/util_buffer.c ****     if (buf->cnt > buf->len) {
- 565              		.loc 1 145 5 view .LVU144
- 566              		.loc 1 145 12 is_stmt 0 view .LVU145
- 567 0000 C268     		ldr	r2, [r0, #12]
- 568              		.loc 1 145 23 view .LVU146
- 569 0002 8368     		ldr	r3, [r0, #8]
- 570              		.loc 1 145 8 view .LVU147
- 571 0004 9A42     		cmp	r2, r3
- 572 0006 03D8     		bhi	.L51
+ 569              		.loc 1 145 5 view .LVU148
+ 570              		.loc 1 145 12 is_stmt 0 view .LVU149
+ 571 0000 C268     		ldr	r2, [r0, #12]
+ 572              		.loc 1 145 23 view .LVU150
+ 573 0002 8068     		ldr	r0, [r0, #8]
+ 574              	.LVL57:
+ 575              		.loc 1 145 8 view .LVU151
+ 576 0004 8242     		cmp	r2, r0
+ 577 0006 03D8     		bhi	.L51
  146:Core/Src/util_buffer.c ****         return 0;
  147:Core/Src/util_buffer.c ****     } else {
  148:Core/Src/util_buffer.c ****         return (buf->len - buf->cnt) / size_of_data;
- 573              		.loc 1 148 9 is_stmt 1 view .LVU148
- 574              		.loc 1 148 26 is_stmt 0 view .LVU149
- 575 0008 9B1A     		subs	r3, r3, r2
- 576              		.loc 1 148 38 view .LVU150
- 577 000a B3FBF1F0 		udiv	r0, r3, r1
- 578              	.LVL57:
- 579              		.loc 1 148 38 view .LVU151
- 580 000e 7047     		bx	lr
- 581              	.LVL58:
- 582              	.L51:
+ 578              		.loc 1 148 9 is_stmt 1 view .LVU152
+ 579              		.loc 1 148 26 is_stmt 0 view .LVU153
+ 580 0008 801A     		subs	r0, r0, r2
+ 581              		.loc 1 148 38 view .LVU154
+ 582 000a B0FBF1F0 		udiv	r0, r0, r1
+ 583 000e 7047     		bx	lr
+ 584              	.L51:
  146:Core/Src/util_buffer.c ****         return 0;
- 583              		.loc 1 146 16 view .LVU152
- 584 0010 0020     		movs	r0, #0
- 585              	.LVL59:
+ 585              		.loc 1 146 16 view .LVU155
+ 586 0010 0020     		movs	r0, #0
  149:Core/Src/util_buffer.c ****     }
  150:Core/Src/util_buffer.c **** }...
- 586              		.loc 1 150 1 view .LVU153
- 587 0012 7047     		bx	lr
- 588              		.cfi_endproc
- 589              	.LFE7:
- 591              		.text
- 592              	.Letext0:
- 593              		.file 2 "Core/Inc/util_buffer.h"
- 594              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 595              		.file 4 "<built-in>"
-ARM GAS  /tmp/cc7KWSOF.s 			page 15
+ 587              		.loc 1 150 1 view .LVU156
+ 588 0012 7047     		bx	lr
+ 589              		.cfi_endproc
+ 590              	.LFE7:
+ 592              		.text
+ 593              	.Letext0:
+ 594              		.file 2 "Core/Inc/util_buffer.h"
+ 595              		.file 3 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
+ 596              		.file 4 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
+ 597              		.file 5 "<built-in>"
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 util_buffer.c
-     /tmp/cc7KWSOF.s:18     .text.buf_reset:0000000000000000 $t
-     /tmp/cc7KWSOF.s:24     .text.buf_reset:0000000000000000 buf_reset
-     /tmp/cc7KWSOF.s:76     .text.buf_init:0000000000000000 $t
-     /tmp/cc7KWSOF.s:82     .text.buf_init:0000000000000000 buf_init
-     /tmp/cc7KWSOF.s:146    .text.buf_write:0000000000000000 $t
-     /tmp/cc7KWSOF.s:152    .text.buf_write:0000000000000000 buf_write
-     /tmp/cc7KWSOF.s:300    .text.buf_peek:0000000000000000 $t
-     /tmp/cc7KWSOF.s:306    .text.buf_peek:0000000000000000 buf_peek
-     /tmp/cc7KWSOF.s:432    .text.buf_read:0000000000000000 $t
-     /tmp/cc7KWSOF.s:438    .text.buf_read:0000000000000000 buf_read
-     /tmp/cc7KWSOF.s:489    .text.buf_is_empty:0000000000000000 $t
-     /tmp/cc7KWSOF.s:495    .text.buf_is_empty:0000000000000000 buf_is_empty
-     /tmp/cc7KWSOF.s:515    .text.buf_get_free_elem:0000000000000000 $t
-     /tmp/cc7KWSOF.s:521    .text.buf_get_free_elem:0000000000000000 buf_get_free_elem
-     /tmp/cc7KWSOF.s:551    .text.buf_get_free_data:0000000000000000 $t
-     /tmp/cc7KWSOF.s:557    .text.buf_get_free_data:0000000000000000 buf_get_free_data
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:19     .text.buf_reset:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:25     .text.buf_reset:0000000000000000 buf_reset
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:76     .text.buf_init:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:82     .text.buf_init:0000000000000000 buf_init
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:146    .text.buf_write:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:152    .text.buf_write:0000000000000000 buf_write
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:302    .text.buf_peek:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:308    .text.buf_peek:0000000000000000 buf_peek
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:434    .text.buf_read:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:440    .text.buf_read:0000000000000000 buf_read
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:493    .text.buf_is_empty:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:499    .text.buf_is_empty:0000000000000000 buf_is_empty
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:519    .text.buf_get_free_elem:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:525    .text.buf_get_free_elem:0000000000000000 buf_get_free_elem
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:555    .text.buf_get_free_data:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWQFIbd.s:561    .text.buf_get_free_data:0000000000000000 buf_get_free_data
 
 UNDEFINED SYMBOLS
 memset

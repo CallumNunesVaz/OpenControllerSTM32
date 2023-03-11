@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccgBlMPy.s 			page 1
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccuozKWf.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -17,15 +17,15 @@ ARM GAS  /tmp/ccgBlMPy.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.section	.text.dbg_log_init,"ax",%progbits
-  18              		.align	1
-  19              		.global	dbg_log_init
-  20              		.syntax unified
-  21              		.thumb
-  22              		.thumb_func
-  24              	dbg_log_init:
-  25              	.LFB0:
-  26              		.file 1 "Core/Src/util_error.c"
+  17              		.file 1 "Core/Src/util_error.c"
+  18              		.section	.text.dbg_log_init,"ax",%progbits
+  19              		.align	1
+  20              		.global	dbg_log_init
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	dbg_log_init:
+  26              	.LFB0:
    1:Core/Src/util_error.c **** /**
    2:Core/Src/util_error.c **** 
    3:Core/Src/util_error.c ****  */
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccgBlMPy.s 			page 1
   47              		.loc 1 11 108 view -0
   48              		.cfi_startproc
   49              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccgBlMPy.s 			page 2
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccuozKWf.s 			page 2
 
 
   50              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -99,18 +99,18 @@ ARM GAS  /tmp/ccgBlMPy.s 			page 1
   81              	.LFE2:
   83              		.text
   84              	.Letext0:
-  85              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
+  85              		.file 2 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
   86              		.file 3 "Core/Inc/util_error.h"
-ARM GAS  /tmp/ccgBlMPy.s 			page 3
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccuozKWf.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 util_error.c
-     /tmp/ccgBlMPy.s:18     .text.dbg_log_init:0000000000000000 $t
-     /tmp/ccgBlMPy.s:24     .text.dbg_log_init:0000000000000000 dbg_log_init
-     /tmp/ccgBlMPy.s:38     .text.dbg_log:0000000000000000 $t
-     /tmp/ccgBlMPy.s:44     .text.dbg_log:0000000000000000 dbg_log
-     /tmp/ccgBlMPy.s:58     .text.dbg_log_code:0000000000000000 $t
-     /tmp/ccgBlMPy.s:64     .text.dbg_log_code:0000000000000000 dbg_log_code
+C:\Users\Callum\AppData\Local\Temp\ccuozKWf.s:19     .text.dbg_log_init:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccuozKWf.s:25     .text.dbg_log_init:0000000000000000 dbg_log_init
+C:\Users\Callum\AppData\Local\Temp\ccuozKWf.s:38     .text.dbg_log:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccuozKWf.s:44     .text.dbg_log:0000000000000000 dbg_log
+C:\Users\Callum\AppData\Local\Temp\ccuozKWf.s:58     .text.dbg_log_code:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccuozKWf.s:64     .text.dbg_log_code:0000000000000000 dbg_log_code
 
 NO UNDEFINED SYMBOLS

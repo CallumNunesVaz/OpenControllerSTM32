@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccHe9sAC.s 			page 1
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -17,15 +17,15 @@ ARM GAS  /tmp/ccHe9sAC.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.section	.text.bout_tick_callback,"ax",%progbits
-  18              		.align	1
-  19              		.global	bout_tick_callback
-  20              		.syntax unified
-  21              		.thumb
-  22              		.thumb_func
-  24              	bout_tick_callback:
-  25              	.LFB72:
-  26              		.file 1 "Core/Src/mgr_bout.c"
+  17              		.file 1 "Core/Src/mgr_bout.c"
+  18              		.section	.text.bout_tick_callback,"ax",%progbits
+  19              		.align	1
+  20              		.global	bout_tick_callback
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	bout_tick_callback:
+  26              	.LFB72:
    1:Core/Src/mgr_bout.c **** /**
    2:Core/Src/mgr_bout.c ****  * @file mgr_heartbeat.h
    3:Core/Src/mgr_bout.c ****  * @author your name (you@domain.com)
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccHe9sAC.s 			page 1
   30:Core/Src/mgr_bout.c ****     /* set up each of the gpio */
   31:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
   32:Core/Src/mgr_bout.c ****         bout_gpio[idx].port = bout_gpio_ports[idx];
-ARM GAS  /tmp/ccHe9sAC.s 			page 2
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s 			page 2
 
 
   33:Core/Src/mgr_bout.c ****         bout_gpio[idx].pin = bout_gpio_pins[idx];
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccHe9sAC.s 			page 1
   87:Core/Src/mgr_bout.c ****         callback_cnt--;
   88:Core/Src/mgr_bout.c ****     }
   89:Core/Src/mgr_bout.c **** }
-ARM GAS  /tmp/ccHe9sAC.s 			page 3
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s 			page 3
 
 
   90:Core/Src/mgr_bout.c **** 
@@ -153,8 +153,8 @@ ARM GAS  /tmp/ccHe9sAC.s 			page 1
   48              	.L4:
   49 0012 00BF     		.align	2
   50              	.L3:
-  51 0014 00000000 		.word	.LANCHOR0
-  52 0018 00000000 		.word	.LANCHOR1
+  51 0014 00000000 		.word	bouts_is_active
+  52 0018 00000000 		.word	callback_cnt
   53              		.cfi_endproc
   54              	.LFE72:
   56              		.section	.text.bout_reset_lib,"ax",%progbits
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccHe9sAC.s 			page 1
   73              		.loc 1 50 5 view .LVU8
   52:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
   74              		.loc 1 52 5 view .LVU9
-ARM GAS  /tmp/ccHe9sAC.s 			page 4
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s 			page 4
 
 
   75              	.LVL0:
@@ -200,454 +200,434 @@ ARM GAS  /tmp/ccHe9sAC.s 			page 1
   88 0012 FFF7FEFF 		bl	stmgpio_write
   89              	.LVL2:
   52:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
-  90              		.loc 1 52 35 discriminator 3 view .LVU13
+  90              		.loc 1 52 38 discriminator 3 view .LVU13
+  91 0016 0134     		adds	r4, r4, #1
+  92              	.LVL3:
   52:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
-  91              		.loc 1 52 38 is_stmt 0 discriminator 3 view .LVU14
-  92 0016 0134     		adds	r4, r4, #1
-  93              	.LVL3:
+  93              		.loc 1 52 38 is_stmt 0 discriminator 3 view .LVU14
+  94 0018 E4B2     		uxtb	r4, r4
+  95              	.LVL4:
+  96              	.L6:
   52:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
-  94              		.loc 1 52 38 discriminator 3 view .LVU15
-  95 0018 E4B2     		uxtb	r4, r4
-  96              	.LVL4:
-  97              	.L6:
-  52:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
-  98              		.loc 1 52 19 is_stmt 1 discriminator 1 view .LVU16
-  52:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
-  99              		.loc 1 52 5 is_stmt 0 discriminator 1 view .LVU17
- 100 001a 072C     		cmp	r4, #7
- 101 001c F3D9     		bls	.L7
+  97              		.loc 1 52 23 is_stmt 1 discriminator 1 view .LVU15
+  98 001a 072C     		cmp	r4, #7
+  99 001c F3D9     		bls	.L7
   55:Core/Src/mgr_bout.c **** }
- 102              		.loc 1 55 1 view .LVU18
- 103 001e 10BD     		pop	{r4, pc}
- 104              	.LVL5:
- 105              	.L10:
+ 100              		.loc 1 55 1 is_stmt 0 view .LVU16
+ 101 001e 10BD     		pop	{r4, pc}
+ 102              	.LVL5:
+ 103              	.L10:
   55:Core/Src/mgr_bout.c **** }
- 106              		.loc 1 55 1 view .LVU19
- 107              		.align	2
- 108              	.L9:
- 109 0020 00000000 		.word	.LANCHOR2
- 110              		.cfi_endproc
- 111              	.LFE66:
- 113              		.section	.text.bout_init,"ax",%progbits
- 114              		.align	1
- 115              		.global	bout_init
- 116              		.syntax unified
- 117              		.thumb
- 118              		.thumb_func
- 120              	bout_init:
- 121              	.LFB65:
+ 104              		.loc 1 55 1 view .LVU17
+ 105              		.align	2
+ 106              	.L9:
+ 107 0020 00000000 		.word	bout_gpio
+ 108              		.cfi_endproc
+ 109              	.LFE66:
+ 111              		.section	.text.bout_init,"ax",%progbits
+ 112              		.align	1
+ 113              		.global	bout_init
+ 114              		.syntax unified
+ 115              		.thumb
+ 116              		.thumb_func
+ 118              	bout_init:
+ 119              	.LFB65:
   27:Core/Src/mgr_bout.c **** {
- 122              		.loc 1 27 1 is_stmt 1 view -0
-ARM GAS  /tmp/ccHe9sAC.s 			page 5
+ 120              		.loc 1 27 1 is_stmt 1 view -0
+ 121              		.cfi_startproc
+ 122              		@ args = 0, pretend = 0, frame = 0
+ 123              		@ frame_needed = 0, uses_anonymous_args = 0
+ 124 0000 10B5     		push	{r4, lr}
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s 			page 5
 
 
- 123              		.cfi_startproc
- 124              		@ args = 0, pretend = 0, frame = 0
- 125              		@ frame_needed = 0, uses_anonymous_args = 0
- 126 0000 10B5     		push	{r4, lr}
- 127              		.cfi_def_cfa_offset 8
- 128              		.cfi_offset 4, -8
- 129              		.cfi_offset 14, -4
+ 125              		.cfi_def_cfa_offset 8
+ 126              		.cfi_offset 4, -8
+ 127              		.cfi_offset 14, -4
   28:Core/Src/mgr_bout.c ****     uint8_t idx;
- 130              		.loc 1 28 5 view .LVU21
+ 128              		.loc 1 28 5 view .LVU19
   31:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
- 131              		.loc 1 31 5 view .LVU22
- 132              	.LVL6:
+ 129              		.loc 1 31 5 view .LVU20
+ 130              	.LVL6:
   31:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
- 133              		.loc 1 31 14 is_stmt 0 view .LVU23
- 134 0002 0024     		movs	r4, #0
- 135              	.LVL7:
- 136              	.L12:
+ 131              		.loc 1 31 14 is_stmt 0 view .LVU21
+ 132 0002 0024     		movs	r4, #0
+ 133              	.LVL7:
+ 134              	.L12:
   31:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
- 137              		.loc 1 31 19 is_stmt 1 discriminator 1 view .LVU24
-  31:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
- 138              		.loc 1 31 5 is_stmt 0 discriminator 1 view .LVU25
- 139 0004 072C     		cmp	r4, #7
- 140 0006 15D8     		bhi	.L17
+ 135              		.loc 1 31 23 is_stmt 1 discriminator 1 view .LVU22
+ 136 0004 072C     		cmp	r4, #7
+ 137 0006 15D8     		bhi	.L17
   32:Core/Src/mgr_bout.c ****         bout_gpio[idx].port = bout_gpio_ports[idx];
- 141              		.loc 1 32 9 is_stmt 1 view .LVU26
+ 138              		.loc 1 32 9 view .LVU23
   32:Core/Src/mgr_bout.c ****         bout_gpio[idx].port = bout_gpio_ports[idx];
- 142              		.loc 1 32 46 is_stmt 0 view .LVU27
- 143 0008 0F4B     		ldr	r3, .L18
- 144 000a 195D     		ldrb	r1, [r3, r4]	@ zero_extendqisi2
+ 139              		.loc 1 32 46 is_stmt 0 view .LVU24
+ 140 0008 0F4B     		ldr	r3, .L18
+ 141 000a 195D     		ldrb	r1, [r3, r4]	@ zero_extendqisi2
   32:Core/Src/mgr_bout.c ****         bout_gpio[idx].port = bout_gpio_ports[idx];
- 145              		.loc 1 32 29 view .LVU28
- 146 000c 0F4A     		ldr	r2, .L18+4
- 147 000e 04EB4403 		add	r3, r4, r4, lsl #1
- 148 0012 02EB8303 		add	r3, r2, r3, lsl #2
- 149 0016 1971     		strb	r1, [r3, #4]
+ 142              		.loc 1 32 29 view .LVU25
+ 143 000c 0F4A     		ldr	r2, .L18+4
+ 144 000e 04EB4403 		add	r3, r4, r4, lsl #1
+ 145 0012 02EB8303 		add	r3, r2, r3, lsl #2
+ 146 0016 1971     		strb	r1, [r3, #4]
   33:Core/Src/mgr_bout.c ****         bout_gpio[idx].pin = bout_gpio_pins[idx];
- 150              		.loc 1 33 9 is_stmt 1 view .LVU29
+ 147              		.loc 1 33 9 is_stmt 1 view .LVU26
   33:Core/Src/mgr_bout.c ****         bout_gpio[idx].pin = bout_gpio_pins[idx];
- 151              		.loc 1 33 44 is_stmt 0 view .LVU30
- 152 0018 0D49     		ldr	r1, .L18+8
- 153 001a 095D     		ldrb	r1, [r1, r4]	@ zero_extendqisi2
+ 148              		.loc 1 33 44 is_stmt 0 view .LVU27
+ 149 0018 0D49     		ldr	r1, .L18+8
+ 150 001a 095D     		ldrb	r1, [r1, r4]	@ zero_extendqisi2
   33:Core/Src/mgr_bout.c ****         bout_gpio[idx].pin = bout_gpio_pins[idx];
- 154              		.loc 1 33 28 view .LVU31
- 155 001c 5971     		strb	r1, [r3, #5]
+ 151              		.loc 1 33 28 view .LVU28
+ 152 001c 5971     		strb	r1, [r3, #5]
   34:Core/Src/mgr_bout.c ****         bout_gpio[idx].cfg = OUT_PUSHPULL;
- 156              		.loc 1 34 9 is_stmt 1 view .LVU32
+ 153              		.loc 1 34 9 is_stmt 1 view .LVU29
   34:Core/Src/mgr_bout.c ****         bout_gpio[idx].cfg = OUT_PUSHPULL;
- 157              		.loc 1 34 28 is_stmt 0 view .LVU33
- 158 001e 0421     		movs	r1, #4
- 159 0020 D970     		strb	r1, [r3, #3]
+ 154              		.loc 1 34 28 is_stmt 0 view .LVU30
+ 155 001e 0421     		movs	r1, #4
+ 156 0020 D970     		strb	r1, [r3, #3]
   35:Core/Src/mgr_bout.c ****         bout_gpio[idx].dir = OUTPUT_2MHZ;
- 160              		.loc 1 35 9 is_stmt 1 view .LVU34
+ 157              		.loc 1 35 9 is_stmt 1 view .LVU31
   35:Core/Src/mgr_bout.c ****         bout_gpio[idx].dir = OUTPUT_2MHZ;
- 161              		.loc 1 35 28 is_stmt 0 view .LVU35
- 162 0022 0221     		movs	r1, #2
- 163 0024 5970     		strb	r1, [r3, #1]
+ 158              		.loc 1 35 28 is_stmt 0 view .LVU32
+ 159 0022 0221     		movs	r1, #2
+ 160 0024 5970     		strb	r1, [r3, #1]
   36:Core/Src/mgr_bout.c ****         ASSERT_INT(stmgpio_setup(&bout_gpio[idx]));
-ARM GAS  /tmp/ccHe9sAC.s 			page 6
+ 161              		.loc 1 36 9 is_stmt 1 view .LVU33
+ 162 0026 1846     		mov	r0, r3
+ 163 0028 FFF7FEFF 		bl	stmgpio_setup
+ 164              	.LVL8:
+ 165 002c 48B9     		cbnz	r0, .L15
+  31:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s 			page 6
 
 
- 164              		.loc 1 36 9 is_stmt 1 view .LVU36
- 165 0026 1846     		mov	r0, r3
- 166 0028 FFF7FEFF 		bl	stmgpio_setup
- 167              	.LVL8:
- 168 002c 48B9     		cbnz	r0, .L15
+ 166              		.loc 1 31 38 discriminator 2 view .LVU34
+ 167 002e 0134     		adds	r4, r4, #1
+ 168              	.LVL9:
   31:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
- 169              		.loc 1 31 35 discriminator 2 view .LVU37
+ 169              		.loc 1 31 38 is_stmt 0 discriminator 2 view .LVU35
+ 170 0030 E4B2     		uxtb	r4, r4
+ 171              	.LVL10:
   31:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
- 170              		.loc 1 31 38 is_stmt 0 discriminator 2 view .LVU38
- 171 002e 0134     		adds	r4, r4, #1
- 172              	.LVL9:
-  31:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
- 173              		.loc 1 31 38 discriminator 2 view .LVU39
- 174 0030 E4B2     		uxtb	r4, r4
- 175              	.LVL10:
-  31:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
- 176              		.loc 1 31 38 discriminator 2 view .LVU40
- 177 0032 E7E7     		b	.L12
- 178              	.L17:
+ 172              		.loc 1 31 38 discriminator 2 view .LVU36
+ 173 0032 E7E7     		b	.L12
+ 174              	.L17:
   40:Core/Src/mgr_bout.c ****     hw_systick_add_callback(bout_tick_callback);
- 179              		.loc 1 40 5 is_stmt 1 view .LVU41
- 180 0034 0748     		ldr	r0, .L18+12
- 181 0036 FFF7FEFF 		bl	hw_systick_add_callback
- 182              	.LVL11:
+ 175              		.loc 1 40 5 is_stmt 1 view .LVU37
+ 176 0034 0748     		ldr	r0, .L18+12
+ 177 0036 FFF7FEFF 		bl	hw_systick_add_callback
+ 178              	.LVL11:
   43:Core/Src/mgr_bout.c ****     bout_reset_lib();
- 183              		.loc 1 43 5 view .LVU42
- 184 003a FFF7FEFF 		bl	bout_reset_lib
- 185              	.LVL12:
+ 179              		.loc 1 43 5 view .LVU38
+ 180 003a FFF7FEFF 		bl	bout_reset_lib
+ 181              	.LVL12:
   45:Core/Src/mgr_bout.c ****     return EXIT_SUCCESS;
- 186              		.loc 1 45 5 view .LVU43
+ 182              		.loc 1 45 5 view .LVU39
   45:Core/Src/mgr_bout.c ****     return EXIT_SUCCESS;
- 187              		.loc 1 45 12 is_stmt 0 view .LVU44
- 188 003e 0020     		movs	r0, #0
- 189              	.L11:
+ 183              		.loc 1 45 12 is_stmt 0 view .LVU40
+ 184 003e 0020     		movs	r0, #0
+ 185              	.L11:
   46:Core/Src/mgr_bout.c **** }
- 190              		.loc 1 46 1 view .LVU45
- 191 0040 10BD     		pop	{r4, pc}
- 192              	.LVL13:
- 193              	.L15:
+ 186              		.loc 1 46 1 view .LVU41
+ 187 0040 10BD     		pop	{r4, pc}
+ 188              	.LVL13:
+ 189              	.L15:
   36:Core/Src/mgr_bout.c ****         ASSERT_INT(stmgpio_setup(&bout_gpio[idx]));
- 194              		.loc 1 36 9 view .LVU46
- 195 0042 0120     		movs	r0, #1
- 196 0044 FCE7     		b	.L11
- 197              	.L19:
- 198 0046 00BF     		.align	2
- 199              	.L18:
- 200 0048 00000000 		.word	.LANCHOR3
- 201 004c 00000000 		.word	.LANCHOR2
- 202 0050 00000000 		.word	.LANCHOR4
- 203 0054 00000000 		.word	bout_tick_callback
- 204              		.cfi_endproc
- 205              	.LFE65:
- 207              		.section	.text.bout_reset,"ax",%progbits
- 208              		.align	1
- 209              		.global	bout_reset
- 210              		.syntax unified
- 211              		.thumb
-ARM GAS  /tmp/ccHe9sAC.s 			page 7
+ 190              		.loc 1 36 9 view .LVU42
+ 191 0042 0120     		movs	r0, #1
+ 192 0044 FCE7     		b	.L11
+ 193              	.L19:
+ 194 0046 00BF     		.align	2
+ 195              	.L18:
+ 196 0048 00000000 		.word	bout_gpio_ports
+ 197 004c 00000000 		.word	bout_gpio
+ 198 0050 00000000 		.word	bout_gpio_pins
+ 199 0054 00000000 		.word	bout_tick_callback
+ 200              		.cfi_endproc
+ 201              	.LFE65:
+ 203              		.section	.text.bout_reset,"ax",%progbits
+ 204              		.align	1
+ 205              		.global	bout_reset
+ 206              		.syntax unified
+ 207              		.thumb
+ 208              		.thumb_func
+ 210              	bout_reset:
+ 211              	.LVL14:
+ 212              	.LFB67:
+  58:Core/Src/mgr_bout.c **** {
+ 213              		.loc 1 58 1 is_stmt 1 view -0
+ 214              		.cfi_startproc
+ 215              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s 			page 7
 
 
- 212              		.thumb_func
- 214              	bout_reset:
- 215              	.LVL14:
- 216              	.LFB67:
-  58:Core/Src/mgr_bout.c **** {
- 217              		.loc 1 58 1 is_stmt 1 view -0
- 218              		.cfi_startproc
- 219              		@ args = 0, pretend = 0, frame = 0
- 220              		@ frame_needed = 0, uses_anonymous_args = 0
+ 216              		@ frame_needed = 0, uses_anonymous_args = 0
   60:Core/Src/mgr_bout.c ****     if (BOUT_CNT > bout_num) {
- 221              		.loc 1 60 5 view .LVU48
+ 217              		.loc 1 60 5 view .LVU44
   60:Core/Src/mgr_bout.c ****     if (BOUT_CNT > bout_num) {
- 222              		.loc 1 60 8 is_stmt 0 view .LVU49
- 223 0000 0728     		cmp	r0, #7
- 224 0002 00D9     		bls	.L26
- 225 0004 7047     		bx	lr
- 226              	.L26:
+ 218              		.loc 1 60 8 is_stmt 0 view .LVU45
+ 219 0000 0728     		cmp	r0, #7
+ 220 0002 00D9     		bls	.L26
+ 221 0004 7047     		bx	lr
+ 222              	.L26:
   58:Core/Src/mgr_bout.c **** {
- 227              		.loc 1 58 1 view .LVU50
- 228 0006 08B5     		push	{r3, lr}
- 229              		.cfi_def_cfa_offset 8
- 230              		.cfi_offset 3, -8
- 231              		.cfi_offset 14, -4
+ 223              		.loc 1 58 1 view .LVU46
+ 224 0006 08B5     		push	{r3, lr}
+ 225              		.cfi_def_cfa_offset 8
+ 226              		.cfi_offset 3, -8
+ 227              		.cfi_offset 14, -4
   61:Core/Src/mgr_bout.c ****         stmgpio_write(&bout_gpio[bout_num], PIN_LOW);
- 232              		.loc 1 61 9 is_stmt 1 view .LVU51
- 233 0008 00EB4000 		add	r0, r0, r0, lsl #1
- 234              	.LVL15:
+ 228              		.loc 1 61 9 is_stmt 1 view .LVU47
+ 229 0008 00EB4000 		add	r0, r0, r0, lsl #1
+ 230              	.LVL15:
   61:Core/Src/mgr_bout.c ****         stmgpio_write(&bout_gpio[bout_num], PIN_LOW);
- 235              		.loc 1 61 9 is_stmt 0 view .LVU52
- 236 000c 0121     		movs	r1, #1
- 237 000e 034B     		ldr	r3, .L27
- 238 0010 03EB8000 		add	r0, r3, r0, lsl #2
- 239 0014 FFF7FEFF 		bl	stmgpio_write
- 240              	.LVL16:
+ 231              		.loc 1 61 9 is_stmt 0 view .LVU48
+ 232 000c 0121     		movs	r1, #1
+ 233 000e 034B     		ldr	r3, .L27
+ 234 0010 03EB8000 		add	r0, r3, r0, lsl #2
+ 235 0014 FFF7FEFF 		bl	stmgpio_write
+ 236              	.LVL16:
   63:Core/Src/mgr_bout.c **** }
- 241              		.loc 1 63 1 view .LVU53
- 242 0018 08BD     		pop	{r3, pc}
- 243              	.L28:
- 244 001a 00BF     		.align	2
- 245              	.L27:
- 246 001c 00000000 		.word	.LANCHOR2
- 247              		.cfi_endproc
- 248              	.LFE67:
- 250              		.section	.text.bout_set,"ax",%progbits
- 251              		.align	1
- 252              		.global	bout_set
- 253              		.syntax unified
- 254              		.thumb
- 255              		.thumb_func
- 257              	bout_set:
- 258              	.LVL17:
- 259              	.LFB68:
+ 237              		.loc 1 63 1 view .LVU49
+ 238 0018 08BD     		pop	{r3, pc}
+ 239              	.L28:
+ 240 001a 00BF     		.align	2
+ 241              	.L27:
+ 242 001c 00000000 		.word	bout_gpio
+ 243              		.cfi_endproc
+ 244              	.LFE67:
+ 246              		.section	.text.bout_set,"ax",%progbits
+ 247              		.align	1
+ 248              		.global	bout_set
+ 249              		.syntax unified
+ 250              		.thumb
+ 251              		.thumb_func
+ 253              	bout_set:
+ 254              	.LVL17:
+ 255              	.LFB68:
   66:Core/Src/mgr_bout.c **** {
- 260              		.loc 1 66 1 is_stmt 1 view -0
- 261              		.cfi_startproc
- 262              		@ args = 0, pretend = 0, frame = 0
- 263              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccHe9sAC.s 			page 8
+ 256              		.loc 1 66 1 is_stmt 1 view -0
+ 257              		.cfi_startproc
+ 258              		@ args = 0, pretend = 0, frame = 0
+ 259              		@ frame_needed = 0, uses_anonymous_args = 0
+  68:Core/Src/mgr_bout.c ****     if (BOUT_CNT > bout_num) {
+ 260              		.loc 1 68 5 view .LVU51
+  68:Core/Src/mgr_bout.c ****     if (BOUT_CNT > bout_num) {
+ 261              		.loc 1 68 8 is_stmt 0 view .LVU52
+ 262 0000 0728     		cmp	r0, #7
+ 263 0002 00D9     		bls	.L35
+ 264 0004 7047     		bx	lr
+ 265              	.L35:
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s 			page 8
 
 
-  68:Core/Src/mgr_bout.c ****     if (BOUT_CNT > bout_num) {
- 264              		.loc 1 68 5 view .LVU55
-  68:Core/Src/mgr_bout.c ****     if (BOUT_CNT > bout_num) {
- 265              		.loc 1 68 8 is_stmt 0 view .LVU56
- 266 0000 0728     		cmp	r0, #7
- 267 0002 00D9     		bls	.L35
- 268 0004 7047     		bx	lr
- 269              	.L35:
   66:Core/Src/mgr_bout.c **** {
- 270              		.loc 1 66 1 view .LVU57
- 271 0006 08B5     		push	{r3, lr}
- 272              		.cfi_def_cfa_offset 8
- 273              		.cfi_offset 3, -8
- 274              		.cfi_offset 14, -4
+ 266              		.loc 1 66 1 view .LVU53
+ 267 0006 08B5     		push	{r3, lr}
+ 268              		.cfi_def_cfa_offset 8
+ 269              		.cfi_offset 3, -8
+ 270              		.cfi_offset 14, -4
   69:Core/Src/mgr_bout.c ****         stmgpio_write(&bout_gpio[bout_num], PIN_HIGH);
- 275              		.loc 1 69 9 is_stmt 1 view .LVU58
- 276 0008 00EB4000 		add	r0, r0, r0, lsl #1
- 277              	.LVL18:
+ 271              		.loc 1 69 9 is_stmt 1 view .LVU54
+ 272 0008 00EB4000 		add	r0, r0, r0, lsl #1
+ 273              	.LVL18:
   69:Core/Src/mgr_bout.c ****         stmgpio_write(&bout_gpio[bout_num], PIN_HIGH);
- 278              		.loc 1 69 9 is_stmt 0 view .LVU59
- 279 000c 0021     		movs	r1, #0
- 280 000e 034B     		ldr	r3, .L36
- 281 0010 03EB8000 		add	r0, r3, r0, lsl #2
- 282 0014 FFF7FEFF 		bl	stmgpio_write
- 283              	.LVL19:
+ 274              		.loc 1 69 9 is_stmt 0 view .LVU55
+ 275 000c 0021     		movs	r1, #0
+ 276 000e 034B     		ldr	r3, .L36
+ 277 0010 03EB8000 		add	r0, r3, r0, lsl #2
+ 278 0014 FFF7FEFF 		bl	stmgpio_write
+ 279              	.LVL19:
   71:Core/Src/mgr_bout.c **** }
- 284              		.loc 1 71 1 view .LVU60
- 285 0018 08BD     		pop	{r3, pc}
- 286              	.L37:
- 287 001a 00BF     		.align	2
- 288              	.L36:
- 289 001c 00000000 		.word	.LANCHOR2
- 290              		.cfi_endproc
- 291              	.LFE68:
- 293              		.section	.text.bout_stop,"ax",%progbits
- 294              		.align	1
- 295              		.global	bout_stop
- 296              		.syntax unified
- 297              		.thumb
- 298              		.thumb_func
- 300              	bout_stop:
- 301              	.LFB69:
+ 280              		.loc 1 71 1 view .LVU56
+ 281 0018 08BD     		pop	{r3, pc}
+ 282              	.L37:
+ 283 001a 00BF     		.align	2
+ 284              	.L36:
+ 285 001c 00000000 		.word	bout_gpio
+ 286              		.cfi_endproc
+ 287              	.LFE68:
+ 289              		.section	.text.bout_stop,"ax",%progbits
+ 290              		.align	1
+ 291              		.global	bout_stop
+ 292              		.syntax unified
+ 293              		.thumb
+ 294              		.thumb_func
+ 296              	bout_stop:
+ 297              	.LFB69:
   74:Core/Src/mgr_bout.c **** {
- 302              		.loc 1 74 1 is_stmt 1 view -0
- 303              		.cfi_startproc
- 304              		@ args = 0, pretend = 0, frame = 0
- 305              		@ frame_needed = 0, uses_anonymous_args = 0
- 306              		@ link register save eliminated.
+ 298              		.loc 1 74 1 is_stmt 1 view -0
+ 299              		.cfi_startproc
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302              		@ link register save eliminated.
   75:Core/Src/mgr_bout.c ****     bouts_is_active = false;
- 307              		.loc 1 75 5 view .LVU62
+ 303              		.loc 1 75 5 view .LVU58
   75:Core/Src/mgr_bout.c ****     bouts_is_active = false;
- 308              		.loc 1 75 21 is_stmt 0 view .LVU63
- 309 0000 014B     		ldr	r3, .L39
- 310 0002 0022     		movs	r2, #0
- 311 0004 1A70     		strb	r2, [r3]
+ 304              		.loc 1 75 21 is_stmt 0 view .LVU59
+ 305 0000 014B     		ldr	r3, .L39
+ 306 0002 0022     		movs	r2, #0
+ 307 0004 1A70     		strb	r2, [r3]
   76:Core/Src/mgr_bout.c **** }
- 312              		.loc 1 76 1 view .LVU64
-ARM GAS  /tmp/ccHe9sAC.s 			page 9
+ 308              		.loc 1 76 1 view .LVU60
+ 309 0006 7047     		bx	lr
+ 310              	.L40:
+ 311              		.align	2
+ 312              	.L39:
+ 313 0008 00000000 		.word	bouts_is_active
+ 314              		.cfi_endproc
+ 315              	.LFE69:
+ 317              		.section	.text.bout_start,"ax",%progbits
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s 			page 9
 
 
- 313 0006 7047     		bx	lr
- 314              	.L40:
- 315              		.align	2
- 316              	.L39:
- 317 0008 00000000 		.word	.LANCHOR0
- 318              		.cfi_endproc
- 319              	.LFE69:
- 321              		.section	.text.bout_start,"ax",%progbits
- 322              		.align	1
- 323              		.global	bout_start
- 324              		.syntax unified
- 325              		.thumb
- 326              		.thumb_func
- 328              	bout_start:
- 329              	.LFB70:
+ 318              		.align	1
+ 319              		.global	bout_start
+ 320              		.syntax unified
+ 321              		.thumb
+ 322              		.thumb_func
+ 324              	bout_start:
+ 325              	.LFB70:
   79:Core/Src/mgr_bout.c **** {
- 330              		.loc 1 79 1 is_stmt 1 view -0
- 331              		.cfi_startproc
- 332              		@ args = 0, pretend = 0, frame = 0
- 333              		@ frame_needed = 0, uses_anonymous_args = 0
- 334              		@ link register save eliminated.
+ 326              		.loc 1 79 1 is_stmt 1 view -0
+ 327              		.cfi_startproc
+ 328              		@ args = 0, pretend = 0, frame = 0
+ 329              		@ frame_needed = 0, uses_anonymous_args = 0
+ 330              		@ link register save eliminated.
   80:Core/Src/mgr_bout.c ****     bouts_is_active = true;
- 335              		.loc 1 80 5 view .LVU66
+ 331              		.loc 1 80 5 view .LVU62
   80:Core/Src/mgr_bout.c ****     bouts_is_active = true;
- 336              		.loc 1 80 21 is_stmt 0 view .LVU67
- 337 0000 014B     		ldr	r3, .L42
- 338 0002 0122     		movs	r2, #1
- 339 0004 1A70     		strb	r2, [r3]
+ 332              		.loc 1 80 21 is_stmt 0 view .LVU63
+ 333 0000 014B     		ldr	r3, .L42
+ 334 0002 0122     		movs	r2, #1
+ 335 0004 1A70     		strb	r2, [r3]
   81:Core/Src/mgr_bout.c **** }
- 340              		.loc 1 81 1 view .LVU68
- 341 0006 7047     		bx	lr
- 342              	.L43:
- 343              		.align	2
- 344              	.L42:
- 345 0008 00000000 		.word	.LANCHOR0
- 346              		.cfi_endproc
- 347              	.LFE70:
- 349              		.section	.text.bout_poll,"ax",%progbits
- 350              		.align	1
- 351              		.global	bout_poll
- 352              		.syntax unified
- 353              		.thumb
- 354              		.thumb_func
- 356              	bout_poll:
- 357              	.LFB71:
+ 336              		.loc 1 81 1 view .LVU64
+ 337 0006 7047     		bx	lr
+ 338              	.L43:
+ 339              		.align	2
+ 340              	.L42:
+ 341 0008 00000000 		.word	bouts_is_active
+ 342              		.cfi_endproc
+ 343              	.LFE70:
+ 345              		.section	.text.bout_poll,"ax",%progbits
+ 346              		.align	1
+ 347              		.global	bout_poll
+ 348              		.syntax unified
+ 349              		.thumb
+ 350              		.thumb_func
+ 352              	bout_poll:
+ 353              	.LFB71:
   84:Core/Src/mgr_bout.c **** {
- 358              		.loc 1 84 1 is_stmt 1 view -0
- 359              		.cfi_startproc
- 360              		@ args = 0, pretend = 0, frame = 0
- 361              		@ frame_needed = 0, uses_anonymous_args = 0
- 362              		@ link register save eliminated.
+ 354              		.loc 1 84 1 is_stmt 1 view -0
+ 355              		.cfi_startproc
+ 356              		@ args = 0, pretend = 0, frame = 0
+ 357              		@ frame_needed = 0, uses_anonymous_args = 0
+ 358              		@ link register save eliminated.
   86:Core/Src/mgr_bout.c ****     while (callback_cnt > 0) {
- 363              		.loc 1 86 5 view .LVU70
+ 359              		.loc 1 86 5 view .LVU66
   86:Core/Src/mgr_bout.c ****     while (callback_cnt > 0) {
- 364              		.loc 1 86 11 is_stmt 0 view .LVU71
- 365 0000 04E0     		b	.L45
- 366              	.L46:
-ARM GAS  /tmp/ccHe9sAC.s 			page 10
+ 360              		.loc 1 86 11 is_stmt 0 view .LVU67
+ 361 0000 04E0     		b	.L45
+ 362              	.L46:
+  87:Core/Src/mgr_bout.c ****         callback_cnt--;
+ 363              		.loc 1 87 9 is_stmt 1 view .LVU68
+  87:Core/Src/mgr_bout.c ****         callback_cnt--;
+ 364              		.loc 1 87 21 is_stmt 0 view .LVU69
+ 365 0002 054A     		ldr	r2, .L47
+ 366 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 367 0006 013B     		subs	r3, r3, #1
+ 368 0008 DBB2     		uxtb	r3, r3
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s 			page 10
 
 
-  87:Core/Src/mgr_bout.c ****         callback_cnt--;
- 367              		.loc 1 87 9 is_stmt 1 view .LVU72
-  87:Core/Src/mgr_bout.c ****         callback_cnt--;
- 368              		.loc 1 87 21 is_stmt 0 view .LVU73
- 369 0002 054A     		ldr	r2, .L47
- 370 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 371 0006 013B     		subs	r3, r3, #1
- 372 0008 DBB2     		uxtb	r3, r3
- 373 000a 1370     		strb	r3, [r2]
- 374              	.L45:
+ 369 000a 1370     		strb	r3, [r2]
+ 370              	.L45:
   86:Core/Src/mgr_bout.c ****     while (callback_cnt > 0) {
- 375              		.loc 1 86 11 is_stmt 1 view .LVU74
-  86:Core/Src/mgr_bout.c ****     while (callback_cnt > 0) {
- 376              		.loc 1 86 25 is_stmt 0 view .LVU75
- 377 000c 024B     		ldr	r3, .L47
- 378 000e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  86:Core/Src/mgr_bout.c ****     while (callback_cnt > 0) {
- 379              		.loc 1 86 11 view .LVU76
- 380 0010 002B     		cmp	r3, #0
- 381 0012 F6D1     		bne	.L46
+ 371              		.loc 1 86 25 is_stmt 1 view .LVU70
+ 372 000c 024B     		ldr	r3, .L47
+ 373 000e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 374 0010 002B     		cmp	r3, #0
+ 375 0012 F6D1     		bne	.L46
   89:Core/Src/mgr_bout.c **** }
- 382              		.loc 1 89 1 view .LVU77
- 383 0014 7047     		bx	lr
- 384              	.L48:
- 385 0016 00BF     		.align	2
- 386              	.L47:
- 387 0018 00000000 		.word	.LANCHOR1
- 388              		.cfi_endproc
- 389              	.LFE71:
- 391              		.section	.bss.bout_gpio,"aw",%nobits
- 392              		.align	2
- 393              		.set	.LANCHOR2,. + 0
- 396              	bout_gpio:
- 397 0000 00000000 		.space	96
- 397      00000000 
- 397      00000000 
- 397      00000000 
- 397      00000000 
- 398              		.section	.bss.bouts_is_active,"aw",%nobits
- 399              		.set	.LANCHOR0,. + 0
- 402              	bouts_is_active:
- 403 0000 00       		.space	1
- 404              		.section	.bss.callback_cnt,"aw",%nobits
- 405              		.set	.LANCHOR1,. + 0
- 408              	callback_cnt:
- 409 0000 00       		.space	1
- 410              		.section	.rodata.bout_gpio_pins,"a"
- 411              		.align	2
- 412              		.set	.LANCHOR4,. + 0
- 415              	bout_gpio_pins:
- 416 0000 0F000103 		.ascii	"\017\000\001\003\004\005\013\006"
- 416      04050B06 
- 417              		.section	.rodata.bout_gpio_ports,"a"
- 418              		.align	2
- 419              		.set	.LANCHOR3,. + 0
- 422              	bout_gpio_ports:
- 423 0000 41424242 		.ascii	"ABBBBBBB"
-ARM GAS  /tmp/ccHe9sAC.s 			page 11
-
-
- 423      42424242 
- 424              		.text
- 425              	.Letext0:
- 426              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 427              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 428              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 429              		.file 5 "Core/Inc/hw_stmgpio.h"
- 430              		.file 6 "Core/Inc/hw_systick.h"
-ARM GAS  /tmp/ccHe9sAC.s 			page 12
+ 376              		.loc 1 89 1 is_stmt 0 view .LVU71
+ 377 0014 7047     		bx	lr
+ 378              	.L48:
+ 379 0016 00BF     		.align	2
+ 380              	.L47:
+ 381 0018 00000000 		.word	callback_cnt
+ 382              		.cfi_endproc
+ 383              	.LFE71:
+ 385              		.section	.bss.bouts_is_active,"aw",%nobits
+ 388              	bouts_is_active:
+ 389 0000 00       		.space	1
+ 390              		.section	.bss.callback_cnt,"aw",%nobits
+ 393              	callback_cnt:
+ 394 0000 00       		.space	1
+ 395              		.section	.bss.bout_gpio,"aw",%nobits
+ 396              		.align	2
+ 399              	bout_gpio:
+ 400 0000 00000000 		.space	96
+ 400      00000000 
+ 400      00000000 
+ 400      00000000 
+ 400      00000000 
+ 401              		.section	.rodata.bout_gpio_pins,"a"
+ 402              		.align	2
+ 405              	bout_gpio_pins:
+ 406 0000 0F000103 		.ascii	"\017\000\001\003\004\005\013\006"
+ 406      04050B06 
+ 407              		.section	.rodata.bout_gpio_ports,"a"
+ 408              		.align	2
+ 411              	bout_gpio_ports:
+ 412 0000 41424242 		.ascii	"ABBBBBBB"
+ 412      42424242 
+ 413              		.text
+ 414              	.Letext0:
+ 415              		.file 2 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
+ 416              		.file 3 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
+ 417              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 418              		.file 5 "Core/Inc/hw_stmgpio.h"
+ 419              		.file 6 "Core/Inc/hw_systick.h"
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 mgr_bout.c
-     /tmp/ccHe9sAC.s:18     .text.bout_tick_callback:0000000000000000 $t
-     /tmp/ccHe9sAC.s:24     .text.bout_tick_callback:0000000000000000 bout_tick_callback
-     /tmp/ccHe9sAC.s:51     .text.bout_tick_callback:0000000000000014 $d
-     /tmp/ccHe9sAC.s:57     .text.bout_reset_lib:0000000000000000 $t
-     /tmp/ccHe9sAC.s:63     .text.bout_reset_lib:0000000000000000 bout_reset_lib
-     /tmp/ccHe9sAC.s:109    .text.bout_reset_lib:0000000000000020 $d
-     /tmp/ccHe9sAC.s:114    .text.bout_init:0000000000000000 $t
-     /tmp/ccHe9sAC.s:120    .text.bout_init:0000000000000000 bout_init
-     /tmp/ccHe9sAC.s:200    .text.bout_init:0000000000000048 $d
-     /tmp/ccHe9sAC.s:208    .text.bout_reset:0000000000000000 $t
-     /tmp/ccHe9sAC.s:214    .text.bout_reset:0000000000000000 bout_reset
-     /tmp/ccHe9sAC.s:246    .text.bout_reset:000000000000001c $d
-     /tmp/ccHe9sAC.s:251    .text.bout_set:0000000000000000 $t
-     /tmp/ccHe9sAC.s:257    .text.bout_set:0000000000000000 bout_set
-     /tmp/ccHe9sAC.s:289    .text.bout_set:000000000000001c $d
-     /tmp/ccHe9sAC.s:294    .text.bout_stop:0000000000000000 $t
-     /tmp/ccHe9sAC.s:300    .text.bout_stop:0000000000000000 bout_stop
-     /tmp/ccHe9sAC.s:317    .text.bout_stop:0000000000000008 $d
-     /tmp/ccHe9sAC.s:322    .text.bout_start:0000000000000000 $t
-     /tmp/ccHe9sAC.s:328    .text.bout_start:0000000000000000 bout_start
-     /tmp/ccHe9sAC.s:345    .text.bout_start:0000000000000008 $d
-     /tmp/ccHe9sAC.s:350    .text.bout_poll:0000000000000000 $t
-     /tmp/ccHe9sAC.s:356    .text.bout_poll:0000000000000000 bout_poll
-     /tmp/ccHe9sAC.s:387    .text.bout_poll:0000000000000018 $d
-     /tmp/ccHe9sAC.s:392    .bss.bout_gpio:0000000000000000 $d
-     /tmp/ccHe9sAC.s:396    .bss.bout_gpio:0000000000000000 bout_gpio
-     /tmp/ccHe9sAC.s:402    .bss.bouts_is_active:0000000000000000 bouts_is_active
-     /tmp/ccHe9sAC.s:403    .bss.bouts_is_active:0000000000000000 $d
-     /tmp/ccHe9sAC.s:408    .bss.callback_cnt:0000000000000000 callback_cnt
-     /tmp/ccHe9sAC.s:409    .bss.callback_cnt:0000000000000000 $d
-     /tmp/ccHe9sAC.s:411    .rodata.bout_gpio_pins:0000000000000000 $d
-     /tmp/ccHe9sAC.s:415    .rodata.bout_gpio_pins:0000000000000000 bout_gpio_pins
-     /tmp/ccHe9sAC.s:418    .rodata.bout_gpio_ports:0000000000000000 $d
-     /tmp/ccHe9sAC.s:422    .rodata.bout_gpio_ports:0000000000000000 bout_gpio_ports
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:19     .text.bout_tick_callback:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:25     .text.bout_tick_callback:0000000000000000 bout_tick_callback
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:51     .text.bout_tick_callback:0000000000000014 $d
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:388    .bss.bouts_is_active:0000000000000000 bouts_is_active
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:393    .bss.callback_cnt:0000000000000000 callback_cnt
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:57     .text.bout_reset_lib:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:63     .text.bout_reset_lib:0000000000000000 bout_reset_lib
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:107    .text.bout_reset_lib:0000000000000020 $d
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:399    .bss.bout_gpio:0000000000000000 bout_gpio
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:112    .text.bout_init:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:118    .text.bout_init:0000000000000000 bout_init
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:196    .text.bout_init:0000000000000048 $d
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:411    .rodata.bout_gpio_ports:0000000000000000 bout_gpio_ports
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:405    .rodata.bout_gpio_pins:0000000000000000 bout_gpio_pins
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:204    .text.bout_reset:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:210    .text.bout_reset:0000000000000000 bout_reset
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:242    .text.bout_reset:000000000000001c $d
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:247    .text.bout_set:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:253    .text.bout_set:0000000000000000 bout_set
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:285    .text.bout_set:000000000000001c $d
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:290    .text.bout_stop:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:296    .text.bout_stop:0000000000000000 bout_stop
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:313    .text.bout_stop:0000000000000008 $d
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:318    .text.bout_start:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:324    .text.bout_start:0000000000000000 bout_start
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:341    .text.bout_start:0000000000000008 $d
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:346    .text.bout_poll:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:352    .text.bout_poll:0000000000000000 bout_poll
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:381    .text.bout_poll:0000000000000018 $d
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:389    .bss.bouts_is_active:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:394    .bss.callback_cnt:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:396    .bss.bout_gpio:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:402    .rodata.bout_gpio_pins:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccOWiDI5.s:408    .rodata.bout_gpio_ports:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 stmgpio_write

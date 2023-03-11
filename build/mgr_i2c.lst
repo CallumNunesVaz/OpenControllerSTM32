@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccQymVG5.s 			page 1
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -17,15 +17,15 @@ ARM GAS  /tmp/ccQymVG5.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.section	.text.i2c_state_error,"ax",%progbits
-  18              		.align	1
-  19              		.global	i2c_state_error
-  20              		.syntax unified
-  21              		.thumb
-  22              		.thumb_func
-  24              	i2c_state_error:
-  25              	.LFB77:
-  26              		.file 1 "Core/Src/mgr_i2c.c"
+  17              		.file 1 "Core/Src/mgr_i2c.c"
+  18              		.section	.text.i2c_state_error,"ax",%progbits
+  19              		.align	1
+  20              		.global	i2c_state_error
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	i2c_state_error:
+  26              	.LFB77:
    1:Core/Src/mgr_i2c.c **** /* Includes ------------------------------------------------------------------*/
    2:Core/Src/mgr_i2c.c **** #include "mgr_i2c.h"
    3:Core/Src/mgr_i2c.c **** 
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccQymVG5.s 			page 1
   30:Core/Src/mgr_i2c.c **** /* /*/
   31:Core/Src/mgr_i2c.c **** I2C_EVENT i2c_decode_i2c1_event(I2C1_EVT i2c1_evt)
   32:Core/Src/mgr_i2c.c **** {
-ARM GAS  /tmp/ccQymVG5.s 			page 2
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 2
 
 
   33:Core/Src/mgr_i2c.c ****   I2C_EVENT evt = I2C_ERROR;
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccQymVG5.s 			page 1
   87:Core/Src/mgr_i2c.c ****     }
   88:Core/Src/mgr_i2c.c ****     break;
   89:Core/Src/mgr_i2c.c ****   default:
-ARM GAS  /tmp/ccQymVG5.s 			page 3
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 3
 
 
   90:Core/Src/mgr_i2c.c ****     evt = I2C_ERROR;
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccQymVG5.s 			page 1
  144:Core/Src/mgr_i2c.c **** }
  145:Core/Src/mgr_i2c.c **** 
  146:Core/Src/mgr_i2c.c **** void i2c_enable(void)
-ARM GAS  /tmp/ccQymVG5.s 			page 4
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 4
 
 
  147:Core/Src/mgr_i2c.c **** {
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccQymVG5.s 			page 1
  201:Core/Src/mgr_i2c.c ****       i2c_trig_state_trans();
  202:Core/Src/mgr_i2c.c ****     }
  203:Core/Src/mgr_i2c.c ****     state_executed = true;
-ARM GAS  /tmp/ccQymVG5.s 			page 5
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 5
 
 
  204:Core/Src/mgr_i2c.c ****   }
@@ -285,24 +285,22 @@ ARM GAS  /tmp/ccQymVG5.s 			page 1
   33              	.L2:
  239:Core/Src/mgr_i2c.c ****   while (1)
   34              		.loc 1 239 3 discriminator 1 view .LVU1
+  35              		.loc 1 239 9 discriminator 1 view .LVU2
+  36 0000 FEE7     		b	.L2
+  37              		.cfi_endproc
+  38              	.LFE77:
+  40              		.section	.text.i2c_error_callback,"ax",%progbits
+  41              		.align	1
+  42              		.global	i2c_error_callback
+  43              		.syntax unified
+  44              		.thumb
+  45              		.thumb_func
+  47              	i2c_error_callback:
+  48              	.LFB80:
  240:Core/Src/mgr_i2c.c ****     ;
-  35              		.loc 1 240 5 discriminator 1 view .LVU2
- 239:Core/Src/mgr_i2c.c ****   while (1)
-  36              		.loc 1 239 9 discriminator 1 view .LVU3
-  37 0000 FEE7     		b	.L2
-  38              		.cfi_endproc
-  39              	.LFE77:
-  41              		.section	.text.i2c_error_callback,"ax",%progbits
-  42              		.align	1
-  43              		.global	i2c_error_callback
-  44              		.syntax unified
-  45              		.thumb
-  46              		.thumb_func
-ARM GAS  /tmp/ccQymVG5.s 			page 6
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 6
 
 
-  48              	i2c_error_callback:
-  49              	.LFB80:
  241:Core/Src/mgr_i2c.c **** }
  242:Core/Src/mgr_i2c.c **** 
  243:Core/Src/mgr_i2c.c **** void i2c_trig_state_trans(void)
@@ -348,1243 +346,1224 @@ ARM GAS  /tmp/ccQymVG5.s 			page 1
  283:Core/Src/mgr_i2c.c **** 
  284:Core/Src/mgr_i2c.c **** void i2c_error_callback()
  285:Core/Src/mgr_i2c.c **** {
-  50              		.loc 1 285 1 view -0
-  51              		.cfi_startproc
-  52              		@ Volatile: function does not return.
-  53              		@ args = 0, pretend = 0, frame = 0
-  54              		@ frame_needed = 0, uses_anonymous_args = 0
-  55 0000 08B5     		push	{r3, lr}
-  56              		.cfi_def_cfa_offset 8
-  57              		.cfi_offset 3, -8
-  58              		.cfi_offset 14, -4
+  49              		.loc 1 285 1 view -0
+  50              		.cfi_startproc
+  51              		@ Volatile: function does not return.
+  52              		@ args = 0, pretend = 0, frame = 0
+  53              		@ frame_needed = 0, uses_anonymous_args = 0
+  54 0000 08B5     		push	{r3, lr}
+  55              		.cfi_def_cfa_offset 8
+  56              		.cfi_offset 3, -8
+  57              		.cfi_offset 14, -4
  286:Core/Src/mgr_i2c.c ****   i2c_state_error();
-ARM GAS  /tmp/ccQymVG5.s 			page 7
+  58              		.loc 1 286 3 view .LVU4
+  59 0002 FFF7FEFF 		bl	i2c_state_error
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 7
 
 
-  59              		.loc 1 286 3 view .LVU5
-  60 0002 FFF7FEFF 		bl	i2c_state_error
-  61              	.LVL0:
-  62              		.cfi_endproc
-  63              	.LFE80:
-  65              		.section	.text.i2c_state_start_bit,"ax",%progbits
-  66              		.align	1
-  67              		.global	i2c_state_start_bit
-  68              		.syntax unified
-  69              		.thumb
-  70              		.thumb_func
-  72              	i2c_state_start_bit:
-  73              	.LFB73:
+  60              	.LVL0:
+  61              		.cfi_endproc
+  62              	.LFE80:
+  64              		.section	.text.i2c_state_start_bit,"ax",%progbits
+  65              		.align	1
+  66              		.global	i2c_state_start_bit
+  67              		.syntax unified
+  68              		.thumb
+  69              		.thumb_func
+  71              	i2c_state_start_bit:
+  72              	.LFB73:
  180:Core/Src/mgr_i2c.c ****   if (!state_executed)
-  74              		.loc 1 180 1 view -0
-  75              		.cfi_startproc
-  76              		@ args = 0, pretend = 0, frame = 0
-  77              		@ frame_needed = 0, uses_anonymous_args = 0
-  78 0000 08B5     		push	{r3, lr}
-  79              		.cfi_def_cfa_offset 8
-  80              		.cfi_offset 3, -8
-  81              		.cfi_offset 14, -4
+  73              		.loc 1 180 1 view -0
+  74              		.cfi_startproc
+  75              		@ args = 0, pretend = 0, frame = 0
+  76              		@ frame_needed = 0, uses_anonymous_args = 0
+  77 0000 08B5     		push	{r3, lr}
+  78              		.cfi_def_cfa_offset 8
+  79              		.cfi_offset 3, -8
+  80              		.cfi_offset 14, -4
  181:Core/Src/mgr_i2c.c ****   {
-  82              		.loc 1 181 3 view .LVU7
+  81              		.loc 1 181 3 view .LVU6
  181:Core/Src/mgr_i2c.c ****   {
-  83              		.loc 1 181 7 is_stmt 0 view .LVU8
-  84 0002 054B     		ldr	r3, .L9
-  85 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  82              		.loc 1 181 7 is_stmt 0 view .LVU7
+  83 0002 054B     		ldr	r3, .L9
+  84 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  181:Core/Src/mgr_i2c.c ****   {
-  86              		.loc 1 181 6 view .LVU9
-  87 0006 03B1     		cbz	r3, .L8
-  88              	.L5:
+  85              		.loc 1 181 6 view .LVU8
+  86 0006 03B1     		cbz	r3, .L8
+  87              	.L5:
  187:Core/Src/mgr_i2c.c **** 
-  89              		.loc 1 187 1 view .LVU10
-  90 0008 08BD     		pop	{r3, pc}
-  91              	.L8:
+  88              		.loc 1 187 1 view .LVU9
+  89 0008 08BD     		pop	{r3, pc}
+  90              	.L8:
  184:Core/Src/mgr_i2c.c ****     state_executed = true;
-  92              		.loc 1 184 5 is_stmt 1 view .LVU11
-  93 000a FFF7FEFF 		bl	i2c1_start
-  94              	.LVL1:
+  91              		.loc 1 184 5 is_stmt 1 view .LVU10
+  92 000a FFF7FEFF 		bl	i2c1_start
+  93              	.LVL1:
  185:Core/Src/mgr_i2c.c ****   }
-  95              		.loc 1 185 5 view .LVU12
+  94              		.loc 1 185 5 view .LVU11
  185:Core/Src/mgr_i2c.c ****   }
-  96              		.loc 1 185 20 is_stmt 0 view .LVU13
-  97 000e 024B     		ldr	r3, .L9
-  98 0010 0122     		movs	r2, #1
-  99 0012 1A70     		strb	r2, [r3]
+  95              		.loc 1 185 20 is_stmt 0 view .LVU12
+  96 000e 024B     		ldr	r3, .L9
+  97 0010 0122     		movs	r2, #1
+  98 0012 1A70     		strb	r2, [r3]
  187:Core/Src/mgr_i2c.c **** 
- 100              		.loc 1 187 1 view .LVU14
- 101 0014 F8E7     		b	.L5
- 102              	.L10:
- 103 0016 00BF     		.align	2
- 104              	.L9:
- 105 0018 00000000 		.word	.LANCHOR0
- 106              		.cfi_endproc
- 107              	.LFE73:
- 109              		.section	.text.i2c_state_stop_bit,"ax",%progbits
-ARM GAS  /tmp/ccQymVG5.s 			page 8
+  99              		.loc 1 187 1 view .LVU13
+ 100 0014 F8E7     		b	.L5
+ 101              	.L10:
+ 102 0016 00BF     		.align	2
+ 103              	.L9:
+ 104 0018 00000000 		.word	state_executed
+ 105              		.cfi_endproc
+ 106              	.LFE73:
+ 108              		.section	.text.i2c_state_stop_bit,"ax",%progbits
+ 109              		.align	1
+ 110              		.global	i2c_state_stop_bit
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 8
 
 
- 110              		.align	1
- 111              		.global	i2c_state_stop_bit
- 112              		.syntax unified
- 113              		.thumb
- 114              		.thumb_func
- 116              	i2c_state_stop_bit:
- 117              	.LFB76:
+ 111              		.syntax unified
+ 112              		.thumb
+ 113              		.thumb_func
+ 115              	i2c_state_stop_bit:
+ 116              	.LFB76:
  233:Core/Src/mgr_i2c.c ****   i2c1_stop();
- 118              		.loc 1 233 1 is_stmt 1 view -0
- 119              		.cfi_startproc
- 120              		@ args = 0, pretend = 0, frame = 0
- 121              		@ frame_needed = 0, uses_anonymous_args = 0
- 122 0000 08B5     		push	{r3, lr}
- 123              		.cfi_def_cfa_offset 8
- 124              		.cfi_offset 3, -8
- 125              		.cfi_offset 14, -4
+ 117              		.loc 1 233 1 is_stmt 1 view -0
+ 118              		.cfi_startproc
+ 119              		@ args = 0, pretend = 0, frame = 0
+ 120              		@ frame_needed = 0, uses_anonymous_args = 0
+ 121 0000 08B5     		push	{r3, lr}
+ 122              		.cfi_def_cfa_offset 8
+ 123              		.cfi_offset 3, -8
+ 124              		.cfi_offset 14, -4
  234:Core/Src/mgr_i2c.c **** }
- 126              		.loc 1 234 3 view .LVU16
- 127 0002 FFF7FEFF 		bl	i2c1_stop
- 128              	.LVL2:
+ 125              		.loc 1 234 3 view .LVU15
+ 126 0002 FFF7FEFF 		bl	i2c1_stop
+ 127              	.LVL2:
  235:Core/Src/mgr_i2c.c **** 
- 129              		.loc 1 235 1 is_stmt 0 view .LVU17
- 130 0006 08BD     		pop	{r3, pc}
- 131              		.cfi_endproc
- 132              	.LFE76:
- 134              		.section	.text.i2c_decode_i2c1_event,"ax",%progbits
- 135              		.align	1
- 136              		.global	i2c_decode_i2c1_event
- 137              		.syntax unified
- 138              		.thumb
- 139              		.thumb_func
- 141              	i2c_decode_i2c1_event:
- 142              	.LVL3:
- 143              	.LFB65:
+ 128              		.loc 1 235 1 is_stmt 0 view .LVU16
+ 129 0006 08BD     		pop	{r3, pc}
+ 130              		.cfi_endproc
+ 131              	.LFE76:
+ 133              		.section	.text.i2c_decode_i2c1_event,"ax",%progbits
+ 134              		.align	1
+ 135              		.global	i2c_decode_i2c1_event
+ 136              		.syntax unified
+ 137              		.thumb
+ 138              		.thumb_func
+ 140              	i2c_decode_i2c1_event:
+ 141              	.LVL3:
+ 142              	.LFB65:
   32:Core/Src/mgr_i2c.c ****   I2C_EVENT evt = I2C_ERROR;
- 144              		.loc 1 32 1 is_stmt 1 view -0
- 145              		.cfi_startproc
- 146              		@ args = 0, pretend = 0, frame = 0
- 147              		@ frame_needed = 0, uses_anonymous_args = 0
- 148              		@ link register save eliminated.
+ 143              		.loc 1 32 1 is_stmt 1 view -0
+ 144              		.cfi_startproc
+ 145              		@ args = 0, pretend = 0, frame = 0
+ 146              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147              		@ link register save eliminated.
   33:Core/Src/mgr_i2c.c **** 
- 149              		.loc 1 33 3 view .LVU19
+ 148              		.loc 1 33 3 view .LVU18
   35:Core/Src/mgr_i2c.c ****   {
- 150              		.loc 1 35 3 view .LVU20
- 151 0000 0828     		cmp	r0, #8
- 152 0002 1DD0     		beq	.L19
- 153 0004 0BD9     		bls	.L25
- 154 0006 4028     		cmp	r0, #64
- 155 0008 15D0     		beq	.L17
- 156 000a 8028     		cmp	r0, #128
- 157 000c 0DD1     		bne	.L26
+ 149              		.loc 1 35 3 view .LVU19
+ 150 0000 0828     		cmp	r0, #8
+ 151 0002 1DD0     		beq	.L19
+ 152 0004 0BD9     		bls	.L25
+ 153 0006 4028     		cmp	r0, #64
+ 154 0008 15D0     		beq	.L17
+ 155 000a 8028     		cmp	r0, #128
+ 156 000c 0DD1     		bne	.L26
   58:Core/Src/mgr_i2c.c ****     {
- 158              		.loc 1 58 5 view .LVU21
+ 157              		.loc 1 58 5 view .LVU20
   58:Core/Src/mgr_i2c.c ****     {
- 159              		.loc 1 58 9 is_stmt 0 view .LVU22
- 160 000e 124B     		ldr	r3, .L27
- 161 0010 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-ARM GAS  /tmp/ccQymVG5.s 			page 9
+ 158              		.loc 1 58 9 is_stmt 0 view .LVU21
+ 159 000e 124B     		ldr	r3, .L27
+ 160 0010 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  58:Core/Src/mgr_i2c.c ****     {
+ 161              		.loc 1 58 8 view .LVU22
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 9
 
 
-  58:Core/Src/mgr_i2c.c ****     {
- 162              		.loc 1 58 8 view .LVU23
- 163 0012 DBB1     		cbz	r3, .L22
+ 162 0012 DBB1     		cbz	r3, .L22
   61:Core/Src/mgr_i2c.c ****       {
- 164              		.loc 1 61 7 is_stmt 1 view .LVU24
+ 163              		.loc 1 61 7 is_stmt 1 view .LVU23
   61:Core/Src/mgr_i2c.c ****       {
- 165              		.loc 1 61 11 is_stmt 0 view .LVU25
- 166 0014 114B     		ldr	r3, .L27+4
- 167 0016 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 164              		.loc 1 61 11 is_stmt 0 view .LVU24
+ 165 0014 114B     		ldr	r3, .L27+4
+ 166 0016 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
   61:Core/Src/mgr_i2c.c ****       {
- 168              		.loc 1 61 10 view .LVU26
- 169 0018 D3B1     		cbz	r3, .L23
+ 167              		.loc 1 61 10 view .LVU25
+ 168 0018 D3B1     		cbz	r3, .L23
   63:Core/Src/mgr_i2c.c ****       }
- 170              		.loc 1 63 13 view .LVU27
- 171 001a 0520     		movs	r0, #5
- 172              	.LVL4:
+ 169              		.loc 1 63 13 view .LVU26
+ 170 001a 0520     		movs	r0, #5
+ 171              	.LVL4:
   63:Core/Src/mgr_i2c.c ****       }
- 173              		.loc 1 63 13 view .LVU28
- 174 001c 7047     		bx	lr
- 175              	.LVL5:
- 176              	.L25:
+ 172              		.loc 1 63 13 view .LVU27
+ 173 001c 7047     		bx	lr
+ 174              	.LVL5:
+ 175              	.L25:
   35:Core/Src/mgr_i2c.c ****   {
- 177              		.loc 1 35 3 view .LVU29
- 178 001e 0128     		cmp	r0, #1
- 179 0020 05D0     		beq	.L16
- 180 0022 0228     		cmp	r0, #2
- 181 0024 0ED1     		bne	.L20
+ 176              		.loc 1 35 3 view .LVU28
+ 177 001e 0128     		cmp	r0, #1
+ 178 0020 05D0     		beq	.L16
+ 179 0022 0228     		cmp	r0, #2
+ 180 0024 0ED1     		bne	.L20
   48:Core/Src/mgr_i2c.c ****     break;
- 182              		.loc 1 48 9 view .LVU30
- 183 0026 0420     		movs	r0, #4
- 184              	.LVL6:
+ 181              		.loc 1 48 9 view .LVU29
+ 182 0026 0420     		movs	r0, #4
+ 183              	.LVL6:
   48:Core/Src/mgr_i2c.c ****     break;
- 185              		.loc 1 48 9 view .LVU31
- 186 0028 7047     		bx	lr
- 187              	.LVL7:
- 188              	.L26:
+ 184              		.loc 1 48 9 view .LVU30
+ 185 0028 7047     		bx	lr
+ 186              	.LVL7:
+ 187              	.L26:
   35:Core/Src/mgr_i2c.c ****   {
- 189              		.loc 1 35 3 view .LVU32
- 190 002a 0920     		movs	r0, #9
- 191              	.LVL8:
+ 188              		.loc 1 35 3 view .LVU31
+ 189 002a 0920     		movs	r0, #9
+ 190              	.LVL8:
   35:Core/Src/mgr_i2c.c ****   {
- 192              		.loc 1 35 3 view .LVU33
- 193 002c 7047     		bx	lr
- 194              	.LVL9:
- 195              	.L16:
+ 191              		.loc 1 35 3 view .LVU32
+ 192 002c 7047     		bx	lr
+ 193              	.LVL9:
+ 194              	.L16:
   38:Core/Src/mgr_i2c.c ****     {
- 196              		.loc 1 38 5 is_stmt 1 view .LVU34
+ 195              		.loc 1 38 5 is_stmt 1 view .LVU33
   38:Core/Src/mgr_i2c.c ****     {
- 197              		.loc 1 38 23 is_stmt 0 view .LVU35
- 198 002e 0A4B     		ldr	r3, .L27
- 199 0030 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 196              		.loc 1 38 23 is_stmt 0 view .LVU34
+ 197 002e 0A4B     		ldr	r3, .L27
+ 198 0030 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
   38:Core/Src/mgr_i2c.c ****     {
- 200              		.loc 1 38 8 view .LVU36
- 201 0032 4BB1     		cbz	r3, .L21
- 202 0034 7047     		bx	lr
- 203              	.L17:
+ 199              		.loc 1 38 8 view .LVU35
+ 200 0032 4BB1     		cbz	r3, .L21
+ 201 0034 7047     		bx	lr
+ 202              	.L17:
   79:Core/Src/mgr_i2c.c ****     {
-ARM GAS  /tmp/ccQymVG5.s 			page 10
+ 203              		.loc 1 79 5 is_stmt 1 view .LVU36
+  79:Core/Src/mgr_i2c.c ****     {
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 10
 
 
- 204              		.loc 1 79 5 is_stmt 1 view .LVU37
+ 204              		.loc 1 79 9 is_stmt 0 view .LVU37
+ 205 0036 094B     		ldr	r3, .L27+4
+ 206 0038 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
   79:Core/Src/mgr_i2c.c ****     {
- 205              		.loc 1 79 9 is_stmt 0 view .LVU38
- 206 0036 094B     		ldr	r3, .L27+4
- 207 0038 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  79:Core/Src/mgr_i2c.c ****     {
- 208              		.loc 1 79 8 view .LVU39
- 209 003a 5BB1     		cbz	r3, .L24
+ 207              		.loc 1 79 8 view .LVU38
+ 208 003a 5BB1     		cbz	r3, .L24
   81:Core/Src/mgr_i2c.c ****     }
- 210              		.loc 1 81 11 view .LVU40
- 211 003c 0820     		movs	r0, #8
- 212              	.LVL10:
+ 209              		.loc 1 81 11 view .LVU39
+ 210 003c 0820     		movs	r0, #8
+ 211              	.LVL10:
   81:Core/Src/mgr_i2c.c ****     }
- 213              		.loc 1 81 11 view .LVU41
- 214 003e 7047     		bx	lr
- 215              	.LVL11:
- 216              	.L19:
+ 212              		.loc 1 81 11 view .LVU40
+ 213 003e 7047     		bx	lr
+ 214              	.LVL11:
+ 215              	.L19:
   51:Core/Src/mgr_i2c.c ****     break;
- 217              		.loc 1 51 9 view .LVU42
- 218 0040 0420     		movs	r0, #4
- 219              	.LVL12:
+ 216              		.loc 1 51 9 view .LVU41
+ 217 0040 0420     		movs	r0, #4
+ 218              	.LVL12:
   51:Core/Src/mgr_i2c.c ****     break;
- 220              		.loc 1 51 9 view .LVU43
- 221 0042 7047     		bx	lr
- 222              	.LVL13:
- 223              	.L20:
+ 219              		.loc 1 51 9 view .LVU42
+ 220 0042 7047     		bx	lr
+ 221              	.LVL13:
+ 222              	.L20:
   35:Core/Src/mgr_i2c.c ****   {
- 224              		.loc 1 35 3 view .LVU44
- 225 0044 0920     		movs	r0, #9
- 226              	.LVL14:
+ 223              		.loc 1 35 3 view .LVU43
+ 224 0044 0920     		movs	r0, #9
+ 225              	.LVL14:
   35:Core/Src/mgr_i2c.c ****   {
- 227              		.loc 1 35 3 view .LVU45
- 228 0046 7047     		bx	lr
- 229              	.LVL15:
- 230              	.L21:
+ 226              		.loc 1 35 3 view .LVU44
+ 227 0046 7047     		bx	lr
+ 228              	.LVL15:
+ 229              	.L21:
   44:Core/Src/mgr_i2c.c ****     }
- 231              		.loc 1 44 11 view .LVU46
- 232 0048 0220     		movs	r0, #2
- 233              	.LVL16:
+ 230              		.loc 1 44 11 view .LVU45
+ 231 0048 0220     		movs	r0, #2
+ 232              	.LVL16:
   44:Core/Src/mgr_i2c.c ****     }
- 234              		.loc 1 44 11 view .LVU47
- 235 004a 7047     		bx	lr
- 236              	.LVL17:
- 237              	.L22:
+ 233              		.loc 1 44 11 view .LVU46
+ 234 004a 7047     		bx	lr
+ 235              	.LVL17:
+ 236              	.L22:
   74:Core/Src/mgr_i2c.c ****     }
- 238              		.loc 1 74 11 view .LVU48
- 239 004c 0420     		movs	r0, #4
- 240              	.LVL18:
+ 237              		.loc 1 74 11 view .LVU47
+ 238 004c 0420     		movs	r0, #4
+ 239              	.LVL18:
   74:Core/Src/mgr_i2c.c ****     }
- 241              		.loc 1 74 11 view .LVU49
- 242 004e 7047     		bx	lr
- 243              	.LVL19:
- 244              	.L23:
+ 240              		.loc 1 74 11 view .LVU48
+ 241 004e 7047     		bx	lr
+ 242              	.LVL19:
+ 243              	.L23:
   68:Core/Src/mgr_i2c.c ****       }
- 245              		.loc 1 68 13 view .LVU50
- 246 0050 0620     		movs	r0, #6
- 247              	.LVL20:
-ARM GAS  /tmp/ccQymVG5.s 			page 11
+ 244              		.loc 1 68 13 view .LVU49
+ 245 0050 0620     		movs	r0, #6
+ 246              	.LVL20:
+  68:Core/Src/mgr_i2c.c ****       }
+ 247              		.loc 1 68 13 view .LVU50
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 11
 
 
-  68:Core/Src/mgr_i2c.c ****       }
- 248              		.loc 1 68 13 view .LVU51
- 249 0052 7047     		bx	lr
- 250              	.LVL21:
- 251              	.L24:
+ 248 0052 7047     		bx	lr
+ 249              	.LVL21:
+ 250              	.L24:
   86:Core/Src/mgr_i2c.c ****     }
- 252              		.loc 1 86 11 view .LVU52
- 253 0054 0720     		movs	r0, #7
- 254              	.LVL22:
+ 251              		.loc 1 86 11 view .LVU51
+ 252 0054 0720     		movs	r0, #7
+ 253              	.LVL22:
   94:Core/Src/mgr_i2c.c **** }
- 255              		.loc 1 94 3 is_stmt 1 view .LVU53
+ 254              		.loc 1 94 3 is_stmt 1 view .LVU52
   95:Core/Src/mgr_i2c.c **** 
- 256              		.loc 1 95 1 is_stmt 0 view .LVU54
- 257 0056 7047     		bx	lr
- 258              	.L28:
- 259              		.align	2
- 260              	.L27:
- 261 0058 00000000 		.word	.LANCHOR1
- 262 005c 00000000 		.word	.LANCHOR2
- 263              		.cfi_endproc
- 264              	.LFE65:
- 266              		.section	.text.i2c_reset,"ax",%progbits
- 267              		.align	1
- 268              		.global	i2c_reset
- 269              		.syntax unified
- 270              		.thumb
- 271              		.thumb_func
- 273              	i2c_reset:
- 274              	.LFB68:
+ 255              		.loc 1 95 1 is_stmt 0 view .LVU53
+ 256 0056 7047     		bx	lr
+ 257              	.L28:
+ 258              		.align	2
+ 259              	.L27:
+ 260 0058 00000000 		.word	bytes_to_send
+ 261 005c 00000000 		.word	bytes_to_recv
+ 262              		.cfi_endproc
+ 263              	.LFE65:
+ 265              		.section	.text.i2c_reset,"ax",%progbits
+ 266              		.align	1
+ 267              		.global	i2c_reset
+ 268              		.syntax unified
+ 269              		.thumb
+ 270              		.thumb_func
+ 272              	i2c_reset:
+ 273              	.LFB68:
  135:Core/Src/mgr_i2c.c ****   /* reset hardware perihperal */
- 275              		.loc 1 135 1 is_stmt 1 view -0
- 276              		.cfi_startproc
- 277              		@ args = 0, pretend = 0, frame = 0
- 278              		@ frame_needed = 0, uses_anonymous_args = 0
- 279 0000 08B5     		push	{r3, lr}
- 280              		.cfi_def_cfa_offset 8
- 281              		.cfi_offset 3, -8
- 282              		.cfi_offset 14, -4
+ 274              		.loc 1 135 1 is_stmt 1 view -0
+ 275              		.cfi_startproc
+ 276              		@ args = 0, pretend = 0, frame = 0
+ 277              		@ frame_needed = 0, uses_anonymous_args = 0
+ 278 0000 08B5     		push	{r3, lr}
+ 279              		.cfi_def_cfa_offset 8
+ 280              		.cfi_offset 3, -8
+ 281              		.cfi_offset 14, -4
  137:Core/Src/mgr_i2c.c **** 
- 283              		.loc 1 137 3 view .LVU56
- 284 0002 FFF7FEFF 		bl	i2c1_reset_periph
- 285              	.LVL23:
+ 282              		.loc 1 137 3 view .LVU55
+ 283 0002 FFF7FEFF 		bl	i2c1_reset_periph
+ 284              	.LVL23:
  140:Core/Src/mgr_i2c.c **** 
- 286              		.loc 1 140 3 view .LVU57
- 287 0006 0348     		ldr	r0, .L31
- 288 0008 FFF7FEFF 		bl	buf_reset
- 289              	.LVL24:
+ 285              		.loc 1 140 3 view .LVU56
+ 286 0006 0348     		ldr	r0, .L31
+ 287 0008 FFF7FEFF 		bl	buf_reset
+ 288              	.LVL24:
  143:Core/Src/mgr_i2c.c **** }
- 290              		.loc 1 143 3 view .LVU58
+ 289              		.loc 1 143 3 view .LVU57
  143:Core/Src/mgr_i2c.c **** }
- 291              		.loc 1 143 18 is_stmt 0 view .LVU59
- 292 000c 024B     		ldr	r3, .L31+4
- 293 000e 0022     		movs	r2, #0
- 294 0010 1A70     		strb	r2, [r3]
+ 290              		.loc 1 143 18 is_stmt 0 view .LVU58
+ 291 000c 024B     		ldr	r3, .L31+4
+ 292 000e 0022     		movs	r2, #0
+ 293 0010 1A70     		strb	r2, [r3]
  144:Core/Src/mgr_i2c.c **** 
- 295              		.loc 1 144 1 view .LVU60
- 296 0012 08BD     		pop	{r3, pc}
-ARM GAS  /tmp/ccQymVG5.s 			page 12
+ 294              		.loc 1 144 1 view .LVU59
+ 295 0012 08BD     		pop	{r3, pc}
+ 296              	.L32:
+ 297              		.align	2
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 12
 
 
- 297              	.L32:
- 298              		.align	2
- 299              	.L31:
- 300 0014 00000000 		.word	.LANCHOR3
- 301 0018 00000000 		.word	.LANCHOR0
- 302              		.cfi_endproc
- 303              	.LFE68:
- 305              		.section	.text.i2c_enable,"ax",%progbits
- 306              		.align	1
- 307              		.global	i2c_enable
- 308              		.syntax unified
- 309              		.thumb
- 310              		.thumb_func
- 312              	i2c_enable:
- 313              	.LFB69:
+ 298              	.L31:
+ 299 0014 00000000 		.word	msg_buf
+ 300 0018 00000000 		.word	state_executed
+ 301              		.cfi_endproc
+ 302              	.LFE68:
+ 304              		.section	.text.i2c_enable,"ax",%progbits
+ 305              		.align	1
+ 306              		.global	i2c_enable
+ 307              		.syntax unified
+ 308              		.thumb
+ 309              		.thumb_func
+ 311              	i2c_enable:
+ 312              	.LFB69:
  147:Core/Src/mgr_i2c.c ****   /* Enable hardware perihperal */
- 314              		.loc 1 147 1 is_stmt 1 view -0
- 315              		.cfi_startproc
- 316              		@ args = 0, pretend = 0, frame = 0
- 317              		@ frame_needed = 0, uses_anonymous_args = 0
- 318 0000 08B5     		push	{r3, lr}
- 319              		.cfi_def_cfa_offset 8
- 320              		.cfi_offset 3, -8
- 321              		.cfi_offset 14, -4
+ 313              		.loc 1 147 1 is_stmt 1 view -0
+ 314              		.cfi_startproc
+ 315              		@ args = 0, pretend = 0, frame = 0
+ 316              		@ frame_needed = 0, uses_anonymous_args = 0
+ 317 0000 08B5     		push	{r3, lr}
+ 318              		.cfi_def_cfa_offset 8
+ 319              		.cfi_offset 3, -8
+ 320              		.cfi_offset 14, -4
  149:Core/Src/mgr_i2c.c **** }
- 322              		.loc 1 149 3 view .LVU62
- 323 0002 FFF7FEFF 		bl	i2c1_enable_periph
- 324              	.LVL25:
+ 321              		.loc 1 149 3 view .LVU61
+ 322 0002 FFF7FEFF 		bl	i2c1_enable_periph
+ 323              	.LVL25:
  150:Core/Src/mgr_i2c.c **** 
- 325              		.loc 1 150 1 is_stmt 0 view .LVU63
- 326 0006 08BD     		pop	{r3, pc}
- 327              		.cfi_endproc
- 328              	.LFE69:
- 330              		.section	.text.i2c_init,"ax",%progbits
- 331              		.align	1
- 332              		.global	i2c_init
- 333              		.syntax unified
- 334              		.thumb
- 335              		.thumb_func
- 337              	i2c_init:
- 338              	.LFB67:
+ 324              		.loc 1 150 1 is_stmt 0 view .LVU62
+ 325 0006 08BD     		pop	{r3, pc}
+ 326              		.cfi_endproc
+ 327              	.LFE69:
+ 329              		.section	.text.i2c_init,"ax",%progbits
+ 330              		.align	1
+ 331              		.global	i2c_init
+ 332              		.syntax unified
+ 333              		.thumb
+ 334              		.thumb_func
+ 336              	i2c_init:
+ 337              	.LFB67:
  113:Core/Src/mgr_i2c.c ****   /* Idle to start */
- 339              		.loc 1 113 1 is_stmt 1 view -0
- 340              		.cfi_startproc
- 341              		@ args = 0, pretend = 0, frame = 0
- 342              		@ frame_needed = 0, uses_anonymous_args = 0
- 343 0000 10B5     		push	{r4, lr}
- 344              		.cfi_def_cfa_offset 8
- 345              		.cfi_offset 4, -8
- 346              		.cfi_offset 14, -4
+ 338              		.loc 1 113 1 is_stmt 1 view -0
+ 339              		.cfi_startproc
+ 340              		@ args = 0, pretend = 0, frame = 0
+ 341              		@ frame_needed = 0, uses_anonymous_args = 0
+ 342 0000 10B5     		push	{r4, lr}
+ 343              		.cfi_def_cfa_offset 8
+ 344              		.cfi_offset 4, -8
+ 345              		.cfi_offset 14, -4
  115:Core/Src/mgr_i2c.c **** 
- 347              		.loc 1 115 3 view .LVU65
+ 346              		.loc 1 115 3 view .LVU64
  115:Core/Src/mgr_i2c.c **** 
- 348              		.loc 1 115 13 is_stmt 0 view .LVU66
- 349 0002 0E4B     		ldr	r3, .L42
- 350 0004 0E4A     		ldr	r2, .L42+4
- 351 0006 1A60     		str	r2, [r3]
-ARM GAS  /tmp/ccQymVG5.s 			page 13
-
-
+ 347              		.loc 1 115 13 is_stmt 0 view .LVU65
+ 348 0002 0E4B     		ldr	r3, .L42
+ 349 0004 0E4A     		ldr	r2, .L42+4
+ 350 0006 1A60     		str	r2, [r3]
  118:Core/Src/mgr_i2c.c **** 
- 352              		.loc 1 118 3 is_stmt 1 view .LVU67
- 353 0008 FFF7FEFF 		bl	i2c1_init
- 354              	.LVL26:
- 355 000c 10B1     		cbz	r0, .L40
- 356 000e 0124     		movs	r4, #1
- 357              	.L35:
+ 351              		.loc 1 118 3 is_stmt 1 view .LVU66
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 13
+
+
+ 352 0008 FFF7FEFF 		bl	i2c1_init
+ 353              	.LVL26:
+ 354 000c 10B1     		cbz	r0, .L40
+ 355 000e 0124     		movs	r4, #1
+ 356              	.L35:
  132:Core/Src/mgr_i2c.c **** 
- 358              		.loc 1 132 1 is_stmt 0 view .LVU68
- 359 0010 2046     		mov	r0, r4
- 360 0012 10BD     		pop	{r4, pc}
- 361              	.L40:
+ 357              		.loc 1 132 1 is_stmt 0 view .LVU67
+ 358 0010 2046     		mov	r0, r4
+ 359 0012 10BD     		pop	{r4, pc}
+ 360              	.L40:
  121:Core/Src/mgr_i2c.c ****   i2c1_set_err_callback(i2c_error_callback);
- 362              		.loc 1 121 3 is_stmt 1 view .LVU69
- 363 0014 0B48     		ldr	r0, .L42+8
- 364 0016 FFF7FEFF 		bl	i2c1_set_evt_callback
- 365              	.LVL27:
+ 361              		.loc 1 121 3 is_stmt 1 view .LVU68
+ 362 0014 0B48     		ldr	r0, .L42+8
+ 363 0016 FFF7FEFF 		bl	i2c1_set_evt_callback
+ 364              	.LVL27:
  122:Core/Src/mgr_i2c.c **** 
- 366              		.loc 1 122 3 view .LVU70
- 367 001a 0B48     		ldr	r0, .L42+12
- 368 001c FFF7FEFF 		bl	i2c1_set_err_callback
- 369              	.LVL28:
+ 365              		.loc 1 122 3 view .LVU69
+ 366 001a 0B48     		ldr	r0, .L42+12
+ 367 001c FFF7FEFF 		bl	i2c1_set_err_callback
+ 368              	.LVL28:
  125:Core/Src/mgr_i2c.c **** 
- 370              		.loc 1 125 3 view .LVU71
- 371 0020 F022     		movs	r2, #240
- 372 0022 0A49     		ldr	r1, .L42+16
- 373 0024 0A48     		ldr	r0, .L42+20
- 374 0026 FFF7FEFF 		bl	buf_init
- 375              	.LVL29:
- 376 002a 0446     		mov	r4, r0
- 377 002c 08B1     		cbz	r0, .L41
- 378 002e 0124     		movs	r4, #1
- 379 0030 EEE7     		b	.L35
- 380              	.L41:
+ 369              		.loc 1 125 3 view .LVU70
+ 370 0020 F022     		movs	r2, #240
+ 371 0022 0A49     		ldr	r1, .L42+16
+ 372 0024 0A48     		ldr	r0, .L42+20
+ 373 0026 FFF7FEFF 		bl	buf_init
+ 374              	.LVL29:
+ 375 002a 0446     		mov	r4, r0
+ 376 002c 08B1     		cbz	r0, .L41
+ 377 002e 0124     		movs	r4, #1
+ 378 0030 EEE7     		b	.L35
+ 379              	.L41:
  128:Core/Src/mgr_i2c.c ****   i2c_enable();
- 381              		.loc 1 128 3 view .LVU72
- 382 0032 FFF7FEFF 		bl	i2c_reset
- 383              	.LVL30:
+ 380              		.loc 1 128 3 view .LVU71
+ 381 0032 FFF7FEFF 		bl	i2c_reset
+ 382              	.LVL30:
  129:Core/Src/mgr_i2c.c **** 
- 384              		.loc 1 129 3 view .LVU73
- 385 0036 FFF7FEFF 		bl	i2c_enable
- 386              	.LVL31:
+ 383              		.loc 1 129 3 view .LVU72
+ 384 0036 FFF7FEFF 		bl	i2c_enable
+ 385              	.LVL31:
  131:Core/Src/mgr_i2c.c **** }
- 387              		.loc 1 131 3 view .LVU74
+ 386              		.loc 1 131 3 view .LVU73
  131:Core/Src/mgr_i2c.c **** }
- 388              		.loc 1 131 10 is_stmt 0 view .LVU75
- 389 003a E9E7     		b	.L35
- 390              	.L43:
- 391              		.align	2
- 392              	.L42:
- 393 003c 00000000 		.word	.LANCHOR4
- 394 0040 00000000 		.word	i2c_state_idle
- 395 0044 00000000 		.word	i2c_event_callback
- 396 0048 00000000 		.word	i2c_error_callback
- 397 004c 00000000 		.word	.LANCHOR5
- 398 0050 00000000 		.word	.LANCHOR3
- 399              		.cfi_endproc
-ARM GAS  /tmp/ccQymVG5.s 			page 14
+ 387              		.loc 1 131 10 is_stmt 0 view .LVU74
+ 388 003a E9E7     		b	.L35
+ 389              	.L43:
+ 390              		.align	2
+ 391              	.L42:
+ 392 003c 00000000 		.word	cur_state
+ 393 0040 00000000 		.word	i2c_state_idle
+ 394 0044 00000000 		.word	i2c_event_callback
+ 395 0048 00000000 		.word	i2c_error_callback
+ 396 004c 00000000 		.word	msg_buf_data
+ 397 0050 00000000 		.word	msg_buf
+ 398              		.cfi_endproc
+ 399              	.LFE67:
+ 401              		.section	.text.i2c_disable,"ax",%progbits
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 14
 
 
- 400              	.LFE67:
- 402              		.section	.text.i2c_disable,"ax",%progbits
- 403              		.align	1
- 404              		.global	i2c_disable
- 405              		.syntax unified
- 406              		.thumb
- 407              		.thumb_func
- 409              	i2c_disable:
- 410              	.LFB70:
+ 402              		.align	1
+ 403              		.global	i2c_disable
+ 404              		.syntax unified
+ 405              		.thumb
+ 406              		.thumb_func
+ 408              	i2c_disable:
+ 409              	.LFB70:
  153:Core/Src/mgr_i2c.c ****   /* Disable hardware perihperal */
- 411              		.loc 1 153 1 is_stmt 1 view -0
- 412              		.cfi_startproc
- 413              		@ args = 0, pretend = 0, frame = 0
- 414              		@ frame_needed = 0, uses_anonymous_args = 0
- 415 0000 08B5     		push	{r3, lr}
- 416              		.cfi_def_cfa_offset 8
- 417              		.cfi_offset 3, -8
- 418              		.cfi_offset 14, -4
+ 410              		.loc 1 153 1 is_stmt 1 view -0
+ 411              		.cfi_startproc
+ 412              		@ args = 0, pretend = 0, frame = 0
+ 413              		@ frame_needed = 0, uses_anonymous_args = 0
+ 414 0000 08B5     		push	{r3, lr}
+ 415              		.cfi_def_cfa_offset 8
+ 416              		.cfi_offset 3, -8
+ 417              		.cfi_offset 14, -4
  155:Core/Src/mgr_i2c.c **** }
- 419              		.loc 1 155 3 view .LVU77
- 420 0002 FFF7FEFF 		bl	i2c1_disable_periph
- 421              	.LVL32:
+ 418              		.loc 1 155 3 view .LVU76
+ 419 0002 FFF7FEFF 		bl	i2c1_disable_periph
+ 420              	.LVL32:
  156:Core/Src/mgr_i2c.c **** 
- 422              		.loc 1 156 1 is_stmt 0 view .LVU78
- 423 0006 08BD     		pop	{r3, pc}
- 424              		.cfi_endproc
- 425              	.LFE70:
- 427              		.section	.text.i2c_poll_fsm,"ax",%progbits
- 428              		.align	1
- 429              		.global	i2c_poll_fsm
- 430              		.syntax unified
- 431              		.thumb
- 432              		.thumb_func
- 434              	i2c_poll_fsm:
- 435              	.LFB71:
+ 421              		.loc 1 156 1 is_stmt 0 view .LVU77
+ 422 0006 08BD     		pop	{r3, pc}
+ 423              		.cfi_endproc
+ 424              	.LFE70:
+ 426              		.section	.text.i2c_poll_fsm,"ax",%progbits
+ 427              		.align	1
+ 428              		.global	i2c_poll_fsm
+ 429              		.syntax unified
+ 430              		.thumb
+ 431              		.thumb_func
+ 433              	i2c_poll_fsm:
+ 434              	.LFB71:
  159:Core/Src/mgr_i2c.c ****   cur_state();
- 436              		.loc 1 159 1 is_stmt 1 view -0
- 437              		.cfi_startproc
- 438              		@ args = 0, pretend = 0, frame = 0
- 439              		@ frame_needed = 0, uses_anonymous_args = 0
- 440 0000 08B5     		push	{r3, lr}
- 441              		.cfi_def_cfa_offset 8
- 442              		.cfi_offset 3, -8
- 443              		.cfi_offset 14, -4
+ 435              		.loc 1 159 1 is_stmt 1 view -0
+ 436              		.cfi_startproc
+ 437              		@ args = 0, pretend = 0, frame = 0
+ 438              		@ frame_needed = 0, uses_anonymous_args = 0
+ 439 0000 08B5     		push	{r3, lr}
+ 440              		.cfi_def_cfa_offset 8
+ 441              		.cfi_offset 3, -8
+ 442              		.cfi_offset 14, -4
  160:Core/Src/mgr_i2c.c **** }
- 444              		.loc 1 160 3 view .LVU80
- 445 0002 024B     		ldr	r3, .L48
- 446 0004 1B68     		ldr	r3, [r3]
- 447 0006 9847     		blx	r3
- 448              	.LVL33:
+ 443              		.loc 1 160 3 view .LVU79
+ 444 0002 024B     		ldr	r3, .L48
+ 445 0004 1B68     		ldr	r3, [r3]
+ 446 0006 9847     		blx	r3
+ 447              	.LVL33:
  161:Core/Src/mgr_i2c.c **** 
- 449              		.loc 1 161 1 is_stmt 0 view .LVU81
- 450 0008 08BD     		pop	{r3, pc}
- 451              	.L49:
- 452 000a 00BF     		.align	2
- 453              	.L48:
- 454 000c 00000000 		.word	.LANCHOR4
-ARM GAS  /tmp/ccQymVG5.s 			page 15
+ 448              		.loc 1 161 1 is_stmt 0 view .LVU80
+ 449 0008 08BD     		pop	{r3, pc}
+ 450              	.L49:
+ 451 000a 00BF     		.align	2
+ 452              	.L48:
+ 453 000c 00000000 		.word	cur_state
+ 454              		.cfi_endproc
+ 455              	.LFE71:
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 15
 
 
- 455              		.cfi_endproc
- 456              	.LFE71:
- 458              		.section	.text.i2c_queue_msg,"ax",%progbits
- 459              		.align	1
- 460              		.global	i2c_queue_msg
- 461              		.syntax unified
- 462              		.thumb
- 463              		.thumb_func
- 465              	i2c_queue_msg:
- 466              	.LVL34:
- 467              	.LFB66:
+ 457              		.section	.text.i2c_queue_msg,"ax",%progbits
+ 458              		.align	1
+ 459              		.global	i2c_queue_msg
+ 460              		.syntax unified
+ 461              		.thumb
+ 462              		.thumb_func
+ 464              	i2c_queue_msg:
+ 465              	.LVL34:
+ 466              	.LFB66:
   99:Core/Src/mgr_i2c.c ****   /* checks */
- 468              		.loc 1 99 1 is_stmt 1 view -0
- 469              		.cfi_startproc
- 470              		@ args = 0, pretend = 0, frame = 0
- 471              		@ frame_needed = 0, uses_anonymous_args = 0
+ 467              		.loc 1 99 1 is_stmt 1 view -0
+ 468              		.cfi_startproc
+ 469              		@ args = 0, pretend = 0, frame = 0
+ 470              		@ frame_needed = 0, uses_anonymous_args = 0
   99:Core/Src/mgr_i2c.c ****   /* checks */
- 472              		.loc 1 99 1 is_stmt 0 view .LVU83
- 473 0000 10B5     		push	{r4, lr}
- 474              		.cfi_def_cfa_offset 8
- 475              		.cfi_offset 4, -8
- 476              		.cfi_offset 14, -4
- 477 0002 0146     		mov	r1, r0
+ 471              		.loc 1 99 1 is_stmt 0 view .LVU82
+ 472 0000 10B5     		push	{r4, lr}
+ 473              		.cfi_def_cfa_offset 8
+ 474              		.cfi_offset 4, -8
+ 475              		.cfi_offset 14, -4
+ 476 0002 0146     		mov	r1, r0
  101:Core/Src/mgr_i2c.c **** 
- 478              		.loc 1 101 3 is_stmt 1 view .LVU84
- 479 0004 0368     		ldr	r3, [r0]
- 480 0006 33B1     		cbz	r3, .L51
+ 477              		.loc 1 101 3 is_stmt 1 view .LVU83
+ 478 0004 0368     		ldr	r3, [r0]
+ 479 0006 33B1     		cbz	r3, .L51
  101:Core/Src/mgr_i2c.c **** 
- 481              		.loc 1 101 3 is_stmt 0 discriminator 1 view .LVU85
- 482 0008 8368     		ldr	r3, [r0, #8]
- 483 000a 23B1     		cbz	r3, .L51
+ 480              		.loc 1 101 3 is_stmt 0 discriminator 1 view .LVU84
+ 481 0008 8368     		ldr	r3, [r0, #8]
+ 482 000a 23B1     		cbz	r3, .L51
  101:Core/Src/mgr_i2c.c **** 
- 484              		.loc 1 101 3 discriminator 2 view .LVU86
- 485 000c 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
- 486 000e 012B     		cmp	r3, #1
- 487 0010 01D9     		bls	.L51
+ 483              		.loc 1 101 3 discriminator 2 view .LVU85
+ 484 000c 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
+ 485 000e 012B     		cmp	r3, #1
+ 486 0010 01D9     		bls	.L51
  101:Core/Src/mgr_i2c.c **** 
- 488              		.loc 1 101 3 discriminator 3 view .LVU87
- 489 0012 037B     		ldrb	r3, [r0, #12]	@ zero_extendqisi2
- 490 0014 5BB9     		cbnz	r3, .L53
- 491              	.L51:
+ 487              		.loc 1 101 3 discriminator 3 view .LVU86
+ 488 0012 037B     		ldrb	r3, [r0, #12]	@ zero_extendqisi2
+ 489 0014 5BB9     		cbnz	r3, .L53
+ 490              	.L51:
  104:Core/Src/mgr_i2c.c **** 
- 492              		.loc 1 104 3 is_stmt 1 view .LVU88
- 493 0016 1022     		movs	r2, #16
- 494 0018 0648     		ldr	r0, .L57
- 495              	.LVL35:
+ 491              		.loc 1 104 3 is_stmt 1 view .LVU87
+ 492 0016 1022     		movs	r2, #16
+ 493 0018 0648     		ldr	r0, .L57
+ 494              	.LVL35:
  104:Core/Src/mgr_i2c.c **** 
- 496              		.loc 1 104 3 is_stmt 0 view .LVU89
- 497 001a FFF7FEFF 		bl	buf_write
- 498              	.LVL36:
+ 495              		.loc 1 104 3 is_stmt 0 view .LVU88
+ 496 001a FFF7FEFF 		bl	buf_write
+ 497              	.LVL36:
  104:Core/Src/mgr_i2c.c **** 
- 499              		.loc 1 104 3 view .LVU90
- 500 001e 0446     		mov	r4, r0
- 501 0020 10B1     		cbz	r0, .L56
- 502 0022 0124     		movs	r4, #1
- 503              	.L50:
+ 498              		.loc 1 104 3 view .LVU89
+ 499 001e 0446     		mov	r4, r0
+ 500 0020 10B1     		cbz	r0, .L56
+ 501 0022 0124     		movs	r4, #1
+ 502              	.L50:
  110:Core/Src/mgr_i2c.c **** 
-ARM GAS  /tmp/ccQymVG5.s 			page 16
+ 503              		.loc 1 110 1 view .LVU90
+ 504 0024 2046     		mov	r0, r4
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 16
 
 
- 504              		.loc 1 110 1 view .LVU91
- 505 0024 2046     		mov	r0, r4
- 506 0026 10BD     		pop	{r4, pc}
- 507              	.L56:
+ 505 0026 10BD     		pop	{r4, pc}
+ 506              	.L56:
  107:Core/Src/mgr_i2c.c **** 
- 508              		.loc 1 107 3 is_stmt 1 view .LVU92
- 509 0028 FFF7FEFF 		bl	i2c_poll_fsm
- 510              	.LVL37:
+ 507              		.loc 1 107 3 is_stmt 1 view .LVU91
+ 508 0028 FFF7FEFF 		bl	i2c_poll_fsm
+ 509              	.LVL37:
  109:Core/Src/mgr_i2c.c **** }
- 511              		.loc 1 109 3 view .LVU93
+ 510              		.loc 1 109 3 view .LVU92
  109:Core/Src/mgr_i2c.c **** }
- 512              		.loc 1 109 10 is_stmt 0 view .LVU94
- 513 002c FAE7     		b	.L50
- 514              	.LVL38:
- 515              	.L53:
+ 511              		.loc 1 109 10 is_stmt 0 view .LVU93
+ 512 002c FAE7     		b	.L50
+ 513              	.LVL38:
+ 514              	.L53:
  101:Core/Src/mgr_i2c.c **** 
- 516              		.loc 1 101 3 view .LVU95
- 517 002e 0124     		movs	r4, #1
- 518 0030 F8E7     		b	.L50
- 519              	.L58:
- 520 0032 00BF     		.align	2
- 521              	.L57:
- 522 0034 00000000 		.word	.LANCHOR3
- 523              		.cfi_endproc
- 524              	.LFE66:
- 526              		.section	.text.i2c_trig_state_trans,"ax",%progbits
- 527              		.align	1
- 528              		.global	i2c_trig_state_trans
- 529              		.syntax unified
- 530              		.thumb
- 531              		.thumb_func
- 533              	i2c_trig_state_trans:
- 534              	.LFB78:
+ 515              		.loc 1 101 3 view .LVU94
+ 516 002e 0124     		movs	r4, #1
+ 517 0030 F8E7     		b	.L50
+ 518              	.L58:
+ 519 0032 00BF     		.align	2
+ 520              	.L57:
+ 521 0034 00000000 		.word	msg_buf
+ 522              		.cfi_endproc
+ 523              	.LFE66:
+ 525              		.section	.text.i2c_trig_state_trans,"ax",%progbits
+ 526              		.align	1
+ 527              		.global	i2c_trig_state_trans
+ 528              		.syntax unified
+ 529              		.thumb
+ 530              		.thumb_func
+ 532              	i2c_trig_state_trans:
+ 533              	.LFB78:
  244:Core/Src/mgr_i2c.c ****   static uint8_t idx;
- 535              		.loc 1 244 1 is_stmt 1 view -0
- 536              		.cfi_startproc
- 537              		@ args = 0, pretend = 0, frame = 0
- 538              		@ frame_needed = 0, uses_anonymous_args = 0
- 539 0000 08B5     		push	{r3, lr}
- 540              		.cfi_def_cfa_offset 8
- 541              		.cfi_offset 3, -8
- 542              		.cfi_offset 14, -4
+ 534              		.loc 1 244 1 is_stmt 1 view -0
+ 535              		.cfi_startproc
+ 536              		@ args = 0, pretend = 0, frame = 0
+ 537              		@ frame_needed = 0, uses_anonymous_args = 0
+ 538 0000 08B5     		push	{r3, lr}
+ 539              		.cfi_def_cfa_offset 8
+ 540              		.cfi_offset 3, -8
+ 541              		.cfi_offset 14, -4
  245:Core/Src/mgr_i2c.c **** 
- 543              		.loc 1 245 3 view .LVU97
+ 542              		.loc 1 245 3 view .LVU96
  248:Core/Src/mgr_i2c.c ****   {
- 544              		.loc 1 248 3 view .LVU98
+ 543              		.loc 1 248 3 view .LVU97
  248:Core/Src/mgr_i2c.c ****   {
- 545              		.loc 1 248 12 is_stmt 0 view .LVU99
- 546 0002 1B4B     		ldr	r3, .L67
- 547 0004 0022     		movs	r2, #0
- 548 0006 1A70     		strb	r2, [r3]
+ 544              		.loc 1 248 12 is_stmt 0 view .LVU98
+ 545 0002 1B4B     		ldr	r3, .L67
+ 546 0004 0022     		movs	r2, #0
+ 547 0006 1A70     		strb	r2, [r3]
  248:Core/Src/mgr_i2c.c ****   {
- 549              		.loc 1 248 3 view .LVU100
- 550 0008 02E0     		b	.L60
- 551              	.L61:
+ 548              		.loc 1 248 3 view .LVU99
+ 549 0008 02E0     		b	.L60
+ 550              	.L61:
  248:Core/Src/mgr_i2c.c ****   {
- 552              		.loc 1 248 38 is_stmt 1 discriminator 2 view .LVU101
-ARM GAS  /tmp/ccQymVG5.s 			page 17
+ 551              		.loc 1 248 41 is_stmt 1 discriminator 2 view .LVU100
+ 552 000a 0133     		adds	r3, r3, #1
+ 553 000c 184A     		ldr	r2, .L67
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 17
 
 
+ 554 000e 1370     		strb	r3, [r2]
+ 555              	.L60:
  248:Core/Src/mgr_i2c.c ****   {
- 553              		.loc 1 248 41 is_stmt 0 discriminator 2 view .LVU102
- 554 000a 0133     		adds	r3, r3, #1
- 555 000c 184A     		ldr	r2, .L67
- 556 000e 1370     		strb	r3, [r2]
- 557              	.L60:
- 248:Core/Src/mgr_i2c.c ****   {
- 558              		.loc 1 248 17 is_stmt 1 discriminator 1 view .LVU103
- 248:Core/Src/mgr_i2c.c ****   {
- 559              		.loc 1 248 21 is_stmt 0 discriminator 1 view .LVU104
- 560 0010 174B     		ldr	r3, .L67
- 561 0012 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 248:Core/Src/mgr_i2c.c ****   {
- 562              		.loc 1 248 3 discriminator 1 view .LVU105
- 563 0014 082B     		cmp	r3, #8
- 564 0016 1AD8     		bhi	.L62
+ 556              		.loc 1 248 21 discriminator 1 view .LVU101
+ 557 0010 174B     		ldr	r3, .L67
+ 558 0012 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 559 0014 082B     		cmp	r3, #8
+ 560 0016 1AD8     		bhi	.L62
  250:Core/Src/mgr_i2c.c ****     {
- 565              		.loc 1 250 5 is_stmt 1 view .LVU106
+ 561              		.loc 1 250 5 view .LVU102
  250:Core/Src/mgr_i2c.c ****     {
- 566              		.loc 1 250 24 is_stmt 0 view .LVU107
- 567 0018 03EB4301 		add	r1, r3, r3, lsl #1
- 568 001c 8A00     		lsls	r2, r1, #2
- 569 001e 1549     		ldr	r1, .L67+4
- 570 0020 8958     		ldr	r1, [r1, r2]
+ 562              		.loc 1 250 24 is_stmt 0 view .LVU103
+ 563 0018 03EB4301 		add	r1, r3, r3, lsl #1
+ 564 001c 8A00     		lsls	r2, r1, #2
+ 565 001e 1549     		ldr	r1, .L67+4
+ 566 0020 8958     		ldr	r1, [r1, r2]
  250:Core/Src/mgr_i2c.c ****     {
- 571              		.loc 1 250 38 view .LVU108
- 572 0022 154A     		ldr	r2, .L67+8
- 573 0024 1268     		ldr	r2, [r2]
+ 567              		.loc 1 250 38 view .LVU104
+ 568 0022 154A     		ldr	r2, .L67+8
+ 569 0024 1268     		ldr	r2, [r2]
  250:Core/Src/mgr_i2c.c ****     {
- 574              		.loc 1 250 8 view .LVU109
- 575 0026 9142     		cmp	r1, r2
- 576 0028 EFD1     		bne	.L61
+ 570              		.loc 1 250 8 view .LVU105
+ 571 0026 9142     		cmp	r1, r2
+ 572 0028 EFD1     		bne	.L61
  250:Core/Src/mgr_i2c.c ****     {
- 577              		.loc 1 250 70 discriminator 1 view .LVU110
- 578 002a 03EB4302 		add	r2, r3, r3, lsl #1
- 579 002e 9100     		lsls	r1, r2, #2
- 580 0030 104A     		ldr	r2, .L67+4
- 581 0032 0A44     		add	r2, r2, r1
- 582 0034 5168     		ldr	r1, [r2, #4]
+ 573              		.loc 1 250 70 discriminator 1 view .LVU106
+ 574 002a 03EB4302 		add	r2, r3, r3, lsl #1
+ 575 002e 9100     		lsls	r1, r2, #2
+ 576 0030 104A     		ldr	r2, .L67+4
+ 577 0032 0A44     		add	r2, r2, r1
+ 578 0034 5168     		ldr	r1, [r2, #4]
  250:Core/Src/mgr_i2c.c ****     {
- 583              		.loc 1 250 75 discriminator 1 view .LVU111
- 584 0036 114A     		ldr	r2, .L67+12
- 585 0038 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 579              		.loc 1 250 75 discriminator 1 view .LVU107
+ 580 0036 114A     		ldr	r2, .L67+12
+ 581 0038 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
  250:Core/Src/mgr_i2c.c ****     {
- 586              		.loc 1 250 52 discriminator 1 view .LVU112
- 587 003a 9142     		cmp	r1, r2
- 588 003c E5D1     		bne	.L61
+ 582              		.loc 1 250 52 discriminator 1 view .LVU108
+ 583 003a 9142     		cmp	r1, r2
+ 584 003c E5D1     		bne	.L61
  252:Core/Src/mgr_i2c.c ****       break;
- 589              		.loc 1 252 7 is_stmt 1 view .LVU113
+ 585              		.loc 1 252 7 is_stmt 1 view .LVU109
  252:Core/Src/mgr_i2c.c ****       break;
- 590              		.loc 1 252 33 is_stmt 0 view .LVU114
- 591 003e 03EB4302 		add	r2, r3, r3, lsl #1
- 592 0042 9100     		lsls	r1, r2, #2
- 593 0044 0B4A     		ldr	r2, .L67+4
- 594 0046 0A44     		add	r2, r2, r1
- 595 0048 9168     		ldr	r1, [r2, #8]
+ 586              		.loc 1 252 33 is_stmt 0 view .LVU110
+ 587 003e 03EB4302 		add	r2, r3, r3, lsl #1
+ 588 0042 9100     		lsls	r1, r2, #2
+ 589 0044 0B4A     		ldr	r2, .L67+4
+ 590 0046 0A44     		add	r2, r2, r1
+ 591 0048 9168     		ldr	r1, [r2, #8]
  252:Core/Src/mgr_i2c.c ****       break;
-ARM GAS  /tmp/ccQymVG5.s 			page 18
-
-
- 596              		.loc 1 252 17 view .LVU115
- 597 004a 0B4A     		ldr	r2, .L67+8
- 598 004c 1160     		str	r1, [r2]
+ 592              		.loc 1 252 17 view .LVU111
+ 593 004a 0B4A     		ldr	r2, .L67+8
+ 594 004c 1160     		str	r1, [r2]
  253:Core/Src/mgr_i2c.c ****     }
- 599              		.loc 1 253 7 is_stmt 1 view .LVU116
- 600              	.L62:
+ 595              		.loc 1 253 7 is_stmt 1 view .LVU112
+ 596              	.L62:
  258:Core/Src/mgr_i2c.c ****   {
- 601              		.loc 1 258 3 view .LVU117
+ 597              		.loc 1 258 3 view .LVU113
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 18
+
+
  258:Core/Src/mgr_i2c.c ****   {
- 602              		.loc 1 258 6 is_stmt 0 view .LVU118
- 603 004e 082B     		cmp	r3, #8
- 604 0050 03D8     		bhi	.L64
+ 598              		.loc 1 258 6 is_stmt 0 view .LVU114
+ 599 004e 082B     		cmp	r3, #8
+ 600 0050 03D8     		bhi	.L64
  258:Core/Src/mgr_i2c.c ****   {
- 605              		.loc 1 258 44 discriminator 1 view .LVU119
- 606 0052 0A4B     		ldr	r3, .L67+12
- 607 0054 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 601              		.loc 1 258 44 discriminator 1 view .LVU115
+ 602 0052 0A4B     		ldr	r3, .L67+12
+ 603 0054 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  258:Core/Src/mgr_i2c.c ****   {
- 608              		.loc 1 258 30 discriminator 1 view .LVU120
- 609 0056 092B     		cmp	r3, #9
- 610 0058 02D1     		bne	.L65
- 611              	.L64:
+ 604              		.loc 1 258 30 discriminator 1 view .LVU116
+ 605 0056 092B     		cmp	r3, #9
+ 606 0058 02D1     		bne	.L65
+ 607              	.L64:
  260:Core/Src/mgr_i2c.c ****   }
- 612              		.loc 1 260 5 is_stmt 1 view .LVU121
+ 608              		.loc 1 260 5 is_stmt 1 view .LVU117
  260:Core/Src/mgr_i2c.c ****   }
- 613              		.loc 1 260 15 is_stmt 0 view .LVU122
- 614 005a 074B     		ldr	r3, .L67+8
- 615 005c 084A     		ldr	r2, .L67+16
- 616 005e 1A60     		str	r2, [r3]
- 617              	.L65:
+ 609              		.loc 1 260 15 is_stmt 0 view .LVU118
+ 610 005a 074B     		ldr	r3, .L67+8
+ 611 005c 084A     		ldr	r2, .L67+16
+ 612 005e 1A60     		str	r2, [r3]
+ 613              	.L65:
  264:Core/Src/mgr_i2c.c **** 
- 618              		.loc 1 264 3 is_stmt 1 view .LVU123
+ 614              		.loc 1 264 3 is_stmt 1 view .LVU119
  264:Core/Src/mgr_i2c.c **** 
- 619              		.loc 1 264 18 is_stmt 0 view .LVU124
- 620 0060 084B     		ldr	r3, .L67+20
- 621 0062 0022     		movs	r2, #0
- 622 0064 1A70     		strb	r2, [r3]
+ 615              		.loc 1 264 18 is_stmt 0 view .LVU120
+ 616 0060 084B     		ldr	r3, .L67+20
+ 617 0062 0022     		movs	r2, #0
+ 618 0064 1A70     		strb	r2, [r3]
  267:Core/Src/mgr_i2c.c **** }
- 623              		.loc 1 267 3 is_stmt 1 view .LVU125
- 624 0066 044B     		ldr	r3, .L67+8
- 625 0068 1B68     		ldr	r3, [r3]
- 626 006a 9847     		blx	r3
- 627              	.LVL39:
+ 619              		.loc 1 267 3 is_stmt 1 view .LVU121
+ 620 0066 044B     		ldr	r3, .L67+8
+ 621 0068 1B68     		ldr	r3, [r3]
+ 622 006a 9847     		blx	r3
+ 623              	.LVL39:
  268:Core/Src/mgr_i2c.c **** 
- 628              		.loc 1 268 1 is_stmt 0 view .LVU126
- 629 006c 08BD     		pop	{r3, pc}
- 630              	.L68:
- 631 006e 00BF     		.align	2
- 632              	.L67:
- 633 0070 00000000 		.word	.LANCHOR6
- 634 0074 00000000 		.word	.LANCHOR7
- 635 0078 00000000 		.word	.LANCHOR4
- 636 007c 00000000 		.word	.LANCHOR8
- 637 0080 00000000 		.word	i2c_state_error
- 638 0084 00000000 		.word	.LANCHOR0
- 639              		.cfi_endproc
- 640              	.LFE78:
- 642              		.section	.text.i2c_state_idle,"ax",%progbits
-ARM GAS  /tmp/ccQymVG5.s 			page 19
-
-
- 643              		.align	1
- 644              		.global	i2c_state_idle
- 645              		.syntax unified
- 646              		.thumb
- 647              		.thumb_func
- 649              	i2c_state_idle:
- 650              	.LFB72:
+ 624              		.loc 1 268 1 is_stmt 0 view .LVU122
+ 625 006c 08BD     		pop	{r3, pc}
+ 626              	.L68:
+ 627 006e 00BF     		.align	2
+ 628              	.L67:
+ 629 0070 00000000 		.word	idx.0
+ 630 0074 00000000 		.word	TRANS_TAB
+ 631 0078 00000000 		.word	cur_state
+ 632 007c 00000000 		.word	last_evt
+ 633 0080 00000000 		.word	i2c_state_error
+ 634 0084 00000000 		.word	state_executed
+ 635              		.cfi_endproc
+ 636              	.LFE78:
+ 638              		.section	.text.i2c_state_idle,"ax",%progbits
+ 639              		.align	1
+ 640              		.global	i2c_state_idle
+ 641              		.syntax unified
+ 642              		.thumb
+ 643              		.thumb_func
+ 645              	i2c_state_idle:
+ 646              	.LFB72:
  164:Core/Src/mgr_i2c.c ****   /* Do something if buffer not empty */
- 651              		.loc 1 164 1 is_stmt 1 view -0
- 652              		.cfi_startproc
- 653              		@ args = 0, pretend = 0, frame = 0
- 654              		@ frame_needed = 0, uses_anonymous_args = 0
- 655 0000 10B5     		push	{r4, lr}
- 656              		.cfi_def_cfa_offset 8
- 657              		.cfi_offset 4, -8
- 658              		.cfi_offset 14, -4
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 19
+
+
+ 647              		.loc 1 164 1 is_stmt 1 view -0
+ 648              		.cfi_startproc
+ 649              		@ args = 0, pretend = 0, frame = 0
+ 650              		@ frame_needed = 0, uses_anonymous_args = 0
+ 651 0000 10B5     		push	{r4, lr}
+ 652              		.cfi_def_cfa_offset 8
+ 653              		.cfi_offset 4, -8
+ 654              		.cfi_offset 14, -4
  166:Core/Src/mgr_i2c.c ****   {
- 659              		.loc 1 166 3 view .LVU128
+ 655              		.loc 1 166 3 view .LVU124
  166:Core/Src/mgr_i2c.c ****   {
- 660              		.loc 1 166 8 is_stmt 0 view .LVU129
- 661 0002 0B48     		ldr	r0, .L73
- 662 0004 FFF7FEFF 		bl	buf_is_empty
- 663              	.LVL40:
+ 656              		.loc 1 166 8 is_stmt 0 view .LVU125
+ 657 0002 0B48     		ldr	r0, .L73
+ 658 0004 FFF7FEFF 		bl	buf_is_empty
+ 659              	.LVL40:
  166:Core/Src/mgr_i2c.c ****   {
- 664              		.loc 1 166 6 view .LVU130
- 665 0008 00B1     		cbz	r0, .L72
- 666              	.L69:
+ 660              		.loc 1 166 6 view .LVU126
+ 661 0008 00B1     		cbz	r0, .L72
+ 662              	.L69:
  177:Core/Src/mgr_i2c.c **** 
- 667              		.loc 1 177 1 view .LVU131
- 668 000a 10BD     		pop	{r4, pc}
- 669              	.L72:
+ 663              		.loc 1 177 1 view .LVU127
+ 664 000a 10BD     		pop	{r4, pc}
+ 665              	.L72:
  169:Core/Src/mgr_i2c.c ****     bytes_to_send = msg_cur.n_send;
- 670              		.loc 1 169 5 is_stmt 1 view .LVU132
- 671 000c 094C     		ldr	r4, .L73+4
- 672 000e 1022     		movs	r2, #16
- 673 0010 2146     		mov	r1, r4
- 674 0012 0748     		ldr	r0, .L73
- 675 0014 FFF7FEFF 		bl	buf_read
- 676              	.LVL41:
+ 666              		.loc 1 169 5 is_stmt 1 view .LVU128
+ 667 000c 094C     		ldr	r4, .L73+4
+ 668 000e 1022     		movs	r2, #16
+ 669 0010 2146     		mov	r1, r4
+ 670 0012 0748     		ldr	r0, .L73
+ 671 0014 FFF7FEFF 		bl	buf_read
+ 672              	.LVL41:
  170:Core/Src/mgr_i2c.c ****     bytes_to_recv = msg_cur.n_recv;
- 677              		.loc 1 170 5 view .LVU133
+ 673              		.loc 1 170 5 view .LVU129
  170:Core/Src/mgr_i2c.c ****     bytes_to_recv = msg_cur.n_recv;
- 678              		.loc 1 170 28 is_stmt 0 view .LVU134
- 679 0018 2279     		ldrb	r2, [r4, #4]	@ zero_extendqisi2
+ 674              		.loc 1 170 28 is_stmt 0 view .LVU130
+ 675 0018 2279     		ldrb	r2, [r4, #4]	@ zero_extendqisi2
  170:Core/Src/mgr_i2c.c ****     bytes_to_recv = msg_cur.n_recv;
- 680              		.loc 1 170 19 view .LVU135
- 681 001a 074B     		ldr	r3, .L73+8
- 682 001c 1A70     		strb	r2, [r3]
+ 676              		.loc 1 170 19 view .LVU131
+ 677 001a 074B     		ldr	r3, .L73+8
+ 678 001c 1A70     		strb	r2, [r3]
  171:Core/Src/mgr_i2c.c **** 
- 683              		.loc 1 171 5 is_stmt 1 view .LVU136
+ 679              		.loc 1 171 5 is_stmt 1 view .LVU132
  171:Core/Src/mgr_i2c.c **** 
- 684              		.loc 1 171 28 is_stmt 0 view .LVU137
- 685 001e 227B     		ldrb	r2, [r4, #12]	@ zero_extendqisi2
+ 680              		.loc 1 171 28 is_stmt 0 view .LVU133
+ 681 001e 227B     		ldrb	r2, [r4, #12]	@ zero_extendqisi2
  171:Core/Src/mgr_i2c.c **** 
- 686              		.loc 1 171 19 view .LVU138
- 687 0020 064B     		ldr	r3, .L73+12
- 688 0022 1A70     		strb	r2, [r3]
-ARM GAS  /tmp/ccQymVG5.s 			page 20
-
-
+ 682              		.loc 1 171 19 view .LVU134
+ 683 0020 064B     		ldr	r3, .L73+12
+ 684 0022 1A70     		strb	r2, [r3]
  174:Core/Src/mgr_i2c.c ****     i2c_trig_state_trans();
- 689              		.loc 1 174 5 is_stmt 1 view .LVU139
+ 685              		.loc 1 174 5 is_stmt 1 view .LVU135
  174:Core/Src/mgr_i2c.c ****     i2c_trig_state_trans();
- 690              		.loc 1 174 14 is_stmt 0 view .LVU140
- 691 0024 064B     		ldr	r3, .L73+16
- 692 0026 0022     		movs	r2, #0
- 693 0028 1A70     		strb	r2, [r3]
+ 686              		.loc 1 174 14 is_stmt 0 view .LVU136
+ 687 0024 064B     		ldr	r3, .L73+16
+ 688 0026 0022     		movs	r2, #0
+ 689 0028 1A70     		strb	r2, [r3]
  175:Core/Src/mgr_i2c.c ****   }
- 694              		.loc 1 175 5 is_stmt 1 view .LVU141
- 695 002a FFF7FEFF 		bl	i2c_trig_state_trans
- 696              	.LVL42:
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 20
+
+
+ 690              		.loc 1 175 5 is_stmt 1 view .LVU137
+ 691 002a FFF7FEFF 		bl	i2c_trig_state_trans
+ 692              	.LVL42:
  177:Core/Src/mgr_i2c.c **** 
- 697              		.loc 1 177 1 is_stmt 0 view .LVU142
- 698 002e ECE7     		b	.L69
- 699              	.L74:
- 700              		.align	2
- 701              	.L73:
- 702 0030 00000000 		.word	.LANCHOR3
- 703 0034 00000000 		.word	.LANCHOR9
- 704 0038 00000000 		.word	.LANCHOR1
- 705 003c 00000000 		.word	.LANCHOR2
- 706 0040 00000000 		.word	.LANCHOR8
- 707              		.cfi_endproc
- 708              	.LFE72:
- 710              		.section	.text.i2c_state_tx_data,"ax",%progbits
- 711              		.align	1
- 712              		.global	i2c_state_tx_data
- 713              		.syntax unified
- 714              		.thumb
- 715              		.thumb_func
- 717              	i2c_state_tx_data:
- 718              	.LFB74:
+ 693              		.loc 1 177 1 is_stmt 0 view .LVU138
+ 694 002e ECE7     		b	.L69
+ 695              	.L74:
+ 696              		.align	2
+ 697              	.L73:
+ 698 0030 00000000 		.word	msg_buf
+ 699 0034 00000000 		.word	msg_cur
+ 700 0038 00000000 		.word	bytes_to_send
+ 701 003c 00000000 		.word	bytes_to_recv
+ 702 0040 00000000 		.word	last_evt
+ 703              		.cfi_endproc
+ 704              	.LFE72:
+ 706              		.section	.text.i2c_state_tx_data,"ax",%progbits
+ 707              		.align	1
+ 708              		.global	i2c_state_tx_data
+ 709              		.syntax unified
+ 710              		.thumb
+ 711              		.thumb_func
+ 713              	i2c_state_tx_data:
+ 714              	.LFB74:
  190:Core/Src/mgr_i2c.c ****   if (!state_executed)
- 719              		.loc 1 190 1 is_stmt 1 view -0
- 720              		.cfi_startproc
- 721              		@ args = 0, pretend = 0, frame = 0
- 722              		@ frame_needed = 0, uses_anonymous_args = 0
- 723 0000 08B5     		push	{r3, lr}
- 724              		.cfi_def_cfa_offset 8
- 725              		.cfi_offset 3, -8
- 726              		.cfi_offset 14, -4
+ 715              		.loc 1 190 1 is_stmt 1 view -0
+ 716              		.cfi_startproc
+ 717              		@ args = 0, pretend = 0, frame = 0
+ 718              		@ frame_needed = 0, uses_anonymous_args = 0
+ 719 0000 08B5     		push	{r3, lr}
+ 720              		.cfi_def_cfa_offset 8
+ 721              		.cfi_offset 3, -8
+ 722              		.cfi_offset 14, -4
  191:Core/Src/mgr_i2c.c ****   {
- 727              		.loc 1 191 3 view .LVU144
+ 723              		.loc 1 191 3 view .LVU140
  191:Core/Src/mgr_i2c.c ****   {
- 728              		.loc 1 191 7 is_stmt 0 view .LVU145
- 729 0002 0D4B     		ldr	r3, .L81
- 730 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 724              		.loc 1 191 7 is_stmt 0 view .LVU141
+ 725 0002 0D4B     		ldr	r3, .L81
+ 726 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  191:Core/Src/mgr_i2c.c ****   {
- 731              		.loc 1 191 6 view .LVU146
- 732 0006 03B1     		cbz	r3, .L80
- 733              	.L75:
+ 727              		.loc 1 191 6 view .LVU142
+ 728 0006 03B1     		cbz	r3, .L80
+ 729              	.L75:
  205:Core/Src/mgr_i2c.c **** 
- 734              		.loc 1 205 1 view .LVU147
- 735 0008 08BD     		pop	{r3, pc}
- 736              	.L80:
+ 730              		.loc 1 205 1 view .LVU143
+ 731 0008 08BD     		pop	{r3, pc}
+ 732              	.L80:
  194:Core/Src/mgr_i2c.c ****     {
- 737              		.loc 1 194 5 is_stmt 1 view .LVU148
-ARM GAS  /tmp/ccQymVG5.s 			page 21
+ 733              		.loc 1 194 5 is_stmt 1 view .LVU144
+ 194:Core/Src/mgr_i2c.c ****     {
+ 734              		.loc 1 194 44 is_stmt 0 view .LVU145
+ 735 000a 0C4B     		ldr	r3, .L81+4
+ 736 000c 1868     		ldr	r0, [r3]
+ 194:Core/Src/mgr_i2c.c ****     {
+ 737              		.loc 1 194 25 view .LVU146
+ 738 000e 0C4B     		ldr	r3, .L81+8
+ 739 0010 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 21
 
 
+ 740 0012 1844     		add	r0, r0, r3
+ 741 0014 FFF7FEFF 		bl	i2c1_send
+ 742              	.LVL43:
  194:Core/Src/mgr_i2c.c ****     {
- 738              		.loc 1 194 44 is_stmt 0 view .LVU149
- 739 000a 0C4B     		ldr	r3, .L81+4
- 740 000c 1868     		ldr	r0, [r3]
- 194:Core/Src/mgr_i2c.c ****     {
- 741              		.loc 1 194 25 view .LVU150
- 742 000e 0C4B     		ldr	r3, .L81+8
- 743 0010 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 744 0012 1844     		add	r0, r0, r3
- 745 0014 FFF7FEFF 		bl	i2c1_send
- 746              	.LVL43:
- 194:Core/Src/mgr_i2c.c ****     {
- 747              		.loc 1 194 8 view .LVU151
- 748 0018 38B9     		cbnz	r0, .L77
+ 743              		.loc 1 194 8 view .LVU147
+ 744 0018 38B9     		cbnz	r0, .L77
  196:Core/Src/mgr_i2c.c ****     }
- 749              		.loc 1 196 7 is_stmt 1 view .LVU152
+ 745              		.loc 1 196 7 is_stmt 1 view .LVU148
  196:Core/Src/mgr_i2c.c ****     }
- 750              		.loc 1 196 20 is_stmt 0 view .LVU153
- 751 001a 094A     		ldr	r2, .L81+8
- 752 001c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 753 001e 013B     		subs	r3, r3, #1
- 754 0020 1370     		strb	r3, [r2]
- 755              	.L78:
+ 746              		.loc 1 196 20 is_stmt 0 view .LVU149
+ 747 001a 094A     		ldr	r2, .L81+8
+ 748 001c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 749 001e 013B     		subs	r3, r3, #1
+ 750 0020 1370     		strb	r3, [r2]
+ 751              	.L78:
  203:Core/Src/mgr_i2c.c ****   }
- 756              		.loc 1 203 5 is_stmt 1 view .LVU154
+ 752              		.loc 1 203 5 is_stmt 1 view .LVU150
  203:Core/Src/mgr_i2c.c ****   }
- 757              		.loc 1 203 20 is_stmt 0 view .LVU155
- 758 0022 054B     		ldr	r3, .L81
- 759 0024 0122     		movs	r2, #1
- 760 0026 1A70     		strb	r2, [r3]
+ 753              		.loc 1 203 20 is_stmt 0 view .LVU151
+ 754 0022 054B     		ldr	r3, .L81
+ 755 0024 0122     		movs	r2, #1
+ 756 0026 1A70     		strb	r2, [r3]
  205:Core/Src/mgr_i2c.c **** 
- 761              		.loc 1 205 1 view .LVU156
- 762 0028 EEE7     		b	.L75
- 763              	.L77:
+ 757              		.loc 1 205 1 view .LVU152
+ 758 0028 EEE7     		b	.L75
+ 759              	.L77:
  200:Core/Src/mgr_i2c.c ****       i2c_trig_state_trans();
- 764              		.loc 1 200 7 is_stmt 1 view .LVU157
+ 760              		.loc 1 200 7 is_stmt 1 view .LVU153
  200:Core/Src/mgr_i2c.c ****       i2c_trig_state_trans();
- 765              		.loc 1 200 16 is_stmt 0 view .LVU158
- 766 002a 064B     		ldr	r3, .L81+12
- 767 002c 0922     		movs	r2, #9
- 768 002e 1A70     		strb	r2, [r3]
+ 761              		.loc 1 200 16 is_stmt 0 view .LVU154
+ 762 002a 064B     		ldr	r3, .L81+12
+ 763 002c 0922     		movs	r2, #9
+ 764 002e 1A70     		strb	r2, [r3]
  201:Core/Src/mgr_i2c.c ****     }
- 769              		.loc 1 201 7 is_stmt 1 view .LVU159
- 770 0030 FFF7FEFF 		bl	i2c_trig_state_trans
- 771              	.LVL44:
- 772 0034 F5E7     		b	.L78
- 773              	.L82:
- 774 0036 00BF     		.align	2
- 775              	.L81:
- 776 0038 00000000 		.word	.LANCHOR0
- 777 003c 00000000 		.word	.LANCHOR9
- 778 0040 00000000 		.word	.LANCHOR1
- 779 0044 00000000 		.word	.LANCHOR8
- 780              		.cfi_endproc
- 781              	.LFE74:
- 783              		.section	.text.i2c_state_rx_data,"ax",%progbits
- 784              		.align	1
-ARM GAS  /tmp/ccQymVG5.s 			page 22
-
-
- 785              		.global	i2c_state_rx_data
- 786              		.syntax unified
- 787              		.thumb
- 788              		.thumb_func
- 790              	i2c_state_rx_data:
- 791              	.LFB75:
+ 765              		.loc 1 201 7 is_stmt 1 view .LVU155
+ 766 0030 FFF7FEFF 		bl	i2c_trig_state_trans
+ 767              	.LVL44:
+ 768 0034 F5E7     		b	.L78
+ 769              	.L82:
+ 770 0036 00BF     		.align	2
+ 771              	.L81:
+ 772 0038 00000000 		.word	state_executed
+ 773 003c 00000000 		.word	msg_cur
+ 774 0040 00000000 		.word	bytes_to_send
+ 775 0044 00000000 		.word	last_evt
+ 776              		.cfi_endproc
+ 777              	.LFE74:
+ 779              		.section	.text.i2c_state_rx_data,"ax",%progbits
+ 780              		.align	1
+ 781              		.global	i2c_state_rx_data
+ 782              		.syntax unified
+ 783              		.thumb
+ 784              		.thumb_func
+ 786              	i2c_state_rx_data:
+ 787              	.LFB75:
  208:Core/Src/mgr_i2c.c ****   if (!state_executed)
- 792              		.loc 1 208 1 view -0
- 793              		.cfi_startproc
- 794              		@ args = 0, pretend = 0, frame = 0
- 795              		@ frame_needed = 0, uses_anonymous_args = 0
- 796 0000 08B5     		push	{r3, lr}
- 797              		.cfi_def_cfa_offset 8
- 798              		.cfi_offset 3, -8
- 799              		.cfi_offset 14, -4
+ 788              		.loc 1 208 1 view -0
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 22
+
+
+ 789              		.cfi_startproc
+ 790              		@ args = 0, pretend = 0, frame = 0
+ 791              		@ frame_needed = 0, uses_anonymous_args = 0
+ 792 0000 08B5     		push	{r3, lr}
+ 793              		.cfi_def_cfa_offset 8
+ 794              		.cfi_offset 3, -8
+ 795              		.cfi_offset 14, -4
  209:Core/Src/mgr_i2c.c ****   {
- 800              		.loc 1 209 3 view .LVU161
+ 796              		.loc 1 209 3 view .LVU157
  209:Core/Src/mgr_i2c.c ****   {
- 801              		.loc 1 209 7 is_stmt 0 view .LVU162
- 802 0002 114B     		ldr	r3, .L90
- 803 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 797              		.loc 1 209 7 is_stmt 0 view .LVU158
+ 798 0002 114B     		ldr	r3, .L90
+ 799 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  209:Core/Src/mgr_i2c.c ****   {
- 804              		.loc 1 209 6 view .LVU163
- 805 0006 03B1     		cbz	r3, .L89
- 806              	.L83:
+ 800              		.loc 1 209 6 view .LVU159
+ 801 0006 03B1     		cbz	r3, .L89
+ 802              	.L83:
  230:Core/Src/mgr_i2c.c **** 
- 807              		.loc 1 230 1 view .LVU164
- 808 0008 08BD     		pop	{r3, pc}
- 809              	.L89:
+ 803              		.loc 1 230 1 view .LVU160
+ 804 0008 08BD     		pop	{r3, pc}
+ 805              	.L89:
  211:Core/Src/mgr_i2c.c ****     {
- 810              		.loc 1 211 5 is_stmt 1 view .LVU165
+ 806              		.loc 1 211 5 is_stmt 1 view .LVU161
  211:Core/Src/mgr_i2c.c ****     {
- 811              		.loc 1 211 44 is_stmt 0 view .LVU166
- 812 000a 104B     		ldr	r3, .L90+4
- 813 000c 9868     		ldr	r0, [r3, #8]
+ 807              		.loc 1 211 44 is_stmt 0 view .LVU162
+ 808 000a 104B     		ldr	r3, .L90+4
+ 809 000c 9868     		ldr	r0, [r3, #8]
  211:Core/Src/mgr_i2c.c ****     {
- 814              		.loc 1 211 66 view .LVU167
- 815 000e 1B7B     		ldrb	r3, [r3, #12]	@ zero_extendqisi2
+ 810              		.loc 1 211 66 view .LVU163
+ 811 000e 1B7B     		ldrb	r3, [r3, #12]	@ zero_extendqisi2
  211:Core/Src/mgr_i2c.c ****     {
- 816              		.loc 1 211 74 view .LVU168
- 817 0010 0F4A     		ldr	r2, .L90+8
- 818 0012 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
- 819 0014 9B1A     		subs	r3, r3, r2
+ 812              		.loc 1 211 74 view .LVU164
+ 813 0010 0F4A     		ldr	r2, .L90+8
+ 814 0012 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 815 0014 9B1A     		subs	r3, r3, r2
  211:Core/Src/mgr_i2c.c ****     {
- 820              		.loc 1 211 25 view .LVU169
- 821 0016 1844     		add	r0, r0, r3
- 822 0018 FFF7FEFF 		bl	i2c1_recv
- 823              	.LVL45:
+ 816              		.loc 1 211 25 view .LVU165
+ 817 0016 1844     		add	r0, r0, r3
+ 818 0018 FFF7FEFF 		bl	i2c1_recv
+ 819              	.LVL45:
  211:Core/Src/mgr_i2c.c ****     {
- 824              		.loc 1 211 8 view .LVU170
- 825 001c 70B9     		cbnz	r0, .L85
+ 820              		.loc 1 211 8 view .LVU166
+ 821 001c 70B9     		cbnz	r0, .L85
  213:Core/Src/mgr_i2c.c ****       if (bytes_to_recv)
- 826              		.loc 1 213 7 is_stmt 1 view .LVU171
+ 822              		.loc 1 213 7 is_stmt 1 view .LVU167
  213:Core/Src/mgr_i2c.c ****       if (bytes_to_recv)
- 827              		.loc 1 213 20 is_stmt 0 view .LVU172
- 828 001e 0C4A     		ldr	r2, .L90+8
- 829 0020 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-ARM GAS  /tmp/ccQymVG5.s 			page 23
+ 823              		.loc 1 213 20 is_stmt 0 view .LVU168
+ 824 001e 0C4A     		ldr	r2, .L90+8
+ 825 0020 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 826 0022 013B     		subs	r3, r3, #1
+ 827 0024 DBB2     		uxtb	r3, r3
+ 828 0026 1370     		strb	r3, [r2]
+ 214:Core/Src/mgr_i2c.c ****       {
+ 829              		.loc 1 214 7 is_stmt 1 view .LVU169
+ 214:Core/Src/mgr_i2c.c ****       {
+ 830              		.loc 1 214 10 is_stmt 0 view .LVU170
+ 831 0028 2BB1     		cbz	r3, .L86
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 23
 
 
- 830 0022 013B     		subs	r3, r3, #1
- 831 0024 DBB2     		uxtb	r3, r3
- 832 0026 1370     		strb	r3, [r2]
- 214:Core/Src/mgr_i2c.c ****       {
- 833              		.loc 1 214 7 is_stmt 1 view .LVU173
- 214:Core/Src/mgr_i2c.c ****       {
- 834              		.loc 1 214 10 is_stmt 0 view .LVU174
- 835 0028 2BB1     		cbz	r3, .L86
  216:Core/Src/mgr_i2c.c ****       }
- 836              		.loc 1 216 9 is_stmt 1 view .LVU175
- 837 002a FFF7FEFF 		bl	i2c1_nack_bit
- 838              	.LVL46:
- 839              	.L87:
+ 832              		.loc 1 216 9 is_stmt 1 view .LVU171
+ 833 002a FFF7FEFF 		bl	i2c1_nack_bit
+ 834              	.LVL46:
+ 835              	.L87:
  228:Core/Src/mgr_i2c.c ****   }
- 840              		.loc 1 228 5 view .LVU176
+ 836              		.loc 1 228 5 view .LVU172
  228:Core/Src/mgr_i2c.c ****   }
- 841              		.loc 1 228 20 is_stmt 0 view .LVU177
- 842 002e 064B     		ldr	r3, .L90
- 843 0030 0122     		movs	r2, #1
- 844 0032 1A70     		strb	r2, [r3]
+ 837              		.loc 1 228 20 is_stmt 0 view .LVU173
+ 838 002e 064B     		ldr	r3, .L90
+ 839 0030 0122     		movs	r2, #1
+ 840 0032 1A70     		strb	r2, [r3]
  230:Core/Src/mgr_i2c.c **** 
- 845              		.loc 1 230 1 view .LVU178
- 846 0034 E8E7     		b	.L83
- 847              	.L86:
+ 841              		.loc 1 230 1 view .LVU174
+ 842 0034 E8E7     		b	.L83
+ 843              	.L86:
  220:Core/Src/mgr_i2c.c ****       }
- 848              		.loc 1 220 9 is_stmt 1 view .LVU179
- 849 0036 FFF7FEFF 		bl	i2c1_ack_bit
- 850              	.LVL47:
- 851 003a F8E7     		b	.L87
- 852              	.L85:
+ 844              		.loc 1 220 9 is_stmt 1 view .LVU175
+ 845 0036 FFF7FEFF 		bl	i2c1_ack_bit
+ 846              	.LVL47:
+ 847 003a F8E7     		b	.L87
+ 848              	.L85:
  225:Core/Src/mgr_i2c.c ****       i2c_trig_state_trans();
- 853              		.loc 1 225 7 view .LVU180
+ 849              		.loc 1 225 7 view .LVU176
  225:Core/Src/mgr_i2c.c ****       i2c_trig_state_trans();
- 854              		.loc 1 225 16 is_stmt 0 view .LVU181
- 855 003c 054B     		ldr	r3, .L90+12
- 856 003e 0922     		movs	r2, #9
- 857 0040 1A70     		strb	r2, [r3]
+ 850              		.loc 1 225 16 is_stmt 0 view .LVU177
+ 851 003c 054B     		ldr	r3, .L90+12
+ 852 003e 0922     		movs	r2, #9
+ 853 0040 1A70     		strb	r2, [r3]
  226:Core/Src/mgr_i2c.c ****     }
- 858              		.loc 1 226 7 is_stmt 1 view .LVU182
- 859 0042 FFF7FEFF 		bl	i2c_trig_state_trans
- 860              	.LVL48:
- 861 0046 F2E7     		b	.L87
- 862              	.L91:
- 863              		.align	2
- 864              	.L90:
- 865 0048 00000000 		.word	.LANCHOR0
- 866 004c 00000000 		.word	.LANCHOR9
- 867 0050 00000000 		.word	.LANCHOR2
- 868 0054 00000000 		.word	.LANCHOR8
- 869              		.cfi_endproc
- 870              	.LFE75:
- 872              		.section	.text.i2c_event_callback,"ax",%progbits
- 873              		.align	1
- 874              		.global	i2c_event_callback
- 875              		.syntax unified
- 876              		.thumb
- 877              		.thumb_func
-ARM GAS  /tmp/ccQymVG5.s 			page 24
-
-
- 879              	i2c_event_callback:
- 880              	.LFB79:
+ 854              		.loc 1 226 7 is_stmt 1 view .LVU178
+ 855 0042 FFF7FEFF 		bl	i2c_trig_state_trans
+ 856              	.LVL48:
+ 857 0046 F2E7     		b	.L87
+ 858              	.L91:
+ 859              		.align	2
+ 860              	.L90:
+ 861 0048 00000000 		.word	state_executed
+ 862 004c 00000000 		.word	msg_cur
+ 863 0050 00000000 		.word	bytes_to_recv
+ 864 0054 00000000 		.word	last_evt
+ 865              		.cfi_endproc
+ 866              	.LFE75:
+ 868              		.section	.text.i2c_event_callback,"ax",%progbits
+ 869              		.align	1
+ 870              		.global	i2c_event_callback
+ 871              		.syntax unified
+ 872              		.thumb
+ 873              		.thumb_func
+ 875              	i2c_event_callback:
+ 876              	.LFB79:
  271:Core/Src/mgr_i2c.c ****   /* Figure out what happened */
- 881              		.loc 1 271 1 view -0
- 882              		.cfi_startproc
- 883              		@ args = 0, pretend = 0, frame = 0
- 884              		@ frame_needed = 0, uses_anonymous_args = 0
- 885 0000 08B5     		push	{r3, lr}
- 886              		.cfi_def_cfa_offset 8
- 887              		.cfi_offset 3, -8
- 888              		.cfi_offset 14, -4
+ 877              		.loc 1 271 1 view -0
+ 878              		.cfi_startproc
+ 879              		@ args = 0, pretend = 0, frame = 0
+ 880              		@ frame_needed = 0, uses_anonymous_args = 0
+ 881 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 24
+
+
+ 882              		.cfi_def_cfa_offset 8
+ 883              		.cfi_offset 3, -8
+ 884              		.cfi_offset 14, -4
  273:Core/Src/mgr_i2c.c **** 
- 889              		.loc 1 273 3 view .LVU184
+ 885              		.loc 1 273 3 view .LVU180
  273:Core/Src/mgr_i2c.c **** 
- 890              		.loc 1 273 14 is_stmt 0 view .LVU185
- 891 0002 FFF7FEFF 		bl	i2c1_get_last_event
- 892              	.LVL49:
- 893 0006 FFF7FEFF 		bl	i2c_decode_i2c1_event
- 894              	.LVL50:
+ 886              		.loc 1 273 14 is_stmt 0 view .LVU181
+ 887 0002 FFF7FEFF 		bl	i2c1_get_last_event
+ 888              	.LVL49:
+ 889 0006 FFF7FEFF 		bl	i2c_decode_i2c1_event
+ 890              	.LVL50:
  273:Core/Src/mgr_i2c.c **** 
- 895              		.loc 1 273 12 view .LVU186
- 896 000a 024B     		ldr	r3, .L94
- 897 000c 1870     		strb	r0, [r3]
+ 891              		.loc 1 273 12 view .LVU182
+ 892 000a 024B     		ldr	r3, .L94
+ 893 000c 1870     		strb	r0, [r3]
  276:Core/Src/mgr_i2c.c ****   //cur_state();
- 898              		.loc 1 276 3 is_stmt 1 view .LVU187
- 899 000e FFF7FEFF 		bl	i2c_trig_state_trans
- 900              	.LVL51:
+ 894              		.loc 1 276 3 is_stmt 1 view .LVU183
+ 895 000e FFF7FEFF 		bl	i2c_trig_state_trans
+ 896              	.LVL51:
  282:Core/Src/mgr_i2c.c **** 
- 901              		.loc 1 282 1 is_stmt 0 view .LVU188
- 902 0012 08BD     		pop	{r3, pc}
- 903              	.L95:
- 904              		.align	2
- 905              	.L94:
- 906 0014 00000000 		.word	.LANCHOR8
- 907              		.cfi_endproc
- 908              	.LFE79:
- 910              		.section	.bss.bytes_to_recv,"aw",%nobits
- 911              		.set	.LANCHOR2,. + 0
- 914              	bytes_to_recv:
- 915 0000 00       		.space	1
- 916              		.section	.bss.bytes_to_send,"aw",%nobits
- 917              		.set	.LANCHOR1,. + 0
- 920              	bytes_to_send:
- 921 0000 00       		.space	1
- 922              		.section	.bss.cur_state,"aw",%nobits
- 923              		.align	2
- 924              		.set	.LANCHOR4,. + 0
- 927              	cur_state:
- 928 0000 00000000 		.space	4
- 929              		.section	.bss.idx.0,"aw",%nobits
- 930              		.set	.LANCHOR6,. + 0
- 933              	idx.0:
- 934 0000 00       		.space	1
- 935              		.section	.bss.last_evt,"aw",%nobits
- 936              		.set	.LANCHOR8,. + 0
- 939              	last_evt:
- 940 0000 00       		.space	1
-ARM GAS  /tmp/ccQymVG5.s 			page 25
+ 897              		.loc 1 282 1 is_stmt 0 view .LVU184
+ 898 0012 08BD     		pop	{r3, pc}
+ 899              	.L95:
+ 900              		.align	2
+ 901              	.L94:
+ 902 0014 00000000 		.word	last_evt
+ 903              		.cfi_endproc
+ 904              	.LFE79:
+ 906              		.section	.bss.idx.0,"aw",%nobits
+ 909              	idx.0:
+ 910 0000 00       		.space	1
+ 911              		.section	.rodata.TRANS_TAB,"a"
+ 912              		.align	2
+ 915              	TRANS_TAB:
+ 916 0000 00000000 		.word	i2c_state_idle
+ 917 0004 00000000 		.word	0
+ 918 0008 00000000 		.word	i2c_state_start_bit
+ 919 000c 00000000 		.word	i2c_state_start_bit
+ 920 0010 01000000 		.word	1
+ 921 0014 00000000 		.word	i2c_state_tx_data
+ 922 0018 00000000 		.word	i2c_state_tx_data
+ 923 001c 04000000 		.word	4
+ 924 0020 00000000 		.word	i2c_state_tx_data
+ 925 0024 00000000 		.word	i2c_state_tx_data
+ 926 0028 06000000 		.word	6
+ 927 002c 00000000 		.word	i2c_state_start_bit
+ 928 0030 00000000 		.word	i2c_state_start_bit
+ 929 0034 02000000 		.word	2
+ 930 0038 00000000 		.word	i2c_state_rx_data
+ 931 003c 00000000 		.word	i2c_state_tx_data
+ 932 0040 05000000 		.word	5
+ 933 0044 00000000 		.word	i2c_state_stop_bit
+ 934 0048 00000000 		.word	i2c_state_rx_data
+ 935 004c 07000000 		.word	7
+ 936 0050 00000000 		.word	i2c_state_rx_data
+ 937 0054 00000000 		.word	i2c_state_rx_data
+ 938 0058 08000000 		.word	8
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 25
 
 
- 941              		.section	.bss.msg_buf,"aw",%nobits
- 942              		.align	2
- 943              		.set	.LANCHOR3,. + 0
- 946              	msg_buf:
- 947 0000 00000000 		.space	20
- 947      00000000 
- 947      00000000 
- 947      00000000 
- 947      00000000 
- 948              		.section	.bss.msg_buf_data,"aw",%nobits
- 949              		.align	2
- 950              		.set	.LANCHOR5,. + 0
- 953              	msg_buf_data:
- 954 0000 00000000 		.space	240
- 954      00000000 
- 954      00000000 
- 954      00000000 
- 954      00000000 
- 955              		.section	.bss.msg_cur,"aw",%nobits
- 956              		.align	2
- 957              		.set	.LANCHOR9,. + 0
- 960              	msg_cur:
- 961 0000 00000000 		.space	16
- 961      00000000 
- 961      00000000 
- 961      00000000 
- 962              		.section	.bss.state_executed,"aw",%nobits
- 963              		.set	.LANCHOR0,. + 0
- 966              	state_executed:
- 967 0000 00       		.space	1
- 968              		.section	.rodata.TRANS_TAB,"a"
- 969              		.align	2
- 970              		.set	.LANCHOR7,. + 0
- 973              	TRANS_TAB:
- 974 0000 00000000 		.word	i2c_state_idle
- 975 0004 00000000 		.word	0
- 976 0008 00000000 		.word	i2c_state_start_bit
- 977 000c 00000000 		.word	i2c_state_start_bit
- 978 0010 01000000 		.word	1
- 979 0014 00000000 		.word	i2c_state_tx_data
- 980 0018 00000000 		.word	i2c_state_tx_data
- 981 001c 04000000 		.word	4
- 982 0020 00000000 		.word	i2c_state_tx_data
- 983 0024 00000000 		.word	i2c_state_tx_data
- 984 0028 06000000 		.word	6
- 985 002c 00000000 		.word	i2c_state_start_bit
- 986 0030 00000000 		.word	i2c_state_start_bit
- 987 0034 02000000 		.word	2
- 988 0038 00000000 		.word	i2c_state_rx_data
- 989 003c 00000000 		.word	i2c_state_tx_data
- 990 0040 05000000 		.word	5
- 991 0044 00000000 		.word	i2c_state_stop_bit
- 992 0048 00000000 		.word	i2c_state_rx_data
- 993 004c 07000000 		.word	7
- 994 0050 00000000 		.word	i2c_state_rx_data
- 995 0054 00000000 		.word	i2c_state_rx_data
- 996 0058 08000000 		.word	8
-ARM GAS  /tmp/ccQymVG5.s 			page 26
-
-
- 997 005c 00000000 		.word	i2c_state_stop_bit
- 998 0060 00000000 		.word	i2c_state_stop_bit
- 999 0064 03000000 		.word	3
- 1000 0068 00000000 		.word	i2c_state_idle
- 1001              		.text
- 1002              	.Letext0:
- 1003              		.file 2 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 1004              		.file 3 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 1005              		.file 4 "/home/callum/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-no
- 1006              		.file 5 "Core/Inc/util_buffer.h"
- 1007              		.file 6 "Core/Inc/util_fsm.h"
- 1008              		.file 7 "Core/Inc/hw_i2c1.h"
- 1009              		.file 8 "Core/Inc/mgr_i2c.h"
-ARM GAS  /tmp/ccQymVG5.s 			page 27
+ 939 005c 00000000 		.word	i2c_state_stop_bit
+ 940 0060 00000000 		.word	i2c_state_stop_bit
+ 941 0064 03000000 		.word	3
+ 942 0068 00000000 		.word	i2c_state_idle
+ 943              		.section	.bss.cur_state,"aw",%nobits
+ 944              		.align	2
+ 947              	cur_state:
+ 948 0000 00000000 		.space	4
+ 949              		.section	.bss.state_executed,"aw",%nobits
+ 952              	state_executed:
+ 953 0000 00       		.space	1
+ 954              		.section	.bss.last_evt,"aw",%nobits
+ 957              	last_evt:
+ 958 0000 00       		.space	1
+ 959              		.section	.bss.bytes_to_recv,"aw",%nobits
+ 962              	bytes_to_recv:
+ 963 0000 00       		.space	1
+ 964              		.section	.bss.bytes_to_send,"aw",%nobits
+ 967              	bytes_to_send:
+ 968 0000 00       		.space	1
+ 969              		.section	.bss.msg_cur,"aw",%nobits
+ 970              		.align	2
+ 973              	msg_cur:
+ 974 0000 00000000 		.space	16
+ 974      00000000 
+ 974      00000000 
+ 974      00000000 
+ 975              		.section	.bss.msg_buf_data,"aw",%nobits
+ 976              		.align	2
+ 979              	msg_buf_data:
+ 980 0000 00000000 		.space	240
+ 980      00000000 
+ 980      00000000 
+ 980      00000000 
+ 980      00000000 
+ 981              		.section	.bss.msg_buf,"aw",%nobits
+ 982              		.align	2
+ 985              	msg_buf:
+ 986 0000 00000000 		.space	20
+ 986      00000000 
+ 986      00000000 
+ 986      00000000 
+ 986      00000000 
+ 987              		.text
+ 988              	.Letext0:
+ 989              		.file 2 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
+ 990              		.file 3 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
+ 991              		.file 4 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
+ 992              		.file 5 "Core/Inc/util_buffer.h"
+ 993              		.file 6 "Core/Inc/util_fsm.h"
+ 994              		.file 7 "Core/Inc/hw_i2c1.h"
+ 995              		.file 8 "Core/Inc/mgr_i2c.h"
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 26
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 mgr_i2c.c
-     /tmp/ccQymVG5.s:18     .text.i2c_state_error:0000000000000000 $t
-     /tmp/ccQymVG5.s:24     .text.i2c_state_error:0000000000000000 i2c_state_error
-     /tmp/ccQymVG5.s:42     .text.i2c_error_callback:0000000000000000 $t
-     /tmp/ccQymVG5.s:48     .text.i2c_error_callback:0000000000000000 i2c_error_callback
-     /tmp/ccQymVG5.s:66     .text.i2c_state_start_bit:0000000000000000 $t
-     /tmp/ccQymVG5.s:72     .text.i2c_state_start_bit:0000000000000000 i2c_state_start_bit
-     /tmp/ccQymVG5.s:105    .text.i2c_state_start_bit:0000000000000018 $d
-     /tmp/ccQymVG5.s:110    .text.i2c_state_stop_bit:0000000000000000 $t
-     /tmp/ccQymVG5.s:116    .text.i2c_state_stop_bit:0000000000000000 i2c_state_stop_bit
-     /tmp/ccQymVG5.s:135    .text.i2c_decode_i2c1_event:0000000000000000 $t
-     /tmp/ccQymVG5.s:141    .text.i2c_decode_i2c1_event:0000000000000000 i2c_decode_i2c1_event
-     /tmp/ccQymVG5.s:261    .text.i2c_decode_i2c1_event:0000000000000058 $d
-     /tmp/ccQymVG5.s:267    .text.i2c_reset:0000000000000000 $t
-     /tmp/ccQymVG5.s:273    .text.i2c_reset:0000000000000000 i2c_reset
-     /tmp/ccQymVG5.s:300    .text.i2c_reset:0000000000000014 $d
-     /tmp/ccQymVG5.s:306    .text.i2c_enable:0000000000000000 $t
-     /tmp/ccQymVG5.s:312    .text.i2c_enable:0000000000000000 i2c_enable
-     /tmp/ccQymVG5.s:331    .text.i2c_init:0000000000000000 $t
-     /tmp/ccQymVG5.s:337    .text.i2c_init:0000000000000000 i2c_init
-     /tmp/ccQymVG5.s:393    .text.i2c_init:000000000000003c $d
-     /tmp/ccQymVG5.s:649    .text.i2c_state_idle:0000000000000000 i2c_state_idle
-     /tmp/ccQymVG5.s:879    .text.i2c_event_callback:0000000000000000 i2c_event_callback
-     /tmp/ccQymVG5.s:403    .text.i2c_disable:0000000000000000 $t
-     /tmp/ccQymVG5.s:409    .text.i2c_disable:0000000000000000 i2c_disable
-     /tmp/ccQymVG5.s:428    .text.i2c_poll_fsm:0000000000000000 $t
-     /tmp/ccQymVG5.s:434    .text.i2c_poll_fsm:0000000000000000 i2c_poll_fsm
-     /tmp/ccQymVG5.s:454    .text.i2c_poll_fsm:000000000000000c $d
-     /tmp/ccQymVG5.s:459    .text.i2c_queue_msg:0000000000000000 $t
-     /tmp/ccQymVG5.s:465    .text.i2c_queue_msg:0000000000000000 i2c_queue_msg
-     /tmp/ccQymVG5.s:522    .text.i2c_queue_msg:0000000000000034 $d
-     /tmp/ccQymVG5.s:527    .text.i2c_trig_state_trans:0000000000000000 $t
-     /tmp/ccQymVG5.s:533    .text.i2c_trig_state_trans:0000000000000000 i2c_trig_state_trans
-     /tmp/ccQymVG5.s:633    .text.i2c_trig_state_trans:0000000000000070 $d
-     /tmp/ccQymVG5.s:643    .text.i2c_state_idle:0000000000000000 $t
-     /tmp/ccQymVG5.s:702    .text.i2c_state_idle:0000000000000030 $d
-     /tmp/ccQymVG5.s:711    .text.i2c_state_tx_data:0000000000000000 $t
-     /tmp/ccQymVG5.s:717    .text.i2c_state_tx_data:0000000000000000 i2c_state_tx_data
-     /tmp/ccQymVG5.s:776    .text.i2c_state_tx_data:0000000000000038 $d
-     /tmp/ccQymVG5.s:784    .text.i2c_state_rx_data:0000000000000000 $t
-     /tmp/ccQymVG5.s:790    .text.i2c_state_rx_data:0000000000000000 i2c_state_rx_data
-     /tmp/ccQymVG5.s:865    .text.i2c_state_rx_data:0000000000000048 $d
-     /tmp/ccQymVG5.s:873    .text.i2c_event_callback:0000000000000000 $t
-     /tmp/ccQymVG5.s:906    .text.i2c_event_callback:0000000000000014 $d
-     /tmp/ccQymVG5.s:914    .bss.bytes_to_recv:0000000000000000 bytes_to_recv
-     /tmp/ccQymVG5.s:915    .bss.bytes_to_recv:0000000000000000 $d
-     /tmp/ccQymVG5.s:920    .bss.bytes_to_send:0000000000000000 bytes_to_send
-     /tmp/ccQymVG5.s:921    .bss.bytes_to_send:0000000000000000 $d
-     /tmp/ccQymVG5.s:923    .bss.cur_state:0000000000000000 $d
-     /tmp/ccQymVG5.s:927    .bss.cur_state:0000000000000000 cur_state
-     /tmp/ccQymVG5.s:933    .bss.idx.0:0000000000000000 idx.0
-     /tmp/ccQymVG5.s:934    .bss.idx.0:0000000000000000 $d
-     /tmp/ccQymVG5.s:939    .bss.last_evt:0000000000000000 last_evt
-     /tmp/ccQymVG5.s:940    .bss.last_evt:0000000000000000 $d
-     /tmp/ccQymVG5.s:942    .bss.msg_buf:0000000000000000 $d
-     /tmp/ccQymVG5.s:946    .bss.msg_buf:0000000000000000 msg_buf
-ARM GAS  /tmp/ccQymVG5.s 			page 28
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:19     .text.i2c_state_error:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:25     .text.i2c_state_error:0000000000000000 i2c_state_error
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:41     .text.i2c_error_callback:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:47     .text.i2c_error_callback:0000000000000000 i2c_error_callback
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:65     .text.i2c_state_start_bit:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:71     .text.i2c_state_start_bit:0000000000000000 i2c_state_start_bit
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:104    .text.i2c_state_start_bit:0000000000000018 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:952    .bss.state_executed:0000000000000000 state_executed
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:109    .text.i2c_state_stop_bit:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:115    .text.i2c_state_stop_bit:0000000000000000 i2c_state_stop_bit
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:134    .text.i2c_decode_i2c1_event:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:140    .text.i2c_decode_i2c1_event:0000000000000000 i2c_decode_i2c1_event
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:260    .text.i2c_decode_i2c1_event:0000000000000058 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:967    .bss.bytes_to_send:0000000000000000 bytes_to_send
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:962    .bss.bytes_to_recv:0000000000000000 bytes_to_recv
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:266    .text.i2c_reset:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:272    .text.i2c_reset:0000000000000000 i2c_reset
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:299    .text.i2c_reset:0000000000000014 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:985    .bss.msg_buf:0000000000000000 msg_buf
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:305    .text.i2c_enable:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:311    .text.i2c_enable:0000000000000000 i2c_enable
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:330    .text.i2c_init:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:336    .text.i2c_init:0000000000000000 i2c_init
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:392    .text.i2c_init:000000000000003c $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:947    .bss.cur_state:0000000000000000 cur_state
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:645    .text.i2c_state_idle:0000000000000000 i2c_state_idle
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:875    .text.i2c_event_callback:0000000000000000 i2c_event_callback
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:979    .bss.msg_buf_data:0000000000000000 msg_buf_data
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:402    .text.i2c_disable:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:408    .text.i2c_disable:0000000000000000 i2c_disable
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:427    .text.i2c_poll_fsm:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:433    .text.i2c_poll_fsm:0000000000000000 i2c_poll_fsm
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:453    .text.i2c_poll_fsm:000000000000000c $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:458    .text.i2c_queue_msg:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:464    .text.i2c_queue_msg:0000000000000000 i2c_queue_msg
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:521    .text.i2c_queue_msg:0000000000000034 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:526    .text.i2c_trig_state_trans:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:532    .text.i2c_trig_state_trans:0000000000000000 i2c_trig_state_trans
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:629    .text.i2c_trig_state_trans:0000000000000070 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:909    .bss.idx.0:0000000000000000 idx.0
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:915    .rodata.TRANS_TAB:0000000000000000 TRANS_TAB
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:957    .bss.last_evt:0000000000000000 last_evt
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:639    .text.i2c_state_idle:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:698    .text.i2c_state_idle:0000000000000030 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:973    .bss.msg_cur:0000000000000000 msg_cur
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:707    .text.i2c_state_tx_data:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:713    .text.i2c_state_tx_data:0000000000000000 i2c_state_tx_data
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:772    .text.i2c_state_tx_data:0000000000000038 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:780    .text.i2c_state_rx_data:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:786    .text.i2c_state_rx_data:0000000000000000 i2c_state_rx_data
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:861    .text.i2c_state_rx_data:0000000000000048 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:869    .text.i2c_event_callback:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:902    .text.i2c_event_callback:0000000000000014 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:910    .bss.idx.0:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:912    .rodata.TRANS_TAB:0000000000000000 $d
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s 			page 27
 
 
-     /tmp/ccQymVG5.s:949    .bss.msg_buf_data:0000000000000000 $d
-     /tmp/ccQymVG5.s:953    .bss.msg_buf_data:0000000000000000 msg_buf_data
-     /tmp/ccQymVG5.s:956    .bss.msg_cur:0000000000000000 $d
-     /tmp/ccQymVG5.s:960    .bss.msg_cur:0000000000000000 msg_cur
-     /tmp/ccQymVG5.s:966    .bss.state_executed:0000000000000000 state_executed
-     /tmp/ccQymVG5.s:967    .bss.state_executed:0000000000000000 $d
-     /tmp/ccQymVG5.s:969    .rodata.TRANS_TAB:0000000000000000 $d
-     /tmp/ccQymVG5.s:973    .rodata.TRANS_TAB:0000000000000000 TRANS_TAB
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:944    .bss.cur_state:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:953    .bss.state_executed:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:958    .bss.last_evt:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:963    .bss.bytes_to_recv:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:968    .bss.bytes_to_send:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:970    .bss.msg_cur:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:976    .bss.msg_buf_data:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccWo10L6.s:982    .bss.msg_buf:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 i2c1_start

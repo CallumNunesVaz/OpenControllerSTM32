@@ -1,6 +1,21 @@
 {
   "configurations": [
     {
+      "name": "Linux",
+      "includePath": [
+        "${workspaceFolder}/**"
+      ],
+      "defines": [
+        "\"_DEBUG\",",
+        "\"UNICODE\",",
+        "\"_UNICODE\""
+      ],
+      "compilerPath": "/usr/bin/arm-none-eabi-gcc",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "gcc-x64"
+    },
+    {
       "name": "STM32",
       "includePath": [
         "Core/Inc",
@@ -19,7 +34,7 @@
         "USE_FULL_LL_DRIVER",
         "VDD_VALUE=3300"
       ],
-      "compilerPath": "C:\\USERS\\CALLUM\\APPDATA\\ROAMING\\CODE\\USER\\GLOBALSTORAGE\\BMD.STM32-FOR-VSCODE\\@XPACK-DEV-TOOLS\\ARM-NONE-EABI-GCC\\12.2.1-1.2.1\\.CONTENT\\BIN\\ARM-NONE-EABI-GCC.EXE"
+      "compilerPath": null
     }
   ],
   "version": 4
