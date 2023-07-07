@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
   29:Core/Src/hw_stmgpio.c ****   true, // PB2
   30:Core/Src/hw_stmgpio.c ****   true, // PB3
   31:Core/Src/hw_stmgpio.c ****   true, // PB4
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 2
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 2
 
 
   32:Core/Src/hw_stmgpio.c ****   true, // PB5
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
   86:Core/Src/hw_stmgpio.c ****   /* Sanity checks */
   87:Core/Src/hw_stmgpio.c ****   ASSERT_BOOL(stmgpio_can_init(g));
   88:Core/Src/hw_stmgpio.c **** 
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 3
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 3
 
 
   89:Core/Src/hw_stmgpio.c ****   /* Turn on ports clock if not already on */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
   37              		.loc 1 133 32 discriminator 1 view .LVU3
   38 0004 58B1     		cbz	r0, .L4
  134:Core/Src/hw_stmgpio.c ****   {
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 4
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 4
 
 
  135:Core/Src/hw_stmgpio.c ****     return EXIT_FAILURE;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
   83              		.global	stmgpio_can_init
   84              		.syntax unified
   85              		.thumb
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 5
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 5
 
 
   86              		.thumb_func
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
  157:Core/Src/hw_stmgpio.c ****     /* Check port ledger for pin existence */
  158:Core/Src/hw_stmgpio.c ****     if (GPIO_PORT_PIN_MAX > g->pin)
  127              		.loc 1 158 5 is_stmt 1 view .LVU35
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 6
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 6
 
 
  128              		.loc 1 158 30 is_stmt 0 view .LVU36
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
  170:Core/Src/hw_stmgpio.c ****         break;
  171              		.loc 1 170 9 is_stmt 1 view .LVU49
  172 0048 7047     		bx	lr
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 7
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 7
 
 
  173              	.LVL14:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
  174:Core/Src/hw_stmgpio.c ****       default:
  175:Core/Src/hw_stmgpio.c ****         is_valid = false;
  176:Core/Src/hw_stmgpio.c ****         break;
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 8
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 8
 
 
  177:Core/Src/hw_stmgpio.c ****       }
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
  258              		.loc 1 90 43 view .LVU70
  259 0010 2179     		ldrb	r1, [r4, #4]	@ zero_extendqisi2
   90:Core/Src/hw_stmgpio.c **** 
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 9
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 9
 
 
  260              		.loc 1 90 50 view .LVU71
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
  297              		.loc 1 101 21 view .LVU88
  298 0040 0368     		ldr	r3, [r0]
  101:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 10
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 10
 
 
  299              		.loc 1 101 43 view .LVU89
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
  336 0068 27D0     		beq	.L28
  337              	.L24:
  122:Core/Src/hw_stmgpio.c ****   {
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 11
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 11
 
 
  338              		.loc 1 122 3 is_stmt 1 view .LVU107
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
  110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
  376              		.loc 1 110 89 view .LVU124
  377 0092 083B     		subs	r3, r3, #8
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 12
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 12
 
 
  110:Core/Src/hw_stmgpio.c ****     /* Set pin configuration */
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
  414              		.loc 1 118 6 view .LVU142
  415 00be A268     		ldr	r2, [r4, #8]
  118:Core/Src/hw_stmgpio.c ****   }
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 13
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 13
 
 
  416              		.loc 1 118 51 view .LVU143
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
  463              	.LVL31:
  464              		.loc 1 187 77 view .LVU153
  465 0006 5979     		ldrb	r1, [r3, #5]	@ zero_extendqisi2
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 14
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 14
 
 
  466              		.loc 1 187 70 view .LVU154
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
  523 000e 01       		.byte	1
  524 000f 01       		.byte	1
  525              		.global	PORT_B_PINS
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 15
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 15
 
 
  526              		.section	.rodata.PORT_B_PINS,"a"
@@ -886,30 +886,30 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 1
  572              		.file 3 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
  573              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
  574              		.file 5 "Core/Inc/hw_stmgpio.h"
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s 			page 16
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cckyKupT.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hw_stmgpio.c
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:19     .text.stmgpio_write:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:25     .text.stmgpio_write:0000000000000000 stmgpio_write
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:82     .text.stmgpio_can_init:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:88     .text.stmgpio_can_init:0000000000000000 stmgpio_can_init
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:142    .text.stmgpio_can_init:0000000000000034 $d
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:146    .text.stmgpio_can_init:0000000000000038 $t
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:221    .text.stmgpio_can_init:0000000000000064 $d
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:552    .rodata.PORT_A_PINS:0000000000000000 PORT_A_PINS
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:530    .rodata.PORT_B_PINS:0000000000000000 PORT_B_PINS
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:508    .rodata.PORT_C_PINS:0000000000000000 PORT_C_PINS
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:486    .rodata.PORT_D_PINS:0000000000000000 PORT_D_PINS
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:229    .text.stmgpio_setup:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:235    .text.stmgpio_setup:0000000000000000 stmgpio_setup
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:437    .text.stmgpio_setup:00000000000000d8 $d
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:442    .text.stmgpio_read:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:448    .text.stmgpio_read:0000000000000000 stmgpio_read
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:483    .rodata.PORT_D_PINS:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:505    .rodata.PORT_C_PINS:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:527    .rodata.PORT_B_PINS:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\ccWACpz1.s:549    .rodata.PORT_A_PINS:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:19     .text.stmgpio_write:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:25     .text.stmgpio_write:0000000000000000 stmgpio_write
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:82     .text.stmgpio_can_init:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:88     .text.stmgpio_can_init:0000000000000000 stmgpio_can_init
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:142    .text.stmgpio_can_init:0000000000000034 $d
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:146    .text.stmgpio_can_init:0000000000000038 $t
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:221    .text.stmgpio_can_init:0000000000000064 $d
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:552    .rodata.PORT_A_PINS:0000000000000000 PORT_A_PINS
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:530    .rodata.PORT_B_PINS:0000000000000000 PORT_B_PINS
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:508    .rodata.PORT_C_PINS:0000000000000000 PORT_C_PINS
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:486    .rodata.PORT_D_PINS:0000000000000000 PORT_D_PINS
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:229    .text.stmgpio_setup:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:235    .text.stmgpio_setup:0000000000000000 stmgpio_setup
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:437    .text.stmgpio_setup:00000000000000d8 $d
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:442    .text.stmgpio_read:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:448    .text.stmgpio_read:0000000000000000 stmgpio_read
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:483    .rodata.PORT_D_PINS:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:505    .rodata.PORT_C_PINS:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:527    .rodata.PORT_B_PINS:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\cckyKupT.s:549    .rodata.PORT_A_PINS:0000000000000000 $d
 
 NO UNDEFINED SYMBOLS

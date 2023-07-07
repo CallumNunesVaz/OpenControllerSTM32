@@ -39,7 +39,7 @@ C_SOURCES =  \
 Core/Src/drv_gpioexp.c \
 Core/Src/hw_adc1.c \
 Core/Src/hw_crc.c \
-Core/Src/hw_i2c1.c \
+Core/Src/hw_i2c.c \
 Core/Src/hw_spi2.c \
 Core/Src/hw_stmgpio.c \
 Core/Src/hw_systick.c \
@@ -48,7 +48,6 @@ Core/Src/main.c \
 Core/Src/mgr_bout.c \
 Core/Src/mgr_hearbeat.c \
 Core/Src/mgr_hv.c \
-Core/Src/mgr_i2c.c \
 Core/Src/stm32f1xx_it.c \
 Core/Src/system_stm32f1xx.c \
 Core/Src/util_buffer.c \
@@ -198,8 +197,14 @@ vpath %.cpp $(sort $(dir $(CPP_SOURCES)))
 # list of C objects
 OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o)))
 vpath %.c $(sort $(dir $(C_SOURCES)))
+
 # list of ASM program objects
-OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(ASM_SOURCES:.s=.o)))
+# list of ASM program objects
+UPPER_CASE_ASM_SOURCES = $(filter %.S,$(ASM_SOURCES))
+LOWER_CASE_ASM_SOURCES = $(filter %.s,$(ASM_SOURCES))
+
+OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(UPPER_CASE_ASM_SOURCES:.S=.o)))
+OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(LOWER_CASE_ASM_SOURCES:.s=.o)))
 vpath %.s $(sort $(dir $(ASM_SOURCES)))
 
 $(BUILD_DIR)/%.o: %.cpp STM32Make.make | $(BUILD_DIR) 
@@ -212,6 +217,9 @@ $(BUILD_DIR)/%.o: %.c STM32Make.make | $(BUILD_DIR)
 	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
 
 $(BUILD_DIR)/%.o: %.s STM32Make.make | $(BUILD_DIR)
+	$(AS) -c $(CFLAGS) $< -o $@
+
+$(BUILD_DIR)/%.o: %.S STM32Make.make | $(BUILD_DIR)
 	$(AS) -c $(CFLAGS) $< -o $@
 
 $(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) STM32Make.make

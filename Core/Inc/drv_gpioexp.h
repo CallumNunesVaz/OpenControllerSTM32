@@ -1,7 +1,7 @@
 #ifndef __DRV_GPIOEXP_H
 #define __DRV_GPIOEXP_H
 
-#include "mgr_i2c.h"
+#include "hw_i2c.h"
 
 #include "util_error.h"
 #include "util_buffer.h"

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s 			page 1
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc2Eapq0.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s 			page 1
   22:Core/Src/mgr_hv.c ****     hv_en_gpio.port = HV_EN_PORT;
   35              		.loc 1 22 5 view .LVU1
   36              		.loc 1 22 21 is_stmt 0 view .LVU2
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s 			page 2
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc2Eapq0.s 			page 2
 
 
   37 0002 0748     		ldr	r0, .L4
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s 			page 1
   35:Core/Src/mgr_hv.c **** {
   81              		.loc 1 35 1 is_stmt 1 view -0
   82              		.cfi_startproc
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s 			page 3
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc2Eapq0.s 			page 3
 
 
   83              		@ args = 0, pretend = 0, frame = 0
@@ -168,22 +168,22 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s 			page 1
  125              		.file 3 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
  126              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
  127              		.file 5 "Core/Inc/hw_stmgpio.h"
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s 			page 4
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc2Eapq0.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 mgr_hv.c
-C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s:19     .text.hv_init:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s:25     .text.hv_init:0000000000000000 hv_init
-C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s:67     .text.hv_init:0000000000000020 $d
-C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s:120    .bss.hv_en_gpio:0000000000000000 hv_en_gpio
-C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s:72     .text.hv_rail_enable:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s:78     .text.hv_rail_enable:0000000000000000 hv_rail_enable
-C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s:92     .text.hv_rail_disable:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s:98     .text.hv_rail_disable:0000000000000000 hv_rail_disable
-C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s:114    .bss.hv_is_active:0000000000000000 hv_is_active
-C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s:115    .bss.hv_is_active:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\cc8yHcP8.s:117    .bss.hv_en_gpio:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\cc2Eapq0.s:19     .text.hv_init:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\cc2Eapq0.s:25     .text.hv_init:0000000000000000 hv_init
+C:\Users\Callum\AppData\Local\Temp\cc2Eapq0.s:67     .text.hv_init:0000000000000020 $d
+C:\Users\Callum\AppData\Local\Temp\cc2Eapq0.s:120    .bss.hv_en_gpio:0000000000000000 hv_en_gpio
+C:\Users\Callum\AppData\Local\Temp\cc2Eapq0.s:72     .text.hv_rail_enable:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\cc2Eapq0.s:78     .text.hv_rail_enable:0000000000000000 hv_rail_enable
+C:\Users\Callum\AppData\Local\Temp\cc2Eapq0.s:92     .text.hv_rail_disable:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\cc2Eapq0.s:98     .text.hv_rail_disable:0000000000000000 hv_rail_disable
+C:\Users\Callum\AppData\Local\Temp\cc2Eapq0.s:114    .bss.hv_is_active:0000000000000000 hv_is_active
+C:\Users\Callum\AppData\Local\Temp\cc2Eapq0.s:115    .bss.hv_is_active:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\cc2Eapq0.s:117    .bss.hv_en_gpio:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 stmgpio_setup

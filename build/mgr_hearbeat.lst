@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
   30:Core/Src/mgr_hearbeat.c **** static stmgpio_t gpio_led;
   31:Core/Src/mgr_hearbeat.c **** 
   32:Core/Src/mgr_hearbeat.c **** static hb_mode_t hb_pattern;
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 2
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 2
 
 
   33:Core/Src/mgr_hearbeat.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
   47              	.L3:
   48              		.align	2
   49              	.L2:
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 3
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 3
 
 
   50 0010 00000000 		.word	window_cnt
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
   99              		.loc 1 75 25 is_stmt 0 view .LVU14
  100 0000 014B     		ldr	r3, .L8
  101 0002 0122     		movs	r2, #1
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 4
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 4
 
 
  102 0004 1A70     		strb	r2, [r3]
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  147              	heartbeat_get_poll_mode:
  148              	.LFB71:
   89:Core/Src/mgr_hearbeat.c **** 
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 5
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 5
 
 
   90:Core/Src/mgr_hearbeat.c **** bool heartbeat_get_poll_mode(void)
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  190              		.loc 1 104 1 is_stmt 0 view .LVU30
  191 0008 C01A     		subs	r0, r0, r3
  192              	.LVL3:
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 6
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 6
 
 
  193              		.loc 1 104 1 view .LVU31
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  230              	.L19:
  123:Core/Src/mgr_hearbeat.c ****             }
  124:Core/Src/mgr_hearbeat.c **** 
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 7
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 7
 
 
  125:Core/Src/mgr_hearbeat.c ****             /* Increment tick counter */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  258 0038 1370     		strb	r3, [r2]
  113:Core/Src/mgr_hearbeat.c ****         {
  259              		.loc 1 113 9 is_stmt 1 view .LVU45
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 8
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 8
 
 
  113:Core/Src/mgr_hearbeat.c ****         {
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  300 006c 1B4A     		ldr	r2, .L30+20
  301 006e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
  302 0070 0133     		adds	r3, r3, #1
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 9
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 9
 
 
  303 0072 DBB2     		uxtb	r3, r3
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  340              		.loc 1 158 17 is_stmt 1 view .LVU72
  341              		.loc 1 158 27 is_stmt 0 view .LVU73
  342 00a4 0D4A     		ldr	r2, .L30+20
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 10
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 10
 
 
  343 00a6 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  386              	.LFE73:
  388              		.section	.text.heartbeat_tick_callback,"ax",%progbits
  389              		.align	1
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 11
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 11
 
 
  390              		.global	heartbeat_tick_callback
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  400              		@ frame_needed = 0, uses_anonymous_args = 0
  401 0000 08B5     		push	{r3, lr}
  402              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 12
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 12
 
 
  403              		.cfi_offset 3, -8
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  447              		.global	__aeabi_ddiv
  448              		.global	__aeabi_d2uiz
  449              		.global	__aeabi_dadd
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 13
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 13
 
 
  450              		.global	__aeabi_dmul
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  183:Core/Src/mgr_hearbeat.c ****         period_ms = 500;
  495              		.loc 1 183 19 view .LVU104
  496 001a 4FF4FA74 		mov	r4, #500
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 14
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 14
 
 
  497              	.LVL12:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  538              	.LVL18:
  200:Core/Src/mgr_hearbeat.c ****     ticks_per_window = (uint32_t)(((float)systick_freq_hz) / ((float)window_cnt_total) * ((float)he
  539              		.loc 1 200 63 view .LVU118
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 15
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 15
 
 
  540 004a 2846     		mov	r0, r5
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  583 0084 174B     		ldr	r3, .L48+4
  584 0086 2022     		movs	r2, #32
  585 0088 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 16
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 16
 
 
  586 008a D1E7     		b	.L42
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  206:Core/Src/mgr_hearbeat.c ****         fade_vals[window_cnt_total - idx - 1] = fade_vals[idx];
  630              		.loc 1 206 42 discriminator 3 view .LVU140
  631 00ca 013A     		subs	r2, r2, #1
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 17
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 17
 
 
  206:Core/Src/mgr_hearbeat.c ****         fade_vals[window_cnt_total - idx - 1] = fade_vals[idx];
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
   43:Core/Src/mgr_hearbeat.c ****     gpio_led.port = HB_LED_PORT;
  680              		.loc 1 43 5 view .LVU149
   43:Core/Src/mgr_hearbeat.c ****     gpio_led.port = HB_LED_PORT;
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 18
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 18
 
 
  681              		.loc 1 43 19 is_stmt 0 view .LVU150
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  721              		.loc 1 55 5 is_stmt 1 view .LVU164
  722 0034 0448     		ldr	r0, .L55+12
  723 0036 FFF7FEFF 		bl	hw_systick_add_callback
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 19
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 19
 
 
  724              	.LVL43:
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
   83:Core/Src/mgr_hearbeat.c **** }
  771              		.loc 1 83 1 is_stmt 0 view .LVU174
  772 0012 08BD     		pop	{r3, pc}
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 20
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 20
 
 
  773              	.L60:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  846 0000 00       		.space	1
  847              		.text
  848              	.Letext0:
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 21
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 21
 
 
  849              		.file 2 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
@@ -1207,70 +1207,70 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 1
  852              		.file 5 "Core/Inc/hw_stmgpio.h"
  853              		.file 6 "Core/Inc/mgr_heartbeat.h"
  854              		.file 7 "Core/Inc/hw_systick.h"
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 22
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 mgr_hearbeat.c
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:19     .text.heartbeat_reset:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:25     .text.heartbeat_reset:0000000000000000 heartbeat_reset
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:50     .text.heartbeat_reset:0000000000000010 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:835    .bss.window_cnt:0000000000000000 window_cnt
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:840    .bss.tick_per_window_cnt:0000000000000000 tick_per_window_cnt
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:794    .bss.callback_cnt:0000000000000000 callback_cnt
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:57     .text.heartbeat_stop:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:63     .text.heartbeat_stop:0000000000000000 heartbeat_stop
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:80     .text.heartbeat_stop:0000000000000008 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:789    .bss.heartbeat_is_active:0000000000000000 heartbeat_is_active
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:85     .text.heartbeat_start:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:91     .text.heartbeat_start:0000000000000000 heartbeat_start
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:108    .text.heartbeat_start:0000000000000008 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:113    .text.heartbeat_set_poll_mode:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:119    .text.heartbeat_set_poll_mode:0000000000000000 heartbeat_set_poll_mode
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:136    .text.heartbeat_set_poll_mode:0000000000000008 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:784    .bss.poll_mode:0000000000000000 poll_mode
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:141    .text.heartbeat_get_poll_mode:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:147    .text.heartbeat_get_poll_mode:0000000000000000 heartbeat_get_poll_mode
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:163    .text.heartbeat_get_poll_mode:0000000000000008 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:168    .text.heartbeat_lower_multiple:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:174    .text.heartbeat_lower_multiple:0000000000000000 heartbeat_lower_multiple
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:199    .text.heartbeat_poll:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:205    .text.heartbeat_poll:0000000000000000 heartbeat_poll
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:376    .text.heartbeat_poll:00000000000000c8 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:806    .bss.gpio_led:0000000000000000 gpio_led
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:824    .bss.ticks_per_window:0000000000000000 ticks_per_window
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:800    .bss.hb_pattern:0000000000000000 hb_pattern
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:830    .bss.fade_vals:0000000000000000 fade_vals
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:845    .bss.window_cnt_total:0000000000000000 window_cnt_total
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:812    .bss.pattern_snapshot:0000000000000000 pattern_snapshot
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:389    .text.heartbeat_tick_callback:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:395    .text.heartbeat_tick_callback:0000000000000000 heartbeat_tick_callback
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:437    .text.heartbeat_tick_callback:0000000000000020 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:452    .text.heartbeat_set_period_ms:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:458    .text.heartbeat_set_period_ms:0000000000000000 heartbeat_set_period_ms
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:654    .text.heartbeat_set_period_ms:00000000000000e0 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:818    .bss.heartbeat_period_ms:0000000000000000 heartbeat_period_ms
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:664    .text.heartbeat_init:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:670    .text.heartbeat_init:0000000000000000 heartbeat_init
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:731    .text.heartbeat_init:000000000000003c $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:739    .text.heartbeat_set_pattern_mode:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:745    .text.heartbeat_set_pattern_mode:0000000000000000 heartbeat_set_pattern_mode
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:776    .text.heartbeat_set_pattern_mode:0000000000000014 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:785    .bss.poll_mode:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:790    .bss.heartbeat_is_active:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:795    .bss.callback_cnt:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:797    .bss.hb_pattern:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:803    .bss.gpio_led:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:809    .bss.pattern_snapshot:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:815    .bss.heartbeat_period_ms:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:821    .bss.ticks_per_window:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:827    .bss.fade_vals:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:836    .bss.window_cnt:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:841    .bss.tick_per_window_cnt:0000000000000000 $d
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s 			page 23
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:19     .text.heartbeat_reset:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:25     .text.heartbeat_reset:0000000000000000 heartbeat_reset
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:50     .text.heartbeat_reset:0000000000000010 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:835    .bss.window_cnt:0000000000000000 window_cnt
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:840    .bss.tick_per_window_cnt:0000000000000000 tick_per_window_cnt
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:794    .bss.callback_cnt:0000000000000000 callback_cnt
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:57     .text.heartbeat_stop:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:63     .text.heartbeat_stop:0000000000000000 heartbeat_stop
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:80     .text.heartbeat_stop:0000000000000008 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:789    .bss.heartbeat_is_active:0000000000000000 heartbeat_is_active
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:85     .text.heartbeat_start:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:91     .text.heartbeat_start:0000000000000000 heartbeat_start
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:108    .text.heartbeat_start:0000000000000008 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:113    .text.heartbeat_set_poll_mode:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:119    .text.heartbeat_set_poll_mode:0000000000000000 heartbeat_set_poll_mode
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:136    .text.heartbeat_set_poll_mode:0000000000000008 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:784    .bss.poll_mode:0000000000000000 poll_mode
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:141    .text.heartbeat_get_poll_mode:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:147    .text.heartbeat_get_poll_mode:0000000000000000 heartbeat_get_poll_mode
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:163    .text.heartbeat_get_poll_mode:0000000000000008 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:168    .text.heartbeat_lower_multiple:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:174    .text.heartbeat_lower_multiple:0000000000000000 heartbeat_lower_multiple
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:199    .text.heartbeat_poll:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:205    .text.heartbeat_poll:0000000000000000 heartbeat_poll
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:376    .text.heartbeat_poll:00000000000000c8 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:806    .bss.gpio_led:0000000000000000 gpio_led
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:824    .bss.ticks_per_window:0000000000000000 ticks_per_window
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:800    .bss.hb_pattern:0000000000000000 hb_pattern
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:830    .bss.fade_vals:0000000000000000 fade_vals
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:845    .bss.window_cnt_total:0000000000000000 window_cnt_total
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:812    .bss.pattern_snapshot:0000000000000000 pattern_snapshot
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:389    .text.heartbeat_tick_callback:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:395    .text.heartbeat_tick_callback:0000000000000000 heartbeat_tick_callback
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:437    .text.heartbeat_tick_callback:0000000000000020 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:452    .text.heartbeat_set_period_ms:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:458    .text.heartbeat_set_period_ms:0000000000000000 heartbeat_set_period_ms
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:654    .text.heartbeat_set_period_ms:00000000000000e0 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:818    .bss.heartbeat_period_ms:0000000000000000 heartbeat_period_ms
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:664    .text.heartbeat_init:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:670    .text.heartbeat_init:0000000000000000 heartbeat_init
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:731    .text.heartbeat_init:000000000000003c $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:739    .text.heartbeat_set_pattern_mode:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:745    .text.heartbeat_set_pattern_mode:0000000000000000 heartbeat_set_pattern_mode
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:776    .text.heartbeat_set_pattern_mode:0000000000000014 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:785    .bss.poll_mode:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:790    .bss.heartbeat_is_active:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:795    .bss.callback_cnt:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:797    .bss.hb_pattern:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:803    .bss.gpio_led:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:809    .bss.pattern_snapshot:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:815    .bss.heartbeat_period_ms:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:821    .bss.ticks_per_window:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:827    .bss.fade_vals:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:836    .bss.window_cnt:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:841    .bss.tick_per_window_cnt:0000000000000000 $d
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s 			page 23
 
 
-C:\Users\Callum\AppData\Local\Temp\ccOE3Dt5.s:846    .bss.window_cnt_total:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccQEMaVX.s:846    .bss.window_cnt_total:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 stmgpio_write

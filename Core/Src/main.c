@@ -19,9 +19,9 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "mgr_bout.h"
-#include "mgr_i2c.h"
-#include "drv_gpioexp.h"
+// #include "mgr_bout.h"
+#include "hw_i2c.h"
+// #include "drv_gpioexp.h"
 
 /**
  * @brief  The application entry point.
@@ -29,8 +29,6 @@
  */
 int main(void)
 {
-  uint8_t idx;
-
   /* Configure the system clocks */
   hw_system_clocks_init();
 
@@ -44,28 +42,20 @@ int main(void)
   heartbeat_set_period_ms(1000);
   heartbeat_start();
 
-  /* Initialise binary outputs */
-  //ASSERT_INT(bout_init());
-  //bout_reset_lib();
-  //bout_set(7);
-
-  ASSERT_INT(i2c_init());
-
-  /* interrupts (move to new file!) */
-  //__enable_irq();
-
-  gpioexp_init();
-
-  /* Initialised everything! */
-  // dbg_log(DBG_TYPE_SUCCESS, DBG_CODE_INIT, DBG_NAME, sizeof(DBG_NAME));
+  /* Initialise i2c perihperal */
+  ASSERT_INT(i2c_init(I2C_PERIPH_I2C1, I2C_SPD_STD, true));
+  
+  I2C1->CR1 |= (1 << 10); // Enable the ACK
+  I2C1->CR1 |= (1 << 8);  // Generate START
+  I2C1->DR = 0xA3;        //  send the address
+  while (!(I2C1->SR1 & (1 << 1)))
+    ;                                   // wait for ADDR bit to set
+  uint8_t temp = I2C1->SR1 | I2C1->SR2; // read SR1 and SR2 to clear the ADDR bit
 
   /* Main loop */
-
-
-
   while (1)
   {
-    //i2c_poll_fsm();
+    // i2c_poll_fsm();
     heartbeat_poll();
   }
 }
@@ -111,8 +101,8 @@ void hw_system_clocks_init(void)
    * USB Prescalar set for 72MHz PLL output
    * PLL source is 8MHz HSE clock through PREDIV1=1
    * ADC Prescalar set to divide by 8
-   * APB high speed set to divide by 1 = 72MHz
-   * APB low speed set to divide by 2 = 36 MHz
+   * APB high speed (2) set to divide by 2 = 36 MHz
+   * APB low speed (1) set to divide by 2 = 36 MHz
    * PLL set to 9x from 8MHz HSE to make 72MHz
    * Enable PLL
    * AHB set to divide by 1 = 72MHz
@@ -124,6 +114,7 @@ void hw_system_clocks_init(void)
   RCC->CFGR |= RCC_CFGR_PLLSRC;
   RCC->CFGR |= RCC_CFGR_ADCPRE;
   RCC->CFGR &= ~RCC_CFGR_PPRE2;
+  RCC->CFGR |= RCC_CFGR_PPRE2_DIV2;
   RCC->CFGR &= ~RCC_CFGR_PPRE1; // reset
   RCC->CFGR |= RCC_CFGR_PPRE1_2;
   RCC->CFGR &= ~RCC_CFGR_PLLMULL; // reset
