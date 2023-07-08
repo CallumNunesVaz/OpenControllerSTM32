@@ -42,7 +42,7 @@ void rcc_init(void)
   RCC->CFGR &= ~RCC_CFGR_HPRE; // SYSCLK is NOT divided
   RCC->CFGR |= RCC_CFGR_ADCPRE; // ADC Prescalar set to divide by 8
   RCC->CFGR &= ~RCC_CFGR_PLLMULL; // clear...
-  RCC->CFGR |= RCC_CFGR_PLLMULL9; // PLL set to 9x from 8MHz HSE to make 72MHz <-- NOT WORKING
+  RCC->CFGR |= RCC_CFGR_PLLMULL9; // PLL set to 9x from 8MHz HSE to make 72MHz
   RCC->CR |= RCC_CR_PLLON; // PLL can be enabled now
   while (!(RCC->CR & RCC_CR_PLLRDY)); // check PLL is ready
   while (!(RCC->CFGR & RCC_CFGR_SWS_PLL)); // Check PLL is being used as sys clock

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccY434x4.s 			page 1
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccHeLXdU.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccY434x4.s 			page 1
   47              		.loc 1 11 108 view -0
   48              		.cfi_startproc
   49              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccY434x4.s 			page 2
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccHeLXdU.s 			page 2
 
 
   50              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -101,16 +101,16 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccY434x4.s 			page 1
   84              	.Letext0:
   85              		.file 2 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
   86              		.file 3 "Core/Inc/util_error.h"
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccY434x4.s 			page 3
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccHeLXdU.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 util_error.c
-C:\Users\Callum\AppData\Local\Temp\ccY434x4.s:19     .text.dbg_log_init:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccY434x4.s:25     .text.dbg_log_init:0000000000000000 dbg_log_init
-C:\Users\Callum\AppData\Local\Temp\ccY434x4.s:38     .text.dbg_log:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccY434x4.s:44     .text.dbg_log:0000000000000000 dbg_log
-C:\Users\Callum\AppData\Local\Temp\ccY434x4.s:58     .text.dbg_log_code:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccY434x4.s:64     .text.dbg_log_code:0000000000000000 dbg_log_code
+C:\Users\Callum\AppData\Local\Temp\ccHeLXdU.s:19     .text.dbg_log_init:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccHeLXdU.s:25     .text.dbg_log_init:0000000000000000 dbg_log_init
+C:\Users\Callum\AppData\Local\Temp\ccHeLXdU.s:38     .text.dbg_log:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccHeLXdU.s:44     .text.dbg_log:0000000000000000 dbg_log
+C:\Users\Callum\AppData\Local\Temp\ccHeLXdU.s:58     .text.dbg_log_code:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccHeLXdU.s:64     .text.dbg_log_code:0000000000000000 dbg_log_code
 
 NO UNDEFINED SYMBOLS

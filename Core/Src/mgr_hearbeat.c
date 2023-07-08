@@ -43,7 +43,7 @@ int heartbeat_init(void)
     gpio_led.port = HB_LED_PORT;
     gpio_led.pin = HB_LED_PIN;
     gpio_led.cfg = OUT_PUSHPULL;
-    gpio_led.dir = OUTPUT_2MHZ;
+    gpio_led.dir = OUTPUT_50MHZ;
     ASSERT_INT(stmgpio_setup(&gpio_led));
 
     /* Set DEFAULTS */

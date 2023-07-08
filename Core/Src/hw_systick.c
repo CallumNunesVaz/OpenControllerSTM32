@@ -88,12 +88,13 @@ void hw_systick_clear_callbacks(void){
 }
 
 void blocking_delay_ms(uint32_t delay_ms){
-    /* get inital counter number */
-    const uint32_t counter_snapshot = counter;
     /* Calculate number of ticks needed. Should be less than 1ms to do... */
-    const uint32_t counter_goal = counter_snapshot + ((uint32_t)(1000.0 / ((float)(hw_systick_get_freq())) * ((float)delay_ms)));
+    const uint32_t counter_goal = counter + ((uint32_t)(1000.0 / ((float)(hw_systick_get_freq())) * ((float)delay_ms)));
     /* wait for goal acheived */
-    while (counter_goal >= counter);
+    while (counter_goal > counter) {
+        counter++;
+        counter--;
+    }
 }
 
 void SysTick_Handler (void) {

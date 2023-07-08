@@ -40,6 +40,7 @@ Core/Src/drv_gpioexp.c \
 Core/Src/hw_adc1.c \
 Core/Src/hw_crc.c \
 Core/Src/hw_i2c.c \
+Core/Src/hw_rcc.c \
 Core/Src/hw_spi2.c \
 Core/Src/hw_stmgpio.c \
 Core/Src/hw_systick.c \

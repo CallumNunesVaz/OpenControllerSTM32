@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 1
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 1
   30:Core/Src/mgr_bout.c ****     /* set up each of the gpio */
   31:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
   32:Core/Src/mgr_bout.c ****         bout_gpio[idx].port = bout_gpio_ports[idx];
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 2
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s 			page 2
 
 
   33:Core/Src/mgr_bout.c ****         bout_gpio[idx].pin = bout_gpio_pins[idx];
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 1
   87:Core/Src/mgr_bout.c ****         callback_cnt--;
   88:Core/Src/mgr_bout.c ****     }
   89:Core/Src/mgr_bout.c **** }
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 3
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s 			page 3
 
 
   90:Core/Src/mgr_bout.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 1
   73              		.loc 1 50 5 view .LVU8
   52:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
   74              		.loc 1 52 5 view .LVU9
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 4
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s 			page 4
 
 
   75              	.LVL0:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 1
  122              		@ args = 0, pretend = 0, frame = 0
  123              		@ frame_needed = 0, uses_anonymous_args = 0
  124 0000 10B5     		push	{r4, lr}
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 5
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s 			page 5
 
 
  125              		.cfi_def_cfa_offset 8
@@ -283,7 +283,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 1
  153              		.loc 1 34 9 is_stmt 1 view .LVU29
   34:Core/Src/mgr_bout.c ****         bout_gpio[idx].cfg = OUT_PUSHPULL;
  154              		.loc 1 34 28 is_stmt 0 view .LVU30
- 155 001e 0421     		movs	r1, #4
+ 155 001e 0021     		movs	r1, #0
  156 0020 D970     		strb	r1, [r3, #3]
   35:Core/Src/mgr_bout.c ****         bout_gpio[idx].dir = OUTPUT_2MHZ;
  157              		.loc 1 35 9 is_stmt 1 view .LVU31
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 1
  164              	.LVL8:
  165 002c 48B9     		cbnz	r0, .L15
   31:Core/Src/mgr_bout.c ****     for (idx = 0; idx < BOUT_CNT; idx++) {
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 6
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s 			page 6
 
 
  166              		.loc 1 31 38 discriminator 2 view .LVU34
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 1
  213              		.loc 1 58 1 is_stmt 1 view -0
  214              		.cfi_startproc
  215              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 7
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s 			page 7
 
 
  216              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 1
  263 0002 00D9     		bls	.L35
  264 0004 7047     		bx	lr
  265              	.L35:
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 8
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s 			page 8
 
 
   66:Core/Src/mgr_bout.c **** {
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 1
  314              		.cfi_endproc
  315              	.LFE69:
  317              		.section	.text.bout_start,"ax",%progbits
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 9
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s 			page 9
 
 
  318              		.align	1
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 1
  366 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
  367 0006 013B     		subs	r3, r3, #1
  368 0008 DBB2     		uxtb	r3, r3
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 10
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s 			page 10
 
 
  369 000a 1370     		strb	r3, [r2]
@@ -589,45 +589,45 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 1
  417              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
  418              		.file 5 "Core/Inc/hw_stmgpio.h"
  419              		.file 6 "Core/Inc/hw_systick.h"
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s 			page 11
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 mgr_bout.c
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:19     .text.bout_tick_callback:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:25     .text.bout_tick_callback:0000000000000000 bout_tick_callback
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:51     .text.bout_tick_callback:0000000000000014 $d
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:388    .bss.bouts_is_active:0000000000000000 bouts_is_active
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:393    .bss.callback_cnt:0000000000000000 callback_cnt
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:57     .text.bout_reset_lib:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:63     .text.bout_reset_lib:0000000000000000 bout_reset_lib
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:107    .text.bout_reset_lib:0000000000000020 $d
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:399    .bss.bout_gpio:0000000000000000 bout_gpio
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:112    .text.bout_init:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:118    .text.bout_init:0000000000000000 bout_init
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:196    .text.bout_init:0000000000000048 $d
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:411    .rodata.bout_gpio_ports:0000000000000000 bout_gpio_ports
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:405    .rodata.bout_gpio_pins:0000000000000000 bout_gpio_pins
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:204    .text.bout_reset:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:210    .text.bout_reset:0000000000000000 bout_reset
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:242    .text.bout_reset:000000000000001c $d
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:247    .text.bout_set:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:253    .text.bout_set:0000000000000000 bout_set
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:285    .text.bout_set:000000000000001c $d
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:290    .text.bout_stop:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:296    .text.bout_stop:0000000000000000 bout_stop
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:313    .text.bout_stop:0000000000000008 $d
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:318    .text.bout_start:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:324    .text.bout_start:0000000000000000 bout_start
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:341    .text.bout_start:0000000000000008 $d
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:346    .text.bout_poll:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:352    .text.bout_poll:0000000000000000 bout_poll
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:381    .text.bout_poll:0000000000000018 $d
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:389    .bss.bouts_is_active:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:394    .bss.callback_cnt:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:396    .bss.bout_gpio:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:402    .rodata.bout_gpio_pins:0000000000000000 $d
-C:\Users\Callum\AppData\Local\Temp\cc8xaP2X.s:408    .rodata.bout_gpio_ports:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:19     .text.bout_tick_callback:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:25     .text.bout_tick_callback:0000000000000000 bout_tick_callback
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:51     .text.bout_tick_callback:0000000000000014 $d
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:388    .bss.bouts_is_active:0000000000000000 bouts_is_active
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:393    .bss.callback_cnt:0000000000000000 callback_cnt
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:57     .text.bout_reset_lib:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:63     .text.bout_reset_lib:0000000000000000 bout_reset_lib
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:107    .text.bout_reset_lib:0000000000000020 $d
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:399    .bss.bout_gpio:0000000000000000 bout_gpio
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:112    .text.bout_init:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:118    .text.bout_init:0000000000000000 bout_init
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:196    .text.bout_init:0000000000000048 $d
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:411    .rodata.bout_gpio_ports:0000000000000000 bout_gpio_ports
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:405    .rodata.bout_gpio_pins:0000000000000000 bout_gpio_pins
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:204    .text.bout_reset:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:210    .text.bout_reset:0000000000000000 bout_reset
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:242    .text.bout_reset:000000000000001c $d
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:247    .text.bout_set:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:253    .text.bout_set:0000000000000000 bout_set
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:285    .text.bout_set:000000000000001c $d
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:290    .text.bout_stop:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:296    .text.bout_stop:0000000000000000 bout_stop
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:313    .text.bout_stop:0000000000000008 $d
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:318    .text.bout_start:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:324    .text.bout_start:0000000000000000 bout_start
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:341    .text.bout_start:0000000000000008 $d
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:346    .text.bout_poll:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:352    .text.bout_poll:0000000000000000 bout_poll
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:381    .text.bout_poll:0000000000000018 $d
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:389    .bss.bouts_is_active:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:394    .bss.callback_cnt:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:396    .bss.bout_gpio:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:402    .rodata.bout_gpio_pins:0000000000000000 $d
+C:\Users\Callum\AppData\Local\Temp\ccZHZ9FM.s:408    .rodata.bout_gpio_ports:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 stmgpio_write

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 1
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 1
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   26:Core/Src/util_buffer.c ****     /* Sanity check */
   27:Core/Src/util_buffer.c ****     if (NULL == buf) {
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 2
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s 			page 2
 
 
   32              		.loc 1 27 5 view .LVU1
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 1
   71 001c 7047     		bx	lr
   72              		.cfi_endproc
   73              	.LFE1:
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 3
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s 			page 3
 
 
   75              		.section	.text.buf_init,"ax",%progbits
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 1
  117              	.LVL8:
   21:Core/Src/util_buffer.c **** }
  118              		.loc 1 21 5 view .LVU29
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 4
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s 			page 4
 
 
   21:Core/Src/util_buffer.c **** }
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 1
  162 0000 9AB3     		cbz	r2, .L23
   42:Core/Src/util_buffer.c **** 
  163              		.loc 1 42 63 is_stmt 0 view .LVU39
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 5
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s 			page 5
 
 
  164 0002 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 1
   62:Core/Src/util_buffer.c ****         elem_cnt = buf->len;
  205              		.loc 1 62 9 is_stmt 1 view .LVU54
  206              		.loc 1 62 18 is_stmt 0 view .LVU55
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 6
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s 			page 6
 
 
  207 0028 4646     		mov	r6, r8
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 1
   79:Core/Src/util_buffer.c ****     return EXIT_SUCCESS;
  245              		.loc 1 79 5 is_stmt 1 view .LVU69
  246              		.loc 1 79 12 is_stmt 0 view .LVU70
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 7
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s 			page 7
 
 
  247 005a 0020     		movs	r0, #0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 1
  293              		.loc 1 50 5 view .LVU79
  294 0072 0120     		movs	r0, #1
  295              	.LVL31:
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 8
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s 			page 8
 
 
   50:Core/Src/util_buffer.c **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 1
  326              		.cfi_offset 7, -12
  327              		.cfi_offset 8, -8
  328              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 9
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s 			page 9
 
 
  329 0006 0D46     		mov	r5, r1
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 1
  367 002a FFF7FEFF 		bl	memcpy
  368              	.LVL38:
  121:Core/Src/util_buffer.c ****         memcpy(dest_data, buf->data, elem_cnt - cnt_from_end);
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 10
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s 			page 10
 
 
  369              		.loc 1 121 9 is_stmt 1 view .LVU103
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 1
  412              		.cfi_offset 6, -16
  413              		.cfi_offset 7, -12
  414              		.cfi_offset 8, -8
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 11
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s 			page 11
 
 
  415              		.cfi_offset 14, -4
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 1
   90:Core/Src/util_buffer.c ****     buf->tail %= buf->len;
  463              		.loc 1 90 5 is_stmt 1 view .LVU121
   90:Core/Src/util_buffer.c ****     buf->tail %= buf->len;
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 12
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s 			page 12
 
 
  464              		.loc 1 90 8 is_stmt 0 view .LVU122
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 1
  131:Core/Src/util_buffer.c ****     return (0 == buf->cnt);
  507              		.loc 1 131 5 view .LVU135
  508              		.loc 1 131 21 is_stmt 0 view .LVU136
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 13
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s 			page 13
 
 
  509 0000 C068     		ldr	r0, [r0, #12]
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 1
  555              		.align	1
  556              		.global	buf_get_free_data
  557              		.syntax unified
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 14
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s 			page 14
 
 
  558              		.thumb
@@ -829,27 +829,27 @@ ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 1
  595              		.file 3 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
  596              		.file 4 "c:\\users\\callum\\appdata\\roaming\\code\\user\\globalstorage\\bmd.stm32-for-vscode\\@xp
  597              		.file 5 "<built-in>"
-ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccan16K5.s 			page 15
+ARM GAS  C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 util_buffer.c
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:19     .text.buf_reset:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:25     .text.buf_reset:0000000000000000 buf_reset
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:76     .text.buf_init:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:82     .text.buf_init:0000000000000000 buf_init
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:146    .text.buf_write:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:152    .text.buf_write:0000000000000000 buf_write
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:302    .text.buf_peek:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:308    .text.buf_peek:0000000000000000 buf_peek
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:434    .text.buf_read:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:440    .text.buf_read:0000000000000000 buf_read
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:493    .text.buf_is_empty:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:499    .text.buf_is_empty:0000000000000000 buf_is_empty
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:519    .text.buf_get_free_elem:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:525    .text.buf_get_free_elem:0000000000000000 buf_get_free_elem
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:555    .text.buf_get_free_data:0000000000000000 $t
-C:\Users\Callum\AppData\Local\Temp\ccan16K5.s:561    .text.buf_get_free_data:0000000000000000 buf_get_free_data
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:19     .text.buf_reset:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:25     .text.buf_reset:0000000000000000 buf_reset
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:76     .text.buf_init:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:82     .text.buf_init:0000000000000000 buf_init
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:146    .text.buf_write:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:152    .text.buf_write:0000000000000000 buf_write
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:302    .text.buf_peek:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:308    .text.buf_peek:0000000000000000 buf_peek
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:434    .text.buf_read:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:440    .text.buf_read:0000000000000000 buf_read
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:493    .text.buf_is_empty:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:499    .text.buf_is_empty:0000000000000000 buf_is_empty
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:519    .text.buf_get_free_elem:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:525    .text.buf_get_free_elem:0000000000000000 buf_get_free_elem
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:555    .text.buf_get_free_data:0000000000000000 $t
+C:\Users\Callum\AppData\Local\Temp\ccxjQLRQ.s:561    .text.buf_get_free_data:0000000000000000 buf_get_free_data
 
 UNDEFINED SYMBOLS
 memset

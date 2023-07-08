@@ -23,6 +23,8 @@
 #include "hw_i2c.h"
 // #include "drv_gpioexp.h"
 
+uint8_t i2c_data = 0xA1;
+
 /**
  * @brief  The application entry point.
  * @retval int
@@ -30,10 +32,13 @@
 int main(void)
 {
   /* Configure the system clocks */
-  hw_system_clocks_init();
+  rcc_init();
 
   /* Configure and initialise the system tick */
   hw_systick_init(1000);
+
+  /* Delay for buggy slow peripherals (looking at you, i2c) */
+  blocking_delay_ms(100);
 
   /* Configure the system heartbeat */
   ASSERT_INT(heartbeat_init());
@@ -45,92 +50,16 @@ int main(void)
   /* Initialise i2c perihperal */
   ASSERT_INT(i2c_init(I2C_PERIPH_I2C1, I2C_SPD_STD, true));
   
-  I2C1->CR1 |= (1 << 10); // Enable the ACK
-  I2C1->CR1 |= (1 << 8);  // Generate START
-  I2C1->DR = 0xA3;        //  send the address
-  while (!(I2C1->SR1 & (1 << 1)))
-    ;                                   // wait for ADDR bit to set
-  uint8_t temp = I2C1->SR1 | I2C1->SR2; // read SR1 and SR2 to clear the ADDR bit
+  i2c_start(I2C_PERIPH_I2C1); 
+  i2c_send(I2C_PERIPH_I2C1, &i2c_data);
+  while (!(I2C1->SR1 & (1 << 1)))  ;  // wait for ADDR bit to set
 
   /* Main loop */
-  while (1)
+  for (;;)
   {
     // i2c_poll_fsm();
     heartbeat_poll();
   }
-}
-
-/**
- * @brief System Clock Configuration
- * @retval None
- */
-void hw_system_clocks_init(void)
-{
-  /* Internal 8MHz HSI Configuration:
-   * ON
-   * Trim set to default = 16
-   * Cal at startup default
-   */
-  RCC->CR |= RCC_CR_HSION_Pos;
-  while (!(RCC->CR & RCC_CR_HSIRDY))
-    ;
-
-  /* External 8MHz HSE Configuration:
-   * ON
-   * Bypass to false
-   *
-   */
-  RCC->CR |= RCC_CR_HSEON;
-  RCC->CR &= ~RCC_CR_HSEBYP;
-  while (!(RCC->CR & RCC_CR_HSERDY))
-    ;
-
-  /* Flash latency configuration:
-   * Enable pre-fetch buffer
-   * Disable Flash half cycle access
-   * Set wait states (latency) to two, as main clock will be 72MHz
-   */
-  FLASH->ACR |= FLASH_ACR_PRFTBE;
-  FLASH->ACR &= ~FLASH_ACR_HLFCYA;
-  FLASH->ACR &= ~FLASH_ACR_LATENCY; // reset
-  FLASH->ACR |= FLASH_ACR_LATENCY_1;
-
-  /* Clock configuration
-   * Disable PLL
-   * Microcontroller clock out disabled!
-   * USB Prescalar set for 72MHz PLL output
-   * PLL source is 8MHz HSE clock through PREDIV1=1
-   * ADC Prescalar set to divide by 8
-   * APB high speed (2) set to divide by 2 = 36 MHz
-   * APB low speed (1) set to divide by 2 = 36 MHz
-   * PLL set to 9x from 8MHz HSE to make 72MHz
-   * Enable PLL
-   * AHB set to divide by 1 = 72MHz
-   * PLL as system clock
-   */
-  RCC->CR &= ~RCC_CR_PLLON; // clear to allow changes
-  RCC->CFGR &= ~RCC_CFGR_MCO;
-  RCC->CFGR &= ~RCC_CFGR_USBPRE;
-  RCC->CFGR |= RCC_CFGR_PLLSRC;
-  RCC->CFGR |= RCC_CFGR_ADCPRE;
-  RCC->CFGR &= ~RCC_CFGR_PPRE2;
-  RCC->CFGR |= RCC_CFGR_PPRE2_DIV2;
-  RCC->CFGR &= ~RCC_CFGR_PPRE1; // reset
-  RCC->CFGR |= RCC_CFGR_PPRE1_2;
-  RCC->CFGR &= ~RCC_CFGR_PLLMULL; // reset
-  RCC->CFGR |= RCC_CFGR_PLLMULL9;
-  RCC->CR |= RCC_CR_PLLON;
-  while (!(RCC->CR & RCC_CR_PLLRDY))
-    ;
-  RCC->CFGR &= ~RCC_CFGR_HPRE;
-  RCC->CFGR &= ~RCC_CFGR_SW;
-  RCC->CFGR |= RCC_CFGR_SW_PLL;
-  while (!(RCC->CFGR & RCC_CFGR_SWS_PLL))
-    ;
-
-  /* Inform core libraries of change to clocks
-   */
-  SystemCoreClockUpdate();
 }
 
 /**

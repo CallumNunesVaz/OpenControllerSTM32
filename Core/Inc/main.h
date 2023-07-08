@@ -40,7 +40,7 @@ extern "C" {
 #include <stdint.h>
 #include <stdlib.h>
 #include "util_error.h"
-
+#include "hw_rcc.h"
 #include "mgr_heartbeat.h"
 
 int main(void);

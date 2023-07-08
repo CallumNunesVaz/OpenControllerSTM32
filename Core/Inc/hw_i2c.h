@@ -81,38 +81,38 @@ static const char DBG_LIB_NAME[] = "hw_i2c1";
 
 int i2c_init(I2C_PERIPH periph, I2C_SPD spd, bool remap);
 
-void i2c_reset_periph(void);
+void i2c_reset_periph(I2C_PERIPH periph);
 
-void i2c_enable_periph(void);
+void i2c_enable_periph(I2C_PERIPH periph);
 
-void i2c_ack_bit(void);
+void i2c_ack_bit(I2C_PERIPH periph);
 
-void i2c_nack_bit(void);
+void i2c_nack_bit(I2C_PERIPH periph);
 
-void i2c_disable_periph(void);
+void i2c_disable_periph(I2C_PERIPH periph);
 
-void i2c_start(void);
+void i2c_start(I2C_PERIPH periph);
 
-void i2c_stop(void);
+void i2c_stop(I2C_PERIPH periph);
 
-int i2c_recv(uint8_t *data);
+int i2c_recv(I2C_PERIPH periph, uint8_t *data);
 
-int i2c_send(uint8_t *data);
+int i2c_send(I2C_PERIPH periph, uint8_t *data);
 
-int i2c_set_evt_callback(void (*func_ptr)(void));
+//int i2c_set_evt_callback(void (*func_ptr)(void));
 
-int i2c_set_err_callback(void (*func_ptr)(void));
+//int i2c_set_err_callback(void (*func_ptr)(void));
 
-uint16_t i2c_SR1_dummy_read(void);
+uint16_t i2c_SR1_dummy_read(I2C_PERIPH periph);
 
-uint16_t i2c_SR2_dummy_read(void);
+uint16_t i2c_SR2_dummy_read(I2C_PERIPH periph);
 
 I2C_EVT i2c_get_last_event(void);
 
 I2C_ERR i2c_get_last_error(void);
 
-void i2c_ev_irq_handler(void);
+//void i2c_ev_irq_handler(void);
 
-void i2c_er_irq_handler(void);
+//void i2c_er_irq_handler(void);
 
 #endif

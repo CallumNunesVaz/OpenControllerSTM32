@@ -21,7 +21,8 @@
         "util_buffer.h": "c",
         "stdbool.h": "c",
         "irq_ctrl.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "drv_gpioexp.h": "c"
     },
     "cortex-debug.variableUseNaturalFormat": true,
     "stm32-for-vscode.openOCDPath": "C:\\USERS\\CALLUM\\APPDATA\\ROAMING\\CODE\\USER\\GLOBALSTORAGE\\BMD.STM32-FOR-VSCODE\\@XPACK-DEV-TOOLS\\OPENOCD\\0.12.0-1.1\\.CONTENT\\BIN\\OPENOCD.EXE",

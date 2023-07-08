@@ -3,125 +3,141 @@ GPIO library designed to be relatively lightwieght but human readable.
 */
 #include "hw_stmgpio.h"
 
-
+/*
 const bool PORT_A_PINS[GPIO_PORT_PIN_MAX] = {
-  true, // PA0
-  true, // PA1
-  true, // PA2
-  true, // PA3
-  true, // PA4
-  true, // PA5
-  true, // PA6
-  true, // PA7
-  true, // PA8
-  true, // PA9
-  true, // PA10
-  true, // PA11
-  true, // PA12
-  true, // PA13
-  true, // PA14
-  true  // PA15
+    true, // PA0
+    true, // PA1
+    true, // PA2
+    true, // PA3
+    true, // PA4
+    true, // PA5
+    true, // PA6
+    true, // PA7
+    true, // PA8
+    true, // PA9
+    true, // PA10
+    true, // PA11
+    true, // PA12
+    true, // PA13
+    true, // PA14
+    true  // PA15
 };
 
 const bool PORT_B_PINS[GPIO_PORT_PIN_MAX] = {
-  true, // PB0
-  true, // PB1
-  true, // PB2
-  true, // PB3
-  true, // PB4
-  true, // PB5
-  true, // PB6
-  true, // PB7
-  true, // PB8
-  true, // PB9
-  true, // PB10
-  true, // PB11
-  true, // PB12
-  true, // PB13
-  true, // PB14
-  true  // PB15
+    true, // PB0
+    true, // PB1
+    true, // PB2
+    true, // PB3
+    true, // PB4
+    true, // PB5
+    true, // PB6
+    true, // PB7
+    true, // PB8
+    true, // PB9
+    true, // PB10
+    true, // PB11
+    true, // PB12
+    true, // PB13
+    true, // PB14
+    true  // PB15
 };
 
 const bool PORT_C_PINS[GPIO_PORT_PIN_MAX] = {
-  false,// PC0
-  false,// PC1
-  false,// PC2
-  false,// PC3
-  false,// PC4
-  false,// PC5
-  false,// PC6
-  false,// PC7
-  false,// PC8
-  false,// PC9
-  false,// PC10
-  false,// PC11
-  false,// PC12
-  true, // PC13
-  true, // PC14
-  true  // PC15
+    false, // PC0
+    false, // PC1
+    false, // PC2
+    false, // PC3
+    false, // PC4
+    false, // PC5
+    false, // PC6
+    false, // PC7
+    false, // PC8
+    false, // PC9
+    false, // PC10
+    false, // PC11
+    false, // PC12
+    true,  // PC13
+    true,  // PC14
+    true   // PC15
 };
 
 const bool PORT_D_PINS[GPIO_PORT_PIN_MAX] = {
-  true, // PD0
-  true, // PD1
-  false,// PD2
-  false,// PD3
-  false,// PD4
-  false,// PD5
-  false,// PD6
-  false,// PD7
-  false,// PD8
-  false,// PD9
-  false,// PD10
-  false,// PD11
-  false,// PD12
-  false,// PD13
-  false,// PD14
-  false // PD15
+    true,  // PD0
+    true,  // PD1
+    false, // PD2
+    false, // PD3
+    false, // PD4
+    false, // PD5
+    false, // PD6
+    false, // PD7
+    false, // PD8
+    false, // PD9
+    false, // PD10
+    false, // PD11
+    false, // PD12
+    false, // PD13
+    false, // PD14
+    false  // PD15
 };
+*/
 
 /*  */
 int stmgpio_setup(stmgpio_t *g)
 {
-  /* Sanity checks */
-  ASSERT_BOOL(stmgpio_can_init(g));
-
-  /* Turn on ports clock if not already on */
-  RCC->APB2ENR |= RCC_APB2ENR_IOPAEN << (g->port - 'A');
+  __IO uint32_t *CRx;
+  uint32_t cfgmode = g->cfg | g->dir;
+  uint8_t pin_offset;
 
   /* Find addr of base reg based on char */
-  g->port_reg_addr = (GPIO_TypeDef *)(APB2PERIPH_BASE + (0x00000800UL + (0x00000400UL * (g->port - 'A'))));
+  switch (g->port)
+  {
+  case 'A':
+    g->port_reg_addr = (GPIO_TypeDef *)(GPIOA_BASE);
+    break;
+  case 'B':
+    g->port_reg_addr = (GPIO_TypeDef *)(GPIOB_BASE);
+    break;
+  case 'C':
+    g->port_reg_addr = (GPIO_TypeDef *)(GPIOC_BASE);
+    break;
+  case 'D':
+    g->port_reg_addr = (GPIO_TypeDef *)(GPIOD_BASE);
+    break;
+  case 'E':
+    g->port_reg_addr = (GPIO_TypeDef *)(GPIOE_BASE);
+    break;
+  default:
+    return EXIT_FAILURE;
+    break;
+  }
 
-  /* Set registers based on GPIO settings */
+  /* get pointer to config / mode register CRH or CRL */
   if (g->pin < 8)
   {
-    /* Reset register */
-    g->port_reg_addr->CRL &= ~(0x0F << (REG_PIN_CONF_BITLENGTH * g->pin));
-    /* Set pin direction and mode */
-    g->port_reg_addr->CRL |= ((uint32_t)(g->dir)) << ((REG_PIN_CONF_BITLENGTH * g->pin) + REG_MODE_OFFSET);
-    /* Set pin configuration */
-    g->port_reg_addr->CRL |= (((uint32_t)(g->cfg)) & ~(0x04)) << ((REG_PIN_CONF_BITLENGTH * g->pin) + REG_CONF_OFFSET);
+    CRx = &(g->port_reg_addr->CRL);
+    pin_offset = 0;
   }
   else
   {
-    /* Reset register */
-    g->port_reg_addr->CRH &= ~(0x0F << (REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)));
-    /* Set pin direction and mode */
-    g->port_reg_addr->CRH |= ((uint32_t)(g->dir)) << ((REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)) + REG_MODE_OFFSET);
-    /* Set pin configuration */
-    g->port_reg_addr->CRH |= (((uint32_t)(g->cfg)) & ~(0x04)) << ((REG_PIN_CONF_BITLENGTH * (g->pin - 0x08)) + REG_CONF_OFFSET);
+    CRx = &(g->port_reg_addr->CRH);
+    pin_offset = 8;
   }
 
-  /* Set pullup or down depending on configuration */
+  /* Turn on ports clock if not already on */
+  RCC->APB2ENR |= RCC_APB2ENR_IOPAEN << (g->port - 'A');           // main port io clock
+  if ((OUT_ALT_OPENDRAIN == g->cfg) || OUT_ALT_PUSHPULL == g->cfg) // alt function clock
+  {
+    RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
+  }
+
+  /* MODE/CFG reg */
+  *CRx &= ~(REG_PIN_CONF_BITLENGTH_Msk << (REG_PIN_CONF_BITLENGTH * (g->pin - pin_offset)));
+  *CRx |= (g->cfg | g->dir) << (REG_PIN_CONF_BITLENGTH * (g->pin - pin_offset));
+
+  /* Set pullup or down depending if type input-pull */
   if (IN_PULL == g->cfg)
   {
     g->port_reg_addr->ODR = ((uint32_t)(g->pull)) << g->pin;
-  }
-
-  /* Set default low if output */
-  if ((OUT_PUSHPULL == g->cfg) || (OUT_OPENDRAIN == g->cfg))
-  {
-    stmgpio_write(g, PIN_LOW);
   }
 
   /* huzzah */
@@ -141,20 +157,21 @@ int stmgpio_write(stmgpio_t *g, stmgpio_state_t set_state)
   return EXIT_SUCCESS;
 }
 
+/*
 bool stmgpio_can_init(stmgpio_t *g)
 {
   bool is_valid = false;
 
-  /* capitalise port char if not */
+  // capitalise port char if not
   if (('a' <= g->port) && ('d' >= g->port))
   {
     g->port -= 32;
   }
 
-  /* Check enums for silly errors */
+  // Check enums for silly errors
   if ((DIR_CNT >= g->dir) && (TYPE_CNT >= g->cfg) && (PULL_CNT >= g->pull))
   {
-    /* Check port ledger for pin existence */
+    // Check port ledger for pin existence
     if (GPIO_PORT_PIN_MAX > g->pin)
     {
       switch (g->port)
@@ -180,6 +197,7 @@ bool stmgpio_can_init(stmgpio_t *g)
 
   return is_valid;
 }
+*/
 
 stmgpio_state_t stmgpio_read(stmgpio_t *gpio)
 {
