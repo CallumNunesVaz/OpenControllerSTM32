@@ -29,54 +29,16 @@ I2C_ERR ERR_LIST[] = {
     I2C_ERR_TIMEOUT,
     I2C_ERR_SMBALERT};
 
-/*
-void HAL_I2C_MspInit(I2C_HandleTypeDef *i2cHandle)
+int i2c_init(I2C_TypeDef *i2cx, I2C_SPD spd, bool remap)
 {
-  GPIO_InitTypeDef GPIO_InitStruct;
-  if (i2cHandle->Instance == I2C1)
-  {
-    GPIO_InitStruct.Pin = I2CINT_CLK_Pin | I2CINT_DATA_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-    __HAL_AFIO_REMAP_I2C1_ENABLE();
-    __HAL_RCC_I2C1_CLK_ENABLE();
-    __HAL_RCC_I2C1_FORCE_RESET();
-    __HAL_RCC_I2C1_RELEASE_RESET();
-  }
-}
-*/
-
-int i2c_init(I2C_PERIPH periph, I2C_SPD spd, bool remap)
-{
-  /* function used multiple times for clock calcs */
-  float core_freq_mhz;
-  /* GPIO handlers */
-  stmgpio_t pin_i2c_scl, pin_i2c_sda;
-  /* I2C base address */
-  I2C_TypeDef *i2cx;
-
-  /* set peripheral pointer for later use */
-  switch (periph)
-  {
-  case I2C_PERIPH_I2C1:
-    i2cx = I2C1;
-    break;
-  case I2C_PERIPH_I2C2:
-    i2cx = I2C2;
-    break;
-  default:
-    return EXIT_FAILURE;
-    break;
-  }
-
-  /* Disable i2c peripheral to apply settings */
-  i2cx->CR1 &= ~I2C_CR1_PE;
+  float core_freq_mhz; // function used multiple times for clock calcs
+  stmgpio_t pin_i2c_scl, pin_i2c_sda; // GPIO handlers
+  i2cx->CR1 &= ~I2C_CR1_PE; // Disable i2c peripheral to apply settings
 
   /* GPIO setup */
-  switch (periph)
+  switch ((uint32_t)i2cx)
   {
-  case I2C_PERIPH_I2C1:
+  case (uint32_t)I2C1:
     if (remap)
     {
       pin_i2c_scl.port = I2C1_SCL_PORT_REMAP;
@@ -92,7 +54,7 @@ int i2c_init(I2C_PERIPH periph, I2C_SPD spd, bool remap)
       pin_i2c_sda.pin = I2C1_SDA_PIN_DEFAULT;
     }
     break;
-  case I2C_PERIPH_I2C2:
+  case (uint32_t)I2C2:
     pin_i2c_scl.port = I2C2_SCL_PORT_DEFAULT;
     pin_i2c_scl.pin = I2C2_SCL_PIN_DEFAULT;
     pin_i2c_sda.port = I2C2_SDA_PORT_DEFAULT;
@@ -340,7 +302,7 @@ void i2c_start(I2C_PERIPH periph)
   /* trigger start bit to be sent */
   I2C1->CR1 |= I2C_CR1_START;
 
-  /* Workaround: Errata 2.8.7 can't start due to analogue filters */
+  /* Workaround: Errata 2.8.7 can't start due to analogue filters 
   if (!(I2C1->SR2 & I2C_SR2_BUSY))
   {
     // Step 1
@@ -380,6 +342,7 @@ void i2c_start(I2C_PERIPH periph)
     // Step 15
     I2C1->CR1 |= I2C_CR1_PE;
   }
+  */
 }
 
 void i2c_stop(I2C_PERIPH periph)
@@ -417,17 +380,17 @@ int i2c_recv(I2C_PERIPH periph, uint8_t *data)
   return EXIT_SUCCESS;
 }
 
-int i2c_send(I2C_PERIPH periph, uint8_t *data)
+int i2c_send_addr(I2C_PERIPH periph, uint8_t *data)
 {
-  i2c_SR1_dummy_read(periph);
+  //i2c_SR1_dummy_read(periph);
   switch (periph)
   {
   case I2C_PERIPH_I2C1:
-    ASSERT_BOOL(!(I2C1->SR1 & I2C_SR1_TXE));
+    while ((I2C1->SR1 & I2C_SR1_SB));
     I2C1->DR = *data;
     break;
   case I2C_PERIPH_I2C2:
-    ASSERT_BOOL(!(I2C2->SR1 & I2C_SR1_TXE));
+    while ((I2C2->SR1 & I2C_SR1_SB));
     I2C2->DR = *data;
     break;
   default:
@@ -493,47 +456,46 @@ I2C_ERR i2c_get_last_error(void)
   return last_error;
 }
 
-/* i2cx event handler 
+// i2cx event handler 
 void I2C1_EV_IRQHandler(void)
 {
-  /* Check flags, log event 
+  // Check flags, log event 
   for (idx = 0; idx < sizeof(EVT_LIST); idx++)
   {
-    if (i2cx->SR1 & ((uint32_t)(EVT_LIST[idx])))
+    if (I2C1->SR1 & ((uint32_t)(EVT_LIST[idx])))
     {
       last_event = EVT_LIST[idx];
     }
   }
 
-  /* call a registered callback 
+  // call a registered callback 
   if (NULL != i2c_evt_callback)
   {
     i2c_evt_callback();
   }
 
-  /* clear flag, interrupt over 
+  // clear flag, interrupt over 
   // NVIC_ClearPendingIRQ(i2cx_EV_IRQn);
 }
 
-/* i2cx error handler 
+// i2cx error handler 
 void I2C1_ER_IRQHandler(void)
 {
-  /* Check flags, log error 
+  // Check flags, log error 
   for (idx = 0; idx < sizeof(ERR_LIST); idx++)
   {
-    if (i2cx->SR1 & ((uint32_t)(ERR_LIST[idx])))
+    if (I2C1->SR1 & ((uint32_t)(ERR_LIST[idx])))
     {
       last_error = ERR_LIST[idx];
     }
   }
 
-  /* call a registered callback 
+  // call a registered callback 
   if (NULL != i2c_err_callback)
   {
     i2c_err_callback();
   }
 
-  /* clear flag, interrupt over 
+  // clear flag, interrupt over 
   // NVIC_ClearPendingIRQ(i2cx_ER_IRQn);
 }
-*/

@@ -23,7 +23,7 @@
 #include "hw_i2c.h"
 // #include "drv_gpioexp.h"
 
-uint8_t i2c_data = 0xA1;
+uint8_t i2c_data = 0x55;
 
 /**
  * @brief  The application entry point.
@@ -38,20 +38,19 @@ int main(void)
   hw_systick_init(1000);
 
   /* Delay for buggy slow peripherals (looking at you, i2c) */
-  blocking_delay_ms(100);
+  //blocking_delay_ms(100);
 
   /* Configure the system heartbeat */
-  ASSERT_INT(heartbeat_init());
+  heartbeat_init();
   heartbeat_set_pattern_mode(LED_BREATHE);
   heartbeat_set_poll_mode(true);
   heartbeat_set_period_ms(1000);
   heartbeat_start();
 
   /* Initialise i2c perihperal */
-  ASSERT_INT(i2c_init(I2C_PERIPH_I2C1, I2C_SPD_STD, true));
-  
-  i2c_start(I2C_PERIPH_I2C1); 
-  i2c_send(I2C_PERIPH_I2C1, &i2c_data);
+  i2c_init(I2C_PERIPH_I2C1, I2C_SPD_STD, true);
+  i2c_start(I2C_PERIPH_I2C1);
+  i2c_send_addr(I2C_PERIPH_I2C1, &i2c_data);
   while (!(I2C1->SR1 & (1 << 1)))  ;  // wait for ADDR bit to set
 
   /* Main loop */

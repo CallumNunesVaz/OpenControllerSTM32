@@ -53,7 +53,15 @@ typedef enum I2C_AF_REMAPS
     I2C2_REMAP_FALSE
 } I2C_AF_REMAP;
 
-typedef enum I2C1_EVTS
+typedef enum I2C_MODES
+{
+    MASTER_TX,
+    MASTER_RX,
+    SLAVE_TX,
+    SLAVE_RX
+} I2C_MODE;
+
+typedef enum I2C_EVTS
 {
     I2C_EVT_SB = I2C_SR1_SB,
     I2C_EVT_ADDR = I2C_SR1_ADDR,
@@ -63,7 +71,7 @@ typedef enum I2C1_EVTS
     I2C_EVT_RxNE = I2C_SR1_RXNE
 } I2C_EVT;
 
-typedef enum I2C1_ERRS
+typedef enum I2C_ERRS
 {
     I2C_ERR_BERR = I2C_SR1_BERR,
     I2C_ERR_ARLO = I2C_SR1_ARLO,
@@ -73,6 +81,12 @@ typedef enum I2C1_ERRS
     I2C_ERR_TIMEOUT = I2C_SR1_TIMEOUT,
     I2C_ERR_SMBALERT = I2C_SR1_SMBALERT
 } I2C_ERR;
+
+typedef struct {
+    I2C_MODE mode;
+    uint8_t addr;
+    uint8_t* data;
+} i2c_msg;
 
 /* Debug info */
 #ifdef DEBUG_EN
@@ -97,7 +111,7 @@ void i2c_stop(I2C_PERIPH periph);
 
 int i2c_recv(I2C_PERIPH periph, uint8_t *data);
 
-int i2c_send(I2C_PERIPH periph, uint8_t *data);
+int i2c_send_addr(I2C_PERIPH periph, uint8_t *data);
 
 //int i2c_set_evt_callback(void (*func_ptr)(void));
 
